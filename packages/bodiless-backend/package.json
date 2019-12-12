@@ -1,0 +1,23 @@
+{
+  "name": "@bodiless/backend",
+  "version": "0.0.35",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "build:watch": "npm run dev-backend",
+    "dev-backend": "node ./src/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1"
+  },
+  "keywords": [],
+  "author": "Dewen Li <dli94@its.jnj.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/supertest": "^2.0.8",
+    "supertest": "^4.0.2"
+  }
+}

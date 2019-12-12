@@ -1,0 +1,614 @@
+/**
+ * Copyright © 2019 Johnson & Johnson
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* eslint no-console: 0 */
+require('dotenv').config();
+const express = require('express');
+const fs = require('fs');
+const bodyParser = require('body-parser');
+const { spawn } = require('child_process');
+const formidable = require('formidable');
+const path = require('path');
+const Page = require('./page');
+const Logger = require('./logger');
+
+const backendPrefix = process.env.GATSBY_BACKEND_PREFIX || '/___backend';
+const backendFilePath = process.env.BODILESS_BACKEND_DATA_FILE_PATH || '';
+const defaultBackendPagePath = path.resolve(backendFilePath, 'pages');
+const backendPagePath = process.env.BODILESS_BACKEND_DATA_PAGE_PATH || defaultBackendPagePath;
+const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
+const canCommit = (process.env.BODILESS_BACKEND_COMMIT_ENABLED || '0') === '1';
+
+const logger = new Logger('BACKEND');
+
+/*
+This Class holds all of the interaction with Git
+*/
+class Git {
+  static setCurrent(branch) {
+    return Git.cmd()
+      .add('checkout', branch)
+      .exec();
+  }
+
+  static getCurrent() {
+    return Git.cmd()
+      .add('rev-parse', '--abbrev-ref', 'HEAD')
+      .exec()
+      .catch(data => logger.log(data))
+      .then(data => data.stdout);
+  }
+
+  static list() {
+    return new Promise(resolve => {
+      const cmdName = path.join(__dirname, 'getBranches.sh');
+      const cmd = spawn('bash', [cmdName]);
+      const results = [];
+      cmd.stdout.on('data', data => {
+        const values = data.toString().split('||');
+        if (values.length === 4) {
+          results.push({
+            isCurrent: Boolean(Number.parseInt(values[0], 10)),
+            name: values[1].trim(),
+            description: values[2].trim(),
+            lastCommitMessage: values[3].trim(),
+          });
+        }
+      });
+      cmd.stdout.on('close', () => {
+        resolve(results);
+      });
+    });
+  }
+}
+/*
+This Class wraps spawn and lets us build out git commands with standard responses
+*/
+class GitCmd {
+  constructor() {
+    this.cmd = 'git';
+    this.params = [];
+    this.files = [];
+  }
+
+  add(...params) {
+    this.params.push(...params);
+    return this;
+  }
+
+  addFiles(...files) {
+    this.files.push(...files);
+    // const rawFiles = [...arguments]
+    // this.files.push(...rawFiles.map((file) => file.replace(/ /,'\ ')))
+    return this;
+  }
+
+  spawn() {
+    const args = [...this.params, ...this.files];
+    logger.log([`Spawning command: ${this.cmd}`, ...args]);
+    return spawn(this.cmd, args);
+  }
+
+  exec() {
+    return new Promise((resolve, reject) => {
+      const cmd = this.spawn();
+      let stderr = '';
+      let stdout = '';
+      cmd.stdout.on('data', data => {
+        stdout += data.toString();
+      });
+      cmd.stderr.on('data', data => {
+        stderr += data.toString();
+      });
+      cmd.on('close', code => {
+        logger.log(stdout, stderr, code);
+        if (code === 0) {
+          resolve({ stdout, stderr, code });
+          return;
+        }
+        // Allow plumbing commands with --quiet flag to return either 0 or 1.
+        if (this.params.includes('--quiet')) {
+          resolve({ stdout, stderr, code });
+          return;
+        }
+
+        const error = new Error(`${stderr}`);
+        error.code = `${code}`;
+        error.info = { stdout, stderr, code };
+        reject(error);
+      });
+    });
+  }
+
+  static cmd() {
+    return new GitCmd();
+  }
+}
+/*
+This Class lets us buildout and execute a GitCommit
+*/
+class GitCommit {
+  constructor() {
+    try {
+      // If App git path is specified, switch to the path.
+      if (process.env.APP_GIT_PATH) {
+        process.chdir(process.env.APP_GIT_PATH);
+      }
+    } catch (err) {
+      logger.error(`chdir: ${err}`);
+    }
+    this.files = [];
+    this.remote = 'origin';
+  }
+
+  addDirectory(...dirs) {
+    this.files.push(...dirs);
+    return this;
+  }
+
+  addPaths(...paths) {
+    this.files.push(...paths.map(p => `${backendFilePath}/${p}.json`));
+    return this;
+  }
+
+  addFiles(...files) {
+    this.files.push(...files.map(p => `${backendStaticPath}/${p}`));
+    return this;
+  }
+
+  async pull() {
+    const { remote } = this;
+    await GitCmd.cmd()
+      .add('fetch', remote)
+      .exec();
+
+    // Check if there are any unstaged files left before rebasing.
+    const dirty = await GitCmd.cmd()
+      .add('diff-files', '--quiet')
+      .exec();
+    if (dirty.code) {
+      await GitCmd.cmd()
+        .add('add', '--all')
+        .exec();
+      await GitCmd.cmd()
+        .add('commit', '-m', 'TEMPORARY COMMIT')
+        .exec();
+    }
+
+    // Get current branch name.
+    const data = await GitCmd.cmd()
+      .add('symbolic-ref', '--short', 'HEAD')
+      .exec();
+    const branch = data.stdout.trim();
+
+    let result;
+    try {
+      result = await GitCmd.cmd()
+        .add('rebase', `${remote}/${branch}`, '-s', 'recursive', '-X', 'theirs')
+        .exec();
+    } catch (rebaseErr) {
+      // Set another http.status code for unstaged changes?
+      // const unstaged = /You have unstaged changes/i.test(rebaseErr.message);
+
+      // Set HTTP response status code to 409 if a conflict is found during rebase.
+      if (/could not apply/i.test(rebaseErr.message)) {
+        rebaseErr.code = '409';
+
+        // Abort rebase only if it's in progress (i.e. merge conflict).
+        try {
+          logger.log('Found error during rebase, attempting to abort rebase.');
+          await GitCmd.cmd()
+            .add('rebase', '--abort')
+            .exec();
+        } catch (abortErr) {
+          logger.log('Found error while attempting to abort rebase.');
+          logger.error(abortErr);
+        }
+      } else {
+        rebaseErr.code = '500';
+      }
+      throw rebaseErr;
+    } finally {
+      // If there was a temporary commit, rewind working directory back one commit.
+      if (dirty.code) {
+        await GitCmd.cmd()
+          .add('reset', 'HEAD^')
+          .exec();
+      }
+    }
+    return result;
+  }
+
+  async commit(message) {
+    const { remote } = this;
+
+    await this.pull();
+
+    // Sstage user files specified by front-end (src/data, /static, etc.).
+    await GitCmd.cmd()
+      .add('add')
+      .addFiles(...this.files)
+      .exec();
+
+    // Check if we have any staged files to be committed.
+    let hasChanges = true;
+    try {
+      const resDiff = await GitCmd.cmd()
+        .add('diff', '--cached', '--exit-code')
+        .exec();
+
+      if (resDiff.code === 0) {
+        hasChanges = false;
+      }
+    } catch (errDiff) {
+      hasChanges = true;
+    }
+    if (!hasChanges) {
+      const errNoChange = new Error('No changes found for this commit.');
+      errNoChange.code = 405;
+      throw errNoChange;
+    }
+
+    // Commit the staged files..
+    const res = await GitCmd.cmd()
+      .add('commit', '-m', message)
+      .addFiles(...this.files)
+      .exec();
+
+    try {
+      // Push changes after succesful rebase.
+      await GitCmd.cmd()
+        .add('push', remote)
+        .exec();
+    } catch (pushError) {
+      // Walk back last commit, and put it's contents into the working directory.
+      GitCmd.cmd()
+        .add('reset', '--mixed', 'HEAD^')
+        .exec();
+      throw pushError;
+    }
+
+    // return commit command response to front-end if successful
+    return res;
+  }
+
+  amend() {
+    // we have to tell git we intend to add our files
+    return Git.cmd()
+      .add('add', '--intent-to-add')
+      .addFiles(...this.files)
+      .exec()
+      .then(
+        Git.cmd()
+          .add('commit')
+          .add('--amend', '--no-edit')
+          .addFiles(...this.files)
+          .exec(),
+      );
+  }
+}
+
+class Backend {
+  constructor() {
+    this.app = express();
+    this.app.use(bodyParser.json());
+    this.app.use((req, res, next) => {
+      res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept',
+      );
+      res.header('Content-Type', 'application/json');
+      next();
+    });
+    this.setRoute(`${backendPrefix}/get/commits`, Backend.getLatestCommits);
+    this.setRoute(`${backendPrefix}/change/amend`, Backend.setChangeAmend);
+    this.setRoute(`${backendPrefix}/change/commit`, Backend.setChangeCommit);
+    this.setRoute(`${backendPrefix}/change/push`, Backend.setChangePush);
+    this.setRoute(`${backendPrefix}/change/reset`, Backend.setChangeReset);
+    this.setRoute(`${backendPrefix}/change/pull`, Backend.setChangePull);
+    this.setRoute(`${backendPrefix}/asset`, Backend.setAsset);
+    this.setRoute(`${backendPrefix}/set/current`, Backend.setSetCurrent);
+    this.setRoute(`${backendPrefix}/set/list`, Backend.setSetList);
+    this.setRoute(`${backendPrefix}/content/*`, Backend.setContent);
+    this.setRoute(`${backendPrefix}/log`, Backend.log);
+    this.setRoute(`${backendPrefix}/pages`, Backend.setPages);
+  }
+
+  setRoute(route, action) {
+    action.bind(this)(this.app.route(route));
+  }
+
+  getApp() {
+    return this.app;
+  }
+
+  static exitWithErrorResponse(error, res) {
+    logger.error(error);
+    if (Number(error.code) >= 300) {
+      res.status(Number(error.code));
+    } else {
+      res.status(500);
+    }
+    // End response process to prevent any further queued promises/events from responding.
+    res.send(error.message).end();
+  }
+
+  static gitCommitsEnabled(res) {
+    // Exit with HTTP 405 "Method Not Allowed" if git commits are disabled.
+    if (!canCommit) {
+      const error = new Error(
+        'Your current environment does not allow saving content.',
+      );
+      error.code = 405;
+      Backend.exitWithErrorResponse(error, res);
+    }
+  }
+
+  static getLatestCommits(route) {
+    route.post(async (req, res) => {
+      try {
+        await GitCmd.cmd().add('fetch', '--all');
+        const gitLog = await GitCmd.cmd()
+          .add('log', '--pretty=format:%H%n%ad%n%an%n%s%n')
+          .exec();
+        res.send(gitLog);
+      } catch (error) {
+        res.send(error.info);
+      }
+    });
+  }
+
+  static setChangeReset(route) {
+    route.post(async (req, res) => {
+      logger.log('Start reset');
+      try {
+        // Clean up untracked files first.
+        if (backendFilePath && backendStaticPath) {
+          const gitCleanResponse = await GitCmd.cmd()
+            .add('clean', '-df', backendFilePath, backendStaticPath)
+            .exec();
+          res.send(gitCleanResponse.stdout);
+        }
+        // Discard changes in existing files.
+        const gitResetResponse = await GitCmd.cmd()
+          .add('reset', '--hard', 'HEAD')
+          .exec();
+        res.send(gitResetResponse.stdout);
+      } catch (error) {
+        // Need to inform user of merge operation fails.
+        Backend.exitWithErrorResponse(error, res);
+      }
+    });
+  }
+
+  static setChangePull(route) {
+    route.post((req, res) => {
+      logger.log('Start pull');
+      new GitCommit()
+        .pull()
+        .then(data => res.send(data.stdout))
+        // Need to inform user of merge operation fails.
+        .catch(error => Backend.exitWithErrorResponse(error, res));
+    });
+  }
+
+  static setChangeAmend(route) {
+    route.post((req, res) => {
+      logger.log('Start ammend');
+      logger.log(req.body.paths);
+      Git.commit()
+        .addPaths(...req.body.paths)
+        .amend()
+        .then(data => res.send(data.stdout))
+        .catch(data => logger.log(data));
+    });
+  }
+
+  static setChangeCommit(route) {
+    route.post((req, res) => {
+      Backend.gitCommitsEnabled(res);
+      logger.log(`Start committing: ${req.body.message}`);
+
+      const files = req.body.files || [];
+      const dirs = req.body.dirs || [];
+      new GitCommit()
+        .addDirectory(...dirs)
+        .addPaths(...req.body.paths)
+        .addFiles(...files)
+        .commit(`[CONTENT] ${req.body.message}`)
+        // .then(Git.cmd().add('push').exec())
+        .then(data => {
+          res.send(data.stdout);
+        })
+        // Need to inform user of merge operation fails.
+        .catch(error => Backend.exitWithErrorResponse(error, res));
+    });
+  }
+
+  static setChangePush(route) {
+    route.post((req, res) => {
+      Backend.gitCommitsEnabled(res);
+      logger.log('Start push');
+      new GitCmd()
+        .add('symbolic-ref', '--short', 'HEAD')
+        .exec()
+        .then(data => {
+          const branch = data.stdout.trim();
+          logger.log(`Branch = ${branch}`);
+          Git.cmd()
+            .add('rebase', `origin/${branch}`)
+            .exec()
+            .then(
+              Git.cmd()
+                .add('push', 'origin', branch)
+                .exec(),
+            )
+            .then(addData => res.send(addData.stdout))
+            .catch(addData => logger.error(addData));
+        })
+        .catch(data => logger.log(data));
+    });
+  }
+
+  static log(route) {
+    route.post((req, res) => {
+      new Logger(req.body.id).print(req.body.message, req.body.severity);
+      res.send('success');
+    });
+  }
+
+  static setAsset(route) {
+    route.post((req, res) => {
+      // create an incoming form object
+      const form = new formidable.IncomingForm();
+
+      // specify that we want to allow the user to upload multiple files in a single request
+      form.multiples = true;
+
+      // store all uploads in the /uploads directory
+      form.uploadDir = backendStaticPath;
+
+      // every time a file has been uploaded successfully,
+      // rename it to it's orignal name
+      form.on('file', (field, file) => {
+        fs.rename(file.path, path.join(form.uploadDir, file.name), err => {
+          if (err) throw err;
+        });
+      });
+
+      // log any errors that occur
+      form.on('error', err => {
+        logger.log(`An error has occured here: \n${err}`);
+      });
+
+      // once all the files have been uploaded, send a response to the client
+      form.on('end', () => {
+        res.send('success');
+      });
+
+      // parse the incoming request containing the form data
+      form.parse(req);
+    });
+  }
+
+  static setSetCurrent(route) {
+    route
+      .get((req, res) => {
+        logger.log('Start get current set');
+        Git.getCurrent().then(data => res.send(data));
+      })
+      .post((req, res) => {
+        logger.log(`Start Post current Set:${req.body}`);
+        Git.setCurrent(req.body.name)
+          .then(Git.list())
+          .then(data => {
+            res.send(data);
+          })
+          .catch(reason => {
+            logger.log(reason);
+          });
+      });
+  }
+
+  static setSetList(route) {
+    route.get((req, res) => {
+      logger.log('Start Get Set List');
+      Git.list().then(data => res.send(data));
+    });
+  }
+
+  static setContent(route) {
+    route
+      .get((req, res) => {
+        // @todo: refactor 2nd argument.
+        logger.log(req);
+        const page = Backend.getPage(Backend.getPath(req));
+        logger.log(`Start get content for:${page.file}`);
+        page
+          .read()
+          .then(data => {
+            res.send(data);
+          })
+          .catch(() => res.send({}));
+      })
+      .post((req, res) => {
+        // @todo: refactor 2nd argument.
+        const page = Backend.getPage(Backend.getPath(req));
+        logger.log(`Start post content for:${page.file}`);
+        page
+          .write(req.body)
+          .then(data => {
+            logger.log('Sending', data);
+            res.send(data);
+          })
+          .catch(reason => {
+            logger.log(reason);
+            res.send({});
+          });
+      });
+  }
+
+  static getPath(req) {
+    const prefixCount = backendPrefix.split('/').filter(Boolean).length + 1;
+    logger.log(req.originalUrl);
+    return req.originalUrl
+      .replace(/\/*$/, '')
+      .replace(/^\/*/, '')
+      .split('/')
+      .splice(prefixCount)
+      .join('/');
+  }
+
+  static getPage(pagePath) {
+    return new Page(pagePath);
+  }
+
+  static setPages(route) {
+    route.post((req, res) => {
+      console.log('hey from setPages');
+      const pagePath = req.body.path || '';
+      const template = req.body.template || '_default';
+      const filePath = path.join(pagePath, 'index');
+      const pageContent = {
+        '#template': template,
+      };
+      const page = Backend.getPage(filePath);
+      page.setBasePath(backendPagePath);
+      logger.log(`Start creating page for:${page.file}`);
+      if (fs.existsSync(page.file)) {
+        res.status(409);
+        res.send(`Error: page ${pagePath} already exists`);
+        return;
+      }
+      page
+        .write(pageContent)
+        .then(data => {
+          logger.log('Sending', data);
+          res.status(201);
+          res.send(data);
+        })
+        .catch(reason => {
+          logger.log(reason);
+          res.send({});
+        });
+    });
+  }
+
+  start(port) {
+    logger.log('Start');
+    this.app.listen(port, () => logger.log(`Backend listening on Port: ${port}`));
+  }
+}
+
+module.exports = Backend;
