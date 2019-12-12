@@ -1,0 +1,92 @@
+Map GetEnvVariables() {
+    return isProd() ? GetProdEnvVariables() : GetTestEnvVariables()
+}
+
+Map GetTestEnvVariables() {
+    return [
+        //ctech-rd fork of slate_gatsby repository
+        GIT_URL: "https://sourcecode.jnj.com/scm/asx-nakn/slate_gatsby.git",
+        GIT_HOST: "sourcecode.jnj.com",
+        GIT_CREDS_ID: "TAER-CIUser-Service-Account",
+        NPM_REGISTRY: "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/",
+        NPM_AUTH_TOKEN: "TAER-CIUser-NPM-Token"
+    ]
+}
+
+Map GetProdEnvVariables() {
+    return [
+        //slate_gatsby main repository
+        GIT_URL: "https://sourcecode.jnj.com/scm/asx-nbfp/slate_gatsby.git",
+        GIT_HOST: "sourcecode.jnj.com",
+        GIT_CREDS_ID: "TAER-CDUser-Service-Account",
+        NPM_REGISTRY: "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/",
+        NPM_AUTH_TOKEN: "TAER-CDUser-NPM-Token"
+    ]
+}
+
+pipeline {
+    agent { label 'node' }
+    options {
+        timeout(activity: true, time: 1, unit: 'HOURS')
+        timestamps()
+    }
+    parameters {
+        string (
+            name: 'tag',
+            defaultValue: 'master',
+            description: 'specify git tag that should be cloned and which packages should be published. ex: refs/tags/v0.0.9'
+        )
+    }
+    stages {
+        stage('install') {
+            steps {
+                script {
+                    def envVariables = GetEnvVariables()
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [
+                            [name: params.tag]
+                        ],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [],
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[
+                            credentialsId: envVariables.GIT_CREDS_ID,
+                            url: envVariables.GIT_URL
+                        ]]
+                    ])
+                    sh 'npm ci'
+                    sh 'npm run bootstrap'
+                }
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('publish') {
+            steps {
+                script {
+                    def envVariables = GetEnvVariables()
+                    def NPM_REGISTRY = envVariables.NPM_REGISTRY
+                    def NPM_REGISTRY_WITH_PROTOCOL = withHttpsProtocol(NPM_REGISTRY)
+                    withCredentials([string(credentialsId: envVariables.NPM_AUTH_TOKEN, variable: 'NPM_AUTH_TOKEN')]) {
+                        sh "echo $NPM_REGISTRY:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc"
+                    }
+                    sh "npm run lerna -- publish from-package --yes --registry $NPM_REGISTRY_WITH_PROTOCOL"
+                }
+            }
+        }
+    }
+}
+
+Boolean isProd() {
+    return env.JOB_NAME.startsWith("canvasx")
+}
+Boolean isTest() {
+    return !env.JOB_NAME.startsWith("canvasx")
+}
+String withHttpsProtocol(String url) {
+    return "https:" + url
+}

@@ -1,0 +1,28 @@
+# Project dependencies
+node_modules
+
+# Temporary files
+.DS_Store
+.swp
+.eslintcache
+*.tsbuildinfo
+# jetbrains files:
+.idea
+# Lerna git ignore items
+lerna-debug.log
+packages/**/lib
+packages/**/package-lock.json
+packages/**/bodiless.index.css
+examples/**/lib
+examples/**/package-lock.json
+examples/**/.env
+examples/**/.env.development
+examples/**/.env.production
+examples/**/bodiless.index.css
+
+# Jest
+coverage
+
+# Sonarqube
+.scannerwork
+test-report.xml

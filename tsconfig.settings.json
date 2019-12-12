@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "outDir": "lib",
+    "moduleResolution": "node",
+    "target": "es5",
+    "module": "commonjs",
+    "skipDefaultLibCheck": true,
+    "noUnusedLocals": true,
+    "lib": ["es7", "dom"],
+    "types": ["node", "jest"],
+    "checkJs": false,
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "allowJs": false,
+    "strictNullChecks": true,
+    "baseUrl": "packages",
+    "paths": {
+      "fclasses": ["fclasses/src"],
+      "fclasses/*": ["fclasses/src/*"],
+      "gatsby-theme-bodiless": ["gatsby-theme-bodiless/src"],
+      "gatsby-theme-bodiless/*": ["gatsby-theme-bodiless/src/*"],
+      "bodiless-layouts": ["bodiless-layouts/src"],
+      "bodiless-layouts/*": ["bodiless-layouts/src/*"],
+      "bodiless-components": ["bodiless-components/src"],
+      "bodiless-components/*": ["bodiless-components/src/*"],
+      "bodiless-core": ["bodiless-core/src"],
+      "bodiless-core/*": ["bodiless-core/src/*"],
+      "bodiless-richtext": ["bodiless-richtext/src"],
+      "bodiless-richtext/*": ["bodiless-richtext/src/*"]
+    }
+  }
+}

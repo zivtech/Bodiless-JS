@@ -1,0 +1,141 @@
+Map GetEnvVariables() {
+    return isProd() ? GetProdEnvVariables() : GetTestEnvVariables()
+}
+
+Map GetTestEnvVariables() {
+    return [
+        //ctech-rd fork of slate_gatsby repository
+        GIT_URL: "https://sourcecode.jnj.com/scm/asx-nakn/slate_gatsby.git",
+        GIT_HOST: "sourcecode.jnj.com",
+        GIT_CREDS_ID: "TAER-CIUser-Service-Account",
+        NPM_REGISTRY: "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/",
+        NPM_AUTH_TOKEN: "TAER-CIUser-NPM-Token"
+    ]
+}
+
+Map GetProdEnvVariables() {
+    return [
+        //slate_gatsby main repository
+        GIT_URL: "https://sourcecode.jnj.com/scm/asx-nbfp/slate_gatsby.git",
+        GIT_HOST: "sourcecode.jnj.com",
+        GIT_CREDS_ID: "TAER-CDUser-Service-Account",
+        NPM_REGISTRY: "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/",
+        NPM_AUTH_TOKEN: "TAER-CDUser-NPM-Token"
+    ]
+}
+
+pipeline {
+    agent { label 'node' }
+    options {
+        disableConcurrentBuilds()
+        timeout(activity: true, time: 1, unit: 'HOURS')
+        timestamps()
+    }
+    triggers {
+        pollSCM ''
+    }
+    stages {
+        stage('install') {
+            steps {
+                script {
+                    def envVariables = GetEnvVariables()
+                    postBuildStatus(defaultBuildState(), env.GIT_COMMIT)
+                    sh 'npm ci'
+                    sh 'npm run bootstrap'
+                }
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('lint') {
+            when {
+                expression { isCI() }
+            }
+            steps {
+                sh 'npm run lint'
+            }
+        }
+        stage('test') {
+            when {
+                expression { isCI() }
+            }
+            steps {
+                sh 'npm run test'
+            }
+        }
+        stage('publish') {
+            steps {
+                script {
+                    def envVariables = GetEnvVariables()
+                    def NPM_REGISTRY = envVariables.NPM_REGISTRY
+                    def NPM_REGISTRY_WITH_PROTOCOL = withHttpsProtocol(NPM_REGISTRY)
+                    withCredentials([string(credentialsId: envVariables.NPM_AUTH_TOKEN, variable: 'NPM_AUTH_TOKEN')]) {
+                        sh "echo $NPM_REGISTRY:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc"
+                    }
+                    if (isCI()) {
+                        sh "npm run lerna -- publish --canary --yes --registry $NPM_REGISTRY_WITH_PROTOCOL"
+                    } else {
+                        sh "npm run lerna -- publish from-package --yes --registry $NPM_REGISTRY_WITH_PROTOCOL"
+                    }
+                }
+            }
+        }
+    }
+    post {
+        success {
+            postBuildStatus(defaultBuildState("SUCCESSFUL"), env.GIT_COMMIT)
+        }
+        failure {
+            postBuildStatus(defaultBuildState("FAILED"), env.GIT_COMMIT)
+        }
+        aborted {
+            postBuildStatus(defaultBuildState("FAILED"), env.GIT_COMMIT)
+        }
+    }
+}
+
+Boolean isCI() {
+    //def isTag = sh(returnStdout: true, script: "git tag --contains ${scmVars.GIT_COMMIT}")
+    //return env.GIT_BRANCH == "master" && !isTag
+    return false
+}
+Boolean isProd() {
+    return env.JOB_NAME.startsWith("canvasx")
+}
+Boolean isTest() {
+    return !env.JOB_NAME.startsWith("canvasx")
+}
+String withHttpsProtocol(String url) {
+    return "https:" + url
+}
+
+class BuildState {
+    String state //INPROGRESS|SUCCESSFUL|FAILED
+    String key
+    String name
+    String url
+    String description
+    String toJson() {
+        return groovy.json.JsonOutput.toJson(this)
+    }
+}
+BuildState defaultBuildState(String state = 'INPROGRESS') {
+    BuildState bs = new BuildState()
+    bs.state = state
+    bs.key = "jenkins"
+    bs.name = "publish packages"
+    bs.url = "${env.BUILD_URL}"
+    bs.description = "publish bodiless packages"
+    return bs
+}
+void postBuildStatus(BuildState bs, String commit) {
+    def envVariables = GetEnvVariables()
+    withCredentials([usernamePassword(credentialsId: envVariables.GIT_CREDS_ID, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        String script = "curl -u $USERNAME:$PASSWORD -X POST -H \"Content-Type: application/json\" https://${envVariables.GIT_HOST}/rest/build-status/1.0/commits/${commit} -d '${bs.toJson()}'"
+        String result = sh(script: script, returnStdout: true).trim()
+        echo result
+    }
+}

@@ -1,0 +1,80 @@
+###
+ # Copyright © 2019 Johnson & Johnson
+ #
+ # Licensed under the Apache License, Version 2.0 (the "License");
+ # you may not use this file except in compliance with the License.
+ # You may obtain a copy of the License at
+ # http:##www.apache.org#licenses#LICENSE-2.0
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ ##
+
+# .platform.app.yaml
+
+# The name of this application, which must be unique within a project.
+name: 'static'
+
+# The type key specifies the language and version for your application.
+type: 'nodejs:10'
+
+build:
+    flavor: none
+
+# The hooks that will be triggered when the package is deployed.
+hooks:
+    # Build hooks can modify the application files on disk but not access any services like databases.
+    build: |
+        set -e
+        npm ci
+        npm run bootstrap
+        npm run build
+        npm run lint
+        npm run test
+        npx lerna run --stream docs:build
+        #robots.txt preparation
+        export ROBOTSTXT_SRC_FILE=$PLATFORM_DOCUMENT_ROOT/robots.txt
+        export ROBOTSTXT_TMP_FILE=$PLATFORM_DOCUMENT_ROOT/../static/robots_pshtmp.txt
+        export ROBOTSTXT_TARGET_FILE=$APP_VOLUME/robots.txt
+        node $PLATFORM_APP_DIR/packages/bodiless-psh/lib/change-robots-txt.js build
+    deploy: |
+        #processing site url
+        APP_SITE_URL=$(echo $APP_SITE_URL | sed -e "s/\${PLATFORM_ENVIRONMENT}/$PLATFORM_ENVIRONMENT/g")
+        APP_SITE_URL=$(echo $APP_SITE_URL | sed -e "s/\${PLATFORM_PROJECT}/$PLATFORM_PROJECT/g")
+        #processing robots.txt
+        export ROBOTSTXT_TMP_FILE=$PLATFORM_DOCUMENT_ROOT/../static/robots_pshtmp.txt
+        export ROBOTSTXT_TARGET_FILE=$APP_VOLUME/robots.txt
+        export ROBOTSTXT_SRC_URL=$APP_PROD_URL
+        export ROBOTSTXT_TARGET_URL=$APP_SITE_URL
+        export ROBOTSTXT_PROD_ENV=$APP_PROD_ENV
+        node $PLATFORM_APP_DIR/packages/bodiless-psh/lib/change-robots-txt.js deploy
+
+# The size of the persistent disk of the application (in MB).
+disk: 256
+
+mounts:
+    'volume':
+        source: local
+        source_path: volume
+
+
+# The configuration of the application when it is exposed to the web.
+web:
+    locations:
+        '/':
+            # The public directory of the application relative to its root.
+            root: 'examples/test-site/public'
+            index: ['index.html']
+            scripts: false
+            allow: true
+        '/___docs':
+            root: 'examples/test-site/doc'
+            index: ['index.html']
+            scripts: false
+            allow: true
+
+variables:
+    env:
+        APP_VOLUME: '/app/volume'

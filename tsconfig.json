@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.settings.json",
+  "references": [
+    { "path": "./packages/fclasses" },
+    { "path": "./packages/bodiless-core" },
+    { "path": "./packages/bodiless-richtext" },
+    { "path": "./packages/bodiless-components" }
+  ]
+}
+
