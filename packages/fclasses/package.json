@@ -2,7 +2,7 @@
   "name": "@bodiless/fclasses",
   "version": "0.0.35",
   "description": "Allows for the injection of functional class into components.",
-  "author": "e2thex <esummerfield@phase2technology.com>",
+  "author": "Chris Oden <coden@its.jnj.com>",
   "homepage": "",
   "license": "Apache-2.0",
   "main": "lib/index.js",
