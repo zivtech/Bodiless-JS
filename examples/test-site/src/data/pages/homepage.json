@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "uuid": "c0be0470-0caf-11ea-bb42-ef0d288c6098",
+      "wrapperProps": {
+        "className": "w-full lg:w-1/2"
+      },
+      "type": "HorizontalWithTitle/BodyWithCTA"
+    },
+    {
+      "uuid": "cb9aa060-0caf-11ea-bb42-ef0d288c6098",
+      "wrapperProps": {
+        "className": "w-full lg:w-1/2"
+      },
+      "type": "HorizontalWithTitle/BodyWithCTA"
+    }
+  ]
+}
