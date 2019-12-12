@@ -1,0 +1,13 @@
+{
+  "url": "http://imodium.es/",
+  "steps": {
+    "scrape": "true"
+  },
+  "crawler": {
+    "maxDepth": 1,
+    "maxConcurrency": 1
+  },
+  "htmltojsx": "true",
+  "transformers": [
+  ]
+}
