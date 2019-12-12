@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+const blDocsBuild = require('../lib/index.js');
+blDocsBuild.default();
