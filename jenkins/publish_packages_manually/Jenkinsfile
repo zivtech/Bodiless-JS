@@ -1,28 +1,10 @@
-Map GetEnvVariables() {
-    return isProd() ? GetProdEnvVariables() : GetTestEnvVariables()
-}
-
-Map GetTestEnvVariables() {
-    return [
-        //ctech-rd fork of slate_gatsby repository
-        GIT_URL: "https://sourcecode.jnj.com/scm/asx-nakn/slate_gatsby.git",
-        GIT_HOST: "sourcecode.jnj.com",
-        GIT_CREDS_ID: "TAER-CIUser-Service-Account",
-        NPM_REGISTRY: "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/",
-        NPM_AUTH_TOKEN: "TAER-CIUser-NPM-Token"
-    ]
-}
-
-Map GetProdEnvVariables() {
-    return [
-        //slate_gatsby main repository
-        GIT_URL: "https://sourcecode.jnj.com/scm/asx-nbfp/slate_gatsby.git",
-        GIT_HOST: "sourcecode.jnj.com",
-        GIT_CREDS_ID: "TAER-CDUser-Service-Account",
-        NPM_REGISTRY: "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/",
-        NPM_AUTH_TOKEN: "TAER-CDUser-NPM-Token"
-    ]
-}
+// The following credentials must be set up in Jenkins, 
+// at instance or at folder level:
+// - npm-registry-url (string, ex: '//registry.npmjs.org/')
+// - git-host (string)
+// - jenkins-service-account ('Username with password')
+// - npm-auth-token (string)
+// - git-url (string)
 
 pipeline {
     agent { label 'node' }
@@ -41,22 +23,25 @@ pipeline {
         stage('install') {
             steps {
                 script {
-                    def envVariables = GetEnvVariables()
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [
-                            [name: params.tag]
-                        ],
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [],
-                        submoduleCfg: [],
-                        userRemoteConfigs: [[
-                            credentialsId: envVariables.GIT_CREDS_ID,
-                            url: envVariables.GIT_URL
-                        ]]
-                    ])
-                    sh 'npm ci'
-                    sh 'npm run bootstrap'
+                    withCredentials([
+                        string(credentialsId: 'git-url', variable: 'GIT_URL')
+                    ]) {
+                        checkout([
+                            $class: 'GitSCM',
+                            branches: [
+                                [name: params.tag]
+                            ],
+                            doGenerateSubmoduleConfigurations: false,
+                            extensions: [],
+                            submoduleCfg: [],
+                            userRemoteConfigs: [[
+                                credentialsId: 'jenkins-service-account',
+                                url: GIT_URL
+                            ]]
+                        ])
+                        sh 'npm ci'
+                        sh 'npm run bootstrap'
+                    }
                 }
             }
         }
@@ -68,25 +53,20 @@ pipeline {
         stage('publish') {
             steps {
                 script {
-                    def envVariables = GetEnvVariables()
-                    def NPM_REGISTRY = envVariables.NPM_REGISTRY
-                    def NPM_REGISTRY_WITH_PROTOCOL = withHttpsProtocol(NPM_REGISTRY)
-                    withCredentials([string(credentialsId: envVariables.NPM_AUTH_TOKEN, variable: 'NPM_AUTH_TOKEN')]) {
-                        sh "echo $NPM_REGISTRY:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc"
+                    withCredentials([
+                        string(credentialsId: 'npm-registry-url', variable: 'NPM_REGISTRY_URL'),
+                        string(credentialsId: 'npm-auth-token', variable: 'NPM_AUTH_TOKEN')
+                    ]) {
+                        def NPM_REGISTRY_URL_WITH_PROTOCOL = withHttpsProtocol(NPM_REGISTRY_URL)
+                        sh "echo $NPM_REGISTRY_URL:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc"
                     }
-                    sh "npm run lerna -- publish from-package --yes --registry $NPM_REGISTRY_WITH_PROTOCOL"
+                    sh "npm run lerna -- publish from-package --yes --registry $NPM_REGISTRY_URL_WITH_PROTOCOL"
                 }
             }
         }
     }
 }
 
-Boolean isProd() {
-    return env.JOB_NAME.startsWith("canvasx")
-}
-Boolean isTest() {
-    return !env.JOB_NAME.startsWith("canvasx")
-}
 String withHttpsProtocol(String url) {
     return "https:" + url
 }

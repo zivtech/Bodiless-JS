@@ -1,28 +1,11 @@
-Map GetEnvVariables() {
-    return isProd() ? GetProdEnvVariables() : GetTestEnvVariables()
-}
+// The following credentials must be set up in Jenkins, 
+// at instance or at folder level:
+// - npm-registry-url (string, ex: '//registry.npmjs.org/')
+// - git-host (string)
+// - jenkins-service-account ('Username with password')
+// - npm-auth-token (string)
+// - git-url (string)
 
-Map GetTestEnvVariables() {
-    return [
-        //ctech-rd fork of slate_gatsby repository
-        GIT_URL: "https://sourcecode.jnj.com/scm/asx-nakn/slate_gatsby.git",
-        GIT_HOST: "sourcecode.jnj.com",
-        GIT_CREDS_ID: "TAER-CIUser-Service-Account",
-        NPM_REGISTRY: "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/",
-        NPM_AUTH_TOKEN: "TAER-CIUser-NPM-Token"
-    ]
-}
-
-Map GetProdEnvVariables() {
-    return [
-        //slate_gatsby main repository
-        GIT_URL: "https://sourcecode.jnj.com/scm/asx-nbfp/slate_gatsby.git",
-        GIT_HOST: "sourcecode.jnj.com",
-        GIT_CREDS_ID: "TAER-CDUser-Service-Account",
-        NPM_REGISTRY: "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/",
-        NPM_AUTH_TOKEN: "TAER-CDUser-NPM-Token"
-    ]
-}
 
 pipeline {
     agent { label 'node' }
@@ -38,7 +21,6 @@ pipeline {
         stage('install') {
             steps {
                 script {
-                    def envVariables = GetEnvVariables()
                     postBuildStatus(defaultBuildState(), env.GIT_COMMIT)
                     sh 'npm ci'
                     sh 'npm run bootstrap'
@@ -69,16 +51,17 @@ pipeline {
         stage('publish') {
             steps {
                 script {
-                    def envVariables = GetEnvVariables()
-                    def NPM_REGISTRY = envVariables.NPM_REGISTRY
-                    def NPM_REGISTRY_WITH_PROTOCOL = withHttpsProtocol(NPM_REGISTRY)
-                    withCredentials([string(credentialsId: envVariables.NPM_AUTH_TOKEN, variable: 'NPM_AUTH_TOKEN')]) {
-                        sh "echo $NPM_REGISTRY:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc"
-                    }
-                    if (isCI()) {
-                        sh "npm run lerna -- publish --canary --yes --registry $NPM_REGISTRY_WITH_PROTOCOL"
-                    } else {
-                        sh "npm run lerna -- publish from-package --yes --registry $NPM_REGISTRY_WITH_PROTOCOL"
+                    withCredentials([
+                        string(credentialsId: 'npm-registry-url', variable: 'NPM_REGISTRY_URL'),
+                        string(credentialsId: 'npm-auth-token', variable: 'NPM_AUTH_TOKEN')
+                    ]) {
+                        def NPM_REGISTRY_URL_WITH_PROTOCOL = withHttpsProtocol(NPM_REGISTRY_URL)
+                        sh "echo $NPM_REGISTRY_URL:_authToken=$NPM_AUTH_TOKEN > ~/.npmrc"
+                        if (isCI()) {
+                            sh "npm run lerna -- publish --canary --yes --registry $NPM_REGISTRY_URL_WITH_PROTOCOL"
+                        } else {
+                            sh "npm run lerna -- publish from-package --yes --registry $NPM_REGISTRY_URL_WITH_PROTOCOL"
+                        }
                     }
                 }
             }
@@ -101,12 +84,6 @@ Boolean isCI() {
     //def isTag = sh(returnStdout: true, script: "git tag --contains ${scmVars.GIT_COMMIT}")
     //return env.GIT_BRANCH == "master" && !isTag
     return false
-}
-Boolean isProd() {
-    return env.JOB_NAME.startsWith("canvasx")
-}
-Boolean isTest() {
-    return !env.JOB_NAME.startsWith("canvasx")
 }
 String withHttpsProtocol(String url) {
     return "https:" + url
@@ -132,9 +109,11 @@ BuildState defaultBuildState(String state = 'INPROGRESS') {
     return bs
 }
 void postBuildStatus(BuildState bs, String commit) {
-    def envVariables = GetEnvVariables()
-    withCredentials([usernamePassword(credentialsId: envVariables.GIT_CREDS_ID, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-        String script = "curl -u $USERNAME:$PASSWORD -X POST -H \"Content-Type: application/json\" https://${envVariables.GIT_HOST}/rest/build-status/1.0/commits/${commit} -d '${bs.toJson()}'"
+    withCredentials([
+        string(credentialsId: 'git-host', variable: 'GIT_HOST'),
+        usernamePassword(credentialsId: 'jenkins-service-account', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
+    ]) {
+        String script = "curl -u $USERNAME:$PASSWORD -X POST -H \"Content-Type: application/json\" https://${GIT_HOST}/rest/build-status/1.0/commits/${commit} -d '${bs.toJson()}'"
         String result = sh(script: script, returnStdout: true).trim()
         echo result
     }

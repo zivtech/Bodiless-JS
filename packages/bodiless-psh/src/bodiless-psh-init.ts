@@ -16,6 +16,7 @@
 /* eslint-disable no-console */
 import copyfiles from 'copyfiles';
 import { rename } from 'fs';
+import { exec } from 'child_process';
 
 console.log('Initializing platform.sh configuration...');
 
@@ -53,9 +54,15 @@ copyfiles(docsAppPaths, { up: true }, (err: any) => {
     rename('./docs/documentation.package.json', './docs/package.json', err$ => {
       if (err$) console.log('Error renaming package.json', err$);
     });
-    rename('./docs/documentation.package-lock.json', './docs/package-lock.json', err$ => {
-      if (err$) console.log('Error renaming package-lock.json', err$);
-    });
+  }
+});
+
+console.log('Generating docs/package-lock.json...');
+exec('npm --prefix ./docs install --package-lock-only', err => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+  } else {
+    console.log('done');
   }
 });
 

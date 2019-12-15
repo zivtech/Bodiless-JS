@@ -20,17 +20,14 @@ set -e
 # APP_NPM_AUTH - authentication token to npm registry
 # PLATFORM_APP_DIR - the absolute path to the application directory. provided by platform.sh
 
-if [ "$1" = "check-vars" ]; then
-  if [ \
-    -z "${APP_NPM_REGISTRY}" \
-    -o -z "${APP_NPM_AUTH}" \
-  ]; then
-    echo "Missing environment variables required for private npm registry configuration."
-    exit 1
+if [ "$1" = "install" ]; then
+  if [ $APP_NPM_REGISTRY ] && [ $APP_NPM_AUTH ]; then
+      bash -c 'echo Auth token is ${APP_NPM_AUTH:0:50}...'
+      echo "@bodiless:registry=https:${APP_NPM_REGISTRY}" > .npmrc
+      echo "${APP_NPM_REGISTRY}:_authToken=${APP_NPM_AUTH}" >> .npmrc
+  else
+      echo "Npm registry env vars are missing. Trying to build from public registry..."
   fi
-elif [ "$1" = "install" ]; then
-  echo "@bodiless:registry=https:${APP_NPM_REGISTRY}" >> .npmrc
-  echo "${APP_NPM_REGISTRY}:_authToken=${APP_NPM_AUTH}" >> .npmrc
   npm ci
   rm .npmrc
 elif [ "$1" = "build" ]; then

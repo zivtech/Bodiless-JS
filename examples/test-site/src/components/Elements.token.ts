@@ -29,28 +29,47 @@ import {
   asAlignJustify,
 } from './ElementDefault.token';
 
+/* Page Structure */
+const asBlockItem = addClasses('p-1 w-full');
+const asPageContainer = addClasses('container mx-auto');
+const asXMargin = addClasses('mx-2');
+const asYMargin = addClasses('my-2');
+const asNegXMargin = addClasses('-mx-1');
+const asNegYMargin = addClasses('-my-1');
+
+/* Primary coloring */
+const asPrimaryColorBackground = addClasses('bg-gray-200');
+const asTextColorPrimary = addClasses('text-black');
+
+/* Typography */
 const asBold = addClasses('');
 const asItalic = addClasses('');
 const asLink = addClasses('text-blue-700 underline');
 const asStrikeThrough = addClasses('');
-const asTextColorPrimary = addClasses('text-black');
+const asSuperScript = addClasses('');
+
 const asHeader1 = flow(addClasses('text-3xl'), asTextColorPrimary);
 const asHeader2 = addClasses('text-2xl');
-const asCta = addClasses('bg-orange-700 hover:bg-orange-600 text-center text-white p-2 rounded');
-const asBlockItem = addClasses('p-1 w-full');
-const asPageContainer = addClasses('container mx-auto');
-const asPrimaryColorBackground = addClasses('bg-gray-200');
+
+/* Image component */
 const asImage = addClasses('');
 const asEditableImage = asBodilessImage;
-const asEditableLink = asBodilessLink;
 const asImageRounded = addClasses('rounded-lg');
-const asSuperScript = addClasses('');
+
+/* Link component */
+const asEditableLink = asBodilessLink;
+
+/* Edit component */
 const asEditable = (nodeKey?: string, placeholder?: string) => withChild(
   flow(
     withNodeKey(nodeKey),
     withPlaceholder(placeholder),
   )(Editable),
 );
+
+// Tout Components
+const asCta = addClasses('bg-orange-700 hover:bg-orange-600 text-center text-white p-2 rounded');
+
 export {
   asBold,
   asItalic,
@@ -74,4 +93,8 @@ export {
   asImageRounded,
   asSuperScript,
   asTextColorPrimary,
+  asXMargin,
+  asYMargin,
+  asNegXMargin,
+  asNegYMargin,
 };

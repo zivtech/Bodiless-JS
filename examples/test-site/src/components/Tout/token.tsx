@@ -49,7 +49,6 @@ const asToutVertical = flow(
     Body: addClasses('px-2'),
   }),
   asBToutVertical,
-
 );
 
 const asToutDefaultStyle = withDesign({

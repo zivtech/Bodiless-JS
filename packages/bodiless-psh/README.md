@@ -72,6 +72,79 @@ platform project:set-remote {project id}
 ```
 where {project id} is the platform.sh project id you acquired above.
 
+#### NPM private registry
+
+In order to deploy from NPM private registry two variables must be set:
+
+env:APP_NPM_REGISTRY
+env:APP_NPM_AUTH
+
+If the variables are not set, npm will try to load packages from the public registry:
+//registry.npmjs.org/
+
+To set the `env:APP_NPM_REGISTRY` variable perform the next steps:
+
+```
+$ platform variable:create
+* Level (--level)
+The level at which to set the variable
+  [project    ] Project-wide
+  [environment] Environment-specific
+> project
+
+* Name (--name)
+The variable name
+> APP_NPM_REGISTRY
+
+* Value (--value)
+The variable's value
+> //artifactrepo.jnj.com/artifactory/api/npm/taer-npm/
+
+JSON (--json)
+Is the value JSON-formatted? [y|N] N
+
+Sensitive (--sensitive)
+Is the value sensitive? [y|N] y
+
+Prefix (--prefix)
+The variable name's prefix
+Default: none
+  [none] No prefix: The variable will be part of $PLATFORM_VARIABLES.
+  [env:] env: The variable will be exposed directly, e.g. as $APP_NPM_REGISTRY.
+> env:
+
+Visible at build time (--visible-build)
+Should the variable be available at build time? [Y|n] Y
+
+Visible at runtime (--visible-runtime)
+Should the variable be available at runtime? [Y|n] Y
+```
+
+- Verify that the variable was created properly by executing:
+  ```
+  platform variable:get env:APP_NPM_REGISTRY
+  ```
+  You should see something like:
+  ```
+  $ platform variable:get env:APP_NPM_REGISTRY
+  +-----------------+------------------------------------------------------+
+  | Property        | Value                                                |
+  +-----------------+------------------------------------------------------+
+  | id              | env:APP_NPM_REGISTRY                                 |
+  | created_at      | 2019-10-10T13:20:13+02:00                            |
+  | updated_at      | 2019-10-10T13:20:13+02:00                            |
+  | name            | env:APP_NPM_REGISTRY                                 |
+  | attributes      | {  }                                                 |
+  | value           | //registry.npmjs.org/                                |
+  | is_json         | false                                                |
+  | is_sensitive    | false                                                |
+  | visible_build   | true                                                 |
+  | visible_runtime | true                                                 |
+  | level           | project                                              |
+  +-----------------+------------------------------------------------------+
+
+  ```
+
 #### Authorization token for NPM private registry
 
 From within your project root, execute `platform variable:create` and follow the prompts as:
@@ -362,3 +435,9 @@ are only available from the command line).
   ```
 - There are many other useful platform cli subcommands.  Run `platform list`
   to see them all.
+
+## Deploying bodiless packages from a private registry
+
+By default the public regisry will be used to download bodiless packages: //registry.npmjs.org/
+
+In order to switch to a private registry follow Step 3 (Create platform.sh environment variables.) of this doc.

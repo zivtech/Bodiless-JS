@@ -38,8 +38,13 @@ build:
     flavor: none
 hooks:
     build: |
-        echo "@bodiless:registry=https://artifactrepo.jnj.com/artifactory/api/npm/taer-npm/" > .npmrc
-        echo "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/:_authToken=${APP_NPM_AUTH}" >> .npmrc
+        if [ $APP_NPM_REGISTRY ] && [ $APP_NPM_AUTH ]; then
+            bash -c 'echo Auth token is ${APP_NPM_AUTH:0:50}...'
+            echo "@bodiless:registry=https:${APP_NPM_REGISTRY}" > .npmrc
+            echo "${APP_NPM_REGISTRY}:_authToken=${APP_NPM_AUTH}" >> .npmrc
+        else
+            echo "Npm registry env vars are missing. Trying to build from public registry..."
+        fi
         npm ci
         mv ./node_modules/@bodiless/components/editable.md ./node_modules/@bodiless/components/Editable.md
         npm run docs:build

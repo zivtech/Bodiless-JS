@@ -27,9 +27,13 @@ build:
 hooks:
     # Build hooks can modify the application files on disk but not access any services like databases.
     build: |
-        bash -c 'echo Auth token is ${APP_NPM_AUTH:0:50}...'
-        echo "@bodiless:registry=https://artifactrepo.jnj.com/artifactory/api/npm/taer-npm/" > .npmrc
-        echo "//artifactrepo.jnj.com/artifactory/api/npm/taer-npm/:_authToken=${APP_NPM_AUTH}" >> .npmrc
+        if [ $APP_NPM_REGISTRY ] && [ $APP_NPM_AUTH ]; then
+            bash -c 'echo Auth token is ${APP_NPM_AUTH:0:50}...'
+            echo "@bodiless:registry=https:${APP_NPM_REGISTRY}" > .npmrc
+            echo "${APP_NPM_REGISTRY}:_authToken=${APP_NPM_AUTH}" >> .npmrc
+        else
+            echo "Npm registry env vars are missing. Trying to build from public registry..."
+        fi
         npm ci
         npm run build
         #robots.txt preparation
