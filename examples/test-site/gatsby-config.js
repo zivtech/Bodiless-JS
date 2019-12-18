@@ -12,6 +12,7 @@ const plugins = [
       modules: ['gatsby-theme-bodiless'],
     },
   },
+  '@bodiless/gatsby-theme-bodiless',
 ];
 
 const robotsTxtPolicy = [
@@ -29,5 +30,4 @@ module.exports = {
   },
 
   plugins,
-  __experimentalThemes: ['gatsby-theme-bodiless'],
 };

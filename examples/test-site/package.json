@@ -53,6 +53,7 @@
     "build:lib": "gatsby build",
     "build:css": "tailwind build ./src/components/index.tailwind.css -c ./tailwind.config.js -o ./src/components/index.css",
     "build:scripts": "tsc -p ./tsconfig.json",
+    "check": "tsc -p ./tsconfig.check.json",
     "clean": "rimraf ./public/* ./.cache",
     "dev-frontend": "gatsby develop -p 8005",
     "dev-frontend-psh": "GATSBY_WEBPACK_PUBLICPATH=\"https://edit.${PLATFORM_ENVIRONMENT}-${PLATFORM_PROJECT}.${PLATFORM_ZONE}\" gatsby develop --port ${PORT:-8000}",

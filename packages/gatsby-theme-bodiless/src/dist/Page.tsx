@@ -25,7 +25,9 @@ import GatsbyNodeProvider, {
 } from './GatsbyNodeProvider';
 import GitProvider from './GitProvider';
 import NewPageProvider from './NewPageProvider';
-import GatsbyPageProvider from './GatsbyPageProvider';
+import GatsbyPageProvider, {
+  Props as PageProviderProps,
+} from './GatsbyPageProvider';
 
 type FinalUI = {
   ContextWrapper: ComponentType<ContextWrapperProps>;
@@ -33,7 +35,7 @@ type FinalUI = {
 };
 type UI = Partial<FinalUI>;
 
-export type Props = NodeProviderProps & {
+export type Props = NodeProviderProps & PageProviderProps & {
   ui?: UI,
 };
 
@@ -44,12 +46,12 @@ const defaultUI: FinalUI = {
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
-const Page: FC<Props> = observer(({ children, ui, ...rest }: any) => {
+const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
   const { PageEditor: Editor, ContextWrapper: Wrapper } = getUI(ui);
   if (process.env.NODE_ENV === 'development') {
     return (
       <GatsbyNodeProvider {...rest}>
-        <GatsbyPageProvider pageContext={...rest.pageContext}>
+        <GatsbyPageProvider pageContext={rest.pageContext}>
           <Editor>
             <NewPageProvider>
               <GitProvider>

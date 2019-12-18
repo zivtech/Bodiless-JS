@@ -8,6 +8,8 @@
   "typings": "lib/index.d.ts",
   "files": [
     "/lib",
+    "/bin",
+    "/patches",
     "/bodiless.docs.json"
   ],
   "repository": {

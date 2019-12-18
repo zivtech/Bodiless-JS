@@ -61,6 +61,7 @@ export const createMenuOptionHook = <P extends object, D extends object>({
     } = props;
     const submitValues = (values: D) => {
       setComponentData(values);
+      Object.assign(componentData, values);
       if (onSubmit) onSubmit();
     };
     const render = (p: ContextMenuFormBodyProps<D>) => renderForm({ ...p, unwrap });

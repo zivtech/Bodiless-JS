@@ -16,7 +16,7 @@
     "start-prod": "cross-env NODE_ENV=production run-p -r docs build:watch",
     "start-docker": "lerna run start-docker --stream",
     "clean": "lerna run clean",
-    "bootstrap": "lerna bootstrap --hoist && symlink-dir packages/gatsby-theme-bodiless node_modules/gatsby-theme-bodiless && node scripts/postinstall",
+    "bootstrap": "lerna bootstrap --hoist && node scripts/postinstall",
     "setup": "npm ci && npm run bootstrap && npm run build:packages && npm run build:css",
     "fresh": "npm run clean && lerna clean --yes && rimraf node_modules packages/bodiless-backend/.env examples/test-site/.env.development && npm run setup",
     "format": "prettier --write \"./packages/**/*.{js,jsx,ts,tsx}\"",
@@ -42,7 +42,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint-change"
+      "pre-push": "npm run lint"
     }
   },
   "dependencies": {

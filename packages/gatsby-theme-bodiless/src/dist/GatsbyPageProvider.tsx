@@ -26,7 +26,7 @@ const defaultGatsbyPage = {
   template: '_default',
 };
 
-type Props = {
+export type Props = {
   pageContext: GatsbyPage,
 }
 
