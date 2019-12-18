@@ -12,14 +12,14 @@
  * limitations under the License.
  */
 
-import React, { ComponentType, PropsWithChildren } from 'react';
-import { DesignElement } from '@bodiless/fclasses';
+import React, { ComponentType } from 'react';
 import {
   withMenuOptions, useEditContext, withLocalContextMenu, withContextActivator, withoutProps,
 } from '@bodiless/core';
 import { flow, identity } from 'lodash';
+import { Design } from '@bodiless/fclasses/lib/Design';
 
-import { TitleProps, FinalProps, Design } from './types';
+import { TitleProps, FinalProps, ListDesignableComponents } from './types';
 
 const useGetMenuOptions = (props: TitleProps) => {
   const {
@@ -57,16 +57,12 @@ const useGetMenuOptions = (props: TitleProps) => {
   };
 };
 
-type EditableDesign = Design & {
-  ItemMenuOptionsProvider: DesignElement<PropsWithChildren<{}>>,
-}
-
 // TODO: Maybe generalize this as an "alterDesign()" method.
 const asEditableList = (List: ComponentType<FinalProps>) => (
   ({ design, ...rest }: FinalProps) => {
     const { isEdit } = useEditContext();
     if (!isEdit) return <List design={design} {...rest} />;
-    const { Title, ItemMenuOptionsProvider } = (design || {}) as EditableDesign;
+    const { Title, ItemMenuOptionsProvider } = (design || {}) as Design<ListDesignableComponents>;
     const newDesign = {
       ...(design || {}),
       Title: flow(

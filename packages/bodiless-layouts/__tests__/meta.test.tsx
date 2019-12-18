@@ -22,8 +22,6 @@ import {
   withAppendDesc,
   withTerm,
   perserveMeta,
-  permute,
-  addToAll,
   withFacet,
 } from '../lib/meta';
 
@@ -91,40 +89,6 @@ describe('perserveMeta', () => {
     const HOC = (Component:React.ComponentType) => () => <Component />;
     const perservedHOC = perserveMeta(HOC);
     expect(perservedHOC(Comp).title).toBe('title');
-  });
-});
-describe('permute', () => {
-  it('Should create a varientor that with no agument returns the hoc it has', () => {
-    const C = withTitle('title')(React.Fragment);
-    const hocsGroup1 = [withTerm('a')('1'), withTerm('a')('2')];
-    const varientor = permute(...hocsGroup1);
-    const hocs = varientor([]);
-    expect(hocs[0](C).categories).toStrictEqual({ a: ['1'] });
-    expect(hocs[1](C).categories).toStrictEqual({ a: ['2'] });
-  });
-  it('should create a varientor that will martix its hoc with those pass to varientor ', () => {
-    const C = withTitle('title')(React.Fragment);
-    const hocsGroup1 = [withTerm('a')('1'), withTerm('a')('2')];
-    const hocsGroup2 = [withTerm('b')('3'), withTerm('b')('4'), withTerm('b')('5')];
-    const varientor = permute(...hocsGroup1);
-    const hocs = varientor(hocsGroup2);
-    expect(hocs[0](C).categories).toStrictEqual({ a: ['1'], b: ['3'] });
-    expect(hocs[1](C).categories).toStrictEqual({ a: ['2'], b: ['3'] });
-    expect(hocs[2](C).categories).toStrictEqual({ a: ['1'], b: ['4'] });
-    expect(hocs[3](C).categories).toStrictEqual({ a: ['2'], b: ['4'] });
-    expect(hocs[4](C).categories).toStrictEqual({ a: ['1'], b: ['5'] });
-    expect(hocs[5](C).categories).toStrictEqual({ a: ['2'], b: ['5'] });
-  });
-});
-describe('addToAll', () => {
-  it('should return a varientor that adds its hocs to all of the one passed in', () => {
-    const C = withTitle('title')(React.Fragment);
-    const hocsGroup1 = [withTerm('a')('1'), withTerm('b')('2')];
-    const hocsGroup2 = [withTerm('c')('3'), withTerm('c')('4')];
-    const varientor = addToAll(...hocsGroup1);
-    const hocs = varientor(hocsGroup2);
-    expect(hocs[0](C).categories).toStrictEqual({ a: ['1'], b: ['2'], c: ['3'] });
-    expect(hocs[1](C).categories).toStrictEqual({ a: ['1'], b: ['2'], c: ['4'] });
   });
 });
 describe('withFacet', () => {

@@ -12,20 +12,20 @@
  * limitations under the License.
  */
 
-import React, { FC, ComponentType } from 'react';
+import React, { FC } from 'react';
 import { withNode } from '@bodiless/core';
 import { useItemHandlers } from './helpers';
 import { StaticFlexboxProps, FlexboxItem } from './types';
 
 const NodeProvider = withNode(React.Fragment);
 
-const StaticFlexbox: FC<StaticFlexboxProps> = ({ componentTypes }) => {
+const StaticFlexbox: FC<StaticFlexboxProps> = ({ components }) => {
   const items = useItemHandlers().getItems();
   return (
     <div className="bl-flex bl-flex-wrap">
       {items
         .map((flexboxItem: FlexboxItem) => {
-          const ChildComponent: ComponentType = componentTypes[flexboxItem.type];
+          const ChildComponent = components[flexboxItem.type];
           // TODO: Inhance this notification when the data is bad
           if (!ChildComponent) {
             throw new Error(`${flexboxItem.type} is not an allowed content type`);

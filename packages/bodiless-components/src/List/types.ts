@@ -12,13 +12,9 @@
  * limitations under the License.
  */
 
-import { DesignableProps, DesignElement } from '@bodiless/fclasses';
+import { DesignableComponentsProps, DesignableProps } from '@bodiless/fclasses';
 import { WithNodeProps } from '@bodiless/core';
-import { HTMLProps } from 'react';
-
-export type Props = {
-  unwrap?: Function,
-} & DesignableProps & HTMLProps<HTMLElement>;
+import { HTMLProps, ComponentType } from 'react';
 
 export type TitleProps = {
   onAdd: () => void,
@@ -26,16 +22,24 @@ export type TitleProps = {
   canDelete: () => boolean,
 };
 
+export type ListDesignableComponents = {
+  Wrapper: ComponentType<any>,
+  Item: ComponentType<any>,
+  Title: ComponentType<TitleProps>,
+  ItemMenuOptionsProvider: ComponentType<any>,
+};
+
+export type Props = {
+  unwrap?: Function,
+} & DesignableComponentsProps<ListDesignableComponents> & HTMLProps<HTMLElement>;
+
+export type FinalProps =
+  Omit<Props, keyof DesignableComponentsProps<ListDesignableComponents>>
+  & WithNodeProps
+  & DesignableProps<ListDesignableComponents>;
+
 export type ItemsMutator = (item: string) => void;
 
 export type Data = {
   items?: string[],
-};
-
-export type FinalProps = Props & WithNodeProps;
-
-export type Design = {
-  Wrapper: DesignElement<HTMLProps<HTMLElement>>,
-  Item: DesignElement<HTMLProps<HTMLElement>>,
-  Title: DesignElement<TitleProps>,
 };

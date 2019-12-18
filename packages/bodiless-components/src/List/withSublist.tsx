@@ -15,7 +15,7 @@
 import React, { ComponentType, FC, PropsWithChildren } from 'react';
 import { withDesign } from '@bodiless/fclasses';
 import { withToggleButton, withToggleTo } from '../Toggle';
-import { FinalProps as ListProps } from './types';
+import { FinalProps as ListProps, ListDesignableComponents } from './types';
 
 /**
  * Takes a sublist component and return=s a HOC to add a toggled version
@@ -41,7 +41,7 @@ const withSublistToggle = (Sublist: ComponentType<ListProps>) => (
  *
  * @param Sublist The sublist component to add to each item.
  */
-const withSublist = (Sublist: ComponentType<ListProps>) => withDesign<ListProps>({
+const withSublist = (Sublist: ComponentType<ListProps>) => withDesign<ListDesignableComponents>({
   ItemMenuOptionsProvider: withToggleButton({ icon: 'playlist_add' }),
   Item: withSublistToggle(Sublist),
 });

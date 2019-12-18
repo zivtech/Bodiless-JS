@@ -171,7 +171,7 @@ const getToutComponents = applyDesign({
   Cta: stylable<HTMLProps<HTMLAnchorElement>>('a'),
 });
 
-const Tout: FC<DesignableProps> = ({ design }) => {
+const Tout: FC<DesignableComponentsProps> = ({ design }) => {
   const { Wrapper, Title, Body, Cta } = getToutComponents(design);
   return (
     <Wrapper>

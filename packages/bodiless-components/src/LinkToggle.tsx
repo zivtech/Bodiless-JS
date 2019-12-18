@@ -15,7 +15,7 @@ import { flowRight } from 'lodash';
 import {
   ifEditable, withNode, ifReadOnly, withoutProps,
 } from '@bodiless/core';
-import { replaceWith } from '@bodiless/fclasses';
+import { replaceWith, asComponent } from '@bodiless/fclasses';
 import { Fragment } from 'react';
 import { asBodilessLink } from './Link';
 import { withToggleTo, withWrapOnSubmit } from './Toggle';
@@ -24,7 +24,7 @@ const EmptyToggle = flowRight(
   ifEditable(
     withWrapOnSubmit,
     asBodilessLink(),
-    replaceWith('span'),
+    replaceWith(asComponent<JSX.IntrinsicElements['span']>('span')),
   ),
   ifReadOnly(
     withNode,

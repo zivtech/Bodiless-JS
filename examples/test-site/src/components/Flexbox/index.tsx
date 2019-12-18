@@ -11,72 +11,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import React from 'react';
 import { flow } from 'lodash';
-import {
-  permute,
-  vary,
-  withFacet,
-  withDesc,
-  asObject,
-  withDisplayName,
-  HOC,
-  addToAll,
-} from '@bodiless/layouts';
 import { FlexboxGrid } from '@bodiless/layouts-ui';
-import Tout from '../Tout';
-import {
-  asToutHorizontal,
-  asToutVertical,
-  asToutNoTitle,
-  asToutNoCta,
-  asToutNoBody,
-  asToutNoBodyNoTitle,
-  asToutDefaultStyle,
-} from '../Tout/token';
-import { withType } from './Categories';
+import withToutVariations from './withToutVariations';
 
-const withToutStructure = withFacet('Tout Structure');
-const withToutOrientation = withFacet('Tout Orientation');
-const toutBasicVariations = vary(
-  addToAll(
-    withDesc('A way to tout a call to Action.\n'),
-    withDisplayName(''),
-    withType('Tout')(),
-    asToutDefaultStyle,
-  ),
-  permute(
-    ...flow(
-      addToAll(withToutOrientation('Vertical')(asToutVertical as HOC)),
-      permute(
-        withToutStructure('With Title/Body')(),
-        withToutStructure('No Title')(asToutNoTitle as HOC),
-        withToutStructure('No Body')(asToutNoBody as HOC),
-        withToutStructure('No Title/Body')(asToutNoBodyNoTitle as HOC),
-      ),
-    )([]),
-    ...flow(
-      addToAll(withToutOrientation('Horizontal')(asToutHorizontal as HOC)),
-      permute(
-        withToutStructure('With Title/Body')(),
-        withToutStructure('No Title')(asToutNoTitle as HOC),
-        withToutStructure('No Body')(asToutNoBody as HOC),
-      ),
-    )([]),
-  ),
-  permute(
-    withToutStructure('With CTA')(),
-    withToutStructure('No CTA')(asToutNoCta as HOC),
-  ),
-)(Tout);
-const ComponentTypes = { ...asObject(toutBasicVariations) };
-
-const FlexBoxDefault = props => (
-  <FlexboxGrid
-    componentTypes={ComponentTypes}
-    {...props}
-  />
-);
+// Typically we would also import variations of other types of component.
+// const variations = extendDesign(toutVariations, sliderVariations, ...);
+const FlexBoxDefault = flow(
+  withToutVariations,
+)(FlexboxGrid);
 // eslint-disable-next-line import/prefer-default-export
 export { FlexBoxDefault };

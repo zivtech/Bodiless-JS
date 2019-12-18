@@ -13,26 +13,27 @@
  */
 
 import React, {
-  Fragment,
-  ComponentType,
+  Fragment, FC, ComponentType,
 } from 'react';
+import { flow } from 'lodash';
 import { observer } from 'mobx-react-lite';
-import { withNode, WithNodeProps, withoutProps } from '@bodiless/core';
-import { applyDesign } from '@bodiless/fclasses';
+import { withNode, withoutProps } from '@bodiless/core';
+import { designable, asComponent } from '@bodiless/fclasses';
 import { useItemsMutators, useItemsAccessors } from './model';
-import { Props } from './types';
+import { Props, FinalProps, ListDesignableComponents } from './types';
 
 const NodeProvider = withNode(Fragment);
 
-const getComponents = applyDesign({
-  Wrapper: 'ul',
-  Item: 'li',
+
+const startComponents: ListDesignableComponents = {
+  Wrapper: asComponent('ul'),
+  Item: asComponent('li'),
   // For title we have to strip the props if not wrapped.
   Title: withoutProps(['onAdd', 'onDelete', 'canDelete'])(Fragment),
-});
+  ItemMenuOptionsProvider: Fragment,
+};
 
-function List$({ design, unwrap, ...rest }: Props) {
-  const components = getComponents(design);
+const BasicList: FC<Props> = ({ components, unwrap, ...rest }) => {
   const {
     Wrapper,
     Item,
@@ -61,12 +62,16 @@ function List$({ design, unwrap, ...rest }: Props) {
       {items}
     </Wrapper>
   );
-}
+};
 
 /**
  * A List component.
  */
-const List = withNode(observer(List$)) as ComponentType<Props & WithNodeProps>;
+const List = flow(
+  observer,
+  designable(startComponents),
+  withNode,
+)(BasicList) as ComponentType<FinalProps>;
 List.displayName = 'List';
 
 export default List;

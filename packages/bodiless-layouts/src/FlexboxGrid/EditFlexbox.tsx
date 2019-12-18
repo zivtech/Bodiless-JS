@@ -19,6 +19,7 @@ import { v1 } from 'uuid';
 import {
   ContextProvider, useContextActivator, withActivateOnEffect, withNode,
 } from '@bodiless/core';
+import { DesignableComponents } from '@bodiless/fclasses';
 import SortableChild from './SortableChild';
 import SortableContainer from './SortableContainer';
 import {
@@ -27,15 +28,14 @@ import {
   useGetMenuOptions,
 } from './helpers';
 import { EditFlexboxProps, FlexboxItem } from './types';
-import { AllowedComponent, ComponentTypesProp } from '../ComponentSelector/types';
 
 const ChildNodeProvider = withNode(React.Fragment);
 
 function isAllowedComponent(
-  componentTypes: ComponentTypesProp,
+  components: DesignableComponents,
   type: string,
 ): boolean {
-  return Boolean(componentTypes[type]);
+  return Boolean(components[type]);
 }
 
 const FlexboxActivator: React.FC = ({ children }) => (
@@ -46,7 +46,7 @@ const FlexboxActivator: React.FC = ({ children }) => (
 
 const EditFlexbox: FC<EditFlexboxProps> = (props:EditFlexboxProps) => {
   const uuid = useRef(v1());
-  const { componentTypes, ui, snapData } = props;
+  const { components, ui, snapData } = props;
   const items = useItemHandlers().getItems();
   const getMenuOptions = useGetMenuOptions(props);
   const {
@@ -69,10 +69,10 @@ const EditFlexbox: FC<EditFlexboxProps> = (props:EditFlexboxProps) => {
         >
           {items.map(
             (flexboxItem: FlexboxItem, index: number): React.ReactNode => {
-              if (!isAllowedComponent(componentTypes, flexboxItem.type)) {
+              if (!isAllowedComponent(components, flexboxItem.type)) {
                 return null;
               }
-              const ChildComponent: AllowedComponent = componentTypes[flexboxItem.type];
+              const ChildComponent = components[flexboxItem.type];
               return (
                 <SortableChild
                   ui={ui}
@@ -101,7 +101,7 @@ const EditFlexbox: FC<EditFlexboxProps> = (props:EditFlexboxProps) => {
 EditFlexbox.displayName = 'EditFlexbox';
 
 EditFlexbox.defaultProps = {
-  componentTypes: {},
+  components: {},
 };
 
 // Wrap the EditFlexbox in a wthActivateContext so we can activate new items

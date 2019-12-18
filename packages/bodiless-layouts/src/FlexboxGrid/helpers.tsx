@@ -135,9 +135,7 @@ function useGetMenuOptions(props: EditFlexboxProps) {
             setId(uuid);
             closeForm();
           }}
-          components={Object.keys(props.componentTypes).map(
-            type => props.componentTypes[type],
-          )}
+          components={Object.values(props.components)}
         />
       ),
     ),

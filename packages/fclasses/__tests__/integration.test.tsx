@@ -15,7 +15,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { render } from 'enzyme';
 import { flowRight, flow } from 'lodash';
-import React, { HTMLProps, FC } from 'react';
+import React, { HTMLProps, FC, ComponentType } from 'react';
 
 import {
   addClasses, removeClasses, stylable,
@@ -28,23 +28,29 @@ import {
   applyDesign,
   withDesign,
   replaceWith,
-  Props as DesignableProps,
+  DesignableProps,
 } from '../src/Design';
 
+type ToutComponents = {
+  Wrapper: ComponentType<any>,
+  Title: ComponentType<any>,
+  Body: ComponentType<any>,
+  Cta: ComponentType<any>,
+};
 const getToutComponents = applyDesign({
-  Wrapper: stylable<HTMLProps<HTMLDivElement>>('div'),
-  Title: stylable<HTMLProps<HTMLHeadingElement>>('h2'),
-  Body: stylable<HTMLProps<HTMLDivElement>>('div'),
-  Cta: stylable<HTMLProps<HTMLAnchorElement>>('a'),
-});
+  Wrapper: stylable('div'),
+  Title: stylable('h2'),
+  Body: stylable('div'),
+  Cta: stylable('a'),
+} as ToutComponents);
 
-const Tout: FC<DesignableProps> = ({ design }) => {
+const Tout: FC<DesignableProps<ToutComponents>> = ({ design }) => {
   const {
     Wrapper,
     Title,
     Body,
     Cta,
-  } = getToutComponents(design);
+  } = getToutComponents(design) as ToutComponents;
   return (
     <Wrapper id="wrapper">
       <Title id="title">This is the title</Title>
@@ -53,7 +59,6 @@ const Tout: FC<DesignableProps> = ({ design }) => {
     </Wrapper>
   );
 };
-
 
 const asBasicTout = withDesign({
   Wrapper: addClasses('font-sans'),

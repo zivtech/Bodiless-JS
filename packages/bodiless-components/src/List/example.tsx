@@ -15,7 +15,7 @@
 import React, { HTMLProps } from 'react';
 import { flow } from 'lodash';
 import {
-  List, Editable, asEditableList, withSublist, ListProps, ListTitleProps,
+  List, Editable, asEditableList, withSublist, ListTitleProps,
 } from '..';
 import {
   withDesign, replaceWith, addClasses, stylable,
@@ -31,14 +31,14 @@ const SimpleTitle = (props: HTMLProps<HTMLSpanElement> & ListTitleProps) => (
 /**
  * A simple editable list with one level.
  */
-const SimpleList = withDesign<ListProps>({
+const SimpleList = withDesign({
   Title: replaceWith(SimpleTitle),
 })(asEditableList(List));
 
 /**
  * Add some padding to the list to see the levels.
  */
-const PaddedList = withDesign<ListProps>({
+const PaddedList = withDesign({
   Wrapper: flow(stylable, addClasses('pl-10')),
 })(SimpleList);
 

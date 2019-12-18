@@ -13,13 +13,17 @@
  */
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { HTMLProps, FC } from 'react';
+import React, { FC, ComponentType } from 'react';
 import { flow } from 'lodash';
 import {
-  stylable,
-  applyDesign,
   withDesign,
-  DesignableProps,
+  designable,
+  DesignableComponentsProps,
+  Div,
+  A,
+  Img,
+  H2,
+  StylableProps,
 } from '@bodiless/fclasses';
 import {
   asBodilessImage,
@@ -28,18 +32,30 @@ import {
 } from '@bodiless/components';
 import { withNode } from '@bodiless/core';
 
-const getToutComponents = applyDesign({
-  Wrapper: stylable<HTMLProps<HTMLDivElement>>('div'),
-  ImageWrapper: stylable<HTMLProps<HTMLDivElement>>('div'),
-  ImageLink: stylable('a'),
-  Image: stylable<HTMLProps<HTMLImageElement>>('img'),
-  ContentWrapper: stylable<HTMLProps<HTMLDivElement>>('div'),
-  Title: stylable<HTMLProps<HTMLHeadingElement>>('h2'),
-  Body: stylable<HTMLProps<HTMLDivElement>>('div'),
-  Link: stylable<HTMLProps<HTMLAnchorElement>>('a'),
-});
+export type ToutComponents = {
+  Wrapper: ComponentType<StylableProps>,
+  ImageWrapper: ComponentType<StylableProps>,
+  ImageLink: ComponentType<StylableProps>,
+  Image: ComponentType<StylableProps>,
+  ContentWrapper: ComponentType<StylableProps>,
+  Title: ComponentType<StylableProps>,
+  Body: ComponentType<StylableProps>,
+  Link: ComponentType<StylableProps>,
+};
+const toutComponentStart:ToutComponents = {
+  Wrapper: Div,
+  ImageWrapper: Div,
+  ImageLink: A,
+  Image: Img,
+  ContentWrapper: Div,
+  Title: H2,
+  Body: Div,
+  Link: A,
+};
 
-const ToutBase: FC<DesignableProps> = ({ design }) => {
+type Props = DesignableComponentsProps<ToutComponents> & { };
+
+const ToutBase: FC<Props> = ({ components }) => {
   const {
     Wrapper,
     ImageWrapper,
@@ -49,7 +65,7 @@ const ToutBase: FC<DesignableProps> = ({ design }) => {
     Title,
     Body,
     Link,
-  } = getToutComponents(design);
+  } = components;
 
   return (
     <Wrapper>
@@ -66,6 +82,12 @@ const ToutBase: FC<DesignableProps> = ({ design }) => {
     </Wrapper>
   );
 };
+
+const ToutClean = flow(
+  designable(toutComponentStart),
+  withNode,
+)(ToutBase);
+
 const asEditableTout = withDesign({
   Image: asBodilessImage('image'),
   ImageLink: asBodilessLink('cta'),
@@ -76,8 +98,7 @@ const asEditableTout = withDesign({
   ),
   Body: asEditable('body', 'Tout Body Text'),
 });
-const ToutClean = withNode(ToutBase) as React.ComponentType<DesignableProps>;
-const Tout = asEditableTout(ToutClean as React.ComponentType<DesignableProps>);
+const Tout = asEditableTout(ToutClean);
 
 export default Tout;
 export {

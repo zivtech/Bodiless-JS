@@ -21,8 +21,16 @@
 
 // Override Gatsby default scroll behavior. Only scroll if hashed element exists. See
 // https://github.com/gatsbyjs/gatsby/blob/v2.15.0-rc.4/packages/gatsby/cache-dir/navigation.js#L142-L144
-export const shouldUpdateScroll = ({ routerProps: { location } }) => {
-  const target = location.hash ? location.hash.slice(1) : '';
-  const targetElement = document.getElementById(target) || document.getElementsByName(target)[0];
-  return !!targetElement;
+export const shouldUpdateScroll = ({ prevRouterProps, routerProps: { location } }) => {
+  if (prevRouterProps) {
+    const {
+      location: { pathname: oldPathname },
+    } = prevRouterProps;
+    if (oldPathname === location.pathname) {
+      const hash = location.hash ? location.hash.slice(1) : '';
+      const targetElement = document.getElementById(hash) || document.getElementsByName(hash)[0];
+      return targetElement ? hash : true;
+    }
+  }
+  return true;
 };

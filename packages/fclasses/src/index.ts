@@ -16,12 +16,18 @@ import {
   stylable, addClasses, removeClasses, StylableProps,
 } from './FClasses';
 import {
+  asComponent,
   applyDesign,
   withDesign,
   replaceWith,
   remove,
-  Props as DesignableProps,
+  DesignableProps,
   DesignElement,
+  DesignableComponentsProps,
+  DesignableComponents,
+  designable,
+  varyDesign,
+  extendDesign,
 } from './Design';
 import { flowIf, hasProp, withoutProps } from './hoc-util';
 
@@ -41,4 +47,10 @@ export {
   withoutProps,
   DesignableProps,
   DesignElement,
+  DesignableComponentsProps,
+  DesignableComponents,
+  designable,
+  varyDesign,
+  extendDesign,
+  asComponent,
 };

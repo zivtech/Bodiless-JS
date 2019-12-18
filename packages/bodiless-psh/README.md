@@ -98,7 +98,7 @@ The variable name
 
 * Value (--value)
 The variable's value
-> //artifactrepo.jnj.com/artifactory/api/npm/taer-npm/
+> //registry.npmjs.org/
 
 JSON (--json)
 Is the value JSON-formatted? [y|N] N

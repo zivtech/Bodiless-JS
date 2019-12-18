@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { ComponentType } from 'react';
+import React, { ComponentType, FC } from 'react';
 import {
   union, difference, capitalize, flow,
 } from 'lodash';
@@ -33,11 +33,11 @@ type Classable = {
   className?: string,
 };
 
-export type HOC = <P extends object>(C: ComponentType<P> | string) => ComponentType<P> | string;
+export type HOC = <P extends object>(C: ComponentType<P> | string) => ComponentType<P>;
 
 const modifyClasses = (operation: 'add' | 'remove') => (classes?: Classes) => {
   const hoc = <P extends StylableProps>(Component: ComponentType<P> | string) => {
-    const ModifyClasses = ({ fClasses, ...rest }: P) => {
+    const ModifyClasses: FC<P> = ({ fClasses, ...rest }) => {
       const newFClasses = {
         parentFClasses: fClasses,
         operation,

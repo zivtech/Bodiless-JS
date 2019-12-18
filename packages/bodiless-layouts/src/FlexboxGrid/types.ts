@@ -13,7 +13,8 @@
  */
 
 import { WithNodeProps } from '@bodiless/core';
-import { ComponentTypesProp, ComponentSelectorUI } from '../ComponentSelector/types';
+import { DesignableComponents } from '@bodiless/fclasses';
+import { ComponentSelectorUI } from '../ComponentSelector/types';
 import { UI as SortableResizableUI } from '../SlateSortableResizable';
 import { SnapData } from './utils/appendTailwindWidthClass';
 
@@ -23,7 +24,7 @@ export type FlexboxData = {
   items: FlexboxItem[];
 };
 export type StaticFlexboxProps = {
-  componentTypes: ComponentTypesProp;
+  components: DesignableComponents;
 };
 export type EditFlexboxProps = StaticFlexboxProps & {
   ui?: UI,
@@ -37,7 +38,7 @@ export type WidthClassTuple = {
 };
 export type FlexboxGridProps = EditFlexboxProps & WithNodeProps;
 export type FlexboxComponentProps = {
-  componentTypes: ComponentTypesProp;
+  components: DesignableComponents;
   ui?: ComponentSelectorUI;
 };
 export interface FlexboxItemProps {

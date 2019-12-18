@@ -14,48 +14,77 @@
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from 'enzyme';
-import React, { ComponentType, HTMLProps, FC } from 'react';
+import React, { ComponentType, FC } from 'react';
 
 import {
   withDesign,
-  Props as DesignableProps,
+  DesignableProps,
+  Design,
 } from '../src/Design';
 
-type SpanType = ComponentType<HTMLProps<HTMLSpanElement>> | string;
+type SpanType = ComponentType<any>;
+type MyDesignableComponents = {
+  foo: SpanType,
+  bar: SpanType,
+  baz: SpanType,
+};
+type MyDesign = Design<MyDesignableComponents>;
 
-type MyDesign = {
-  foo?: (c: SpanType) => SpanType,
-  bar?: (c: SpanType) => SpanType,
-  baz?: (c: SpanType) => SpanType,
-}
-
-const DesignPrinter: FC<DesignableProps> = ({ design }) => {
-  if (!design) return <div>No design</div>;
-  const msg = Object.keys(design).map(k => (
-    <span id={k} key={k} className={design[k]!('grist').toString()} />
-  ));
-  return <div>{msg}</div>;
+const Span: SpanType = props => <span {...props} />;
+const hoc = (newClassName: string) => (C: SpanType):SpanType => props => {
+  const { className, ...rest } = props;
+  const combinedClassName = newClassName + (className || '');
+  return <C className={combinedClassName} {...rest} />;
+};
+const DesignPrinter: FC<DesignableProps<MyDesignableComponents>> = ({ design }) => {
+  const components = {
+    foo: Span as SpanType,
+    bar: Span as SpanType,
+    baz: Span as SpanType,
+  };
+  if (design) {
+    if (design.foo) {
+      components.foo = design.foo(components.foo);
+    }
+    if (design.bar) {
+      components.bar = design.bar(components.bar);
+    }
+    if (design.baz) {
+      components.baz = design.baz(components.baz);
+    }
+  }
+  const Foo = components.foo;
+  const Bar = components.bar;
+  const Baz = components.baz;
+  return (
+    <div>
+      <Foo id="foo" />
+      <Bar id="bar" />
+      <Baz id="baz" />
+    </div>
+  );
 };
 
 describe('withDesign', () => {
   it('applies a design correctly', () => {
     const inner: MyDesign = {
-      foo: (x: SpanType): SpanType => `${x}-inner`,
-      bar: (x: SpanType): SpanType => `${x}-inner`,
+      foo: hoc('innerA'),
+      bar: hoc('innerB'),
     };
     const outer: MyDesign = {
-      foo: (x: SpanType): SpanType => `outer-${x}`,
-      bar: (x: SpanType): SpanType => `${x}-outer`,
-      baz: (x: SpanType): SpanType => `${x}-outer`,
+      foo: hoc('outerC'),
+      bar: hoc('outerD'),
+      baz: hoc('outerE'),
     };
     const Test = withDesign(inner)(DesignPrinter);
     const wrapper = mount(<Test />);
-    expect(wrapper.find('#foo').prop('className')).toBe('grist-inner');
-    expect(wrapper.find('#bar').prop('className')).toBe('grist-inner');
+    expect(wrapper.find('#foo').last().props().className).toBe('innerA');
+    expect(wrapper.find('#bar').last().props().className).toBe('innerB');
     const Test1 = withDesign(outer)(Test);
     const wrapper1 = mount(<Test1 />);
-    expect(wrapper1.find('#foo').prop('className')).toBe('outer-grist-inner');
-    expect(wrapper1.find('#bar').prop('className')).toBe('grist-inner-outer');
-    expect(wrapper1.find('#baz').prop('className')).toBe('grist-outer');
+    // have to use last() because each hoc adds a component that is found
+    expect(wrapper1.find('#foo').last().props().className).toBe('innerAouterC');
+    expect(wrapper1.find('#bar').last().props().className).toBe('innerBouterD');
+    expect(wrapper1.find('#baz').last().props().className).toBe('outerE');
   });
 });

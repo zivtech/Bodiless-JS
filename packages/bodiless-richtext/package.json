@@ -18,7 +18,8 @@
     "build": "tsc --version && tsc -p ./tsconfig.json ",
     "build:watch": "npm run build -- --watch",
     "lint": "tslint ./src/**/*.ts?x",
-    "clean": "rimraf \"lib/*\" && rimraf *.tsbuildinfo"
+    "clean": "rimraf \"lib/*\" && rimraf *.tsbuildinfo",
+     "postinstall": "node bin/apply-patches.js"
   },
   "dependencies": {
     "@bodiless/core": "^0.0.35",
@@ -29,6 +30,7 @@
     "@material/react-material-icon": "^0.14.1",
     "immutable": "^4.0.0-rc.12",
     "immutable-js": "^0.3.1-6",
+    "shelljs": "^0.8.3",
     "lodash": "^4.17.11",
     "mobx": "^5.8.0",
     "mobx-react": "^5.4.3",

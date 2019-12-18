@@ -24,9 +24,8 @@ export type RenderList = (options: {
   components: AllowedComponent[];
   onSelect: onSelectType;
 }) => ReactNode;
-export type ComponentTypesProp = { [key: string]: AllowedComponent };
 export type ComponentSelectorProps = {
-  components: AllowedComponent[];
+  components: (ComponentType<any> | string)[];
   renderList?: RenderList;
   onSelect(event: MouseEvent, componentName: string): void;
   closeForm?(): void;
@@ -79,7 +78,7 @@ export type FinalUI = {
   // An Anchor tag that will wrap each Accordion Item
   AccordionItemWrapper: ComponentType<HTMLProps<HTMLAnchorElement>> | string;
   // A label that will be displayed by the AccordionCheckbox
-  AccordionCheckboxLabel: ComponentType<HTMLProps<HTMLDivElement>> | string;
+  AccordionCheckboxLabel: ComponentType<HTMLProps<HTMLLabelElement>> | string;
   // A input that will be displayed by the Accordion Label
   AccordionCheckBox: ComponentType<HTMLProps<HTMLDivElement>> | string;
   // A div that will wrap the search bar

@@ -403,65 +403,73 @@ No new components have been created. Instead, *design tokens* which describe the
 To create the actual components add the following imports:
 ```
 import { flow } from 'lodash';
-import { withTerm, withTitle, withDisplayName } from '@bodiless/layouts';
+import { withTerm, withTitle } from '@bodiless/layouts';
 import { FlexboxGrid } from '@bodiless/layouts-ui';
 ```
 
 Add the following to `Gallery.tsx` just
 after withColoredBorder styling code in previous step:
 
-```
-const BlueImageTile = flow(
-  asGalleryTile,
-  withBlueBorder,
-  withTerm('Color')('Blue'),
-  withDisplayName('BlueImageTile'),
-  withTitle('Blue Image Tile'),
-)(CaptionedImage);
+The FlexboxGrid takes a design prop that is part of the [Design API](Development/Architecture/FClasses?id=the-design-api).  This is how we pass in the components that can be used in the grid.
+we will also use the hoc  `withTitle` to provide a Title for each component in the selector.
 
-const GreenImageTile = flow(
-  asGalleryTile,
-  withGreenBorder,
-  withTerm('Color')('Green'),
-  withTerm('Type')('Image'),
-  withDisplayName('GreenImageTile'),
-  withTitle('Green Image Tile'),
-)(CaptionedImage);
-
-const RedImageTile = flow(
-  stylable,
-  asGalleryTile,
-  withRedBorder,
-  withTerm('Color')('Red'),
-  withDisplayName('RedImageTile'),
-  withTitle('Red Image Tile'),
-)(CaptionedImage);
+``` js
+const design = {
+  BlueImageTile: flow(
+    startWith(CaptionedImage),
+    asGalleryTile,
+    withBlueBorder,
+    withTitle('Blue Image Tile'),
+  ),
+  GreenImageTile: flow(
+    startWith(CaptionedImage),
+    asGalleryTile,
+    withGreenBorder,
+    withTitle('Green Image Tile'),
+  ),
+  RedImageTile: flow(
+    startWith(CaptionedImage),
+    asGalleryTile,
+    withRedBorder,
+    withTitle('Red Image Tile')
+  ),
+}
 ```
+
 The lodash `flow` utility is used to compose tokens onto the`CaptionedImage` component. In addition to the styling, *metadata* is attached to our components
-(via `withTerm`, `withDisplayName` and `withTitle`).  This will control how an editor can view and search for the components.
+(via `withTitle`).  This will control how an editor can view and search for the components.
+
+Design is an object of HOC so with use the `startWith` HOC to say which component we are starting with.
 
 Finally, replace the main content of `Gallery` with the flexbox grid.
+
 - First replace the `Body` component definition:
-  ```
+
+  ``` js
   const Body = addClasses('flex')(Div);
   ```
+
   with
-  ```
+
+  ``` js
   const Body: FC = () => (
-    <FlexboxGrid nodeKey="body" componentTypes={{ RedImageTile, BlueImageTile, GreenImageTile }} />
+    <FlexboxGrid nodeKey="body" design={design} />
   );
   ```
+
 - Then remove the children where the `<Body />` tag appears - change
-  ```
+
+  ``` js
   <Body>
     {children}
   </Body>
   ```
+
   to
-  ```
+
+  ``` js
   <Body />
   ```
-
 
 Now remove the following from `index.tsx`:
 ```

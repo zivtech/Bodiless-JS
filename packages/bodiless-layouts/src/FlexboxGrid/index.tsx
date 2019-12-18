@@ -18,17 +18,19 @@ import {
   withNode,
   useEditContext,
 } from '@bodiless/core';
+import { designable } from '@bodiless/fclasses';
 import EditFlexbox from './EditFlexbox';
 import StaticFlexbox from './StaticFlexbox';
 import { EditFlexboxProps } from './types';
 
-const FlexboxGrid: FC<EditFlexboxProps> = props => {
+
+const FlexboxGridBasic: FC<EditFlexboxProps> = props => {
   const { isEdit } = useEditContext();
   return isEdit
     ? <EditFlexbox {...props} />
     : <StaticFlexbox {...props} />;
 };
+const FlexboxGridDesignable = designable({})(observer(FlexboxGridBasic));
 
-FlexboxGrid.displayName = 'FlexboxGrid';
-
-export default withNode(observer(FlexboxGrid));
+const FlexboxGrid = withNode(FlexboxGridDesignable);
+export default FlexboxGrid;

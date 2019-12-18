@@ -12,29 +12,34 @@
  * limitations under the License.
  */
 
-import { Image } from '@bodiless/components';
 import {
   addClasses,
-  applyDesign,
-  stylable,
   withDesign,
-  DesignableProps,
+  Img,
+  Div,
+  DesignableComponentsProps,
+  designable,
 } from '@bodiless/fclasses';
-import React, { HTMLProps, FC } from 'react';
+import React, { HTMLProps, FC, ComponentType } from 'react';
 import { withNode, WithNodeProps } from '@bodiless/core';
 import Carousel from 'nuka-carousel';
 
-const getSliderComponents = applyDesign({
-  Wrapper: stylable<HTMLProps<HTMLDivElement>>('div'),
-  CarouselImage: stylable(Image),
-});
+type SliderComponents = {
+  Wrapper: ComponentType<any>,
+  CarouselImage: ComponentType<any>,
+};
+
+const sliderComponents: SliderComponents = {
+  Wrapper: Div,
+  CarouselImage: Img,
+};
 
 // Basic Tout
-const cleanSlider: FC<DesignableProps> = ({ design }) => {
+const SliderBase: FC<DesignableComponentsProps<SliderComponents>> = ({ components }) => {
   const {
     Wrapper,
     CarouselImage,
-  } = getSliderComponents(design);
+  } = components;
 
   return (
     // TO DO replace Carousel with being able to add in allowed types of components.
@@ -49,10 +54,12 @@ const cleanSlider: FC<DesignableProps> = ({ design }) => {
   );
 };
 
+const CleanSlider = designable(sliderComponents)(SliderBase);
+
 const asBasicSlider = withDesign({
   Wrapper: addClasses('container w-full h-64'),
   CarouselImage: addClasses('m-0 w-full h-64'),
 });
 
 type SBasicSliderProps = React.ComponentType<HTMLProps<HTMLDivElement> & WithNodeProps>
-export default withNode(asBasicSlider(cleanSlider)) as SBasicSliderProps;
+export default withNode(asBasicSlider(CleanSlider)) as SBasicSliderProps;

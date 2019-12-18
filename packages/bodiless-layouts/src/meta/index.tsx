@@ -123,29 +123,6 @@ const perserveMeta = (hoc:HOC) => (Component:CTWM):CTWM => (
   withMeta(Component)(hoc(Component))
 );
 
-type Varientor = (rootHocs: HOC[]) => HOC[];
-/**
- * Creates a Varientor that will just apply all of the hocs to each root Item
- * @param hocs: the HOC that are to be append to all of the rootItems
- * @return: a Varientor that will add all of the hoc to each root
- */
-const addToAll = (...hocs: HOC[]): Varientor => rootHocs => (
-  rootHocs.length === 0
-    ? [flow(...hocs)]
-    : rootHocs.map(root => flow(...hocs, root))
-);
-/**
- * permute create a Varientor that will martix the Varients with the root Hocs.
- * @param varients: an array of hoc that we want to vary or root HOCs
- * @return: a Varientor that will create new varients for each varient HOC for each Root HOC.
- */
-const permute = (...varients: HOC[]): Varientor => rootHocs => (
-  rootHocs.length === 0
-    ? varients
-    : rootHocs
-      .map(hoc => [...varients.map(v => flow(hoc, v))])
-      .reduce((acc, hocArray) => [...acc, ...hocArray])
-);
 /**
  * withFacet is expect to be passed to an on function and takes a term and and hoc (using curring)
  *  and returns a Varient that can be used in the on function
@@ -156,32 +133,11 @@ const permute = (...varients: HOC[]): Varientor => rootHocs => (
 const withFacet = (cat: string) => (term: string) => (...hocs: HOC[]) => flow(
   perserveMeta(flow(...hocs)),
   withTerm(cat)(term),
-  withAppendDisplayName(term.replace(/ /, '')),
   withAppendTitle(term),
+  withAppendDisplayName(term.replace(/ /, '')),
   withAppendDesc(`${cat}: ${term}\n`),
 );
-/**
- * witVariations takes a number of Varientor executes them to get variations and uses them to
- * create new compoents based on the Base component.
- * @param varientors: The Varientors to apply to get our Components
- * @param Base: The base component to use in generation
- * @return: An array of Components generated from the Variations
- */
-const vary = (...varientors: Varientor[]) => (Base: CTWM) => (
-  flow(varientors)([]).map((hoc: HOC) => hoc(Base))
-);
-/**
- * asObject takes a array of components and returns them as an object keyed by there displayname.
- * @param Components the array to convert.
- */
-const asObject = (Components: CTWM[]) => (
-  Components.reduce(
-    (acc, Component) => (
-      { ...acc, [Component.displayName as string]: Component }
-    ),
-    {},
-  )
-);
+
 export {
   withMeta,
   withTitle,
@@ -193,9 +149,5 @@ export {
   withAppendDesc,
   perserveMeta,
   asPassThough,
-  vary,
-  permute,
-  asObject,
-  addToAll,
   withFacet,
 };

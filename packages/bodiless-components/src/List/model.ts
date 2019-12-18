@@ -33,7 +33,7 @@ export const useItemsAccessors = () => {
  * Returns a method which can be used to delete an item, or call
  * an "unwrap" handler if there is only one item in the list.
  */
-const useDeleteItem = ({ unwrap }: Props) => {
+const useDeleteItem = ({ unwrap }: Pick<Props, 'unwrap'>) => {
   const { getItems, setItems } = useItemsAccessors();
   return (item: string) => {
     if (getItems().length > 1) {
@@ -67,7 +67,7 @@ const useAddItem = () => {
  * Returns a pair of functions which can be used to insert
  * or delete items.
  */
-export const useItemsMutators = (props: Props) => ({
+export const useItemsMutators = (props: Pick<Props, 'unwrap'>) => ({
   addItem: useAddItem(),
   deleteItem: useDeleteItem(props),
 });
