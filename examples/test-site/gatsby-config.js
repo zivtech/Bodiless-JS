@@ -13,6 +13,17 @@ const plugins = [
     },
   },
   '@bodiless/gatsby-theme-bodiless',
+  '@bodiless/gatsby-plugin-ssi',
+  {
+    resolve: 'gatsby-plugin-canonical-urls',
+    options: {
+      // Set the siteUrl to the absolute production url i.e. https://example.com
+      siteUrl: '/',
+    },
+  },
+  {
+    resolve: 'gatsby-plugin-sitemap',
+  },
 ];
 
 const robotsTxtPolicy = [
@@ -25,6 +36,7 @@ process.env.ROBOTSTXT_POLICY = JSON.stringify(robotsTxtPolicy);
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://www.example.com',
     title: 'BodilessJS',
     logo: '/images/bodiless_logo.png',
   },

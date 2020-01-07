@@ -26,3 +26,5 @@ coverage
 # Sonarqube
 .scannerwork
 test-report.xml
+
+/starters

@@ -98,7 +98,6 @@ const useGetMenuOptions = (): () => TMenuOption[] => {
       name: 'newpage',
       icon: 'note_add',
       label: 'Page',
-      isActive: () => true,
       handler: () => formPageAdd(defaultClient, gatsbyPage.subPageTemplate),
     },
   ];

@@ -69,7 +69,6 @@ const withToggleButton = (options? : ToggleMenuOptions) => {
         icon: icon || 'toggle_off',
         name: 'Toggle',
         handler: asHandler(() => setOn(true)),
-        isActive: () => true,
         global: false,
         local: true,
       }]
