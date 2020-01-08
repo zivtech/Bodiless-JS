@@ -63,7 +63,7 @@ files for a BodilessJS.  To install or update them:
    docs/*
    ```
 
-## Step 3. Create platform.sh environment variables.
+### Step 3. Create platform.sh environment variables.
 
 First, configure your local install to connect to your platform.sh project. From
 within your project root, execute
@@ -273,21 +273,21 @@ Are you sure you want to continue? [y/N] y
 ### Step 5. Configure the Jenkins Git integration.
 
 #### Provide an access for Jenkins Service Account to platfrom.sh project
-Open the settings of platform.sh project:  
-https://console.platform.sh/webalerts/XXX/settings/access, where XXX is platform.sh project id  
+Open the settings of platform.sh project:
+https://console.platform.sh/webalerts/XXX/settings/access, where XXX is platform.sh project id
 
 #### Configure bitbucket webhook to Jenkins
-In order to enable integration between bitbucket and newly created repository, webhook should be configured.  
+In order to enable integration between bitbucket and newly created repository, webhook should be configured.
 In order to do so, go to "Repository settings" > "Webhooks" > "Create webhook".  pajoh
 
 #### Create Jenkins Pipeline
-Unless its automated the following Jenkins items should be created manually in Jenkins instance.  
+Unless its automated the following Jenkins items should be created manually in Jenkins instance.
 It should have the following pipeline inside
 ```
 @Library('nameof-shared-lib') _
 platformshActivatorPipeline(platformshProjectId: 'XXX', branchNamingConvention: '^changeset/.*$')
 ```
-XXX should be replaced with platform.sh project id.  
+XXX should be replaced with platform.sh project id.
 ```^changeset/.*$``` could be changed if you like to have different naming convention for branches which are automatically provisioned to platform.sh
 
 ## Building and Deploying
@@ -321,8 +321,8 @@ XXX should be replaced with platform.sh project id.
   bitbucket before activating the environment, in order to allow the branch to
   sync to p.sh. If, when you try to activate, you are asked for an "Environment
   ID", wait a bit and try again.
-- The public url of the new environment will be printed to the console.
-- You can display (and open) the public urls for your site by checking out the
+- The public URL of the new environment will be printed to the console.
+- You can display (and open) the public URLs for your site by checking out the
   corresponding branch and executing `platform url`.
 
 #### Basic Authentication
@@ -340,6 +340,145 @@ add/remove credentials.
 platform help env:http-access
 ```
 to learn more.
+
+### Handling Redirect with Routes
+
+#### Overview
+In HTTP, URL redirecting is a technique to forward one URL to a different URL. It is commonly used for handling cases like URL shortening, preventing broken links when pages removed, pointing multiple domain addresses to a single URL address, etc. It is also critical to preserve page SEO value when there are URL changes.
+
+Redirection can be implemented on a client page with [Refresh Meta Tag](https://en.wikipedia.org/wiki/Meta_refresh) or JavaScript, but the preferred way is to manage redirect rules with server configuration.
+
+You can configure redirects on Platform.sh with route yaml in project environments. A route describes how an incoming HTTP request is processed by Platform.sh, which includes URL redirect. The routes are defined inside .platform/routes.yaml file.
+
+An example of redirect using routes.yaml:
+```
+"https://www.{default}/":
+  type: redirect
+  to: "https://my-host.{default}/"
+```
+
+Here, the URL https://www.example.com/ will be redirected to https://my-host.example.com/
+
+#### Whole-route vs Partial redirects
+Platform.sh offers two different ways to implement redirect rules, **Whole-route redirects** and **Partial redirects**
+
+* Whole-route redirects on host level. A typical use case for this kind of route is adding or removing a www. prefix to domain,
+
+  .platform/routes.yaml
+  ```
+  https://{default}/:
+    type: redirect
+    to: https://www.{default}/
+  ```
+
+  Here, https://example.com/ will be redirected to https://www.example.com/. This approach can be used to redirect vanity domains to their destination URLs.
+
+* Partial redirects allows redirect rules to be added to existing routes,
+
+  .platform/routes.yaml
+  ```
+      https://{default}/:
+        # [...]
+        redirects:
+          expires: 1d
+          paths:
+            '/from':
+              to: 'https://example.com/'
+              code: 301
+  ```
+
+  Here, "https://[domain name]/from" will be redirected to https://www.example.com/.
+
+  Note:
+  * the default response code is 302, in order to use a different response code, mostly commonly 301, add "code: 301" as configurable option.
+  * "expires" param is optional, it specifies duration the redirect will be cached. Examples of valid values include 3600s, 1d, 2w, 3m.
+
+
+  **Examples**
+
+  file .platform/routes.yaml
+
+  1. Redirect path "/foo/bar" to a different site "https://example.com/".
+
+      ```
+      https://{default}/:
+        type: upstream
+        redirects:
+          paths:
+            '/foo/bar':
+              to: 'https://example.com/'
+      ```
+
+  1.  Using Regular Expression to redirect path that matches "/foo/(.*)/bar" pattern.
+
+      ```
+      https://{default}/:
+        type: upstream
+        redirects:
+          paths:
+            '/foo/(.*)/bar':
+              to: '/$1'
+              regexp: true
+      ```
+
+      In this case, path "/foo/touts/bar" will be redirected to "/touts".
+
+  1. Redirect with prefix.
+
+      ```
+      https://{default}/:
+        type: upstream
+        redirects:
+          paths:
+            '/foo/bar':
+              to: '/new'
+              prefix: true
+
+      ```
+
+      Path "/foo/bar" will be redirected to "/new". And path "/foo/bar/to/my/path" will be redirected to "/new/to/my/path" where both the path and all its children included. If "prefix" set to false, only "/foo/bar" will be redirected to "/new".
+
+
+  1. Carry over suffix path with append_suffix option.
+
+      ```
+        https://{default}/:
+          type: upstream
+          redirects:
+            paths:
+              '/foo/bar':
+                to: 'https://{default}/new'
+                append_suffix: false
+
+      ```
+
+      If append_suffix is set to false, "/foo/bar/to/my/path" will be redirected to "/new". Otherwise, "/foo/bar/to/my/path" will be redirects to "/new/to/my/path". append_suffix is ignored if 'prefix' is false or 'regexp' is true.
+
+
+#### HTTP vs HTTPS
+
+Platform.sh recommends using HTTPS requests for all sites exclusively. Specifying HTTPS in route.yaml will automatically redirect any requests for an HTTP URL to HTTPS. While specifying only HTTP routes will result in duplicate HTTPS routes being created automatically, allowing the site to be served from both HTTP and HTTPS without redirects.
+
+Although it is not recommended, HTTPS requests can be redirected to HTTP explicitly to serve the site over HTTP only using route.yaml:
+
+```
+"https://{default}/":
+  type: redirect
+  to: "http://{default}/"
+```
+
+#### Avoid redirect chains
+
+A redirect chain is a series of redirects between the initial URL and the destination URL. The redirect chain could be built over time of development or due to a combination of redirect between different protocol, host name or trailing slash processing etc. Redirect chain causes page loss authority value in search result. It also increases page load time and decreases the overall quality of site.
+
+In order to avoid redirect chains, pay attention on destination path protocol and host name. For example, if the site is running under https and host www, specify destination "to" in route.yaml as:
+```
+  to: "https://www.{default}/path/to/destination/"
+```
+
+The trailing slash should be appended to the configure item if platform environment adds trailing slash to url by default.
+see [Platform.sh Documentation Redirects](https://docs.platform.sh/configuration/routes/redirects.html)
+
 
 ### Pushing changes
 
@@ -503,7 +642,7 @@ branch, you can omit the `-e` flag.
 
 - Tail/print most recent build log (this now includes deploy log):
   ```
-  platform activity:log -e <env-id> 
+  platform activity:log -e <env-id>
   ```
   Note that you may have to wait a few moments after performing
   a git push in order for the new p.sh deployment to begin.
@@ -530,7 +669,7 @@ are only available from the command line).
 - You may see errors in the application log relating to insufficient file
   watchers. This is a known issue. Currently the only workaround is to reduce
   the number of active environments.
-- Public urls for an environment are available by running
+- Public URLs for an environment are available by running
   ```
   platform url -e <env-id>
   ```
