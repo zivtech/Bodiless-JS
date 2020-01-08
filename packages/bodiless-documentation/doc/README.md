@@ -29,8 +29,8 @@ BodilessJS (and it's proprietary extension, CanvasX) are being developed at J&J 
 
 ## Links
 
-[Read the Getting Started Guide on GitHub](https://github.com/johnsonandjohnson/Bodiless-JS/blob/master/packages/bodiless-documentation/doc/About/GettingStarted.md)
-[Join BodilessJS on Slack](https://bodiless-js.slack.com/join/shared_invite/enQtODk2NzI3NDU3NTQxLWQwNzJkOTgxODFlMTAwNDg4Mzc2YmU2OTgzYjIwZjZjYTJkY2QwYjBjNDhjM2QyM2RmNTEzOWNkYmVmNmI1YzM)
+- [Read the Getting Started Guide on GitHub](https://github.com/johnsonandjohnson/Bodiless-JS/blob/master/packages/bodiless-documentation/doc/About/GettingStarted.md)
+- [Join BodilessJS on Slack](https://bodiless-js.slack.com/join/shared_invite/enQtODk2NzI3NDU3NTQxLWQwNzJkOTgxODFlMTAwNDg4Mzc2YmU2OTgzYjIwZjZjYTJkY2QwYjBjNDhjM2QyM2RmNTEzOWNkYmVmNmI1YzM)
 
 
 
