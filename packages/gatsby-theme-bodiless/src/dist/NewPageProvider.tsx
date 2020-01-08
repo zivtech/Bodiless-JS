@@ -32,7 +32,7 @@ type Client = {
 
 type Props = {
   client?: Client;
-}
+};
 
 const formPageAdd = (client: Client, template: string) => contextMenuForm({
   submitValues: async (submittedValues: any) => {

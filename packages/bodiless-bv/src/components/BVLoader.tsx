@@ -23,16 +23,16 @@ type BVConfig = {
   site_ID: string,
   environment: string,
   locale: string
-}
+};
 
 type Props = {
   scriptUrl?: string,
   bvConfig?: BVConfig
-}
+};
 
 export type BVLoaderData = {
   isLoaded: boolean;
-}
+};
 
 const defaultValue = {
   isLoaded: false,

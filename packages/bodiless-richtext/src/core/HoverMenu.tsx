@@ -26,7 +26,7 @@ const defaultUI = {
 
 export type UI = {
   Menu?: ComponentType<HTMLProps<HTMLDivElement>> | string;
-}
+};
 
 export const getUI = (ui: UI = {}) => ({
   ...defaultUI,

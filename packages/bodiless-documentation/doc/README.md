@@ -1,5 +1,7 @@
 # BodilessJS
 
+> [Join us on slack](https://bodiless-js.slack.com/join/shared_invite/enQtODk2NzI3NDU3NTQxLWQwNzJkOTgxODFlMTAwNDg4Mzc2YmU2OTgzYjIwZjZjYTJkY2QwYjBjNDhjM2QyM2RmNTEzOWNkYmVmNmI1YzM)
+
 ## Introduction
 
 BodilessJS is a toolset for building editable websites in a JAMStack. It is based on the idea that, for many sites, a full-blown CMS is unnecessary overhead and introduces more problems than it solves, including:
@@ -28,3 +30,4 @@ BodilessJS (and it's proprietary extension, CanvasX) are being developed at J&J 
 4. Visit `localhost:3000` in your browser.
 
 Requires [NodeJS](https://nodejs.org/en/download/) (v10.15 preferred)
+

@@ -16,6 +16,7 @@ import React, {
   Fragment,
   ComponentType,
   FC,
+  PropsWithChildren,
 } from 'react';
 import { flow } from 'lodash';
 import { observer } from 'mobx-react-lite';
@@ -24,7 +25,7 @@ import { designable, asComponent } from '@bodiless/fclasses';
 import { useItemsMutators, useItemsAccessors } from './model';
 import { Props, FinalProps, ListDesignableComponents } from './types';
 
-const NodeProvider = withNode(Fragment);
+const NodeProvider = withNode<PropsWithChildren<{}>, any>(Fragment);
 type ItemWithNodeProps = {
   nodeKey: string,
   component: ComponentType<any> | string,
