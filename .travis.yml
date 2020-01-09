@@ -4,12 +4,12 @@ node_js:
 install: 
   - npm run setup
 script:
-  - npm run build
+  - npm run build 
   - npm run lint
   - npm run test
-  - touch /examples/test-site/doc/.nojekyll
+  - touch examples/test-site/doc/.nojekyll
 deploy:
-  local_dir: /examples/test-site/doc
+  local_dir: examples/test-site/doc
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
