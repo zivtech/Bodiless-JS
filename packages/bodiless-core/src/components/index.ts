@@ -17,22 +17,25 @@ import ContextWrapper from './ContextWrapper';
 import LocalContextMenu from './LocalContextMenu';
 import PageEditor from './PageEditor';
 import StaticPage from './StaticPage';
-import {
+import type {
   IContextMenuProps as ContextMenuProps,
   ButtonVariantProps,
   UI as ContextMenuUI,
 } from '../Types/ContextMenuTypes';
-import { Props as ContextWrapperProps } from '../Types/ContextWrapperTypes';
+import type { Props as ContextWrapperProps } from '../Types/ContextWrapperTypes';
 
 export {
   ContextMenu,
-  ContextMenuProps,
-  ContextMenuUI,
   getUI,
-  ButtonVariantProps,
   ContextWrapper,
-  ContextWrapperProps,
   LocalContextMenu,
   PageEditor,
   StaticPage,
+};
+
+export type {
+  ContextMenuProps,
+  ContextMenuUI,
+  ButtonVariantProps,
+  ContextWrapperProps,
 };

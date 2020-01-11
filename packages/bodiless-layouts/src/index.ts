@@ -14,10 +14,10 @@
 
 export { default as ComponentSelector } from './ComponentSelector';
 export * from './ComponentSelector/types';
-export { FlexboxGridProps } from './FlexboxGrid/types';
+export type { FlexboxGridProps } from './FlexboxGrid/types';
 export { default as FlexboxGrid } from './FlexboxGrid';
-export {
-  default as SortableResizableWrapper,
+export { default as SortableResizableWrapper } from './SortableResizableWrapper';
+export type {
   Props as SortableResizableProps,
   UI as SortableResizableUI,
 } from './SortableResizableWrapper';

@@ -21,6 +21,7 @@
     "allowJs": false,
     "strictNullChecks": true,
     "baseUrl": "packages",
+    "isolatedModules": true,
     "paths": {
       "@bodiless/accessibility": ["bodiless-accessibility/src"],
       "@bodiless/accessibility/*": ["bodiless-accessibility/src/*"],

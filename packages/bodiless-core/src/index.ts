@@ -31,10 +31,10 @@ import {
   withoutProps,
 } from './hoc';
 import { ifEditable, ifReadOnly, withEditToggle } from './withEditToggle';
-import { TMenuOption } from './PageEditContext/types';
-import { EditButtonOptions } from './Types/EditButtonTypes';
-import { TMenuOptionGetter } from './Types/PageContextProviderTypes';
-import { WithNodeProps } from './Types/NodeTypes';
+import type { TMenuOption } from './PageEditContext/types';
+import type { EditButtonOptions } from './Types/EditButtonTypes';
+import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
+import type { WithNodeProps } from './Types/NodeTypes';
 import {
   ActivateOnEffectProvider,
   withActivateOnEffect,
@@ -49,8 +49,6 @@ export {
   withNodeAndHandlers,
   withNodeDataHandlers,
   withLocalContextMenu,
-  TMenuOption,
-  TMenuOptionGetter,
   PageContextProvider as ContextProvider,
   withPageContext as withMenuOptions,
   PageEditContext,
@@ -58,8 +56,6 @@ export {
   useContextActivator,
   useUUID,
   withEditButton,
-  WithNodeProps,
-  EditButtonOptions,
   withNode,
   withNodeKey,
   contextMenuForm,
@@ -77,6 +73,13 @@ export {
   useActivateOnEffect,
   useActivateOnEffectActivator,
   withChild,
+};
+
+export type {
+  TMenuOption,
+  TMenuOptionGetter,
+  WithNodeProps,
+  EditButtonOptions,
 };
 
 export type Bodiless<P, Q> = (C: ComponentType<P> | string) => ComponentType<Q>;

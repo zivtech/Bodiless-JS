@@ -14,7 +14,7 @@
 
 export { default as Content } from './Content';
 export { default as SlateEditor, withSlateEditor } from './SlateEditor';
-export { default as HoverMenu, HoverMenuProps, UI } from './HoverMenu';
+export type { default as HoverMenu, HoverMenuProps, UI } from './HoverMenu';
 export {
   default as SlateEditorContext,
   useSlateContext,
