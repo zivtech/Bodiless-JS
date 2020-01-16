@@ -41,6 +41,7 @@
     * [Architecture](Development/Architecture/)
     * [Release](Development/Release/)
     * [Contributing](Development/Contributing)
+    * [Local Sites](Development/LocalSites)
     * [Other Resources](Development/OtherResources/)
   * Accessibility
     * [Pa11y](Accessibility/Pa11y)
