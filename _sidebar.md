@@ -46,6 +46,7 @@
   * Accessibility
     * [Pa11y](Accessibility/Pa11y)
   * Organisms
+    * [Burger Menu](Organisms/BurgerMenu)
     * [Main Menu](Organisms/MainMenu)
     * [touts](Organisms/touts)
     * [slider](Organisms/slider)
