@@ -37,6 +37,10 @@ const asYMargin = addClasses('my-2');
 const asNegXMargin = addClasses('-mx-1');
 const asNegYMargin = addClasses('-my-1');
 
+/* Responsive design */
+const asMobileOnly = addClasses('block lg:hidden');
+const asExceptMobile = addClasses('hidden lg:block');
+
 /* Primary coloring */
 const asPrimaryColorBackground = addClasses('bg-gray-200');
 const asTextColorPrimary = addClasses('text-black');
@@ -51,6 +55,9 @@ const asSuperScript = addClasses('');
 const asHeader1 = flow(addClasses('text-3xl'), asTextColorPrimary);
 const asHeader2 = addClasses('text-2xl');
 const asHeader3 = addClasses('text-xl');
+
+/* BlockQuote */
+const asBlockQuote = addClasses('block mx-4');
 
 /* Image component */
 const asImage = addClasses('');
@@ -81,6 +88,7 @@ export {
   asAlignRight,
   asAlignCenter,
   asAlignJustify,
+  asExceptMobile,
   asHeader1,
   asHeader2,
   asHeader3,
@@ -93,10 +101,12 @@ export {
   asEditableLink,
   asEditable,
   asImageRounded,
+  asMobileOnly,
   asSuperScript,
   asTextColorPrimary,
   asXMargin,
   asYMargin,
   asNegXMargin,
   asNegYMargin,
+  asBlockQuote,
 };

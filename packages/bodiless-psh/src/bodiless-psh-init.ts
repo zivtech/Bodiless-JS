@@ -16,7 +16,6 @@
 /* eslint-disable no-console */
 import copyfiles from 'copyfiles';
 import { rename } from 'fs';
-import { exec } from 'child_process';
 
 console.log('Initializing platform.sh configuration...');
 
@@ -41,41 +40,25 @@ copyfiles(staticAppPaths, { up: true }, (err: any) => {
   }
 });
 
-const docsAppPaths = [
-  './node_modules/@bodiless/psh/resources/docs/*',
-  './docs',
-];
-copyfiles(docsAppPaths, { up: true }, (err: any) => {
-  if (err) console.log('Error copying docs app files', err);
-  else {
-    rename('./docs/documentation.platform.app.yaml', './docs/.platform.app.yaml', err$ => {
-      if (err$) console.log('Error renaming docs.platform.app.yaml', err$);
-    });
-    rename('./docs/documentation.package.json', './docs/package.json', err$ => {
-      if (err$) console.log('Error renaming package.json', err$);
-    });
-  }
-});
-
-console.log('Generating docs/package-lock.json...');
-exec('npm --prefix ./docs install --package-lock-only', err => {
-  if (err) {
-    console.error(`exec error: ${err}`);
-  } else {
-    console.log('done');
-  }
-});
-
 // Copying configs for edit environment.
 const paths$$ = [
   './node_modules/@bodiless/psh/resources/edit/*',
   './edit',
 ];
-copyfiles(paths$$, { up: true, all: true }, (err: any) => {
+copyfiles(paths$$, { up: true, all: true, exclude: 'platform.custom.sh' }, (err: any) => {
   if (err) console.log('Error copying /edit', err);
   else {
     rename('./edit/edit.platform.app.yaml', './edit/.platform.app.yaml', err$ => {
       if (err$) console.log('Error renaming edit.platform.app.yaml', err$);
     });
   }
+});
+
+// Don't overwrite platform.custom.sh if it already exists.
+const paths$$$ = [
+  './node_modules/@bodiless/psh/resources/edit/platform.custom.sh',
+  './edit',
+];
+copyfiles(paths$$$, { up: true, soft: true }, (err: any) => {
+  if (err) console.log('Error copying /edit', err);
 });

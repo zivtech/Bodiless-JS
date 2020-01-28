@@ -80,34 +80,39 @@ const withDisplayName = <P extends Object> (name: string) => (Component: Compone
   const newMeta = mergeWith({}, Component, { displayName: name });
   return Object.assign(WithDisplayName, newMeta);
 };
-export const applyDesign = <C extends DesignableComponents> (components: C) => (
-  (design?: Design<C>) => {
-    const incomingDesign = design || {} as Design<C>;
-    // const keysToApply = intersection(Object.keys(components), Object.keys(incomingDesign));
-    const keysToApply = Object.keys(incomingDesign);
-    const appliedDesign = keysToApply.reduce(
-      (acc, key) => (
-        {
-          ...acc,
-          // We are using a Fragment if they Design<C> has a key that is not explicitly in C
-          // We feel safe casting this to C[string] because DesignableComponents defines it as
-          // ComponentType<any>
-          [key]: incomingDesign[key]!((components[key] || Fragment) as any as C[string]),
-        } as C
-      ),
-      {} as C,
-    );
-    const unNamedComponents = { ...components, ...appliedDesign } as C;
-    // Lets wrap the object so that we can name it after the key.
-    if (!design) return { ...components } as C;
-    return Object.keys(unNamedComponents).reduce(
-      (acc, name) => (
-        { ...acc, [name]: withDisplayName(name)(unNamedComponents[name] as ComponentType) }
-      ),
-      {},
-    );
-  }
-);
+export const applyDesign = <C extends DesignableComponents> (
+  components: C,
+  DefaultComponent: ComponentType<any> = Fragment,
+) => (
+    (design?: Design<C>) => {
+      const incomingDesign = design || {} as Design<C>;
+      // const keysToApply = intersection(Object.keys(components), Object.keys(incomingDesign));
+      const keysToApply = Object.keys(incomingDesign);
+      const appliedDesign = keysToApply.reduce(
+        (acc, key) => (
+          {
+            ...acc,
+            // We are using a Fragment if they Design<C> has a key that is not explicitly in C
+            // We feel safe casting this to C[string] because DesignableComponents defines it as
+            // ComponentType<any>
+            [key]: incomingDesign[key]!(
+              (components[key] || DefaultComponent) as any as C[string],
+            ),
+          } as C
+        ),
+        {} as C,
+      );
+      const unNamedComponents = { ...components, ...appliedDesign } as C;
+      // Lets wrap the object so that we can name it after the key.
+      if (!design) return { ...components } as C;
+      return Object.keys(unNamedComponents).reduce(
+        (acc, name) => (
+          { ...acc, [name]: withDisplayName(name)(unNamedComponents[name] as ComponentType) }
+        ),
+        {},
+      );
+    }
+  );
 export const withDesign = <C extends DesignableComponents>(design: Design<C>) => (
   <P extends DesignableProps<C>>(Component: ComponentType<P>) => {
     const WithDesign = (props: P) => {
@@ -178,11 +183,12 @@ export const withTransformer = <P, Q, X extends Object> (funcs: WithTransformerP
   }
 );
 
-export const designable = <C extends DesignableComponents> (start: C) => (
+export const designable = <C extends DesignableComponents> (start: C | Function) => (
   <P extends object>(Component: ComponentType<P & DesignableComponentsProps<C>>) => {
     const transformFixed = (props:DesignableProps<C> & P) => {
       const { design } = props;
-      return { components: applyDesign(start)(design) } as DesignableComponentsProps<C>;
+      const apply = typeof start === 'function' ? start : applyDesign(start);
+      return { components: apply(design) } as DesignableComponentsProps<C>;
     };
     const transformPassthrough = (props:DesignableProps<C> & P) => omit(props, ['design']) as P;
     const Designable = withTransformer({ transformFixed, transformPassthrough })(Component);
