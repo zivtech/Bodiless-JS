@@ -19,8 +19,6 @@ Basic components to build out sites.
 - `ImgTout` - Tout with Image
 - `Slider` - Default Slider
 - [Main Menu](/Organisms/MainMenu.md)
-- Burger Menu - mobile display of Main Menu
-- Product Tout - Specialized tout for products
 
 ## Usage
 
