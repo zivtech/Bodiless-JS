@@ -51,6 +51,7 @@ export enum TrailingSlash {
 
 export enum TransformerRule {
   Replace = 'replace',
+  ReplaceString = 'replaceString',
   ToComponent = 'tocomponent',
 }
 
@@ -183,11 +184,21 @@ export class SiteFlattener {
     if (this.params.trailingSlash === TrailingSlash.Remove) {
       htmlParser.removeTrailingSlash(pageUrl);
     }
-    this.params.transformers
-      .filter(
-        item => item.rule === TransformerRule.Replace && this.shouldReplace(pageUrl, item.context),
-      )
-      .forEach(item => htmlParser.replace(item.selector, item.replacement));
+    if (this.params.transformers) {
+      this.params.transformers
+        .filter(
+          item => (
+            item.rule === TransformerRule.ReplaceString && this.shouldReplace(pageUrl, item.context)
+          ),
+        )
+        .forEach(item => htmlParser.replaceString(item.selector, item.replacement));
+      this.params.transformers
+        .filter(
+          item => item.rule === TransformerRule.Replace
+            && this.shouldReplace(pageUrl, item.context),
+        )
+        .forEach(item => htmlParser.replace(item.selector, item.replacement));
+    }
     const pageHtml = htmlParser.getPageHtml();
     return this.transformAttributes(pageHtml);
   }
@@ -205,8 +216,9 @@ export class SiteFlattener {
   }
 
   private getHtmlToComponentsSettings(): HtmlToComponentsSettings {
+    const tranfomers = this.params.transformers || [];
     const settings: HtmlToComponentsSettings = {
-      rules: this.params.transformers
+      rules: tranfomers
         .filter(item => item.rule === TransformerRule.ToComponent)
         .map(item => ({
           selector: item.selector,

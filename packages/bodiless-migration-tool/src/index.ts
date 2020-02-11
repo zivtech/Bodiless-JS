@@ -80,7 +80,7 @@ class MigrationTool extends Command {
         serve: false,
       },
       trailingSlash: settings.trailingSlash || TrailingSlash.Add,
-      transformers: settings.transformers,
+      transformers: settings.transformers || [],
       htmltojsx: true,
     };
     const flattener = new SiteFlattener(flattenerParams);
@@ -104,6 +104,7 @@ class MigrationTool extends Command {
     const defaultSettingsPath = path.resolve(__dirname, '..', 'settings.json');
     const rootSettingsExist = fs.existsSync(rootSettingsPath);
     const settingsPath = rootSettingsExist ? rootSettingsPath : defaultSettingsPath;
+    console.log(`Applying migration settings from ${settingsPath}`);
     return JSON.parse(fs.readFileSync(settingsPath).toString());
   }
 }
