@@ -1,2 +1,2 @@
 * Design
-  * [Design System](Design/DesignSystem)
+  * [Design System](/Design/DesignSystem)

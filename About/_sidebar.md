@@ -1,4 +1,4 @@
 * About
-  * [Getting Started](About/GettingStarted)
-  * [Site Build Basics](About/SiteBuildBasics)
-  * [Core Principles](About/CorePrinciples)
+  * [Core Principles](/About/CorePrinciples)
+  * [Getting Started](/About/GettingStarted)
+  * [Site Build Basics](/About/SiteBuildBasics)
