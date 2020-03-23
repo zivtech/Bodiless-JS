@@ -2,9 +2,10 @@
 
 This section describes how to work with BodilessJS to build out a basic editable site. A standalone Gatsby starter will be released soon, but for now you can work with the example/test site in the core monorepo. 
 
-To begin, create a site branch in the repository and work within `/examples/test-site`. All paths in the section below are relative to this directory.
-
 > Note: The API's described below are under active development and are subject to change.
+
+## Create a Site
+To begin, follow the directions to [create a new site](./GettingStarted?id=creating-a-new-site) and all the pages we create in this tutorial will be in this new site.
 
 ## Creating pages
 
@@ -480,10 +481,10 @@ Finally, replace the main content of `Gallery` with the flexbox grid.
 
 Now remove the following from `index.tsx`:
 ```
-<div className="flex mt-2">
-  <CaptionedImage nodeKey="image1" className="w-1/2 mx-2" />
-  <CaptionedImage nodeKey="image2" className="w-1/2 mx-2"/>
-</div>
+<Gallery nodeKey="gallery">
+  <GalleryTile nodeKey="tile1" />
+  <GalleryTile nodeKey="tile2" />
+</Gallery>
 ```
 And replace with:
 ```
