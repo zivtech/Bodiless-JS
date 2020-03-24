@@ -7,6 +7,8 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const webpack = require('webpack');
 
 // exports.onCreateBabelConfig = ({ actions: { setBabelPlugin } }) => {
 exports.onCreateBabelConfig = args => {
@@ -40,6 +42,23 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
         plugins: [new TsconfigPathsPlugin()],
         alias: reactAlias,
       },
+    });
+  }
+
+  if (stage === 'build-javascript') {
+    actions.setWebpackConfig({
+      optimization: {
+        usedExports: true,
+      },
+      plugins: [
+        new webpack.NormalModuleReplacementPlugin(
+          /(.*)EditableNode.dev(\.*)/,
+          resource => {
+            // eslint-disable-next-line no-param-reassign
+            resource.request = resource.request.replace(/.dev/, '.prod');
+          },
+        ),
+      ],
     });
   }
 };
