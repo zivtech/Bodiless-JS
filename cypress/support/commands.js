@@ -38,3 +38,9 @@ Cypress.Commands.add("clickEdit", () => {
     cy.xpath('//*[@aria-label="Edit"]')
       .click()
 })
+
+
+Cypress.Commands.add("hideContextMenu", () => {
+  cy.xpath('//h1')
+    .click();
+})
