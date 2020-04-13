@@ -14,27 +14,39 @@
 
 import Slider from './components/Slider';
 
+import {
+  asBurgerSubMenu,
+  asEditableBurgerSubMenu,
+  BurgerMenuClean,
+  withBurgerSubmenu,
+} from './components/BurgerMenu';
+
 export {
   SingleAccordion,
   SingleAccordionClean,
   asSingleAccordion,
+  asTestableAccordion,
 } from './components/SingleAccordion';
 
 export {
-  withSubmenu,
+  asEditableMainMenu,
   asEditableMenu,
-  asEditableSubMenu,
+  asEditableMainSubMenu,
   asHorizontalMenu,
   asHorizontalSubMenu,
+  asMainMenu,
+  asMainSubMenu,
   asMenu,
-  asSubMenu,
   MenuLink,
+  withSubmenu,
 } from './components/MainMenu/index';
+
 
 export {
   Tout,
   ToutClean,
   asEditableTout,
+  asTestableTout,
 } from './components/Touts';
 
 export {
@@ -53,5 +65,12 @@ export {
   asToutOverlayCta,
   asToutNoBodyNoTitle,
 } from './components/Touts.tokens';
+
+export {
+  asBurgerSubMenu,
+  asEditableBurgerSubMenu,
+  BurgerMenuClean,
+  withBurgerSubmenu,
+};
 
 export { Slider };

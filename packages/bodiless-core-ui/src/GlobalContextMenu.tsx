@@ -14,19 +14,29 @@
 
 import React, { FC } from 'react';
 import ReactTooltip from 'rc-tooltip';
-import { addClasses } from '@bodiless/fclasses';
+import { flow } from 'lodash';
+import {
+  addClasses, removeClasses, addProps,
+} from '@bodiless/fclasses';
 import {
   ContextMenu, ContextMenuUI, ContextMenuProps,
 } from '@bodiless/core';
 import {
   ComponentFormTitle, ComponentFormCloseButton, ComponentFormLabel, ComponentFormText,
   ComponentFormButton, Icon, Div, Hr, ToolbarButton, ComponentFormUnwrapButton,
-  ComponentFormError,
+  ComponentFormError, ComponentFormSubmitButton,
 } from '@bodiless/ui';
 
-const Toolbar = addClasses(
-  'bl-bg-black bl-rounded bl-z-50 bl-p-grid-2 bl-fixed bl-top-grid-0 bl-left-grid-0 bl-text-white',
+const Toolbar = flow(
+  addClasses('bl-bg-black bl-rounded bl-z-50 bl-p-grid-2 bl-fixed bl-top-grid-0 bl-left-grid-0 bl-text-white'),
+  addProps({ role: 'toolbar', 'aria-label': 'Global Context Menu Left', id: 'global-context-menu' }),
 )(Div);
+
+const ToolbarRight = flow(
+  addClasses('bl-right-grid-0'),
+  removeClasses('bl-left-grid-0'),
+  addProps({ 'aria-label': 'Global Context Menu Right' }),
+)(Toolbar);
 
 export const FormWrapper = addClasses('bl-flex')(Div);
 
@@ -39,6 +49,18 @@ export const GlobalTooltip: FC<ReactTooltip['props']> = props => (
     {...props}
     placement="rightTop"
     overlayStyle={{ position: 'fixed', opacity: 1 }}
+    getTooltipContainer={() => {
+      let el = document.getElementById('global-tooltip-container');
+
+      if (!el) {
+        el = document.createElement('div');
+        el.setAttribute('id', 'global-tooltip-container');
+        el.setAttribute('style', 'position:fixed;');
+        document.body.appendChild(el);
+      }
+
+      return el;
+    }}
   />
 );
 
@@ -48,6 +70,7 @@ const ui: ContextMenuUI = {
   ComponentFormText,
   ComponentFormButton,
   ComponentFormCloseButton,
+  ComponentFormSubmitButton,
   ComponentFormUnwrapButton,
   ComponentFormError,
   Icon,
@@ -58,8 +81,16 @@ const ui: ContextMenuUI = {
   Tooltip: GlobalTooltip,
 };
 
-const GlobalContextMenu: FC<ContextMenuProps> = props => (
-  <ContextMenu {...props} ui={ui} />
-);
+const GlobalContextMenu: FC<ContextMenuProps> = props => {
+  const { isPositionToggled = false } = props;
+  if (isPositionToggled) {
+    const updatedUi = {
+      ...ui,
+      Toolbar: ToolbarRight,
+    };
+    return <ContextMenu {...props} ui={updatedUi} />;
+  }
+  return <ContextMenu {...props} ui={ui} />;
+};
 
 export default GlobalContextMenu;

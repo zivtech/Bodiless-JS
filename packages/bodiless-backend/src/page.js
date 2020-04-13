@@ -12,7 +12,6 @@
  * limitations under the License.
  */
 
-require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const Logger = require('./logger');
@@ -63,6 +62,19 @@ class Page {
     const readPromise = new Promise((resolve, reject) => {
       ensureDirectoryExistence(this.file);
       fs.writeFile(this.file, JSON.stringify(data, null, 2), err => {
+        if (err) {
+          reject(err);
+        }
+        resolve(this);
+      });
+    });
+    return readPromise;
+  }
+
+  delete() {
+    const readPromise = new Promise((resolve, reject) => {
+      ensureDirectoryExistence(this.file);
+      fs.unlink(this.file, err => {
         if (err) {
           reject(err);
         }

@@ -13,7 +13,7 @@
  */
 
 /* eslint no-console: 0 */
-require('dotenv').config();
+/* eslint global-require: 0 */
 const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
@@ -29,10 +29,12 @@ const backendFilePath = process.env.BODILESS_BACKEND_DATA_FILE_PATH || '';
 const defaultBackendPagePath = path.resolve(backendFilePath, 'pages');
 const backendPagePath = process.env.BODILESS_BACKEND_DATA_PAGE_PATH || defaultBackendPagePath;
 const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
+const isExtendedLogging = (process.env.BODILESS_BACKEND_EXTENDED_LOGGING_ENABLED || '0') === '1';
 const canCommit = (process.env.BODILESS_BACKEND_COMMIT_ENABLED || '0') === '1';
 
 const logger = new Logger('BACKEND');
 
+const isMorganEnabled = () => isExtendedLogging;
 /*
 This Class holds all of the interaction with Git
 */
@@ -231,7 +233,7 @@ class GitCommit {
     return result;
   }
 
-  async commit(message) {
+  async commit(message, author) {
     const { remote } = this;
 
     await this.pull();
@@ -262,10 +264,14 @@ class GitCommit {
     }
 
     // Commit the staged files..
-    const res = await GitCmd.cmd()
-      .add('commit', '-m', message)
-      .addFiles(...this.files)
-      .exec();
+    const commitCmd = GitCmd.cmd();
+    commitCmd.add('commit', '-m', message);
+    // If we have an author, add it to the commit.
+    if (author) {
+      commitCmd.add('--author', author);
+    }
+    commitCmd.addFiles(...this.files);
+    const res = await commitCmd.exec();
 
     try {
       // Push changes after succesful rebase.
@@ -304,6 +310,12 @@ class Backend {
   constructor() {
     this.app = express();
     this.app.use(bodyParser.json());
+    if (isMorganEnabled()) {
+      const morgan = require('morgan');
+      const morganBody = require('morgan-body');
+      this.app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+      morganBody(this.app);
+    }
     this.app.use((req, res, next) => {
       res.header(
         'Access-Control-Allow-Headers',
@@ -342,7 +354,7 @@ class Backend {
       res.status(500);
     }
     // End response process to prevent any further queued promises/events from responding.
-    res.send(error.message).end();
+    res.send(Backend.sanitizeOutput(error.message)).end();
   }
 
   static gitCommitsEnabled(res) {
@@ -420,14 +432,14 @@ class Backend {
     route.post((req, res) => {
       Backend.gitCommitsEnabled(res);
       logger.log(`Start committing: ${req.body.message}`);
-
+      const { author } = req.body;
       const files = req.body.files || [];
       const dirs = req.body.dirs || [];
       new GitCommit()
         .addDirectory(...dirs)
         .addPaths(...req.body.paths)
         .addFiles(...files)
-        .commit(`[CONTENT] ${req.body.message}`)
+        .commit(`[CONTENT] ${req.body.message}`, author)
         // .then(Git.cmd().add('push').exec())
         .then(data => {
           res.send(data.stdout);
@@ -559,6 +571,20 @@ class Backend {
             logger.log(reason);
             res.send({});
           });
+      })
+      .delete((req, res) => {
+        const page = Backend.getPage(Backend.getPath(req));
+        logger.log(`Start deletion for:${page.file}`);
+        page
+          .delete()
+          .then(data => {
+            logger.log('Sending', data);
+            res.send(data);
+          })
+          .catch(reason => {
+            logger.log(reason);
+            res.send({});
+          });
       });
   }
 
@@ -579,7 +605,6 @@ class Backend {
 
   static setPages(route) {
     route.post((req, res) => {
-      console.log('hey from setPages');
       const pagePath = req.body.path || '';
       const template = req.body.template || '_default';
       const filePath = path.join(pagePath, 'index');
@@ -606,6 +631,10 @@ class Backend {
           res.send({});
         });
     });
+  }
+
+  static sanitizeOutput(data) {
+    return data.replace(/(http|https):\/\/[^@]+:[^@]+@/gi, '$1://****:****@');
   }
 
   start(port) {

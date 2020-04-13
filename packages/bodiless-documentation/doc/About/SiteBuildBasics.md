@@ -1,10 +1,15 @@
 # Site Building Basics
 
-This section describes how to work with BodilessJS to build out a basic editable site. A standalone Gatsby starter will be released soon, but for now you can work with the example/test site in the core monorepo. 
-
-To begin, create a site branch in the repository and work within `/examples/test-site`. All paths in the section below are relative to this directory.
+This section describes how to work with BodilessJS to build out a basic editable
+site. A standalone Gatsby starter will be released soon, but for now you must
+clone the Bodiless monorepo to create a new site.
 
 > Note: The API's described below are under active development and are subject to change.
+
+## Create a Site
+To begin, follow the directions to
+[create a new site](./GettingStarted?id=creating-a-new-site) and all the pages
+we create in this tutorial will be in this new site.
 
 ## Creating pages
 
@@ -50,7 +55,8 @@ A few things to note:
 1. Styling uses [Tailwind](https://tailwindcss.com).  *More about this later*.
 
 Now start the development server (`npm run start`) and navigate to
-`localhost:8005/gallery`. This is just a basic Gatsby page - nothing remarkable yet (except Gatsby itself, of course!).
+`localhost:8000/gallery`. This is just a basic Gatsby page - nothing remarkable
+yet (except Gatsby itself, of course!).
 
 ### Creating pages from the UI
 
@@ -235,27 +241,32 @@ The BodilessJS core component:`RichText` is used to make the body of the page ed
 First, create your configured editor.  Create a `withSimpleEditor.tsx` file alongside your `index.tsx` file in the gallery page folder with the following contents:
 
 ```
+import { flow } from 'lodash';
 import { RichText } from '@bodiless/richtext-ui';
 import {
-  Strong, Em, A, Span, addClasses,
+  Strong,
+  addClasses,
+  withDesign,
 } from '@bodiless/fclasses';
-import { asBodilessLink } from '@bodiless/components';
 import {
-  asBoldItem, asItalicItem, asUnderlineItem, asLinkItem, withItems,
-} from '../../../components/Editors/items';
+  withComponent,
+} from '@bodiless/richtext';
+import { asBodilessLink } from '@bodiless/components';
 import asEditor from '../../../components/Editors/asEditor';
 
-const Underline = addClasses('underline')(Span);
-const Link = asBodilessLink()(A);
+const asBold = withComponent(Strong);
+const asItalic = addClasses('');
+const asUnderline = addClasses('underline');
+const asLink = flow(asBodilessLink(), addClasses('text-blue-700 underline'));
 
-const items = [
-  asBoldItem(Strong),
-  asItalicItem(Em),
-  asUnderlineItem(Underline),
-  asLinkItem(Link),
-];
+const simpleDesign = {
+  Bold: asBold,
+  Italic: asItalic,
+  Underline: asUnderline,
+  Link: asLink,
+};
 
-const SimpleEditor = withItems(items)(RichText);
+const SimpleEditor = withDesign(simpleDesign)(RichText);
 export default asEditor(SimpleEditor);
 ```
 
@@ -283,23 +294,25 @@ excellent [SlateJS](https://www.slatejs.org/) library. The content is saved in S
 
 To configure `RichText` editor, we specified what components should be used to render different text formatting options.  Normally, these would be defined by the styleguide of a site.  Here we used very simple ones:
 ```
-const Underline = addClasses('underline')(Span);
-const Link = asBodilessLink()(A);
+const asBold = withComponent(Strong);
+const asItalic = addClasses('');
+const asUnderline = addClasses('underline');
+const asLink = flow(asBodilessLink(), addClasses('text-blue-700 underline'));
 ```
 
 Next, we defined how the user would interact with these options (what each would be named, how it could be applied, what icon (if any) would represent it, etc). BodilessJS provides some defaults for common use cases, and we used them here:
 ```
-const items = [
-  asBoldItem(Bold),
-  asItalicItem(Italic),
-  asUnderlineItem(Underline),
-  asLinkItem(Link),
-];
+const simpleDesign = {
+  Bold: asBold,
+  Italic: asItalic,
+  Underline: asUnderline,
+  Link: asLink,
+};
 ```
 
 Finally, we created a HOC which would add a simple rich text editor as a child to the component to which it was applied (just as `asEditable()` added an editor for unformatted text):
 ```
-const SimpleEditor = withItems(items)(RichText);
+const SimpleEditor = withDesign(simpleDesign)(RichText);
 export default asEditor(SimpleEditor);
 ```
 
@@ -473,10 +486,10 @@ Finally, replace the main content of `Gallery` with the flexbox grid.
 
 Now remove the following from `index.tsx`:
 ```
-<div className="flex mt-2">
-  <CaptionedImage nodeKey="image1" className="w-1/2 mx-2" />
-  <CaptionedImage nodeKey="image2" className="w-1/2 mx-2"/>
-</div>
+<Gallery nodeKey="gallery">
+  <GalleryTile nodeKey="tile1" />
+  <GalleryTile nodeKey="tile2" />
+</Gallery>
 ```
 And replace with:
 ```
@@ -502,7 +515,7 @@ With your viewport at desktop width, use the component selector to place two 50%
 
 ### Selection vs Configuration
 
-BodilessJS favors selection over configuration. It follows the belief that it is better to create lots of simple components than to create a few complex components. The component selector supports this pattern by providing sophisticated search and filter capabilities allowing a content editor to find the exact component they are looking for quickly and easily. You can read more about this [the next section](About/CorePrinciples).
+BodilessJS favors selection over configuration. It follows the belief that it is better to create lots of simple components than to create a few complex components. The component selector supports this pattern by providing sophisticated search and filter capabilities allowing a content editor to find the exact component they are looking for quickly and easily. You can read more about this [the next section](CorePrinciples).
 
 With this in mind we can use the `varyDesign` function to refactor the design we use in the Gallery.
 

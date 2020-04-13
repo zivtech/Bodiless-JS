@@ -16,7 +16,6 @@
 import { Command, flags } from '@oclif/command';
 import fs from 'fs';
 import path from 'path';
-import { inMonorepo } from './helpers';
 import {
   SiteFlattener,
   SiteFlattenerParams,
@@ -66,6 +65,7 @@ class MigrationTool extends Command {
       websiteUrl: settings.url,
       workDir: this.getWorkDir(),
       gitRepository: this.getGitRepo(),
+      reservedPaths: ['404'],
       scraperParams: {
         pageUrl: settings.url,
         maxDepth: settings.crawler.maxDepth,
@@ -81,8 +81,12 @@ class MigrationTool extends Command {
         serve: false,
       },
       trailingSlash: settings.trailingSlash || TrailingSlash.Add,
-      transformers: settings.transformers,
+      transformers: settings.transformers || [],
       htmltojsx: true,
+      disableTailwind: settings.disableTailwind === undefined ? true : settings.disableTailwind,
+      allowFallbackHtml: settings.allowFallbackHtml === undefined
+        ? true
+        : (settings.allowFallbackHtml === true),
     };
     const flattener = new SiteFlattener(flattenerParams);
     await flattener.start();
@@ -93,11 +97,7 @@ class MigrationTool extends Command {
   }
 
   private getWorkDir(): string {
-    let workDir = process.cwd();
-    if (inMonorepo()) {
-      workDir = path.join(__dirname, '../../..');
-    }
-    return workDir;
+    return process.cwd();
   }
 
   private getGitRepo(): string {
@@ -109,6 +109,7 @@ class MigrationTool extends Command {
     const defaultSettingsPath = path.resolve(__dirname, '..', 'settings.json');
     const rootSettingsExist = fs.existsSync(rootSettingsPath);
     const settingsPath = rootSettingsExist ? rootSettingsPath : defaultSettingsPath;
+    console.log(`Applying migration settings from ${settingsPath}`);
     return JSON.parse(fs.readFileSync(settingsPath).toString());
   }
 }

@@ -14,12 +14,18 @@
 
 /* eslint-disable no-alert */
 import React, { FC } from 'react';
+import Cookies from 'universal-cookie';
 import {
-  contextMenuForm, getUI, ContextProvider, TMenuOption,
+  contextMenuForm,
+  getUI,
+  ContextProvider,
+  TMenuOption,
+  useEditContext,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
 import CommitsList from './CommitsList';
+
 
 const backendFilePath = process.env.BODILESS_BACKEND_DATA_FILE_PATH || '';
 const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
@@ -39,7 +45,8 @@ type Client = {
     message: string,
     directories: string[],
     paths: string[],
-    files: string[]
+    files: string[],
+    author?: string,
   ) => AxiosPromise<any>,
   getLatestCommits: () => AxiosPromise<any>,
   pull: () => AxiosPromise<any>,
@@ -50,12 +57,16 @@ type Props = {
   client?: Client,
 };
 
-const handle = (promise: AxiosPromise<any>) => promise
+const handle = (promise: AxiosPromise<any>, callback?: () => void) => promise
   .then(res => {
     if (res.status === 200) {
       // @TODO: Display the response in a component instead of an alert.
       // eslint-disable-next-line no-undef
-      alert('Operation successful.');
+      if (typeof callback === 'function') {
+        callback();
+      } else {
+        alert('Operation successful.');
+      }
     } else {
       // eslint-disable-next-line no-undef
       alert('An unknown error has occured.');
@@ -87,9 +98,12 @@ const formGetCommitsList = (client: Client) => contextMenuForm({
   },
 );
 
+// Get the author from the cookie.
+const cookies = new Cookies();
+const author = cookies.get('author');
 const formGitCommit = (client: Client) => contextMenuForm({
   submitValues: (submitValues: any) => handle(client.commit(submitValues.commitMessage,
-    [backendFilePath, backendStaticPath], [], [])),
+    [backendFilePath, backendStaticPath], [], [], author)),
 })(
   ({ ui }: any) => {
     const { ComponentFormTitle, ComponentFormLabel, ComponentFormText } = getUI(ui);
@@ -105,24 +119,45 @@ const formGitCommit = (client: Client) => contextMenuForm({
   },
 );
 
-const formGitPull = (client: Client) => contextMenuForm({
-  submitValues: () => handle(client.pull()),
-})(
-  ({ ui }: any) => {
-    const { ComponentFormTitle, ComponentFormLabel } = getUI(ui);
-    return (
-      <>
-        <ComponentFormTitle>Download Changes</ComponentFormTitle>
-        <ComponentFormLabel htmlFor="pull-txt">
-          Download remote changes
-        </ComponentFormLabel>
-      </>
-    );
-  },
-);
+// Currently descoping the Pull Changes Button Functionality.
+// Might use it later.
 
-const formGitReset = (client: Client) => contextMenuForm({
-  submitValues: () => handle(client.reset()),
+// const formGitPull = (client: Client) => contextMenuForm({
+//   submitValues: () => handle(client.pull()),
+// })(
+//   ({ ui }: any) => {
+//     const { ComponentFormTitle, ComponentFormLabel } = getUI(ui);
+//     return (
+//       <>
+//         <ComponentFormTitle>Download Changes</ComponentFormTitle>
+//         <ComponentFormLabel htmlFor="pull-txt">
+//           Download remote changes
+//         </ComponentFormLabel>
+//       </>
+//     );
+//   },
+// );
+
+const formGitReset = (client: Client, context: any) => contextMenuForm({
+  submitValues: async () => {
+    context.showPageOverlay({
+      message: 'Revert is in progress. This may take a minute.',
+      maxTimeoutInSeconds: 10,
+    });
+    try {
+      await client.reset();
+      context.showPageOverlay({
+        message: 'Revert completed.',
+        hasSpinner: false,
+        hasCloseButton: true,
+        onClose: () => {
+          window.location.reload();
+        },
+      });
+    } catch {
+      context.showError();
+    }
+  },
 })(
   ({ ui }: any) => {
     const { ComponentFormTitle, ComponentFormLabel } = getUI(ui);
@@ -139,7 +174,7 @@ const formGitReset = (client: Client) => contextMenuForm({
 
 const defaultClient = new BackendClient();
 
-const getMenuOptions = (client: Client = defaultClient): TMenuOption[] => {
+const getMenuOptions = (client: Client = defaultClient, context: any): TMenuOption[] => {
   const saveChanges = canCommit ? formGitCommit(client) : undefined;
   return [
     {
@@ -151,28 +186,36 @@ const getMenuOptions = (client: Client = defaultClient): TMenuOption[] => {
       name: 'savechanges',
       icon: 'cloud_upload',
       isDisabled: () => !canCommit,
+      isHidden: () => !context.isEdit,
       handler: () => saveChanges,
     },
-    {
-      name: 'pullchanges',
-      icon: 'cloud_download',
-      handler: () => formGitPull(client),
-    },
+    // Currently descoping the Pull Changes Button Functionality.
+    // Might use it later.
+    // {
+    //   name: 'pullchanges',
+    //   icon: 'cloud_download',
+    //   handler: () => formGitPull(client),
+    // },
     {
       name: 'resetchanges',
       icon: 'first_page',
-      handler: () => formGitReset(client),
+      isHidden: () => !context.isEdit,
+      handler: () => formGitReset(client, context),
     },
   ];
 };
 
-const GitProvider: FC<Props> = ({ children, client }) => (
-  <ContextProvider
-    getMenuOptions={() => getMenuOptions(client)}
-    name="Git"
-  >
-    {children}
-  </ContextProvider>
-);
+const GitProvider: FC<Props> = ({ children, client }) => {
+  const context = useEditContext();
+
+  return (
+    <ContextProvider
+      getMenuOptions={() => getMenuOptions(client, context)}
+      name="Git"
+    >
+      {children}
+    </ContextProvider>
+  );
+};
 
 export default GitProvider;

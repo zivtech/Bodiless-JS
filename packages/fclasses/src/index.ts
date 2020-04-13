@@ -13,9 +13,13 @@
  */
 
 import {
+<<<<<<< HEAD
   stylable,
   addClasses,
   removeClasses,
+=======
+  stylable, addClasses, HOC, removeClasses, StylableProps,
+>>>>>>> master
 } from './FClasses';
 
 import type {
@@ -71,4 +75,12 @@ export type {
   DesignElement,
   DesignableComponentsProps,
   DesignableComponents,
+<<<<<<< HEAD
+=======
+  HOC,
+  designable,
+  varyDesign,
+  extendDesign,
+  asComponent,
+>>>>>>> master
 };

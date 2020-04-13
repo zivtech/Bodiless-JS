@@ -13,15 +13,18 @@
  */
 
 import { EventEmitter as EE } from 'ee-ts';
-import url from 'url';
 // eslint-disable-next-line import/no-unresolved
-import { Request } from 'headless-chrome-crawler/lib/puppeteer';
+import { Request } from '@bodiless/headless-chrome-crawler/lib/puppeteer';
 // @ts-ignore - ignoring as it contains functions that invoked in browser
 import evaluatePage from './evaluate-page';
-import { trimQueryParamsFromUrl } from './helpers';
+import {
+  getHostNameWithoutWWW,
+  isUrlExternal,
+  trimQueryParamsFromUrl,
+} from './helpers';
 import debug from './debug';
 // require due to ES6 modules cannot directly export class objects.
-import HCCrawler = require('headless-chrome-crawler');
+import HCCrawler = require('@bodiless/headless-chrome-crawler');
 
 export interface ScrapedPage {
   pageUrl: string,
@@ -89,6 +92,11 @@ export class Scraper extends EE<Events> {
       onSuccess: (async successResult => {
         try {
           const { result } = successResult;
+          // we can get an external url here
+          // when an internal url is redirected to the external
+          if (isUrlExternal(this.params.pageUrl, successResult.response.url)) {
+            return;
+          }
           result.pageUrl = successResult.response.url;
           // @ts-ignore
           result.rawHtml = await successResult.rawHtml;
@@ -107,6 +115,7 @@ export class Scraper extends EE<Events> {
     });
     crawler.on(HCCrawler.Events.PuppeteerRequestStarted, async (request: Request) => {
       const resourceTypes = [
+        'fetch',
         'xhr',
         'other',
         'script',
@@ -117,12 +126,16 @@ export class Scraper extends EE<Events> {
         this.emit('requestStarted', request.url());
       }
     });
-    const pageHost = url.parse(this.params.pageUrl).hostname;
+    const pageHost = getHostNameWithoutWWW(this.params.pageUrl);
+    const allowedDomains = [
+      pageHost,
+      ...pageHost ? [`www.${pageHost}`] : [],
+    ];
     // Queue a request
     await crawler.queue({
       url: this.params.pageUrl,
       maxDepth: this.params.maxDepth,
-      allowedDomains: pageHost !== undefined ? [pageHost] : undefined,
+      allowedDomains,
     });
     await crawler.onIdle(); // Resolved when no queue is left
     await crawler.close(); // Close the crawler

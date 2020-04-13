@@ -15,6 +15,7 @@
 import { ComponentType } from 'react';
 import PageContextProvider from './PageContextProvider';
 import PageEditContext from './PageEditContext';
+import asStatic from './asStatic';
 import { useEditContext, useUUID, useContextActivator } from './hooks';
 import withNode, { withNodeKey } from './withNode';
 import withEditButton from './withEditButton';
@@ -35,6 +36,7 @@ import type { TMenuOption } from './PageEditContext/types';
 import type { EditButtonOptions } from './Types/EditButtonTypes';
 import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
 import type { WithNodeProps } from './Types/NodeTypes';
+import type { TOverlaySettings } from './Types/PageOverlayTypes';
 import {
   ActivateOnEffectProvider,
   withActivateOnEffect,
@@ -45,6 +47,7 @@ import withChild from './withChild';
 
 export * from './components';
 export {
+  asStatic,
   withContextActivator,
   withNodeAndHandlers,
   withNodeDataHandlers,
@@ -80,6 +83,7 @@ export type {
   TMenuOptionGetter,
   WithNodeProps,
   EditButtonOptions,
+  TOverlaySettings,
 };
 
 export type Bodiless<P, Q> = (C: ComponentType<P> | string) => ComponentType<Q>;

@@ -14,9 +14,9 @@
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
-  intersection, flowRight, flow, mergeWith,
+  intersection, flowRight, flow, mergeWith, omit,
 } from 'lodash';
-import React, { ComponentType, Fragment } from 'react';
+import React, { ComponentType, Fragment, useContext } from 'react';
 
 export type DesignElement<P> = (c: ComponentType<P> | string) => ComponentType<P>;
 
@@ -80,34 +80,62 @@ const withDisplayName = <P extends Object> (name: string) => (Component: Compone
   const newMeta = mergeWith({}, Component, { displayName: name });
   return Object.assign(WithDisplayName, newMeta);
 };
-export const applyDesign = <C extends DesignableComponents> (components: C) => (
-  (design?: Design<C>) => {
-    const incomingDesign = design || {} as Design<C>;
-    // const keysToApply = intersection(Object.keys(components), Object.keys(incomingDesign));
-    const keysToApply = Object.keys(incomingDesign);
-    const appliedDesign = keysToApply.reduce(
-      (acc, key) => (
-        {
-          ...acc,
-          // We are using a Fragment if they Design<C> has a key that is not explicitly in C
-          // We feel safe casting this to C[string] because DesignableComponents defines it as
-          // ComponentType<any>
-          [key]: incomingDesign[key]!((components[key] || Fragment) as any as C[string]),
-        } as C
-      ),
-      {} as C,
-    );
-    const unNamedComponents = { ...components, ...appliedDesign } as C;
-    // Lets wrap the object so that we can name it after the key.
-    if (!design) return { ...components } as C;
-    return Object.keys(unNamedComponents).reduce(
-      (acc, name) => (
-        { ...acc, [name]: withDisplayName(name)(unNamedComponents[name] as ComponentType) }
-      ),
-      {},
-    );
+const designContextDefault = undefined as undefined | ComponentType<any>;
+const DesignContext = React.createContext(designContextDefault);
+export const replaceable = <P extends object> (Component:ComponentType<P>) => {
+  const Replaceable = (props:P) => {
+    const UpstreamComponent = useContext(DesignContext);
+    const FinalComponent = UpstreamComponent || Component;
+    return <FinalComponent {...props} />;
+  };
+  return Replaceable;
+};
+export const startWith = <P extends object>(ReplacementComponent: ComponentType<P>) => (
+  (Component: ComponentType<P>) => (props:P) => {
+    const UpstreamComponent = useContext(DesignContext);
+    return UpstreamComponent
+      ? <Component {...props} />
+      : (
+        <DesignContext.Provider value={ReplacementComponent}>
+          <Component {...props} />
+        </DesignContext.Provider>
+      );
   }
 );
+export const applyDesign = <C extends DesignableComponents> (
+  components: C,
+  DefaultComponent: ComponentType<any> = Fragment,
+) => (
+    (design?: Design<C>) => {
+      const incomingDesign = design || {} as Design<C>;
+      // const keysToApply = intersection(Object.keys(components), Object.keys(incomingDesign));
+      const keysToApply = Object.keys(incomingDesign);
+      const appliedDesign = keysToApply.reduce(
+        (acc, key) => (
+          {
+            ...acc,
+            // We are using a the Default Component  if they Design<C> has a key that is not
+            // explicitly in C We feel safe casting this to C[string] because DesignableComponents
+            // defines it as ComponentType<any>
+            // We are wrapping the result in replaceable so one of the HoC could replace it.
+            [key]: incomingDesign[key]!(
+              replaceable(components[key] || DefaultComponent) as any as C[string],
+            ),
+          } as C
+        ),
+        {} as C,
+      );
+      const unNamedComponents = { ...components, ...appliedDesign } as C;
+      // Lets wrap the object so that we can name it after the key.
+      if (!design) return { ...components } as C;
+      return Object.keys(unNamedComponents).reduce(
+        (acc, name) => (
+          { ...acc, [name]: withDisplayName(name)(unNamedComponents[name] as ComponentType) }
+        ),
+        {},
+      );
+    }
+  );
 export const withDesign = <C extends DesignableComponents>(design: Design<C>) => (
   <P extends DesignableProps<C>>(Component: ComponentType<P>) => {
     const WithDesign = (props: P) => {
@@ -130,48 +158,63 @@ export const withDesign = <C extends DesignableComponents>(design: Design<C>) =>
 );
 
 export const replaceWith = <P extends object>(Component: ComponentType<P>) => () => Component;
-export const startWith = replaceWith;
 export const remove = <P extends React.HTMLAttributes<HTMLBaseElement>> () => (props:P) => {
   const { children } = props;
   return <React.Fragment>{children}</React.Fragment>;
 };
 
-type AlterPropsProps<P> = {
-  transformer: Function,
-  acomponent: ComponentType<any>,
-} & P ;
+// type TransformerFunction = (a:object) => object;
+type WithTransformerProps<P, Q, X> = {
+  transformFixed: (p:P) => X,
+  transformPassthrough: (p:P) => Q,
+};
+type TransformerProps<P, Q, X> = WithTransformerProps<P, Q, X> & {
+  Component: ComponentType<X & Q>,
+  passedProps: P,
+};
 
-class Transformer<P> extends React.Component<AlterPropsProps<P>> {
-  AComponent: ComponentType = React.Fragment;
+class Transformer<P, Q, X> extends React.Component<TransformerProps<P, Q, X>> {
+  fixedProps: Object = {};
 
-  passthoughProps = {};
-
-  constructor(props:AlterPropsProps<P>) {
+  constructor(props:TransformerProps<P, Q, X>) {
     super(props);
-    const { transformer, acomponent, ...passthoughProps } = props;
-    this.passthoughProps = transformer(passthoughProps);
-    this.AComponent = acomponent;
+    const { transformFixed, passedProps } = props;
+    this.fixedProps = transformFixed(passedProps) as X;
   }
 
   render() {
-    return <this.AComponent {...this.passthoughProps as P} />;
+    const { Component, transformPassthrough, passedProps } = this.props;
+    const props = { ...this.fixedProps as X, ...transformPassthrough(passedProps) };
+    return <Component {...props} />;
   }
 }
 
-const withTransformer = (transformer:Function) => (
-  (Component: ComponentType<any>) => (props:any) => (
-    <Transformer acomponent={Component} transformer={transformer} {...props} />
-  )
+export const withTransformer = <P, Q, X extends Object> (funcs: WithTransformerProps<P, Q, X>) => (
+  (Component: ComponentType<Q & X>) => (props:P) => {
+    const {
+      transformFixed,
+      transformPassthrough,
+    } = funcs;
+    const tprops = {
+      Component,
+      transformFixed,
+      transformPassthrough,
+      passedProps: props,
+    };
+    return <Transformer {...tprops} />;
+  }
 );
 
-export const designable = <C extends DesignableComponents> (start: C) => (
+export const designable = <C extends DesignableComponents> (start: C | Function) => (
   <P extends object>(Component: ComponentType<P & DesignableComponentsProps<C>>) => {
-    const designToComponents = (props:DesignableProps<C> & P) => {
-      const { design, ...rest } = props;
-      return { ...rest, components: applyDesign(start)(design) };
+    const transformFixed = (props:DesignableProps<C> & P) => {
+      const { design } = props;
+      const apply = typeof start === 'function' ? start : applyDesign(start);
+      return { components: apply(design) } as DesignableComponentsProps<C>;
     };
-    const Designable = withTransformer(designToComponents)(Component);
-    return Designable as ComponentType<DesignableProps<C> & Omit<P, 'components'>>;
+    const transformPassthrough = (props:DesignableProps<C> & P) => omit(props, ['design']) as P;
+    const Designable = withTransformer({ transformFixed, transformPassthrough })(Component);
+    return Designable as ComponentType<DesignableProps<C> & P>;
   }
 );
 

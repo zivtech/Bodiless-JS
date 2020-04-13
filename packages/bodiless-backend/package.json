@@ -1,24 +1,29 @@
 {
   "name": "@bodiless/backend",
-  "version": "0.0.36",
+  "version": "0.0.46",
   "description": "",
   "main": "",
-  "scripts": {
-    "build:watch": "npm run dev-backend",
-    "dev-backend": "node ./src/server.js"
-  },
+  "files": [
+    "/bodiless.docs.json",
+    "/src"
+  ],
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^8.2.0",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "formidable": "^1.2.1",
     "tmp": "^0.0.33"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [],
   "author": "Dewen Li <dli94@its.jnj.com>",
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/supertest": "^2.0.8",
+    "morgan": "^1.9.1",
+    "morgan-body": "^2.4.8",
     "supertest": "^4.0.2"
   }
 }

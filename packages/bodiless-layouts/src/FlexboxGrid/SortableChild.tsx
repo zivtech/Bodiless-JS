@@ -15,12 +15,9 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import throttle from 'lodash/throttle';
 import { ResizeCallback } from 're-resizable';
-import { useEditContext } from '@bodiless/core';
-import SlateSortableResizable, { UI as SortableResizableUI } from '../SlateSortableResizable';
-import {
-  defaultSnapData, SnapData,
-} from './utils/appendTailwindWidthClass';
-import { FlexboxItem, FlexboxItemProps } from './types';
+import SlateSortableResizable from '../SlateSortableResizable';
+import { defaultSnapData } from './utils/appendTailwindWidthClass';
+import { SortableChildProps } from './types';
 
 const RESIZE_THROTTLE_INTERVAL: number = 100;
 const createThrottledOnResizeStop = (onResizeStop: ResizeCallback) => (
@@ -28,27 +25,21 @@ const createThrottledOnResizeStop = (onResizeStop: ResizeCallback) => (
 );
 const FALLBACK_SNAP_CLASSNAME = 'w-full';
 
-type SortableChildProps = {
-  flexboxItem: FlexboxItem;
-  onResizeStop(props: FlexboxItemProps): void;
-  onDelete(): void;
-  index: number;
-  children: React.ReactNode;
-  ui?: SortableResizableUI;
-  snapData?: SnapData;
-  defaultSize?: { width: (number | string), height: (number | string) };
-};
-
 const SortableChild = (props: SortableChildProps) => {
   const {
-    onResizeStop, flexboxItem, onDelete, snapData: snapRaw, ...restProps
+    onResizeStop, flexboxItem, snapData: snapRaw, defaultWidth, ...restProps
   } = props;
   const snap = snapRaw || defaultSnapData;
   const {
     width: minWidth,
-    className: passedSnapClassName,
   } = snap({
     width: 0,
+    className: '',
+  });
+  const {
+    className: passedSnapClassName,
+  } = snap({
+    width: defaultWidth as number || 100,
     className: '',
   });
   // local classname is used to store intermidiary classname state,
@@ -84,12 +75,6 @@ const SortableChild = (props: SortableChildProps) => {
     // Set the class in are state
     setSnapClassName(className);
   };
-  const context = useEditContext();
-  const onDeleteWrapper = () => {
-    onDelete();
-    // Activate the current context after the delete (this context is the flexbox)
-    context.activate();
-  };
   useEffect(() => (
     // Call resize handler on component's unmount
     // to make sure the correct wrapper classname is set
@@ -106,7 +91,6 @@ const SortableChild = (props: SortableChildProps) => {
     setTimeout(
       () => {
         if (elm && elm.style.width === snapWidth) {
-          elm.style.width = '';
           elm.style.height = '';
         }
       },
@@ -126,13 +110,6 @@ const SortableChild = (props: SortableChildProps) => {
       size={size}
       minWidth={`${minWidth * 0.99}%`}
       className={snapClassName}
-      getMenuOptions={() => [
-        {
-          name: 'delete',
-          icon: 'delete',
-          handler: onDeleteWrapper,
-        },
-      ]}
       {...restProps}
     />
   );
