@@ -33,7 +33,7 @@
     * [List](/Components/List)
     * [Link](/Components/Link)
     * [Image](/Components/Image)
-    * [Flexbox Grid](/Components/FlexboxGrid)
+    * [Flow Container](/Components/FlowContainer)
     * Organisms
       * [Burger Menu](/Components/Organisms/BurgerMenu)
       * [Main Menu](/Components/Organisms/MainMenu)
