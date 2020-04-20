@@ -35,11 +35,11 @@
     * [Image](/Components/Image)
     * [Flow Container](/Components/FlowContainer)
     * Organisms
-      * [Burger Menu](/Components/Organisms/BurgerMenu)
-      * [Main Menu](/Components/Organisms/MainMenu)
-      * [Touts](/Components/Organisms/touts)
-      * [Slider](/Components/Organisms/slider)
       * [Index](/Components/Organisms/index)
+      * [Carousel](/Components/Organisms/Carousel)
+      * [Main Menu](/Components/Organisms/MainMenu)
+      * [Burger Menu](/Components/Organisms/BurgerMenu)
+      * [Single Accordion](/Components/Organisms/SingleAccordion)
     * [Rich Text](/Components/RichText)
   * Tools
     * Accessibility
