@@ -55,12 +55,14 @@ files for a BodilessJS.  To install or update them:
   ```
   npm run init-psh
   ```
+> When `@bodiless/psh` is installing its' files it will try to merge `static` and `edit` `*.platform.app.yaml` files based on the whitelisted keys from `packages/bodiless-psh/resources/.platform/platform.whitelist.yaml`. Only the keys that are specified in `platform.whitelist.yaml` will be merged. Merging will be performed by using the recursive algorithm to preserve any keys that are not in default `.platform.app.yaml`. Non-whitelisted keys will be ignored, and a warning message will be printed to the console.
+
 4. Commit the added configuration files to your repository.  These include
    ```
+   static.platform.sh
    .platform.app.yaml
    .platform/*
    edit/*
-   docs/*
    ```
 
 ### Step 3. Create platform.sh environment variables.
@@ -439,10 +441,7 @@ trigger an update of the edit environment by executing:
   ```
   platform ssh -e <env-id> 'bash platform.sh deploy'
   ```
-  Or, to force a fresh install (same as npm fresh):
-  ```
-  platform ssh -e <env-id> 'bash platform.sh fresh'
-  ```
+
   You may omit the "-e <env-id>" if you have the active branch checked out locally.
 
 #### Deleting an environment
