@@ -32,7 +32,7 @@ const ui = {
   Menu,
 };
 
-const StyledHoverMenu: FC<HoverMenuProps> = props => (
+const StyledHoverMenu: FC<HoverMenuProps> = (props: HoverMenuProps) => (
   <HoverMenu {...props} ui={ui} />
 );
 
