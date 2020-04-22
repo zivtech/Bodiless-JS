@@ -33,6 +33,8 @@ module.exports = {
   },
   "rules": {
     "arrow-parens": "off",
+    "jest/no-export": "off",
+    "jest/no-test-callback": "off",
     "max-classes-per-file": "off",
     "no-useless-constructor": "off",
     "@typescript-eslint/no-useless-constructor": "error",
