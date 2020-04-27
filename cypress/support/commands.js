@@ -38,3 +38,14 @@ Cypress.Commands.add("clickEdit", () => {
     cy.xpath('//*[@aria-label="Edit"]')
       .click()
 })
+
+
+Cypress.Commands.add("hideContextMenu", () => {
+  cy.xpath('//h1')
+    .click();
+}) 
+
+
+Cypress.Commands.add("setTabletView", () => {
+  cy.viewport(1000, 768);
+}) 
