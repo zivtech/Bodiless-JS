@@ -18,11 +18,6 @@ import Image, { asBodilessImage } from './Image';
 import NodeViewer from './NodeViewer';
 import withLinkToggle from './LinkToggle';
 import List from './List';
-import {
-  FinalProps as ListProps,
-  TitleProps as ListTitleProps,
-  ListDesignableComponents,
-} from './List/types';
 import asTaggableItem from './Taggable/asTaggableItem';
 import withListTitle from './List/withListTitle';
 import asEditableList from './List/asEditableList';
@@ -45,14 +40,11 @@ export {
   NodeViewer,
   withLinkToggle,
   List,
-  ListDesignableComponents,
   asEditableList,
   asBasicSublist,
   withBasicSublist,
   withSublist,
   withDeleteSublistOnUnwrap,
-  ListProps,
-  ListTitleProps,
   withListTitle,
   withToggle,
   withToggleTo,
@@ -71,3 +63,9 @@ export {
   withFilterByTags,
   useTagsAccessors,
 };
+
+export type {
+  FinalProps as ListProps,
+  TitleProps as ListTitleProps,
+  ListDesignableComponents,
+} from './List/types';
