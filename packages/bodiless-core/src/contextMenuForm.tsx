@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, Fragment } from 'react';
 import {
   Form, FormApi, FormState, Text,
 } from 'informed';
@@ -35,65 +35,80 @@ const defaultUI = {
 
 export const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });
 
-export type FormProps = {
-  closeForm: () => void;
-  ui?: UI;
-  'aria-label'?: string;
-};
-
-export type FormBodyProps<D> = FormProps & {
-  formApi: FormApi<D>;
-  formState: FormState<D>;
-};
-
-export type FormBodyRenderer<D> = (props: FormBodyProps<D>) => ReactNode;
-
 export type Options<D> = {
   submitValues?: (componentData: D) => void;
   initialValues?: D;
   hasSubmit?: Boolean;
 };
 
-const contextMenuForm = <D extends object>(options: Options<D>) => (
-  renderFormBody: FormBodyRenderer<D>,
-) => {
-  const ContextMenuForm = ({ closeForm, ui, ...rest }: FormProps) => {
-    const { ComponentFormCloseButton, ComponentFormSubmitButton } = getUI(ui);
-    const { submitValues, initialValues, hasSubmit = true } = options;
-    return (
-      <Form
-        onSubmit={(values: D) => {
-          if (submitValues) submitValues(values);
-          closeForm();
-        }}
-        initialValues={initialValues}
-        {...rest}
-      >
-        {({ formApi, formState }) => (
-          <>
-            <ComponentFormCloseButton
-              type="button"
-              onClick={closeForm}
-              aria-label="Cancel"
-            />
-            {renderFormBody({
-              closeForm,
-              formApi,
-              formState,
-              ui,
-            })}
-            {hasSubmit && !formState.invalid
-            && (
-              <ComponentFormSubmitButton aria-label="Submit" />
-            )
-            }
-          </>
-        )}
-      </Form>
-    );
-  };
-  ContextMenuForm.displayName = 'ComponentForm';
-  return ContextMenuForm;
+export type FormProps = {
+  closeForm: () => void;
+  ui?: UI;
+  'aria-label'?: string;
 };
+
+export type FormBodyProps<D> = FormProps & Options<D> & {
+  formApi: FormApi<D>;
+  formState: FormState<D>;
+};
+
+export type FormBodyRenderer<D> = (props: FormBodyProps<D>) => ReactNode;
+
+type Props<D> = FormProps & Options<D> & {
+  children: FormBodyRenderer<D>,
+};
+
+export const ContextMenuForm = <D extends object>({
+  closeForm,
+  ui,
+  submitValues = () => undefined,
+  initialValues = {} as D,
+  hasSubmit = true,
+  children = () => <Fragment />,
+  ...rest
+}: Props<D>) => {
+  const { ComponentFormCloseButton, ComponentFormSubmitButton } = getUI(ui);
+  return (
+    <Form
+      onSubmit={(values: D) => {
+        if (submitValues) submitValues(values);
+        closeForm();
+      }}
+      initialValues={initialValues}
+      {...rest}
+    >
+      {({ formApi, formState }) => (
+        <>
+          <ComponentFormCloseButton
+            type="button"
+            onClick={closeForm}
+            aria-label="Cancel"
+          />
+          {children({
+            closeForm,
+            formApi,
+            formState,
+            ui,
+          })}
+          {hasSubmit && !formState.invalid
+          && (
+            <ComponentFormSubmitButton aria-label="Submit" />
+          )
+          }
+        </>
+      )}
+    </Form>
+  );
+};
+
+const contextMenuForm = <D extends object>(options: Options<D> = {}) => (
+  renderFormBody?: FormBodyRenderer<D>,
+) => (
+  ({ children, ...rest }: Props<D>) => (
+    <ContextMenuForm {...options} {...rest}>
+      {children || renderFormBody}
+    </ContextMenuForm>
+  )
+);
 
 export default contextMenuForm;

@@ -23,7 +23,7 @@ import {
   withResetButton,
 } from './Contentful';
 import withEditButton, { EditButtonProps } from './withEditButton';
-import contextMenuForm from './contextMenuForm';
+import contextMenuForm, { ContextMenuForm } from './contextMenuForm';
 import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
 import { DefaultContentNode } from './ContentNode';
@@ -74,6 +74,7 @@ export {
   withNode,
   withNodeKey,
   contextMenuForm,
+  ContextMenuForm,
   withData,
   NodeProvider,
   useNode,
