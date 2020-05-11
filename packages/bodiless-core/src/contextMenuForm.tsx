@@ -36,7 +36,7 @@ const defaultUI = {
 export const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });
 
 export type Options<D> = {
-  submitValues?: (componentData: D) => void;
+  submitValues?: (componentData: D) => boolean|void;
   initialValues?: D;
   hasSubmit?: Boolean;
 };
@@ -71,8 +71,9 @@ export const ContextMenuForm = <D extends object>({
   return (
     <Form
       onSubmit={(values: D) => {
-        if (submitValues) submitValues(values);
-        closeForm();
+        if (!submitValues(values)) {
+          closeForm();
+        }
       }}
       initialValues={initialValues}
       {...rest}

@@ -2,7 +2,7 @@
  * @file
  * Integration tests for context menu forms.
  */
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { mount, shallow } from 'enzyme';
 import contextMenuForm, { ContextMenuForm, FormProps, FormBodyRenderer } from '../src/contextMenuForm';
 
@@ -51,6 +51,36 @@ describe('contextMenuForm', () => {
     expect(options.submitValues).not.toHaveBeenCalled();
     expect(wrapper.prop('initialValues').foo).toBe('baz');
   });
+});
+
+describe('ContextMenuForm', () => {
+  describe('submitValues prop', () => {
+    const submit = jest.fn();
+    const close = jest.fn();
+    const jsx = (
+      <ContextMenuForm submitValues={submit} closeForm={close}>
+        {() => <Fragment />}
+      </ContextMenuForm>
+    );
+    it('Closes the form when the submit handler returns nothing', () => {
+      const wrapper = shallow(jsx);
+      wrapper.prop('onSubmit')();
+      expect(close).toHaveBeenCalled();
+    });
+    it('Does not close the form when the submit handler returns true', () => {
+      submit.mockReturnValueOnce(true);
+      close.mockReset();
+      const wrapper = shallow(<ContextMenuForm closeForm={close}>{() => <Fragment />}</ContextMenuForm>);
+      wrapper.prop('onSubmit')();
+      expect(close).toHaveBeenCalled();
+    });
+    it('Closes the form when no submit handler is provided', () => {
+      close.mockReset();
+      const wrapper = shallow(jsx);
+      wrapper.prop('onSubmit')();
+      expect(close).not.toHaveBeenCalled();
+    });
+  })
 });
 
 describe('ContextMenuForm (High Level)', () => {
