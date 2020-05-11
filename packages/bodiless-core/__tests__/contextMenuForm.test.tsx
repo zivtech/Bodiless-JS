@@ -70,7 +70,9 @@ describe('ContextMenuForm', () => {
     it('Does not close the form when the submit handler returns true', () => {
       submit.mockReturnValueOnce(true);
       close.mockReset();
-      const wrapper = shallow(<ContextMenuForm closeForm={close}>{() => <Fragment />}</ContextMenuForm>);
+      const wrapper = shallow(
+        (<ContextMenuForm closeForm={close}>{() => <Fragment />}</ContextMenuForm>),
+      );
       wrapper.prop('onSubmit')();
       expect(close).toHaveBeenCalled();
     });
@@ -80,7 +82,7 @@ describe('ContextMenuForm', () => {
       wrapper.prop('onSubmit')();
       expect(close).not.toHaveBeenCalled();
     });
-  })
+  });
 });
 
 describe('ContextMenuForm (High Level)', () => {
