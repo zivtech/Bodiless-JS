@@ -214,8 +214,8 @@ _setup_deploy () {
   # which causes builds to be stuck.
   node ${PLATFORM_APP_DIR}/waitForPM2.js
 
-  # wait 10 seconds to work around pm2 daemon issue.
-  sleep 10
+  # wait 2 seconds to work around pm2 daemon issue.
+  sleep 2
   pm2 stop frontend && pm2 stop backend || true
 }
 
