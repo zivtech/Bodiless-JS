@@ -72,6 +72,10 @@ hooks:
 # The size of the persistent disk of the application (in MB).
 disk: 256
 
+resources:
+  base_memory: 1024
+  memory_ratio: 1024
+
 mounts:
     'volume':
         source: local
