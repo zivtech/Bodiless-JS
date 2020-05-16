@@ -85,7 +85,7 @@ const handle = (promise: AxiosPromise<any>, callback?: () => void) => promise
 
 const formGetCommitsList = (client: Client) => contextMenuForm({
   // @todo: handle what happens when user selects a commit from the loaded list.
-  submitValues: () => {},
+  submitValues: () => undefined,
 })(
   ({ ui }: any) => {
     const { ComponentFormTitle } = getUI(ui);
@@ -102,8 +102,15 @@ const formGetCommitsList = (client: Client) => contextMenuForm({
 const cookies = new Cookies();
 const author = cookies.get('author');
 const formGitCommit = (client: Client) => contextMenuForm({
-  submitValues: (submitValues: any) => handle(client.commit(submitValues.commitMessage,
-    [backendFilePath, backendStaticPath], [], [], author)),
+  submitValues: (submitValues: any) => {
+    handle(client.commit(
+      submitValues.commitMessage,
+      [backendFilePath, backendStaticPath],
+      [],
+      [],
+      author,
+    ));
+  },
 })(
   ({ ui }: any) => {
     const { ComponentFormTitle, ComponentFormLabel, ComponentFormText } = getUI(ui);
@@ -139,24 +146,27 @@ const formGitCommit = (client: Client) => contextMenuForm({
 // );
 
 const formGitReset = (client: Client, context: any) => contextMenuForm({
-  submitValues: async () => {
-    context.showPageOverlay({
-      message: 'Revert is in progress. This may take a minute.',
-      maxTimeoutInSeconds: 10,
-    });
-    try {
-      await client.reset();
+  submitValues: () => {
+    const submit = async () => {
       context.showPageOverlay({
-        message: 'Revert completed.',
-        hasSpinner: false,
-        hasCloseButton: true,
-        onClose: () => {
-          window.location.reload();
-        },
+        message: 'Revert is in progress. This may take a minute.',
+        maxTimeoutInSeconds: 10,
       });
-    } catch {
-      context.showError();
-    }
+      try {
+        await client.reset();
+        context.showPageOverlay({
+          message: 'Revert completed.',
+          hasSpinner: false,
+          hasCloseButton: true,
+          onClose: () => {
+            window.location.reload();
+          },
+        });
+      } catch {
+        context.showError();
+      }
+    };
+    submit();
   },
 })(
   ({ ui }: any) => {
