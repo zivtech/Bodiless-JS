@@ -31,6 +31,15 @@ import { withToggle, withToggleTo, withToggleButton } from './Toggle';
 import withEditPlaceholder from './Placeholder';
 import { TagButtonProps, withTagButton, useTagsAccessors } from './TagButton';
 import withFilterByTags from './withFilterByTags';
+import PageDimensionsProvider, {
+  usePageDimensionsContext,
+  withPageDimensionsContext,
+  BreakpointsType,
+} from './PageDimensionsProvider';
+import {
+  ifViewportIs,
+  ifViewportIsNot,
+} from './withResponsiveToggle';
 
 export {
   asBodilessLink,
@@ -62,6 +71,12 @@ export {
   asTaggableItem,
   withFilterByTags,
   useTagsAccessors,
+  PageDimensionsProvider,
+  usePageDimensionsContext,
+  withPageDimensionsContext,
+  BreakpointsType,
+  ifViewportIs,
+  ifViewportIsNot,
 };
 
 export type {
