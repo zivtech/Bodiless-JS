@@ -23,6 +23,10 @@ type: 'nodejs:12'
 # The size of the persistent disk of the application (in MB).
 disk: 4096
 
+resources:
+  base_memory: 1024
+  memory_ratio: 1024
+
 dependencies:
     nodejs:
         pm2: "^3.5.1"
