@@ -61,11 +61,27 @@ export {
 } from './components/Touts.tokens';
 
 export {
+  FilterByGroupClean,
+  asTestableFilterByGroup,
+  asFilterableByGroup,
+  withFBGSuggestions,
+  useFilterByGroupContext,
+  withTagProps,
+} from './components/FilterByGroup';
+
+export {
   asBurgerSubMenu,
   asEditableBurgerSubMenu,
   BurgerMenuClean,
   withBurgerSubmenu,
 };
+
+export {
+  useAccordionContext,
+  asAccordionWrapper,
+  asAccodionTitle,
+  asAccordionBody,
+} from './components/Accordion';
 
 export {
   BCarousel,

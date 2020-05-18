@@ -18,11 +18,12 @@ import PageEditContext from './PageEditContext';
 import asStatic from './asStatic';
 import { useEditContext, useUUID, useContextActivator } from './hooks';
 import withNode, { withNodeKey } from './withNode';
+import withSidecarNodes, { startSidecarNodes, endSidecarNodes } from './withSidecarNodes';
 import {
   withDefaultContent,
   withResetButton,
 } from './Contentful';
-import withEditButton from './withEditButton';
+import withEditButton, { EditButtonProps } from './withEditButton';
 import contextMenuForm from './contextMenuForm';
 import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
@@ -35,8 +36,9 @@ import {
   withContextActivator,
   withoutProps,
 } from './hoc';
-import { ifEditable, ifReadOnly, withEditToggle } from './withEditToggle';
-import { TMenuOption } from './PageEditContext/types';
+import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
+import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
+import { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
 import { EditButtonOptions } from './Types/EditButtonTypes';
 import { TMenuOptionGetter } from './Types/PageContextProviderTypes';
 import { WithNodeProps } from './Types/NodeTypes';
@@ -56,6 +58,7 @@ export {
   withNodeAndHandlers,
   withNodeDataHandlers,
   withLocalContextMenu,
+  PageEditContextInterface,
   TMenuOption,
   TMenuOptionGetter,
   TOverlaySettings,
@@ -66,10 +69,14 @@ export {
   useContextActivator,
   useUUID,
   withEditButton,
+  EditButtonProps,
   WithNodeProps,
   EditButtonOptions,
   withNode,
   withNodeKey,
+  withSidecarNodes,
+  startSidecarNodes,
+  endSidecarNodes,
   contextMenuForm,
   withData,
   NodeProvider,
@@ -78,7 +85,6 @@ export {
   DefaultContentNode,
   ifEditable,
   ifReadOnly,
-  withEditToggle,
   withoutProps,
   ActivateOnEffectProvider,
   withActivateOnEffect,
@@ -87,6 +93,10 @@ export {
   withChild,
   withDefaultContent,
   withResetButton,
+  ifToggledOff,
+  ifToggledOn,
+  withFlowToggle,
+  useEditToggle,
 };
 
 export type Bodiless<P, Q> = (C: ComponentType<P> | string) => ComponentType<Q>;
