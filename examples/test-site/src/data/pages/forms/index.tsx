@@ -24,8 +24,8 @@ import asBodilessMarkdown from './asBodilessMarkdown';
 
 const PageTitle = asHeader1(H1);
 
-const Markdown = asBodilessMarkdown('markdown', { source: 'Empty' })(ReactMarkdown);
-// const Markdown = asBodilessMarkdown('markdown')(ReactMarkdown);
+// const Markdown = asBodilessMarkdown('markdown', { source: 'Empty' })(ReactMarkdown);
+const Markdown = asBodilessMarkdown('markdown')(ReactMarkdown);
 
 export default (props: any) => (
   <Page {...props}>
