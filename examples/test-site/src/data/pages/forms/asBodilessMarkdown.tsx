@@ -1,8 +1,12 @@
 import React from 'react';
 import { asBodilessComponent, useFormUI } from '@bodiless/core';
+import { ReactMarkdownProps as Props } from 'react-markdown';
+
 import MarkdownField from './InformedMarkdown';
 
-const asBodilessMarkdown = asBodilessComponent({
+type Data = Pick<Props, 'source'>;
+
+const asBodilessMarkdown = asBodilessComponent<Props, Data>({
   icon: 'edit',
   name: 'edit',
   renderForm: () => {

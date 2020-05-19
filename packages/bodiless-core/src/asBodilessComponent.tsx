@@ -1,6 +1,4 @@
-import React, {
-  ComponentType as CT,
-} from 'react';
+import React, { ComponentType as CT } from 'react';
 import {
   pick, omit, identity, flowRight,
 } from 'lodash';
@@ -32,11 +30,19 @@ type Options<P, D> = EditButtonOptions<P, D> & {
   defaultData?: D,
 };
 
+type HOC<P, Q> = (Component: CT<P>) => CT<Q>;
+type BodilessProps = {
+  nodeKey?: string,
+  nodeCollection?: string,
+};
+type AsBodiless<P, D> = (nodeKey?: string, defaultData?: D) => HOC<P, P & BodilessProps>;
+
 /**
  * Given an event name and a wrapper component, provides an HOC which will wrap the base component
  * the wrapper, passing the event prop to the wrapper, and all other props to the base compoent.
  * @param event The event name.
  * @param Wrapper The component to wrap with
+ * @private
  */
 const withActivatorWrapper = <P extends object>(event: string, Wrapper: CT<any>|string) => (
   (Component: CT<P>) => (props: P) => {
@@ -58,7 +64,8 @@ const withActivatorWrapper = <P extends object>(event: string, Wrapper: CT<any>|
  *
  * @param options An object describing how this component should be made editable.
  */
-const asBodilessComponent = <P extends object, D extends object>(options: Options<P, D>) => {
+// eslint-disable-next-line max-len
+const asBodilessComponent = <P extends object, D extends object>(options: Options<P, D>): AsBodiless<P, D> => {
   const {
     activateEvent = 'onClick', Wrapper, defaultData: defaultDataOption = {}, ...rest
   } = options;
