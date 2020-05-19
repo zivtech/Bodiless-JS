@@ -12,9 +12,24 @@ import { ifReadOnly, ifEditable } from './withEditToggle';
 import withEditButton, { EditButtonOptions } from './withEditButton';
 import withData from './withData';
 
+/**
+ * Options for making a component "bodiless".
+ */
 type Options<P, D> = EditButtonOptions<P, D> & {
+  /**
+   * The event used to activate the edit button.  Default is 'onClick'
+   */
   activateEvent?: string,
+  /**
+   * An optional component to use as a wrapper in edit mode. Useful if the underlying component
+   * cannot produce an activation event (eg if it does not accept an 'onClick' prop).
+   */
   Wrapper?: CT<any>|string,
+  /**
+   * An object providing default/initial values for the editable props. Should be keyed by the
+   * prop name.
+   */
+  defaultData?: D,
 };
 
 /**
@@ -44,22 +59,33 @@ const withActivatorWrapper = <P extends object>(event: string, Wrapper: CT<any>|
  * @param options An object describing how this component should be made editable.
  */
 const asBodilessComponent = <P extends object, D extends object>(options: Options<P, D>) => {
-  const { activateEvent = 'onClick', Wrapper, ...rest } = options;
-  return (nodeKey?: string, defaultData?: D) => flowRight(
-    withNodeKey(nodeKey),
-    withNode,
-    withNodeDataHandlers(defaultData || {}),
-    ifReadOnly(
-      withoutProps(['setComponentData']),
-    ),
-    ifEditable(
-      withEditButton(rest),
-      withContextActivator(activateEvent),
-      Wrapper ? withActivatorWrapper(activateEvent, Wrapper) : identity,
-      withLocalContextMenu,
-    ),
-    withData,
-  );
+  const {
+    activateEvent = 'onClick', Wrapper, defaultData: defaultDataOption = {}, ...rest
+  } = options;
+  /**
+   * A function which produces an HOC that will make a component "Bodilesss".
+   * @param nodeKey The nodeKey identifying where the components data will be stored.
+   * @param defaultData An object representing the initial/default data. Supercedes any default
+   * data provided as an option.
+   */
+  return (nodeKey?: string, defaultData: D = {} as D) => {
+    const finalData = { ...defaultDataOption, ...defaultData };
+    return flowRight(
+      withNodeKey(nodeKey),
+      withNode,
+      withNodeDataHandlers(finalData),
+      ifReadOnly(
+        withoutProps(['setComponentData']),
+      ),
+      ifEditable(
+        withEditButton(rest),
+        withContextActivator(activateEvent),
+        Wrapper ? withActivatorWrapper(activateEvent, Wrapper) : identity,
+        withLocalContextMenu,
+      ),
+      withData,
+    );
+  };
 };
 
 export default asBodilessComponent;

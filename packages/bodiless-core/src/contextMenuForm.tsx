@@ -14,7 +14,7 @@
 
 import React, { ReactNode, Fragment } from 'react';
 import {
-  Form, FormApi, FormState, Text,
+  Form, FormApi, FormState, Text, TextArea,
 } from 'informed';
 import { UI } from './Types/ContextMenuTypes';
 import ReactTagsField from './components/ReactTagsField';
@@ -28,6 +28,7 @@ const defaultUI = {
   ComponentFormSubmitButton: 'button',
   ComponentFormUnwrapButton: 'button',
   ComponentFormText: Text,
+  ComponentFormTextArea: TextArea,
   ComponentFormError: 'div',
   Form: 'div',
   ReactTags: ReactTagsField,

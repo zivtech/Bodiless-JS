@@ -11,42 +11,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
-import {
-  asBodilessComponent,
-  useFormUI,
-} from '@bodiless/core';
 import { H1 } from '@bodiless/fclasses';
 import ReactMarkdown from 'react-markdown';
-import { MarkdownField } from './InformedMarkdown';
 
 import Layout from '../../../components/Layout';
 import { asHeader1 } from '../../../components/Elements.token';
 
+import asBodilessMarkdown from './asBodilessMarkdown';
+
 const PageTitle = asHeader1(H1);
 
-const asBodilessMarkdown = asBodilessComponent({
-  icon: 'edit',
-  name: 'edit',
-  renderForm: () => {
-    const { ComponentFormLabel, ComponentFormTitle } = useFormUI();
-    return (
-      <>
-        <ComponentFormTitle>Foo</ComponentFormTitle>
-        <ComponentFormLabel>Content</ComponentFormLabel>
-        <MarkdownField field="source" />
-      </>
-    );
-  },
-  global: false,
-  local: true,
-  Wrapper: 'div',
-});
-
-const Markdown = asBodilessMarkdown('foo', { source: 'Initial value' })(ReactMarkdown);
+const Markdown = asBodilessMarkdown('markdown', { source: 'Empty' })(ReactMarkdown);
+// const Markdown = asBodilessMarkdown('markdown')(ReactMarkdown);
 
 export default (props: any) => (
   <Page {...props}>

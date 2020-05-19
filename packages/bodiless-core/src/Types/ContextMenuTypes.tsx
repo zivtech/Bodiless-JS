@@ -45,6 +45,7 @@ export type UI = {
   ComponentFormSubmitButton?: ComponentType<HTMLProps<HTMLButtonElement>> | string;
   ComponentFormUnwrapButton?: ComponentType<HTMLProps<HTMLButtonElement>> | string;
   ComponentFormText?: ComponentType<FieldProps<any, any>>;
+  ComponentFormTextArea?: ComponentType<FieldProps<any, any>>;
   ComponentFormError?: ComponentType<HTMLProps<HTMLDivElement>> | string;
   Form?: ComponentType<HTMLProps<HTMLFormElement>> | string;
   Tooltip?: ComponentType<Tooltip['props']>;

@@ -1,35 +1,31 @@
-import React, { useCallback } from 'react';
-import MarkdownIt from 'markdown-it';
-import MdEditor from 'react-markdown-editor-lite';
-// import style manually
-import 'react-markdown-editor-lite/lib/index.css';
-import { asField } from 'informed';
+import React, { ComponentType } from 'react';
+import { asField, FieldProps, FormValue } from 'informed';
+import ReactMde, { ReactMdeProps } from 'react-mde';
+import ReactMarkdown from 'react-markdown';
+import 'react-mde/lib/styles/css/react-mde-all.css';
 
-// Initialize a markdown parser
-const mdParser = new MarkdownIt();
-const renderHTML = (text: string) => mdParser.render(text);
+// Use ReactMarkdown to render the preview.
+const renderHTML = (text: string) => <ReactMarkdown>{text}</ReactMarkdown>;
+const generatePreview = (text: string) => Promise.resolve(renderHTML(text));
 
-const MarkdownRenderer = ({ text, ...rest }) => (
-  // eslint-disable-next-line react/no-danger
-  <div {...rest} dangerouslySetInnerHTML={{ __html: renderHTML(text) }} />
-);
+type Props = FieldProps<FormValue<string>, any> & Partial<ReactMdeProps>;
 
-const MarkdownField = asField(({ fieldState, fieldApi, ...rest }) => {
+const MarkdownField: ComponentType<Props> = asField(({ fieldState, fieldApi, ...rest }) => {
+  const [selectedTab, setSelectedTab] = React.useState<'write' | 'preview'>('write');
   const { value } = fieldState;
-  const textValue: string = !value && value !== 0 ? '' : value as string;
   const { setValue } = fieldApi;
-  const onChange = useCallback(
-    ({ text }) => setValue(text),
-    [setValue],
-  );
+  const textValue: string = !value && value !== 0 ? '' : value as string;
   return (
-    <MdEditor
+    <ReactMde
       {...rest}
+      classes={{ reactMde: 'bl-text-black' }}
       value={textValue}
-      onChange={onChange}
-      renderHTML={renderHTML}
+      onChange={setValue}
+      selectedTab={selectedTab}
+      onTabChange={setSelectedTab}
+      generateMarkdownPreview={generatePreview}
     />
   );
 });
 
-export { MarkdownRenderer, MarkdownField };
+export default MarkdownField;

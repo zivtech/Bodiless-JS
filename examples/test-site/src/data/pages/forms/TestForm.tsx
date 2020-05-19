@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useCallback } from 'react';
 import { Form } from 'informed';
-import { MarkdownField } from './InformedMarkdown';
+import MarkdownField from './InformedMarkdown';
 
 const TestForm = () => {
   const [values, setValues] = useState({ values: { md: '' } });
@@ -15,8 +17,10 @@ const TestForm = () => {
           md: '# This is the initial value',
         }}
       >
-        <label>Text: </label>
-        <MarkdownField field="md" />
+        <label>
+          Text:
+          <MarkdownField field="md" />
+        </label>
         <button type="submit">Submit</button>
       </Form>
       <div>
@@ -28,3 +32,5 @@ const TestForm = () => {
     </>
   );
 };
+
+export default TestForm;
