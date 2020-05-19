@@ -50,9 +50,11 @@ import {
   useActivateOnEffectActivator,
 } from './ActivateContext';
 import withChild from './withChild';
+import asBodilessComponent from './asBodilessComponent';
 
 export * from './components';
 export {
+  asBodilessComponent,
   asStatic,
   withContextActivator,
   withNodeAndHandlers,
