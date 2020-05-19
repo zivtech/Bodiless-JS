@@ -16,7 +16,6 @@ import {
   ComponentType,
   HTMLProps,
   ReactNode,
-  FC,
 } from 'react';
 import { FieldProps } from 'informed';
 import Tooltip from 'rc-tooltip';
@@ -48,7 +47,7 @@ export type UI = {
   ComponentFormText?: ComponentType<FieldProps<any, any>>;
   ComponentFormError?: ComponentType<HTMLProps<HTMLDivElement>> | string;
   Form?: ComponentType<HTMLProps<HTMLFormElement>> | string;
-  Tooltip?: FC<Tooltip['props']>;
+  Tooltip?: ComponentType<Tooltip['props']>;
   ReactTags?: ComponentType<ReactTagsFieldProps>;
   // @TODO: Add other controls from informed.
 };

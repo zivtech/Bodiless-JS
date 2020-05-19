@@ -16,8 +16,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 import {
-  getUI,
   asBodilessComponent,
+  useFormUI,
 } from '@bodiless/core';
 import { H1 } from '@bodiless/fclasses';
 import ReactMarkdown from 'react-markdown';
@@ -31,10 +31,11 @@ const PageTitle = asHeader1(H1);
 const asBodilessMarkdown = asBodilessComponent({
   icon: 'edit',
   name: 'edit',
-  renderForm: ({ ui }) => {
-    const { ComponentFormLabel } = getUI(ui);
+  renderForm: () => {
+    const { ComponentFormLabel, ComponentFormTitle } = useFormUI();
     return (
       <>
+        <ComponentFormTitle>Foo</ComponentFormTitle>
         <ComponentFormLabel>Content</ComponentFormLabel>
         <MarkdownField field="source" />
       </>

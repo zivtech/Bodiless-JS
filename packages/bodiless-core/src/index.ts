@@ -51,6 +51,7 @@ import {
 } from './ActivateContext';
 import withChild from './withChild';
 import asBodilessComponent from './asBodilessComponent';
+import { useUI as useFormUI } from './components/ContextMenuItem';
 
 export * from './components';
 export {
@@ -81,6 +82,7 @@ export {
   endSidecarNodes,
   contextMenuForm,
   ContextMenuForm,
+  useFormUI,
   withData,
   NodeProvider,
   useNode,

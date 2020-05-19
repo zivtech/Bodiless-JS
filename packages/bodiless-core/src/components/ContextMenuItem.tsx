@@ -12,7 +12,9 @@
  * limitations under the License.
  */
 
-import React, { useState, ComponentType } from 'react';
+import React, {
+  useState, ComponentType, createContext, useContext,
+} from 'react';
 import ReactTooltip from 'rc-tooltip';
 import { getUI as getFormUI, FormProps } from '../contextMenuForm';
 import { UI, IContextMenuItemProps as IProps } from '../Types/ContextMenuTypes';
@@ -32,16 +34,23 @@ export const getUI = (ui: UI = {}) => ({
   ...ui,
 });
 
+const UIContext = createContext<UI>({});
+export const useUI = () => {
+  const ui = useContext(UIContext);
+  return getUI(ui);
+};
+
 const ContextMenuItem = ({ option, index, ui }: IProps) => {
   const [Form, setForm] = useState<ComponentType<FormProps>>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
+  const finalUI = getUI(ui);
   const {
     ToolbarDivider,
     Icon,
     ToolbarButton,
     FormWrapper,
     Tooltip,
-  } = getUI(ui);
+  } = finalUI;
   const isActive = option.isActive ? option.isActive() : false;
   const isDisabled = option.isDisabled ? option.isDisabled() : false;
   const isHidden = option.isHidden ? option.isHidden() : false;
@@ -66,11 +75,14 @@ const ContextMenuItem = ({ option, index, ui }: IProps) => {
     setForm(undefined);
   };
 
+
   function getContextMenuForm(): JSX.Element {
     if (Form) {
       return (
         <FormWrapper onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
-          <Form closeForm={onFormClose} ui={ui} aria-label={`Context Menu ${option.label || option.name} Form`} />
+          <UIContext.Provider value={finalUI}>
+            <Form closeForm={onFormClose} ui={ui} aria-label={`Context Menu ${option.label || option.name} Form`} />
+          </UIContext.Provider>
         </FormWrapper>
       );
     }
