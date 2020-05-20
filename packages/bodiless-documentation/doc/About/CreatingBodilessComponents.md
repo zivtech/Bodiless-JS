@@ -123,8 +123,8 @@ We provide a form title and a single field named after the `source` prop of
 
 > Notice the use of the `useFormUI()` hook. The Bodiless-JS admin UI is designed
 to be theme-able. Themers can provide their own styled versions of all UI
-elements. Here we simply retrieve the elements we need. For example,
-`ComponentFormTextArea` is nothing more than a themed version of the native
+elements. Here we simply retrieve the styled elements we need. For example,
+`ComponentFormTextArea` is nothing more than a styled version of the native
 [TextArea](https://joepuzzo.github.io/informed/?path=/story/inputs--text-area)
 input from Informed. `useFormUI()` will return such styled versions of all
 native Informed inputs (pending [#336](https://github.com/johnsonandjohnson/Bodiless-JS/issues/336))
@@ -150,11 +150,11 @@ mode.
 
 ## Custom Inputs
 
-The above will provide a basic textarea for editing the markdown content, which
+The above will provide a basic `textarea` for editing the markdown content, which
 is not ideal. We'd much rather have a full-featured markdown editor with
 preview. Fortunately, Informed makes it easy to create a custom input which will
 drop right into our form. Here, we create one based on the open-source
-[react-mde](https://github.com/andrerpena/react-mde) package, using `ReactMarkdown`
+[`react-mde`](https://github.com/andrerpena/react-mde) package, using `ReactMarkdown`
 itself to generate the preview.
 
 ```
@@ -202,19 +202,53 @@ const renderForm = () => {
   return (
     <>
       <ComponentFormTitle>Edit Page Body</ComponentFormTitle>
+      classes={{ reactMde: 'bl-text-black' }}
       <MarkdownField field="source" classes={{ reactMde: 'bl-text-black' }} />
     </>
   );
 };
 ```
+
+Putting it all together, our final, editable `PageBody` would look like this:
+
 ```
+import React } from 'react';
+import { graphql } from 'gatsby';
+import { Page } from '@bodiless/gatsby-theme-bodiless';
+import { asBodilessComponent, useFormUI } from '@bodiless/core';
+import { asEditable } from '@bodiless/components';
+import ReactMarkdown from 'react-markdown';
 
+// Our Informed custom input in a separate file.
+import MarkdownField from './InformedMarkdown';
 
+const asBodilessMarkdown = asBodilessComponent({
+  icon: 'edit',
+  name: 'edit',
+  renderForm: () => {
+    const { ComponentFormTitle } = useFormUI();
+    return (
+      <>
+        <ComponentFormTitle>Markdown</ComponentFormTitle>
+        <MarkdownField field="source" />
+      </>
+    );
+  },
+  global: false,
+  local: true,
+  Wrapper: 'div',
+  defaultData: { source: 'Initial Value' },
+});
 
+const Markdown = asBodilessMarkdown('body')(ReactMarkdown);
+const H1 = asEditable('title')<HTMLProps<HTMLHeadingElement>>('h1');
 
+const PageBody = ({ title, markdownContent }) => (
+  <main>
+    <H1>{title}</H1>
+    <Markdown source={markdownContent} />
+  </main>
+);
 
-
-
-
-
-
+export default PageBody;
+```

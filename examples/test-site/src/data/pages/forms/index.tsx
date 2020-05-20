@@ -14,39 +14,51 @@
 import React, { HTMLProps } from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
-import { Editable, asEditable } from '@bodiless/components';
-import ReactMarkdown from 'react-markdown';
+import { asBodilessComponent, useFormUI } from '@bodiless/core';
+import { asEditable } from '@bodiless/components';
+import ReactMarkdown, { ReactMarkdownProps as Props } from 'react-markdown';
 
 import Layout from '../../../components/Layout';
-// import { asHeader1 } from '../../../components/Elements.token';
+import MarkdownField from './InformedMarkdown';
 
-import asBodilessMarkdown from './asBodilessMarkdown';
+type Data = Pick<Props, 'source'>;
 
-const Markdown = asBodilessMarkdown('markdown')(ReactMarkdown);
+const asBodilessMarkdown = asBodilessComponent<Props, Data>({
+  icon: 'edit',
+  name: 'edit',
+  renderForm: () => {
+    // const { ComponentFormLabel, ComponentFormTitle, ComponentFormTextArea } = useFormUI();
+    const { ComponentFormLabel, ComponentFormTitle } = useFormUI();
+    return (
+      <>
+        <ComponentFormTitle>Markdown</ComponentFormTitle>
+        <ComponentFormLabel>Content</ComponentFormLabel>
+        {/* <ComponentFormTextArea field="source" /> */}
+        <MarkdownField field="source" />
+      </>
+    );
+  },
+  global: false,
+  local: true,
+  Wrapper: 'div',
+  defaultData: { source: 'Initial Value' },
+});
 
+
+const Markdown = asBodilessMarkdown('body')(ReactMarkdown);
+const H1 = asEditable('title')<HTMLProps<HTMLHeadingElement>>('h1');
 
 const PageBody = ({ title, markdownContent }) => (
   <main>
-    <h1>{title}</h1>
-    <ReactMarkdown source={markdownContent} />
-  </main>
-);
-
-const H1 = asEditable('title')<HTMLProps<HTMLHeadingElement>>('h1');
-
-
-const EditablePageBody = ({ title, markdownContent }) => (
-  <main>
     <H1>{title}</H1>
-    <ReactMarkdown source={markdownContent} />
+    <Markdown source={markdownContent} />
   </main>
 );
-
 
 export default (props: any) => (
   <Page {...props}>
     <Layout>
-      <EditablePageBody
+      <PageBody
         title="Forms"
         markdownContent="Foo"
       />
