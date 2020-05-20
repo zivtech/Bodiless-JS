@@ -50,7 +50,7 @@ export const Icon = flow(
 
 export const ComponentFormTitle = addClasses(
   'bl-text-lg bl-font-bold bl-text-grey-100 bl-block bl-mb-grid-2',
-)(Title); 
+)(Title);
 
 export const ComponentFormLabel = addClasses(
   'bl-text-xs bl-text-grey-100 bl-block',
