@@ -15,7 +15,7 @@
 import React, { HTMLProps } from 'react';
 import {
   EditButtonOptions,
-  getUI,
+  useFormUI,
   withEditButton,
   withData,
   withContextActivator,
@@ -48,13 +48,13 @@ export type Props = Pick<AProps, Exclude<keyof AProps, 'href'>> & {
 export const editButtonOptions: EditButtonOptions<Props, Data> = {
   icon: 'link',
   name: 'Link',
-  renderForm: ({ ui: formUi, unwrap, closeForm }) => {
+  renderForm: ({ unwrap, closeForm }) => {
     const {
       ComponentFormTitle,
       ComponentFormLabel,
       ComponentFormText,
       ComponentFormUnwrapButton,
-    } = getUI(formUi);
+    } = useFormUI();
     const removeLinkHandler = (event: React.MouseEvent) => {
       event.preventDefault();
       if (unwrap) {
