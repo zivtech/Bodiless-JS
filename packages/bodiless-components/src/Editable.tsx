@@ -13,21 +13,20 @@
  */
 
 import React, { ComponentType as CT, ClipboardEvent } from 'react';
-import { flow } from 'lodash';
 import ContentEditable from 'react-contenteditable';
 import { observer } from 'mobx-react-lite';
 import {
   withNode,
   useNode,
-  withNodeKey,
   useEditContext,
-  withChild,
+  WithNodeProps,
 } from '@bodiless/core';
 import './Editable.css';
 
 type Props = {
   placeholder?: string;
-};
+  children?: string;
+} & Partial<WithNodeProps>;
 type Data = {
   text: string;
 };
@@ -36,7 +35,7 @@ type Data = {
 const Text = observer((props: Props) => {
   const { placeholder } = props;
   const { node } = useNode<Data>();
-  const text = node.data.text || placeholder || '';
+  const text = node.data.text || props.children || placeholder || '';
   // eslint-disable-next-line react/no-danger
   return <span dangerouslySetInnerHTML={{ __html: text }} />;
 });
@@ -55,7 +54,7 @@ const EditableText = observer((props: Props) => {
   };
   const { placeholder } = props;
   const placeholderDataAttr = placeholder || '';
-  const text = node.data.text || '';
+  const text = node.data.text || props.children || '';
   return (
     <ContentEditable
       tagName="span"
@@ -84,14 +83,43 @@ const withPlaceholder = <P extends object> (placeholder?: string) => (Component:
   return WithPlaceholder;
 };
 
-const asEditable = (nodeKey?: string, placeholder?: string) => (
-  withChild(
-    flow(
-      withNodeKey(nodeKey),
-      withPlaceholder(placeholder),
-    )(Editable),
-  )
-);
+// const asEditable = (nodeKey?: string, placeholder?: string) => (
+//   withChild(
+//     flow(
+//       withNodeKey(nodeKey),
+//       withPlaceholder(placeholder),
+//     )(Editable),
+//   )
+// );
+
+const asEditable = (nodeKeys: string|Partial<WithNodeProps> = {}, placeholder?: string) => {
+  const { nodeKey, nodeCollection = undefined } = typeof nodeKeys === 'string'
+    ? { nodeKey: nodeKeys }
+    : nodeKeys;
+  return (
+    <P extends object>(Component: CT<P>|string) => (props: P & Props) => {
+      const {
+        children,
+        nodeKey: nodeKeyProp,
+        placeholder: placeholderProp,
+        nodeCollection: nodeCollectionProp,
+        ...rest
+      } = props;
+      const editableProps = {
+        children,
+        placeholder: placeholderProp || placeholder,
+        nodeKey: nodeKeyProp || nodeKey,
+        nodeCollection: nodeCollectionProp || nodeCollection,
+      };
+      return (
+        <Component {...rest as P}>
+          <Editable {...editableProps} />
+        </Component>
+      );
+    }
+  );
+};
+
 export default Editable;
 export {
   withPlaceholder,
