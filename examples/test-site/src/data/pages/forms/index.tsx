@@ -11,27 +11,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import React from 'react';
+import React, { HTMLProps } from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
-import { H1 } from '@bodiless/fclasses';
+import { Editable, asEditable } from '@bodiless/components';
 import ReactMarkdown from 'react-markdown';
 
 import Layout from '../../../components/Layout';
-import { asHeader1 } from '../../../components/Elements.token';
+// import { asHeader1 } from '../../../components/Elements.token';
 
 import asBodilessMarkdown from './asBodilessMarkdown';
 
-const PageTitle = asHeader1(H1);
-
-// const Markdown = asBodilessMarkdown('markdown', { source: 'Empty' })(ReactMarkdown);
 const Markdown = asBodilessMarkdown('markdown')(ReactMarkdown);
+
+
+const PageBody = ({ title, markdownContent }) => (
+  <main>
+    <h1>{title}</h1>
+    <ReactMarkdown source={markdownContent} />
+  </main>
+);
+
+const H1 = asEditable('title')<HTMLProps<HTMLHeadingElement>>('h1');
+
+
+const EditablePageBody = ({ title, markdownContent }) => (
+  <main>
+    <H1>{title}</H1>
+    <ReactMarkdown source={markdownContent} />
+  </main>
+);
+
 
 export default (props: any) => (
   <Page {...props}>
     <Layout>
-      <PageTitle>Forms</PageTitle>
-      <Markdown />
+      <EditablePageBody
+        title="Forms"
+        markdownContent="Foo"
+      />
     </Layout>
   </Page>
 );
