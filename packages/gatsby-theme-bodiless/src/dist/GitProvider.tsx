@@ -25,7 +25,7 @@ import {
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
 import CommitsList from './CommitsList';
-
+import RemoteChanges from './RemoteChanges';
 
 const backendFilePath = process.env.BODILESS_BACKEND_DATA_FILE_PATH || '';
 const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
@@ -85,7 +85,7 @@ const handle = (promise: AxiosPromise<any>, callback?: () => void) => promise
 
 const formGetCommitsList = (client: Client) => contextMenuForm({
   // @todo: handle what happens when user selects a commit from the loaded list.
-  submitValues: () => undefined,
+  submitValues: () => {},
 })(
   ({ ui }: any) => {
     const { ComponentFormTitle } = getUI(ui);
@@ -103,51 +103,50 @@ const cookies = new Cookies();
 const author = cookies.get('author');
 const formGitCommit = (client: Client) => contextMenuForm({
   submitValues: (submitValues: any) => {
-    handle(client.commit(
-      submitValues.commitMessage,
-      [backendFilePath, backendStaticPath],
-      [],
-      [],
-      author,
-    ));
-  },
-})(
-  ({ ui }: any) => {
-    const { ComponentFormTitle, ComponentFormLabel, ComponentFormText } = getUI(ui);
-    return (
-      <>
-        <ComponentFormTitle>Upload Changes</ComponentFormTitle>
-        <ComponentFormLabel htmlFor="commit-txt">
-          Description:
-        </ComponentFormLabel>
-        <ComponentFormText field="commitMessage" id="commit-txt" />
-      </>
+    handle(
+      client.commit(
+        submitValues.commitMessage,
+        [backendFilePath, backendStaticPath],
+        [],
+        [],
+        author,
+      ),
     );
   },
-);
+})(({ ui }: any) => {
+  const { ComponentFormTitle, ComponentFormLabel, ComponentFormText } = getUI(
+    ui,
+  );
+  return (
+    <>
+      <ComponentFormTitle>Upload Changes</ComponentFormTitle>
+      <ComponentFormLabel htmlFor="commit-txt">
+          Description:
+      </ComponentFormLabel>
+      <ComponentFormText field="commitMessage" id="commit-txt" />
+    </>
+  );
+});
 
-// Currently descoping the Pull Changes Button Functionality.
-// Might use it later.
-
-// const formGitPull = (client: Client) => contextMenuForm({
-//   submitValues: () => handle(client.pull()),
-// })(
-//   ({ ui }: any) => {
-//     const { ComponentFormTitle, ComponentFormLabel } = getUI(ui);
-//     return (
-//       <>
-//         <ComponentFormTitle>Download Changes</ComponentFormTitle>
-//         <ComponentFormLabel htmlFor="pull-txt">
-//           Download remote changes
-//         </ComponentFormLabel>
-//       </>
-//     );
-//   },
-// );
+const formGitPull = (client: Client) => contextMenuForm({
+  submitValues: (values : any) => {
+    const { keepOpen } = values;
+    return keepOpen;
+  },
+})(({ ui }: any) => {
+  const { ComponentFormTitle, ComponentFormText } = getUI(ui);
+  return (
+    <>
+      <ComponentFormTitle>Pull Changes</ComponentFormTitle>
+      <ComponentFormText type="hidden" field="keepOpen" initialValue={false} />
+      <RemoteChanges client={client} />
+    </>
+  );
+});
 
 const formGitReset = (client: Client, context: any) => contextMenuForm({
   submitValues: () => {
-    const submit = async () => {
+    (async () => {
       context.showPageOverlay({
         message: 'Revert is in progress. This may take a minute.',
         maxTimeoutInSeconds: 10,
@@ -165,8 +164,7 @@ const formGitReset = (client: Client, context: any) => contextMenuForm({
       } catch {
         context.showError();
       }
-    };
-    submit();
+    })();
   },
 })(
   ({ ui }: any) => {
@@ -199,13 +197,12 @@ const getMenuOptions = (client: Client = defaultClient, context: any): TMenuOpti
       isHidden: () => !context.isEdit,
       handler: () => saveChanges,
     },
-    // Currently descoping the Pull Changes Button Functionality.
-    // Might use it later.
-    // {
-    //   name: 'pullchanges',
-    //   icon: 'cloud_download',
-    //   handler: () => formGitPull(client),
-    // },
+    {
+      name: 'Pull',
+      label: 'Pull',
+      icon: 'cloud_download',
+      handler: () => formGitPull(client),
+    },
     {
       name: 'resetchanges',
       icon: 'undo',

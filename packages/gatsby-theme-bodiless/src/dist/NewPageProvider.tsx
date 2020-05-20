@@ -37,7 +37,7 @@ type Props = {
 
 const formPageAdd = (client: Client, template: string, context: any) => contextMenuForm({
   submitValues: (submittedValues: any) => {
-    const submit = async () => {
+    (async () => {
       context.showPageOverlay({
         message: 'The page is creating.',
         maxTimeoutInSeconds: 10,
@@ -51,8 +51,8 @@ const formPageAdd = (client: Client, template: string, context: any) => contextM
         const isPageVerified = await verifyPage(newPagePath);
         if (!isPageVerified) {
           const errorMessage = `Unable to verify page creation.
-  It is likely that your new page was created but is not yet available.
-  Click ok to visit the new page; if it does not load, wait a while and reload.`;
+It is likely that your new page was created but is not yet available.
+Click ok to visit the new page; if it does not load, wait a while and reload.`;
           context.showError({
             message: errorMessage,
             onClose: () => {
@@ -67,8 +67,7 @@ const formPageAdd = (client: Client, template: string, context: any) => contextM
           message: result.message,
         });
       }
-    };
-    submit();
+    })();
   },
 })(({ ui, formState }: any) => {
   const {
