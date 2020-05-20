@@ -2,7 +2,7 @@
  * @file
  * Integration tests for context menu forms.
  */
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { mount, shallow } from 'enzyme';
 import contextMenuForm, { ContextMenuForm, FormProps, FormBodyRenderer } from '../src/contextMenuForm';
 
@@ -59,7 +59,7 @@ describe('ContextMenuForm', () => {
     const close = jest.fn();
     const jsx = (
       <ContextMenuForm submitValues={submit} closeForm={close}>
-        {() => <Fragment />}
+        {() => <></>}
       </ContextMenuForm>
     );
     it('Closes the form when the submit handler returns nothing', () => {
@@ -71,7 +71,7 @@ describe('ContextMenuForm', () => {
       submit.mockReturnValueOnce(true);
       close.mockReset();
       const wrapper = shallow(
-        (<ContextMenuForm closeForm={close}>{() => <Fragment />}</ContextMenuForm>),
+        (<ContextMenuForm closeForm={close}>{() => <></>}</ContextMenuForm>),
       );
       wrapper.prop('onSubmit')();
       expect(close).toHaveBeenCalled();

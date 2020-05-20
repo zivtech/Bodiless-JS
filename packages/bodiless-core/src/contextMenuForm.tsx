@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { ReactNode, Fragment } from 'react';
+import React, { ReactNode } from 'react';
 import {
   Form, FormApi, FormState, Text, TextArea,
 } from 'informed';
@@ -65,7 +65,7 @@ export const ContextMenuForm = <D extends object>({
   submitValues = () => undefined,
   initialValues = {} as D,
   hasSubmit = true,
-  children = () => <Fragment />,
+  children = () => <></>,
   ...rest
 }: Props<D>) => {
   const { ComponentFormCloseButton, ComponentFormSubmitButton } = getUI(ui);
@@ -95,8 +95,7 @@ export const ContextMenuForm = <D extends object>({
           {hasSubmit && !formState.invalid
           && (
             <ComponentFormSubmitButton aria-label="Submit" />
-          )
-          }
+          )}
         </>
       )}
     </Form>
