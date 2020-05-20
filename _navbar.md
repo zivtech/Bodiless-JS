@@ -29,6 +29,7 @@
           * [BVRatings Summary](/Components/Bazaarvoice/Components/v1/BVRatingsSummary)
         * [BVLoader Provider](/Components/Bazaarvoice/Components/BVLoaderProvider)
       * [Configuration](/Components/Bazaarvoice/Configuration)
+    * [Youtube](/Components/Youtube)
     * [Editable](/Components/Editable)
     * [List](/Components/List)
     * [Link](/Components/Link)
