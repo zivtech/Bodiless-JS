@@ -9,6 +9,7 @@ import {
 import { ifReadOnly, ifEditable } from './withEditToggle';
 import withEditButton, { EditButtonOptions } from './withEditButton';
 import withData from './withData';
+import { WithNodeProps } from './Types/NodeTypes';
 
 /**
  * Options for making a component "bodiless".
@@ -31,10 +32,7 @@ type Options<P, D> = EditButtonOptions<P, D> & {
 };
 
 type HOC<P, Q> = (Component: CT<P>) => CT<Q>;
-type BodilessProps = {
-  nodeKey?: string,
-  nodeCollection?: string,
-};
+type BodilessProps = Partial<WithNodeProps>;
 type AsBodiless<P, D> = (nodeKey?: string, defaultData?: D) => HOC<P, P & BodilessProps>;
 
 /**
@@ -75,10 +73,12 @@ const asBodilessComponent = <P extends object, D extends object>(options: Option
    * @param defaultData An object representing the initial/default data. Supercedes any default
    * data provided as an option.
    */
-  return (nodeKey?: string, defaultData: D = {} as D) => {
+  return (nodeKeys: string|BodilessProps = {}, defaultData: D = {} as D) => {
     const finalData = { ...defaultDataOption, ...defaultData };
+    const { nodeKey, nodeCollection = undefined } = typeof nodeKeys === 'object'
+      ? nodeKeys : { nodeKey: nodeKeys };
     return flowRight(
-      withNodeKey(nodeKey),
+      withNodeKey(nodeKey, nodeCollection),
       withNode,
       withNodeDataHandlers(finalData),
       ifReadOnly(
