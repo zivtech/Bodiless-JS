@@ -14,7 +14,7 @@ import { WithNodeProps } from './Types/NodeTypes';
 /**
  * Options for making a component "bodiless".
  */
-type Options<P, D> = EditButtonOptions<P, D> & {
+export type Options<P, D> = EditButtonOptions<P, D> & {
   /**
    * The event used to activate the edit button.  Default is 'onClick'
    */
@@ -31,7 +31,7 @@ type Options<P, D> = EditButtonOptions<P, D> & {
   defaultData?: D,
 };
 
-type HOC<P, Q> = (Component: CT<P>) => CT<Q>;
+type HOC<P, Q> = (Component: CT<P>|string) => CT<Q>;
 type BodilessProps = Partial<WithNodeProps>;
 type AsBodiless<P, D> = (nodeKey?: string, defaultData?: D) => HOC<P, P & BodilessProps>;
 

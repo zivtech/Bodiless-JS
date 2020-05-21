@@ -14,38 +14,17 @@
 
 import React, { HTMLProps } from 'react';
 import {
-  EditButtonOptions,
   useFormUI,
-  withEditButton,
-  withData,
-  withContextActivator,
-  withNode,
-  withNodeDataHandlers,
-  withLocalContextMenu,
-  WithNodeProps,
-  ifEditable,
-  Bodiless,
-  ifReadOnly,
-  withNodeKey,
-  withoutProps,
+  BodilessOptions,
+  asBodilessComponent,
 } from '@bodiless/core';
-import { flowRight } from 'lodash';
 
 // Type of the data used by this component.
-export type Data = {
+type Data = {
   href: string;
 };
 
-// Type of the props accepted by this component.
-// Exclude the href from the props accepted as we write it.
-type AProps = HTMLProps<HTMLAnchorElement>;
-
-export type Props = Pick<AProps, Exclude<keyof AProps, 'href'>> & {
-  unwrap?: () => void,
-};
-
-// Options used to create an edit button.
-export const editButtonOptions: EditButtonOptions<Props, Data> = {
+const options: BodilessOptions<HTMLProps<HTMLAnchorElement>, Data> = {
   icon: 'link',
   name: 'Link',
   renderForm: ({ unwrap, closeForm }) => {
@@ -77,31 +56,11 @@ export const editButtonOptions: EditButtonOptions<Props, Data> = {
   },
   global: false,
   local: true,
+  defaultData: {
+    href: '#',
+  },
 };
 
-const emptyValue = {
-  href: '#',
-};
-// Composed hoc which creates editable version of the component.
-// Note - the order is important. In particular:
-// - the node data handlers must be outermost
-// - anything relying on the context (activator, indicator) must be
-//   *after* `withEditButton()` as this establishes the context.
-// - withData must be *after* the data handlers are defiend.
-export const asBodilessLink = (nodeKey?: string) => flowRight(
-  // @ts-ignore: Types of parameters are incompatible.
-  withNodeKey(nodeKey),
-  withNode,
-  withNodeDataHandlers(emptyValue),
-  ifReadOnly(
-    withoutProps(['setComponentData']),
-  ),
-  ifEditable(
-    withEditButton(editButtonOptions),
-    withContextActivator('onClick'),
-    withLocalContextMenu,
-  ),
-  withData,
-) as Bodiless<Props, Props & Partial<WithNodeProps>>;
+export const asBodilessLink = asBodilessComponent<HTMLProps<HTMLAnchorElement>, Data>(options);
 const Link = asBodilessLink()('a');
 export default Link;
