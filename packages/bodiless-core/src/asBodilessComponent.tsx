@@ -42,7 +42,7 @@ type AsBodiless<P, D> = (nodeKey?: string, defaultData?: D) => HOC<P, P & Bodile
  * @param Wrapper The component to wrap with
  * @private
  */
-const withActivatorWrapper = <P extends object>(event: string, Wrapper: CT<any>|string) => (
+export const withActivatorWrapper = <P extends object>(event: string, Wrapper: CT<any>|string) => (
   (Component: CT<P>) => (props: P) => {
     const eventProp = pick(props, event);
     const rest = omit(props, event) as P;

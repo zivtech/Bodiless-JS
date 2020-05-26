@@ -50,7 +50,7 @@ import {
   useActivateOnEffectActivator,
 } from './ActivateContext';
 import withChild from './withChild';
-import asBodilessComponent, { Options as BodilessOptions } from './asBodilessComponent';
+import asBodilessComponent, { withActivatorWrapper, Options as BodilessOptions } from './asBodilessComponent';
 import { useUI as useFormUI } from './components/ContextMenuItem';
 
 export * from './components';
@@ -59,6 +59,7 @@ export {
   BodilessOptions,
   asStatic,
   withContextActivator,
+  withActivatorWrapper,
   withNodeAndHandlers,
   withNodeDataHandlers,
   withLocalContextMenu,
