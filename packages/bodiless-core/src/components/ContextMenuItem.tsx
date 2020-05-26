@@ -13,7 +13,7 @@
  */
 
 import React, {
-  useState, ComponentType, createContext, useContext,
+  useState, createContext, useContext,
 } from 'react';
 import ReactTooltip from 'rc-tooltip';
 import { getUI as getFormUI, FormProps } from '../contextMenuForm';
@@ -41,7 +41,7 @@ export const useUI = () => {
 };
 
 const ContextMenuItem = ({ option, index, ui }: IProps) => {
-  const [Form, setForm] = useState<ComponentType<FormProps>>();
+  const [renderForm, setRenderForm] = useState<(props:FormProps) => JSX.Element>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
   const finalUI = getUI(ui);
   const {
@@ -61,27 +61,31 @@ const ContextMenuItem = ({ option, index, ui }: IProps) => {
 
     if (menuForm) {
       setIsToolTipShown(!isToolTipShown);
-      // We have to pass a function to setForm b/c menuForm is itself a function
-      // (a component) and, when a function is passed to setState, react interprets
+      // We have to pass a function to setRenderForm b/c menuForm is itself a function
+      // (a render prop) and, when a function is passed to setState, react interprets
       // it as a state setter (in order to set state based on previous state)
       // see https://reactjs.org/docs/hooks-reference.html#functional-updates
-      setForm(() => menuForm);
+      setRenderForm(() => menuForm);
     }
   };
 
   // Reset form and tooltip state
   const onFormClose = (): void => {
     setIsToolTipShown(false);
-    setForm(undefined);
+    setRenderForm(undefined);
   };
 
-
   function getContextMenuForm(): JSX.Element {
-    if (Form) {
+    if (renderForm) {
+      const formProps = {
+        closeForm: onFormClose,
+        ui,
+        'aria-label': `Context Menu ${option.label || option.name} Form`,
+      };
       return (
         <FormWrapper onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
           <UIContext.Provider value={finalUI}>
-            <Form closeForm={onFormClose} ui={ui} aria-label={`Context Menu ${option.label || option.name} Form`} />
+            {renderForm(formProps)}
           </UIContext.Provider>
         </FormWrapper>
       );

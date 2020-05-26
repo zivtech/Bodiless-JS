@@ -16,7 +16,7 @@ import { ReactNode } from 'react';
 import { flowRight } from 'lodash';
 import { withPageContext, withoutProps, UseGetMenuOptions } from './hoc';
 import { PageEditContextInterface } from './PageEditContext/types';
-import contextMenuForm, {
+import useContextMenuForm, {
   FormBodyProps as ContextMenuFormBodyProps,
 } from './contextMenuForm';
 import { TMenuOptionGetter } from './Types/PageContextProviderTypes';
@@ -65,15 +65,16 @@ export const createMenuOptionHook = <P extends object, D extends object>({
       Object.assign(componentData, values);
       if (onSubmit) onSubmit();
     };
-    const render = (p: ContextMenuFormBodyProps<D>) => renderForm({
+    const renderFormBody = (p: ContextMenuFormBodyProps<D>) => renderForm({
       ...p,
       unwrap,
       componentProps: props,
     });
-    const form = contextMenuForm({
+    const form = useContextMenuForm({
       submitValues,
       initialValues: componentData,
-    })(render);
+      renderFormBody,
+    });
     const getMenuOptions: TMenuOptionGetter = () => [
       {
         icon,

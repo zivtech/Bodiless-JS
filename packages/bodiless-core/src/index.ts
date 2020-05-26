@@ -24,7 +24,7 @@ import {
   withResetButton,
 } from './Contentful';
 import withEditButton, { EditButtonProps } from './withEditButton';
-import contextMenuForm, { ContextMenuForm } from './contextMenuForm';
+import useContextMenuForm, { contextMenuForm, ContextMenuForm } from './contextMenuForm';
 import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
 import { DefaultContentNode } from './ContentNode';
@@ -75,6 +75,7 @@ export {
   startSidecarNodes,
   endSidecarNodes,
   contextMenuForm,
+  useContextMenuForm,
   ContextMenuForm,
   useFormUI,
   withData,

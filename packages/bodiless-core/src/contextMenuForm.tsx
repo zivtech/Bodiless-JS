@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 import {
   Form, FormApi, FormState, Text, TextArea,
 } from 'informed';
@@ -102,14 +102,23 @@ export const ContextMenuForm = <D extends object>({
   );
 };
 
-const contextMenuForm = <D extends object>(options: Options<D> = {}) => (
+export const contextMenuForm = <D extends object>(options: Options<D> = {}) => (
   renderFormBody?: FormBodyRenderer<D>,
 ) => (
-  ({ children, ...rest }: Props<D>) => (
-    <ContextMenuForm {...options} {...rest}>
-      {children || renderFormBody}
+  (props: Props<D>) => (
+    <ContextMenuForm {...options} {...props}>
+      {renderFormBody || (() => <></>)}
     </ContextMenuForm>
   )
 );
 
-export default contextMenuForm;
+type HookOptions<D> = Options<D> & {
+  renderFormBody?: FormBodyRenderer<D>,
+};
+
+const useContextMenuForm = <D extends object>(options: HookOptions<D> = {}) => useCallback(
+  contextMenuForm(options)(options.renderFormBody),
+  [options],
+);
+
+export default useContextMenuForm;
