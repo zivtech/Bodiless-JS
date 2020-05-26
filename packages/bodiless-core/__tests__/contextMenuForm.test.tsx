@@ -4,52 +4,51 @@
  */
 import React, { useState } from 'react';
 import { mount, shallow } from 'enzyme';
-import contextMenuForm, { ContextMenuForm, FormProps, FormBodyRenderer } from '../src/contextMenuForm';
+import {
+  contextMenuForm, ContextMenuForm, FormProps, FormBodyRenderer,
+} from '../src/contextMenuForm';
 
 describe('contextMenuForm', () => {
   it('Applies options as props to the innter ContextMenuForm', () => {
     const render = jest.fn();
     const submitValues = jest.fn();
+    const closeForm = jest.fn();
     const initialValues = {
       foo: 'bar',
     };
-
-    const Form = contextMenuForm({ submitValues, initialValues })(render);
-    // @ts-ignore We're not providng all necessary props here.
-    const wrapper = shallow(<Form />);
-    wrapper.prop('children')();
+    const element = contextMenuForm({ submitValues, initialValues })(render)({ closeForm });
+    element.props.children();
     expect(render).toHaveBeenCalled();
-    wrapper.prop('submitValues')();
+    element.props.submitValues();
     expect(submitValues).toHaveBeenCalled();
-    expect(wrapper.prop('initialValues').foo).toBe('bar');
+    expect(element.props.initialValues.foo).toBe('bar');
+    element.props.closeForm();
+    expect(closeForm).toHaveBeenCalled();
   });
 
   it('Allows options to be overridden', () => {
+    const render = jest.fn();
     const options = {
-      children: jest.fn(),
       submitValues: jest.fn(),
       initialValues: {
         foo: 'bar',
       },
     };
     const props = {
-      children: jest.fn(),
+      closeForm: jest.fn(),
       submitValues: jest.fn(),
       initialValues: {
         foo: 'baz',
       },
     };
 
-    const Form = contextMenuForm(options)(options.children);
+    const form = contextMenuForm(options)(render);
     // @ts-ignore We're not providng all necessary props here.
-    const wrapper = shallow(<Form {...props} />);
-    wrapper.prop('children')();
-    expect(props.children).toHaveBeenCalled();
-    expect(options.children).not.toHaveBeenCalled();
-    wrapper.prop('submitValues')();
+    const element = form(props);
+    element.props.submitValues();
     expect(props.submitValues).toHaveBeenCalled();
     expect(options.submitValues).not.toHaveBeenCalled();
-    expect(wrapper.prop('initialValues').foo).toBe('baz');
+    expect(element.props.initialValues.foo).toBe('baz');
   });
 });
 
