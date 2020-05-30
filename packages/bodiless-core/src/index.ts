@@ -41,7 +41,7 @@ import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
 import type { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
 import type { EditButtonOptions } from './Types/EditButtonTypes';
 import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
-import type { WithNodeProps } from './Types/NodeTypes';
+import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
 import type { TOverlaySettings } from './Types/PageOverlayTypes';
 import {
   ActivateOnEffectProvider,
@@ -105,6 +105,7 @@ export type {
   TMenuOption,
   TMenuOptionGetter,
   WithNodeProps,
+  WithNodeKeyProps,
   EditButtonOptions,
   EditButtonProps,
   TOverlaySettings,

@@ -9,7 +9,7 @@ import {
 import { ifReadOnly, ifEditable } from './withEditToggle';
 import withEditButton, { EditButtonOptions } from './withEditButton';
 import withData from './withData';
-import { WithNodeProps } from './Types/NodeTypes';
+import { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
 
 /**
  * Options for making a component "bodiless".
@@ -33,7 +33,7 @@ export type Options<P, D> = EditButtonOptions<P, D> & {
 
 type HOC<P, Q> = (Component: CT<P>|string) => CT<Q>;
 type BodilessProps = Partial<WithNodeProps>;
-type AsBodiless<P, D> = (nodeKey?: string, defaultData?: D) => HOC<P, P & BodilessProps>;
+type AsBodiless<P, D> = (nodeKeys?: WithNodeKeyProps, defaultData?: D) => HOC<P, P & BodilessProps>;
 
 /**
  * Given an event name and a wrapper component, provides an HOC which will wrap the base component
@@ -73,12 +73,10 @@ const asBodilessComponent = <P extends object, D extends object>(options: Option
    * @param defaultData An object representing the initial/default data. Supercedes any default
    * data provided as an option.
    */
-  return (nodeKeys: string|BodilessProps = {}, defaultData: D = {} as D) => {
+  return (nodeKeys?: WithNodeKeyProps, defaultData: D = {} as D) => {
     const finalData = { ...defaultDataOption, ...defaultData };
-    const { nodeKey, nodeCollection = undefined } = typeof nodeKeys === 'object'
-      ? nodeKeys : { nodeKey: nodeKeys };
     return flowRight(
-      withNodeKey(nodeKey, nodeCollection),
+      withNodeKey(nodeKeys),
       withNode,
       withNodeDataHandlers(finalData),
       ifReadOnly(
