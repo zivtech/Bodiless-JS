@@ -15,7 +15,7 @@
 import React, { ComponentType as CT, ClipboardEvent, ComponentType } from 'react';
 import ContentEditable from 'react-contenteditable';
 import { observer } from 'mobx-react-lite';
-import { flowRight } from 'lodash';
+import { flowRight, pickBy } from 'lodash';
 import {
   withNode,
   useNode,
@@ -39,7 +39,7 @@ type Data = {
 const Text = observer((props: Props) => {
   const { placeholder } = props;
   const { node } = useNode<Data>();
-  const text = node.data.text || props.children || placeholder || '';
+  const text = (node.data.text !== undefined ? node.data.text : props.children) || placeholder || '';
   // eslint-disable-next-line react/no-danger
   return <span dangerouslySetInnerHTML={{ __html: text }} />;
 });
@@ -58,7 +58,7 @@ const EditableText = observer((props: Props) => {
   };
   const { placeholder } = props;
   const placeholderDataAttr = placeholder || '';
-  const text = node.data.text || props.children || '';
+  const text = (node.data.text !== undefined ? node.data.text : props.children) || '';
   return (
     <ContentEditable
       tagName="span"
@@ -87,37 +87,46 @@ const withPlaceholder = <P extends object> (placeholder?: string) => (Component:
   return WithPlaceholder;
 };
 
-const withEditableChild = <P extends object>(Component: CT<P>|string) => {
-  const WithEditableChild = (props: P & Props) => {
-    // @TODO: Improve `withChild` to allow this kind of prop splitting.
-    const {
-      children,
-      nodeKey,
-      nodeCollection,
-      placeholder,
-      ...rest
-    } = props;
-    const editableProps = {
-      children,
-      nodeKey,
-      nodeCollection,
-      placeholder,
-    };
-    return (
-      <Component {...rest as P}>
-        <Editable {...editableProps} />
-      </Component>
-    );
-  };
-  return WithEditableChild;
-};
-
+/**
+ * asEditable takes a nodeKey and a placeholder, and returns an HOC which injects
+ * an editable span as a child of the wrapped component.  The original children
+ * of the wrapped component will become children of the editable span.  In addition,
+ * `nodeKey`, `nodeCollection` and `placeholder` props passed to the enhanced
+ * component will be forwarded to the editable span.
+ *
+ * @param nodeKeys A nodeKey or an object containing nodeKey and nodeCollection.
+ * @param placeholder A string to use as placeholder text.
+ * @return A HOC to inject an editable span.
+ */
 const asEditable = (nodeKeys?: WithNodeKeyProps, placeholder?: string) => (
-  <P extends object>(Component: ComponentType<P>|string) => flowRight(
-    withNodeKey(nodeKeys),
-    withPlaceholder(placeholder),
-    withEditableChild,
-  )(Component) as ComponentType<P & Props>
+  <P extends object>(Component: CT<P>|string) => {
+    const EditableChild = flowRight(
+      withNodeKey(nodeKeys),
+      withPlaceholder(placeholder),
+    )(Editable);
+    const AsEditable = (props: P & Props) => {
+      // @TODO: Improve `withChild` to allow this kind of prop splitting.
+      const {
+        children,
+        nodeKey,
+        nodeCollection,
+        placeholder: placeholderProp,
+        ...rest
+      } = props;
+      const editableProps = pickBy({
+        children,
+        nodeKey,
+        nodeCollection,
+        placeholder: placeholderProp,
+      });
+      return (
+        <Component {...rest as P}>
+          <EditableChild {...editableProps} />
+        </Component>
+      );
+    };
+    return AsEditable as ComponentType<P & Props>;
+  }
 );
 
 export default Editable;

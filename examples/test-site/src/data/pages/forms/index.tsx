@@ -46,7 +46,7 @@ const asBodilessMarkdown = asBodilessComponent<Props, Data>({
 
 
 const Markdown = asBodilessMarkdown('body')(ReactMarkdown);
-const H1 = asEditable('title')<HTMLProps<HTMLHeadingElement>>('h1');
+const H1 = asEditable('title', 'Title')<HTMLProps<HTMLHeadingElement>>('h1');
 
 const PageBody = ({ title, markdownContent }) => (
   <main>
