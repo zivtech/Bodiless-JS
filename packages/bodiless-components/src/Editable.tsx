@@ -15,11 +15,14 @@
 import React, { ComponentType as CT, ClipboardEvent } from 'react';
 import ContentEditable from 'react-contenteditable';
 import { observer } from 'mobx-react-lite';
+import { flowRight } from 'lodash';
 import {
   withNode,
   useNode,
   useEditContext,
   WithNodeProps,
+  WithNodeKeyProps,
+  withNodeKey,
 } from '@bodiless/core';
 import './Editable.css';
 
@@ -27,6 +30,7 @@ type Props = {
   placeholder?: string;
   children?: string;
 } & Partial<WithNodeProps>;
+
 type Data = {
   text: string;
 };
@@ -83,42 +87,36 @@ const withPlaceholder = <P extends object> (placeholder?: string) => (Component:
   return WithPlaceholder;
 };
 
-// const asEditable = (nodeKey?: string, placeholder?: string) => (
-//   withChild(
-//     flow(
-//       withNodeKey(nodeKey),
-//       withPlaceholder(placeholder),
-//     )(Editable),
-//   )
-// );
-
-const asEditable = (nodeKeys: string|Partial<WithNodeProps> = {}, placeholder?: string) => {
-  const { nodeKey, nodeCollection = undefined } = typeof nodeKeys === 'string'
-    ? { nodeKey: nodeKeys }
-    : nodeKeys;
-  return (
-    <P extends object>(Component: CT<P>|string) => (props: P & Props) => {
-      const {
-        children,
-        nodeKey: nodeKeyProp,
-        placeholder: placeholderProp,
-        nodeCollection: nodeCollectionProp,
-        ...rest
-      } = props;
-      const editableProps = {
-        children,
-        placeholder: placeholderProp || placeholder,
-        nodeKey: nodeKeyProp || nodeKey,
-        nodeCollection: nodeCollectionProp || nodeCollection,
-      };
-      return (
-        <Component {...rest as P}>
-          <Editable {...editableProps} />
-        </Component>
-      );
-    }
-  );
+const withEditableChild = <P extends object>(Component: CT<P>|string) => {
+  const WithEditableChild = (props: P & Props) => {
+    // @TODO: Improve `withChild` to allow this kind of prop splitting.
+    const {
+      children,
+      nodeKey,
+      nodeCollection,
+      placeholder,
+      ...rest
+    } = props;
+    const editableProps = {
+      children,
+      nodeKey,
+      nodeCollection,
+      placeholder,
+    };
+    return (
+      <Component {...rest as P}>
+        <Editable {...editableProps} />
+      </Component>
+    );
+  };
+  return WithEditableChild;
 };
+
+const asEditable = (nodeKeys?: WithNodeKeyProps, placeholder?: string) => flowRight(
+  withNodeKey(nodeKeys),
+  withPlaceholder(placeholder),
+  withEditableChild,
+);
 
 export default Editable;
 export {
