@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { ComponentType as CT, ClipboardEvent } from 'react';
+import React, { ComponentType as CT, ClipboardEvent, ComponentType } from 'react';
 import ContentEditable from 'react-contenteditable';
 import { observer } from 'mobx-react-lite';
 import { flowRight } from 'lodash';
@@ -112,10 +112,12 @@ const withEditableChild = <P extends object>(Component: CT<P>|string) => {
   return WithEditableChild;
 };
 
-const asEditable = (nodeKeys?: WithNodeKeyProps, placeholder?: string) => flowRight(
-  withNodeKey(nodeKeys),
-  withPlaceholder(placeholder),
-  withEditableChild,
+const asEditable = (nodeKeys?: WithNodeKeyProps, placeholder?: string) => (
+  <P extends object>(Component: ComponentType<P>|string) => flowRight(
+    withNodeKey(nodeKeys),
+    withPlaceholder(placeholder),
+    withEditableChild,
+  )(Component) as ComponentType<P & Props>
 );
 
 export default Editable;
