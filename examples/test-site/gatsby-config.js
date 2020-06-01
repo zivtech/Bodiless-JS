@@ -8,6 +8,13 @@ require('dotenv').config({
 
 // Gatsby plugins list.
 const plugins = [
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `http://localhost:32773/`,
+        // apiBase: `api`, // optional, defaults to `jsonapi`
+      },
+    },
   {
     resolve: 'gatsby-plugin-compile-es6-packages',
     options: {

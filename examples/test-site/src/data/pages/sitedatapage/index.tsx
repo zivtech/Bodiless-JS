@@ -1,45 +1,70 @@
-/**
- * Copyright © 2019 Johnson & Johnson
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
-
-import { Editable } from '@bodiless/components';
+import React, { createContext, ComponentType } from 'react';
+import { flow } from 'lodash';
+import { asEditable } from '@bodiless/components';
+import { H1 } from '@bodiless/fclasses';
+import { asHeader1 } from '../../../components/Elements.token';
 import Layout from '../../../components/Layout';
+import { withDefaultContent } from '@bodiless/core';
 
-export default (props: any) => (
-  <Page {...props}>
-    <Layout>
-      <h1 className="text-3xl font-bold">Demo of site/page level data</h1>
-      <h3 className="text-lg font-bold">This is page 1</h3>
-      <p className="my-2"><Link to="/sitedatapage2">Go to page 2</Link></p>
-      <h4 className="text-base font-bold">The following is page level</h4>
-      <div className="m-2 p-2 w-1/3 h-12 border-blue border">
-        <Editable nodeKey="sitedatapage" placeholder="Page level data..." />
-      </div>
-      <h4 className="text-base font-bold">The following is site level</h4>
-      <div className="m-2 p-2 w-1/3 h-12 border-blue border">
-        <Editable nodeKey="sitedatapage" nodeCollection="site" placeholder="Site level data..." />
-      </div>
-    </Layout>
-  </Page>
-);
+const DrupalDataContext = createContext<any>({});
+
+const withDrupalData = (P: ComponentType<any>) => {
+  const WithDrupalData = ({ data, ...rest }: any) => {
+    const { Drupal, ...restData } = data;
+    return (
+      <DrupalDataContext.Provider value={Drupal}>
+        <P data={restData} {...rest} />
+      </DrupalDataContext.Provider>
+    );
+  };
+  return WithDrupalData;
+};
+
+const withDrupalDefaultContent
+
+
+const DrupalPage = withDrupalData(Page);
+
+const Title = flow(
+  asEditable('title', 'Page Title'),
+  asHeader1,
+  withDefaultContent({ title: { text: 'Foo' } }),
+)(H1);
+
+
+export default (props: any) => {
+  const { data } = props;
+  return (
+    <DrupalPage {...props}>
+      <Layout>
+        <Title />
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </Layout>
+    </DrupalPage>
+  );
+};
+
+export const fragment = graphql`
+  fragment DrupalArticlePage on Query {
+    Drupal: allNodeArticle {
+      edges {
+        node {
+          body {
+            value
+          }
+          title
+        }
+      }
+    }
+}
+`;
 
 export const query = graphql`
   query($slug: String!) {
     ...PageQuery
     ...SiteQuery
+    ...DrupalArticlePage
   }
 `;
