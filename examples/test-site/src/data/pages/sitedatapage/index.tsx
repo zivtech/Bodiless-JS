@@ -1,65 +1,41 @@
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
-import React, { createContext, ComponentType } from 'react';
+import React from 'react';
 import { flow } from 'lodash';
-import { asEditable } from '@bodiless/components';
-import { H1 } from '@bodiless/fclasses';
+import { withDesign } from '@bodiless/fclasses';
 import { asHeader1 } from '../../../components/Elements.token';
 import Layout from '../../../components/Layout';
-import { withDefaultContent } from '@bodiless/core';
+import { withDrupalNode, withDrupalData } from '../../../components/drupal/DrupalDataProvider';
+import { asEditableArticlePage, withDrupalArticleContent, ArticlePageClean } from '../../../components/drupal/ArticlePage';
 
-const DrupalDataContext = createContext<any>({});
+const DrupalPage = flow(
+  withDrupalNode('edges[0].node'),
+  withDrupalData,
+)(Page);
 
-const withDrupalData = (P: ComponentType<any>) => {
-  const WithDrupalData = ({ data, ...rest }: any) => {
-    const { Drupal, ...restData } = data;
-    return (
-      <DrupalDataContext.Provider value={Drupal}>
-        <P data={restData} {...rest} />
-      </DrupalDataContext.Provider>
-    );
-  };
-  return WithDrupalData;
-};
+const withArticlePageStyles = withDesign({
+  Title: asHeader1,
+});
 
-const withDrupalDefaultContent
+const asArticlePage = flow(
+  withArticlePageStyles,
+  asEditableArticlePage,
+  withDrupalArticleContent,
+);
 
-
-const DrupalPage = withDrupalData(Page);
-
-const Title = flow(
-  asEditable('title', 'Page Title'),
-  asHeader1,
-  withDefaultContent({ title: { text: 'Foo' } }),
-)(H1);
-
+const ArticlePage = asArticlePage(ArticlePageClean);
 
 export default (props: any) => {
   const { data } = props;
   return (
     <DrupalPage {...props}>
       <Layout>
-        <Title />
+        <ArticlePage />
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </Layout>
     </DrupalPage>
   );
 };
-
-export const fragment = graphql`
-  fragment DrupalArticlePage on Query {
-    Drupal: allNodeArticle {
-      edges {
-        node {
-          body {
-            value
-          }
-          title
-        }
-      }
-    }
-}
-`;
 
 export const query = graphql`
   query($slug: String!) {
