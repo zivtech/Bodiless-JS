@@ -8,13 +8,14 @@ require('dotenv').config({
 
 // Gatsby plugins list.
 const plugins = [
-    {
-      resolve: `gatsby-source-drupal`,
-      options: {
-        baseUrl: `http://localhost:32773/`,
-        // apiBase: `api`, // optional, defaults to `jsonapi`
-      },
+  {
+    resolve: 'gatsby-source-drupal',
+    options: {
+      baseUrl: 'http://localhost:32771/',
+      // apiBase: `api`, // optional, defaults to `jsonapi`
     },
+  },
+  'gatsby-transformer-remote-filesystem',
   {
     resolve: 'gatsby-plugin-compile-es6-packages',
     options: {

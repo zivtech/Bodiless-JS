@@ -1,3 +1,5 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -7,6 +9,57 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
+
+const getInterfaces = modules => (
+  modules.reduce((acc, module) => {
+    const { interfaces } = require(module).getSchemaCustomizations();
+    return { ...acc, ...interfaces };
+  }, {})
+);
+
+const getTypes = modules => (
+  modules.reduce((acc, module) => {
+    const { types } = require(module).getSchemaCustomizations();
+    return { ...acc, ...types };
+  }, {})
+);
+
+// @TODO: This list would come from plugin configuration.
+const modules = [
+  './src/components/drupal/schema/title',
+  './src/components/drupal/schema/image',
+  './src/components/drupal/schema/ArticlePage',
+];
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const interfaces = getInterfaces(modules);
+  const types = getTypes(modules);
+  Object.values(interfaces).forEach(interface => createTypes(interface));
+  Object.values(types).forEach(type => createTypes(type));
+
+  // const typeDefs = `
+  //   interface ImageMeta {
+  //     alt: String
+  //     title: String
+  //     width: Int
+  //     height: Int
+  //   }
+  //   interface RelationshipsWithImageField {
+  //     field_image: file__file
+  //   }
+
+  //   interface HasImageField {
+  //     field_image: ImageMeta
+  //     relationships: RelationshipsWithImageField
+  //   }
+
+  //   type node__articleRelationships implements RelationshipsWithImageField
+  //   type node__articleField_image implements ImageMeta
+  //   type node__article implements HasImageField & Node
+  // `;
+  // createTypes(typeDefs);
+};
 
 // Fix sourcemap issue
 // See: https://github.com/gatsbyjs/gatsby/issues/6278#issuecomment-402540404
