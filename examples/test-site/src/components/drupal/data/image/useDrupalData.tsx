@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import { useDrupalNode } from './DrupalDataProvider';
+import { useDrupalNode } from '../../DrupalDataProvider';
 
 const ImageMeta = `
   interface ImageMeta {

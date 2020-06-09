@@ -1,16 +1,12 @@
 import React, { ComponentType as CT, HTMLProps } from 'react';
-import { graphql } from 'gatsby';
 import {
   H1, Img, Div, DesignableComponentsProps, designable, withDesign, replaceWith,
 } from '@bodiless/fclasses';
 import { flow } from 'lodash';
 import ReactMarkdown from 'react-markdown';
-import { withNode, withDefaultContent } from '@bodiless/core';
+import { withNode } from '@bodiless/core';
 import { asEditable, asBodilessImage } from '@bodiless/components';
-import useDrupalTitleData from './title';
-import useDrupalImageData from './image';
-import useDrupalBodyData from './body';
-import asBodilessMarkdown from './body/asBodilessMarkdown';
+import asBodilessMarkdown from '../markdown/asBodilessMarkdown';
 
 type Components = {
   Title: CT<any>,
@@ -50,23 +46,3 @@ export const asEditableArticlePage = withDesign({
     asBodilessMarkdown('body'),
   ),
 });
-
-export const withDrupalArticleContent = withDefaultContent(() => ({
-  title: useDrupalTitleData(),
-  image: useDrupalImageData('field_image'),
-  body: useDrupalBodyData(),
-}));
-
-export const fragment = graphql`
-  fragment DrupalArticlePage on Query {
-    Drupal: allNodeArticle {
-      edges {
-        node {
-          ...DrupalMarkdownBody
-          ...DrupalNodeTitle
-          ...DrupalFieldImage
-        }
-      }
-    }
-}
-`;

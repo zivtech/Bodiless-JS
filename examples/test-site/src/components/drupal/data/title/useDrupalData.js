@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import { useDrupalNode } from './DrupalDataProvider';
+import { useDrupalNode } from '../../DrupalDataProvider';
 
 export const getSchemaCustomizations = () => {
   const HasTitle = `

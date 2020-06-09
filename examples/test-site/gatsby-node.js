@@ -12,25 +12,25 @@ const fs = require('fs');
 
 const getInterfaces = modules => (
   modules.reduce((acc, module) => {
-    const { interfaces } = require(module).getSchemaCustomizations();
+    const { interfaces } = require(`${module}/getSchemaCustomizations`).getSchemaCustomizations();
     return { ...acc, ...interfaces };
   }, {})
 );
 
 const getTypes = modules => (
   modules.reduce((acc, module) => {
-    const { types } = require(module).getSchemaCustomizations();
+    const { types } = require(`${module}/getSchemaCustomizations`).getSchemaCustomizations();
     return { ...acc, ...types };
   }, {})
 );
 
 // @TODO: This list would come from plugin configuration.
 const modules = [
-  './src/components/drupal/schema/title',
-  './src/components/drupal/schema/image',
-  './src/components/drupal/schema/fields',
-  './src/components/drupal/schema/ArticlePage',
-  './src/components/drupal/schema/markdown',
+  './src/components/drupal/data/title',
+  './src/components/drupal/data/image',
+  './src/components/drupal/data/fields',
+  './src/components/drupal/data/article',
+  './src/components/drupal/data/body',
 ];
 
 exports.createSchemaCustomization = ({ actions }) => {

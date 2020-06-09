@@ -6,7 +6,8 @@ import { withDesign } from '@bodiless/fclasses';
 import { asHeader1 } from '../../../components/Elements.token';
 import Layout from '../../../components/Layout';
 import { withDrupalNode, withDrupalData } from '../../../components/drupal/DrupalDataProvider';
-import { asEditableArticlePage, withDrupalArticleContent, ArticlePageClean } from '../../../components/drupal/ArticlePage';
+import { asEditableArticlePage, ArticlePageClean } from '../../../components/drupal/ArticlePage';
+import withDrupalArticleData from '../../../components/drupal/data/article/withDrupalData';
 
 const DrupalPage = flow(
   withDrupalNode('edges[0].node'),
@@ -20,7 +21,7 @@ const withArticlePageStyles = withDesign({
 const asArticlePage = flow(
   withArticlePageStyles,
   asEditableArticlePage,
-  withDrupalArticleContent,
+  withDrupalArticleData,
 );
 
 const ArticlePage = asArticlePage(ArticlePageClean);
