@@ -24,7 +24,7 @@ import {
 } from './helpers';
 import debug from './debug';
 // require due to ES6 modules cannot directly export class objects.
-import HCCrawler = require('@bodiless/headless-chrome-crawler');
+const HCCrawler = require('@bodiless/headless-chrome-crawler');
 
 export interface ScrapedPage {
   pageUrl: string,
