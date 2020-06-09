@@ -1,13 +1,16 @@
 import React, { ComponentType as CT, HTMLProps } from 'react';
 import { graphql } from 'gatsby';
 import {
-  H1, Img, Div, DesignableComponentsProps, designable, withDesign,
+  H1, Img, Div, DesignableComponentsProps, designable, withDesign, replaceWith,
 } from '@bodiless/fclasses';
 import { flow } from 'lodash';
+import ReactMarkdown from 'react-markdown';
 import { withNode, withDefaultContent } from '@bodiless/core';
 import { asEditable, asBodilessImage } from '@bodiless/components';
-import { useDrupalData as useDrupalTitleData } from './title';
+import useDrupalTitleData from './title';
 import useDrupalImageData from './image';
+import useDrupalBodyData from './body';
+import asBodilessMarkdown from './body/asBodilessMarkdown';
 
 type Components = {
   Title: CT<any>,
@@ -23,13 +26,13 @@ const startComponents: Components = {
 
 type Props = DesignableComponentsProps<Components> & HTMLProps<HTMLElement>;
 
-
 const ArticlePageBase = ({ components }: Props) => {
-  const { Title, Image } = components;
+  const { Title, Image, Body } = components;
   return (
     <>
       <Title />
       <Image />
+      <Body />
     </>
   );
 };
@@ -42,11 +45,16 @@ export const ArticlePageClean = flow(
 export const asEditableArticlePage = withDesign({
   Title: asEditable('title', 'Page Title'),
   Image: asBodilessImage('image'),
+  Body: flow(
+    replaceWith(ReactMarkdown),
+    asBodilessMarkdown('body'),
+  ),
 });
 
 export const withDrupalArticleContent = withDefaultContent(() => ({
   title: useDrupalTitleData(),
   image: useDrupalImageData('field_image'),
+  body: useDrupalBodyData(),
 }));
 
 export const fragment = graphql`
@@ -54,20 +62,9 @@ export const fragment = graphql`
     Drupal: allNodeArticle {
       edges {
         node {
-          type: __typename
-          body {
-            type: __typename
-            value
-          }
+          ...DrupalMarkdownBody
           ...DrupalNodeTitle
-          field_image {
-            ...ImageMeta
-          }
-          relationships {
-            field_image {
-              ...ImageData
-            }
-          }
+          ...DrupalFieldImage
         }
       }
     }

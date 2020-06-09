@@ -28,7 +28,9 @@ const getTypes = modules => (
 const modules = [
   './src/components/drupal/schema/title',
   './src/components/drupal/schema/image',
+  './src/components/drupal/schema/fields',
   './src/components/drupal/schema/ArticlePage',
+  './src/components/drupal/schema/markdown',
 ];
 
 exports.createSchemaCustomization = ({ actions }) => {
