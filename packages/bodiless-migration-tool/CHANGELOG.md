@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.49](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.48...v0.0.49) (2020-06-08)
+
+
+### Bug Fixes
+
+* **migration-tool:** postbuild should not trim ssi elements from generated html ([#362](https://github.com/johnsonandjohnson/bodiless-js/issues/362)) ([5a4477f](https://github.com/johnsonandjohnson/bodiless-js/commit/5a4477f3c38437b71cea3be570bed37a92a9fead))
+
+
+### Features
+
+* **Migration tool:** Migrate page and resource redirections. ([#309](https://github.com/johnsonandjohnson/bodiless-js/issues/309)) ([4b4163b](https://github.com/johnsonandjohnson/bodiless-js/commit/4b4163bf50a272df2da4f38d8921762382624488))
+
+
+
+
+
+## [0.0.48](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.47...v0.0.48) (2020-05-20)
+
+
+### Bug Fixes
+
+* **migration-tool:** TypeError: tag[primaryAttributeKey].toLowerCase is not a function ([8c3fde5](https://github.com/johnsonandjohnson/bodiless-js/commit/8c3fde5208c8516a7fe9864798db69c89d035125))
+
+
+### Features
+
+* **core:** Sidecar Node API ([#320](https://github.com/johnsonandjohnson/bodiless-js/issues/320)) ([1c61274](https://github.com/johnsonandjohnson/bodiless-js/commit/1c61274ea1e45e81210bfd5f05f06c6244977abb)), closes [#285](https://github.com/johnsonandjohnson/bodiless-js/issues/285) [#321](https://github.com/johnsonandjohnson/bodiless-js/issues/321)
+
+
+
+
+
 ## [0.0.47](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.46...v0.0.47) (2020-04-22)
 
 

@@ -18,14 +18,15 @@ import Cookies from 'universal-cookie';
 import {
   contextMenuForm,
   getUI,
-  ContextProvider,
+  PageContextProvider,
   TMenuOption,
   useEditContext,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
 import CommitsList from './CommitsList';
-
+import RemoteChanges from './RemoteChanges';
+import { GitClient } from './types';
 
 const backendFilePath = process.env.BODILESS_BACKEND_DATA_FILE_PATH || '';
 const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
@@ -40,21 +41,8 @@ const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
  */
 const canCommit = (process.env.BODILESS_BACKEND_COMMIT_ENABLED || '0') === '1';
 
-type Client = {
-  commit: (
-    message: string,
-    directories: string[],
-    paths: string[],
-    files: string[],
-    author?: string,
-  ) => AxiosPromise<any>,
-  getLatestCommits: () => AxiosPromise<any>,
-  pull: () => AxiosPromise<any>,
-  reset: () => AxiosPromise<any>,
-};
-
 type Props = {
-  client?: Client,
+  client?: GitClient,
 };
 
 const handle = (promise: AxiosPromise<any>, callback?: () => void) => promise
@@ -83,7 +71,7 @@ const handle = (promise: AxiosPromise<any>, callback?: () => void) => promise
     }
   });
 
-const formGetCommitsList = (client: Client) => contextMenuForm({
+const formGetCommitsList = (client: GitClient) => contextMenuForm({
   // @todo: handle what happens when user selects a commit from the loaded list.
   submitValues: () => {},
 })(
@@ -101,62 +89,71 @@ const formGetCommitsList = (client: Client) => contextMenuForm({
 // Get the author from the cookie.
 const cookies = new Cookies();
 const author = cookies.get('author');
-const formGitCommit = (client: Client) => contextMenuForm({
-  submitValues: (submitValues: any) => handle(client.commit(submitValues.commitMessage,
-    [backendFilePath, backendStaticPath], [], [], author)),
-})(
-  ({ ui }: any) => {
-    const { ComponentFormTitle, ComponentFormLabel, ComponentFormText } = getUI(ui);
-    return (
-      <>
-        <ComponentFormTitle>Upload Changes</ComponentFormTitle>
-        <ComponentFormLabel htmlFor="commit-txt">
-          Description:
-        </ComponentFormLabel>
-        <ComponentFormText field="commitMessage" id="commit-txt" />
-      </>
+const formGitCommit = (client: GitClient) => contextMenuForm({
+  submitValues: (submitValues: any) => {
+    handle(
+      client.commit(
+        submitValues.commitMessage,
+        [backendFilePath, backendStaticPath],
+        [],
+        [],
+        author,
+      ),
     );
   },
-);
+})(({ ui }: any) => {
+  const { ComponentFormTitle, ComponentFormLabel, ComponentFormText } = getUI(
+    ui,
+  );
+  return (
+    <>
+      <ComponentFormTitle>Upload Changes</ComponentFormTitle>
+      <ComponentFormLabel htmlFor="commit-txt">
+        Description:
+      </ComponentFormLabel>
+      <ComponentFormText field="commitMessage" id="commit-txt" />
+    </>
+  );
+});
 
-// Currently descoping the Pull Changes Button Functionality.
-// Might use it later.
+const formGitPull = (client: GitClient) => contextMenuForm({
+  submitValues: (values : any) => {
+    const { keepOpen } = values;
+    return keepOpen;
+  },
+})(({ ui }: any) => {
+  const { ComponentFormTitle, ComponentFormText } = getUI(ui);
+  return (
+    <>
+      <ComponentFormTitle>Pull Changes</ComponentFormTitle>
+      <ComponentFormText type="hidden" field="keepOpen" initialValue={false} />
+      <ComponentFormText type="hidden" field="mergeMaster" initialValue={false} />
+      <RemoteChanges client={client} />
+    </>
+  );
+});
 
-// const formGitPull = (client: Client) => contextMenuForm({
-//   submitValues: () => handle(client.pull()),
-// })(
-//   ({ ui }: any) => {
-//     const { ComponentFormTitle, ComponentFormLabel } = getUI(ui);
-//     return (
-//       <>
-//         <ComponentFormTitle>Download Changes</ComponentFormTitle>
-//         <ComponentFormLabel htmlFor="pull-txt">
-//           Download remote changes
-//         </ComponentFormLabel>
-//       </>
-//     );
-//   },
-// );
-
-const formGitReset = (client: Client, context: any) => contextMenuForm({
-  submitValues: async () => {
-    context.showPageOverlay({
-      message: 'Revert is in progress. This may take a minute.',
-      maxTimeoutInSeconds: 10,
-    });
-    try {
-      await client.reset();
+const formGitReset = (client: GitClient, context: any) => contextMenuForm({
+  submitValues: () => {
+    (async () => {
       context.showPageOverlay({
-        message: 'Revert completed.',
-        hasSpinner: false,
-        hasCloseButton: true,
-        onClose: () => {
-          window.location.reload();
-        },
+        message: 'Revert is in progress. This may take a minute.',
+        maxTimeoutInSeconds: 10,
       });
-    } catch {
-      context.showError();
-    }
+      try {
+        await client.reset();
+        context.showPageOverlay({
+          message: 'Revert completed.',
+          hasSpinner: false,
+          hasCloseButton: true,
+          onClose: () => {
+            window.location.reload();
+          },
+        });
+      } catch {
+        context.showError();
+      }
+    })();
   },
 })(
   ({ ui }: any) => {
@@ -174,30 +171,31 @@ const formGitReset = (client: Client, context: any) => contextMenuForm({
 
 const defaultClient = new BackendClient();
 
-const getMenuOptions = (client: Client = defaultClient, context: any): TMenuOption[] => {
+const getMenuOptions = (client: GitClient = defaultClient, context: any): TMenuOption[] => {
   const saveChanges = canCommit ? formGitCommit(client) : undefined;
   return [
     {
       name: 'listCommits',
-      icon: 'list',
+      icon: 'book',
+      label: 'History',
       handler: () => formGetCommitsList(client),
     },
     {
       name: 'savechanges',
       icon: 'cloud_upload',
+      label: 'Push',
       isDisabled: () => !canCommit,
-      isHidden: () => !context.isEdit,
       handler: () => saveChanges,
     },
-    // Currently descoping the Pull Changes Button Functionality.
-    // Might use it later.
-    // {
-    //   name: 'pullchanges',
-    //   icon: 'cloud_download',
-    //   handler: () => formGitPull(client),
-    // },
+    {
+      name: 'Pull',
+      label: 'Pull',
+      icon: 'cloud_download',
+      handler: () => formGitPull(client),
+    },
     {
       name: 'resetchanges',
+      label: 'Revert',
       icon: 'undo',
       isHidden: () => !context.isEdit,
       handler: () => formGitReset(client, context),
@@ -209,12 +207,12 @@ const GitProvider: FC<Props> = ({ children, client }) => {
   const context = useEditContext();
 
   return (
-    <ContextProvider
+    <PageContextProvider
       getMenuOptions={() => getMenuOptions(client, context)}
       name="Git"
     >
       {children}
-    </ContextProvider>
+    </PageContextProvider>
   );
 };
 

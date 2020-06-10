@@ -29,7 +29,7 @@ import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
 import { DefaultContentNode } from './ContentNode';
 import {
-  withPageContext,
+  withMenuOptions,
   withNodeAndHandlers,
   withNodeDataHandlers,
   withLocalContextMenu,
@@ -38,17 +38,24 @@ import {
 } from './hoc';
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
-import { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
-import { EditButtonOptions } from './Types/EditButtonTypes';
-import { TMenuOptionGetter } from './Types/PageContextProviderTypes';
-import { WithNodeProps } from './Types/NodeTypes';
-import { TOverlaySettings } from './Types/PageOverlayTypes';
+import type { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
+import type { EditButtonOptions } from './Types/EditButtonTypes';
+import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
+import type { WithNodeProps } from './Types/NodeTypes';
+import type { TOverlaySettings } from './Types/PageOverlayTypes';
 import {
   ActivateOnEffectProvider,
   withActivateOnEffect,
   useActivateOnEffect,
   useActivateOnEffectActivator,
 } from './ActivateContext';
+import {
+  NotificationProvider,
+  useNotifications,
+  useNotify,
+} from './NotificationProvider';
+import NotificationButtonProvider from './NotificationButtonProvider';
+import SwitcherButtonProvider from './SwitcherButtonProvider';
 import withChild from './withChild';
 
 export * from './components';
@@ -58,20 +65,13 @@ export {
   withNodeAndHandlers,
   withNodeDataHandlers,
   withLocalContextMenu,
-  PageEditContextInterface,
-  TMenuOption,
-  TMenuOptionGetter,
-  TOverlaySettings,
-  PageContextProvider as ContextProvider,
-  withPageContext as withMenuOptions,
+  PageContextProvider,
+  withMenuOptions,
   PageEditContext,
   useEditContext,
   useContextActivator,
   useUUID,
   withEditButton,
-  EditButtonProps,
-  WithNodeProps,
-  EditButtonOptions,
   withNode,
   withNodeKey,
   withSidecarNodes,
@@ -97,6 +97,21 @@ export {
   ifToggledOn,
   withFlowToggle,
   useEditToggle,
+  NotificationProvider,
+  NotificationButtonProvider,
+  useNotifications,
+  useNotify,
+  SwitcherButtonProvider,
+};
+
+export type {
+  PageEditContextInterface,
+  TMenuOption,
+  TMenuOptionGetter,
+  WithNodeProps,
+  EditButtonOptions,
+  EditButtonProps,
+  TOverlaySettings,
 };
 
 export type Bodiless<P, Q> = (C: ComponentType<P> | string) => ComponentType<Q>;
