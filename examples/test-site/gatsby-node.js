@@ -31,6 +31,7 @@ const modules = [
   './src/components/drupal/data/fields',
   './src/components/drupal/data/article',
   './src/components/drupal/data/body',
+  './src/components/drupal/data/paragraphs',
 ];
 
 exports.createSchemaCustomization = ({ actions }) => {
