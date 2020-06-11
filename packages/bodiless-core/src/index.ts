@@ -23,7 +23,8 @@ import {
   withDefaultContent,
   withResetButton,
 } from './Contentful';
-import withEditButton, { EditButtonProps } from './withEditButton';
+import withEditButton, { useEditFormProps } from './withEditButton';
+import type { EditButtonProps } from './withEditButton';
 import useContextMenuForm, { contextMenuForm, ContextMenuForm } from './contextMenuForm';
 import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
@@ -56,7 +57,6 @@ import { useUI as useFormUI } from './components/ContextMenuItem';
 export * from './components';
 export {
   asBodilessComponent,
-  BodilessOptions,
   asStatic,
   withContextActivator,
   withActivatorWrapper,
@@ -70,6 +70,7 @@ export {
   useContextActivator,
   useUUID,
   withEditButton,
+  useEditFormProps,
   withNode,
   withNodeKey,
   withSidecarNodes,
@@ -101,6 +102,7 @@ export {
 };
 
 export type {
+  BodilessOptions,
   PageEditContextInterface,
   TMenuOption,
   TMenuOptionGetter,

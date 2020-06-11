@@ -46,6 +46,23 @@ export type EditButtonOptions<P, D> = {
   useGetMenuOptions?: UseGetMenuOptions<P>;
 };
 
+export const useEditFormProps = <P extends object, D extends object>({
+  componentData,
+  setComponentData,
+  onSubmit,
+}: P & EditButtonProps<D>) => {
+  const submitValues = (values: D) => {
+    setComponentData(values);
+    Object.assign(componentData, values);
+    if (onSubmit) onSubmit();
+  };
+  return {
+    submitValues,
+    initialValues: componentData,
+  };
+};
+
+
 export const createMenuOptionHook = <P extends object, D extends object>({
   icon,
   name,
@@ -57,22 +74,14 @@ export const createMenuOptionHook = <P extends object, D extends object>({
     props: P & EditButtonProps<D>,
     context: PageEditContextInterface,
   ) => {
-    const {
-      componentData, setComponentData, unwrap, isActive, onSubmit,
-    } = props;
-    const submitValues = (values: D) => {
-      setComponentData(values);
-      Object.assign(componentData, values);
-      if (onSubmit) onSubmit();
-    };
+    const { unwrap, isActive } = props;
     const renderFormBody = (p: ContextMenuFormBodyProps<D>) => renderForm({
       ...p,
       unwrap,
       componentProps: props,
     });
     const form = useContextMenuForm({
-      submitValues,
-      initialValues: componentData,
+      ...useEditFormProps(props),
       renderFormBody,
     });
     const getMenuOptions: TMenuOptionGetter = () => [

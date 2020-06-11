@@ -116,9 +116,12 @@ type HookOptions<D> = Options<D> & {
   renderFormBody?: FormBodyRenderer<D>,
 };
 
-const useContextMenuForm = <D extends object>(options: HookOptions<D> = {}) => useCallback(
-  contextMenuForm(options)(options.renderFormBody),
-  [options],
-);
+const useContextMenuForm = <D extends object>(options: HookOptions<D> = {}) => {
+  const { renderFormBody, ...rest } = options;
+  return useCallback(
+    contextMenuForm(rest)(renderFormBody),
+    [options],
+  );
+};
 
 export default useContextMenuForm;
