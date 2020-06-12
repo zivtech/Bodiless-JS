@@ -94,3 +94,4 @@ const asBodilessComponent = <P extends object, D extends object>(options: Option
 };
 
 export default asBodilessComponent;
+export type { AsBodiless };

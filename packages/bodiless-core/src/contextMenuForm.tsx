@@ -54,9 +54,8 @@ export type FormBodyProps<D> = FormProps & Options<D> & {
 };
 
 export type FormBodyRenderer<D> = (props: FormBodyProps<D>) => ReactNode;
-
 type Props<D> = FormProps & Options<D> & {
-  children: FormBodyRenderer<D>,
+  children: FormBodyRenderer<D>|ReactNode,
 };
 
 export const ContextMenuForm = <D extends object>({
@@ -86,12 +85,11 @@ export const ContextMenuForm = <D extends object>({
             onClick={closeForm}
             aria-label="Cancel"
           />
-          {children({
-            closeForm,
-            formApi,
-            formState,
-            ui,
-          })}
+          {typeof children === 'function'
+            ? children({
+              closeForm, formApi, formState, ui,
+            })
+            : children}
           {hasSubmit && !formState.invalid
           && (
             <ComponentFormSubmitButton aria-label="Submit" />

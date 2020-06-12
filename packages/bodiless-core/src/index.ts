@@ -26,6 +26,7 @@ import {
 import withEditButton, { useEditFormProps } from './withEditButton';
 import type { EditButtonProps } from './withEditButton';
 import useContextMenuForm, { contextMenuForm, ContextMenuForm } from './contextMenuForm';
+import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
 import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
 import { DefaultContentNode } from './ContentNode';
@@ -51,7 +52,8 @@ import {
   useActivateOnEffectActivator,
 } from './ActivateContext';
 import withChild from './withChild';
-import asBodilessComponent, { withActivatorWrapper, Options as BodilessOptions } from './asBodilessComponent';
+import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
+import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
 import { useUI as useFormUI } from './components/ContextMenuItem';
 
 export * from './components';
@@ -111,6 +113,8 @@ export type {
   EditButtonOptions,
   EditButtonProps,
   TOverlaySettings,
+  ContextMenuFormProps,
+  AsBodiless,
 };
 
 export type Bodiless<P, Q> = (C: ComponentType<P> | string) => ComponentType<Q>;
