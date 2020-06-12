@@ -158,12 +158,12 @@ can simply:
 The `addClasses()` and `removeClasses()` functions used in the examples above
 are part of the Bodiless "FClasses" (Functional Classes) API. You can
 [read more about this here](../Architecture/FClasses). Briefly, it's
-a pair of simple utilty HOC's which allow you to manipulate the `className` prop
+a pair of simple utility HOC's which allow you to manipulate the `className` prop
 of a React element. When you make an element "stylable" by the FClasses API, you
 can wrap it with these HOC's to add and remove classes. In so doing, you are
 applying tokens to create a styled version of the component. You can then wrap
 it again, and again, to extend or customize its style (as we did above) - for
-exmample, to create a local variant of a design system.
+example, to create a local variant of a design system.
 
 ## 4. Refactor `CaptionedImage` to use the Bodiless Design API
 
@@ -380,7 +380,7 @@ few benefits:
 css cascade that builds and grows over time.
 * Isolation: it keeps the styling isolated to the specific item minimizing the risk
 of affecting other non-related items.
-* Reuseability as is or with extending.
+* Reusability as is or with extending.
 
 These benefits apply during the initial build and future changes benefit as well.
 For example, if there is a request to change a rendered H1 to H2 for SEO purposes,

@@ -101,7 +101,7 @@ We could have defined our token as:
 ```
 const asPrimaryHeader = flow(stylable, addClasses('text-3xl font-bold`))
 ```
-but, fortunately, we don't have to, since `@bodiless/fclasses` exports a stylable verison of every HTML element.   If you revisit the localhost:8005/gallery the header is rendered with the h1 and new classes.
+but, fortunately, we don't have to, since `@bodiless/fclasses` exports a stylable version of every HTML element.   If you revisit the localhost:8005/gallery the header is rendered with the h1 and new classes.
 
 You can read more about this pattern for building out a site's UI in our
 [Design System documentation](../../Design/DesignSystem).
@@ -348,7 +348,7 @@ const CaptionedImage: FC<HTMLProps<HTMLElement>> = props => (
 
 export default withNode(stylable(CaptionedImage));
 ```
-The pattern here should be familiar: stylable primitives are imported and add styling and edit functionality using higher-order components.  It's worth noting that the whole compound image is stylable. Since all props are passed on to the `Wrapper` component, this allows the wrapper itself to be styled when the `CaptionedImage` is placed.  We'll expore a more efficient way of styling the wrapper (and the other internal elements) later when we introduce the Design API.
+The pattern here should be familiar: stylable primitives are imported and add styling and edit functionality using higher-order components.  It's worth noting that the whole compound image is stylable. Since all props are passed on to the `Wrapper` component, this allows the wrapper itself to be styled when the `CaptionedImage` is placed.  We'll explore a more efficient way of styling the wrapper (and the other internal elements) later when we introduce the Design API.
 
 Next create a `Gallery.tsx` file as follows:
 ```
@@ -402,7 +402,7 @@ export default withNode(MyComponent);
 
 ## Managing Layouts
 
-It is part of the philosophy of BodilessJS that complex layouts should be created by developers in code, not by content editors in a complex UI,  Nevertheless, there are times when you want to give your ediors some basic control over what components are placed on a page, and how they flow. For this, BodilessJS provides a simple, flowContainer-based grid container, and a selector which allows an editor to select and place components within it. Refactor the `Gallery` component to use the flowContainer container.
+It is part of the philosophy of BodilessJS that complex layouts should be created by developers in code, not by content editors in a complex UI,  Nevertheless, there are times when you want to give your editors some basic control over what components are placed on a page, and how they flow. For this, BodilessJS provides a simple, flowContainer-based grid container, and a selector which allows an editor to select and place components within it. Refactor the `Gallery` component to use the flowContainer container.
 
 First create some styled variations of`GalleryTile` with different colored borders. Add the following to `Gallery.tsx` just after the line where `asGalleryTile` is defined:
 
