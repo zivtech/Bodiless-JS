@@ -32,6 +32,8 @@ const defaultUI = {
   ComponentFormError: 'div',
   Form: 'div',
   ReactTags: ReactTagsField,
+  ComponentFormList: 'ul',
+  ComponentFormListItem: 'li',
 };
 
 export const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });

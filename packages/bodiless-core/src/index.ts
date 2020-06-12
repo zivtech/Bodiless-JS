@@ -51,6 +51,13 @@ import {
   useActivateOnEffect,
   useActivateOnEffectActivator,
 } from './ActivateContext';
+import {
+  NotificationProvider,
+  useNotifications,
+  useNotify,
+} from './NotificationProvider';
+import NotificationButtonProvider from './NotificationButtonProvider';
+import SwitcherButtonProvider from './SwitcherButtonProvider';
 import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
@@ -101,6 +108,11 @@ export {
   ifToggledOn,
   withFlowToggle,
   useEditToggle,
+  NotificationProvider,
+  NotificationButtonProvider,
+  useNotifications,
+  useNotify,
+  SwitcherButtonProvider,
 };
 
 export type {

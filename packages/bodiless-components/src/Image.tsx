@@ -161,6 +161,7 @@ type Props = ImageProps & { ui?: TImagePickerUI};
 // Options used to create an edit button.
 const options: BodilessOptions<Props, Data> = {
   icon: 'image',
+  label: 'Image',
   name: 'Image',
   renderForm: ({ ui: formUi, formApi, componentProps }) => {
     const { ui: imagePickerUI } = componentProps;

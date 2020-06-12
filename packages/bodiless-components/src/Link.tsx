@@ -27,6 +27,7 @@ type Data = {
 const options: BodilessOptions<HTMLProps<HTMLAnchorElement>, Data> = {
   icon: 'link',
   name: 'Link',
+  label: 'Link',
   renderForm: ({ unwrap, closeForm }) => {
     const {
       ComponentFormTitle,
