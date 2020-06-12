@@ -12,17 +12,19 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps } from 'react';
+import React, { HTMLProps, ComponentType } from 'react';
 import {
   useFormUI,
   BodilessOptions,
   asBodilessComponent,
 } from '@bodiless/core';
+import { flowRight } from 'lodash';
 
 // Type of the data used by this component.
 type Data = {
   href: string;
 };
+type Props = HTMLProps<HTMLAnchorElement>;
 
 const options: BodilessOptions<HTMLProps<HTMLAnchorElement>, Data> = {
   icon: 'link',
@@ -34,6 +36,7 @@ const options: BodilessOptions<HTMLProps<HTMLAnchorElement>, Data> = {
       ComponentFormLabel,
       ComponentFormText,
       ComponentFormUnwrapButton,
+      ComponentFormDescription,
     } = useFormUI();
     const removeLinkHandler = (event: React.MouseEvent) => {
       event.preventDefault();
@@ -46,7 +49,12 @@ const options: BodilessOptions<HTMLProps<HTMLAnchorElement>, Data> = {
       <>
         <ComponentFormTitle>Link</ComponentFormTitle>
         <ComponentFormLabel htmlFor="link-href">URL</ComponentFormLabel>
-        <ComponentFormText field="href" id="link-href" />
+        <ComponentFormText field="href" id="link-href" aria-describedby="description" placeholder="/link" />
+        <ComponentFormDescription id="description">
+          Use relative URLs for internal links. Preface the link with `/` to be
+          relative to the root, otherwise the link is relative to the page. Use
+          a fully formed URL for external links, e.g., https://www.example.com.
+        </ComponentFormDescription>
         {unwrap && (
         <ComponentFormUnwrapButton type="button" onClick={removeLinkHandler}>
           Remove Link
@@ -58,10 +66,18 @@ const options: BodilessOptions<HTMLProps<HTMLAnchorElement>, Data> = {
   global: false,
   local: true,
   defaultData: {
-    href: '#',
+    href: '',
   },
 };
 
-export const asBodilessLink = asBodilessComponent<HTMLProps<HTMLAnchorElement>, Data>(options);
+const withHrefTransformer = (Component : ComponentType<Props>) => {
+  const TransformedHref = ({ href, ...rest } : Props) => <Component href={href !== '' ? href : '#'} {...rest} />;
+  return TransformedHref;
+};
+
+export const asBodilessLink = flowRight(
+  asBodilessComponent<Props, Data>(options),
+  withHrefTransformer,
+);
 const Link = asBodilessLink()('a');
 export default Link;
