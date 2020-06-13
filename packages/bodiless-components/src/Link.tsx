@@ -15,9 +15,9 @@
 import React, { HTMLProps, ComponentType } from 'react';
 import {
   useFormUI,
-  BodilessOptions,
   asBodilessComponent,
 } from '@bodiless/core';
+import type { AsBodiless, BodilessOptions } from '@bodiless/core';
 import { flowRight } from 'lodash';
 
 // Type of the data used by this component.
@@ -78,6 +78,6 @@ const withHrefTransformer = (Component : ComponentType<Props>) => {
 export const asBodilessLink = flowRight(
   asBodilessComponent<Props, Data>(options),
   withHrefTransformer,
-);
+) as AsBodiless<Props, Data>;
 const Link = asBodilessLink()('a');
 export default Link;
