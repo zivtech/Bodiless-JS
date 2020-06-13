@@ -75,9 +75,9 @@ const withHrefTransformer = (Component : ComponentType<Props>) => {
   return TransformedHref;
 };
 
-export const asBodilessLink = flowRight(
-  asBodilessComponent<Props, Data>(options),
+export const asBodilessLink: AsBodiless<Props, Data> = (nodeKeys?) => flowRight(
+  asBodilessComponent<Props, Data>(options)(nodeKeys),
   withHrefTransformer,
-) as AsBodiless<Props, Data>;
+);
 const Link = asBodilessLink()('a');
 export default Link;
