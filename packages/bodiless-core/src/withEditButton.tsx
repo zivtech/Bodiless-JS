@@ -62,7 +62,6 @@ export const useEditFormProps = <P extends object, D extends object>({
   };
 };
 
-
 export const createMenuOptionHook = <P extends object, D extends object>({
   icon,
   name,

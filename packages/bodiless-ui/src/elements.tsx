@@ -32,7 +32,9 @@ export const Div = stylable<HTMLProps<HTMLDivElement>>('div');
 export const Span = stylable<HTMLProps<HTMLSpanElement>>('span');
 export const Button = stylable<HTMLProps<HTMLButtonElement>>('button');
 export const Hr = stylable<HTMLProps<HTMLHRElement>>('hr');
+// @ts-ignore
 export const Text = stylable(BaseText);
+// @ts-ignore
 export const TextArea = stylable(BaseTextArea);
 export const Anchor = stylable<HTMLProps<HTMLAnchorElement>>('a');
 
@@ -104,7 +106,6 @@ export const ComponentFormError = addClasses(
 )(Div);
 
 export const SubmitButton: FC<HTMLProps<HTMLButtonElement> & StylableProps> = props => <ComponentFormButton type="submit" {...props} />;
-
 
 export const ToolbarButton = flow(
   withoutProps<ButtonVariantProps>(['isActive', 'isFirst', 'isDisabled']),
