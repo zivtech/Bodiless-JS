@@ -32,17 +32,11 @@ describe('assets download', () => {
     // @ts-ignore since we are mocking private method
     const downloadFileMock = jest.spyOn(downloader, 'downloadFile').mockImplementation(() => true);
     await downloader.downloadFiles(assets);
-    const { calls } = downloadFileMock.mock;
-    expect(calls.length).toBe(5);
-    // @ts-ignore Tuple type '[]' of length '0' has no element at index '0'
-    expect(calls[0][0]).toBe('https://localhost/test1.css');
-    // @ts-ignore Tuple type '[]' of length '0' has no element at index '0'
-    expect(calls[1][0]).toBe('https://localhost/test2.css');
-    // @ts-ignore Tuple type '[]' of length '0' has no element at index '0'
-    expect(calls[2][0]).toBe('https://localhost/gatsby.png');
-    // @ts-ignore Tuple type '[]' of length '0' has no element at index '0'
-    expect(calls[3][0]).toBe('https://localhost/test1.js');
-    // @ts-ignore Tuple type '[]' of length '0' has no element at index '0'
-    expect(calls[4][0]).toBe('https://localhost/test2.js');
+    expect(downloadFileMock).toHaveBeenCalledTimes(5);
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/test1.css');
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/test2.css');
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/gatsby.png');
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/test1.js');
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/test2.js');
   });
 });
