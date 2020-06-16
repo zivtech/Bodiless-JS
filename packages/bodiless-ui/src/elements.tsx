@@ -14,7 +14,7 @@
 
 import React, { FC, HTMLProps } from 'react';
 import { flow } from 'lodash';
-import { Text as BaseText, TextArea as BaseTextArea } from 'informed';
+import { Text as BaseText, TextArea as BaseTextArea, FieldProps } from 'informed';
 import {
   Li, Ul, stylable, addClasses, StylableProps, withoutProps, flowIf, hasProp, addProps,
   removeClasses,
@@ -32,10 +32,8 @@ export const Div = stylable<HTMLProps<HTMLDivElement>>('div');
 export const Span = stylable<HTMLProps<HTMLSpanElement>>('span');
 export const Button = stylable<HTMLProps<HTMLButtonElement>>('button');
 export const Hr = stylable<HTMLProps<HTMLHRElement>>('hr');
-// @ts-ignore
-export const Text = stylable(BaseText);
-// @ts-ignore
-export const TextArea = stylable(BaseTextArea);
+export const Text = stylable<FieldProps<any, any>>(BaseText);
+export const TextArea = stylable<FieldProps<any, any>>(BaseTextArea);
 export const Anchor = stylable<HTMLProps<HTMLAnchorElement>>('a');
 
 const CheckBoxBase: FC<HTMLProps<HTMLInputElement>> = props => <input {...props} type="checkbox" />;
