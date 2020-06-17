@@ -25,9 +25,10 @@ export const useContextActivator = (
   handler?: EventHandler<any>,
 ) => {
   const context = useEditContext();
+
   // Don't attach the handler when not in edit mode.
   // @TODO: Find a better way to keep the outermost context active even when not editing. AESQ-537
-  if (!context.isEdit && context.name !== 'page') {
+  if (!context.isEdit || context.isInnermost) {
     return {
       [event]: handler,
     };
@@ -35,6 +36,7 @@ export const useContextActivator = (
   const handler$1 = (e: React.SyntheticEvent<any>) => {
     const preventDefault = e && e.currentTarget && e.currentTarget.getAttribute('bl-prevent') !== 'false';
     if (handler) handler(e);
+    console.log('activating', context.name);
     context.activate();
     context.toggleLocalTooltipsDisabled(false);
     if (e && e.stopPropagation) e.stopPropagation();

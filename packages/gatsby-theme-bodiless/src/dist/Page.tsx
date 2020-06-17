@@ -61,9 +61,11 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
                 <Editor>
                   <NewPageProvider>
                     <GitProvider>
-                      <DefaultActiveMenuOptions>
-                        {children}
-                      </DefaultActiveMenuOptions>
+                      <Wrapper clickable>
+                        <DefaultActiveMenuOptions>
+                          {children}
+                        </DefaultActiveMenuOptions>
+                      </Wrapper>
                     </GitProvider>
                   </NewPageProvider>
                 </Editor>
@@ -86,16 +88,10 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
  */
 const DefaultActiveMenuOptions = observer(({ children }: any) => {
   const context = useEditContext();
-  const activate = () => {
-    if (!context.isInnermost) {
-      console.log('Activating default context');
-      context.activate();
-    } else {
-      console.log('Default context already innermost');
-    }
-  }
-  useEffect(activate, []);
-  return <div onClick={activate}>{children}</div>;
+  useEffect(() => {
+    context.activate();
+  });
+  return <>{children}</>;
 });
 
 export default Page;
