@@ -150,10 +150,10 @@ const RichTextProvider = flowRight(
   withNodeStateHandlers,
   // @ts-ignore
   withSlateEditor,
-  ifEditable(withMenuOptions({ useGetMenuOptions: richTextUseGetMenuOptions, name: 'editor' })),
+  // ifEditable(withMenuOptions({ useGetMenuOptions: richTextUseGetMenuOptions, name: 'editor' })),
   withoutProps(['className', 'globalButtons', 'plugins', 'readOnly']),
   withSlateSchema,
-  ifEditable(withSlateActivator),
+  // ifEditable(withSlateActivator),
 )(React.Fragment) as RichTextProviderType;
 
 export type RichTextProps<P> = {
