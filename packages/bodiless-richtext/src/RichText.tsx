@@ -15,11 +15,14 @@
 import React, { ComponentType, useMemo } from 'react';
 import { flowRight, pick, flow } from 'lodash';
 import {
+  ifEditable,
   useEditContext,
+  useContextActivator,
   withNode,
+  withMenuOptions,
   withoutProps,
 } from '@bodiless/core';
-import { Plugin } from 'slate-react';
+import { BasicEditorProps, Plugin } from 'slate-react';
 import { SchemaProperties } from 'slate';
 import {
   designable,
@@ -97,47 +100,46 @@ const withSlateSchema = <P extends object>(Component: ComponentType<P>) => (
   }
 );
 // create item to activate the context not sure whats up with all the old vs new
-// This should be restored/debugged if/when slate editor needs to provide menu options.
-// const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (props: P) => {
-//   const previousSlateContext = useSlateContext();
-//   const previousEditorProps = previousSlateContext!.editorProps;
-//   const context = useEditContext();
-//   const { onClick } = useContextActivator();
-//   // tslint:disable-next-line: ter-arrow-parens
-//   const onChange: BasicEditorProps['onChange'] = change => {
-//     if (typeof previousEditorProps.onChange === 'function' && change) {
-//       previousEditorProps.onChange(change);
-//     }
-//     context.refresh();
-//   };
-//   const editorProps = {
-//     ...previousEditorProps!,
-//     onChange,
-//     onClick,
-//   };
-//
-//   const slateContext = {
-//     editorProps,
-//     editorRef: previousSlateContext!.editorRef,
-//     value: previousSlateContext!.value,
-//     editor: previousSlateContext!.editor,
-//   };
-//   return (
-//     <SlateEditorContext.Provider value={slateContext}>
-//       <Component {...props} />
-//     </SlateEditorContext.Provider>
-//   );
-// };
+const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (props: P) => {
+  const previousSlateContext = useSlateContext();
+  const previousEditorProps = previousSlateContext!.editorProps;
+  const context = useEditContext();
+  const { onClick } = useContextActivator();
+  // tslint:disable-next-line: ter-arrow-parens
+  const onChange: BasicEditorProps['onChange'] = change => {
+    if (typeof previousEditorProps.onChange === 'function' && change) {
+      previousEditorProps.onChange(change);
+    }
+    context.refresh();
+  };
+  const editorProps = {
+    ...previousEditorProps!,
+    onChange,
+    onClick,
+  };
 
-// type UseGetMenuOptionsProps = {
-//   globalButtons: Function,
-// };
+  const slateContext = {
+    editorProps,
+    editorRef: previousSlateContext!.editorRef,
+    value: previousSlateContext!.value,
+    editor: previousSlateContext!.editor,
+  };
+  return (
+    <SlateEditorContext.Provider value={slateContext}>
+      <Component {...props} />
+    </SlateEditorContext.Provider>
+  );
+};
+
+type UseGetMenuOptionsProps = {
+  globalButtons: Function,
+};
 // This is a call back that goes to withMenuOptions so that we can add button to the global menu
-// const richTextUseGetMenuOptions = (props: UseGetMenuOptionsProps) => {
-//   const slateContext = useSlateContext();
-//   const { editor } = slateContext!;
-//   return () => props.globalButtons(editor);
-// };
+const richTextUseGetMenuOptions = (props: UseGetMenuOptionsProps) => {
+  const slateContext = useSlateContext();
+  const { editor } = slateContext!;
+  return () => props.globalButtons(editor);
+};
 type RichTextProviderProps = {
   plugins: Plugin[],
   schema?: SchemaProperties,
@@ -184,7 +186,7 @@ const BasicRichText = <P extends object, D extends object>(props: P & RichTextPr
     ui,
     ...rest
   } = props;
-  const { finalComponents, plugins, schema } = useMemo(() => {
+  const { finalComponents, plugins, schema, globalButtons } = useMemo(() => {
     const finalComponents$ = withDefaults(components);
     return {
       finalComponents: finalComponents$,
@@ -204,7 +206,7 @@ const BasicRichText = <P extends object, D extends object>(props: P & RichTextPr
         {...rest}
         initialValue={initialValue || defaultValue}
         plugins={plugins}
-        // globalButtons={globalButtons}
+        globalButtons={globalButtons}
         schema={schema}
       >
         {
