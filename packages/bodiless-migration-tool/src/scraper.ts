@@ -61,6 +61,26 @@ export interface ScraperParams {
   obeyRobotsTxt?: boolean
 }
 
+interface QueueOptions {
+  url?: string;
+}
+
+interface RequestOptions {
+  url: string;
+}
+
+interface SuccessResult<T> {
+  isHtmlResponse: boolean;
+  response: {
+    ok: boolean;
+    status: string;
+    url: string;
+    headers: Object;
+  };
+  responseText: string;
+  result: T;
+}
+
 export class Scraper extends EE<Events> {
   params: ScraperParams;
 
