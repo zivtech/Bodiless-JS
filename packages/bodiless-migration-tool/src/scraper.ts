@@ -100,7 +100,7 @@ export class Scraper extends EE<Events> {
       // Function to be evaluated in browsers
       evaluatePage,
       // Function to do anything like modifying options before each request
-      preRequest: async queueOptions => {
+      preRequest: async (queueOptions: QueueOptions) => {
         try {
           if (queueOptions !== undefined && queueOptions.url !== undefined) {
             /* eslint no-param-reassign: 1 */
@@ -112,7 +112,7 @@ export class Scraper extends EE<Events> {
         return true;
       },
       // Function to be called with evaluated results from browsers
-      onSuccess: (async successResult => {
+      onSuccess: (async (successResult: SuccessResult<any>) => {
         try {
           // we can get an external url here
           // when an internal url is redirected to the external
@@ -137,12 +137,12 @@ export class Scraper extends EE<Events> {
           debug(error);
         }
       }),
-      onError: (error => {
+      onError: ((error: Error) => {
         debug(`onerror ${error}`);
         this.emit('error', error);
       }),
     });
-    crawler.on(HCCrawler.Events.AttachedFileRequested, async options => {
+    crawler.on(HCCrawler.Events.AttachedFileRequested, async (options: RequestOptions) => {
       this.emit('fileReceived', options.url);
     });
     crawler.on(HCCrawler.Events.PuppeteerRequestStarted, async (request: Request) => {
