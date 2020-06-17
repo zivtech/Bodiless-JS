@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { ComponentType } from 'react';
+import React, { ComponentType, useMemo } from 'react';
 import { flowRight, pick, flow } from 'lodash';
 import {
   ifEditable,
@@ -186,7 +186,15 @@ const BasicRichText = <P extends object, D extends object>(props: P & RichTextPr
     ui,
     ...rest
   } = props;
-  const finalComponents = withDefaults(components);
+  const { finalComponents, plugins, schema, globalButtons } = useMemo(() => {
+    const finalComponents$ = withDefaults(components);
+    return {
+      finalComponents: finalComponents$,
+      plugins: getPlugins(finalComponents$),
+      schema: getSchema(finalComponents$),
+      globalButtons: getGlobalButtons(finalComponents$),
+    };
+  }, [components]);
   const { HoverMenu } = getUI(ui);
   const finalUI = getUI(ui);
   const { isEdit } = useEditContext();
@@ -197,9 +205,9 @@ const BasicRichText = <P extends object, D extends object>(props: P & RichTextPr
       <RichTextProvider
         {...rest}
         initialValue={initialValue || defaultValue}
-        plugins={getPlugins(finalComponents)}
-        globalButtons={getGlobalButtons(finalComponents)}
-        schema={getSchema(finalComponents)}
+        plugins={plugins}
+        globalButtons={globalButtons}
+        schema={schema}
       >
         {
           isEdit
