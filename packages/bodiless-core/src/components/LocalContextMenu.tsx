@@ -20,9 +20,15 @@ import { useEditContext } from '../hooks';
 import { useUI } from './PageEditor';
 import { TMenuOption } from '../PageEditContext/types';
 
-// Purpose of this event handler to control a case when the tooltip shows on a component
-// that became invisible for any reason and the tooltip positioned to the top-left corner
-// of the screen.
+/**
+ * @private
+ *
+ * Purpose of this event handler to control a case when the tooltip shows on a component
+ * that became invisible for any reason and the tooltip positioned to the top-left corner
+ * of the screen.
+ *
+ * @param domNode The element to which the popup is attached.
+ */
 const onPopupAlign = (domNode: Element) => {
   const element = domNode as HTMLElement;
   if (element.getBoundingClientRect().left <= 0) {
@@ -32,11 +38,14 @@ const onPopupAlign = (domNode: Element) => {
   }
 };
 
+/**
+ * @private
+ *
+ * Renders children inside an rc-tooltip whose overlay contents contain all local menu option icons.
+ */
 const InnerLocalContextMenu$: FC = ({ children }) => {
   const context = useEditContext();
   const { LocalContextMenu: Menu } = useUI();
-  // let the context know it has a localMenu
-  context.hasLocalMenu = true;
   const { contextMenuOptions } = context;
   const options = contextMenuOptions.filter((option: TMenuOption) => Boolean(option.local));
   return (
@@ -55,9 +64,14 @@ const InnerLocalContextMenu$: FC = ({ children }) => {
 
 const InnerLocalContextMenu = observer(InnerLocalContextMenu$);
 
+/*
+ * Wraps its children in a tooltip displaying local context menu options, but only if the
+ * current context is the innermost context to which a local context menu has been assigned.
+ */
 const LocalContextMenu: FC = ({ children }) => {
   const context = useEditContext();
-
+  // let the context know it has a localMenu
+  context.hasLocalMenu = true;
   const { isInnermostLocalMenu, areLocalTooltipsDisabled } = context;
   if (!isInnermostLocalMenu || areLocalTooltipsDisabled) {
     return <>{children}</>;
