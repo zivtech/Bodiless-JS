@@ -22,7 +22,7 @@ import {
   withMenuOptions,
   withoutProps,
 } from '@bodiless/core';
-import { BasicEditorProps, Plugin } from 'slate-react';
+import { Plugin } from 'slate-react';
 import { SchemaProperties } from 'slate';
 import {
   designable,
@@ -103,18 +103,24 @@ const withSlateSchema = <P extends object>(Component: ComponentType<P>) => (
 const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (props: P) => {
   const previousSlateContext = useSlateContext();
   const previousEditorProps = previousSlateContext!.editorProps;
-  const context = useEditContext();
   const { onClick } = useContextActivator();
+
+  // TODO: The following onCHange handler is only necessary if the menu options provided
+  // by this editor depend on the state of the editor. If this is ever the case, we will
+  // need to add logic to prevent the context from refreshing on *every* change, and
+  // only trigger refresh when necxessary.
+  // const context = useEditContext();
   // tslint:disable-next-line: ter-arrow-parens
-  const onChange: BasicEditorProps['onChange'] = change => {
-    if (typeof previousEditorProps.onChange === 'function' && change) {
-      previousEditorProps.onChange(change);
-    }
-    context.refresh();
-  };
+  // const onChange: BasicEditorProps['onChange'] = change => {
+  //   if (typeof previousEditorProps.onChange === 'function' && change) {
+  //     previousEditorProps.onChange(change);
+  //   }
+  //   context.refresh();
+  // };
+
   const editorProps = {
     ...previousEditorProps!,
-    onChange,
+    // onChange,
     onClick,
   };
 
@@ -150,10 +156,10 @@ const RichTextProvider = flowRight(
   withNodeStateHandlers,
   // @ts-ignore
   withSlateEditor,
-  // ifEditable(withMenuOptions({ useGetMenuOptions: richTextUseGetMenuOptions, name: 'editor' })),
+  ifEditable(withMenuOptions({ useGetMenuOptions: richTextUseGetMenuOptions, name: 'editor' })),
   withoutProps(['className', 'globalButtons', 'plugins', 'readOnly']),
   withSlateSchema,
-  // ifEditable(withSlateActivator),
+  ifEditable(withSlateActivator),
 )(React.Fragment) as RichTextProviderType;
 
 export type RichTextProps<P> = {
@@ -186,7 +192,9 @@ const BasicRichText = <P extends object, D extends object>(props: P & RichTextPr
     ui,
     ...rest
   } = props;
-  const { finalComponents, plugins, schema, globalButtons } = useMemo(() => {
+  const {
+    finalComponents, plugins, schema, globalButtons,
+  } = useMemo(() => {
     const finalComponents$ = withDefaults(components);
     return {
       finalComponents: finalComponents$,
