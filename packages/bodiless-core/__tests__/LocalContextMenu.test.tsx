@@ -87,7 +87,7 @@ describe('LocalContextMenu', () => {
       </PageEditor>,
     );
 
-    expect(wrapper.find('Tooltip').get(0).props.overlay.type).toBe(ContextMenu);
+    expect(wrapper.find(ContextMenu)).toBeDefined();
   });
 
   it('renders Tooltip with overlay of customized ui element.', () => {
@@ -105,7 +105,8 @@ describe('LocalContextMenu', () => {
       </PageEditor>,
     );
 
-    expect(wrapper.find('Tooltip').get(0).props.overlay.type).toBe(Foo2);
+    expect(wrapper.find(ContextMenu)).toHaveLength(0);
+    expect(wrapper.find(Foo2)).toHaveLength(1);
   });
 
   it('renders child component correctly.', () => {
@@ -115,24 +116,6 @@ describe('LocalContextMenu', () => {
       </MockContextProvider>,
     );
     expect(wrapper.find('Foo')).toHaveLength(1);
-  });
-
-  it('renders invisible Tooltip when menu option is not local.', () => {
-    const options1 = () => [
-      {
-        icon: 'add',
-        name: 'add',
-        local: false,
-      },
-    ];
-    const wrapper = mount(
-      <MockContextProvider active getMenuOptions={options1} id="t4" name="menuOptionInvisible">
-        <LocalContextMenu><Foo /></LocalContextMenu>
-      </MockContextProvider>,
-    );
-    expect(wrapper.find('Tooltip[visible=true]')).toHaveLength(0);
-
-    expect(wrapper.find('Tooltip').get(0).props.visible).toBe(false);
   });
 
   it('displays menu options which have "local" flag set.', () => {

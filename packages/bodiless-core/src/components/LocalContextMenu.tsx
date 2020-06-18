@@ -43,15 +43,31 @@ const onPopupAlign = (domNode: Element) => {
  *
  * Renders children inside an rc-tooltip whose overlay contents contain all local menu option icons.
  */
-const InnerLocalContextMenu$: FC = ({ children }) => {
+const ContextMenuOverlay = observer<{}>(() => {
   const context = useEditContext();
   const { LocalContextMenu: Menu } = useUI();
   const { contextMenuOptions } = context;
   const options = contextMenuOptions.filter((option: TMenuOption) => Boolean(option.local));
+  return <Menu options={options} />;
+});
+
+/*
+ * Wraps its children in a tooltip displaying local context menu options, but only if the
+ * current context is the innermost context to which a local context menu has been assigned.
+ */
+const LocalContextMenu: FC = ({ children }) => {
+  const context = useEditContext();
+  // console.log('render tooltip for', context.name);
+  // let the context know it has a localMenu
+  context.hasLocalMenu = true;
+  const { isInnermostLocalMenu, areLocalTooltipsDisabled } = context;
+  // if (!isInnermostLocalMenu || areLocalTooltipsDisabled) {
+  //   return <>{children}</>;
+  // }
   return (
     <Tooltip
-      visible={options.length > 0}
-      overlay={<Menu options={options} />}
+      visible={isInnermostLocalMenu && !areLocalTooltipsDisabled}
+      overlay={<ContextMenuOverlay />}
       trigger={[]}
       destroyTooltipOnHide
       placement="bottomLeft"
@@ -60,23 +76,7 @@ const InnerLocalContextMenu$: FC = ({ children }) => {
       {children}
     </Tooltip>
   );
-};
-
-const InnerLocalContextMenu = observer(InnerLocalContextMenu$);
-
-/*
- * Wraps its children in a tooltip displaying local context menu options, but only if the
- * current context is the innermost context to which a local context menu has been assigned.
- */
-const LocalContextMenu: FC = ({ children }) => {
-  const context = useEditContext();
-  // let the context know it has a localMenu
-  context.hasLocalMenu = true;
-  const { isInnermostLocalMenu, areLocalTooltipsDisabled } = context;
-  if (!isInnermostLocalMenu || areLocalTooltipsDisabled) {
-    return <>{children}</>;
-  }
-  return <InnerLocalContextMenu>{children}</InnerLocalContextMenu>;
+  // return <InnerLocalContextMenu>{children}</InnerLocalContextMenu>;
 };
 
 export default observer(LocalContextMenu) as ComponentType;
