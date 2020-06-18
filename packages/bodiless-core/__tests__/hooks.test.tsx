@@ -16,6 +16,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { useContextActivator } from '../src/hooks';
 import PageEditContext from '../src/PageEditContext';
+import { useEditContext } from '../lib';
 
 const TestComponent = ({ element: Element, event, handler }: any) => (
   <Element {...useContextActivator(event, handler)}>Foo!</Element>
@@ -27,18 +28,25 @@ const event = {
   stopPropagation: jest.fn(),
 };
 
+const getMockContext = (isInnermost: boolean) => {
+  const context = new PageEditContext();
+  Object.defineProperty(context, 'isEdit', { value: true });
+  Object.defineProperty(context, 'activate', { value: jest.fn() });
+  Object.defineProperty(context, 'isInnermost', { value: isInnermost });
+  return context;
+};
+
 describe('useContextActivator', () => {
   beforeEach(() => {
-    const mockIsEdit = jest.spyOn(PageEditContext.prototype, 'isEdit', 'get');
-    mockIsEdit.mockImplementation(() => true);
-    // TODO: Rather than spying on the prototype we should mock the class and watch an instance.
-    // (but currently it's hard to get hold of the root instance, and we can't inject a new instance
-    // since enzyme doesn't support the context api.)
     jest.spyOn(PageEditContext.prototype, 'activate');
+    // jest.spyOn(PageEditContext.prototype, 'isInnermost', 'get').mockImplementation(() => false);
+    jest.spyOn(PageEditContext.prototype, 'isEdit', 'get').mockImplementation(() => true);
   });
 
   afterEach(() => {
-    (PageEditContext.prototype.activate as any).mockClear();
+    (PageEditContext.prototype.activate as any).mockRestore();
+    // (PageEditContext.prototype.isInnermost as any).mockRestore();
+    (PageEditContext.prototype.isEdit as any).get.mockRestore();
   });
 
   it('creates an activator for a mouseover event', () => {
@@ -47,7 +55,7 @@ describe('useContextActivator', () => {
       trigger: 'mouseover',
       element: 'span',
     };
-    const wrapper = shallow(<TestComponent {...conditions} />);
+    const wrapper =shallow(<TestComponent {...conditions} />);
     wrapper.simulate(conditions.trigger, event);
     expect(PageEditContext.prototype.activate).toHaveBeenCalledTimes(1);
   });
@@ -55,7 +63,7 @@ describe('useContextActivator', () => {
   it('invokes a passed handler', () => {
     const handler = jest.fn();
     const wrapper = shallow(
-      <TestComponent handler={handler} event="onClick" element="div" />,
+      <TestComponent handler={handler} event="onClick" element="div" />
     );
     wrapper.simulate('click', event);
     expect(handler).toHaveBeenCalledTimes(1);
