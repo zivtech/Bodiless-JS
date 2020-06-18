@@ -159,13 +159,8 @@ export class Scraper extends EE<Events> {
           debugDefault(`onSuccess exception: ${error}`);
         }
       }),
-<<<<<<< HEAD
       onError: ((error: Error) => {
-        debug(`onerror ${error}`);
-=======
-      onError: (error => {
         debugDefault(`onError: ${error}`);
->>>>>>> upstream/master
         this.emit('error', error);
       }),
     });
