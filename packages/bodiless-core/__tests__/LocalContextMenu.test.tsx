@@ -86,8 +86,8 @@ describe('LocalContextMenu', () => {
         </MockContextProvider>
       </PageEditor>,
     );
-
-    expect(wrapper.find(ContextMenu)).toBeDefined();
+    const content = wrapper.find('div.rc-tooltip-content');
+    expect(content.find(ContextMenu)).toHaveLength(1);
   });
 
   it('renders Tooltip with overlay of customized ui element.', () => {
@@ -104,9 +104,9 @@ describe('LocalContextMenu', () => {
         </MockContextProvider>
       </PageEditor>,
     );
-
-    expect(wrapper.find(ContextMenu)).toHaveLength(0);
-    expect(wrapper.find(Foo2)).toHaveLength(1);
+    const content = wrapper.find('div.rc-tooltip-content');
+    expect(content.find(Foo2)).toHaveLength(1);
+    expect(content.find(ContextMenu)).toHaveLength(0);
   });
 
   it('renders child component correctly.', () => {
