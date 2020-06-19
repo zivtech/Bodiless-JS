@@ -14,16 +14,16 @@
 
 import React, { ComponentType, useMemo } from 'react';
 import { flowRight, pick, flow } from 'lodash';
+import type { Plugin } from 'slate-react';
+import type { SchemaProperties } from 'slate';
 import {
-  ifEditable,
   useEditContext,
   useContextActivator,
   withNode,
   withMenuOptions,
   withoutProps,
+  ifToggledOn,
 } from '@bodiless/core';
-import { Plugin } from 'slate-react';
-import { SchemaProperties } from 'slate';
 import {
   designable,
   H1,
@@ -138,28 +138,35 @@ const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (p
 };
 
 type UseGetMenuOptionsProps = {
-  globalButtons: Function,
+  globalButtons?: Function,
 };
 // This is a call back that goes to withMenuOptions so that we can add button to the global menu
 const richTextUseGetMenuOptions = (props: UseGetMenuOptionsProps) => {
   const slateContext = useSlateContext();
   const { editor } = slateContext!;
-  return () => props.globalButtons(editor);
+  return () => (props.globalButtons ? props.globalButtons(editor) : []);
 };
+
+const ifMenuOptions = ifToggledOn((props: UseGetMenuOptionsProps) => {
+  const context = useEditContext();
+  return context.isEdit && Boolean(props.globalButtons);
+});
+
 type RichTextProviderProps = {
   plugins: Plugin[],
   schema?: SchemaProperties,
-};
+} & UseGetMenuOptionsProps;
 type RichTextProviderType = ComponentType<RichTextProviderProps>;
 const RichTextProvider = flowRight(
   withNode,
   withNodeStateHandlers,
-  // @ts-ignore
   withSlateEditor,
-  ifEditable(withMenuOptions({ useGetMenuOptions: richTextUseGetMenuOptions, name: 'editor' })),
-  withoutProps(['className', 'globalButtons', 'plugins', 'readOnly']),
+  ifMenuOptions(
+    withMenuOptions({ useGetMenuOptions: richTextUseGetMenuOptions, name: 'editor' }),
+    withSlateActivator,
+  ),
+  withoutProps(['className', 'plugins', 'globalButtons', 'readOnly']),
   withSlateSchema,
-  ifEditable(withSlateActivator),
 )(React.Fragment) as RichTextProviderType;
 
 export type RichTextProps<P> = {
