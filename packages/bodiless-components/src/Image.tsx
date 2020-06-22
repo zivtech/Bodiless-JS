@@ -106,9 +106,8 @@ function DropZonePlugin({ formApi, targetFieldName, ui }: {
     formApi.setError(targetFieldName, 'Uploading in progress');
     saveRequest.saveFile(acceptedFiles[0])
       .then(() => {
-        const state = formApi.getState();
-        // *HACK* as the formApi does not provide a interface to unset errors
-        delete state.errors[targetFieldName as ('alt' | 'src')];
+        // unset errors
+        formApi.setError(targetFieldName, undefined);
         formApi.setValue(targetFieldName, `/${acceptedFiles[0].name}`);
         // formApi.validate();
         setIsUploading(false);
