@@ -34,7 +34,7 @@ const NotificationList = () => {
   );
 };
 
-const renderForm = (props: ContextMenuFormProps) => {
+const RenderForm = (props: ContextMenuFormProps) => {
   const { ComponentFormTitle } = useFormUI();
   return (
     <ContextMenuForm {...props}>
@@ -43,6 +43,8 @@ const renderForm = (props: ContextMenuFormProps) => {
     </ContextMenuForm>
   );
 };
+// Work around "change in the order of Hooks" issue.
+const renderForm = (props: ContextMenuFormProps) => <RenderForm {...props} />;
 
 /**
  * Provide a component to display notifications.
