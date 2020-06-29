@@ -62,9 +62,12 @@ import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
 import { useUI as useFormUI } from './components/ContextMenuItem';
+import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
 
 export * from './components';
 export {
+  withCompoundForm,
+  useRegisterSnippet,
   asBodilessComponent,
   asStatic,
   withContextActivator,
