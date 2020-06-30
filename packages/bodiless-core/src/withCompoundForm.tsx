@@ -1,7 +1,9 @@
 import React, {
-  createContext, ComponentType as CT, useRef, useContext, FC,
+  createContext, ComponentType as CT, useRef, useContext,
 } from 'react';
-import { ContextMenuForm } from './contextMenuForm';
+import { useFormState, useFormApi } from 'informed';
+import { pick } from 'lodash';
+import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
 import { TMenuOption } from './PageEditContext/types';
 import PageContextProvider from './PageContextProvider';
@@ -10,7 +12,7 @@ import PageContextProvider from './PageContextProvider';
  * A collection of form fields (with initial values and submit handler) which can be rendered
  * as part of a compound form.
  */
-type Snippet = {
+export type Snippet<D> = {
   /**
    * A unique identifier for this snippet
    */
@@ -18,25 +20,41 @@ type Snippet = {
   /**
    * The function which will render the actual form fields
    */
-  render: () => JSX.Element,
+  render: FormBodyRenderer<D>,
   /**
-   * The initial values for each form field.
+   * The initial values for each form field. Note that you
+   * *must* include a key for each field in the form.
    */
   initialValues: any,
   /**
-   * The submit handler.  Will be invoked with *all* data from the form.
+   * The submit handler.  Will be invoked with form values
+   * whose field names match the keys of the specified initialValues.
    */
   submitValues: (values: any) => void,
 };
 
-type SnippetRegister = (snippet: Snippet) => void;
+type SnippetRegister<D> = (snippet: Snippet<D>) => void;
 
-const Context = createContext<SnippetRegister>(() => {});
+const Context = createContext<SnippetRegister<any>>(() => {});
 
-export const useRegisterSnippet = (snippet: Snippet) => useContext(Context)(snippet);
+/**
+ * Hook to register a form snippet which will be rendered as part of a compound form. Should
+ * be invoked within a component wrapped in `withCompoundForm`.
+ *
+ * @param snippet The snippet to add to the form.
+ */
+export const useRegisterSnippet = <D extends object>(snippet: Snippet<D>) => (
+  useContext(Context)(snippet)
+);
 
-type FormProps = ContextMenuFormProps & {
-  snippets: Snippet[],
+/**
+ * Type of the props for a compount form.
+ */
+type FormProps<D> = ContextMenuFormProps & {
+  /**
+   * An afray of snippets which make up the form body.
+   */
+  snippets: Snippet<D>[],
 };
 
 /**
@@ -44,18 +62,27 @@ type FormProps = ContextMenuFormProps & {
  *
  * @param props Standard context menu form props + an array of snippets to render.
  */
-const Form: FC<FormProps> = ({ snippets, ...rest }) => {
+const Form = <D extends object>({ snippets, ...rest }: FormProps<D>) => {
   const submitValues = (values: any) => {
-    snippets.forEach(s => s.submitValues(values));
+    snippets.forEach(s => {
+      // Ensure that we only submit values whose keys were present in the initial values.
+      const values$ = pick(values, Object.keys(s.initialValues));
+      s.submitValues(values$);
+    });
   };
   const initialValues = snippets.reduce(
     (values, snippet) => ({ ...values, ...snippet.initialValues }),
     {},
   );
-  const props = { submitValues, initialValues };
+  const formProps = { submitValues, initialValues };
+  const renderProps: FormBodyProps<D> = {
+    formState: useFormState(),
+    formApi: useFormApi(),
+    ...rest,
+  };
   return (
-    <ContextMenuForm {...rest} {...props}>
-      {snippets.map(s => s.render())}
+    <ContextMenuForm {...rest} {...formProps}>
+      {snippets.map(s => s.render(renderProps))}
     </ContextMenuForm>
   );
 };
@@ -71,9 +98,9 @@ const Form: FC<FormProps> = ({ snippets, ...rest }) => {
 const withCompoundForm = (option: TMenuOption) => <P extends object>(Component: CT<P>) => {
   const WithCompoundForm = (props:P) => {
     // This ref will hold all snippets registered by child components.
-    const snippets = useRef<Snippet[]>([]);
+    const snippets = useRef<Snippet<any>[]>([]);
     // This callback will be used by child components to contribute their snippets.
-    const registerSnippet = (snippet: Snippet) => {
+    const registerSnippet = (snippet: Snippet<any>) => {
       // Ensure that there is only a single entry for each snippet.
       snippets.current = snippets.current
         .filter(s => s.id !== snippet.id)

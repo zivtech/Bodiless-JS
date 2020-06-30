@@ -12,72 +12,18 @@
  * limitations under the License.
  */
 
-import React, { ComponentType, useState } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
-import { flowRight, pick } from 'lodash';
+import { flowRight } from 'lodash';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 import {
-  useFormUI, useRegisterSnippet, withCompoundForm, withContextActivator, withLocalContextMenu,
+  useFormUI, withCompoundForm,
+  withContextActivator, withLocalContextMenu, withNodeDataHandlers,
+  withNodeKey, withNode, withEditFormSnippet, withoutProps, WithNodeKeyProps, withData,
 } from '@bodiless/core';
-import { Div, Pre } from '@bodiless/fclasses';
-import { v1 } from 'uuid';
+import { Div } from '@bodiless/fclasses';
 import Layout from '../../../components/Layout';
 
-type CT = ComponentType<any>|string;
-
-/**
- * Adds a test component which provides a form snippet and renders the
- * form values as JSON.
- *
- * @param initialData The initial values of the form fields.
- */
-const withTestSnippet = (initialData: any) => (Component: CT) => {
-  // Define the function which will render our snippet.
-  const render = () => {
-    const { ComponentFormText, ComponentFormLabel } = useFormUI();
-    // Iterate over all values and create a field+label for each.
-    const fields = Object.keys(initialData).map((key: string) => (
-      <>
-        <ComponentFormLabel>
-          {key}
-        </ComponentFormLabel>
-        <ComponentFormText field={key} />
-      </>
-    ));
-    return (
-      <>
-        {fields}
-      </>
-    );
-  };
-  // Give our snippet a unique id.
-  const id = v1();
-  // Define the enhanced component.
-  const WithTestSnippet = (props: any) => {
-    const [data, setData] = useState(initialData);
-    const snippet = {
-      id,
-      render,
-      initialValues: data,
-      submitValues: (values: any) => {
-        const newData = pick(values, Object.keys(initialData));
-        setData(newData);
-      },
-    };
-    // Register our snippet with the provider.
-    useRegisterSnippet(snippet);
-    // Render the submitted values.
-    return (
-      <Component {...props}>
-        {JSON.stringify(data, null, 2)}
-      </Component>
-    );
-  };
-  return WithTestSnippet;
-};
-
-const S1 = withTestSnippet({ foo: 'Foo' })(Pre);
-const S2 = withTestSnippet({ bar: 'Bar' })(Pre);
 const option = {
   icon: 'anchor',
   label: 'Test',
@@ -91,14 +37,48 @@ const Test = flowRight(
   withContextActivator('onClick'),
 )(Div);
 
+const PropsViewer = (props: any) => (
+  <pre>
+    {JSON.stringify(props, null, 2)}
+  </pre>
+);
+
+const TestSnippet = (data: any) => {
+  const { ComponentFormLabel, ComponentFormText } = useFormUI();
+  return (
+    <>
+      {Object.keys(data).map(
+        key => (
+          <>
+            <ComponentFormLabel>{key}</ComponentFormLabel>
+            <ComponentFormText field={key} />
+          </>
+        ),
+      )}
+    </>
+  );
+};
+
+const asTestFormSnippet = (nodeKey: WithNodeKeyProps, defaultData: any) => flowRight(
+  withNodeKey(nodeKey),
+  withNode,
+  withNodeDataHandlers(defaultData),
+  withEditFormSnippet(() => <TestSnippet {...defaultData} />),
+  withoutProps('setComponentData'),
+  withData,
+);
+
+const NV1 = asTestFormSnippet('foo', { foo: 'Foo' })(PropsViewer);
+const NV2 = asTestFormSnippet('bar', { bar: 'Bar' })(PropsViewer);
+
 export default (props: any) => (
   <Page {...props}>
     <Layout>
       <h1 className="text-3xl font-bold">Demo of compound forms</h1>
       <Test>
         Click here to show form button:
-        <S1 />
-        <S2 />
+        <NV1 />
+        <NV2 />
       </Test>
     </Layout>
   </Page>

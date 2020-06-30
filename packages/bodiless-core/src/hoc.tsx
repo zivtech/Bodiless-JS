@@ -23,11 +23,16 @@ import PageContextProvider from './PageContextProvider';
 import { PageEditContextInterface } from './PageEditContext/types';
 import { TMenuOptionGetter } from './Types/PageContextProviderTypes';
 
-// Helper hoc function to strip props.
-export const withoutProps = <Q extends object>(keys: string[]) => (
-  <P extends object>(Component: CT<P> | string) => (
-    (props: P & Q) => <Component {...omit(props, keys) as P} />
-  )
+/**
+ * Removes the specified props from the wrapped component.
+ * @param ...keys The names of the props to remove.
+ */
+export const withoutProps = <Q extends object>(keys: string|string[], ...restKeys: string[]) => (
+  <P extends object>(Component: CT<P> | string) => {
+    const keys$ = typeof keys === 'string' ? [keys, ...restKeys] : keys;
+    const WithoutProps = (props: P & Q) => <Component {...omit(props, keys$) as P} />;
+    return WithoutProps;
+  }
 );
 
 export const withContextActivator = (
