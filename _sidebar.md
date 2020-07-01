@@ -1,8 +1,6 @@
   * About
-    * [Core Principles](/About/CorePrinciples)
     * [Getting Started](/About/GettingStarted)
-    * [Site Build Basics](/About/SiteBuildBasics)
-    * [Design Element Basics](/About/DesignElementBasics)
+    * [Core Principles](/About/CorePrinciples)
   * Design
     * [Design System](/Design/DesignSystem)
   * Components
@@ -49,6 +47,7 @@
     * [Bodiless CLI](/Tools/BodilessCLI)
     * [Migration](/Tools/Migration)
   * Development
+    * [Guides](/Development/Guides/)
     * [Packages](/Development/Packages)
     * [Architecture](/Development/Architecture/)
     * [Release](/Development/Release/)
