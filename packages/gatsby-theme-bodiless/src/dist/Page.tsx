@@ -12,14 +12,14 @@
  * limitations under the License.
  */
 
-import React, { FC, ComponentType, useEffect } from 'react';
+import React, { FC, ComponentType, Fragment } from 'react';
 import {
   StaticPage,
   ContextWrapperProps,
-  useEditContext,
   NotificationProvider,
   NotificationButtonProvider,
   SwitcherButtonProvider,
+  asDefaultContext,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
@@ -48,6 +48,8 @@ const defaultUI: FinalUI = {
 };
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
+
+const DefaultActiveMenuOptions = asDefaultContext(Fragment);
 
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
   const { PageEditor: Editor, ContextWrapper: Wrapper } = getUI(ui);
@@ -81,17 +83,6 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
       <StaticPage>{children}</StaticPage>
     </GatsbyNodeProvider>
   );
-});
-
-/**
- * General component that define default active menu.
- */
-const DefaultActiveMenuOptions = observer(({ children }: any) => {
-  const context = useEditContext();
-  useEffect(() => {
-    context.activate();
-  });
-  return <>{children}</>;
 });
 
 export default Page;

@@ -18,8 +18,9 @@ import { flowRight } from 'lodash';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 import {
   useFormUI, withCompoundForm,
-  withContextActivator, withLocalContextMenu, withNodeDataHandlers,
-  withNodeKey, withNode, withEditFormSnippet, withoutProps, WithNodeKeyProps, withData,
+  withNodeDataHandlers,
+  withNodeKey, withNode, withEditFormSnippet, withoutProps,
+  WithNodeKeyProps, withData, asDefaultContext,
 } from '@bodiless/core';
 import { Div } from '@bodiless/fclasses';
 import Layout from '../../../components/Layout';
@@ -27,14 +28,11 @@ import Layout from '../../../components/Layout';
 const option = {
   icon: 'anchor',
   label: 'Test',
-  local: true,
-  global: false,
   name: 'form-test',
 };
 const Test = flowRight(
   withCompoundForm(option),
-  withLocalContextMenu,
-  withContextActivator('onClick'),
+  asDefaultContext,
 )(Div);
 
 const PropsViewer = (props: any) => (

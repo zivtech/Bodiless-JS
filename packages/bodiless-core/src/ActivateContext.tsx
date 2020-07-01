@@ -12,8 +12,8 @@
  * limitations under the License.
  */
 
-import * as React from 'react';
-import { useContextActivator } from './hooks';
+import React, { ComponentType, useEffect } from 'react';
+import { useContextActivator, useEditContext } from './hooks';
 
 type ActivateOnEffectState = {
   id: string,
@@ -64,4 +64,23 @@ export const useActivateOnEffectActivator = (uuid: string) => {
       setId('');
     }
   });
+};
+
+/**
+ * HOC which, when applied to a component, ensures that its enclosing context will be activated
+ * by default when the component is first mounted.
+ *
+ * @param Component The component whose context should be automatically activated.
+ */
+export const asDefaultContext = <P extends object>(Component: ComponentType<P>) => {
+  const AsDefaultContext = (props: P) => {
+    const context = useEditContext();
+    useEffect(() => {
+      if (!context.isActive) {
+        context.activate();
+      }
+    }, []);
+    return <Component {...props} />;
+  };
+  return AsDefaultContext;
 };

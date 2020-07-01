@@ -50,6 +50,7 @@ import {
   withActivateOnEffect,
   useActivateOnEffect,
   useActivateOnEffectActivator,
+  asDefaultContext,
 } from './ActivateContext';
 import {
   NotificationProvider,
@@ -67,6 +68,7 @@ import withEditFormSnippet from './withEditFormSnippet';
 
 export * from './components';
 export {
+  asDefaultContext,
   withEditFormSnippet,
   withCompoundForm,
   useRegisterSnippet,
