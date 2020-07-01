@@ -1,5 +1,5 @@
 /**
- * Copyright © 2020 Johnson & Johnson
+ * Copyright © 2019 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -11,22 +11,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import React from 'react';
+import React, { HTMLProps } from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
+import { asEditable } from '@bodiless/components';
+import ReactMarkdown from 'react-markdown';
 
 import Layout from '../../../components/Layout';
-import MainMenu from '../../../components/Menus/MainMenu';
+import asBodilessMarkdown from './asCustomBodilessMarkdown';
+
+const Markdown = asBodilessMarkdown('body')(ReactMarkdown);
+const H1 = asEditable('title', 'Title')<HTMLProps<HTMLHeadingElement>>('h1');
+
+const PageBody = ({ title, markdownContent }) => (
+  <main>
+    <H1>{title}</H1>
+    <Markdown source={markdownContent} />
+  </main>
+);
 
 export default (props: any) => (
   <Page {...props}>
     <Layout>
-      <h1 className="text-3xl font-bold">Editable Menu Demo</h1>
-      <p className="py-3">
-        The following is an editable menu using rc-menu
-      </p>
-      <MainMenu nodeKey="list1" className="w-full" />
+      <PageBody
+        title="Forms"
+        markdownContent="Foo"
+      />
     </Layout>
   </Page>
 );
