@@ -63,7 +63,7 @@ const NotificationButtonProvider: FC = ({ children }) => {
     handler: () => renderForm,
   }], [notifications]);
   return (
-    <PageContextProvider getMenuOptions={getMenuOptions}>
+    <PageContextProvider getMenuOptions={getMenuOptions} name="Notifications" peer>
       {children}
     </PageContextProvider>
   );

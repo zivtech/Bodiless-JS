@@ -260,6 +260,7 @@ const GitProvider: FC<Props> = ({ children, client = defaultClient }) => {
     <PageContextProvider
       getMenuOptions={() => getMenuOptions(client, context, notifyOfChanges)}
       name="Git"
+      peer
     >
       {children}
     </PageContextProvider>

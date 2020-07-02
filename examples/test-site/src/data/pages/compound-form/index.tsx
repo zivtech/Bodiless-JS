@@ -20,19 +20,18 @@ import {
   useFormUI, withCompoundForm,
   withNodeDataHandlers,
   withNodeKey, withNode, withEditFormSnippet, withoutProps,
-  WithNodeKeyProps, withData, asDefaultContext,
+  WithNodeKeyProps, withData,
 } from '@bodiless/core';
 import { Div } from '@bodiless/fclasses';
 import Layout from '../../../components/Layout';
 
-const option = {
+const useGetMenuOptions = () => () => [{
   icon: 'anchor',
   label: 'Test',
   name: 'form-test',
-};
+}];
 const Test = flowRight(
-  withCompoundForm(option),
-  asDefaultContext,
+  withCompoundForm({ useGetMenuOptions, name: 'Test', peer: true }),
 )(Div);
 
 const PropsViewer = (props: any) => (

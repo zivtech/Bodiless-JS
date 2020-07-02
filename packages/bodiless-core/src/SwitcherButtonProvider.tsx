@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import PageContextProvider from './PageContextProvider';
 import { useEditContext } from './hooks';
 
@@ -24,16 +24,16 @@ import { useEditContext } from './hooks';
  */
 const SwitcherButtonProvider: FC = ({ children }) => {
   const context = useEditContext();
-  const getMenuOptions = () => [{
+  const getMenuOptions = useCallback(() => [{
     name: 'switcher',
     icon: 'compare_arrows',
     handler: () => {
       context.togglePosition();
       context.refresh();
     },
-  }];
+  }], []);
   return (
-    <PageContextProvider getMenuOptions={getMenuOptions}>
+    <PageContextProvider getMenuOptions={getMenuOptions} peer name="Switcher">
       {children}
     </PageContextProvider>
   );

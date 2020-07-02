@@ -12,14 +12,13 @@
  * limitations under the License.
  */
 
-import React, { FC, ComponentType, Fragment } from 'react';
+import React, { FC, ComponentType } from 'react';
 import {
   StaticPage,
   ContextWrapperProps,
   NotificationProvider,
   NotificationButtonProvider,
   SwitcherButtonProvider,
-  asDefaultContext,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
@@ -49,8 +48,6 @@ const defaultUI: FinalUI = {
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
-const DefaultActiveMenuOptions = asDefaultContext(Fragment);
-
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
   const { PageEditor: Editor, ContextWrapper: Wrapper } = getUI(ui);
   if (process.env.NODE_ENV === 'development') {
@@ -64,9 +61,7 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
                   <NewPageProvider>
                     <GitProvider>
                       <Wrapper clickable>
-                        <DefaultActiveMenuOptions>
-                          {children}
-                        </DefaultActiveMenuOptions>
+                        {children}
                       </Wrapper>
                     </GitProvider>
                   </NewPageProvider>

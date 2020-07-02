@@ -15,13 +15,10 @@
 import { observer } from 'mobx-react-lite';
 import React, { ComponentType as CT } from 'react';
 import { flowRight, omit, pick } from 'lodash';
-import { useContextActivator, useEditContext } from './hooks';
+import { useContextActivator } from './hooks';
 import { useNodeDataHandlers } from './NodeProvider';
 import withNode from './withNode';
 import LocalContextMenu from './components/LocalContextMenu';
-import PageContextProvider from './PageContextProvider';
-import { PageEditContextInterface } from './PageEditContext/types';
-import { TMenuOptionGetter } from './Types/PageContextProviderTypes';
 
 /**
  * Removes the specified props from the wrapped component.
@@ -71,29 +68,3 @@ export const withNodeAndHandlers = (defaultData?: any) => flowRight(
   withNode,
   withNodeDataHandlers(defaultData),
 );
-
-export type UseGetMenuOptions<P> = (
-  props: P,
-  context: PageEditContextInterface,
-) => TMenuOptionGetter | undefined;
-
-type Options<P> = {
-  useGetMenuOptions?: UseGetMenuOptions<P>;
-  name?: string;
-  id?: string;
-};
-
-export const withMenuOptions = <P extends object>({
-  useGetMenuOptions,
-  name,
-  id,
-}: Options<P>) => (Component: CT<P> | string) => (props: P) => {
-    const getMenuOptions = useGetMenuOptions
-      ? useGetMenuOptions(props, useEditContext())
-      : undefined;
-    return (
-      <PageContextProvider getMenuOptions={getMenuOptions} name={name} id={id}>
-        <Component {...props} />
-      </PageContextProvider>
-    );
-  };

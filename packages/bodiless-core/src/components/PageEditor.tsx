@@ -14,7 +14,9 @@
 
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { FC, createContext, useContext } from 'react';
+import React, {
+  FC, createContext, useContext, useEffect, useCallback,
+} from 'react';
 import { observer } from 'mobx-react-lite';
 
 import ContextMenu from './ContextMenu';
@@ -55,10 +57,7 @@ const GlobalContextMenu: FC<Props> = observer(() => {
 
 const PageEditor: FC<Props> = ({ children, ui }) => {
   const context = useEditContext();
-  // TODO: This should use useHandler to memoize the callback.
-  // This probably remains replacing the get method isEdit with
-  // a real function.
-  const getMenuOptions = () => [
+  const getMenuOptions = useCallback(() => [
     {
       name: 'docs',
       icon: 'description',
@@ -77,12 +76,11 @@ const PageEditor: FC<Props> = ({ children, ui }) => {
         if (!context.isEdit) {
           window.location.reload();
         }
-        // Set edit mode on/off.
         context.toggleEdit();
         context.refresh();
       },
     },
-  ];
+  ], []);
 
   const newUI = {
     ...useUI(),
@@ -91,9 +89,11 @@ const PageEditor: FC<Props> = ({ children, ui }) => {
 
   const { PageOverlay = () => null } = newUI;
 
+  useEffect(() => { if (!context.isActive) context.activate(); }, []);
+
   return (
     <uiContext.Provider value={newUI}>
-      <PageContextProvider name="page" getMenuOptions={getMenuOptions}>
+      <PageContextProvider name="page" getMenuOptions={getMenuOptions} peer>
         {children}
         <GlobalContextMenu />
         <PageOverlay />

@@ -14,12 +14,13 @@
 
 import { ReactNode } from 'react';
 import { flowRight } from 'lodash';
-import { withMenuOptions, withoutProps, UseGetMenuOptions } from './hoc';
+import { withoutProps } from './hoc';
 import { PageEditContextInterface } from './PageEditContext/types';
 import useContextMenuForm, {
   FormBodyProps as ContextMenuFormBodyProps,
 } from './contextMenuForm';
-import { TMenuOptionGetter } from './Types/PageContextProviderTypes';
+import { withMenuOptions } from './PageContextProvider';
+import { TMenuOptionGetter, UseGetMenuOptions } from './Types/PageContextProviderTypes';
 
 export type FormBodyProps<P, D> = ContextMenuFormBodyProps<D> & {
   unwrap?: () => void;

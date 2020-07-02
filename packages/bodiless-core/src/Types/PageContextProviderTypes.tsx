@@ -12,11 +12,22 @@
  * limitations under the License.
  */
 
-import { TMenuOption } from '../PageEditContext/types';
+import { TMenuOption, PageEditContextInterface } from '../PageEditContext/types';
 
 export type TMenuOptionGetter = () => TMenuOption[];
+
+export type UseGetMenuOptions<P> = (
+  props: P,
+  context: PageEditContextInterface,
+) => TMenuOptionGetter | undefined;
+
 export type Props = {
   getMenuOptions?: TMenuOptionGetter;
   id?: string;
   name?: string;
+  peer?: boolean,
+};
+
+export type Options<P> = Omit<Props, 'getMenuOptions'> & {
+  useGetMenuOptions?: UseGetMenuOptions<P>,
 };

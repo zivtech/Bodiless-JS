@@ -70,7 +70,7 @@ export interface CanBeActivated {
   activate: () => void;
   refresh: () => void;
 }
-export interface PageEditStore {
+export interface PageEditStoreInterface {
   activeContext: PageEditContextInterface | undefined;
   contextMenuOptions: TMenuOption[];
   isEdit: boolean;
@@ -94,6 +94,21 @@ export interface PageEditContextInterface extends
 {
   readonly id: string;
   readonly name: string;
+  /**
+   * Function property which gets the menu options associated with this context.
+   */
   readonly getMenuOptions: TMenuOptionGetter;
+  /**
+   * Prototype function which gets menu options associated with this context and any peers.
+   */
+  readonly allMenuOptions: TMenuOption[];
+  /**
+   * Spawn a childe of this context (another context which, when activaged, will also activate
+   * this one and all of its ancestors).
+   */
   spawn: (v: DefinesLocalEditContext) => PageEditContextInterface;
+  /**
+   * Register a peer of this context (another context which will be activagted along with this one)
+   */
+  registerPeer: (v: DefinesLocalEditContext) => void;
 }

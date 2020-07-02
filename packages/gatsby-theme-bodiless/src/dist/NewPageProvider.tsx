@@ -124,7 +124,7 @@ const useGetMenuOptions = (): () => TMenuOption[] => {
   ];
 };
 
-const menuOptions = { useGetMenuOptions, name: 'Gatsby' };
+const menuOptions = { useGetMenuOptions, name: 'Gatsby', peer: true };
 const NewPageProvider = withMenuOptions(menuOptions)(React.Fragment) as ComponentType<Props>;
 NewPageProvider.displayName = 'NewPageProvider';
 

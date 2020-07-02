@@ -5,8 +5,9 @@ import { useFormState, useFormApi } from 'informed';
 import { pick } from 'lodash';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
-import { TMenuOption } from './PageEditContext/types';
+import type { Options } from './types/PageContextProviderTypes';
 import PageContextProvider from './PageContextProvider';
+import { useEditContext } from './hooks';
 
 /**
  * A collection of form fields (with initial values and submit handler) which can be rendered
@@ -95,27 +96,37 @@ const Form = <D extends object>({ snippets, ...rest }: FormProps<D>) => {
  * - a submit handler which will be passed all submitted values from the form.
  * @param option A context menu option (minus the handler).
  */
-const withCompoundForm = (option: TMenuOption) => <P extends object>(Component: CT<P>) => {
+const withCompoundForm = <P extends object>(options: Options<P>) => (Component: CT<P>) => {
   const WithCompoundForm = (props:P) => {
+    const { useGetMenuOptions, ...rest } = options;
+    const context = useEditContext();
+    // eslint-disable-next-line max-len
+    const getMenuOptionsBase = (useGetMenuOptions && useGetMenuOptions(props, context)) || (() => []);
     // This ref will hold all snippets registered by child components.
     const snippets = useRef<Snippet<any>[]>([]);
     // This callback will be used by child components to contribute their snippets.
     const registerSnippet = (snippet: Snippet<any>) => {
       // Ensure that there is only a single entry for each snippet.
-      snippets.current = snippets.current
-        .filter(s => s.id !== snippet.id)
-        .concat(snippet);
+      const existsAt = snippets.current.findIndex(s => s.id === snippet.id);
+      if (existsAt >= 0) snippets.current.splice(existsAt, 1, snippet);
+      else snippets.current.push(snippet);
     };
     // Render function which passes the current snippets to our Form component.
     const renderForm = (formProps: ContextMenuFormProps) => (
       <Form {...formProps} snippets={snippets.current} />
     );
-    // Add the handler to the provided menu option.
-    const finalOption = {
-      ...option,
-      handler: () => renderForm,
+    const getMenuOptions = () => {
+      const baseOptions = getMenuOptionsBase();
+      if (baseOptions.length !== 1) {
+        throw new Error('Menu option getter for withCompoundForm must return a single item.');
+      }
+      // Add the handler to the provided menu option.
+      const finalOption = {
+        ...baseOptions[0],
+        handler: () => renderForm,
+      };
+      return [finalOption];
     };
-    const getMenuOptions = () => [finalOption];
     // Wrap the original component with
     // - A context containing the register snippet callback
     // - A menu options provider
@@ -123,7 +134,7 @@ const withCompoundForm = (option: TMenuOption) => <P extends object>(Component: 
       <Context.Provider value={registerSnippet}>
         <PageContextProvider
           getMenuOptions={getMenuOptions}
-          name={option.name}
+          {...rest}
         >
           <Component {...props} />
         </PageContextProvider>
