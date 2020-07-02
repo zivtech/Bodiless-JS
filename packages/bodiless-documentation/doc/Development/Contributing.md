@@ -62,7 +62,7 @@ In addition each label will be set on the issue to help with additional categori
 Additonal labels that can be used as needed:
 - "duplicate": duplicate of another issue or bug.
 - "invalid": This doesn't seem right.
-- "Further information is requested": Submitter should response with more information/clarifications.
+- "question": Further information is requested. Submitter should response with more information/clarifications.
 - "dependencies": Pull requests that update a dependency file.
 
 ## Commits
