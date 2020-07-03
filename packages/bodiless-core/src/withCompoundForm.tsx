@@ -1,12 +1,12 @@
 import React, {
-  createContext, ComponentType as CT, useRef, useContext, useCallback,
+  createContext, ComponentType as CT, useRef, useContext, useCallback, MutableRefObject,
 } from 'react';
 import { useFormState, useFormApi } from 'informed';
 import { pick } from 'lodash';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
 import type { Options } from './types/PageContextProviderTypes';
-import PageContextProvider, { useRegisterMenuOptions } from './PageContextProvider';
+import { withMenuOptions } from './PageContextProvider';
 import { useEditContext } from './hooks';
 
 /**
@@ -36,34 +36,22 @@ export type Snippet<D> = {
 
 type SnippetRegister<D> = (snippet: Snippet<D>) => void;
 
-const Context = createContext<SnippetRegister<any>>(() => {});
-
-/**
- * Hook to register a form snippet which will be rendered as part of a compound form. Should
- * be invoked within a component wrapped in `withCompoundForm`.
- *
- * @param snippet The snippet to add to the form.
- */
-export const useRegisterSnippet = <D extends object>(snippet: Snippet<D>) => (
-  useContext(Context)(snippet)
-);
-
-/**
- * Type of the props for a compount form.
- */
 type FormProps<D> = ContextMenuFormProps & {
-  /**
-   * An afray of snippets which make up the form body.
-   */
   snippets: Snippet<D>[],
 };
 
+const Context = createContext<SnippetRegister<any>>(() => {});
+const SnippetContext = createContext<MutableRefObject<Snippet<any>[]>|undefined>(undefined);
+
 /**
+ * @private
+ *
  * A Form which renders a collection of snippets.
  *
  * @param props Standard context menu form props + an array of snippets to render.
  */
-const Form = <D extends object>({ snippets, ...rest }: FormProps<D>) => {
+const Form = <D extends object>(props: FormProps<D>) => {
+  const { snippets, ...rest } = props;
   const submitValues = (values: any) => {
     snippets.forEach(s => {
       // Ensure that we only submit values whose keys were present in the initial values.
@@ -82,10 +70,44 @@ const Form = <D extends object>({ snippets, ...rest }: FormProps<D>) => {
     ...rest,
   };
   return (
-    <ContextMenuForm {...rest} {...formProps}>
+    <ContextMenuForm {...props} {...formProps}>
       {snippets.map(s => s.render(renderProps))}
     </ContextMenuForm>
   );
+};
+
+/**
+ * @private
+ *
+ * Given the supplied options, returns a menu options hook suitable to pass to withMenuOptions.
+ *
+ * @param options The options defining this compound form.
+ *
+ * @returns A menu options hook.
+ */
+const createMenuOptions = <P extends object, D extends object>(options: Options<D>) => {
+  const useGetMenuOptions = (props: any) => {
+    const {
+      useGetMenuOptions: useGetMenuOptionsBase = () => undefined,
+    } = options;
+    const context = useEditContext();
+    const getMenuOptionsBase = useGetMenuOptionsBase(props, context) || (() => []);
+    const snippets = useContext(SnippetContext);
+    const getMenuOptions = useCallback(() => {
+      const baseOptions = getMenuOptionsBase();
+      if (baseOptions.length !== 1) {
+        throw new Error('Menu option getter for withCompoundForm must return a single item.');
+      }
+      // Add the handler to the provided menu option.
+      const finalOption = {
+        ...baseOptions[0],
+        handler: () => (p: ContextMenuFormProps) => <Form {...p} snippets={snippets!.current} />,
+      };
+      return [finalOption];
+    }, [getMenuOptionsBase]);
+    return getMenuOptions;
+  };
+  return { ...options, useGetMenuOptions };
 };
 
 /**
@@ -97,11 +119,10 @@ const Form = <D extends object>({ snippets, ...rest }: FormProps<D>) => {
  * @param option A context menu option (minus the handler).
  */
 const withCompoundForm = <P extends object>(options: Options<P>) => (Component: CT<P>) => {
+  const finalOptions = createMenuOptions(options);
+  const ComponentWithButton = withMenuOptions(finalOptions)(Component);
+
   const WithCompoundForm = (props:P) => {
-    const { useGetMenuOptions, peer, ...rest } = options;
-    const context = useEditContext();
-    // eslint-disable-next-line max-len
-    const getMenuOptionsBase = (useGetMenuOptions && useGetMenuOptions(props, context)) || (() => []);
     // This ref will hold all snippets registered by child components.
     const snippets = useRef<Snippet<any>[]>([]);
     // This callback will be used by child components to contribute their snippets.
@@ -111,43 +132,13 @@ const withCompoundForm = <P extends object>(options: Options<P>) => (Component: 
       if (existsAt >= 0) snippets.current.splice(existsAt, 1, snippet);
       else snippets.current.push(snippet);
     };
-    // Render function which passes the current snippets to our Form component.
-    const renderForm = (formProps: ContextMenuFormProps) => (
-      <Form {...formProps} snippets={snippets.current} />
-    );
-    const getMenuOptions = useCallback(() => {
-      const baseOptions = getMenuOptionsBase();
-      if (baseOptions.length !== 1) {
-        throw new Error('Menu option getter for withCompoundForm must return a single item.');
-      }
-      // Add the handler to the provided menu option.
-      const finalOption = {
-        ...baseOptions[0],
-        handler: () => renderForm,
-      };
-      return [finalOption];
-    }, [getMenuOptionsBase]);
-
-    // Provide our menu button
-    let content = <Component {...props} />;
-    const menuOptionProps = {
-      getMenuOptions,
-      ...rest,
-    };
-    if (peer) {
-      // Register menu options to the current context.
-      useRegisterMenuOptions(menuOptionProps);
-    } else {
-      content = (
-        // Provide menu options as a new context.
-        <PageContextProvider {...menuOptionProps}>{content}</PageContextProvider>
-      );
-    }
 
     // Wrap the original component with a context containing the register snippet callback
     return (
       <Context.Provider value={registerSnippet}>
-        {content}
+        <SnippetContext.Provider value={snippets}>
+          <ComponentWithButton {...props} />
+        </SnippetContext.Provider>
       </Context.Provider>
     );
   };
@@ -155,3 +146,13 @@ const withCompoundForm = <P extends object>(options: Options<P>) => (Component: 
 };
 
 export default withCompoundForm;
+
+/**
+ * Hook to register a form snippet which will be rendered as part of a compound form. Should
+ * be invoked within a component wrapped in `withCompoundForm`.
+ *
+ * @param snippet The snippet to add to the form.
+ */
+export const useRegisterSnippet = <D extends object>(snippet: Snippet<D>) => (
+  useContext(Context)(snippet)
+);
