@@ -6,7 +6,7 @@ import { pick } from 'lodash';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
 import type { Options } from './types/PageContextProviderTypes';
-import PageContextProvider from './PageContextProvider';
+import PageContextProvider, { useRegisterMenuOptions } from './PageContextProvider';
 import { useEditContext } from './hooks';
 
 /**
@@ -98,7 +98,7 @@ const Form = <D extends object>({ snippets, ...rest }: FormProps<D>) => {
  */
 const withCompoundForm = <P extends object>(options: Options<P>) => (Component: CT<P>) => {
   const WithCompoundForm = (props:P) => {
-    const { useGetMenuOptions, ...rest } = options;
+    const { useGetMenuOptions, peer, ...rest } = options;
     const context = useEditContext();
     // eslint-disable-next-line max-len
     const getMenuOptionsBase = (useGetMenuOptions && useGetMenuOptions(props, context)) || (() => []);
@@ -127,17 +127,27 @@ const withCompoundForm = <P extends object>(options: Options<P>) => (Component: 
       };
       return [finalOption];
     }, [getMenuOptionsBase]);
-    // Wrap the original component with
-    // - A context containing the register snippet callback
-    // - A menu options provider
+
+    // Provide our menu button
+    let content = <Component {...props} />;
+    const menuOptionProps = {
+      getMenuOptions,
+      ...rest,
+    };
+    if (peer) {
+      // Register menu options to the current context.
+      useRegisterMenuOptions(menuOptionProps);
+    } else {
+      content = (
+        // Provide menu options as a new context.
+        <PageContextProvider {...menuOptionProps}>{content}</PageContextProvider>
+      );
+    }
+
+    // Wrap the original component with a context containing the register snippet callback
     return (
       <Context.Provider value={registerSnippet}>
-        <PageContextProvider
-          getMenuOptions={getMenuOptions}
-          {...rest}
-        >
-          <Component {...props} />
-        </PageContextProvider>
+        {content}
       </Context.Provider>
     );
   };
