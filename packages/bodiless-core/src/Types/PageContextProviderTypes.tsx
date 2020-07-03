@@ -25,9 +25,9 @@ export type Props = {
   getMenuOptions?: TMenuOptionGetter;
   id?: string;
   name?: string;
-  peer?: boolean,
 };
 
 export type Options<P> = Omit<Props, 'getMenuOptions'> & {
   useGetMenuOptions?: UseGetMenuOptions<P>,
+  peer?: boolean,
 };

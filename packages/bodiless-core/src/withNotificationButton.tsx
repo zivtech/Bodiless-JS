@@ -12,9 +12,9 @@
  * limitations under the License.
  */
 
-import React, { FC, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { ContextMenuForm } from './contextMenuForm';
-import PageContextProvider from './PageContextProvider';
+import { useRegisterMenuOptions } from './PageContextProvider';
 import { useNotifications } from './NotificationProvider';
 import { useUI as useFormUI } from './components/ContextMenuItem';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
@@ -47,12 +47,11 @@ const RenderForm = (props: ContextMenuFormProps) => {
 const renderForm = (props: ContextMenuFormProps) => <RenderForm {...props} />;
 
 /**
- * Provide a component to display notifications.
+ * @private
  *
- * @param children
- * @constructor
+ * Hook to add a notification button.
  */
-const NotificationButtonProvider: FC = ({ children }) => {
+const useNotificationButton = () => {
   const { notifications } = useNotifications();
 
   const getMenuOptions = useCallback(() => [{
@@ -62,11 +61,10 @@ const NotificationButtonProvider: FC = ({ children }) => {
     isActive: () => notifications.length > 0,
     handler: () => renderForm,
   }], [notifications]);
-  return (
-    <PageContextProvider getMenuOptions={getMenuOptions} name="Notifications" peer>
-      {children}
-    </PageContextProvider>
-  );
+  useRegisterMenuOptions({
+    getMenuOptions,
+    name: 'Notifications',
+  });
 };
 
-export default NotificationButtonProvider;
+export default useNotificationButton;

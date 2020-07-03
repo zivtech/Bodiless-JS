@@ -16,20 +16,15 @@ import React, { FC, ComponentType } from 'react';
 import {
   StaticPage,
   ContextWrapperProps,
-  NotificationProvider,
-  NotificationButtonProvider,
-  SwitcherButtonProvider,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
 import GatsbyNodeProvider, {
   Props as NodeProviderProps,
 } from './GatsbyNodeProvider';
-import GitProvider from './GitProvider';
-import NewPageProvider from './NewPageProvider';
-import GatsbyPageProvider, {
-  Props as PageProviderProps,
-} from './GatsbyPageProvider';
+import GatsbyPageProvider, { Props as PageProviderProps } from './GatsbyPageProvider';
+import useNewPageButton from './useNewPageButton';
+import useGitButtons from './useGitButtons';
 
 type FinalUI = {
   ContextWrapper: ComponentType<ContextWrapperProps>;
@@ -48,27 +43,24 @@ const defaultUI: FinalUI = {
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
+const InnerButtons: FC = () => {
+  useNewPageButton();
+  useGitButtons();
+  return <></>;
+};
+
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
   const { PageEditor: Editor, ContextWrapper: Wrapper } = getUI(ui);
   if (process.env.NODE_ENV === 'development') {
     return (
       <GatsbyNodeProvider {...rest}>
         <GatsbyPageProvider pageContext={rest.pageContext}>
-          <SwitcherButtonProvider>
-            <NotificationProvider>
-              <NotificationButtonProvider>
-                <Editor>
-                  <NewPageProvider>
-                    <GitProvider>
-                      <Wrapper clickable>
-                        {children}
-                      </Wrapper>
-                    </GitProvider>
-                  </NewPageProvider>
-                </Editor>
-              </NotificationButtonProvider>
-            </NotificationProvider>
-          </SwitcherButtonProvider>
+          <Editor>
+            <InnerButtons />
+            <Wrapper clickable>
+              {children}
+            </Wrapper>
+          </Editor>
         </GatsbyPageProvider>
       </GatsbyNodeProvider>
     );

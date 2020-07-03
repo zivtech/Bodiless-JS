@@ -17,28 +17,45 @@ import PageEditContext from './PageEditContext';
 import { useEditContext, useUUID } from './hooks';
 import { Props, Options, TMenuOptionGetter } from './Types/PageContextProviderTypes';
 
-// Menu Provider component
-const PageContextProvider: FC<Props> = ({
-  getMenuOptions,
-  name,
-  id,
-  peer,
-  children,
-}) => {
+/**
+ * @private
+ *
+ *  Hook to create the values needed to define a new context from the supplied props.
+ *
+ * @param props The props defining the `PageEditContext`
+ * @return Values suitable for passing to the `PageEditContext` constructor.
+ */
+const useNewContextValues = ({ getMenuOptions, name, id }: Props) => {
   const ref = useRef<TMenuOptionGetter>();
   ref.current = getMenuOptions;
-  const context = useEditContext();
   const id$ = id || useUUID();
-  const values = {
+  return {
     getMenuOptions: () => (ref.current || getMenuOptions!)(),
     id: id$,
     name: name || id$,
   };
+};
 
-  if (peer) {
-    context.registerPeer(values);
-    return <>{children}</>;
-  }
+/**
+ * Hook which registers additional menu options for the current context.
+ *
+ * @param props Props which define the menu options to add.
+ */
+export const useRegisterMenuOptions = (props: Props) => {
+  const values = useNewContextValues(props);
+  const context = useEditContext();
+  context.registerPeer(values);
+};
+
+/**
+ * Comonent which provides its children with a new `PageEditContext` using the specified
+ * menu options.
+ *
+ * @param props
+ */
+const PageContextProvider: FC<Props> = ({ children, ...rest }) => {
+  const values = useNewContextValues(rest);
+  const context = useEditContext();
   // eslint-disable-next-line react/destructuring-assignment
   const newValue = context.spawn(values);
   return (
@@ -61,19 +78,27 @@ PageContextProvider.defaultProps = {
  * for `PageContextProvider`.  This allows you to use props and context at render
  * time to create your `getMenuOptions` callback.
  *
- * @param Options The values used to define the menu options.
+ * Based on the value of the `peer` option, this will associate the menu options either
+ * with a new local context (`peer === false`, the default), or with the existing one.
  *
- * @return An HOC which will add those menu options to the component it wraps.
+ * @param options The values used to define the menu options.
+ *
+ * @return An HOC which will cause the component it enhances to contribute the specified
+ *         menu options when placed.
  */
 export const withMenuOptions = <P extends object>({
   useGetMenuOptions,
+  peer,
   ...rest
 }:Options<P>) => (Component: ComponentType<P> | string) => {
     const WithMenuOptions = (props: P) => {
       const getMenuOptions = useGetMenuOptions
         ? useGetMenuOptions(props, useEditContext())
         : undefined;
-
+      if (peer) {
+        useRegisterMenuOptions({ getMenuOptions, ...rest });
+        return <Component {...props} />;
+      }
       return (
         <PageContextProvider getMenuOptions={getMenuOptions} {...rest}>
           <Component {...props} />

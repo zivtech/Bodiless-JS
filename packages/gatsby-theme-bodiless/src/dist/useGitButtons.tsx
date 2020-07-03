@@ -13,17 +13,15 @@
  */
 
 /* eslint-disable no-alert */
-import React, {
-  FC, useState, useEffect, useCallback,
-} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Cookies from 'universal-cookie';
 import {
   contextMenuForm,
   getUI,
-  PageContextProvider,
   TMenuOption,
   useEditContext,
   useNotify,
+  useRegisterMenuOptions,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
@@ -44,10 +42,6 @@ const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
  */
 const canCommit = (process.env.BODILESS_BACKEND_COMMIT_ENABLED || '0') === '1';
 const canAlertOnLoad = process.env.BODILESS_ALERT_ON_PAGE_LOAD_ENABLED || 1;
-
-type Props = {
-  client?: GitClient,
-};
 
 const handle = (promise: AxiosPromise<any>, callback?: () => void) => promise
   .then(res => {
@@ -213,7 +207,7 @@ const getMenuOptions = (
 
 export type ChangeNotifier = () => Promise<void>;
 
-const GitProvider: FC<Props> = ({ children, client = defaultClient }) => {
+const useGitButtons = ({ client = defaultClient } = {}) => {
   const [notifications, setNotifications] = useState([] as any);
   const context = useEditContext();
 
@@ -256,15 +250,10 @@ const GitProvider: FC<Props> = ({ children, client = defaultClient }) => {
     }
   }, []);
 
-  return (
-    <PageContextProvider
-      getMenuOptions={() => getMenuOptions(client, context, notifyOfChanges)}
-      name="Git"
-      peer
-    >
-      {children}
-    </PageContextProvider>
-  );
+  useRegisterMenuOptions({
+    getMenuOptions: () => getMenuOptions(client, context, notifyOfChanges),
+    name: 'Git',
+  });
 };
 
-export default GitProvider;
+export default useGitButtons;

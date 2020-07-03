@@ -13,7 +13,7 @@
  */
 
 import { ComponentType } from 'react';
-import PageContextProvider, { withMenuOptions } from './PageContextProvider';
+import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from './PageContextProvider';
 import PageEditContext from './PageEditContext';
 import asStatic from './asStatic';
 import { useEditContext, useUUID, useContextActivator } from './hooks';
@@ -53,12 +53,9 @@ import {
   useActivateOnEffectActivator,
 } from './ActivateContext';
 import {
-  NotificationProvider,
   useNotifications,
   useNotify,
 } from './NotificationProvider';
-import NotificationButtonProvider from './NotificationButtonProvider';
-import SwitcherButtonProvider from './SwitcherButtonProvider';
 import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
@@ -80,6 +77,7 @@ export {
   withLocalContextMenu,
   PageContextProvider,
   withMenuOptions,
+  useRegisterMenuOptions,
   PageEditContext,
   useEditContext,
   useContextActivator,
@@ -114,11 +112,8 @@ export {
   ifToggledOn,
   withFlowToggle,
   useEditToggle,
-  NotificationProvider,
-  NotificationButtonProvider,
   useNotifications,
   useNotify,
-  SwitcherButtonProvider,
 };
 
 export type {

@@ -1,5 +1,5 @@
 import React, {
-  createContext, ComponentType as CT, useRef, useContext,
+  createContext, ComponentType as CT, useRef, useContext, useCallback,
 } from 'react';
 import { useFormState, useFormApi } from 'informed';
 import { pick } from 'lodash';
@@ -115,7 +115,7 @@ const withCompoundForm = <P extends object>(options: Options<P>) => (Component: 
     const renderForm = (formProps: ContextMenuFormProps) => (
       <Form {...formProps} snippets={snippets.current} />
     );
-    const getMenuOptions = () => {
+    const getMenuOptions = useCallback(() => {
       const baseOptions = getMenuOptionsBase();
       if (baseOptions.length !== 1) {
         throw new Error('Menu option getter for withCompoundForm must return a single item.');
@@ -126,7 +126,7 @@ const withCompoundForm = <P extends object>(options: Options<P>) => (Component: 
         handler: () => renderForm,
       };
       return [finalOption];
-    };
+    }, [getMenuOptionsBase]);
     // Wrap the original component with
     // - A context containing the register snippet callback
     // - A menu options provider

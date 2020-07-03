@@ -20,12 +20,13 @@ import React, {
 import { observer } from 'mobx-react-lite';
 
 import ContextMenu from './ContextMenu';
-
-import PageContextProvider from '../PageContextProvider';
-
 import { useEditContext } from '../hooks';
 import { IContextMenuProps as ContextMenuProps } from '../Types/ContextMenuTypes';
 import { TMenuOption } from '../PageEditContext/types';
+import useNotificationButton from '../withNotificationButton';
+import useSwitcherButton from '../withSwitcherButton';
+import { useRegisterMenuOptions } from '../PageContextProvider';
+import { NotificationProvider } from '../NotificationProvider';
 
 type CompleteUI = {
   GlobalContextMenu: React.ComponentType<ContextMenuProps>;
@@ -89,16 +90,23 @@ const PageEditor: FC<Props> = ({ children, ui }) => {
 
   const { PageOverlay = () => null } = newUI;
 
+  // Register buttons to the main menu.
+  useSwitcherButton();
+  useNotificationButton();
+  useRegisterMenuOptions({
+    getMenuOptions,
+    name: 'Editor',
+  });
   useEffect(() => { if (!context.isActive) context.activate(); }, []);
 
   return (
-    <uiContext.Provider value={newUI}>
-      <PageContextProvider name="page" getMenuOptions={getMenuOptions} peer>
+    <NotificationProvider>
+      <uiContext.Provider value={newUI}>
         {children}
         <GlobalContextMenu />
         <PageOverlay />
-      </PageContextProvider>
-    </uiContext.Provider>
+      </uiContext.Provider>
+    </NotificationProvider>
   );
 };
 
