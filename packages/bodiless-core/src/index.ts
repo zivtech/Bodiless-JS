@@ -13,7 +13,7 @@
  */
 
 import { ComponentType } from 'react';
-import PageContextProvider from './PageContextProvider';
+import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from './PageContextProvider';
 import PageEditContext from './PageEditContext';
 import asStatic from './asStatic';
 import { useEditContext, useUUID, useContextActivator } from './hooks';
@@ -26,12 +26,13 @@ import {
 import withEditButton, { useEditFormProps } from './withEditButton';
 import type { EditButtonProps } from './withEditButton';
 import useContextMenuForm, { contextMenuForm, ContextMenuForm } from './contextMenuForm';
+import withCompoundForm from './withCompoundForm';
+import withEditFormSnippet from './withEditFormSnippet';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
 import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
 import { DefaultContentNode } from './ContentNode';
 import {
-  withMenuOptions,
   withNodeAndHandlers,
   withNodeDataHandlers,
   withLocalContextMenu,
@@ -56,8 +57,6 @@ import {
   useNotifications,
   useNotify,
 } from './NotificationProvider';
-import NotificationButtonProvider from './NotificationButtonProvider';
-import SwitcherButtonProvider from './SwitcherButtonProvider';
 import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
@@ -74,6 +73,7 @@ export {
   withLocalContextMenu,
   PageContextProvider,
   withMenuOptions,
+  useRegisterMenuOptions,
   PageEditContext,
   useEditContext,
   useContextActivator,
@@ -83,6 +83,8 @@ export {
   withNode,
   withNodeKey,
   withSidecarNodes,
+  withCompoundForm,
+  withEditFormSnippet,
   startSidecarNodes,
   endSidecarNodes,
   contextMenuForm,
@@ -109,10 +111,8 @@ export {
   withFlowToggle,
   useEditToggle,
   NotificationProvider,
-  NotificationButtonProvider,
   useNotifications,
   useNotify,
-  SwitcherButtonProvider,
 };
 
 export type {
