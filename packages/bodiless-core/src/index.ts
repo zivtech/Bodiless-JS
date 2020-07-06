@@ -13,7 +13,7 @@
  */
 
 import { ComponentType } from 'react';
-import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from './PageContextProvider';
+import PageContextProvider from './PageContextProvider';
 import PageEditContext from './PageEditContext';
 import asStatic from './asStatic';
 import { useEditContext, useUUID, useContextActivator } from './hooks';
@@ -31,6 +31,7 @@ import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
 import { DefaultContentNode } from './ContentNode';
 import {
+  withMenuOptions,
   withNodeAndHandlers,
   withNodeDataHandlers,
   withLocalContextMenu,
@@ -41,9 +42,7 @@ import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
 import type { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
 import type { EditButtonOptions } from './Types/EditButtonTypes';
-import type {
-  TMenuOptionGetter,
-} from './Types/PageContextProviderTypes';
+import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
 import type { TOverlaySettings } from './Types/PageOverlayTypes';
 import {
@@ -53,21 +52,19 @@ import {
   useActivateOnEffectActivator,
 } from './ActivateContext';
 import {
+  NotificationProvider,
   useNotifications,
   useNotify,
 } from './NotificationProvider';
+import NotificationButtonProvider from './NotificationButtonProvider';
+import SwitcherButtonProvider from './SwitcherButtonProvider';
 import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
 import { useUI as useFormUI } from './components/ContextMenuItem';
-import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
-import withEditFormSnippet from './withEditFormSnippet';
 
 export * from './components';
 export {
-  withEditFormSnippet,
-  withCompoundForm,
-  useRegisterSnippet,
   asBodilessComponent,
   asStatic,
   withContextActivator,
@@ -77,7 +74,6 @@ export {
   withLocalContextMenu,
   PageContextProvider,
   withMenuOptions,
-  useRegisterMenuOptions,
   PageEditContext,
   useEditContext,
   useContextActivator,
@@ -112,8 +108,11 @@ export {
   ifToggledOn,
   withFlowToggle,
   useEditToggle,
+  NotificationProvider,
+  NotificationButtonProvider,
   useNotifications,
   useNotify,
+  SwitcherButtonProvider,
 };
 
 export type {
