@@ -31,7 +31,12 @@ const useGetMenuOptions = () => () => [{
   name: 'form-test',
 }];
 const Test = flowRight(
-  withCompoundForm({ useGetMenuOptions, name: 'Test', peer: true }),
+  withCompoundForm({
+    useGetMenuOptions,
+    name: 'Test',
+    id: 'test',
+    peer: true,
+  }),
 )(Div);
 
 const PropsViewer = (props: any) => (
