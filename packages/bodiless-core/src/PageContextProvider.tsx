@@ -48,7 +48,7 @@ export const useRegisterMenuOptions = (props: Props) => {
 };
 
 /**
- * Comonent which provides its children with a new `PageEditContext` using the specified
+ * Component which provides its children with a new `PageEditContext` using the specified
  * menu options.
  *
  * @param props

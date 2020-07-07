@@ -14,8 +14,19 @@
 
 import React from 'react';
 import Helmet from 'react-helmet';
+import { flowRight } from 'lodash';
 import { StaticQuery, graphql } from 'gatsby';
 import { Div } from '@bodiless/fclasses';
+import {
+  useFormUI,
+  withCompoundForm,
+  withNodeKey,
+  withNode,
+  withNodeDataHandlers,
+  withEditFormSnippet,
+  withoutProps,
+  withData,
+} from '@bodiless/core';
 import {
   withMeta,
   withMetaTitle,
@@ -23,10 +34,62 @@ import {
   asBodilessHelmet,
   withEvent,
 } from '@bodiless/components';
-import { flowRight } from 'lodash';
 import Header from './header';
 import Footer from './footer';
 import { asPageContainer } from '../Elements.token';
+
+const useGetMenuOptions = () => () => [
+  {
+    name: 'seo',
+    icon: 'category',
+    label: 'SEO',
+  },
+];
+const Seo = flowRight(
+  withCompoundForm({ useGetMenuOptions, name: 'Seo', peer: true }),
+)(Div);
+
+const SeoSnippet = data => {
+  const { ComponentFormLabel, ComponentFormText } = useFormUI();
+  return (
+    <>
+      {Object.keys(data).map(key => (
+        <>
+          <ComponentFormLabel>{key}</ComponentFormLabel>
+          <ComponentFormText field={key} />
+        </>
+      ))}
+    </>
+  );
+};
+
+const asSeoFormSnippet = (nodeKey, defaultData) => flowRight(
+  withNodeKey(nodeKey),
+  withNode,
+  withNodeDataHandlers(defaultData),
+  withEditFormSnippet(() => <SeoSnippet {...defaultData} />),
+  withoutProps('setComponentData'),
+  withData,
+);
+
+const Comp = () => (
+  <></>
+);
+
+const MetaTitle = flowRight(
+  asBodilessHelmet('meta'),
+  asSeoFormSnippet('page-title', { title: 'Title' }),
+)(Comp);
+
+const MetaPageType = flowRight(
+  asBodilessHelmet('meta'),
+  asSeoFormSnippet('page-type', { type: 'Home' }),
+)(Comp);
+
+const MetaDescription = flowRight(
+  asBodilessHelmet('meta'),
+  asSeoFormSnippet('description', { description: 'Description' }),
+)(Comp);
 
 const ExampleHelmet = flowRight(
   asBodilessHelmet('meta'),
@@ -72,7 +135,11 @@ const Layout = ({ children }) => (
         <ExampleHelmet />
         <ExampleGTMHelmetEvent />
         <Header siteLogo={data.site.siteMetadata.logo} />
-
+        <Seo>
+          <MetaTitle />
+          <MetaDescription />
+          <MetaPageType />
+        </Seo>
         <Container>{children}</Container>
         <Footer siteTitle={data.site.siteMetadata.title} />
       </>
