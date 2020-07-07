@@ -52,5 +52,6 @@
     * [Architecture](/Development/Architecture/)
     * [Release](/Development/Release/)
     * [Contributing](/Development/Contributing)
+    * [Api Documentation Standards](/Development/ApiDocumentationStandards)
     * [Local Sites](/Development/LocalSites)
     * [Other Resources](/Development/OtherResources/)

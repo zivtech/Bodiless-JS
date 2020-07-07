@@ -16,6 +16,7 @@
     * [Quality](/Development/Release/Quality)
     * [Update Packages](/Development/Release/UpdatePackages)
   * [Contributing](/Development/Contributing)
+  * [Api Documentation Standards](/Development/ApiDocumentationStandards)
   * [Local Sites](/Development/LocalSites)
   * [Other Resources](/Development/OtherResources/)
     * [Lessons](/Development/OtherResources/Lessons)
