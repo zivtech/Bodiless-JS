@@ -13,12 +13,19 @@
  */
 
 import React, { FC, ComponentType } from 'react';
+import { flowRight } from 'lodash';
 import {
   StaticPage,
   ContextWrapperProps,
+  withCompoundForm,
+  // withChild,
+  useFormUI,
+  useRegisterSnippet,
+  ContextMenu,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
+import { Div, addClasses, addProps } from '@bodiless/fclasses';
 import GatsbyNodeProvider, {
   Props as NodeProviderProps,
 } from './GatsbyNodeProvider';
@@ -49,6 +56,70 @@ const InnerButtons: FC = () => {
   return <></>;
 };
 
+const useGetMenuOptions = () => () => [{
+  icon: 'cloud',
+  label: 'File',
+  name: 'file',
+}];
+
+const Submenu = flowRight(
+  addClasses('bl-flex bl-text-white'),
+  addProps({ role: 'toolbar', 'aria-label': 'Submenu' }),
+)(Div);
+
+const GitFormBody = () => {
+  const ui = {
+    ...useFormUI(),
+    Toolbar: Submenu,
+  };
+  const { ComponentFormTitle } = ui;
+
+  const subMenuOptions = [
+    {
+      name: 'listCommits',
+      icon: 'book',
+      label: 'History',
+    },
+    {
+      name: 'savechanges',
+      icon: 'cloud_upload',
+      label: 'Push',
+    },
+    {
+      name: 'Pull',
+      label: 'Pull',
+      icon: 'cloud_download',
+    },
+    {
+      name: 'resetchanges',
+      label: 'Revert',
+      icon: 'undo',
+    },
+  ];
+
+  return (
+    <React.Fragment key="form-submenu">
+      <ComponentFormTitle>File</ComponentFormTitle>
+      <ContextMenu ui={ui} options={subMenuOptions} />
+    </React.Fragment>
+  );
+};
+
+const GitSubMenu: FC = () => {
+  useRegisterSnippet({
+    id: 'test-id-f31gv312uzzxx',
+    render: GitFormBody,
+    initialValues: {},
+    submitValues: () => undefined,
+  });
+
+  return <></>;
+};
+
+const GitMenu = flowRight(
+  withCompoundForm({ useGetMenuOptions, name: 'File', peer: true }),
+)(React.Fragment);
+
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
   const { PageEditor: Editor, ContextWrapper: Wrapper } = getUI(ui);
   if (process.env.NODE_ENV === 'development') {
@@ -57,6 +128,9 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
         <GatsbyPageProvider pageContext={rest.pageContext}>
           <Editor>
             <InnerButtons />
+            <GitMenu>
+              <GitSubMenu />
+            </GitMenu>
             <Wrapper clickable>
               {children}
             </Wrapper>

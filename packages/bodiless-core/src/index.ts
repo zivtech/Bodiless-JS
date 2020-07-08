@@ -26,7 +26,7 @@ import {
 import withEditButton, { useEditFormProps } from './withEditButton';
 import type { EditButtonProps } from './withEditButton';
 import useContextMenuForm, { contextMenuForm, ContextMenuForm } from './contextMenuForm';
-import withCompoundForm from './withCompoundForm';
+import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
 import withEditFormSnippet from './withEditFormSnippet';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
 import withData from './withData';
@@ -85,6 +85,7 @@ export {
   withSidecarNodes,
   withCompoundForm,
   withEditFormSnippet,
+  useRegisterSnippet,
   startSidecarNodes,
   endSidecarNodes,
   contextMenuForm,
