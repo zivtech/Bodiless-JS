@@ -25,7 +25,7 @@ import {
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
-import { Div, addClasses, addProps } from '@bodiless/fclasses';
+import { Submenu } from '@bodiless/ui';
 import GatsbyNodeProvider, {
   Props as NodeProviderProps,
 } from './GatsbyNodeProvider';
@@ -61,11 +61,6 @@ const useGetMenuOptions = () => () => [{
   label: 'File',
   name: 'file',
 }];
-
-const Submenu = flowRight(
-  addClasses('bl-flex bl-text-white'),
-  addProps({ role: 'toolbar', 'aria-label': 'Submenu' }),
-)(Div);
 
 const GitFormBody = () => {
   const ui = {
