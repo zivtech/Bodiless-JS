@@ -15,6 +15,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { flowRight } from 'lodash';
+import { v1 } from 'uuid';
 import { StaticQuery, graphql } from 'gatsby';
 import { Div } from '@bodiless/fclasses';
 import {
@@ -35,7 +36,6 @@ import {
   asBodilessHelmet,
   withEvent,
 } from '@bodiless/components';
-import { v1 } from 'uuid';
 import Header from './header';
 import Footer from './footer';
 import { asPageContainer } from '../Elements.token';

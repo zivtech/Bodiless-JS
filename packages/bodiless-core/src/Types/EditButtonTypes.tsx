@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import { UseGetMenuOptions } from '../types/PageContextProviderTypes';
+import { UseGetMenuOptions } from './PageContextProviderTypes';
 import { FormBodyRenderer } from '../withEditButton';
 
 export type EditButtonProps<D> = {
