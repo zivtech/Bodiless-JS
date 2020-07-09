@@ -23,9 +23,9 @@ import {
 } from '@bodiless/core';
 import {
   ComponentFormTitle, ComponentFormCloseButton, ComponentFormLabel, ComponentFormText,
-  ComponentFormTextArea, ComponentFormButton, Icon, Div, Hr, ToolbarButton, ComponentFormUnwrapButton,
+  ComponentFormButton, Icon, Div, Hr, ToolbarButton, ComponentFormUnwrapButton,
   ComponentFormError, ComponentFormSubmitButton, ComponentFormList, ComponentFormListItem,
-  ComponentFormDescription,
+  ComponentFormDescription, ComponentFormTextArea,
 } from '@bodiless/ui';
 import ReactTagsField from './ReactTags';
 
