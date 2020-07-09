@@ -23,7 +23,7 @@ import {
 } from '@bodiless/core';
 import {
   ComponentFormTitle, ComponentFormCloseButton, ComponentFormLabel, ComponentFormText,
-  ComponentFormButton, Icon, Div, Hr, ToolbarButton, ComponentFormUnwrapButton,
+  ComponentFormTextArea, ComponentFormButton, Icon, Div, Hr, ToolbarButton, ComponentFormUnwrapButton,
   ComponentFormError, ComponentFormSubmitButton, ComponentFormList, ComponentFormListItem,
   ComponentFormDescription,
 } from '@bodiless/ui';
@@ -76,6 +76,7 @@ const ui: ContextMenuUI = {
   ComponentFormLabel,
   ComponentFormDescription,
   ComponentFormText,
+  ComponentFormTextArea,
   ComponentFormButton,
   ComponentFormCloseButton,
   ComponentFormSubmitButton,
