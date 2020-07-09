@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,21 +17,16 @@ import { flowRight } from 'lodash';
 import {
   StaticPage,
   ContextWrapperProps,
-  withCompoundForm,
-  // withChild,
-  useFormUI,
-  useRegisterSnippet,
-  ContextMenu,
+  withSubmenu,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
-import { Submenu } from '@bodiless/ui';
 import GatsbyNodeProvider, {
   Props as NodeProviderProps,
 } from './GatsbyNodeProvider';
 import GatsbyPageProvider, { Props as PageProviderProps } from './GatsbyPageProvider';
 import useNewPageButton from './useNewPageButton';
-import useGitButtons from './useGitButtons';
+import getGitButtons from './useGitButtons';
 
 type FinalUI = {
   ContextWrapper: ComponentType<ContextWrapperProps>;
@@ -50,9 +45,8 @@ const defaultUI: FinalUI = {
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
-const InnerButtons: FC = () => {
+const NewPageButton: FC = () => {
   useNewPageButton();
-  useGitButtons();
   return <></>;
 };
 
@@ -62,57 +56,13 @@ const useGetMenuOptions = () => () => [{
   name: 'file',
 }];
 
-const GitFormBody = () => {
-  const ui = {
-    ...useFormUI(),
-    Toolbar: Submenu,
-  };
-  const { ComponentFormTitle } = ui;
-
-  const subMenuOptions = [
-    {
-      name: 'listCommits',
-      icon: 'book',
-      label: 'History',
-    },
-    {
-      name: 'savechanges',
-      icon: 'cloud_upload',
-      label: 'Push',
-    },
-    {
-      name: 'Pull',
-      label: 'Pull',
-      icon: 'cloud_download',
-    },
-    {
-      name: 'resetchanges',
-      label: 'Revert',
-      icon: 'undo',
-    },
-  ];
-
-  return (
-    <React.Fragment key="form-submenu">
-      <ComponentFormTitle>File</ComponentFormTitle>
-      <ContextMenu ui={ui} options={subMenuOptions} />
-    </React.Fragment>
-  );
-};
-
-const GitSubMenu: FC = () => {
-  useRegisterSnippet({
-    id: 'test-id-f31gv312uzzxx',
-    render: GitFormBody,
-    initialValues: {},
-    submitValues: () => undefined,
-  });
-
-  return <></>;
-};
-
 const GitMenu = flowRight(
-  withCompoundForm({ useGetMenuOptions, name: 'File', peer: true }),
+  withSubmenu({
+    useGetMenuOptions,
+    name: 'File',
+    title: 'File',
+    getSubMenuButtons: getGitButtons,
+  }),
 )(React.Fragment);
 
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
@@ -122,10 +72,8 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
       <GatsbyNodeProvider {...rest}>
         <GatsbyPageProvider pageContext={rest.pageContext}>
           <Editor>
-            <InnerButtons />
-            <GitMenu>
-              <GitSubMenu />
-            </GitMenu>
+            <NewPageButton />
+            <GitMenu />
             <Wrapper clickable>
               {children}
             </Wrapper>

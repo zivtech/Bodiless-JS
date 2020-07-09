@@ -35,6 +35,7 @@ const defaultUI = {
   ComponentFormList: 'ul',
   ComponentFormListItem: 'li',
   ComponentFormDescription: 'div',
+  ComponentFormSubMenu: 'div',
 };
 
 export const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });

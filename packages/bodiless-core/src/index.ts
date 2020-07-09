@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,6 +61,7 @@ import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
 import { useUI as useFormUI } from './components/ContextMenuItem';
+import withSubmenu from './components/ContextSubMenu';
 
 export * from './components';
 export {
@@ -91,6 +92,7 @@ export {
   contextMenuForm,
   useContextMenuForm,
   ContextMenuForm,
+  withSubmenu,
   useFormUI,
   withData,
   NodeProvider,

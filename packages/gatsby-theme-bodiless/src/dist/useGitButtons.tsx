@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import {
   TMenuOption,
   useEditContext,
   useNotify,
-  useRegisterMenuOptions,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
@@ -175,45 +174,9 @@ const formGitReset = (client: GitClient, context: any) => contextMenuForm({
 
 const defaultClient = new BackendClient();
 
-const getMenuOptions = (
-  client: GitClient = defaultClient,
-  context: any,
-  notifyOfChanges: ChangeNotifier,
-): TMenuOption[] => {
-  const saveChanges = canCommit ? formGitCommit(client) : undefined;
-  return [
-    {
-      name: 'listCommits',
-      icon: 'book',
-      label: 'History',
-      handler: () => formGetCommitsList(client),
-    },
-    {
-      name: 'savechanges',
-      icon: 'cloud_upload',
-      label: 'Push',
-      isDisabled: () => !canCommit,
-      handler: () => saveChanges,
-    },
-    {
-      name: 'Pull',
-      label: 'Pull',
-      icon: 'cloud_download',
-      handler: () => formGitPull(client, notifyOfChanges),
-    },
-    {
-      name: 'resetchanges',
-      label: 'Revert',
-      icon: 'undo',
-      isHidden: () => !context.isEdit,
-      handler: () => formGitReset(client, context),
-    },
-  ];
-};
-
 export type ChangeNotifier = () => Promise<void>;
 
-const useGitButtons = ({ client = defaultClient } = {}) => {
+const getGitButtons = ({ client = defaultClient } = {}) => {
   const [notifications, setNotifications] = useState([] as any);
   const context = useEditContext();
 
@@ -256,10 +219,37 @@ const useGitButtons = ({ client = defaultClient } = {}) => {
     }
   }, []);
 
-  useRegisterMenuOptions({
-    getMenuOptions: () => getMenuOptions(client, context, notifyOfChanges),
-    name: 'Git',
-  });
+  const saveChanges = canCommit ? formGitCommit(client) : undefined;
+  const gitButtons: TMenuOption[] = [
+    {
+      name: 'listCommits',
+      icon: 'book',
+      label: 'History',
+      handler: () => formGetCommitsList(client),
+    },
+    {
+      name: 'savechanges',
+      icon: 'cloud_upload',
+      label: 'Push',
+      isDisabled: () => !canCommit,
+      handler: () => saveChanges,
+    },
+    {
+      name: 'Pull',
+      label: 'Pull',
+      icon: 'cloud_download',
+      handler: () => formGitPull(client, notifyOfChanges),
+    },
+    {
+      name: 'resetchanges',
+      label: 'Revert',
+      icon: 'undo',
+      isHidden: () => !context.isEdit,
+      handler: () => formGitReset(client, context),
+    },
+  ];
+
+  return gitButtons;
 };
 
-export default useGitButtons;
+export default getGitButtons;

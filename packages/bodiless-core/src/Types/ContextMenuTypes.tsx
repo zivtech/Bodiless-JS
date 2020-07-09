@@ -53,6 +53,7 @@ export type UI = {
   ReactTags?: ComponentType<ReactTagsFieldProps>;
   ComponentFormList?: ComponentType<HTMLProps<HTMLUListElement>> | string;
   ComponentFormListItem?: ComponentType<HTMLProps<HTMLLIElement>> | string;
+  ComponentFormSubMenu?: ComponentType<HTMLProps<HTMLDivElement>> | string;
   // @TODO: Add other controls from informed.
 };
 

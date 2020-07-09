@@ -41,8 +41,7 @@ const ContextMenu = (props: IProps) => {
     return <></>;
   }
 
-  const { options } = props;
-  const { ui } = props;
+  const { options, ui } = props;
   const { Toolbar } = getUI(ui);
 
   const elements = options
