@@ -54,9 +54,11 @@ const Form = <D extends object>(props: FormProps<D>) => {
   const { snippets, ...rest } = props;
   const submitValues = (values: any) => {
     snippets.forEach(s => {
-      // Ensure that we only submit values whose keys were present in the initial values.
-      const values$ = pick(values, Object.keys(s.initialValues));
-      s.submitValues(values$);
+      if (s.initialValues && s.submitValues) {
+        // Ensure that we only submit values whose keys were present in the initial values.
+        const values$ = pick(values, Object.keys(s.initialValues));
+        s.submitValues(values$);
+      }
     });
   };
   const initialValues = snippets.reduce(

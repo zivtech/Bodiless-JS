@@ -26,6 +26,7 @@ import {
   withEditFormSnippet,
   withoutProps,
   withData,
+  useRegisterSnippet,
 } from '@bodiless/core';
 import {
   withMeta,
@@ -34,6 +35,7 @@ import {
   asBodilessHelmet,
   withEvent,
 } from '@bodiless/components';
+import { v1 } from 'uuid';
 import Header from './header';
 import Footer from './footer';
 import { asPageContainer } from '../Elements.token';
@@ -45,50 +47,89 @@ const useGetMenuOptions = () => () => [
     label: 'SEO',
   },
 ];
+
+const SeoHeaderSnippet = {
+  id: v1(),
+  render: () => {
+    const { ComponentFormTitle, ComponentFormDescription } = useFormUI();
+    return (
+      <>
+        <ComponentFormTitle>SEO Data Management</ComponentFormTitle>
+        <ComponentFormDescription>
+          {`Enter the page level data used for SEO. 
+            This is metadata needed for SEO that will go in the page header.`}
+        </ComponentFormDescription>
+      </>
+    );
+  },
+};
+
+const withSeoFormHeader = () => Component => {
+  const WithSeoFormHeader = (props) => {
+    useRegisterSnippet(SeoHeaderSnippet);
+    return <Component {...props} />;
+  };
+  return WithSeoFormHeader;
+};
+
 const Seo = flowRight(
-  withCompoundForm({ useGetMenuOptions, name: 'Seo', peer: true }),
+  withCompoundForm({
+    useGetMenuOptions, name: 'Seo', peer: true, id: 'seo',
+  }),
+  withSeoFormHeader(),
 )(Div);
 
-const SeoSnippet = data => {
-  const { ComponentFormLabel, ComponentFormText } = useFormUI();
+const withMetaSnippet = (data) => withEditFormSnippet(() => {
+  const { name, label, type } = data;
+  const { ComponentFormLabel, ComponentFormText, ComponentFormTextArea } = useFormUI();
+  const Field = type === 'text' ? ComponentFormText : ComponentFormTextArea;
   return (
     <>
-      {Object.keys(data).map(key => (
-        <>
-          <ComponentFormLabel>{key}</ComponentFormLabel>
-          <ComponentFormText field={key} />
-        </>
-      ))}
+      <ComponentFormLabel>{label}</ComponentFormLabel>
+      <Field field={name} />
     </>
   );
-};
+});
 
 const asSeoFormSnippet = (nodeKey, defaultData) => flowRight(
   withNodeKey(nodeKey),
   withNode,
   withNodeDataHandlers(defaultData),
-  withEditFormSnippet(() => <SeoSnippet {...defaultData} />),
+  withMetaSnippet(defaultData),
   withoutProps('setComponentData'),
   withData,
 );
 
-const Comp = () => (
-  <></>
-);
+const Comp = () => <></>;
 
 const MetaTitle = flowRight(
   asBodilessHelmet('meta'),
-  asSeoFormSnippet('page-title', { title: 'Title' }),
+  asSeoFormSnippet('page-title', {
+    name: 'title',
+    title: 'Rec 30-65 char',
+    type: 'text',
+    label: 'Title',
+  }),
 )(Comp);
 
 const MetaPageType = flowRight(
   asBodilessHelmet('meta'),
-  asSeoFormSnippet('page-type', { type: 'Home' }),
+  asSeoFormSnippet('page-type', {
+    name: 'pagetype',
+    pagetype: '',
+    type: 'text',
+    label: 'Page type',
+  }),
 )(Comp);
 
 const MetaDescription = flowRight(
   asBodilessHelmet('meta'),
-  asSeoFormSnippet('description', { description: 'Description' }),
+  asSeoFormSnippet('description', {
+    name: 'description',
+    type: 'textarea',
+    label: 'Description',
+    description: 'Rec < 160 char',
+  }),
 )(Comp);
 
 const ExampleHelmet = flowRight(
