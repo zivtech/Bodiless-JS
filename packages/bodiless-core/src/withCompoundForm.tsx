@@ -5,7 +5,7 @@ import { useFormState, useFormApi } from 'informed';
 import { pick } from 'lodash';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
-import type { Options } from './types/PageContextProviderTypes';
+import type { Options } from './Types/PageContextProviderTypes';
 import { withMenuOptions } from './PageContextProvider';
 import { useEditContext } from './hooks';
 
