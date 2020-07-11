@@ -9,11 +9,22 @@ import type { FormBodyRenderer as Renderer } from './withEditButton';
 import { useRegisterSnippet } from './withCompoundForm';
 import type { Snippet } from './withCompoundForm';
 
-const withEditFormSnippet = <P extends object, D extends object>(render: Renderer<P, D>) => (
+type Options<P, D> = {
+  render: Renderer<P, D>,
+  toJSON?: (values: D) => any,
+  fromJSON?: (jsonValues: any) => D,
+};
+
+const withEditFormSnippet = <P extends object, D extends object>(options: Options<P, D>) => (
   (Component: CT<P>) => {
     const id = v1();
+    const { render, fromJSON, toJSON } = options;
     const WithEditFormSnippet = (props: P & EditButtonProps<D>) => {
       const { unwrap } = props;
+      const { submitValues, initialValues } = useEditFormProps(props);
+      const initialValues$ = fromJSON ? fromJSON(initialValues) : initialValues;
+      const submitValues$ = toJSON ? (values: D) => submitValues(toJSON(values)) : submitValues;
+
       // Pass additional props to the supplied render function.
       const render$ = (p: FormBodyProps<D>) => render({
         ...p,
@@ -23,6 +34,8 @@ const withEditFormSnippet = <P extends object, D extends object>(render: Rendere
       const snippet: Snippet<D> = {
         id,
         ...useEditFormProps(props),
+        initialValues: initialValues$,
+        submitValues: submitValues$,
         render: render$,
       };
       useRegisterSnippet(snippet);

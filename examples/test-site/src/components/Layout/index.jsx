@@ -79,16 +79,31 @@ const Seo = flowRight(
   withSeoFormHeader(),
 )(Div);
 
-const withMetaSnippet = (data) => withEditFormSnippet(() => {
-  const { name, label, type } = data;
-  const { ComponentFormLabel, ComponentFormText, ComponentFormTextArea } = useFormUI();
-  const Field = type === 'text' ? ComponentFormText : ComponentFormTextArea;
-  return (
-    <>
-      <ComponentFormLabel>{label}</ComponentFormLabel>
-      <Field field={name} />
-    </>
-  );
+const withMetaSnippet = (data) => withEditFormSnippet({
+  render: () => {
+    const { name, label, type } = data;
+    const { ComponentFormLabel, ComponentFormText, ComponentFormTextArea } = useFormUI();
+    const Field = type === 'text' ? ComponentFormText : ComponentFormTextArea;
+    return (
+      <>
+        <ComponentFormLabel>{label}</ComponentFormLabel>
+        <Field field={name} />
+      </>
+    );
+  },
+  toJSON: (values) => {
+    const { name, attribute } = data;
+    return {
+      [attribute]: values[name],
+    };
+  },
+  fromJSON: (values) => {
+    const { name, attribute } = data;
+    return {
+      ...values,
+      [name]: values[attribute],
+    };
+  },
 });
 
 const asSeoFormSnippet = (nodeKey, defaultData) => flowRight(
@@ -109,6 +124,7 @@ const MetaTitle = flowRight(
     title: 'Rec 30-65 char',
     type: 'text',
     label: 'Title',
+    attribute: 'content',
   }),
 )(Comp);
 
@@ -119,6 +135,7 @@ const MetaPageType = flowRight(
     pagetype: '',
     type: 'text',
     label: 'Page type',
+    attribute: 'content',
   }),
 )(Comp);
 
@@ -129,6 +146,7 @@ const MetaDescription = flowRight(
     type: 'textarea',
     label: 'Description',
     description: 'Rec < 160 char',
+    attribute: 'content',
   }),
 )(Comp);
 
