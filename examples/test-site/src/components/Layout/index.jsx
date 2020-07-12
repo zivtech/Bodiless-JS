@@ -17,7 +17,7 @@ import Helmet from 'react-helmet';
 import { flowRight } from 'lodash';
 import { v1 } from 'uuid';
 import { StaticQuery, graphql } from 'gatsby';
-import { Div } from '@bodiless/fclasses';
+import { Div, Meta } from '@bodiless/fclasses';
 import {
   useFormUI,
   withCompoundForm,
@@ -77,7 +77,7 @@ const Seo = flowRight(
     useGetMenuOptions, name: 'Seo', peer: true, id: 'seo',
   }),
   withSeoFormHeader(),
-)(Div);
+)(React.Fragment);
 
 const withMetaSnippet = (data) => withEditFormSnippet({
   render: () => {
@@ -115,8 +115,6 @@ const asSeoFormSnippet = (nodeKey, defaultData) => flowRight(
   withData,
 );
 
-const Comp = () => <></>;
-
 const MetaTitle = flowRight(
   asBodilessHelmet('meta'),
   asSeoFormSnippet('page-title', {
@@ -126,7 +124,7 @@ const MetaTitle = flowRight(
     label: 'Title',
     attribute: 'content',
   }),
-)(Comp);
+)(Meta);
 
 const MetaPageType = flowRight(
   asBodilessHelmet('meta'),
@@ -137,7 +135,7 @@ const MetaPageType = flowRight(
     label: 'Page type',
     attribute: 'content',
   }),
-)(Comp);
+)(Meta);
 
 const MetaDescription = flowRight(
   asBodilessHelmet('meta'),
@@ -148,7 +146,7 @@ const MetaDescription = flowRight(
     description: 'Rec < 160 char',
     attribute: 'content',
   }),
-)(Comp);
+)(Meta);
 
 const ExampleHelmet = flowRight(
   asBodilessHelmet('meta'),
