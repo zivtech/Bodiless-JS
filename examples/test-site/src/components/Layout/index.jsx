@@ -48,23 +48,20 @@ const useGetMenuOptions = () => () => [
   },
 ];
 
-const SeoHeaderSnippet = {
-  id: v1(),
-  render: () => {
-    const { ComponentFormTitle, ComponentFormDescription } = useFormUI();
-    return (
-      <>
-        <ComponentFormTitle>SEO Data Management</ComponentFormTitle>
-        <ComponentFormDescription>
-          {`Enter the page level data used for SEO. 
-            This is metadata needed for SEO that will go in the page header.`}
-        </ComponentFormDescription>
-      </>
-    );
-  },
-};
+const withSeoFormHeader = headerProps => Component => {
+  const SeoHeaderSnippet = {
+    id: v1(),
+    render: () => {
+      const { ComponentFormTitle, ComponentFormDescription } = useFormUI();
+      return (
+        <>
+          <ComponentFormTitle>{headerProps.title}</ComponentFormTitle>
+          <ComponentFormDescription>{headerProps.description}</ComponentFormDescription>
+        </>
+      );
+    },
+  };
 
-const withSeoFormHeader = () => Component => {
   const WithSeoFormHeader = (props) => {
     useRegisterSnippet(SeoHeaderSnippet);
     return <Component {...props} />;
@@ -72,11 +69,17 @@ const withSeoFormHeader = () => Component => {
   return WithSeoFormHeader;
 };
 
+const seoFormHeader = {
+  title: 'SEO Data Management',
+  description: `Enter the page level data used for SEO. 
+  This is metadata needed for SEO that will go in the page header.`,
+};
+
 const Seo = flowRight(
   withCompoundForm({
     useGetMenuOptions, name: 'Seo', peer: true, id: 'seo',
   }),
-  withSeoFormHeader(),
+  withSeoFormHeader(seoFormHeader),
 )(React.Fragment);
 
 const withMetaSnippet = (data) => withEditFormSnippet({
@@ -99,10 +102,10 @@ const withMetaSnippet = (data) => withEditFormSnippet({
   },
   fromJSON: (values) => {
     const { name, attribute } = data;
-    return {
+    return values[attribute] ? {
       ...values,
       [name]: values[attribute],
-    };
+    } : { ...values };
   },
 });
 
