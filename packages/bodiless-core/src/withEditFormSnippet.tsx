@@ -5,7 +5,7 @@ import { v1 } from 'uuid';
 import { FormBodyProps } from './contextMenuForm';
 import { EditButtonProps } from './Types/EditButtonTypes';
 import { useEditFormProps } from './withEditButton';
-import type { FormBodyRenderer as Renderer } from './withEditButton';
+import type { FormBodyRenderer as Renderer } from './Types/EditButtonTypes';
 import { useRegisterSnippet } from './withCompoundForm';
 import type { Snippet } from './withCompoundForm';
 

@@ -12,14 +12,23 @@
  * limitations under the License.
  */
 
+import { ReactNode } from 'react';
 import { UseGetMenuOptions } from './PageContextProviderTypes';
-import { FormBodyRenderer } from '../withEditButton';
+import { FormBodyProps as ContextMenuFormBodyProps } from '../contextMenuForm';
+
+export type FormBodyProps<P, D> = ContextMenuFormBodyProps<D> & {
+  unwrap?: () => void;
+  componentProps: P;
+};
+
+export type FormBodyRenderer<P, D> = (p: FormBodyProps<P, D>) => ReactNode;
 
 export type EditButtonProps<D> = {
   setComponentData: (componentData: D) => void;
   componentData: D;
   unwrap?: () => void;
   isActive?: () => boolean;
+  onSubmit?: () => void;
 };
 export type EditButtonOptions<P, D> = {
   icon: string;
