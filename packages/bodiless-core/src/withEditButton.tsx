@@ -28,12 +28,18 @@ export type FormBodyProps<P, D> = ContextMenuFormBodyProps<D> & {
 };
 export type FormBodyRenderer<P, D> = (p: FormBodyProps<P, D>) => ReactNode;
 
+type EditDataHandler<D> = {
+  initialValueHandler: (values: any) => D;
+  submitValueHandler: (values: D) => any;
+};
+
 export type EditButtonProps<D> = {
   setComponentData: (componentData: D) => void;
   componentData: D;
   unwrap?: () => void;
   isActive?: () => boolean;
   onSubmit?: () => void;
+  dataHandler?: EditDataHandler<D>;
 };
 
 export type EditButtonOptions<P, D> = {
@@ -51,15 +57,21 @@ export const useEditFormProps = <P extends object, D extends object>({
   componentData,
   setComponentData,
   onSubmit,
+  dataHandler,
 }: P & EditButtonProps<D>) => {
+  const initialValues = componentData;
   const submitValues = (values: D) => {
     setComponentData(values);
     Object.assign(componentData, values);
     if (onSubmit) onSubmit();
   };
+  const initialValues$ = dataHandler && dataHandler.initialValueHandler
+    ? dataHandler.initialValueHandler(initialValues) : initialValues;
+  const submitValues$ = dataHandler && dataHandler.submitValueHandler
+    ? (values: D) => submitValues(dataHandler.submitValueHandler(values)) : submitValues;
   return {
-    submitValues,
-    initialValues: componentData,
+    submitValues: submitValues$,
+    initialValues: initialValues$,
   };
 };
 

@@ -94,13 +94,13 @@ const withMetaSnippet = (data) => withEditFormSnippet({
       </>
     );
   },
-  toJSON: (values) => {
+  submitValueHandler: (values) => {
     const { name, attribute } = data;
     return {
       [attribute]: values[name],
     };
   },
-  fromJSON: (values) => {
+  initialValueHandler: (values) => {
     const { name, attribute } = data;
     return values[attribute] ? {
       ...values,
