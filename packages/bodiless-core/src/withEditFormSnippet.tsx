@@ -12,7 +12,7 @@ import type { Snippet } from './withCompoundForm';
 type Options<P, D> = {
   render: Renderer<P, D>,
   submitValueHandler: (values: D) => any,
-  initialValueHandler: (jsonValues: any) => D,
+  initialValueHandler: (values: any) => D,
 };
 
 const withEditFormSnippet = <P extends object, D extends object>(options: Options<P, D>) => (
