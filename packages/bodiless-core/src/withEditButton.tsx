@@ -68,7 +68,7 @@ export const useEditFormProps = <P extends object, D extends object>({
   const initialValues$ = dataHandler && dataHandler.initialValueHandler
     ? dataHandler.initialValueHandler(initialValues) : initialValues;
   const submitValues$ = dataHandler && dataHandler.submitValueHandler
-    ? (values: D) => submitValues(dataHandler.submitValueHandler(values)) : submitValues;
+    ? flowRight(submitValues, dataHandler.submitValueHandler) : submitValues;
   return {
     submitValues: submitValues$,
     initialValues: initialValues$,
