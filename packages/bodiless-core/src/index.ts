@@ -24,7 +24,6 @@ import {
   withResetButton,
 } from './Contentful';
 import withEditButton, { useEditFormProps } from './withEditButton';
-import type { EditButtonProps } from './withEditButton';
 import useContextMenuForm, { contextMenuForm, ContextMenuForm } from './contextMenuForm';
 import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
 import withEditFormSnippet from './withEditFormSnippet';
@@ -42,7 +41,7 @@ import {
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
 import type { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
-import type { EditButtonOptions } from './Types/EditButtonTypes';
+import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
 import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
 import type { TOverlaySettings } from './Types/PageOverlayTypes';

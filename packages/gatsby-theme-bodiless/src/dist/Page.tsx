@@ -60,7 +60,7 @@ const GitMenu = flowRight(
   withSubmenu({
     useGetMenuOptions,
     name: 'File',
-    title: 'File',
+    formTitle: 'File',
     getSubMenuButtons: getGitButtons,
   }),
 )(React.Fragment);

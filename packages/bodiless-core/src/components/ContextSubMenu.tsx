@@ -17,22 +17,23 @@ import { flowRight } from 'lodash';
 import { v1 } from 'uuid';
 import withCompoundForm, { useRegisterSnippet } from '../withCompoundForm';
 import type { TMenuOption } from '../PageEditContext/types';
+import type { UseGetMenuOptions } from '../Types/PageContextProviderTypes';
 import withChild from '../withChild';
 import ContextMenu from './ContextMenu';
 import { useUI as useFormUI } from './ContextMenuItem';
 
-type SubMenuOptions = {
-  useGetMenuOptions: any,
+type SubMenuOptions<P> = {
+  useGetMenuOptions: UseGetMenuOptions<P>,
   name: string,
-  title: string,
+  formTitle: string,
   getSubMenuButtons: () => TMenuOption[],
 };
 
-const withSubmenu = (options: SubMenuOptions) => {
+const withSubmenu = <P extends object>(options: SubMenuOptions<P>) => {
   const {
     useGetMenuOptions,
     name,
-    title,
+    formTitle,
     getSubMenuButtons,
   } = options;
 
@@ -46,13 +47,13 @@ const withSubmenu = (options: SubMenuOptions) => {
 
     return (
       <React.Fragment key="form-submenu">
-        <ComponentFormTitle>{title}</ComponentFormTitle>
+        <ComponentFormTitle>{formTitle}</ComponentFormTitle>
         <ContextMenu ui={finalUi} options={getSubMenuButtons()} />
       </React.Fragment>
     );
   };
 
-  const subMenuSnippet = () => {
+  const subMenuBodySnippet = () => {
     useRegisterSnippet({
       id: v1(),
       render: subMenuBody,
@@ -65,7 +66,7 @@ const withSubmenu = (options: SubMenuOptions) => {
 
   return flowRight(
     withCompoundForm({ useGetMenuOptions, name, peer: true }),
-    withChild(subMenuSnippet),
+    withChild(subMenuBodySnippet),
   );
 };
 

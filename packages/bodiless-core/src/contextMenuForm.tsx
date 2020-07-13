@@ -59,6 +59,7 @@ export type FormBodyProps<D> = FormProps & Options<D> & {
 };
 
 export type FormBodyRenderer<D> = (props: FormBodyProps<D>) => ReactNode;
+
 type Props<D> = FormProps & Options<D> & {
   children: FormBodyRenderer<D>|ReactNode,
 };

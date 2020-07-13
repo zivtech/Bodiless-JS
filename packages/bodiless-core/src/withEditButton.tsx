@@ -12,7 +12,6 @@
  * limitations under the License.
  */
 
-import { ReactNode } from 'react';
 import { flowRight } from 'lodash';
 import { withoutProps } from './hoc';
 import { PageEditContextInterface } from './PageEditContext/types';
@@ -20,32 +19,8 @@ import useContextMenuForm, {
   FormBodyProps as ContextMenuFormBodyProps,
 } from './contextMenuForm';
 import { withMenuOptions } from './PageContextProvider';
-import { TMenuOptionGetter, UseGetMenuOptions } from './Types/PageContextProviderTypes';
-
-export type FormBodyProps<P, D> = ContextMenuFormBodyProps<D> & {
-  unwrap?: () => void;
-  componentProps: P;
-};
-export type FormBodyRenderer<P, D> = (p: FormBodyProps<P, D>) => ReactNode;
-
-export type EditButtonProps<D> = {
-  setComponentData: (componentData: D) => void;
-  componentData: D;
-  unwrap?: () => void;
-  isActive?: () => boolean;
-  onSubmit?: () => void;
-};
-
-export type EditButtonOptions<P, D> = {
-  icon: string;
-  name: string;
-  label?: string;
-  global?: boolean;
-  local?: boolean;
-  renderForm: FormBodyRenderer<P, D>;
-  // Allow additional buttons.
-  useGetMenuOptions?: UseGetMenuOptions<P>;
-};
+import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
+import type { EditButtonProps, EditButtonOptions } from './Types/EditButtonTypes';
 
 export const useEditFormProps = <P extends object, D extends object>({
   componentData,
