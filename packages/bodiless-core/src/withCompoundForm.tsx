@@ -26,12 +26,12 @@ export type Snippet<D> = {
    * The initial values for each form field. Note that you
    * *must* include a key for each field in the form.
    */
-  initialValues: any,
+  initialValues?: any,
   /**
    * The submit handler.  Will be invoked with form values
    * whose field names match the keys of the specified initialValues.
    */
-  submitValues: (values: any) => void,
+  submitValues?: (values: any) => void,
 };
 
 type SnippetRegister<D> = (snippet: Snippet<D>) => void;

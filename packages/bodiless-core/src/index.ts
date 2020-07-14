@@ -61,6 +61,7 @@ import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
 import { useUI as useFormUI } from './components/ContextMenuItem';
 import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
+import type { Snippet as FormSnippet } from './withCompoundForm';
 import withEditFormSnippet from './withEditFormSnippet';
 
 export * from './components';
@@ -128,6 +129,7 @@ export type {
   TOverlaySettings,
   ContextMenuFormProps,
   AsBodiless,
+  FormSnippet,
 };
 
 export type Bodiless<P, Q> = (C: ComponentType<P> | string) => ComponentType<Q>;

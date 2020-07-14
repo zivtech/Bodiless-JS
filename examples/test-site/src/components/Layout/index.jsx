@@ -15,19 +15,18 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { flowRight } from 'lodash';
-import { v1 } from 'uuid';
 import { StaticQuery, graphql } from 'gatsby';
 import { Div, Meta } from '@bodiless/fclasses';
 import {
   useFormUI,
-  withCompoundForm,
+  // withCompoundForm,
   withNodeKey,
   withNode,
   withNodeDataHandlers,
   withEditFormSnippet,
   withoutProps,
   withData,
-  useRegisterSnippet,
+  // useRegisterSnippet,
 } from '@bodiless/core';
 import {
   withMeta,
@@ -35,6 +34,7 @@ import {
   withMetaHtml,
   asBodilessHelmet,
   withEvent,
+  withMetaForm,
 } from '@bodiless/components';
 import Header from './header';
 import Footer from './footer';
@@ -48,39 +48,13 @@ const useGetMenuOptions = () => () => [
   },
 ];
 
-const withSeoFormHeader = headerProps => Component => {
-  const SeoHeaderSnippet = {
-    id: v1(),
-    render: () => {
-      const { ComponentFormTitle, ComponentFormDescription } = useFormUI();
-      return (
-        <>
-          <ComponentFormTitle>{headerProps.title}</ComponentFormTitle>
-          <ComponentFormDescription>{headerProps.description}</ComponentFormDescription>
-        </>
-      );
-    },
-  };
-
-  const WithSeoFormHeader = (props) => {
-    useRegisterSnippet(SeoHeaderSnippet);
-    return <Component {...props} />;
-  };
-  return WithSeoFormHeader;
-};
-
 const seoFormHeader = {
   title: 'SEO Data Management',
   description: `Enter the page level data used for SEO. 
   This is metadata needed for SEO that will go in the page header.`,
 };
 
-const SeoForm = flowRight(
-  withCompoundForm({
-    useGetMenuOptions, name: 'Seo', peer: true, id: 'seo',
-  }),
-  withSeoFormHeader(seoFormHeader),
-)(React.Fragment);
+const MetaForm = withMetaForm(useGetMenuOptions, seoFormHeader)((React.Fragment));
 
 const withMetaSnippet = (data, next) => withEditFormSnippet({
   render: () => {
@@ -199,11 +173,11 @@ const Layout = ({ children }) => (
         <ExampleHelmet />
         <ExampleGTMHelmetEvent />
         <Header siteLogo={data.site.siteMetadata.logo} />
-        <SeoForm>
+        <MetaForm>
           <MetaTitle />
           <MetaDescription />
           <MetaPageType />
-        </SeoForm>
+        </MetaForm>
         <Container>{children}</Container>
         <Footer siteTitle={data.site.siteMetadata.title} />
       </>
