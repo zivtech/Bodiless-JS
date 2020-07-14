@@ -75,14 +75,14 @@ const seoFormHeader = {
   This is metadata needed for SEO that will go in the page header.`,
 };
 
-const Seo = flowRight(
+const SeoForm = flowRight(
   withCompoundForm({
     useGetMenuOptions, name: 'Seo', peer: true, id: 'seo',
   }),
   withSeoFormHeader(seoFormHeader),
 )(React.Fragment);
 
-const withMetaSnippet = (data) => withEditFormSnippet({
+const withMetaSnippet = (data, next) => withEditFormSnippet({
   render: () => {
     const { name, label, type } = data;
     const { ComponentFormLabel, ComponentFormText, ComponentFormTextArea } = useFormUI();
@@ -96,6 +96,10 @@ const withMetaSnippet = (data) => withEditFormSnippet({
   },
   submitValueHandler: (values) => {
     const { name, attribute } = data;
+    if (next) {
+      // Allow user to override submit handler.
+      return next(data, values);
+    }
     return {
       [attribute]: values[name],
     };
@@ -195,11 +199,11 @@ const Layout = ({ children }) => (
         <ExampleHelmet />
         <ExampleGTMHelmetEvent />
         <Header siteLogo={data.site.siteMetadata.logo} />
-        <Seo>
+        <SeoForm>
           <MetaTitle />
           <MetaDescription />
           <MetaPageType />
-        </Seo>
+        </SeoForm>
         <Container>{children}</Container>
         <Footer siteTitle={data.site.siteMetadata.title} />
       </>
