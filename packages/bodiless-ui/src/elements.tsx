@@ -122,3 +122,5 @@ export const ComponentFormSubMenu = flow(
   addClasses('bl-flex bl-text-white'),
   addProps({ role: 'toolbar', 'aria-label': 'Submenu' }),
 )(Div);
+
+export const ComponentFormWrapper = addProps({ 'aria-label': 'Form Wrapper' })(Div);

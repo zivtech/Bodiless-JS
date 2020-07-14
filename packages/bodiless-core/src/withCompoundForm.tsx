@@ -26,12 +26,12 @@ export type Snippet<D> = {
    * The initial values for each form field. Note that you
    * *must* include a key for each field in the form.
    */
-  initialValues: any,
+  initialValues?: any,
   /**
    * The submit handler.  Will be invoked with form values
    * whose field names match the keys of the specified initialValues.
    */
-  submitValues: (values: any) => void,
+  submitValues?: (values: any) => void,
 };
 
 type SnippetRegister<D> = (snippet: Snippet<D>) => void;
@@ -51,9 +51,12 @@ const SnippetContext = createContext<MutableRefObject<Snippet<any>[]>|undefined>
  * @param props Standard context menu form props + an array of snippets to render.
  */
 const Form = <D extends object>(props: FormProps<D>) => {
-  const { snippets, ...rest } = props;
+  const { snippets, ui, ...rest } = props;
+  const { ComponentFormWrapper } = ui;
+  console.log('UI: ', ui);
   const submitValues = (values: any) => {
     snippets.forEach(s => {
+      if (typeof s.submitValues !== 'function') return;
       // Ensure that we only submit values whose keys were present in the initial values.
       const values$ = pick(values, Object.keys(s.initialValues));
       s.submitValues(values$);
@@ -67,11 +70,14 @@ const Form = <D extends object>(props: FormProps<D>) => {
   const renderProps: FormBodyProps<D> = {
     formState: useFormState(),
     formApi: useFormApi(),
+    ui,
     ...rest,
   };
   return (
     <ContextMenuForm {...props} {...formProps}>
-      {snippets.map(s => s.render(renderProps))}
+      <ComponentFormWrapper>
+        {snippets.map(s => s.render(renderProps))}
+      </ComponentFormWrapper>
     </ContextMenuForm>
   );
 };

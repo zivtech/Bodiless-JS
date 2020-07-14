@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 import { getUI as getFormUI } from '../contextMenuForm';
 import { IContextMenuProps as IProps, UI } from '../Types/ContextMenuTypes';
 import { TMenuOption } from '../PageEditContext/types';
@@ -36,13 +36,20 @@ export const getUI = (ui: UI = {}) => ({
   ...ui,
 });
 
-const ContextMenu = (props: IProps) => {
+const ContextMenu: FC<IProps> = (props) => {
   if (typeof window === 'undefined') {
     return <></>;
   }
 
-  const { options, ui } = props;
+  const { options, ui, children } = props;
   const { Toolbar } = getUI(ui);
+
+  const childOptions = React.Children.map(children, (child, i) => (
+    React.cloneElement(child as ReactElement, {
+      ui,
+      index: options.length + i,
+    })
+  ));
 
   const elements = options
     // Inject dividers
@@ -64,7 +71,7 @@ const ContextMenu = (props: IProps) => {
           ui={ui}
         />
       ),
-    );
+    ).concat(<React.Fragment key="child-options">{childOptions}</React.Fragment>);
 
   if (elements.length > 0) {
     return (

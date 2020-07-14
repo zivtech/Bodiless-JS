@@ -20,7 +20,7 @@ import type { TMenuOption } from '../PageEditContext/types';
 import type { UseGetMenuOptions } from '../Types/PageContextProviderTypes';
 import withChild from '../withChild';
 import ContextMenu from './ContextMenu';
-import { useUI as useFormUI } from './ContextMenuItem';
+import ContextMenuItem, { useUI as useFormUI } from './ContextMenuItem';
 
 type SubMenuOptions<P> = {
   useGetMenuOptions: UseGetMenuOptions<P>,
@@ -57,17 +57,34 @@ const withSubmenu = <P extends object>(options: SubMenuOptions<P>) => {
     useRegisterSnippet({
       id: v1(),
       render: subMenuBody,
-      initialValues: {},
-      submitValues: () => undefined,
     });
 
     return <></>;
   };
 
   return flowRight(
+    /**
+     * @todo Implement withFormWrapper(FormWrapper)
+     */
     withCompoundForm({ useGetMenuOptions, name, peer: true }),
     withChild(subMenuBodySnippet),
   );
 };
 
+const useRegisterSubMenuOption = (option: TMenuOption) => useRegisterSnippet({
+  id: `submenu-${option.name}`, // @todo figure out how to get a unique id.
+  render: () => (
+    <ContextMenuItem
+      option={option}
+      key={option.name}
+      aria-label={option.name}
+      index={0}
+      ui={{}}
+    />
+  ),
+});
+
 export default withSubmenu;
+export {
+  useRegisterSubMenuOption,
+};
