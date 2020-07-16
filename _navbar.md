@@ -42,10 +42,7 @@
       * [Single Accordion](/Components/Organisms/SingleAccordion)
     * [Rich Text](/Components/RichText)
   * Tools
-    * Accessibility
-      * [Pa11y](/Tools/Accessibility/Pa11y)
     * [Bodiless CLI](/Tools/BodilessCLI)
-    * [Migration](/Tools/Migration)
   * Development
     * [Guides](/Development/Guides/)
     * [Packages](/Development/Packages)
