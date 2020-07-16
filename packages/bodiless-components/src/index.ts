@@ -29,7 +29,7 @@ import asBasicSublist from './List/asBasicSublist';
 import withSublist, { withBasicSublist } from './List/withSublist';
 import withDeleteSublistOnUnwrap from './List/withDeleteSublistOnUnwrap';
 import { withMeta, withMetaTitle, withMetaHtml } from './Meta/Meta';
-import withMetaForm, { withMetaFormHeader } from './Meta/withMetaForm';
+import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helemet';
 import withEvent from './GTM/gtm';
 import { withToggle, withToggleTo, withToggleButton } from './Toggle';
@@ -88,8 +88,8 @@ export {
   BreakpointsType,
   ifViewportIs,
   ifViewportIsNot,
-  withMetaFormHeader,
   withMetaForm,
+  withMetaSnippet,
 };
 
 export type {

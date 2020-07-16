@@ -12,32 +12,83 @@
  * limitations under the License.
  */
 
-import React, { ComponentType as CT } from 'react';
-import { useNode } from '@bodiless/core';
-import { isEmpty } from 'lodash';
+import React, { ComponentType as CT, PropsWithChildren } from 'react';
+import { HelmetProps } from 'react-helmet';
+import {
+  useNode, withNodeKey, withNode, withNodeDataHandlers, withoutProps, withData, ifEditable,
+} from '@bodiless/core';
+import type { WithNodeKeyProps } from '@bodiless/core';
+import { flowRight, isEmpty, pick } from 'lodash';
+import { withMetaSnippet } from './withMetaForm';
+import type { FieldType } from './withMetaForm';
 
 type MetaTitleData = {
   content: string;
 };
 
-const withMeta = (
-  name: string,
-  nodeKey: string,
-  nodeCollection: string | undefined,
-) => (HelmetComponent: CT) => (props: any) => {
-  const { children, ...rest } = props;
-  const { node } = useNode(nodeCollection);
-  const childNode = node.child(nodeKey);
-  if (!isEmpty(childNode.data)) {
+// const withMeta = (
+//   name: string,
+//   nodeKey: string,
+//   nodeCollection: string | undefined,
+// ) => (HelmetComponent: CT) => (props: any) => {
+//   const { children, ...rest } = props;
+//   const { node } = useNode(nodeCollection);
+//   const childNode = node.child(nodeKey);
+//   if (!isEmpty(childNode.data)) {
+//     return (
+//       <HelmetComponent {...rest}>
+//         {children}
+//         <meta name={name} {...childNode.data} />
+//       </HelmetComponent>
+//     );
+//   }
+//   return <HelmetComponent {...rest} />;
+// };
+
+type BaseProps = PropsWithChildren<HelmetProps>;
+type Data = {
+  content: string;
+};
+type Props = BaseProps & Data;
+
+// @todo: separate the default data from the options.
+type Options = {
+  name: string;
+  label: string;
+  attribute: string;
+  placeholder?: string;
+  type: FieldType;
+} & Data;
+
+const withMeta$ = (name: string) => (HelmetComponent: CT<BaseProps>) => {
+  const WithMeta = (props: Props) => {
+    const { children, content, ...rest } = props;
+    if (isEmpty(content)) return <HelmetComponent {...props} />;
     return (
       <HelmetComponent {...rest}>
         {children}
-        <meta name={name} {...childNode.data} />
+        <meta name={name} content={content} />
       </HelmetComponent>
     );
-  }
-  return <HelmetComponent {...rest} />;
+  };
+  return WithMeta;
 };
+
+// Once we separate optionsfrom default data, this becomes:
+// (options: Options) => (nodeKey?: WithNodeKeyProps, defaultData: Data = { content: '' })
+/**
+ * Meta data options. Set the data name, content, form field and label.
+ * @param options Options
+ */
+const withMeta = (options: Options) => (nodeKey?: WithNodeKeyProps) => flowRight(
+  withNodeKey(nodeKey),
+  withNode,
+  withNodeDataHandlers(pick(options, 'content')),
+  ifEditable(withMetaSnippet({ ...options, attribute: 'content' })),
+  withoutProps('setComponentData'),
+  withData,
+  withMeta$(options.name),
+);
 
 const withMetaTitle = (
   nodeKey: string,

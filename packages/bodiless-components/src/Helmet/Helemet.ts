@@ -12,14 +12,32 @@
  * limitations under the License.
  */
 
-import { withNode, withNodeKey } from '@bodiless/core';
 import { flowRight } from 'lodash';
+import { withNode, withNodeKey } from '@bodiless/core';
+import withMetaForm from '../Meta/withMetaForm';
 
-const asBodilessHelmet = (nodeKey?: string) => flowRight(
-  withNodeKey({ nodeKey, nodeCollection: 'site' }),
-  withNode,
-  withNodeKey({ nodeKey, nodeCollection: '_default' }),
-  withNode,
-);
+const asBodilessHelmet = (nodeKey?: string) => {
+  const useGetMenuOptions = () => () => [
+    {
+      name: 'seo',
+      icon: 'category',
+      label: 'SEO',
+    },
+  ];
+
+  const seoFormHeader = {
+    title: 'SEO Data Management',
+    description: `Enter the page level data used for SEO. 
+    This is metadata needed for SEO that will go in the page header.`,
+  };
+
+  return flowRight(
+    withNodeKey({ nodeKey, nodeCollection: 'site' }),
+    withNode,
+    withNodeKey({ nodeKey, nodeCollection: '_default' }),
+    withNode,
+    withMetaForm(useGetMenuOptions, seoFormHeader),
+  );
+};
 
 export default asBodilessHelmet;

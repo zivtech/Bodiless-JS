@@ -16,125 +16,73 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { flowRight } from 'lodash';
 import { StaticQuery, graphql } from 'gatsby';
-import { Div, Meta } from '@bodiless/fclasses';
-import {
-  useFormUI,
-  // withCompoundForm,
-  withNodeKey,
-  withNode,
-  withNodeDataHandlers,
-  withEditFormSnippet,
-  withoutProps,
-  withData,
-  // useRegisterSnippet,
-} from '@bodiless/core';
+import { Div } from '@bodiless/fclasses';
 import {
   withMeta,
   withMetaTitle,
   withMetaHtml,
   asBodilessHelmet,
   withEvent,
-  withMetaForm,
 } from '@bodiless/components';
 import Header from './header';
 import Footer from './footer';
 import { asPageContainer } from '../Elements.token';
 
-const useGetMenuOptions = () => () => [
-  {
-    name: 'seo',
-    icon: 'category',
-    label: 'SEO',
-  },
-];
+// Moved to Helemet.ts
+// const MetaForm = withMetaForm(useGetMenuOptions, seoFormHeader)((React.Fragment));
 
-const seoFormHeader = {
-  title: 'SEO Data Management',
-  description: `Enter the page level data used for SEO. 
-  This is metadata needed for SEO that will go in the page header.`,
+// Moved to withMeta.tsx
+// const asSeoFormSnippet = (nodeKey, defaultData) => flowRight(
+//   withNodeKey(nodeKey),
+//   withNode,
+//   withNodeDataHandlers(defaultData),
+//   withMetaSnippet(defaultData),
+//   withoutProps('setComponentData'),
+//   withData,
+// );
+
+// 'page-title'
+// const metaTitle = {
+//   name: 'title',
+//   placeholder: 'Rec 30-65 char',
+//   type: 'text',
+//   label: 'Title',
+//   content: '',
+// };
+
+// const MetaPageType = flowRight(
+//   asBodilessHelmet('meta'),
+//   asSeoFormSnippet('page-type', {
+//     name: 'pagetype',
+//     pagetype: '',
+//     type: 'text',
+//     label: 'Page type',
+//     attribute: 'content',
+//   }),
+// )(Meta);
+
+// const MetaDescription = flowRight(
+//   asBodilessHelmet('meta'),
+//   asSeoFormSnippet('description', {
+//     name: 'description',
+//     type: 'textarea',
+//     label: 'Description',
+//     description: 'Rec < 160 char',
+//     attribute: 'content',
+//   }),
+// )(Meta);
+
+const metaDescription = {
+  name: 'description',
+  type: 'textarea',
+  label: 'Description',
+  value: 'Rec < 160 char',
+  content: 'Rec < 160 char',
 };
-
-const MetaForm = withMetaForm(useGetMenuOptions, seoFormHeader)((React.Fragment));
-
-const withMetaSnippet = (data, next) => withEditFormSnippet({
-  render: () => {
-    const { name, label, type } = data;
-    const { ComponentFormLabel, ComponentFormText, ComponentFormTextArea } = useFormUI();
-    const Field = type === 'text' ? ComponentFormText : ComponentFormTextArea;
-    return (
-      <>
-        <ComponentFormLabel>{label}</ComponentFormLabel>
-        <Field field={name} />
-      </>
-    );
-  },
-  submitValueHandler: (values) => {
-    const { name, attribute } = data;
-    if (next) {
-      // Allow user to override submit handler.
-      return next(data, values);
-    }
-    return {
-      [attribute]: values[name],
-    };
-  },
-  initialValueHandler: (values) => {
-    const { name, attribute } = data;
-    return values[attribute] ? {
-      ...values,
-      [name]: values[attribute],
-    } : { ...values };
-  },
-});
-
-const asSeoFormSnippet = (nodeKey, defaultData) => flowRight(
-  withNodeKey(nodeKey),
-  withNode,
-  withNodeDataHandlers(defaultData),
-  withMetaSnippet(defaultData),
-  withoutProps('setComponentData'),
-  withData,
-);
-
-const MetaTitle = flowRight(
-  asBodilessHelmet('meta'),
-  asSeoFormSnippet('page-title', {
-    name: 'title',
-    title: 'Rec 30-65 char',
-    type: 'text',
-    label: 'Title',
-    attribute: 'content',
-  }),
-)(Meta);
-
-const MetaPageType = flowRight(
-  asBodilessHelmet('meta'),
-  asSeoFormSnippet('page-type', {
-    name: 'pagetype',
-    pagetype: '',
-    type: 'text',
-    label: 'Page type',
-    attribute: 'content',
-  }),
-)(Meta);
-
-const MetaDescription = flowRight(
-  asBodilessHelmet('meta'),
-  asSeoFormSnippet('description', {
-    name: 'description',
-    type: 'textarea',
-    label: 'Description',
-    description: 'Rec < 160 char',
-    attribute: 'content',
-  }),
-)(Meta);
 
 const ExampleHelmet = flowRight(
   asBodilessHelmet('meta'),
-  withMeta('pagetype', 'page-type'),
-  withMeta('description', 'description'),
-  withMeta('bl-brand', 'brand', 'site'),
-  withMeta('bl-country', 'country', 'site'),
+  withMeta(metaDescription)('description'),
   withMetaTitle('page-title'),
   withMetaHtml('en'),
 )(Helmet);
@@ -173,11 +121,11 @@ const Layout = ({ children }) => (
         <ExampleHelmet />
         <ExampleGTMHelmetEvent />
         <Header siteLogo={data.site.siteMetadata.logo} />
-        <MetaForm>
+        {/* <MetaForm>
           <MetaTitle />
           <MetaDescription />
           <MetaPageType />
-        </MetaForm>
+        </MetaForm> */}
         <Container>{children}</Container>
         <Footer siteTitle={data.site.siteMetadata.title} />
       </>
