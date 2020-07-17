@@ -36,7 +36,6 @@ const defaultUI = {
   ComponentFormListItem: 'li',
   ComponentFormDescription: 'div',
   ComponentFormSubMenu: 'div',
-  ComponentFormWrapper: 'div',
 };
 
 export const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });
@@ -61,20 +60,21 @@ export type FormBodyProps<D> = FormProps & Options<D> & {
 
 export type FormBodyRenderer<D> = (props: FormBodyProps<D>) => ReactNode;
 
-type Props<D> = FormProps & Options<D> & {
+export type ContextMenuPropsType<D> = FormProps & Options<D> & {
   children: FormBodyRenderer<D>|ReactNode,
 };
 
-export const ContextMenuForm = <D extends object>({
-  closeForm,
-  onClose,
-  ui,
-  submitValues = () => undefined,
-  initialValues = {} as D,
-  hasSubmit = true,
-  children = () => <></>,
-  ...rest
-}: Props<D>) => {
+export const ContextMenuForm = <D extends object>(options: ContextMenuPropsType<D>) => {
+  const {
+    closeForm,
+    onClose,
+    ui,
+    submitValues = () => undefined,
+    initialValues = {} as D,
+    hasSubmit = true,
+    children = () => <></>,
+    ...rest
+  } = options;
   const { ComponentFormCloseButton, ComponentFormSubmitButton } = getUI(ui);
   const callOnClose = (values: D) => {
     if (typeof onClose === 'function') {
@@ -117,7 +117,7 @@ export const ContextMenuForm = <D extends object>({
 export const contextMenuForm = <D extends object>(options: Options<D> = {}) => (
   renderFormBody?: FormBodyRenderer<D>,
 ) => (
-  (props: Omit<Props<D>, 'children'>) => (
+  (props: Omit<ContextMenuPropsType<D>, 'children'>) => (
     <ContextMenuForm {...options} {...props}>
       {renderFormBody || (() => <></>)}
     </ContextMenuForm>

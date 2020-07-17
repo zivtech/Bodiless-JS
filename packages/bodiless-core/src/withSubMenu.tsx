@@ -48,7 +48,6 @@ const SubMenuBody:FC = ({ children, ...rest }) => {
 
 const SubMenuHeader:FC<PropsWithTitle> = ({ title = '' }) => {
   const { ComponentFormTitle } = useFormUI();
-
   return <ComponentFormTitle>{title}</ComponentFormTitle>;
 };
 
@@ -57,19 +56,20 @@ const tagTitleComponentsStart: CompoundFormComponents = {
   Header: SubMenuHeader,
 };
 
+/**
+ * HOC to create a Sub Menu which is built on top of the "compound form". Children of this
+ * component can contribute Menu Options to the Sub Menu form.
+ *
+ * @param options Hook to register Admin Menu option and its name.
+ */
 const withSubmenu = <P extends object>(options: SubMenuOptions<P>) => {
-  const { useGetMenuOptions, name } = options;
   const formOptions = { hasSubmit: false };
+  const finalOptions = { ...options, formOptions, peer: true };
 
   return flowRight(
-    withDesign({ Header: addProps({ title: name }) }),
+    withDesign({ Header: addProps({ title: options.name }) }),
     designable(tagTitleComponentsStart),
-    withCompoundForm({
-      useGetMenuOptions,
-      name,
-      peer: true,
-      formOptions,
-    }),
+    withCompoundForm(finalOptions),
     withoutProps(['components', 'design']),
   );
 };
