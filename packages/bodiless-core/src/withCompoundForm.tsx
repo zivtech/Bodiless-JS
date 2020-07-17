@@ -1,8 +1,10 @@
 import React, {
   createContext, ComponentType as CT, useRef, useContext, useCallback, MutableRefObject,
+  ComponentType,
 } from 'react';
 import { useFormState, useFormApi } from 'informed';
 import { pick } from 'lodash';
+import { DesignableComponentsProps } from '@bodiless/fclasses';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
 import type { Options } from './types/PageContextProviderTypes';
@@ -34,14 +36,27 @@ export type Snippet<D> = {
   submitValues?: (values: any) => void,
 };
 
+/**
+ * A collection of compound form Design Components.
+ */
+export type CompoundFormComponents = {
+  Body: ComponentType<any>,
+  Header: ComponentType<any>,
+};
+
 type SnippetRegister<D> = (snippet: Snippet<D>) => void;
 
 type FormProps<D> = ContextMenuFormProps & {
   snippets: Snippet<D>[],
-};
+} & DesignableComponentsProps<CompoundFormComponents>;
 
 const Context = createContext<SnippetRegister<any>>(() => {});
 const SnippetContext = createContext<MutableRefObject<Snippet<any>[]>|undefined>(undefined);
+
+const defaultComponents: CompoundFormComponents = {
+  Body: React.Fragment,
+  Header: React.Fragment,
+};
 
 /**
  * @private
@@ -51,9 +66,9 @@ const SnippetContext = createContext<MutableRefObject<Snippet<any>[]>|undefined>
  * @param props Standard context menu form props + an array of snippets to render.
  */
 const Form = <D extends object>(props: FormProps<D>) => {
-  const { snippets, ui, ...rest } = props;
-  const { ComponentFormWrapper } = ui;
-  console.log('UI: ', ui);
+  const { snippets, components, ...rest } = props;
+  const { Body, Header } = { ...defaultComponents, ...components };
+
   const submitValues = (values: any) => {
     snippets.forEach(s => {
       if (typeof s.submitValues !== 'function') return;
@@ -62,22 +77,25 @@ const Form = <D extends object>(props: FormProps<D>) => {
       s.submitValues(values$);
     });
   };
+
   const initialValues = snippets.reduce(
     (values, snippet) => ({ ...values, ...snippet.initialValues }),
     {},
   );
+
   const formProps = { submitValues, initialValues };
   const renderProps: FormBodyProps<D> = {
     formState: useFormState(),
     formApi: useFormApi(),
-    ui,
     ...rest,
   };
+
   return (
-    <ContextMenuForm {...props} {...formProps}>
-      <ComponentFormWrapper>
+    <ContextMenuForm {...rest} {...formProps}>
+      <Header />
+      <Body>
         {snippets.map(s => s.render(renderProps))}
-      </ComponentFormWrapper>
+      </Body>
     </ContextMenuForm>
   );
 };
@@ -92,12 +110,13 @@ const Form = <D extends object>(props: FormProps<D>) => {
  * @returns A menu options hook.
  */
 const createMenuOptions = <P extends object, D extends object>(options: Options<D>) => {
-  const useGetMenuOptions = (props: any) => {
+  const useGetMenuOptions = ({ components, ...rest }: any) => {
     const {
       useGetMenuOptions: useGetMenuOptionsBase = () => undefined,
+      formOptions,
     } = options;
     const context = useEditContext();
-    const getMenuOptionsBase = useGetMenuOptionsBase(props, context) || (() => []);
+    const getMenuOptionsBase = useGetMenuOptionsBase(rest, context) || (() => []);
     const snippets = useContext(SnippetContext);
     const getMenuOptions = useCallback(() => {
       const baseOptions = getMenuOptionsBase();
@@ -107,7 +126,9 @@ const createMenuOptions = <P extends object, D extends object>(options: Options<
       // Add the handler to the provided menu option.
       const finalOption = {
         ...baseOptions[0],
-        handler: () => (p: ContextMenuFormProps) => <Form {...p} snippets={snippets!.current} />,
+        handler: () => (p: ContextMenuFormProps) => (
+          <Form {...p} {...formOptions} components={components} snippets={snippets!.current} />
+        ),
       };
       return [finalOption];
     }, [getMenuOptionsBase]);

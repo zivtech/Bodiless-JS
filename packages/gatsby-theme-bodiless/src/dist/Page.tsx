@@ -26,7 +26,7 @@ import GatsbyNodeProvider, {
 } from './GatsbyNodeProvider';
 import GatsbyPageProvider, { Props as PageProviderProps } from './GatsbyPageProvider';
 import useNewPageButton from './useNewPageButton';
-import getGitButtons from './useGitButtons';
+import useGitButtons from './useGitButtons';
 
 type FinalUI = {
   ContextWrapper: ComponentType<ContextWrapperProps>;
@@ -56,13 +56,13 @@ const useGetMenuOptions = () => () => [{
   name: 'file',
 }];
 
-const GitMenu = flowRight(
-  withSubmenu({
-    useGetMenuOptions,
-    name: 'File',
-    formTitle: 'File',
-    getSubMenuButtons: getGitButtons,
-  }),
+const GitButtons = () => {
+  useGitButtons();
+  return <></>;
+};
+
+const GitSubMenu = flowRight(
+  withSubmenu({ useGetMenuOptions, name: 'File' }),
 )(React.Fragment);
 
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
@@ -73,7 +73,9 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
         <GatsbyPageProvider pageContext={rest.pageContext}>
           <Editor>
             <NewPageButton />
-            <GitMenu />
+            <GitSubMenu>
+              <GitButtons />
+            </GitSubMenu>
             <Wrapper clickable>
               {children}
             </Wrapper>

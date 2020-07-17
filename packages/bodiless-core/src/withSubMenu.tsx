@@ -12,74 +12,88 @@
  * limitations under the License.
  */
 
-import React, {
-  ComponentType as CT,
-  createContext,
-  MutableRefObject,
-  useRef,
-  useContext,
-} from 'react';
-import withCompoundForm from './withCompoundForm';
-import type { UseGetMenuOptions } from './Types/PageContextProviderTypes';
+import React, { FC } from 'react';
+import { flowRight } from 'lodash';
+import { designable, withDesign, addProps } from '@bodiless/fclasses';
+import withCompoundForm, { useRegisterSnippet, CompoundFormComponents } from './withCompoundForm';
 import type { TMenuOption } from './PageEditContext/types';
+import type { UseGetMenuOptions } from './Types/PageContextProviderTypes';
+import ContextMenu from './components/ContextMenu';
+import ContextMenuItem, { useUI as useFormUI } from './components/ContextMenuItem';
+import { withoutProps } from './hoc';
 
 type SubMenuOptions<P> = {
   useGetMenuOptions: UseGetMenuOptions<P>,
   name: string,
-  formTitle: string,
 };
 
-type RegisterSubMenuItem = (subMenuItems: TMenuOption[]) => void;
+type PropsWithTitle = {
+  title?: string,
+};
 
-const SubMenuContext = createContext<RegisterSubMenuItem>(() => {});
-const SubMenuItemsContext = createContext<MutableRefObject<TMenuOption[]>|undefined>(undefined);
-
-/**
- * HOC to create a Sub Menu form.
- */
-const withSubMenu = <P extends object>(options: SubMenuOptions<P>) => (Component: CT<P>) => {
-  const { useGetMenuOptions, name } = options;
-  const ComponentWithButton = withCompoundForm({ useGetMenuOptions, name, peer: true })(Component);
-
-  const WithSubMenu = (props:P) => {
-    // This ref will hold all Sub Menu Items registered by child components.
-    const allSubMenuItems = useRef<TMenuOption[]>([]);
-    // This callback will be used by child components to contribute their Sub Menu Items.
-    const registerSubMenuItem = (subMenuItems: TMenuOption[]) => {
-      // Ensure that there is only a single entry for each Sub Menu Item based on its name.
-      /**
-       * @todo useRegisterSnippet;
-       */
-      subMenuItems.forEach(item => {
-        const existsAt = allSubMenuItems.current.findIndex(i => i.name === item.name);
-        if (existsAt >= 0) allSubMenuItems.current.splice(existsAt, 1, item);
-        else allSubMenuItems.current.push(item);
-      });
-    };
-
-    // Wrap the original component with a context containing the register submenu callback
-    return (
-      <SubMenuContext.Provider value={registerSubMenuItem}>
-        <SubMenuItemsContext.Provider value={allSubMenuItems}>
-          <ComponentWithButton {...props} />
-        </SubMenuItemsContext.Provider>
-      </SubMenuContext.Provider>
-    );
+const SubMenuBody:FC = ({ children, ...rest }) => {
+  const ui = useFormUI();
+  const { ComponentFormSubMenu } = ui;
+  const finalUi = {
+    ...ui,
+    Toolbar: ComponentFormSubMenu,
   };
-  return WithSubMenu;
+
+  return (
+    <ContextMenu ui={finalUi} options={[]} {...rest}>
+      {children}
+    </ContextMenu>
+  );
+};
+
+const SubMenuHeader:FC<PropsWithTitle> = ({ title = '' }) => {
+  const { ComponentFormTitle } = useFormUI();
+
+  return <ComponentFormTitle>{title}</ComponentFormTitle>;
+};
+
+const tagTitleComponentsStart: CompoundFormComponents = {
+  Body: SubMenuBody,
+  Header: SubMenuHeader,
+};
+
+const withSubmenu = <P extends object>(options: SubMenuOptions<P>) => {
+  const { useGetMenuOptions, name } = options;
+  const formOptions = { hasSubmit: false };
+
+  return flowRight(
+    withDesign({ Header: addProps({ title: name }) }),
+    designable(tagTitleComponentsStart),
+    withCompoundForm({
+      useGetMenuOptions,
+      name,
+      peer: true,
+      formOptions,
+    }),
+    withoutProps(['components', 'design']),
+  );
 };
 
 /**
- * Hook to register a sub menu items which will be added to the sub menu. Should be
- * inviked within a component wrapped in `withSubMenu`
+ * Hook to register a Sub Menu option.
+ * Should be invoked within a component wrapped in `withSubmenu`.
  *
- * @param subMenuItems At array of `TMenuOption[]` items to be added to submenu.
+ * @param option The TMenuOption object that will be used to render `ContextMenuItem`.
  */
-const useRegisterSubMenuItems = (subMenuItems: TMenuOption[]) => (
-  useContext(SubMenuContext)(subMenuItems)
-);
+const useRegisterSubMenuOption = (option: TMenuOption) => useRegisterSnippet({
+  id: `submenu-${option.name}`,
+  render: () => (
+    <ContextMenuItem
+      option={option}
+      key={option.name}
+      aria-label={option.name}
+      index={0}
+      ui={{}}
+    />
+  ),
+});
 
-export default withSubMenu;
+export default withSubmenu;
 export {
-  useRegisterSubMenuItems,
+  useRegisterSubMenuOption,
 };

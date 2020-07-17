@@ -27,7 +27,12 @@ export type Props = {
   name?: string;
 };
 
+type CompoundFormOptions = {
+  hasSubmit?: Boolean;
+};
+
 export type Options<P> = Omit<Props, 'getMenuOptions'> & {
   useGetMenuOptions?: UseGetMenuOptions<P>,
   peer?: boolean,
+  formOptions?: CompoundFormOptions,
 };

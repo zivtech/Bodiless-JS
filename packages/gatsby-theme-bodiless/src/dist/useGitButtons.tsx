@@ -21,6 +21,7 @@ import {
   TMenuOption,
   useEditContext,
   useNotify,
+  useRegisterSubMenuOption,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
@@ -176,7 +177,7 @@ const defaultClient = new BackendClient();
 
 export type ChangeNotifier = () => Promise<void>;
 
-const getGitButtons = ({ client = defaultClient } = {}) => {
+const useGitButtons = ({ client = defaultClient } = {}) => {
   const [notifications, setNotifications] = useState([] as any);
   const context = useEditContext();
 
@@ -249,7 +250,9 @@ const getGitButtons = ({ client = defaultClient } = {}) => {
     },
   ];
 
+  gitButtons.forEach(option => useRegisterSubMenuOption(option));
+
   return gitButtons;
 };
 
-export default getGitButtons;
+export default useGitButtons;
