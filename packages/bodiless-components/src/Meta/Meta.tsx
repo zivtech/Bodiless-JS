@@ -15,35 +15,17 @@
 import React, { ComponentType as CT, PropsWithChildren } from 'react';
 import { HelmetProps } from 'react-helmet';
 import {
-  useNode, withNodeKey, withNode, withNodeDataHandlers, withoutProps, withData, ifEditable,
+  useNode, withNodeKey, withNode, withSidecarNodes, withNodeDataHandlers, withoutProps,
+  withData, ifEditable,
 } from '@bodiless/core';
 import type { WithNodeKeyProps } from '@bodiless/core';
-import { flowRight, isEmpty, pick } from 'lodash';
+import { isEmpty, pick } from 'lodash';
 import { withMetaSnippet } from './withMetaForm';
 import type { FieldType } from './withMetaForm';
 
 type MetaTitleData = {
   content: string;
 };
-
-// const withMeta = (
-//   name: string,
-//   nodeKey: string,
-//   nodeCollection: string | undefined,
-// ) => (HelmetComponent: CT) => (props: any) => {
-//   const { children, ...rest } = props;
-//   const { node } = useNode(nodeCollection);
-//   const childNode = node.child(nodeKey);
-//   if (!isEmpty(childNode.data)) {
-//     return (
-//       <HelmetComponent {...rest}>
-//         {children}
-//         <meta name={name} {...childNode.data} />
-//       </HelmetComponent>
-//     );
-//   }
-//   return <HelmetComponent {...rest} />;
-// };
 
 type BaseProps = PropsWithChildren<HelmetProps>;
 type Data = {
@@ -60,27 +42,20 @@ type Options = {
   type: FieldType;
 } & Data;
 
-const withMeta$ = (name: string) => (HelmetComponent: CT<BaseProps>) => {
-  const WithMeta = (props: Props) => {
-    const { children, content, ...rest } = props;
-    if (isEmpty(content)) return <HelmetComponent {...props} />;
-    return (
-      <HelmetComponent {...rest}>
-        {children}
-        <meta name={name} content={content} />
-      </HelmetComponent>
-    );
-  };
-  return WithMeta;
-};
+const withMeta$ = (name: string) => (
+  HelmetComponent: CT<BaseProps>,
+) => ({ children, content, ...rest }: Props) => (
+  <HelmetComponent {...rest}>
+    {children}
+    <meta name={name} content={content} />
+  </HelmetComponent>
+);
 
-// Once we separate optionsfrom default data, this becomes:
-// (options: Options) => (nodeKey?: WithNodeKeyProps, defaultData: Data = { content: '' })
 /**
  * Meta data options. Set the data name, content, form field and label.
  * @param options Options
  */
-const withMeta = (options: Options) => (nodeKey?: WithNodeKeyProps) => flowRight(
+const withMeta = (options: Options) => (nodeKey?: WithNodeKeyProps) => withSidecarNodes(
   withNodeKey(nodeKey),
   withNode,
   withNodeDataHandlers(pick(options, 'content')),

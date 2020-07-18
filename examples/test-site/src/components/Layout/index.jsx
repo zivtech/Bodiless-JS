@@ -28,62 +28,36 @@ import Header from './header';
 import Footer from './footer';
 import { asPageContainer } from '../Elements.token';
 
-// Moved to Helemet.ts
-// const MetaForm = withMetaForm(useGetMenuOptions, seoFormHeader)((React.Fragment));
-
-// Moved to withMeta.tsx
-// const asSeoFormSnippet = (nodeKey, defaultData) => flowRight(
-//   withNodeKey(nodeKey),
-//   withNode,
-//   withNodeDataHandlers(defaultData),
-//   withMetaSnippet(defaultData),
-//   withoutProps('setComponentData'),
-//   withData,
-// );
-
-// 'page-title'
-// const metaTitle = {
-//   name: 'title',
-//   placeholder: 'Rec 30-65 char',
-//   type: 'text',
-//   label: 'Title',
-//   content: '',
-// };
-
-// const MetaPageType = flowRight(
-//   asBodilessHelmet('meta'),
-//   asSeoFormSnippet('page-type', {
-//     name: 'pagetype',
-//     pagetype: '',
-//     type: 'text',
-//     label: 'Page type',
-//     attribute: 'content',
-//   }),
-// )(Meta);
-
-// const MetaDescription = flowRight(
-//   asBodilessHelmet('meta'),
-//   asSeoFormSnippet('description', {
-//     name: 'description',
-//     type: 'textarea',
-//     label: 'Description',
-//     description: 'Rec < 160 char',
-//     attribute: 'content',
-//   }),
-// )(Meta);
+const metaTitle = {
+  name: 'title',
+  placeholder: 'Rec 30-65 char',
+  type: 'text',
+  label: 'Title',
+  content: 'Rec < 160 char',
+};
 
 const metaDescription = {
   name: 'description',
   type: 'textarea',
   label: 'Description',
-  value: 'Rec < 160 char',
+  placeholder: 'Rec < 160 char',
   content: 'Rec < 160 char',
+};
+
+const metaPageType = {
+  name: 'pagetype',
+  pagetype: '',
+  type: 'text',
+  label: 'Page type',
+  attribute: 'content',
 };
 
 const ExampleHelmet = flowRight(
   asBodilessHelmet('meta'),
-  withMeta(metaDescription)('description'),
   withMetaTitle('page-title'),
+  withMeta(metaDescription)('description'),
+  withMeta(metaPageType)('page-type'),
+  withMeta(metaTitle)('page-title'),
   withMetaHtml('en'),
 )(Helmet);
 
@@ -121,11 +95,6 @@ const Layout = ({ children }) => (
         <ExampleHelmet />
         <ExampleGTMHelmetEvent />
         <Header siteLogo={data.site.siteMetadata.logo} />
-        {/* <MetaForm>
-          <MetaTitle />
-          <MetaDescription />
-          <MetaPageType />
-        </MetaForm> */}
         <Container>{children}</Container>
         <Footer siteTitle={data.site.siteMetadata.title} />
       </>
