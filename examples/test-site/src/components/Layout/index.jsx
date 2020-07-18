@@ -23,6 +23,7 @@ import {
   withMetaHtml,
   asBodilessHelmet,
   withEvent,
+  withMetaForm,
 } from '@bodiless/components';
 import Header from './header';
 import Footer from './footer';
@@ -52,7 +53,22 @@ const metaPageType = {
   attribute: 'content',
 };
 
+const useGetMenuOptions = () => () => [
+  {
+    name: 'seo',
+    icon: 'category',
+    label: 'SEO',
+  },
+];
+
+const seoFormHeader = {
+  title: 'SEO Data Management',
+  description: `Enter the page level data used for SEO. 
+  This is metadata needed for SEO that will go in the page header.`,
+};
+
 const ExampleHelmet = flowRight(
+  withMetaForm(useGetMenuOptions, seoFormHeader),
   asBodilessHelmet('meta'),
   withMetaTitle('page-title'),
   withMeta(metaDescription)('description'),
