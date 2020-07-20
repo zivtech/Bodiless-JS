@@ -5,6 +5,7 @@ import {
   useFormUI, useRegisterSnippet, withCompoundForm, withEditFormSnippet,
 } from '@bodiless/core';
 import type { FormSnippet } from '@bodiless/core';
+import { Div } from '@bodiless/fclasses';
 
 export enum FieldType {
   Text = 'text',
@@ -29,10 +30,10 @@ export const withMetaSnippet = (data: MetaSnippetProps, next?: Function) => with
     const { ComponentFormLabel, ComponentFormText, ComponentFormTextArea } = useFormUI();
     const Field = type === 'text' ? ComponentFormText : ComponentFormTextArea;
     return (
-      <>
+      <Div key={name}>
         <ComponentFormLabel>{label}</ComponentFormLabel>
         <Field field={name} />
-      </>
+      </Div>
     );
   },
   submitValueHandler: (values: any) => {
@@ -60,10 +61,10 @@ const withMetaFormHeader = (headerProps: HeaderProps) => (Component: CT) => {
     render: () => {
       const { ComponentFormTitle, ComponentFormDescription } = useFormUI();
       return (
-        <>
+        <Div key="form-header">
           <ComponentFormTitle>{headerProps.title}</ComponentFormTitle>
           <ComponentFormDescription>{headerProps.description}</ComponentFormDescription>
-        </>
+        </Div>
       );
     },
   };

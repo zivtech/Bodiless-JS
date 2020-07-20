@@ -19,6 +19,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { Div } from '@bodiless/fclasses';
 import {
   withMeta,
+  withMetaStatic,
   withMetaTitle,
   withMetaHtml,
   asBodilessHelmet,
@@ -31,23 +32,20 @@ import { asPageContainer } from '../Elements.token';
 
 const metaTitle = {
   name: 'title',
-  placeholder: 'Rec 30-65 char',
   type: 'text',
   label: 'Title',
-  content: 'Rec < 160 char',
+  content: 'Rec 30-65 char',
 };
 
 const metaDescription = {
   name: 'description',
   type: 'textarea',
   label: 'Description',
-  placeholder: 'Rec < 160 char',
   content: 'Rec < 160 char',
 };
 
 const metaPageType = {
   name: 'pagetype',
-  pagetype: '',
   type: 'text',
   label: 'Page type',
   attribute: 'content',
@@ -74,6 +72,8 @@ const ExampleHelmet = flowRight(
   withMeta(metaDescription)('description'),
   withMeta(metaPageType)('page-type'),
   withMeta(metaTitle)('page-title'),
+  withMetaStatic('bl-brand', 'brand', 'site'),
+  withMetaStatic('bl-country', 'country', 'site'),
   withMetaHtml('en'),
 )(Helmet);
 

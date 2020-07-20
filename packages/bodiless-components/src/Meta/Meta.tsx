@@ -38,8 +38,9 @@ type Options = {
   name: string;
   label: string;
   attribute: string;
-  placeholder?: string;
   type: FieldType;
+  edit: boolean;
+  collection?: string;
 } & Data;
 
 const withMeta$ = (name: string) => (
@@ -64,6 +65,25 @@ const withMeta = (options: Options) => (nodeKey?: WithNodeKeyProps) => withSidec
   withData,
   withMeta$(options.name),
 );
+
+const withMetaStatic = (
+  name: string,
+  nodeKey: string,
+  nodeCollection: string | undefined,
+) => (HelmetComponent: CT) => (props: any) => {
+  const { children, ...rest } = props;
+  const { node } = useNode(nodeCollection);
+  const childNode = node.child(nodeKey);
+  if (!isEmpty(childNode.data)) {
+    return (
+      <HelmetComponent {...rest}>
+        {children}
+        <meta name={name} {...childNode.data} />
+      </HelmetComponent>
+    );
+  }
+  return <HelmetComponent {...rest} />;
+};
 
 const withMetaTitle = (
   nodeKey: string,
@@ -99,4 +119,6 @@ const withMetaHtml = (
   );
 };
 
-export { withMeta, withMetaTitle, withMetaHtml };
+export {
+ withMeta, withMetaTitle, withMetaHtml, withMetaStatic,
+};

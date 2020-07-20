@@ -28,7 +28,9 @@ import asEditableList from './List/asEditableList';
 import asBasicSublist from './List/asBasicSublist';
 import withSublist, { withBasicSublist } from './List/withSublist';
 import withDeleteSublistOnUnwrap from './List/withDeleteSublistOnUnwrap';
-import { withMeta, withMetaTitle, withMetaHtml } from './Meta/Meta';
+import {
+  withMeta, withMetaStatic, withMetaTitle, withMetaHtml,
+} from './Meta/Meta';
 import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helemet';
 import withEvent from './GTM/gtm';
@@ -70,6 +72,7 @@ export {
   withPlaceholder,
   asEditable,
   withMeta,
+  withMetaStatic,
   withMetaTitle,
   withMetaHtml,
   asBodilessHelmet,
