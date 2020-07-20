@@ -29,8 +29,8 @@ export type FormBodyProps<P, D> = ContextMenuFormBodyProps<D> & {
 export type FormBodyRenderer<P, D> = (p: FormBodyProps<P, D>) => ReactNode;
 
 type EditDataHandler<D> = {
-  initialValueHandler: (values: any) => D;
-  submitValueHandler: (values: D) => any;
+  initialValueHandler?: (values: any) => D;
+  submitValueHandler?: (values: D) => any;
 };
 
 export type EditButtonProps<D> = {
