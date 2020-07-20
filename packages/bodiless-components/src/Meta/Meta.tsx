@@ -120,5 +120,5 @@ const withMetaHtml = (
 };
 
 export {
- withMeta, withMetaTitle, withMetaHtml, withMetaStatic,
+  withMeta, withMetaTitle, withMetaHtml, withMetaStatic,
 };
