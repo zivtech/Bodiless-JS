@@ -48,7 +48,7 @@ const metaPageType = {
   name: 'pagetype',
   type: 'text',
   label: 'Page type',
-  attribute: 'content',
+  content: '',
 };
 
 const useGetMenuOptions = () => () => [

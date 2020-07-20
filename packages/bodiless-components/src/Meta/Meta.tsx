@@ -33,14 +33,11 @@ type Data = {
 };
 type Props = BaseProps & Data;
 
-// @todo: separate the default data from the options.
 type Options = {
   name: string;
   label: string;
-  attribute: string;
+  content: string;
   type: FieldType;
-  edit: boolean;
-  collection?: string;
 } & Data;
 
 const withMeta$ = (name: string) => (
