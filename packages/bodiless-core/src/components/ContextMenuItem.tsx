@@ -76,7 +76,7 @@ const ContextMenuItem = ({ option, index, ui }: IProps) => {
 
   function getContextMenuForm(): JSX.Element {
     if (renderForm) {
-      const formProps = {
+      const formProps: FormProps = {
         closeForm: onFormClose,
         ui,
         'aria-label': `Context Menu ${option.label || option.name} Form`,

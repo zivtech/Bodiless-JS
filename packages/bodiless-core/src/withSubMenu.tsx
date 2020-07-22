@@ -31,29 +31,26 @@ type PropsWithTitle = {
   title?: string,
 };
 
-const SubMenuBody:FC = ({ children, ...rest }) => {
+const SubMenuBody:FC<PropsWithTitle> = ({ title, children, ...rest }) => {
   const ui = useFormUI();
-  const { ComponentFormSubMenu } = ui;
+  const { ComponentFormSubMenu, ComponentFormTitle } = ui;
   const finalUi = {
     ...ui,
     Toolbar: ComponentFormSubMenu,
   };
 
   return (
-    <ContextMenu ui={finalUi} options={[]} {...rest}>
-      {children}
-    </ContextMenu>
+    <>
+      <ComponentFormTitle>{title}</ComponentFormTitle>
+      <ContextMenu ui={finalUi} options={[]} {...rest}>
+        {children}
+      </ContextMenu>
+    </>
   );
 };
 
-const SubMenuHeader:FC<PropsWithTitle> = ({ title = '' }) => {
-  const { ComponentFormTitle } = useFormUI();
-  return <ComponentFormTitle>{title}</ComponentFormTitle>;
-};
-
-const tagTitleComponentsStart: CompoundFormComponents = {
+const subMenuComponentsStart: CompoundFormComponents = {
   Body: SubMenuBody,
-  Header: SubMenuHeader,
 };
 
 /**
@@ -67,8 +64,8 @@ const withSubmenu = <P extends object>(options: SubMenuOptions<P>) => {
   const finalOptions = { ...options, formOptions, peer: true };
 
   return flowRight(
-    withDesign({ Header: addProps({ title: options.name }) }),
-    designable(tagTitleComponentsStart),
+    withDesign({ Body: addProps({ title: options.name }) }),
+    designable(subMenuComponentsStart),
     withCompoundForm(finalOptions),
     withoutProps(['components', 'design']),
   );

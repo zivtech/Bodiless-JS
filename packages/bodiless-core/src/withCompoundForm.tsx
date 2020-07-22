@@ -41,7 +41,6 @@ export type Snippet<D> = {
  */
 export type CompoundFormComponents = {
   Body: ComponentType<any>,
-  Header: ComponentType<any>,
 };
 
 type SnippetRegister<D> = (snippet: Snippet<D>) => void;
@@ -55,7 +54,6 @@ const SnippetContext = createContext<MutableRefObject<Snippet<any>[]>|undefined>
 
 const defaultComponents: CompoundFormComponents = {
   Body: React.Fragment,
-  Header: React.Fragment,
 };
 
 /**
@@ -67,7 +65,7 @@ const defaultComponents: CompoundFormComponents = {
  */
 const Form = <D extends object>(props: FormProps<D>) => {
   const { snippets, components, ...rest } = props;
-  const { Body, Header } = { ...defaultComponents, ...components };
+  const { Body } = { ...defaultComponents, ...components };
 
   const submitValues = (values: any) => {
     snippets.forEach(s => {
@@ -92,7 +90,6 @@ const Form = <D extends object>(props: FormProps<D>) => {
 
   return (
     <ContextMenuForm {...rest} {...formProps}>
-      <Header />
       <Body>
         {snippets.map(s => s.render(renderProps))}
       </Body>
