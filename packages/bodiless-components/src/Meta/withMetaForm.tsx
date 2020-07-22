@@ -24,7 +24,11 @@ export type MetaSnippetProps = {
   attribute: string,
 };
 
-export const withMetaSnippet = (data: MetaSnippetProps, next?: Function) => withEditFormSnippet({
+export const withMetaSnippet = (
+  data: MetaSnippetProps,
+  nextSubmitHandler?: Function,
+  nextInitialValuesHandler?: Function,
+) => withEditFormSnippet({
   render: () => {
     const { name, label, type } = data;
     const { ComponentFormLabel, ComponentFormText, ComponentFormTextArea } = useFormUI();
@@ -38,27 +42,24 @@ export const withMetaSnippet = (data: MetaSnippetProps, next?: Function) => with
   },
   submitValueHandler: (values: any) => {
     const { name, attribute } = data;
-    if (next) {
-      // Allow user to override submit handler.
-      return next(data, values);
-    }
-    return {
-      [attribute]: values[name],
-    };
+    const submitValues = { [attribute]: values[name] };
+    return nextSubmitHandler ? nextSubmitHandler(submitValues) : submitValues;
   },
   initialValueHandler: (values) => {
     const { name, attribute } = data;
-    return values[attribute] ? {
+    const initialValues = values[attribute] ? {
       ...values,
       [name]: values[attribute],
     } : { ...values };
+    return nextInitialValuesHandler ? nextInitialValuesHandler(initialValues) : initialValues;
   },
 });
 
-const withMetaFormHeader = (headerProps: HeaderProps) => (Component: CT) => {
+const withMetaFormHeader = (headerProps: HeaderProps | undefined) => (Component: CT) => {
   const metaHeaderSnippet: FormSnippet<any> = {
     id: v1(),
     render: () => {
+      if (!headerProps) return <></>;
       const { ComponentFormTitle, ComponentFormDescription } = useFormUI();
       return (
         <Div key="form-header">
@@ -76,7 +77,7 @@ const withMetaFormHeader = (headerProps: HeaderProps) => (Component: CT) => {
   return WithFormHeader;
 };
 
-const withMetaForm = (useGetMenuOptions: any, metaFormHeader: HeaderProps) => flowRight(
+const withMetaForm = (useGetMenuOptions: any, metaFormHeader: HeaderProps | undefined) => flowRight(
   withCompoundForm({
     useGetMenuOptions, name: 'Meta', peer: true, id: 'meta',
   }),

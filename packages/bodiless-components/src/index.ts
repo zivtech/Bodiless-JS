@@ -29,7 +29,7 @@ import asBasicSublist from './List/asBasicSublist';
 import withSublist, { withBasicSublist } from './List/withSublist';
 import withDeleteSublistOnUnwrap from './List/withDeleteSublistOnUnwrap';
 import {
-  withMeta, withMetaStatic, withMetaTitle, withMetaHtml,
+  withMeta, withMetaStatic, withMetaHtml,
 } from './Meta/Meta';
 import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helemet';
@@ -73,7 +73,6 @@ export {
   asEditable,
   withMeta,
   withMetaStatic,
-  withMetaTitle,
   withMetaHtml,
   asBodilessHelmet,
   withEditPlaceholder,

@@ -20,7 +20,6 @@ import { Div } from '@bodiless/fclasses';
 import {
   withMeta,
   withMetaStatic,
-  withMetaTitle,
   withMetaHtml,
   asBodilessHelmet,
   withEvent,
@@ -30,26 +29,23 @@ import Header from './header';
 import Footer from './footer';
 import { asPageContainer } from '../Elements.token';
 
-const metaTitle = {
+const withMetaTitle = withMeta({
   name: 'title',
   type: 'text',
   label: 'Title',
-  content: 'Rec 30-65 char',
-};
+});
 
-const metaDescription = {
+const withMetaDescription = withMeta({
   name: 'description',
   type: 'textarea',
   label: 'Description',
-  content: 'Rec < 160 char',
-};
+});
 
-const metaPageType = {
+const withMetaPageType = withMeta({
   name: 'pagetype',
   type: 'text',
   label: 'Page type',
-  content: '',
-};
+});
 
 const useGetMenuOptions = () => () => [
   {
@@ -68,10 +64,9 @@ const seoFormHeader = {
 const ExampleHelmet = flowRight(
   withMetaForm(useGetMenuOptions, seoFormHeader),
   asBodilessHelmet('meta'),
-  withMetaTitle('page-title'),
-  withMeta(metaDescription)('description'),
-  withMeta(metaPageType)('page-type'),
-  withMeta(metaTitle)('page-title'),
+  withMetaTitle('page-title', 'Rec 30-65 char'),
+  withMetaDescription('description', 'Rec < 160 char'),
+  withMetaPageType('page-type'),
   withMetaStatic('bl-brand', 'brand', 'site'),
   withMetaStatic('bl-country', 'country', 'site'),
   withMetaHtml('en'),

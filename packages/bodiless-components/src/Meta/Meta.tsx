@@ -19,13 +19,9 @@ import {
   withData, ifEditable,
 } from '@bodiless/core';
 import type { WithNodeKeyProps } from '@bodiless/core';
-import { isEmpty, pick } from 'lodash';
+import { isEmpty } from 'lodash';
 import { withMetaSnippet } from './withMetaForm';
 import type { FieldType } from './withMetaForm';
-
-type MetaTitleData = {
-  content: string;
-};
 
 type BaseProps = PropsWithChildren<HelmetProps>;
 type Data = {
@@ -36,28 +32,36 @@ type Props = BaseProps & Data;
 type Options = {
   name: string;
   label: string;
-  content: string;
   type: FieldType;
+  attribute?: string;
 } & Data;
 
 const withMeta$ = (name: string) => (
   HelmetComponent: CT<BaseProps>,
-) => ({ children, content, ...rest }: Props) => (
-  <HelmetComponent {...rest}>
-    {children}
-    <meta name={name} content={content} />
-  </HelmetComponent>
-);
+) => ({ children, content, ...rest }: Props) => ((name === 'title')
+  ? (
+    <HelmetComponent {...rest}>
+      {children}
+      <title>{content || ''}</title>
+    </HelmetComponent>
+  ) : (
+    <HelmetComponent {...rest}>
+      {children}
+      <meta name={name} content={content} />
+    </HelmetComponent>
+  ));
 
 /**
  * Meta data options. Set the data name, content, form field and label.
  * @param options Options
  */
-const withMeta = (options: Options) => (nodeKey?: WithNodeKeyProps) => withSidecarNodes(
+const withMeta = (options: Options) => (
+  nodeKey?: WithNodeKeyProps, defaultContent?: string,
+) => withSidecarNodes(
   withNodeKey(nodeKey),
   withNode,
-  withNodeDataHandlers(pick(options, 'content')),
-  ifEditable(withMetaSnippet({ ...options, attribute: 'content' })),
+  withNodeDataHandlers({ [options.attribute || 'content']: defaultContent }),
+  ifEditable(withMetaSnippet({ attribute: 'content', ...options })),
   withoutProps('setComponentData'),
   withData,
   withMeta$(options.name),
@@ -82,24 +86,6 @@ const withMetaStatic = (
   return <HelmetComponent {...rest} />;
 };
 
-const withMetaTitle = (
-  nodeKey: string,
-  nodeCollection?: string | undefined,
-) => (HelmetComponent: CT) => (props: any) => {
-  const { children, ...rest } = props;
-  const { node } = useNode(nodeCollection);
-  const { data } = node.child<MetaTitleData>(nodeKey);
-  if (!isEmpty(data)) {
-    return (
-      <HelmetComponent {...rest}>
-        {children}
-        <title>{data.content || ''}</title>
-      </HelmetComponent>
-    );
-  }
-  return <HelmetComponent {...rest} />;
-};
-
 const withMetaHtml = (
   lang: string,
   nodeKey: string,
@@ -117,5 +103,5 @@ const withMetaHtml = (
 };
 
 export {
-  withMeta, withMetaTitle, withMetaHtml, withMetaStatic,
+  withMeta, withMetaHtml, withMetaStatic,
 };
