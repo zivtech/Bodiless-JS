@@ -60,13 +60,17 @@ export const useEditFormProps = <P extends object, D extends object>({
   dataHandler,
 }: P & EditButtonProps<D>) => {
   const initialValues = componentData;
+
+  const initialValues$ = dataHandler && dataHandler.initialValueHandler
+    ? dataHandler.initialValueHandler(initialValues) : initialValues;
   const submitValues = (values: D) => {
     setComponentData(values);
     Object.assign(componentData, values);
+    // @todo: refactor - replace this workaround fix.
+    Object.assign(initialValues$, dataHandler && dataHandler.initialValueHandler
+      ? dataHandler.initialValueHandler(initialValues) : initialValues);
     if (onSubmit) onSubmit();
   };
-  const initialValues$ = dataHandler && dataHandler.initialValueHandler
-    ? dataHandler.initialValueHandler(initialValues) : initialValues;
   const submitValues$ = dataHandler && dataHandler.submitValueHandler
     ? flowRight(submitValues, dataHandler.submitValueHandler) : submitValues;
   return {
