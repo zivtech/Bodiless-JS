@@ -32,6 +32,7 @@ import {
   withMeta, withMetaStatic, withMetaHtml,
 } from './Meta/Meta';
 import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
+import type { FieldType as MetaFormFieldType } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helemet';
 import withEvent from './GTM/gtm';
 import { withToggle, withToggleTo, withToggleButton } from './Toggle';
@@ -99,3 +100,4 @@ export type {
   TitleProps as ListTitleProps,
   ListDesignableComponents,
 } from './List/types';
+export type { MetaFormFieldType };

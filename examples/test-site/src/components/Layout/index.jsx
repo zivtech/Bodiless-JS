@@ -15,63 +15,16 @@
 import React from 'react';
 import { flow, flowRight } from 'lodash';
 import Helmet from 'react-helmet';
-import { flowRight } from 'lodash';
 import { StaticQuery, graphql } from 'gatsby';
 import { Div } from '@bodiless/fclasses';
 import {
-  withMeta,
-  withMetaStatic,
-  withMetaHtml,
   asBodilessHelmet,
   withEvent,
-  withMetaForm,
 } from '@bodiless/components';
 import Header from './header';
 import Footer from './footer';
+import ExampleHelmet from './meta';
 import { asPageContainer, asYMargin } from '../Elements.token';
-
-const withMetaTitle = withMeta({
-  name: 'title',
-  type: 'text',
-  label: 'Title',
-});
-
-const withMetaDescription = withMeta({
-  name: 'description',
-  type: 'textarea',
-  label: 'Description',
-});
-
-const withMetaPageType = withMeta({
-  name: 'pagetype',
-  type: 'text',
-  label: 'Page type',
-});
-
-const useGetMenuOptions = () => () => [
-  {
-    name: 'seo',
-    icon: 'category',
-    label: 'SEO',
-  },
-];
-
-const seoFormHeader = {
-  title: 'SEO Data Management',
-  description: `Enter the page level data used for SEO. 
-  This is metadata needed for SEO that will go in the page header.`,
-};
-
-const ExampleHelmet = flowRight(
-  withMetaForm(useGetMenuOptions, seoFormHeader),
-  asBodilessHelmet('meta'),
-  withMetaTitle('page-title', 'Rec 30-65 char'),
-  withMetaDescription('description', 'Rec < 160 char'),
-  withMetaPageType('page-type'),
-  withMetaStatic('bl-brand', 'brand', 'site'),
-  withMetaStatic('bl-country', 'country', 'site'),
-  withMetaHtml('en'),
-)(Helmet);
 
 const ExampleGTMHelmetEvent = flowRight(
   asBodilessHelmet('datalayer'),
