@@ -58,7 +58,7 @@ const seoFormHeader = {
   This is metadata needed for SEO that will go in the page header.`,
 };
 
-const ExampleHelmet = flowRight(
+const SiteHelmet = flowRight(
   withMetaForm(useGetMenuOptions, seoFormHeader),
   asBodilessHelmet('meta'),
   withMetaTitle('page-title', 'Rec 30-65 char'),
@@ -69,4 +69,4 @@ const ExampleHelmet = flowRight(
   withMetaHtml('en', '', ''),
 )(Helmet);
 
-export default ExampleHelmet;
+export default SiteHelmet;

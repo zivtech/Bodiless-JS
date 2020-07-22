@@ -23,7 +23,7 @@ import {
 } from '@bodiless/components';
 import Header from './header';
 import Footer from './footer';
-import ExampleHelmet from './meta';
+import SiteHelmet from './meta';
 import { asPageContainer, asYMargin } from '../Elements.token';
 
 const ExampleGTMHelmetEvent = flowRight(
@@ -61,7 +61,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <ExampleHelmet />
+        <SiteHelmet />
         <ExampleGTMHelmetEvent />
         <Header siteLogo={data.site.siteMetadata.logo} />
         <Container>{children}</Container>
