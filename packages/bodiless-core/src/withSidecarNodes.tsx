@@ -86,7 +86,7 @@ type HOC = (Component: ComponentType<any>) => ComponentType<any>;
  * )
  * ```
  * This is useful, for example, if you want to apply an enhancment HOC which uses its own
- * content node(s) without affecting the node paths of other children of the wrapped compoenent.
+ * content node(s) without affecting the node paths of other children of the wrapped component.
  *
  * @param hocs A list of HOC's to be applied using the parallel node hierarchy.  These will
  *             be composed using lodash `flowRight`

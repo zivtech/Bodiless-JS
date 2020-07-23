@@ -16,6 +16,7 @@ import { ComponentType } from 'react';
 import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from './PageContextProvider';
 import PageEditContext from './PageEditContext';
 import asStatic from './asStatic';
+import asReadOnly from './asReadOnly';
 import { useEditContext, useUUID, useContextActivator } from './hooks';
 import withNode, { withNodeKey } from './withNode';
 import withSidecarNodes, { startSidecarNodes, endSidecarNodes } from './withSidecarNodes';
@@ -71,6 +72,7 @@ export {
   useRegisterSnippet,
   asBodilessComponent,
   asStatic,
+  asReadOnly,
   withContextActivator,
   withActivatorWrapper,
   withNodeAndHandlers,

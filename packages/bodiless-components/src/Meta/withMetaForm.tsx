@@ -19,37 +19,39 @@ export type HeaderProps = {
 
 export type MetaSnippetProps = {
   name: string,
-  type: FieldType,
   label: string,
-  attribute: string,
+  useFormElement?: Function,
+  placeholder?: string,
+  submitHandler?: Function,
+  initalValueHandler?: Function,
 };
 
 export const withMetaSnippet = (
-  data: MetaSnippetProps,
-  nextSubmitHandler?: Function,
-  nextInitialValuesHandler?: Function,
+  options: MetaSnippetProps,
 ) => withEditFormSnippet({
   render: () => {
-    const { name, label, type } = data;
-    const { ComponentFormLabel, ComponentFormText, ComponentFormTextArea } = useFormUI();
-    const Field = type === 'text' ? ComponentFormText : ComponentFormTextArea;
+    const {
+      name, label, placeholder, useFormElement,
+    } = options;
+    const { ComponentFormLabel, ComponentFormText } = useFormUI();
+    const Field = useFormElement ? useFormElement() : ComponentFormText;
     return (
       <Div key={name}>
         <ComponentFormLabel>{label}</ComponentFormLabel>
-        <Field field={name} />
+        <Field field={name} placeholder={placeholder} />
       </Div>
     );
   },
   submitValueHandler: (values: any) => {
-    const { name, attribute } = data;
-    const submitValues = { [attribute]: values[name] };
+    const { name, submitHandler: nextSubmitHandler } = options;
+    const submitValues = { content: values[name] };
     return nextSubmitHandler ? nextSubmitHandler(submitValues) : submitValues;
   },
   initialValueHandler: (values) => {
-    const { name, attribute } = data;
-    const initialValues = values[attribute] ? {
+    const { name, initalValueHandler: nextInitialValuesHandler } = options;
+    const initialValues = values.content ? {
       ...values,
-      [name]: values[attribute],
+      [name]: values.content,
     } : { ...values };
     return nextInitialValuesHandler ? nextInitialValuesHandler(initialValues) : initialValues;
   },
@@ -77,11 +79,17 @@ const withMetaFormHeader = (headerProps: HeaderProps | undefined) => (Component:
   return WithFormHeader;
 };
 
-const withMetaForm = (useGetMenuOptions: any, metaFormHeader: HeaderProps | undefined) => flowRight(
+const defaultMetaFormHeader = {
+  title: 'SEO Data Management',
+  description: `Enter the page level data used for SEO. 
+  This is metadata needed for SEO that will go in the page header.`,
+};
+
+const withMetaForm = (useGetMenuOptions: any, metaFormHeader?: HeaderProps) => flowRight(
   withCompoundForm({
     useGetMenuOptions, name: 'Meta', peer: true, id: 'meta',
   }),
-  withMetaFormHeader(metaFormHeader),
+  withMetaFormHeader(metaFormHeader || defaultMetaFormHeader),
 );
 
 export default withMetaForm;

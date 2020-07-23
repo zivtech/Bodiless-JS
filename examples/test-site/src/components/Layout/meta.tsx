@@ -16,32 +16,40 @@ import { flowRight } from 'lodash';
 import Helmet from 'react-helmet';
 import {
   withMeta,
+  withTitle,
   withMetaStatic,
   withMetaHtml,
   asBodilessHelmet,
   withMetaForm,
 } from '@bodiless/components';
-import type { MetaFormFieldType } from '@bodiless/components';
+import {
+  useFormUI,
+} from '@bodiless/core';
 
-const withMetaTitle = withMeta({
+const withMetaPageTitle = withTitle({
   name: 'title',
-  type: 'text' as MetaFormFieldType.Text,
   label: 'Title',
-  content: '',
+  placeholder: 'Rec 30-65 char',
 });
 
-const withMetaDescription = withMeta({
+const withMetaPageDescription = withMeta({
   name: 'description',
-  type: 'textarea' as MetaFormFieldType.TextArea,
+  useFormElement: () => useFormUI().ComponentFormTextArea,
   label: 'Description',
-  content: '',
+  placeholder: 'Rec < 160 char',
 });
 
 const withMetaPageType = withMeta({
   name: 'pagetype',
-  type: 'text' as MetaFormFieldType.Text,
   label: 'Page type',
-  content: '',
+});
+
+const withMetaPageBrand = withMetaStatic({
+  name: 'brand',
+});
+
+const withMetaPageCountry = withMetaStatic({
+  name: 'country',
 });
 
 const useGetMenuOptions = () => () => [
@@ -58,15 +66,15 @@ const seoFormHeader = {
   This is metadata needed for SEO that will go in the page header.`,
 };
 
-const SiteHelmet = flowRight(
+const SeoHelmet = flowRight(
   withMetaForm(useGetMenuOptions, seoFormHeader),
   asBodilessHelmet('meta'),
-  withMetaTitle('page-title', 'Rec 30-65 char'),
-  withMetaDescription('description', 'Rec < 160 char'),
+  withMetaPageTitle('page-title'),
+  withMetaPageDescription('description'),
   withMetaPageType('page-type'),
-  withMetaStatic('bl-brand', 'brand', 'site'),
-  withMetaStatic('bl-country', 'country', 'site'),
+  withMetaPageBrand('bl-brand', 'brand'),
+  withMetaPageCountry('bl-country', 'country'),
   withMetaHtml('en', '', ''),
 )(Helmet);
 
-export default SiteHelmet;
+export default SeoHelmet;
