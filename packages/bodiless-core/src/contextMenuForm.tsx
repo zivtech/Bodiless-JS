@@ -16,7 +16,7 @@ import React, { ReactNode, useCallback } from 'react';
 import {
   Form, FormApi, FormState, Text, TextArea,
 } from 'informed';
-import { UI } from './Types/ContextMenuTypes';
+import type { UI, ContextMenuFormProps } from './Types/ContextMenuTypes';
 import ReactTagsField from './components/ReactTagsField';
 
 const defaultUI = {
@@ -47,20 +47,14 @@ export type Options<D> = {
   hasSubmit?: Boolean;
 };
 
-export type FormProps = {
-  closeForm: () => void;
-  ui?: UI;
-  'aria-label'?: string;
-};
-
-export type FormBodyProps<D> = FormProps & Options<D> & {
+export type FormBodyProps<D> = ContextMenuFormProps & Options<D> & {
   formApi: FormApi<D>;
   formState: FormState<D>;
 };
 
 export type FormBodyRenderer<D> = (props: FormBodyProps<D>) => ReactNode;
 
-export type ContextMenuPropsType<D> = FormProps & Options<D> & {
+export type ContextMenuPropsType<D> = ContextMenuFormProps & Options<D> & {
   children: FormBodyRenderer<D>|ReactNode,
 };
 

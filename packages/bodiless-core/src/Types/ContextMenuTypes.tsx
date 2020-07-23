@@ -63,10 +63,19 @@ export type IContextMenuProps = {
   // onDispose?: (wasSubmitted: boolean) => void;
   ui?: UI;
   isPositionToggled?: boolean;
+  allowTooltips?: boolean;
 } & HTMLProps<HTMLElement>;
+
+export type ContextMenuFormProps = {
+  closeForm: () => void;
+  ui?: UI;
+  'aria-label'?: string;
+};
 
 export type IContextMenuItemProps = {
   ui?: UI
   option: TMenuOption;
   index: number;
+  // eslint-disable-next-line max-len
+  setRenderForm?: React.Dispatch<React.SetStateAction<((props: ContextMenuFormProps) => JSX.Element) | undefined>>;
 };

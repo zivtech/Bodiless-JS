@@ -27,7 +27,6 @@ import withEditButton, { useEditFormProps } from './withEditButton';
 import useContextMenuForm, { contextMenuForm, ContextMenuForm } from './contextMenuForm';
 import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
 import withEditFormSnippet from './withEditFormSnippet';
-import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
 import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
 import { DefaultContentNode } from './ContentNode';
@@ -40,6 +39,7 @@ import {
 } from './hoc';
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
+import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
 import type { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
 import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
 import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';

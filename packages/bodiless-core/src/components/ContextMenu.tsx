@@ -12,9 +12,9 @@
  * limitations under the License.
  */
 
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import { getUI as getFormUI } from '../contextMenuForm';
-import { IContextMenuProps as IProps, UI } from '../Types/ContextMenuTypes';
+import { IContextMenuProps as IProps, UI, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 import { TMenuOption } from '../PageEditContext/types';
 import ContextMenuItem from './ContextMenuItem';
 
@@ -41,13 +41,20 @@ const ContextMenu: FC<IProps> = (props) => {
     return <></>;
   }
 
-  const { options, ui, children } = props;
+  const [renderForm, setRenderForm] = useState<(props:ContextMenuFormProps) => JSX.Element>();
+  const {
+    options,
+    ui,
+    allowTooltips = true,
+    children,
+  } = props;
   const { Toolbar } = getUI(ui);
 
   const childOptions = React.Children.map(children, (child, i) => (
     React.cloneElement(child as ReactElement, {
       ui,
       index: options.length + i,
+      setRenderForm: allowTooltips ? undefined : setRenderForm,
     })
   ));
 
@@ -69,9 +76,19 @@ const ContextMenu: FC<IProps> = (props) => {
           key={option.name}
           aria-label={option.name}
           ui={ui}
+          setRenderForm={allowTooltips ? undefined : setRenderForm}
         />
       ),
     ).concat(<React.Fragment key="child-options">{childOptions}</React.Fragment>);
+
+  if (renderForm) {
+    const formProps: ContextMenuFormProps = {
+      closeForm: () => setRenderForm(undefined),
+      ui,
+      'aria-label': 'Context Submenu Form',
+    };
+    return renderForm(formProps);
+  }
 
   if (elements.length > 0) {
     return (

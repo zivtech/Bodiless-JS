@@ -16,8 +16,8 @@ import React, {
   useState, createContext, useContext,
 } from 'react';
 import ReactTooltip from 'rc-tooltip';
-import { getUI as getFormUI, FormProps } from '../contextMenuForm';
-import { UI, IContextMenuItemProps as IProps } from '../Types/ContextMenuTypes';
+import { getUI as getFormUI } from '../contextMenuForm';
+import type { UI, IContextMenuItemProps as IProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 
 const defaultUI = {
   Icon: 'span',
@@ -40,8 +40,14 @@ export const useUI = () => {
   return getUI(ui);
 };
 
-const ContextMenuItem = ({ option, index, ui }: IProps) => {
-  const [renderForm, setRenderForm] = useState<(props:FormProps) => JSX.Element>();
+const ContextMenuItem = (props: IProps) => {
+  const {
+    option,
+    index,
+    ui,
+    setRenderForm,
+  } = props;
+  const [renderForm, setRenderFormChild] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
   const finalUI = getUI(ui);
   const {
@@ -60,23 +66,27 @@ const ContextMenuItem = ({ option, index, ui }: IProps) => {
     const menuForm = option.handler ? option.handler(event) : undefined;
     if (menuForm) {
       setIsToolTipShown(!isToolTipShown);
-      // We have to pass a function to setRenderForm b/c menuForm is itself a function
+      // We have to pass a function to setRenderFormChild b/c menuForm is itself a function
       // (a render prop) and, when a function is passed to setState, react interprets
       // it as a state setter (in order to set state based on previous state)
       // see https://reactjs.org/docs/hooks-reference.html#functional-updates
-      setRenderForm(() => menuForm);
+      if (setRenderForm) {
+        setRenderForm(() => menuForm);
+      } else {
+        setRenderFormChild(() => menuForm);
+      }
     }
   };
 
   // Reset form and tooltip state
   const onFormClose = (): void => {
     setIsToolTipShown(false);
-    setRenderForm(undefined);
+    setRenderFormChild(undefined);
   };
 
   function getContextMenuForm(): JSX.Element {
     if (renderForm) {
-      const formProps: FormProps = {
+      const formProps: ContextMenuFormProps = {
         closeForm: onFormClose,
         ui,
         'aria-label': `Context Menu ${option.label || option.name} Form`,

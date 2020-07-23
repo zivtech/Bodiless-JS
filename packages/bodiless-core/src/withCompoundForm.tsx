@@ -6,8 +6,8 @@ import { useFormState, useFormApi } from 'informed';
 import { pick } from 'lodash';
 import { DesignableComponentsProps } from '@bodiless/fclasses';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
-import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
-import type { Options } from './types/PageContextProviderTypes';
+import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
+import type { Options } from './Types/PageContextProviderTypes';
 import { withMenuOptions } from './PageContextProvider';
 import { useEditContext } from './hooks';
 
@@ -40,7 +40,7 @@ export type Snippet<D> = {
  * A collection of compound form Design Components.
  */
 export type CompoundFormComponents = {
-  Body: ComponentType<any>,
+  Wrapper: ComponentType<any>,
 };
 
 type SnippetRegister<D> = (snippet: Snippet<D>) => void;
@@ -53,7 +53,7 @@ const Context = createContext<SnippetRegister<any>>(() => {});
 const SnippetContext = createContext<MutableRefObject<Snippet<any>[]>|undefined>(undefined);
 
 const defaultComponents: CompoundFormComponents = {
-  Body: React.Fragment,
+  Wrapper: React.Fragment,
 };
 
 /**
@@ -65,7 +65,7 @@ const defaultComponents: CompoundFormComponents = {
  */
 const Form = <D extends object>(props: FormProps<D>) => {
   const { snippets, components, ...rest } = props;
-  const { Body } = { ...defaultComponents, ...components };
+  const { Wrapper } = { ...defaultComponents, ...components };
 
   const submitValues = (values: any) => {
     snippets.forEach(s => {
@@ -90,9 +90,9 @@ const Form = <D extends object>(props: FormProps<D>) => {
 
   return (
     <ContextMenuForm {...rest} {...formProps}>
-      <Body>
+      <Wrapper>
         {snippets.map(s => s.render(renderProps))}
-      </Body>
+      </Wrapper>
     </ContextMenuForm>
   );
 };

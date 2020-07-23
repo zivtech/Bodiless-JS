@@ -17,7 +17,7 @@ import { ContextMenuForm } from './contextMenuForm';
 import { useRegisterMenuOptions } from './PageContextProvider';
 import { useNotifications } from './NotificationProvider';
 import { useUI as useFormUI } from './components/ContextMenuItem';
-import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
+import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
 
 const NotificationList = () => {
   const { ComponentFormList, ComponentFormListItem } = useFormUI();

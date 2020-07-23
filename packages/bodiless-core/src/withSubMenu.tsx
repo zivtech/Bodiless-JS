@@ -42,7 +42,7 @@ const SubMenuBody:FC<PropsWithTitle> = ({ title, children, ...rest }) => {
   return (
     <>
       <ComponentFormTitle>{title}</ComponentFormTitle>
-      <ContextMenu ui={finalUi} options={[]} {...rest}>
+      <ContextMenu ui={finalUi} options={[]} allowTooltips={false} {...rest}>
         {children}
       </ContextMenu>
     </>
@@ -50,7 +50,7 @@ const SubMenuBody:FC<PropsWithTitle> = ({ title, children, ...rest }) => {
 };
 
 const subMenuComponentsStart: CompoundFormComponents = {
-  Body: SubMenuBody,
+  Wrapper: SubMenuBody,
 };
 
 /**
@@ -64,7 +64,7 @@ const withSubmenu = <P extends object>(options: SubMenuOptions<P>) => {
   const finalOptions = { ...options, formOptions, peer: true };
 
   return flowRight(
-    withDesign({ Body: addProps({ title: options.name }) }),
+    withDesign({ Wrapper: addProps({ title: options.name }) }),
     designable(subMenuComponentsStart),
     withCompoundForm(finalOptions),
     withoutProps(['components', 'design']),
