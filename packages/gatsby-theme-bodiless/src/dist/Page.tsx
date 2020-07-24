@@ -17,7 +17,7 @@ import { flowRight } from 'lodash';
 import {
   StaticPage,
   ContextWrapperProps,
-  withSubmenu,
+  withContextSubMenu,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
@@ -62,7 +62,7 @@ const GitButtons = () => {
 };
 
 const GitSubMenu = flowRight(
-  withSubmenu({ useGetMenuOptions, name: 'File' }),
+  withContextSubMenu({ useGetMenuOptions, name: 'File' }),
 )(React.Fragment);
 
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {

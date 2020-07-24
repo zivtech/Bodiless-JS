@@ -63,7 +63,7 @@ export type IContextMenuProps = {
   // onDispose?: (wasSubmitted: boolean) => void;
   ui?: UI;
   isPositionToggled?: boolean;
-  allowTooltips?: boolean;
+  renderInTooltip?: boolean;
 } & HTMLProps<HTMLElement>;
 
 export type ContextMenuFormProps = {
@@ -77,5 +77,5 @@ export type IContextMenuItemProps = {
   option: TMenuOption;
   index: number;
   // eslint-disable-next-line max-len
-  setRenderForm?: React.Dispatch<React.SetStateAction<((props: ContextMenuFormProps) => JSX.Element) | undefined>>;
+  setParentRenderForm?: React.Dispatch<React.SetStateAction<((props: ContextMenuFormProps) => JSX.Element) | undefined>>;
 };

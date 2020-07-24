@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { useFormState, useFormApi } from 'informed';
 import { pick } from 'lodash';
-import { DesignableComponentsProps } from '@bodiless/fclasses';
+import { designable, DesignableComponentsProps } from '@bodiless/fclasses';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
 import type { Options } from './Types/PageContextProviderTypes';
@@ -166,7 +166,7 @@ const withCompoundForm = <P extends object>(options: Options<P>) => (Component: 
       </Context.Provider>
     );
   };
-  return WithCompoundForm;
+  return designable({ Wrapper: React.Fragment })(WithCompoundForm);
 };
 
 export default withCompoundForm;

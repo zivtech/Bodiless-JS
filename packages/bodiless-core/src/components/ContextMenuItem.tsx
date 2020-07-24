@@ -45,9 +45,9 @@ const ContextMenuItem = (props: IProps) => {
     option,
     index,
     ui,
-    setRenderForm,
+    setParentRenderForm, // setParentRenderForm setRenderForm
   } = props;
-  const [renderForm, setRenderFormChild] = useState<(props:ContextMenuFormProps) => JSX.Element>();
+  const [renderForm, setRenderForm] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
   const finalUI = getUI(ui);
   const {
@@ -66,14 +66,14 @@ const ContextMenuItem = (props: IProps) => {
     const menuForm = option.handler ? option.handler(event) : undefined;
     if (menuForm) {
       setIsToolTipShown(!isToolTipShown);
-      // We have to pass a function to setRenderFormChild b/c menuForm is itself a function
+      // We have to pass a function to setRenderForm b/c menuForm is itself a function
       // (a render prop) and, when a function is passed to setState, react interprets
       // it as a state setter (in order to set state based on previous state)
       // see https://reactjs.org/docs/hooks-reference.html#functional-updates
-      if (setRenderForm) {
-        setRenderForm(() => menuForm);
+      if (setParentRenderForm) {
+        setParentRenderForm(() => menuForm);
       } else {
-        setRenderFormChild(() => menuForm);
+        setRenderForm(() => menuForm);
       }
     }
   };
@@ -81,7 +81,7 @@ const ContextMenuItem = (props: IProps) => {
   // Reset form and tooltip state
   const onFormClose = (): void => {
     setIsToolTipShown(false);
-    setRenderFormChild(undefined);
+    setRenderForm(undefined);
   };
 
   function getContextMenuForm(): JSX.Element {

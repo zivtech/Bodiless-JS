@@ -45,7 +45,7 @@ const ContextMenu: FC<IProps> = (props) => {
   const {
     options,
     ui,
-    allowTooltips = true,
+    renderInTooltip = true,
     children,
   } = props;
   const { Toolbar } = getUI(ui);
@@ -54,7 +54,7 @@ const ContextMenu: FC<IProps> = (props) => {
     React.cloneElement(child as ReactElement, {
       ui,
       index: options.length + i,
-      setRenderForm: allowTooltips ? undefined : setRenderForm,
+      setParentRenderForm: renderInTooltip ? undefined : setRenderForm,
     })
   ));
 
@@ -76,7 +76,7 @@ const ContextMenu: FC<IProps> = (props) => {
           key={option.name}
           aria-label={option.name}
           ui={ui}
-          setRenderForm={allowTooltips ? undefined : setRenderForm}
+          setParentRenderForm={renderInTooltip ? undefined : setRenderForm}
         />
       ),
     ).concat(<React.Fragment key="child-options">{childOptions}</React.Fragment>);

@@ -14,8 +14,8 @@
 
 import React, { FC } from 'react';
 import { flowRight } from 'lodash';
-import { designable, withDesign, addProps } from '@bodiless/fclasses';
-import withCompoundForm, { useRegisterSnippet, CompoundFormComponents } from './withCompoundForm';
+import { withDesign, addProps, startWith } from '@bodiless/fclasses';
+import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
 import type { TMenuOption } from './PageEditContext/types';
 import type { UseGetMenuOptions } from './Types/PageContextProviderTypes';
 import ContextMenu from './components/ContextMenu';
@@ -42,30 +42,32 @@ const SubMenuBody:FC<PropsWithTitle> = ({ title, children, ...rest }) => {
   return (
     <>
       <ComponentFormTitle>{title}</ComponentFormTitle>
-      <ContextMenu ui={finalUi} options={[]} allowTooltips={false} {...rest}>
+      <ContextMenu ui={finalUi} options={[]} renderInTooltip={false} {...rest}>
         {children}
       </ContextMenu>
     </>
   );
 };
 
-const subMenuComponentsStart: CompoundFormComponents = {
-  Wrapper: SubMenuBody,
-};
-
 /**
  * HOC to create a Sub Menu which is built on top of the "compound form". Children of this
  * component can contribute Menu Options to the Sub Menu form.
  *
+ * Note: currently subMenu form title is a `name` prop from `SubMenuOptions`.
+ *
  * @param options Hook to register Admin Menu option and its name.
  */
-const withSubmenu = <P extends object>(options: SubMenuOptions<P>) => {
+const withContextSubMenu = <P extends object>(options: SubMenuOptions<P>) => {
   const formOptions = { hasSubmit: false };
   const finalOptions = { ...options, formOptions, peer: true };
 
   return flowRight(
-    withDesign({ Wrapper: addProps({ title: options.name }) }),
-    designable(subMenuComponentsStart),
+    withDesign({
+      Wrapper: flowRight(
+        startWith(SubMenuBody),
+        addProps({ title: options.name }),
+      ),
+    }),
     withCompoundForm(finalOptions),
     withoutProps(['components', 'design']),
   );
@@ -73,7 +75,7 @@ const withSubmenu = <P extends object>(options: SubMenuOptions<P>) => {
 
 /**
  * Hook to register a Sub Menu option.
- * Should be invoked within a component wrapped in `withSubmenu`.
+ * Should be invoked within a component wrapped in `withContextSubMenu`.
  *
  * @param option The TMenuOption object that will be used to render `ContextMenuItem`.
  */
@@ -90,7 +92,7 @@ const useRegisterSubMenuOption = (option: TMenuOption) => useRegisterSnippet({
   ),
 });
 
-export default withSubmenu;
+export default withContextSubMenu;
 export {
   useRegisterSubMenuOption,
 };
