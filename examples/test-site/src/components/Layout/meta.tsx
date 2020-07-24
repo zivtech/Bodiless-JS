@@ -44,12 +44,12 @@ const withMetaPageType = withMeta({
   label: 'Page type',
 });
 
-const withMetaPageBrand = withMetaStatic({
-  name: 'brand',
+const withMetaBrand = withMetaStatic({
+  name: 'bl-brand',
 });
 
-const withMetaPageCountry = withMetaStatic({
-  name: 'country',
+const withMetaCountry = withMetaStatic({
+  name: 'bl-country',
 });
 
 const useGetMenuOptions = () => () => [
@@ -69,11 +69,11 @@ const seoFormHeader = {
 const SeoHelmet = flowRight(
   withMetaForm(useGetMenuOptions, seoFormHeader),
   asBodilessHelmet('meta'),
-  withMetaPageTitle('page-title'),
-  withMetaPageDescription('description'),
+  withMetaPageTitle('page-title', ''),
+  withMetaPageDescription('description', ''),
   withMetaPageType('page-type'),
-  withMetaPageBrand('bl-brand', 'brand'),
-  withMetaPageCountry('bl-country', 'country'),
+  withMetaBrand({ nodeKey: 'brand', nodeCollection: 'site' }),
+  withMetaCountry({ nodeKey: 'country', nodeCollection: 'site' }),
   withMetaHtml('en', '', ''),
 )(Helmet);
 

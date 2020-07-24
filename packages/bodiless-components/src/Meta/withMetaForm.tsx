@@ -4,7 +4,7 @@ import { v1 } from 'uuid';
 import {
   useFormUI, useRegisterSnippet, withCompoundForm, withEditFormSnippet,
 } from '@bodiless/core';
-import type { FormSnippet } from '@bodiless/core';
+import type { FormSnippet, UseGetMenuOptions } from '@bodiless/core';
 import { Div } from '@bodiless/fclasses';
 
 export enum FieldType {
@@ -17,7 +17,7 @@ export type HeaderProps = {
   description: string,
 };
 
-export type MetaSnippetProps = {
+export type MetaSnippetOptions = {
   name: string,
   label: string,
   useFormElement?: Function,
@@ -27,7 +27,7 @@ export type MetaSnippetProps = {
 };
 
 export const withMetaSnippet = (
-  options: MetaSnippetProps,
+  options: MetaSnippetOptions,
 ) => withEditFormSnippet({
   render: () => {
     const {
@@ -49,10 +49,7 @@ export const withMetaSnippet = (
   },
   initialValueHandler: (values) => {
     const { name, initalValueHandler: nextInitialValuesHandler } = options;
-    const initialValues = values.content ? {
-      ...values,
-      [name]: values.content,
-    } : { ...values };
+    const initialValues = { [name]: values.content };
     return nextInitialValuesHandler ? nextInitialValuesHandler(initialValues) : initialValues;
   },
 });
@@ -85,7 +82,10 @@ const defaultMetaFormHeader = {
   This is metadata needed for SEO that will go in the page header.`,
 };
 
-const withMetaForm = (useGetMenuOptions: any, metaFormHeader?: HeaderProps) => flowRight(
+const withMetaForm = (
+  useGetMenuOptions: UseGetMenuOptions<any>,
+  metaFormHeader?: HeaderProps,
+) => flowRight(
   withCompoundForm({
     useGetMenuOptions, name: 'Meta', peer: true, id: 'meta',
   }),

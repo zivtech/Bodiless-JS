@@ -34,7 +34,7 @@ type BasicOptions = {
 
 type Options = {
   label: string;
-  useFormElement?: Function,
+  useFormElement?: () => CT,
   placeholder?: string;
 } & BasicOptions;
 
@@ -43,16 +43,16 @@ const withTitle$ = () => (
 ) => ({ children, content, ...rest }: Props) => (
   <HelmetComponent {...rest}>
     {children}
-    <title>{content || ''}</title>
+    {content && <title>{content}</title>}
   </HelmetComponent>
 );
 
-const withMeta$ = (name: string) => (
+const withMeta$ = (options: Options) => (
   HelmetComponent: CT<BaseProps>,
 ) => ({ children, content, ...rest }: Props) => (
   <HelmetComponent {...rest}>
     {children}
-    {content && <meta name={name} content={content} />}
+    {content && <meta name={options.name} content={content} />}
   </HelmetComponent>
 );
 
@@ -65,7 +65,7 @@ const withHeadElement = (renderHoc: Function) => (options: Options) => (
   ifEditable(withMetaSnippet({ ...options })),
   withoutProps('setComponentData'),
   withData,
-  renderHoc(options.name),
+  renderHoc(options),
 );
 
 const withMeta = withHeadElement(withMeta$);
@@ -75,7 +75,7 @@ const withMetaStatic = (options: BasicOptions) => (
   nodeKey?: WithNodeKeyProps, defaultContent?: string,
 ) => flowRight(
   asReadOnly,
-  // @ts-ignore
+  // @ts-ignore: non-editable meta data pass in BasicOptions.
   withMeta(options)(nodeKey, defaultContent),
 );
 
