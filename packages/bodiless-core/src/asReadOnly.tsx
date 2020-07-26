@@ -23,7 +23,8 @@ class ReadOnlyContext extends PageEditContext {
 
 const asReadOnly = (Component: ComponentType<any> | string) => (props: any) => {
   const oldContext = useEditContext();
-  const newContext = new ReadOnlyContext(oldContext);
+  // @ts-ignore: root context has no parent.
+  const newContext = new ReadOnlyContext(oldContext, oldContext.parent);
   return (
     <PageEditContext.Provider value={newContext}>
       <Component {...props} />
