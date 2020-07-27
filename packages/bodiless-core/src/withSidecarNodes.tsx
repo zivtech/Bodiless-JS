@@ -14,10 +14,10 @@
 
 import React, { createContext, useContext, ComponentType } from 'react';
 import { flowRight } from 'lodash';
-import NodeProvider, { useNode } from './NodeProvider';
-import { ContentNode } from './ContentNode';
+import { NodeContext } from './NodeProvider';
+import type { NodeMap } from './NodeProvider';
 
-const SidecarNodeContext = createContext<{[key: string]: ContentNode<any>}[]>([]);
+const SidecarNodeContext = createContext<NodeMap<any>[]>([]);
 
 /**
  * `startSidecarNodes` is an HOC which records the current ContentNode so that
@@ -26,17 +26,11 @@ const SidecarNodeContext = createContext<{[key: string]: ContentNode<any>}[]>([]
  * @see `withSidecarNodes`
  *
  * @param Component Any component which uses the Bodiless ContentNode system.
-*/
+ */
 const startSidecarNodes = <P extends object>(Component: ComponentType<P>) => {
   const StartSidecarNodes = (props: P) => {
     const oldValue = useContext(SidecarNodeContext);
-    const newValue = [
-      ...oldValue,
-      {
-        default: useNode('_default').node,
-        site: useNode('site').node,
-      },
-    ];
+    const newValue = [...oldValue, useContext(NodeContext)];
     return (
       <SidecarNodeContext.Provider value={newValue}>
         <Component {...props} />
@@ -59,16 +53,14 @@ const endSidecarNodes = <P extends object>(Component: ComponentType<P>) => {
   const EndSidecarNodes = (props: P) => {
     const oldValue = useContext(SidecarNodeContext);
     if (oldValue.length === 0) return <Component {...props} />;
-    const newNode = oldValue[oldValue.length - 1];
+    const newNodeProviderValue = oldValue[oldValue.length - 1];
     const newValue = oldValue.slice(0, -1);
     return (
-      <NodeProvider node={newNode.site} collection="site">
-        <NodeProvider node={newNode.default} collection="_default">
-          <SidecarNodeContext.Provider value={newValue}>
-            <Component {...props} />
-          </SidecarNodeContext.Provider>
-        </NodeProvider>
-      </NodeProvider>
+      <NodeContext.Provider value={newNodeProviderValue}>
+        <SidecarNodeContext.Provider value={newValue}>
+          <Component {...props} />
+        </SidecarNodeContext.Provider>
+      </NodeContext.Provider>
     );
   };
   EndSidecarNodes.displayName = 'EndSidecarNodes';

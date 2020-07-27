@@ -34,7 +34,7 @@ type BasicOptions = {
 
 type Options = {
   label: string;
-  useFormElement?: () => CT,
+  useFormElement?: () => CT<any>,
   placeholder?: string;
 } & BasicOptions;
 
