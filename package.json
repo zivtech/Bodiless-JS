@@ -68,7 +68,7 @@
     "@babel/runtime": "^7.4.2",
     "@types/enzyme": "^3.9.1",
     "@types/jest": "^24.0.18",
-    "@types/lodash": "^4.14.149",
+    "@types/lodash": "^4.14.158",
     "@types/rc-tooltip": "^3.7.1",
     "@types/react-dom": "^16.8.5",
     "@types/slate": "^0.44.0",
@@ -112,7 +112,7 @@
     "ts-jest": "^24.0.2",
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.7"
   },
   "repository": {
     "type": "git",
