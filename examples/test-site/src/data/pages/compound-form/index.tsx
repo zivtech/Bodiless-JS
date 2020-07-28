@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,12 @@ const useGetMenuOptions = () => () => [{
   name: 'form-test',
 }];
 const Test = flowRight(
-  withCompoundForm({ useGetMenuOptions, name: 'Test', peer: true }),
+  withCompoundForm({
+    useGetMenuOptions,
+    name: 'Test',
+    id: 'test',
+    peer: true,
+  }),
 )(Div);
 
 const PropsViewer = (props: any) => (
@@ -60,7 +65,7 @@ const asTestFormSnippet = (nodeKey: WithNodeKeyProps, defaultData: any) => flowR
   withNodeKey(nodeKey),
   withNode,
   withNodeDataHandlers(defaultData),
-  withEditFormSnippet(() => <TestSnippet {...defaultData} />),
+  withEditFormSnippet({ render: () => <TestSnippet {...defaultData} /> }),
   withoutProps('setComponentData'),
   withData,
 );

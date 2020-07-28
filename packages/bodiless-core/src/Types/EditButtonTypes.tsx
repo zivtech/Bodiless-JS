@@ -16,6 +16,11 @@ import { ReactNode } from 'react';
 import { UseGetMenuOptions } from './PageContextProviderTypes';
 import { FormBodyProps as ContextMenuFormBodyProps } from '../contextMenuForm';
 
+type EditDataHandler<D> = {
+  initialValueHandler?: (values: any) => D;
+  submitValueHandler?: (values: D) => any;
+};
+
 export type FormBodyProps<P, D> = ContextMenuFormBodyProps<D> & {
   unwrap?: () => void;
   componentProps: P;
@@ -29,6 +34,7 @@ export type EditButtonProps<D> = {
   unwrap?: () => void;
   isActive?: () => boolean;
   onSubmit?: () => void;
+  dataHandler?: EditDataHandler<D>;
 };
 export type EditButtonOptions<P, D> = {
   icon: string;

@@ -12,8 +12,8 @@
  * limitations under the License.
  */
 
-import { withNode, withNodeKey } from '@bodiless/core';
 import { flowRight } from 'lodash';
+import { withNode, withNodeKey } from '@bodiless/core';
 
 const asBodilessHelmet = (nodeKey?: string) => flowRight(
   withNodeKey({ nodeKey, nodeCollection: 'site' }),

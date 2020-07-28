@@ -16,6 +16,7 @@ import { ComponentType } from 'react';
 import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from './PageContextProvider';
 import PageEditContext from './PageEditContext';
 import asStatic from './asStatic';
+import asReadOnly from './asReadOnly';
 import { useEditContext, useUUID, useContextActivator } from './hooks';
 import withNode, { withNodeKey } from './withNode';
 import withSidecarNodes, { startSidecarNodes, endSidecarNodes } from './withSidecarNodes';
@@ -42,9 +43,10 @@ import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
 import type { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
 import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
-import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
+import type { TMenuOptionGetter, UseGetMenuOptions } from './Types/PageContextProviderTypes';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
 import type { TOverlaySettings } from './Types/PageOverlayTypes';
+import type { Snippet as FormSnippet } from './withCompoundForm';
 import {
   ActivateOnEffectProvider,
   withActivateOnEffect,
@@ -52,7 +54,6 @@ import {
   useActivateOnEffectActivator,
 } from './ActivateContext';
 import {
-  NotificationProvider,
   useNotifications,
   useNotify,
 } from './NotificationProvider';
@@ -66,6 +67,7 @@ export * from './components';
 export {
   asBodilessComponent,
   asStatic,
+  asReadOnly,
   withContextActivator,
   withActivatorWrapper,
   withNodeAndHandlers,
@@ -113,7 +115,6 @@ export {
   ifToggledOn,
   withFlowToggle,
   useEditToggle,
-  NotificationProvider,
   useNotifications,
   useNotify,
 };
@@ -123,6 +124,7 @@ export type {
   PageEditContextInterface,
   TMenuOption,
   TMenuOptionGetter,
+  UseGetMenuOptions,
   WithNodeProps,
   WithNodeKeyProps,
   EditButtonOptions,
@@ -130,6 +132,7 @@ export type {
   TOverlaySettings,
   ContextMenuFormProps,
   AsBodiless,
+  FormSnippet,
 };
 
 export type Bodiless<P, Q> = (C: ComponentType<P> | string) => ComponentType<Q>;

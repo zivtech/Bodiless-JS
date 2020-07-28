@@ -24,7 +24,7 @@ import { useEditContext } from '../hooks';
 import { IContextMenuProps as ContextMenuProps } from '../Types/ContextMenuTypes';
 import { TMenuOption } from '../PageEditContext/types';
 import useNotificationButton from '../withNotificationButton';
-import useSwitcherButton from '../withSwitcherButton';
+import useSwitcherButton from '../useSwitcherButton';
 import { useRegisterMenuOptions } from '../PageContextProvider';
 import { NotificationProvider } from '../NotificationProvider';
 

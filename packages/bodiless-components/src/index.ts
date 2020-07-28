@@ -28,7 +28,11 @@ import asEditableList from './List/asEditableList';
 import asBasicSublist from './List/asBasicSublist';
 import withSublist, { withBasicSublist } from './List/withSublist';
 import withDeleteSublistOnUnwrap from './List/withDeleteSublistOnUnwrap';
-import { withMeta, withMetaTitle, withMetaHtml } from './Meta/Meta';
+import {
+  withMeta, withMetaStatic, withMetaHtml, withTitle,
+} from './Meta/Meta';
+import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
+import type { FieldType as MetaFormFieldType } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helemet';
 import withEvent from './GTM/gtm';
 import { withToggle, withToggleTo, withToggleButton } from './Toggle';
@@ -69,7 +73,8 @@ export {
   withPlaceholder,
   asEditable,
   withMeta,
-  withMetaTitle,
+  withTitle,
+  withMetaStatic,
   withMetaHtml,
   asBodilessHelmet,
   withEditPlaceholder,
@@ -87,6 +92,8 @@ export {
   BreakpointsType,
   ifViewportIs,
   ifViewportIsNot,
+  withMetaForm,
+  withMetaSnippet,
 };
 
 export type {
@@ -94,3 +101,4 @@ export type {
   TitleProps as ListTitleProps,
   ListDesignableComponents,
 } from './List/types';
+export type { MetaFormFieldType };

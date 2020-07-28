@@ -94,6 +94,7 @@ export interface PageEditContextInterface extends
 {
   readonly id: string;
   readonly name: string;
+  readonly parent?: PageEditContextInterface;
   /**
    * Function property which gets the menu options associated with this context.
    */
@@ -103,7 +104,7 @@ export interface PageEditContextInterface extends
    */
   readonly allMenuOptions: TMenuOption[];
   /**
-   * Spawn a childe of this context (another context which, when activaged, will also activate
+   * Spawn a child of this context (another context which, when activaged, will also activate
    * this one and all of its ancestors).
    */
   spawn: (v: DefinesLocalEditContext) => PageEditContextInterface;

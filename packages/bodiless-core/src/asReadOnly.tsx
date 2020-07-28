@@ -12,26 +12,24 @@
  * limitations under the License.
  */
 
-import React, {
-  ComponentType,
-} from 'react';
-import StaticPage from './components/StaticPage';
+import React, { ComponentType } from 'react';
+import PageEditContext from './PageEditContext';
+import { useEditContext } from './hooks';
 
-/**
- * Wraps given component in StaticPage component making the component and its children read-only
- * @param Component
- */
-const asStatic = (Component: ComponentType<any> | string) => {
-  const name = typeof Component === 'string'
-    ? Component
-    : Component.displayName || Component.name || 'Component';
-  const withStatic = (props: any) => (
-    <StaticPage>
+class ReadOnlyContext extends PageEditContext {
+  // eslint-disable-next-line class-methods-use-this
+  get isEdit() { return false; }
+}
+
+const asReadOnly = (Component: ComponentType<any> | string) => (props: any) => {
+  const oldContext = useEditContext();
+  // @ts-ignore: root context has no parent.
+  const newContext = new ReadOnlyContext(oldContext, oldContext.parent);
+  return (
+    <PageEditContext.Provider value={newContext}>
       <Component {...props} />
-    </StaticPage>
+    </PageEditContext.Provider>
   );
-  withStatic.displayName = `asStatic${name}`;
-  return withStatic;
 };
 
-export default asStatic;
+export default asReadOnly;

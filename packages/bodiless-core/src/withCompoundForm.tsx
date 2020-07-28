@@ -70,9 +70,11 @@ const Form = <D extends object>(props: FormProps<D>) => {
   const submitValues = (values: any) => {
     snippets.forEach(s => {
       if (typeof s.submitValues !== 'function') return;
-      // Ensure that we only submit values whose keys were present in the initial values.
-      const values$ = pick(values, Object.keys(s.initialValues));
-      s.submitValues(values$);
+      if (s.initialValues && s.submitValues) {
+        // Ensure that we only submit values whose keys were present in the initial values.
+        const values$ = pick(values, Object.keys(s.initialValues));
+        s.submitValues(values$);
+      }
     });
   };
 
