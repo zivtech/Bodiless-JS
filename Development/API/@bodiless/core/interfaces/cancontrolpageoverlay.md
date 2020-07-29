@@ -23,7 +23,7 @@
 
 • **hidePageOverlay**: *function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6788190/packages/bodiless-core/src/PageEditContext/types.ts#L50)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b209a96/packages/bodiless-core/src/PageEditContext/types.ts#L50)*
 
 #### Type declaration:
 
@@ -41,7 +41,7 @@ ___
 
 • **pageOverlay**: *[TPageOverlayStore](../globals.md#tpageoverlaystore)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6788190/packages/bodiless-core/src/PageEditContext/types.ts#L48)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b209a96/packages/bodiless-core/src/PageEditContext/types.ts#L48)*
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 • **showError**: *function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6788190/packages/bodiless-core/src/PageEditContext/types.ts#L51)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b209a96/packages/bodiless-core/src/PageEditContext/types.ts#L51)*
 
 #### Type declaration:
 
@@ -67,7 +67,7 @@ ___
 
 • **showPageOverlay**: *function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6788190/packages/bodiless-core/src/PageEditContext/types.ts#L49)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b209a96/packages/bodiless-core/src/PageEditContext/types.ts#L49)*
 
 #### Type declaration:
 
