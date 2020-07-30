@@ -86,7 +86,9 @@ export type ContextMenuFormProps = {
 export type IContextMenuItemProps = {
   ui?: UI
   option: TMenuOption;
-  index: number;
+  name: string,
+  index?: number;
+  group?: string;
   // eslint-disable-next-line max-len
   setParentRenderForm?: React.Dispatch<React.SetStateAction<((props: ContextMenuFormProps) => JSX.Element) | undefined>>;
 };
