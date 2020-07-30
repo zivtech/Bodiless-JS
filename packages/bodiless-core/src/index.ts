@@ -62,6 +62,7 @@ import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
 import { useUI as useFormUI } from './components/ContextMenuItem';
+import ContextSubMenu from './ContextMenu/ContextSubMenu';
 
 export * from './components';
 export {
@@ -93,6 +94,7 @@ export {
   contextMenuForm,
   useContextMenuForm,
   ContextMenuForm,
+  ContextSubMenu,
   useFormUI,
   withData,
   NodeProvider,

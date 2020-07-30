@@ -22,6 +22,7 @@ import {
   useEditContext,
   useNotify,
   useRegisterMenuOptions,
+  ContextSubMenu,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
@@ -194,7 +195,7 @@ const getMenuOptions = (
       name: 'file',
       label: 'File',
       icon: 'book',
-      Component: Group,
+      Component: ContextSubMenu,
     },
     {
       name: 'listCommits',
