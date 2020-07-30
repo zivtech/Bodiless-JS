@@ -13,23 +13,8 @@
  */
 
 // Internal mobx store which holds the state.
-import React, { ComponentType } from 'react';
-import { TOverlaySettings } from '../Types/PageOverlayTypes';
-import { IContextMenuItemProps } from 'src/Types/ContextMenuTypes';
-
-export type TMenuOption = {
-  name: string;
-  icon?: string;
-  label?: string;
-  isActive?: () => boolean;
-  isDisabled?: () => boolean;
-  isHidden?: () => boolean;
-  handler?: (event: React.MouseEvent) => any;
-  local?: boolean;
-  global?: boolean;
-  group?: string;
-  Component?: ComponentType<IContextMenuItemProps>,
-};
+import type { TOverlaySettings } from '../Types/PageOverlayTypes';
+import { TMenuOption } from '../Types/ContextMenuTypes';
 
 export type TMenuOptionGetter = () => TMenuOption[];
 

@@ -41,7 +41,8 @@ import {
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
-import type { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
+import type { PageEditContextInterface } from './PageEditContext/types';
+import { TMenuOption } from './Types/ContextMenuTypes';
 import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
 import type { TMenuOptionGetter, UseGetMenuOptions } from './Types/PageContextProviderTypes';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
@@ -61,7 +62,6 @@ import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
 import { useUI as useFormUI } from './components/ContextMenuItem';
-import withContextSubMenu, { useRegisterSubMenuOption } from './withContextSubMenu';
 
 export * from './components';
 export {
@@ -93,8 +93,6 @@ export {
   contextMenuForm,
   useContextMenuForm,
   ContextMenuForm,
-  withContextSubMenu,
-  useRegisterSubMenuOption,
   useFormUI,
   withData,
   NodeProvider,

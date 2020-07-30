@@ -1,5 +1,5 @@
 /**
- * Copyright © 2020 Johnson & Johnson
+ * Copyright © 2019 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,9 @@
  */
 
 import React, { FC, ComponentType } from 'react';
-import { flowRight } from 'lodash';
 import {
   StaticPage,
   ContextWrapperProps,
-  withContextSubMenu,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
@@ -45,25 +43,11 @@ const defaultUI: FinalUI = {
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
-const NewPageButton: FC = () => {
+const InnerButtons: FC = () => {
   useNewPageButton();
-  return <></>;
-};
-
-const useGetMenuOptions = () => () => [{
-  icon: 'cloud',
-  label: 'File',
-  name: 'file',
-}];
-
-const GitButtons = () => {
   useGitButtons();
   return <></>;
 };
-
-const GitSubMenu = flowRight(
-  withContextSubMenu({ useGetMenuOptions, name: 'File' }),
-)(React.Fragment);
 
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
   const { PageEditor: Editor, ContextWrapper: Wrapper } = getUI(ui);
@@ -72,10 +56,7 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
       <GatsbyNodeProvider {...rest}>
         <GatsbyPageProvider pageContext={rest.pageContext}>
           <Editor>
-            <NewPageButton />
-            <GitSubMenu>
-              <GitButtons />
-            </GitSubMenu>
+            <InnerButtons />
             <Wrapper clickable>
               {children}
             </Wrapper>

@@ -23,8 +23,21 @@ import {
   SelectFieldProps,
 } from 'informed';
 import Tooltip from 'rc-tooltip';
-import { TMenuOption } from '../PageEditContext/types';
 import { ReactTagsFieldProps } from '../components/ReactTagsField';
+
+export type TMenuOption = {
+  name: string;
+  icon?: string;
+  label?: string;
+  isActive?: () => boolean;
+  isDisabled?: () => boolean;
+  isHidden?: () => boolean;
+  handler?: (event: React.MouseEvent) => any;
+  local?: boolean;
+  global?: boolean;
+  group?: string;
+  Component?: ComponentType<IContextMenuItemProps>;
+};
 
 export type ButtonVariantProps = HTMLProps<HTMLDivElement> & {
   isActive?: boolean;

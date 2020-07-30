@@ -12,7 +12,8 @@
  * limitations under the License.
  */
 
-import { TMenuOption, PageEditContextInterface } from '../PageEditContext/types';
+import { PageEditContextInterface } from '../PageEditContext/types';
+import { TMenuOption } from './ContextMenuTypes';
 
 export type TMenuOptionGetter = () => TMenuOption[];
 

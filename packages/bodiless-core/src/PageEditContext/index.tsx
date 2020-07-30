@@ -20,10 +20,10 @@ import {
   DefinesLocalEditContext,
   PageEditContextInterface,
   PageEditStoreInterface,
-  TMenuOption,
   TMenuOptionGetter,
   TPageOverlayStore,
 } from './types';
+import { TMenuOption } from '../Types/ContextMenuTypes';
 import { TOverlaySettings } from '../Types/PageOverlayTypes';
 import {
   getFromSessionStorage,
@@ -187,7 +187,7 @@ class PageEditContext implements PageEditContextInterface {
     // Sets the group for each option to
     const ownOptions = this.getMenuOptions
       // Add the id of this context as the "group" of each option.
-      ? this.getMenuOptions().map((op): TMenuOption => ({ ...op, group: this.id }))
+      ? this.getMenuOptions().map((op): TMenuOption => ({ group: this.id, ...op }))
       : [];
     return this.peerContexts.reduce(
       (finalOptions, peerContext) => [...finalOptions, ...peerContext.allMenuOptions],

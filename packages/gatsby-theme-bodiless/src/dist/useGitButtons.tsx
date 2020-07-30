@@ -1,5 +1,5 @@
 /**
- * Copyright © 2020 Johnson & Johnson
+ * Copyright © 2019 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  */
 
 /* eslint-disable no-alert */
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, FC } from 'react';
 import Cookies from 'universal-cookie';
 import {
   contextMenuForm,
@@ -21,7 +21,7 @@ import {
   TMenuOption,
   useEditContext,
   useNotify,
-  useRegisterSubMenuOption,
+  useRegisterMenuOptions,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
@@ -175,6 +175,60 @@ const formGitReset = (client: GitClient, context: any) => contextMenuForm({
 
 const defaultClient = new BackendClient();
 
+const Group: FC<any> = ({ children }) => (
+  <div>
+    <h3>File</h3>
+    <div>{children}</div>
+    <hr />
+  </div>
+);
+
+const getMenuOptions = (
+  client: GitClient = defaultClient,
+  context: any,
+  notifyOfChanges: ChangeNotifier,
+): TMenuOption[] => {
+  const saveChanges = canCommit ? formGitCommit(client) : undefined;
+  return [
+    {
+      name: 'file',
+      label: 'File',
+      icon: 'book',
+      Component: Group,
+    },
+    {
+      name: 'listCommits',
+      icon: 'book',
+      label: 'History',
+      handler: () => formGetCommitsList(client),
+      group: 'file',
+    },
+    {
+      name: 'savechanges',
+      icon: 'cloud_upload',
+      label: 'Push',
+      isDisabled: () => !canCommit,
+      handler: () => saveChanges,
+      group: 'file',
+    },
+    {
+      name: 'Pull',
+      label: 'Pull',
+      icon: 'cloud_download',
+      handler: () => formGitPull(client, notifyOfChanges),
+      group: 'file',
+    },
+    {
+      name: 'resetchanges',
+      label: 'Revert',
+      icon: 'undo',
+      isHidden: () => !context.isEdit,
+      handler: () => formGitReset(client, context),
+      group: 'file',
+    },
+  ];
+};
+
 export type ChangeNotifier = () => Promise<void>;
 
 const useGitButtons = ({ client = defaultClient } = {}) => {
@@ -220,39 +274,10 @@ const useGitButtons = ({ client = defaultClient } = {}) => {
     }
   }, []);
 
-  const saveChanges = canCommit ? formGitCommit(client) : undefined;
-  const gitButtons: TMenuOption[] = [
-    {
-      name: 'listCommits',
-      icon: 'book',
-      label: 'History',
-      handler: () => formGetCommitsList(client),
-    },
-    {
-      name: 'savechanges',
-      icon: 'cloud_upload',
-      label: 'Push',
-      isDisabled: () => !canCommit,
-      handler: () => saveChanges,
-    },
-    {
-      name: 'Pull',
-      label: 'Pull',
-      icon: 'cloud_download',
-      handler: () => formGitPull(client, notifyOfChanges),
-    },
-    {
-      name: 'resetchanges',
-      label: 'Revert',
-      icon: 'undo',
-      isHidden: () => !context.isEdit,
-      handler: () => formGitReset(client, context),
-    },
-  ];
-
-  gitButtons.forEach(option => useRegisterSubMenuOption(option));
-
-  return gitButtons;
+  useRegisterMenuOptions({
+    getMenuOptions: () => getMenuOptions(client, context, notifyOfChanges),
+    name: 'Git',
+  });
 };
 
 export default useGitButtons;

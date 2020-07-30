@@ -20,23 +20,6 @@ export const Item: FC<ContextMenuGroupProps> = ({ label }) => (
   <button type="button">{label}</button>
 );
 
-/*
-const getOptionElements = (options: TMenuOption[]) => (
-  options
-    .map(
-      (option) => (
-        <ContextMenuItem
-          option={option}
-          group={option.group || option.name}
-          key={option.name}
-          aria-label={option.name}
-          index={0}
-        />
-      ),
-    )
-);
-*/
-
 type GroupTree = {
   [name: string]: {
     element: ReactElement,

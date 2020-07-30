@@ -12,12 +12,13 @@
  * limitations under the License.
  */
 
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { getUI as getFormUI } from '../contextMenuForm';
-import { IContextMenuProps as IProps, UI, ContextMenuFormProps } from '../Types/ContextMenuTypes';
-import { TMenuOption } from '../PageEditContext/types';
+import {
+  IContextMenuProps as IProps, UI, ContextMenuFormProps, TMenuOption,
+} from '../Types/ContextMenuTypes';
 import ContextMenuItem from './ContextMenuItem';
-import StructuredChildren from './StructuredChildren';
+import StructuredChildren from '../ContextMenu/StructuredChildren';
 
 const defaultUI = {
   Toolbar: 'div',
@@ -41,7 +42,7 @@ const createChildrenFromOptions = (options: TMenuOption[]) => options.map(
         aria-label={option.name}
       />
     );
-  }
+  },
 );
 
 // @TODO: This should come from the ui.

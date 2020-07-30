@@ -19,7 +19,7 @@ import {
 } from '../hoc';
 import { withMenuOptions } from '../PageContextProvider';
 import { useNode } from '../NodeProvider';
-import { TMenuOption } from '../PageEditContext/types';
+import { TMenuOption } from '../Types/ContextMenuTypes';
 
 type MenuOptionWithNodeKey = TMenuOption & {
   nodeKey?: string;
