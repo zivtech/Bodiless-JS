@@ -22,7 +22,7 @@
 
 • **getMenuOptions**? : *undefined | function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b209a96/packages/bodiless-core/src/PageEditContext/types.ts#L63)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/32e0498/packages/bodiless-core/src/PageEditContext/types.ts#L63)*
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 • **id**: *string*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b209a96/packages/bodiless-core/src/PageEditContext/types.ts#L62)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/32e0498/packages/bodiless-core/src/PageEditContext/types.ts#L62)*
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 • **name**: *string*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b209a96/packages/bodiless-core/src/PageEditContext/types.ts#L61)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/32e0498/packages/bodiless-core/src/PageEditContext/types.ts#L61)*
