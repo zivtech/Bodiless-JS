@@ -48,6 +48,7 @@ const createChildrenFromOptions = (options: TMenuOption[]) => options.map(
 
 const ContextMenu: FC<IContextMenuProps> = (props) => {
   if (typeof window === 'undefined') return null;
+  console.log('render context menu');
 
   const [renderForm, setRenderForm] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const {
