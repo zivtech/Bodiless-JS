@@ -31,7 +31,9 @@ const PrimaryHeader = flow(
   asEditable('title', 'Title'),
 )(H1);
 
-const Body = withSimpleEditor('body', 'Body')(Fragment);
+const FFragment = () => <></>;
+
+const Body = withSimpleEditor('body', 'Body')(FFragment);
 
 export default (props: PageProps) => (
   <Page {...props}>

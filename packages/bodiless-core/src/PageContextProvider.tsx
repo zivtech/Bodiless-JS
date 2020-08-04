@@ -44,8 +44,14 @@ const useNewContextValues = ({ getMenuOptions, name, id }: Props) => {
 export const useRegisterMenuOptions = (props: Props) => {
   const values = useNewContextValues(props);
   const context = useEditContext();
-  context.registerPeer(values);
-  useEffect(() => { if (context.isActive) context.updateMenuOptions(); });
+  const peerContext = new PageEditContext(values, context.parent);
+  context.registerPeer(peerContext);
+  useEffect(() => {
+    if (context.isActive) peerContext.updateMenuOptions();
+    // return () => {
+    //   peerContext.deleteMenuOptions();
+    // };
+  });
 };
 
 /**

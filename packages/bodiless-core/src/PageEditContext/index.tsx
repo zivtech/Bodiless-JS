@@ -64,7 +64,7 @@ const defaultOverlaySettings: TOverlaySettings = {
  *
  * Holds the current UI state for the editor.
  */
-class PageEditStore implements PageEditStoreInterface {
+export class PageEditStore implements PageEditStoreInterface {
   @observable activeContext: PageEditContextInterface | undefined = undefined;
 
   @observable isEdit = getFromSessionStorage('isEdit', false);
@@ -97,8 +97,10 @@ class PageEditStore implements PageEditStoreInterface {
     };
   }
 
-  constructor() {
-    this.reset();
+  constructor(activeContext?: PageEditContextInterface) {
+    if (activeContext) {
+      this.setActiveContext(activeContext);
+    }
   }
 
   @action
@@ -196,7 +198,7 @@ class PageEditStore implements PageEditStoreInterface {
   }
 }
 
-const defaultStore = new PageEditStore();
+export const defaultStore = new PageEditStore();
 
 /**
  * A Page Edit Context represents a particular state of the page editor, usually
@@ -226,7 +228,7 @@ class PageEditContext implements PageEditContextInterface {
 
   readonly parent: PageEditContextInterface | undefined;
 
-  private store: PageEditStoreInterface = defaultStore;
+  protected store: PageEditStoreInterface = defaultStore;
 
   hasLocalMenu = false;
 
@@ -242,10 +244,14 @@ class PageEditContext implements PageEditContextInterface {
     }
   }
 
-  peerContexts: PageEditContextInterface[] = [];
+  protected _peerContexts: PageEditContextInterface[] = [];
 
-  registerPeer(values: DefinesLocalEditContext) {
-    const context = new PageEditContext(values, this.parent);
+  get peerContexts() {
+    // eslint-disable-next-line no-underscore-dangle
+    return this._peerContexts;
+  }
+
+  registerPeer(context: PageEditContextInterface) {
     // Ensure that the same context is not registered more than once.
     const existsAt = this.peerContexts.findIndex(c => c.id === context.id);
     if (existsAt >= 0) this.peerContexts.splice(existsAt, 1, context);
@@ -253,6 +259,11 @@ class PageEditContext implements PageEditContextInterface {
     // This is bc of the way we traverse the context trail when a context is activated,
     // starting with the "innermost" (lowest) context.
     else this.peerContexts.splice(0, 0, context);
+  }
+
+  unregisterPeers() {
+    // eslint-disable-next-line no-underscore-dangle
+    this._peerContexts = [];
   }
 
   get allMenuOptions() {
@@ -269,7 +280,9 @@ class PageEditContext implements PageEditContextInterface {
     );
   }
 
-  static context = React.createContext<PageEditContextInterface>(new PageEditContext());
+  static root = new PageEditContext();
+
+  static context = React.createContext<PageEditContextInterface>(PageEditContext.root);
 
   // Make our context consumer observable.
   // See https://github.com/mobxjs/mobx-react/issues/471.
@@ -398,4 +411,5 @@ export default PageEditContext;
 export const useApi = () => ({
   contextMenuOptions: defaultStore.contextMenuOptions,
   resetStore: () => defaultStore.reset(),
+  deactivateContext: () => { defaultStore.activeContext = undefined; },
 });

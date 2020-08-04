@@ -49,6 +49,7 @@ export interface DefinesLocalEditContext {
   name?: string;
   getMenuOptions?: () => TMenuOption[];
 }
+
 export interface CanBeActivated {
   isActive: boolean;
   isInnermost: boolean;
@@ -86,7 +87,6 @@ export interface PageEditContextInterface extends
   readonly name: string;
   readonly parent?: PageEditContextInterface;
   readonly peerContexts: PageEditContextInterface[];
-  // store: PageEditStoreInterface;
   updateMenuOptions: () => void;
   deleteMenuOptions: () => void;
   /**
@@ -105,5 +105,9 @@ export interface PageEditContextInterface extends
   /**
    * Register a peer of this context (another context which will be activagted along with this one)
    */
-  registerPeer: (v: DefinesLocalEditContext) => void;
+  registerPeer: (c: PageEditContextInterface) => void;
+  /**
+   * Unregister all peers.
+   */
+  unregisterPeers: () => void;
 }
