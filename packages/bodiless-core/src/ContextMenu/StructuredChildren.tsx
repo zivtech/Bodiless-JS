@@ -2,12 +2,8 @@ import React, {
   FC, ReactElement, ReactNode, ComponentType,
 } from 'react';
 import { flow } from 'lodash';
+import { ContextMenuGroupProps } from '../Types/ContextMenuTypes';
 
-export type ContextMenuGroupProps = {
-  name: string,
-  label?: string,
-  group?: string,
-};
 export const Group: FC<ContextMenuGroupProps> = ({ label, children }) => (
   <div>
     {label && <h3>{label}</h3>}

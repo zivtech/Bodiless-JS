@@ -22,6 +22,7 @@ import StructuredChildren from '../ContextMenu/StructuredChildren';
 
 const defaultUI = {
   Toolbar: 'div',
+  StructuredChildrenGroup: React.Fragment,
 };
 
 export const getUI = (ui: UI = {}) => ({
@@ -45,9 +46,6 @@ const createChildrenFromOptions = (options: TMenuOption[]) => options.map(
   },
 );
 
-// @TODO: This should come from the ui.
-const Group: FC<any> = ({ children }) => <>{children}</>;
-
 const ContextMenu: FC<IProps> = (props) => {
   if (typeof window === 'undefined') return null;
 
@@ -58,7 +56,7 @@ const ContextMenu: FC<IProps> = (props) => {
     renderInTooltip = true,
     children,
   } = props;
-  const { Toolbar } = getUI(ui);
+  const { Toolbar, StructuredChildrenGroup } = getUI(ui);
 
   const childProps = {
     ui,
@@ -78,7 +76,7 @@ const ContextMenu: FC<IProps> = (props) => {
   if (children || childrenFromOptions.length > 0) {
     return (
       <Toolbar onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
-        <StructuredChildren components={{ Group }} {...childProps}>
+        <StructuredChildren components={{ Group: StructuredChildrenGroup }} {...childProps}>
           {children}
           {childrenFromOptions}
         </StructuredChildren>

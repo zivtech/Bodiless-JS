@@ -13,7 +13,7 @@
  */
 
 /* eslint-disable no-alert */
-import React, { useState, useEffect, useCallback, FC } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Cookies from 'universal-cookie';
 import {
   contextMenuForm,
@@ -175,14 +175,6 @@ const formGitReset = (client: GitClient, context: any) => contextMenuForm({
 );
 
 const defaultClient = new BackendClient();
-
-const Group: FC<any> = ({ children }) => (
-  <div>
-    <h3>File</h3>
-    <div>{children}</div>
-    <hr />
-  </div>
-);
 
 const getMenuOptions = (
   client: GitClient = defaultClient,

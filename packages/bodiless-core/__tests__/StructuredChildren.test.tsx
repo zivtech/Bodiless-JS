@@ -4,7 +4,7 @@ import StructuredChildren, {
   asElementArray, addMissingGroups,
   buildGroupTree, cloneChildren,
 } from '../src/ContextMenu/StructuredChildren';
-import type { ContextMenuGroupProps } from '../src/ContextMenu/StructuredChildren';
+import type { ContextMenuGroupProps } from '../src/Types/ContextMenuTypes';
 
 const Item: FC<ContextMenuGroupProps> = ({ children }) => <>{children}</>;
 const Group: FC<ContextMenuGroupProps> = ({ children }) => <>{children}</>;

@@ -49,6 +49,12 @@ type IconVariantProps = HTMLProps<HTMLSpanElement> & {
   isActive?: boolean;
 };
 
+export type ContextMenuGroupProps = {
+  name: string,
+  label?: string,
+  group?: string,
+};
+
 export type UI = {
   Icon?: ComponentType<IconVariantProps> | string;
   Toolbar?: ComponentType<HTMLProps<HTMLDivElement>> | string;
@@ -79,6 +85,7 @@ export type UI = {
   ComponentFormList?: ComponentType<HTMLProps<HTMLUListElement>> | string;
   ComponentFormListItem?: ComponentType<HTMLProps<HTMLLIElement>> | string;
   ComponentFormSubMenu?: ComponentType<HTMLProps<HTMLDivElement>> | string;
+  StructuredChildrenGroup?: ComponentType<ContextMenuGroupProps>;
 };
 
 export type IContextMenuProps = {
