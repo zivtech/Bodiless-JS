@@ -15,7 +15,7 @@
 import React, { FC, useState } from 'react';
 import { getUI as getFormUI } from '../contextMenuForm';
 import {
-  IContextMenuProps as IProps, UI, ContextMenuFormProps, TMenuOption,
+  IContextMenuProps, UI, ContextMenuFormProps, TMenuOption,
 } from '../Types/ContextMenuTypes';
 import ContextMenuItem from './ContextMenuItem';
 import StructuredChildren from '../ContextMenu/StructuredChildren';
@@ -46,7 +46,7 @@ const createChildrenFromOptions = (options: TMenuOption[]) => options.map(
   },
 );
 
-const ContextMenu: FC<IProps> = (props) => {
+const ContextMenu: FC<IContextMenuProps> = (props) => {
   if (typeof window === 'undefined') return null;
 
   const [renderForm, setRenderForm] = useState<(props:ContextMenuFormProps) => JSX.Element>();
@@ -60,7 +60,7 @@ const ContextMenu: FC<IProps> = (props) => {
 
   const childProps = {
     ui,
-    setParentRenderForm: renderInTooltip ? undefined : setRenderForm,
+    setRenderForm: renderInTooltip ? undefined : setRenderForm,
   };
   const childrenFromOptions = createChildrenFromOptions(options);
 

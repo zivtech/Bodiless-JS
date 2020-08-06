@@ -65,7 +65,7 @@ const defaultComponents: CompoundFormComponents = {
  */
 const Form = <D extends object>(props: FormProps<D>) => {
   const { snippets, components, ...rest } = props;
-  const { Wrapper } = { ...defaultComponents, ...components };
+  const { Wrapper } = components;
 
   const submitValues = (values: any) => {
     snippets.forEach(s => {
@@ -74,6 +74,8 @@ const Form = <D extends object>(props: FormProps<D>) => {
         // Ensure that we only submit values whose keys were present in the initial values.
         const values$ = pick(values, Object.keys(s.initialValues));
         s.submitValues(values$);
+      } else {
+        throw new Error('Submit handler requires \'submitValues\' and \'initialValues\' to be invoked properly.');
       }
     });
   };
@@ -168,7 +170,7 @@ const withCompoundForm = <P extends object>(options: Options<P>) => (Component: 
       </Context.Provider>
     );
   };
-  return designable({ Wrapper: React.Fragment })(WithCompoundForm);
+  return designable(defaultComponents)(WithCompoundForm);
 };
 
 export default withCompoundForm;

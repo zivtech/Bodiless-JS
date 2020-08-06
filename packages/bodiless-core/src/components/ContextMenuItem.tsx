@@ -45,9 +45,9 @@ const ContextMenuItem = (props: IProps) => {
     option,
     index,
     ui,
-    setParentRenderForm, // setParentRenderForm setRenderForm
+    setRenderForm: setRenderFormProp,
   } = props;
-  const [renderForm, setRenderForm] = useState<(props:ContextMenuFormProps) => JSX.Element>();
+  const [renderForm, setRenderForm$] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
   const finalUI = getUI(ui);
   const {
@@ -61,6 +61,7 @@ const ContextMenuItem = (props: IProps) => {
   const isDisabled = option.isDisabled ? option.isDisabled() : false;
   const isHidden = option.isHidden ? option.isHidden() : false;
   const isFirst = index === 0;
+  const setRenderForm = setRenderFormProp || setRenderForm$;
 
   const onToolbarButtonClick = (event: React.MouseEvent<HTMLDivElement>): void => {
     const menuForm = option.handler ? option.handler(event) : undefined;
@@ -70,11 +71,7 @@ const ContextMenuItem = (props: IProps) => {
       // (a render prop) and, when a function is passed to setState, react interprets
       // it as a state setter (in order to set state based on previous state)
       // see https://reactjs.org/docs/hooks-reference.html#functional-updates
-      if (setParentRenderForm) {
-        setParentRenderForm(() => menuForm);
-      } else {
-        setRenderForm(() => menuForm);
-      }
+      setRenderForm(() => menuForm);
     }
   };
 

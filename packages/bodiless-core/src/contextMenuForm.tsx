@@ -59,7 +59,7 @@ export type ContextMenuPropsType<D> = ContextMenuFormProps & Options<D> & {
   children: FormBodyRenderer<D>|ReactNode,
 };
 
-export const ContextMenuForm = <D extends object>(options: ContextMenuPropsType<D>) => {
+export const ContextMenuForm = <D extends object>(props: ContextMenuPropsType<D>) => {
   const {
     closeForm,
     onClose,
@@ -69,7 +69,7 @@ export const ContextMenuForm = <D extends object>(options: ContextMenuPropsType<
     hasSubmit = true,
     children = () => <></>,
     ...rest
-  } = options;
+  } = props;
   const { ComponentFormCloseButton, ComponentFormSubmitButton } = getUI(ui);
   const callOnClose = (values: D) => {
     if (typeof onClose === 'function') {

@@ -110,5 +110,5 @@ export type IContextMenuItemProps = {
   index?: number;
   group?: string;
   // eslint-disable-next-line max-len
-  setParentRenderForm?: React.Dispatch<React.SetStateAction<((props: ContextMenuFormProps) => JSX.Element) | undefined>>;
+  setRenderForm?: React.Dispatch<React.SetStateAction<((props: ContextMenuFormProps) => JSX.Element) | undefined>>;
 };
