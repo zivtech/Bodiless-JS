@@ -30,7 +30,7 @@
 
 \+ **new BackendSave**(`baseUrl?`: undefined | string, `prefix?`: undefined | string): *[BackendSave](backendsave.md)*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/2dc2a49/packages/bodiless-components/src/BackendSave.tsx#L24)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-components/src/BackendSave.tsx#L24)*
 
 **Parameters:**
 
@@ -47,7 +47,7 @@ Name | Type |
 
 • **cancelTokenSource**: *CancelTokenSource*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/2dc2a49/packages/bodiless-components/src/BackendSave.tsx#L24)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-components/src/BackendSave.tsx#L24)*
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **prefix**: *string*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/2dc2a49/packages/bodiless-components/src/BackendSave.tsx#L20)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-components/src/BackendSave.tsx#L20)*
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **root**: *string*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/2dc2a49/packages/bodiless-components/src/BackendSave.tsx#L18)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-components/src/BackendSave.tsx#L18)*
 
 ## Methods
 
@@ -71,7 +71,7 @@ ___
 
 ▸ **cancel**(`reason`: string): *void*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/2dc2a49/packages/bodiless-components/src/BackendSave.tsx#L51)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-components/src/BackendSave.tsx#L51)*
 
 **Parameters:**
 
@@ -87,7 +87,7 @@ ___
 
 ▸ **post**(`resourcePath`: string, `data`: any, `config`: any): *Promise‹AxiosResponse‹any››*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/2dc2a49/packages/bodiless-components/src/BackendSave.tsx#L37)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-components/src/BackendSave.tsx#L37)*
 
 **Parameters:**
 
@@ -105,7 +105,7 @@ ___
 
 ▸ **saveFile**(`file`: string): *Promise‹AxiosResponse‹any››*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/2dc2a49/packages/bodiless-components/src/BackendSave.tsx#L41)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-components/src/BackendSave.tsx#L41)*
 
 **Parameters:**
 
