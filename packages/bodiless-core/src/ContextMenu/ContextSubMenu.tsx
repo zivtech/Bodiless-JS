@@ -14,7 +14,6 @@
 
 import React, { FC, ComponentType as CT } from 'react';
 import { Div, addProps } from '@bodiless/fclasses';
-import { flow } from 'lodash';
 import ContextMenuItem, { useUI as useFormUI } from '../components/ContextMenuItem';
 import ContextMenu from '../components/ContextMenu';
 import type { IContextMenuItemProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
@@ -62,24 +61,18 @@ const ContextSubMenu: FC<IContextMenuItemProps> = props => {
 
   const finalUi = {
     ...ui,
-    Toolbar: flow(
-      addProps({ 'aria-label': `Context Submenu ${option.label} form` }),
-    )(Div),
+    Toolbar: addProps({ 'aria-label': `Context Submenu ${option.label} form` })(Div),
   };
 
   const handler = () => ({ closeForm }: ContextMenuFormProps) => {
-    const StructuredChildrenGroup = withFormChrome({
+    const ContextMenuGroup = withFormChrome({
       closeForm,
       title: option.label,
       hasSubmit: false,
     })(SubMenuGroup);
 
     return (
-      <ContextMenu
-        options={[]}
-        renderInTooltip={false}
-        ui={{ ...finalUi, StructuredChildrenGroup }}
-      >
+      <ContextMenu ui={{ ...finalUi, ContextMenuGroup }} renderInTooltip={false}>
         {children}
       </ContextMenu>
     );

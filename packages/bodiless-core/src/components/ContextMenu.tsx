@@ -22,7 +22,7 @@ import StructuredChildren from '../ContextMenu/StructuredChildren';
 
 const defaultUI = {
   Toolbar: 'div',
-  StructuredChildrenGroup: React.Fragment,
+  ContextMenuGroup: React.Fragment,
 };
 
 export const getUI = (ui: UI = {}) => ({
@@ -51,12 +51,12 @@ const ContextMenu: FC<IContextMenuProps> = (props) => {
 
   const [renderForm, setRenderForm] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const {
-    options,
+    options = [],
     ui,
     renderInTooltip = true,
     children,
   } = props;
-  const { Toolbar, StructuredChildrenGroup } = getUI(ui);
+  const { Toolbar, ContextMenuGroup } = getUI(ui);
 
   const childProps = {
     ui,
@@ -76,7 +76,7 @@ const ContextMenu: FC<IContextMenuProps> = (props) => {
   if (children || childrenFromOptions.length > 0) {
     return (
       <Toolbar onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
-        <StructuredChildren components={{ Group: StructuredChildrenGroup }} {...childProps}>
+        <StructuredChildren components={{ Group: ContextMenuGroup }} {...childProps}>
           {children}
           {childrenFromOptions}
         </StructuredChildren>

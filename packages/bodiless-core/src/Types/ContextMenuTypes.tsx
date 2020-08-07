@@ -85,12 +85,12 @@ export type UI = {
   ComponentFormList?: ComponentType<HTMLProps<HTMLUListElement>> | string;
   ComponentFormListItem?: ComponentType<HTMLProps<HTMLLIElement>> | string;
   ComponentFormSubMenu?: ComponentType<HTMLProps<HTMLDivElement>> | string;
-  StructuredChildrenGroup?: ComponentType<ContextMenuGroupProps>;
+  ContextMenuGroup?: ComponentType<ContextMenuGroupProps>;
 };
 
 export type IContextMenuProps = {
   children?: ReactNode;
-  options: TMenuOption[];
+  options?: TMenuOption[];
   // onDispose?: (wasSubmitted: boolean) => void;
   ui?: UI;
   isPositionToggled?: boolean;
