@@ -121,11 +121,6 @@ export class PageEditStore implements PageEditStoreInterface {
   }
 
   @action
-  deleteMenuOptions(contexts: PageEditContextInterface[]) {
-    contexts.forEach(context => this.optionMap.delete(context.id));
-  }
-
-  @action
   updateMenuOptions(context: PageEditContextInterface) {
     if (!this.optionMap.has(context.id)) {
       // We create a shallow map for each context bc we expect the
@@ -306,10 +301,6 @@ class PageEditContext implements PageEditContextInterface {
 
   updateMenuOptions() {
     this.store.updateMenuOptions(this);
-  }
-
-  deleteMenuOptions() {
-    this.store.deleteMenuOptions([this, ...this.peerContexts]);
   }
 
   // Tests whether this context is "active" - i.e. whether it or one of its descendants is the

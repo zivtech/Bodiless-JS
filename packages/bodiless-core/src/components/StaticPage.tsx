@@ -71,6 +71,8 @@ class StaticContext implements PageEditContextInterface {
 
   registerPeer = () => {};
 
+  unregisterPeer = () => {};
+
   allMenuOptions = [];
 }
 

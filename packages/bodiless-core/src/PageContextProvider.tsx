@@ -96,7 +96,6 @@ const PageContextProvider: FC<PageContextProviderProps> = ({ children, ...rest }
   const newValue = context.spawn(values);
   useEffect(() => {
     if (newValue.isActive) newValue.updateMenuOptions();
-    // return () => newValue.deleteMenuOptions();
   });
   return (
     <PageEditContext.Provider value={newValue}>
