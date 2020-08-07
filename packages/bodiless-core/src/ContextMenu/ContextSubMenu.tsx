@@ -37,8 +37,6 @@ const withFormChrome = <P extends object>(options: FormChromeOptions) => (Compon
       ComponentFormTitle, ComponentFormCloseButton, ComponentFormSubmitButton,
     } = useFormUI();
 
-    console.log('Props:', props);
-
     return (
       <>
         <ComponentFormCloseButton
