@@ -161,6 +161,52 @@ describe.skip('mobx', () => {
   });
 });
 
+describe('Registering peer contexts', () => {
+  let c: PageEditContextInterface;
+  let c1: PageEditContextInterface;
+  let c2: PageEditContextInterface;
+
+  beforeEach(() => {
+    c = new PageEditContext({ id: 'c' });
+    c1 = new PageEditContext({ id: 'c1' });
+    c2 = new PageEditContext({ id: 'c2' });
+    c.registerPeer(c1);
+    c.registerPeer(c2);
+  });
+
+  it('correctly registers peers', () => {
+    const peers = c.peerContexts;
+    expect(peers).toHaveLength(2);
+    expect(peers[0].id).toBe('c1');
+    expect(peers[1].id).toBe('c2');
+  });
+
+  it('replaces a registeed peer with the same id', () => {
+    const c1a = new PageEditContext({ id: 'c1' });
+    c.registerPeer(c1a);
+    const peers = c.peerContexts;
+    expect(peers).toHaveLength(2);
+    expect(peers[0].id).toBe('c1');
+    expect(peers[0]).toBe(c1a);
+    expect(peers[1].id).toBe('c2');
+  });
+
+  it('correctly unregisters a peer', () => {
+    c.unregisterPeer(c1);
+    expect(c.peerContexts).toHaveLength(1);
+    expect(c.peerContexts[0].id).toBe('c2');
+  });
+
+  it('preserves insertion order when re-registering', () => {
+    c.unregisterPeer(c1);
+    c.registerPeer(c1);
+    const peers = c.peerContexts;
+    expect(peers).toHaveLength(2);
+    expect(peers[0].id).toBe('c1');
+    expect(peers[1].id).toBe('c2');
+  });
+});
+
 describe('Update menu options', () => {
   const parentOptions = [{
     name: 'parent',

@@ -59,7 +59,7 @@ export interface CanBeActivated {
 }
 export interface PageEditStoreInterface {
   activeContext: PageEditContextInterface | undefined;
-  updateMenuOptions: (contexts: PageEditContextInterface[]) => string[];
+  updateMenuOptions: (contexts: PageEditContextInterface) => string[];
   deleteMenuOptions: (context: PageEditContextInterface[]) => void;
   contextMenuOptions: TMenuOption[];
   isEdit: boolean;
@@ -86,6 +86,10 @@ export interface PageEditContextInterface extends
   readonly id: string;
   readonly name: string;
   readonly parent?: PageEditContextInterface;
+  /**
+   * The "peer" contexts registered with this context.  Peer contexts contribute their menu
+   * options when the context wo which they are registered becomes active.
+   */
   readonly peerContexts: PageEditContextInterface[];
   updateMenuOptions: () => void;
   deleteMenuOptions: () => void;
@@ -93,10 +97,6 @@ export interface PageEditContextInterface extends
    * Function property which gets the menu options associated with this context.
    */
   readonly getMenuOptions: TMenuOptionGetter;
-  /**
-   * Prototype function which gets menu options associated with this context and any peers.
-   */
-  readonly allMenuOptions: TMenuOption[];
   /**
    * Spawn a child of this context (another context which, when activaged, will also activate
    * this one and all of its ancestors).
@@ -109,5 +109,5 @@ export interface PageEditContextInterface extends
   /**
    * Unregister all peers.
    */
-  unregisterPeers: () => void;
+  unregisterPeer: (c: PageEditContextInterface) => void;
 }

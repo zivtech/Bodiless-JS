@@ -110,7 +110,7 @@ export class PageEditStore implements PageEditStoreInterface {
     // Travel the context trail, updating options for each context.
     const keys: string[] = [];
     for (let c = this.activeContext; c; c = c.parent) {
-      keys.push(...this.updateMenuOptions([c!, ...c!.peerContexts]));
+      keys.push(...this.updateMenuOptions(c));
     }
 
     // Delete options for any context which is not in the trail
@@ -120,37 +120,37 @@ export class PageEditStore implements PageEditStoreInterface {
     });
   }
 
-  @action deleteMenuOptions(contexts: PageEditContextInterface[]) {
+  @action
+  deleteMenuOptions(contexts: PageEditContextInterface[]) {
     contexts.forEach(context => this.optionMap.delete(context.id));
   }
 
   @action
-  updateMenuOptions(contexts: PageEditContextInterface[]) {
-    const contextKeys: string[] = [];
-    contexts.forEach(context => {
-      contextKeys.push(context.id);
-      if (!this.optionMap.has(context.id)) {
-        // We create a shallow map for each context bc we expect the
-        // items to be memoized, so we need only compare references.
-        this.optionMap.set(context.id, observable.map({}, { deep: false }));
-      }
-      const map = this.optionMap.get(context.id);
-      const keys = new Set();
+  updateMenuOptions(context: PageEditContextInterface) {
+    if (!this.optionMap.has(context.id)) {
+      // We create a shallow map for each context bc we expect the
+      // items to be memoized, so we need only compare references.
+      this.optionMap.set(context.id, observable.map({}, { deep: false }));
+    }
+    const map = this.optionMap.get(context.id);
+    const keys = new Set();
+    [context, ...context.peerContexts].forEach(c => {
       // Update all items in the map
-      context.getMenuOptions().forEach(op => {
+      c.getMenuOptions().forEach(op => {
         map!.set(op.name, op);
         keys.add(op.name);
       });
-      // Delete any items which are no longer present.
-      map!.forEach(($, key) => {
-        if (!keys.has(key)) map!.delete(key);
-      });
     });
-    return contextKeys;
+    // Delete any items which are no longer present.
+    map!.forEach(($, key) => {
+      if (!keys.has(key)) map!.delete(key);
+    });
+    return [context.id];
   }
 
   @computed get contextMenuOptions(): TMenuOption[] {
     const options: TMenuOption[] = [];
+    // We reverse the array of options bc "lower" contexts
     const keys = Array.from(this.optionMap.keys()).reverse();
     keys.forEach(contextName => {
       const contextMap = this.optionMap.get(contextName);
@@ -244,40 +244,39 @@ class PageEditContext implements PageEditContextInterface {
     }
   }
 
-  protected _peerContexts: PageEditContextInterface[] = [];
+  protected peerContextMap: Map<string, PageEditContextInterface|null> = new Map();
 
   get peerContexts() {
-    // eslint-disable-next-line no-underscore-dangle
-    return this._peerContexts;
+    // Cast is necessary bc ts can't figure out that the filter removes all the nulls.
+    return Array.from(this.peerContextMap.values()).filter(Boolean) as PageEditContextInterface[];
   }
 
+  /**
+   * Registers a context as a peer.  Peer contexts contribute their menu options whenever the
+   * context to which they are registered is activated.
+   *
+   * @param context The peer context to register.
+   */
   registerPeer(context: PageEditContextInterface) {
-    // Ensure that the same context is not registered more than once.
-    const existsAt = this.peerContexts.findIndex(c => c.id === context.id);
-    if (existsAt >= 0) this.peerContexts.splice(existsAt, 1, context);
-    // Insert at the beginning. "lower" contexts are always before "upper" contexts in lists.
-    // This is bc of the way we traverse the context trail when a context is activated,
-    // starting with the "innermost" (lowest) context.
-    else this.peerContexts.splice(0, 0, context);
+    this.peerContextMap.set(context.id, context);
+  }
+
+  /**
+   * Marks a peer context as "unregistered".  An unregistered peer will not contribute
+   * its menu options.
+   *
+   * @param context The peer context to unregister.
+   */
+  unregisterPeer(context: PageEditContextInterface) {
+    if (this.peerContextMap.has(context.id)) {
+      // We mark it as unregistered instead of deleting it in order to preserve
+      // the original insertion order if/when it is added back.
+      this.peerContextMap.set(context.id, null);
+    }
   }
 
   unregisterPeers() {
-    // eslint-disable-next-line no-underscore-dangle
-    this._peerContexts = [];
-  }
-
-  get allMenuOptions() {
-    // Sets the group for each option to
-    const ownOptions = this.getMenuOptions
-      // Add the id of this context as the "group" of each option.
-      ? this.getMenuOptions().map(
-        (op): TMenuOption => ({ context: this.id, group: this.id, ...op }),
-      )
-      : [];
-    return this.peerContexts.reduce(
-      (finalOptions, peerContext) => [...finalOptions, ...peerContext.allMenuOptions],
-      ownOptions,
-    );
+    this.peerContextMap = new Map();
   }
 
   static root = new PageEditContext();
@@ -306,7 +305,7 @@ class PageEditContext implements PageEditContextInterface {
   }
 
   updateMenuOptions() {
-    this.store.updateMenuOptions([this, ...this.peerContexts]);
+    this.store.updateMenuOptions(this);
   }
 
   deleteMenuOptions() {

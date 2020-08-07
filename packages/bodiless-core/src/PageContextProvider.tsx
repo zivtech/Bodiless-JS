@@ -13,11 +13,11 @@
  */
 
 import React, {
-  FC, ComponentType, useEffect,
+  FC, ComponentType, useEffect, useLayoutEffect, useRef,
 } from 'react';
 import PageEditContext from './PageEditContext';
 import { useEditContext, useUUID } from './hooks';
-import { Props, Options } from './Types/PageContextProviderTypes';
+import { PageContextProviderProps, Options } from './Types/PageContextProviderTypes';
 
 /**
  * @private
@@ -27,7 +27,7 @@ import { Props, Options } from './Types/PageContextProviderTypes';
  * @param props The props defining the `PageEditContext`
  * @return Values suitable for passing to the `PageEditContext` constructor.
  */
-const useNewContextValues = ({ getMenuOptions, name, id }: Props) => {
+const useNewContextValues = ({ getMenuOptions, name, id }: PageContextProviderProps) => {
   const id$ = id || useUUID();
   return {
     getMenuOptions,
@@ -41,16 +41,45 @@ const useNewContextValues = ({ getMenuOptions, name, id }: Props) => {
  *
  * @param props Props which define the menu options to add.
  */
-export const useRegisterMenuOptions = (props: Props) => {
+export const useRegisterMenuOptions = (props: PageContextProviderProps) => {
   const values = useNewContextValues(props);
   const context = useEditContext();
   const peerContext = new PageEditContext(values, context.parent);
   context.registerPeer(peerContext);
+
+  // Handle unregistering from the current context if a component is removed through a
+  // conditional render. We use a layout effect bc it and its cleanup both
+  // execute before normal effects.  This allows us to unregister on unmount and re-register
+  // on mount without updating menu options.  By the time we get to the normal effect
+  // (which actually updates the menu options), if the component remounted, there will
+  // appear to be no change, and menu options will not update.  But if the component
+  // did not remount (was removed), then we go ahead and remove its options.
+  const updateOnUnmount = useRef(false);
+  useLayoutEffect(() => {
+    // We re-register the peer when the component mounts.  We have to do it both here and in
+    // render (above), bc we want the order of peers to be render order, not effect order.
+    context.registerPeer(peerContext);
+    updateOnUnmount.current = false;
+    return () => {
+      context.unregisterPeer(peerContext);
+      updateOnUnmount.current = true;
+    };
+  });
+  // In the normal effect, we update the menu options if the context is active.
   useEffect(() => {
-    if (context.isActive) peerContext.updateMenuOptions();
-    // return () => {
-    //   peerContext.deleteMenuOptions();
-    // };
+    // When the component mounts,
+    if (context.isActive) {
+      context.updateMenuOptions();
+    }
+    return (() => {
+      if (updateOnUnmount.current) {
+        // If we get here, it means the component was unmounted and not remounted. In this case
+        // we remove this peer from the current context.
+        if (context.isActive) {
+          context.updateMenuOptions();
+        }
+      }
+    });
   });
 };
 
@@ -60,7 +89,7 @@ export const useRegisterMenuOptions = (props: Props) => {
  *
  * @param props
  */
-const PageContextProvider: FC<Props> = ({ children, ...rest }) => {
+const PageContextProvider: FC<PageContextProviderProps> = ({ children, ...rest }) => {
   const values = useNewContextValues(rest);
   const context = useEditContext();
   // eslint-disable-next-line react/destructuring-assignment

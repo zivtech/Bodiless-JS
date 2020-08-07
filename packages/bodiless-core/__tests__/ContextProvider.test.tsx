@@ -15,9 +15,11 @@
  */
 
 import React, {
-  useMemo, useEffect, FC, useState, useCallback,
+  useMemo, useEffect, FC, useCallback, useLayoutEffect,
 } from 'react';
-import { shallow, mount, ReactWrapper } from 'enzyme';
+import {
+  shallow, mount, ReactWrapper, ComponentType,
+} from 'enzyme';
 import { observer } from 'mobx-react-lite';
 import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from '../src/PageContextProvider';
 import { useEditContext } from '../src/hooks';
@@ -37,6 +39,13 @@ const Menu = observer(() => {
     </>
   );
 });
+
+const withMenu = (Component: ComponentType<any>) => (props: any) => (
+  <>
+    <Component {...props} />
+    <Menu />
+  </>
+);
 
 const activatorFired = jest.fn();
 const Activator: FC = ({ children }) => {
@@ -77,8 +86,10 @@ const FooBar: FC<any> = ({
   };
 
   if (peer) {
-    useRegisterMenuOptions(props);
-    return null;
+    // We must specify an explicit, unique id for a peer context. Otherwise, if the component
+    // is re-created, the context to which it is registered will add it instead of replacing it.
+    useRegisterMenuOptions({ ...props, id: 'FooBar' });
+    return <>{children}</>;
   }
   return (
     <PageContextProvider {...props}>
@@ -114,7 +125,9 @@ const Baz: FC<any> = ({ children, peer }) => {
     name: 'Baz',
   };
   if (peer) {
-    useRegisterMenuOptions(props);
+    // We must specify an explicit, unique id for a peer context. Otherwise, if the component
+    // is re-created, the context to which it is registered will add it instead of replacing it.
+    useRegisterMenuOptions({ ...props, id: 'Baz' });
     return <>{children}</>;
   }
   return (
@@ -205,7 +218,6 @@ describe('ContextProvider', () => {
       expect(activatorFired).toHaveBeenCalledTimes(1);
       expect(menuRendered).toHaveBeenCalledTimes(2);
     });
-  
 
     it('removes options when a provider is removed', () => {
       wrapper = mount(<RemoveTest baz foo />);
@@ -214,7 +226,6 @@ describe('ContextProvider', () => {
       wrapper.setProps({ baz: false });
       wrapper.find('div#activate').simulate('click');
       wrapper.update();
-      console.log(wrapper.debug());
       expect(wrapper.text()).toBe('foo');
     });
   });
@@ -276,6 +287,8 @@ describe('useRegisterMenuOptions', () => {
   beforeEach(() => {
     defaultStore.reset();
     PageEditContext.root.unregisterPeers();
+    foobarRendered.mockClear();
+    menuRendered.mockClear();
   });
 
   afterEach(() => {
@@ -295,7 +308,7 @@ describe('useRegisterMenuOptions', () => {
     expect(wrapper.text()).toBe('foobar');
   });
 
-  it.only('Does not re-render a listener when options do not change', () => {
+  it('Does not re-render a listener when options do not change', () => {
     wrapper = mount(<ListenerTest foo peer />);
     expect(foobarRendered).toHaveBeenCalledTimes(1);
     expect(menuRendered).toHaveBeenCalledTimes(2);
@@ -304,65 +317,117 @@ describe('useRegisterMenuOptions', () => {
     expect(menuRendered).toHaveBeenCalledTimes(2);
   });
 
-  it('Deletes menu options when the component providign them is removed', () => {
-    wrapper = mount(<RemoveTest baz foo peer />);
-    console.log(wrapper.debug());
+  it('Deletes menu options when a parent providing them is removed', () => {
+    const Test = withMenu(({ baz }:any) => (
+      baz
+        ? <Baz peer><FooBar foo peer /></Baz>
+        : <FooBar foo peer />
+    ));
+    wrapper = mount(<Test baz />);
     expect(wrapper.text()).toBe('bazfoo');
-    wrapper.setProps({ baz: false, foo: true, peer: true });
+    wrapper.setProps({ baz: false });
     wrapper.update();
-    console.log(wrapper.debug());
     expect(wrapper.text()).toBe('foo');
+  });
 
+  it('Deletes menu options when a child providing them is removed', () => {
+    const Test = withMenu(({ baz }: any) => (
+      baz
+        ? <FooBar foo peer><Baz peer /></FooBar>
+        : <FooBar foo peer />
+    ));
+    wrapper = mount(<Test baz />);
+    expect(wrapper.text()).toBe('foobaz');
+    wrapper.setProps({ baz: false });
+    wrapper.update();
+    expect(wrapper.text()).toBe('foo');
+  });
+
+  it('Deletes menu options when a sibling providing them is removed', () => {
+    const Test = withMenu(({ baz }: any) => (
+      <>
+        <FooBar foo peer />
+        {baz && <Baz peer />}
+      </>
+    ));
+    wrapper = mount(<Test baz />);
+    expect(wrapper.text()).toBe('foobaz');
+    wrapper.setProps({ baz: false });
+    wrapper.update();
+    expect(wrapper.text()).toBe('foo');
+  });
+
+  it('Adds sibling peer contexts in the correct order', () => {
+    const Test = () => (
+      <>
+        <FooBar peer foo />
+        <Baz peer />
+        <Menu />
+      </>
+    );
+    wrapper = mount(<Test />);
+    expect(wrapper.text()).toBe('foobaz');
+  });
+
+  it('Adds nested peer contexts in the correct order', () => {
+    const Test = withMenu(() => (
+      <FooBar foo peer>
+        <Baz peer />
+      </FooBar>
+    ));
+    wrapper = mount(<Test />);
+    expect(wrapper.text()).toBe('foobaz');
   });
 });
 
-describe.skip('React behavior', () => {
-  it('runs effects in depth order', () => {
-    const A = ({ children }: any) => {
-      console.log('render a');
-      useEffect(() => console.log('effect a'));
-      return <>{children}</>;
-    };
-    const B = ({ children }: any) => {
-      console.log('render b');
-      useEffect(() => console.log('b'));
-      return <>{children}</>;
-    };
-    mount(<A><B /></A>);
-  });
-});
-
-describe.skip('Enzyme behavior', () => {
-  it('requires an update() call to update wrapper changed on effect', () => {
-    const ToggleBOnEffect: FC<any> = ({ setShowB }) => {
+describe.skip('React effect order', () => {
+  it('runs layout effects and cleanup before normal effects', () => {
+    const log: string[] = [];
+    const A: FC<any> = () => {
+      log.push('rendered');
+      useLayoutEffect(() => {
+        log.push('layout effect');
+        return () => {
+          log.push('layout cleanup');
+        };
+      });
       useEffect(() => {
-        setShowB(true);
+        log.push('effect');
+        return () => {
+          log.push('cleanup');
+        };
       });
       return null;
     };
-    const RenderAorB: FC<any> = ({ showB }) => (
-      <span>{showB ? 'B' : 'A'}</span>
+    const Wrapper = ({ showA, aProp }: any) => (
+      <>{showA && <A aProp={aProp} />}</>
     );
 
-    const Wrapper: FC<any> = ({ withB }) => {
-      const [showB, setShowB] = useState<boolean>(false);
-      return (
-        <>
-          <RenderAorB showB={showB} />
-          {withB && <ToggleBOnEffect setShowB={setShowB} />}
-        </>
-      );
-    };
-    const wrapper = mount(<Wrapper />);
-    expect(wrapper.text()).toBe('A');
-    wrapper.setProps({ withB: true });
-    console.log(wrapper.find('span').text());
-    console.log(wrapper.find('span').debug());
-    // expect(wrapper.text()).toBe('A');
-    // console.log(wrapper.debug());
-    // console.log(wrapper.debug());
-    // console.log(wrapper.text());
-    wrapper.update();
-    // expect(wrapper.text()).toBe('B');
+    const wrapper = mount(<Wrapper showA />);
+    const expected = [
+      'rendered',
+      'layout effect',
+      'effect',
+    ];
+    expect(log).toEqual(expected);
+
+    log.splice(0, log.length);
+    wrapper.setProps({ showA: true, aProp: 'foo' });
+    const expected1 = [
+      'rendered',
+      'layout cleanup',
+      'layout effect',
+      'cleanup',
+      'effect',
+    ];
+    expect(log).toEqual(expected1);
+
+    log.splice(0, log.length);
+    wrapper.setProps({ showA: false });
+    const expected2 = [
+      'layout cleanup',
+      'cleanup',
+    ];
+    expect(log).toEqual(expected2);
   });
 });
