@@ -13,7 +13,8 @@
  */
 
 import React, { FC, ComponentType as CT } from 'react';
-import { Div } from '@bodiless/fclasses';
+import { Div, addProps } from '@bodiless/fclasses';
+import { flow } from 'lodash';
 import ContextMenuItem, { useUI as useFormUI } from '../components/ContextMenuItem';
 import ContextMenu from '../components/ContextMenu';
 import type { IContextMenuItemProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
@@ -24,7 +25,7 @@ const SubMenuGroup: FC<any> = ({ children }) => {
 };
 
 type FormChromeOptions = {
-  title: string;
+  title?: string;
   hasSubmit?: boolean;
   closeForm: () => void;
 };
@@ -58,10 +59,21 @@ const ContextSubMenu: FC<IContextMenuItemProps> = props => {
   const {
     option, children, ui, ...rest
   } = props;
-  const finalUi = { ...ui, Toolbar: Div };
+
+  const finalUi = {
+    ...ui,
+    Toolbar: flow(
+      addProps({ 'aria-label': `Context Submenu ${option.label} form` }),
+    )(Div),
+  };
 
   const handler = () => ({ closeForm }: ContextMenuFormProps) => {
-    const StructuredChildrenGroup = withFormChrome({ closeForm, title: 'File', hasSubmit: false })(SubMenuGroup);
+    const StructuredChildrenGroup = withFormChrome({
+      closeForm,
+      title: option.label,
+      hasSubmit: false,
+    })(SubMenuGroup);
+
     return (
       <ContextMenu
         options={[]}
