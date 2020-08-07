@@ -19,8 +19,8 @@ import ContextMenu from '../components/ContextMenu';
 import type { IContextMenuItemProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 
 const SubMenuGroup: FC<any> = ({ children }) => {
-  const { ComponentFormSubMenu } = useFormUI();
-  return <ComponentFormSubMenu>{children}</ComponentFormSubMenu>;
+  const { ContextSubMenu } = useFormUI();
+  return <ContextSubMenu>{children}</ContextSubMenu>;
 };
 
 type FormChromeOptions = {
@@ -36,6 +36,8 @@ const withFormChrome = <P extends object>(options: FormChromeOptions) => (Compon
     const {
       ComponentFormTitle, ComponentFormCloseButton, ComponentFormSubmitButton,
     } = useFormUI();
+
+    console.log('Props:', props);
 
     return (
       <>

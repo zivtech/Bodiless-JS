@@ -159,7 +159,7 @@ export const ResizeHandle = addClasses(
   'bl-block bl-text-2xl bl-absolute material-icons bl-z-1 bl-text-red bl-rotate-45deg bl-bottom-grid-0 bl-right-grid-0',
 )(Span);
 
-export const ComponentFormSubMenu = flow(
+export const ContextSubMenu = flow(
   addClasses('bl-flex bl-text-white'),
   addProps({ role: 'toolbar', 'aria-label': 'Submenu' }),
 )(Div);

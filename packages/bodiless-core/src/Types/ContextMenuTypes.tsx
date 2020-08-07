@@ -84,7 +84,7 @@ export type UI = {
   ReactTags?: ComponentType<ReactTagsFieldProps>;
   ComponentFormList?: ComponentType<HTMLProps<HTMLUListElement>> | string;
   ComponentFormListItem?: ComponentType<HTMLProps<HTMLLIElement>> | string;
-  ComponentFormSubMenu?: ComponentType<HTMLProps<HTMLDivElement>> | string;
+  ContextSubMenu?: ComponentType<HTMLProps<HTMLDivElement>> | string;
   ContextMenuGroup?: ComponentType<ContextMenuGroupProps>;
 };
 

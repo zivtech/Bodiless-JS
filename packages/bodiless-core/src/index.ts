@@ -40,7 +40,7 @@ import {
 } from './hoc';
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
-import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
+import type { ContextMenuFormProps, IContextMenuItemProps } from './Types/ContextMenuTypes';
 import type { PageEditContextInterface } from './PageEditContext/types';
 import { TMenuOption } from './Types/ContextMenuTypes';
 import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
@@ -131,6 +131,7 @@ export type {
   EditButtonProps,
   TOverlaySettings,
   ContextMenuFormProps,
+  IContextMenuItemProps,
   AsBodiless,
   FormSnippet,
 };

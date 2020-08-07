@@ -36,7 +36,7 @@ const defaultUI = {
   ComponentFormList: 'ul',
   ComponentFormListItem: 'li',
   ComponentFormDescription: 'div',
-  ComponentFormSubMenu: 'div',
+  ContextSubMenu: React.Fragment,
 };
 
 export const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });
