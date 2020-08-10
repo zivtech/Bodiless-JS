@@ -26,7 +26,6 @@ import useNotificationButton from '../withNotificationButton';
 import useSwitcherButton from '../useSwitcherButton';
 import { useRegisterMenuOptions } from '../PageContextProvider';
 import { NotificationProvider } from '../NotificationProvider';
-import { useApi } from '../PageEditContext';
 
 type CompleteUI = {
   GlobalContextMenu: React.ComponentType<ContextMenuProps>;
@@ -49,12 +48,18 @@ export const useUI = () => useContext(uiContext);
 const GlobalContextMenu: FC<Props> = observer(() => {
   const { GlobalContextMenu: Menu } = useUI();
   const context = useEditContext();
-  const { isPositionToggled } = context;
-  const { contextMenuOptions } = useApi();
+  const { isPositionToggled, contextMenuOptions } = context;
   const options = contextMenuOptions.filter(
     (op: TMenuOption) => op.global !== false,
   );
-  return <Menu options={options} isPositionToggled={isPositionToggled} />;
+  return (
+    <div onClick={() => {
+      context.activate();
+    }}
+    >
+      <Menu options={options} isPositionToggled={isPositionToggled} />
+    </div>
+  );
 });
 
 const PageEditor: FC<Props> = ({ children, ui }) => {

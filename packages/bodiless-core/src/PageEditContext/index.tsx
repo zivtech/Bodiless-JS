@@ -14,186 +14,14 @@
 
 import React, { ConsumerProps, FC } from 'react';
 import { Observer } from 'mobx-react';
-import { action, computed, observable } from 'mobx';
 import {
   DefinesLocalEditContext,
   PageEditContextInterface,
   PageEditStoreInterface,
   TMenuOptionGetter,
-  TPageOverlayStore,
 } from './types';
-import { TMenuOption } from '../Types/ContextMenuTypes';
 import { TOverlaySettings } from '../Types/PageOverlayTypes';
-import {
-  getFromSessionStorage,
-  saveToSessionStorage,
-} from '../SessionStorage';
-
-/**
- * @private
- * Helper function to cravel the context trail, invoking a callback on each context
- * and accumulating the results.
- * @param accumulator The accumulated results.
- * @param callback The callback which returns the results for each context.
- * @param context The context on which to execute the callback.
- */
-const reduceRecursively = <T extends any>(
-  accumulator: T[],
-  callback: (c: PageEditContextInterface) => T[],
-  context?: PageEditContextInterface,
-): T[] => {
-  if (!context) return [];
-  const newItems = callback(context);
-  const newAccumulator = [...newItems, ...accumulator];
-  return context.parent
-    ? reduceRecursively(newAccumulator, callback, context.parent)
-    : newAccumulator;
-};
-
-const defaultOverlaySettings: TOverlaySettings = {
-  isActive: false,
-  hasCloseButton: false,
-  hasSpinner: true,
-  message: '',
-  maxTimeoutInSeconds: null,
-  onClose: () => {},
-};
-
-/**
- * @private
- *
- * Holds the current UI state for the editor.
- */
-export class PageEditStore implements PageEditStoreInterface {
-  @observable activeContext: PageEditContextInterface | undefined = undefined;
-
-  @observable isEdit = getFromSessionStorage('isEdit', false);
-
-  @observable isPositionToggled = getFromSessionStorage('isPositionToggled', false);
-
-  @observable pageOverlay: TPageOverlayStore = {
-    data: {
-      ...defaultOverlaySettings,
-    },
-    timeoutId: 0,
-  };
-
-  @observable areLocalTooltipsDisabled = false;
-
-  @observable
-  optionMap = new Map<string, Map<string, TMenuOption>>();
-
-  @action reset() {
-    this.activeContext = undefined;
-    this.isEdit = getFromSessionStorage('isEdit', false);
-    this.isPositionToggled = getFromSessionStorage('isPositionToggled', false);
-    this.areLocalTooltipsDisabled = false;
-    this.optionMap.clear();
-    this.pageOverlay = {
-      data: {
-        ...defaultOverlaySettings,
-      },
-      timeoutId: 0,
-    };
-  }
-
-  constructor(activeContext?: PageEditContextInterface) {
-    if (activeContext) {
-      this.setActiveContext(activeContext);
-    }
-  }
-
-  @action
-  setActiveContext(context?: PageEditContextInterface) {
-    if (context) this.activeContext = context;
-
-    // Travel the context trail, updating options for each context.
-    const keys: string[] = [];
-    for (let c = this.activeContext; c; c = c.parent) {
-      keys.push(...this.updateMenuOptions(c));
-    }
-
-    // Delete options for any context which is not in the trail
-    const keySet = new Set(keys);
-    this.optionMap.forEach(($, key) => {
-      if (!keySet.has(key)) this.optionMap.delete(key);
-    });
-  }
-
-  @action
-  updateMenuOptions(context: PageEditContextInterface) {
-    if (!this.optionMap.has(context.id)) {
-      // We create a shallow map for each context bc we expect the
-      // items to be memoized, so we need only compare references.
-      this.optionMap.set(context.id, observable.map({}, { deep: false }));
-    }
-    const map = this.optionMap.get(context.id);
-    const keys = new Set();
-    [context, ...context.peerContexts].forEach(c => {
-      // Update all items in the map
-      c.getMenuOptions().forEach(op => {
-        map!.set(op.name, op);
-        keys.add(op.name);
-      });
-    });
-    // Delete any items which are no longer present.
-    map!.forEach(($, key) => {
-      if (!keys.has(key)) map!.delete(key);
-    });
-    return [context.id];
-  }
-
-  @computed get contextMenuOptions(): TMenuOption[] {
-    const options: TMenuOption[] = [];
-    // We reverse the array of options bc "lower" contexts
-    const keys = Array.from(this.optionMap.keys()).reverse();
-    keys.forEach(contextName => {
-      const contextMap = this.optionMap.get(contextName);
-      // We know this value exists bc we are iterating over the keys.
-      contextMap!.forEach(option => {
-        options.push({
-          ...option,
-          group: option.group || contextName,
-        });
-      });
-    });
-    return options;
-  }
-
-  @action toggleEdit(on? : boolean) {
-    if (on === undefined) {
-      this.isEdit = !this.isEdit;
-    } else {
-      this.isEdit = Boolean(on);
-    }
-
-    saveToSessionStorage('isEdit', this.isEdit);
-  }
-
-  @action togglePosition(on? : boolean) {
-    if (on === undefined) {
-      this.isPositionToggled = !this.isPositionToggled;
-    } else {
-      this.isPositionToggled = Boolean(on);
-    }
-
-    saveToSessionStorage('isPositionToggled', this.isPositionToggled);
-  }
-
-  @action toggleLocalTooltipsDisabled(isDisabled?: boolean) {
-    if (isDisabled === undefined) {
-      this.areLocalTooltipsDisabled = !this.areLocalTooltipsDisabled;
-    } else {
-      this.areLocalTooltipsDisabled = isDisabled;
-    }
-  }
-
-  @computed get contextTrail() {
-    return reduceRecursively<string>([], context => [context.id], this.activeContext);
-  }
-}
-
-export const defaultStore = new PageEditStore();
+import { defaultStore, defaultOverlaySettings } from './Store';
 
 /**
  * A Page Edit Context represents a particular state of the page editor, usually
@@ -296,6 +124,7 @@ class PageEditContext implements PageEditContextInterface {
 
   // Make this the "current" context.
   activate() {
+    console.log('Activating', this.name, this.id);
     this.store.setActiveContext(this);
   }
 
@@ -348,6 +177,10 @@ class PageEditContext implements PageEditContextInterface {
     return this.store.contextMenuOptions;
   }
 
+  get optionMap() {
+    return this.store.optionMap;
+  }
+
   get pageOverlay() {
     return this.store.pageOverlay;
   }
@@ -386,20 +219,6 @@ Please try your operation again if it was not successful.`,
     };
     this.showPageOverlay(settings);
   }
-
-  get areLocalTooltipsDisabled() {
-    return this.store.areLocalTooltipsDisabled || !this.store.isEdit;
-  }
-
-  toggleLocalTooltipsDisabled(isDisabled?: boolean) {
-    this.store.toggleLocalTooltipsDisabled(isDisabled);
-  }
 }
 
 export default PageEditContext;
-
-export const useApi = () => ({
-  contextMenuOptions: defaultStore.contextMenuOptions,
-  resetStore: () => defaultStore.reset(),
-  deactivateContext: () => { defaultStore.activeContext = undefined; },
-});

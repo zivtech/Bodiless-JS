@@ -78,7 +78,7 @@ const ContextMenu: FC<IContextMenuProps> = (props) => {
 
   if (finalChildren.length > 0) {
     return (
-      <Toolbar onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
+      <Toolbar>
         <StructuredChildren components={{ Group: StructuredChildrenGroup }} {...childProps}>
           {finalChildren}
         </StructuredChildren>

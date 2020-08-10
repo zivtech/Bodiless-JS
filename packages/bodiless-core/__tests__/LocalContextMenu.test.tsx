@@ -50,11 +50,6 @@ const MockContextProvider: FC<Props> = ({
     get isInnermost() {
       return Boolean(active);
     }
-
-    // eslint-disable-next-line class-methods-use-this
-    get areLocalTooltipsDisabled() {
-      return Boolean(tooltipsDisabled);
-    }
   }
 
   const newValues = {

@@ -13,7 +13,8 @@
  */
 
 import { autorun, observable } from 'mobx';
-import PageEditContext, { useApi } from '../src/PageEditContext';
+import { isEqualWith, isEqual, values } from 'lodash';
+import PageEditContext from '../src/PageEditContext';
 import { PageEditContextInterface } from '../src/PageEditContext/types';
 import { TMenuOption } from '../src/Types/ContextMenuTypes';
 
@@ -97,9 +98,29 @@ describe('PageEditContext', () => {
 });
 
 describe.skip('mobx', () => {
+  it('react on nested map only when properties change', () => {
+    const outer = observable.map({});
+    const inner = observable.map({});
+    const foo = { a: 'b' };
+    const bar = { c: 'd' };
+    const baz = { c: 'e' };
+    inner.set('foo', foo);
+    inner.set('bar', bar);
+    outer.set('inner', inner);
+    const reaction = jest.fn();
+    const disposer = autorun(() => {
+      outer.get('inner').get('bar');
+      reaction();
+    });
+    expect(reaction).toHaveBeenCalledTimes(1);
+    inner.set('bar', baz);
+    expect(reaction).toHaveBeenCalledTimes(1);
+    disposer();
+  });
   it('does not react on nested map', () => {
     const outer = observable.map({});
-    const inner = observable.map({}, { deep: false });
+    // const inner = observable.map({}, { deep: false });
+    const inner = observable.map({});
     const foo = { a: 'b' };
     const bar = { c: 'd' };
     const baz = { e: 'f' };
@@ -207,7 +228,7 @@ describe('Registering peer contexts', () => {
   });
 });
 
-describe('Update menu options', () => {
+describe.only('Update menu options', () => {
   const parentOptions = [{
     name: 'parent',
   }];
@@ -244,54 +265,87 @@ describe('Update menu options', () => {
   };
 
   const context = createContext();
-  const listener = jest.fn();
+
+  const optionListener = jest.fn(() => {
+    const options = context.contextMenuOptions;
+    options.forEach(op => {
+      console.log(op.group, op.name, op.icon);
+    });
+  });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  let optionDisposer: Function;
+
+  const listener = jest.fn(() => {
+    const options = context.contextMenuOptions;
+    options.forEach(op => {
+      console.log(op.group, op.name);
+    });
+  });
   let disposer: Function;
 
-  beforeAll(() => {
-    disposer = autorun(() => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      useApi().contextMenuOptions;
-      listener();
-    });
+  const clearListeners = () => {
     listener.mockClear();
+    optionListener.mockClear();
+  }
+
+  beforeAll(() => {
+    disposer = autorun(listener);
+    optionDisposer = autorun(optionListener);
+    listener.mockClear();
+    optionListener.mockClear();
     context.activate();
   });
 
   afterAll(() => {
     disposer();
+    optionDisposer();
   });
 
   it('Notifies when context is activated for the first time', () => {
     expect(listener).toHaveBeenCalledTimes(1);
     context.activate();
     expect(listener).toHaveBeenCalledTimes(1);
+    expect(optionListener).toHaveBeenCalledTimes(1);
   });
 
   it('Does not notify when context updates with no change', () => {
-    listener.mockClear();
+    clearListeners();
     context.updateMenuOptions();
     expect(listener).toHaveBeenCalledTimes(0);
+    expect(optionListener).toHaveBeenCalledTimes(0);
   });
 
   it('Does not notify when new context with same menu options activates', () => {
-    listener.mockClear();
+    clearListeners();
     const newContext = createContext();
     newContext.activate();
     expect(listener).toHaveBeenCalledTimes(0);
+    expect(optionListener).toHaveBeenCalledTimes(0);
   });
 
   it('Does not notify when new context with same menu options updates', () => {
-    listener.mockClear();
+    clearListeners();
     const newContext = createContext();
     newContext.updateMenuOptions();
     expect(listener).toHaveBeenCalledTimes(0);
+    expect(optionListener).toHaveBeenCalledTimes(0);
   });
 
-  it('Notifies when menu options change', () => {
-    listener.mockClear();
-    const newOptions = [{ ...originalOptions[0] }];
+  it('Does not notify when an option is replaced by one with different properties', () => {
+    clearListeners();
+    const newOptions = [{ ...originalOptions[0], icon: 'foo' }];
+    const newContext = createContext(newOptions);
+    newContext.updateMenuOptions();
+    expect(listener).toHaveBeenCalledTimes(0);
+    expect(optionListener).toHaveBeenCalledTimes(1);
+  });
+
+  it('Notifies when an option is added', () => {
+    clearListeners();
+    const newOptions = [...originalOptions, { name: 'new' }];
     const newContext = createContext(newOptions);
     newContext.updateMenuOptions();
     expect(listener).toHaveBeenCalledTimes(1);
+    expect(optionListener).toHaveBeenCalledTimes(1);
   });
 });

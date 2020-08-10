@@ -24,13 +24,14 @@ import { observer } from 'mobx-react-lite';
 import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from '../src/PageContextProvider';
 import { useEditContext } from '../src/hooks';
 import { PageEditContextInterface } from '../src/PageEditContext/types';
-import PageEditContext, { useApi, defaultStore } from '../src/PageEditContext';
+import { defaultStore } from '../src/PageEditContext/Store';
+import PageEditContext from '../src/PageEditContext';
 import { TMenuOption } from '../src/Types/ContextMenuTypes';
 
 const menuRendered = jest.fn();
 const Menu = observer(() => {
   menuRendered();
-  const items = useApi().contextMenuOptions.map(
+  const items = useEditContext().contextMenuOptions.map(
     option => <span id={option.name} key={option.name}>{option.name}</span>,
   );
   return (
@@ -48,14 +49,14 @@ const withMenu = (Component: ComponentType<any>) => (props: any) => (
 );
 
 const activatorFired = jest.fn();
-const Activator: FC = ({ children }) => {
+const Activator: FC<any> = ({ id = 'activate', children }) => {
   const context = useEditContext();
   const onClick = useCallback(() => {
     context.activate();
     activatorFired();
   }, [context]);
   return (
-    <div id="activate" onClick={onClick}>
+    <div id={id} onClick={onClick}>
       {children}
     </div>
   );
@@ -136,6 +137,50 @@ const Baz: FC<any> = ({ children, peer }) => {
     </PageContextProvider>
   );
 };
+
+describe('useEditContext', () => {
+  it('re-renders only if observed property changes', () => {
+    const activeContextObserverRendered = jest.fn();
+    const ObserverOfActiveContext = observer(() => {
+      console.log('Active context observer rendered');
+      activeContextObserverRendered();
+      const { isActive } = useEditContext();
+      return isActive ? <>active</> : <>not active</>;
+    });
+    const editModeObserverRendered = jest.fn();
+    const ObserverOfEditMode = observer(() => {
+      console.log('Edit mode observer rendered');
+      editModeObserverRendered();
+      const { isEdit } = useEditContext();
+      return isEdit ? <>edit</> : <>not edit</>;
+    });
+
+    const Test = () => (
+      <>
+        <Baz>
+          <ObserverOfActiveContext />
+          <ObserverOfEditMode />
+          <Activator id="activate-baz" />
+        </Baz>
+        <FooBar foo>
+          <Activator id="activate-foo" />
+        </FooBar>
+      </>
+    );
+    const wrapper = mount(<Test />);
+    expect(activeContextObserverRendered).toHaveBeenCalledTimes(1);
+    expect(editModeObserverRendered).toHaveBeenCalledTimes(1);
+    expect(wrapper.text()).toBe('not activenot edit');
+    wrapper.find('div#activate-baz').simulate('click');
+    expect(activeContextObserverRendered).toHaveBeenCalledTimes(2);
+    expect(editModeObserverRendered).toHaveBeenCalledTimes(1);
+    expect(wrapper.text()).toBe('activenot edit');
+    wrapper.find('div#activate-foo').simulate('click');
+    expect(activeContextObserverRendered).toHaveBeenCalledTimes(3);
+    expect(editModeObserverRendered).toHaveBeenCalledTimes(1);
+    expect(wrapper.text()).toBe('not activenot edit');
+  });
+});
 
 describe('withMenuOptions', () => {
   type Props = {

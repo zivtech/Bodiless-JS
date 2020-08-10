@@ -33,18 +33,21 @@ export const useContextActivator = (
     };
   }
   const handler$1 = (e: React.SyntheticEvent<any>) => {
-    const preventDefault = e && e.currentTarget && e.currentTarget.getAttribute('bl-prevent') !== 'false';
+    // Run the original handler, if it exists.
     if (handler) handler(e);
-    // Do not activate the context if it is already active.
-    if (!context.isInnermost) {
-      context.activate();
-      context.toggleLocalTooltipsDisabled(false);
-    }
-    if (e && e.stopPropagation) e.stopPropagation();
-    // @TODO: We may want to remove next line entirely and do a Regression Testing
-    if (preventDefault && e && e.preventDefault && context.name !== 'page') e.preventDefault();
+    // Prevent default behavior (maybe move this to asBodilessLink)
+    const preventDefault = e && e.currentTarget && e.currentTarget.getAttribute('bl-prevent') !== 'false';
+    if (preventDefault && e && e.preventDefault) e.preventDefault();
+    // Do not activate the context if it is already innermost.
+    if (context.isInnermost) return;
+    // Do not activate if this event already activated an inner context.
+    const activatingElement = (e.target as HTMLElement).closest('[data-bl-activator=true]');
+    const thisElement = e.currentTarget;
+    if (thisElement !== activatingElement) return;
+    context.activate();
   };
   return {
     [event]: handler$1,
+    'data-bl-activator': true,
   };
 };

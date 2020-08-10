@@ -37,10 +37,6 @@ export interface CanControlPageOverlay {
   hidePageOverlay: (settings?: TOverlaySettings) => void;
   showError: (settings?: TOverlaySettings) => void;
 }
-export interface CanControlLocalTooltipsVisibility {
-  areLocalTooltipsDisabled: boolean;
-  toggleLocalTooltipsDisabled: (isDisabled?: boolean) => void;
-}
 export interface CanGetContextMenuOptions {
   contextMenuOptions: TMenuOption[];
 }
@@ -67,9 +63,8 @@ export interface PageEditStoreInterface {
   toggleEdit: (on?: boolean) => void;
   togglePosition: (on?: boolean) => void;
   contextTrail: string[];
-  areLocalTooltipsDisabled: boolean;
-  toggleLocalTooltipsDisabled(isDisabled?: boolean): void;
   pageOverlay: TPageOverlayStore;
+  optionMap: Map<string, Map<string, TMenuOption>>;
 }
 
 export interface PageEditContextInterface extends
@@ -78,8 +73,7 @@ export interface PageEditContextInterface extends
   CanControlMenuPosition,
   CanGetContextMenuOptions,
   CanControlPageOverlay,
-  DefinesLocalEditContext,
-  CanControlLocalTooltipsVisibility
+  DefinesLocalEditContext
 // eslint-disable-next-line @typescript-eslint/brace-style
 {
   readonly id: string;
