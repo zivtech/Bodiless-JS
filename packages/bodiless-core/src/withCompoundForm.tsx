@@ -7,7 +7,7 @@ import { pick } from 'lodash';
 import { designable, DesignableComponentsProps } from '@bodiless/fclasses';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
-import type { Options } from './Types/PageContextProviderTypes';
+import type { FormOptions } from './Types/PageContextProviderTypes';
 import { withMenuOptions } from './PageContextProvider';
 import { useEditContext } from './hooks';
 
@@ -110,7 +110,7 @@ const Form = <D extends object>(props: FormProps<D>) => {
  *
  * @returns A menu options hook.
  */
-const createMenuOptions = <P extends object, D extends object>(options: Options<D>) => {
+const createMenuOptions = <P extends object, D extends object>(options: FormOptions<D>) => {
   const useGetMenuOptions = ({ components, ...rest }: any) => {
     const {
       useGetMenuOptions: useGetMenuOptionsBase = () => undefined,
@@ -146,7 +146,7 @@ const createMenuOptions = <P extends object, D extends object>(options: Options<
  * - a submit handler which will be passed all submitted values from the form.
  * @param option A context menu option (minus the handler).
  */
-const withCompoundForm = <P extends object>(options: Options<P>) => (Component: CT<P>) => {
+const withCompoundForm = <P extends object>(options: FormOptions<P>) => (Component: CT<P>) => {
   const finalOptions = createMenuOptions(options);
   const ComponentWithButton = withMenuOptions(finalOptions)(Component);
 
