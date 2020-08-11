@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { FC, useState, ReactElement } from 'react';
+import React, { FC, useState } from 'react';
 import { getUI as getFormUI } from '../contextMenuForm';
 import {
   IContextMenuProps, UI, ContextMenuFormProps, TMenuOption,
@@ -46,58 +46,6 @@ const createChildrenFromOptions = (options: TMenuOption[]) => options.map(
   },
 );
 
-const ContextMenuBase: FC<IContextMenuProps> = (props) => {
-  if (typeof window === 'undefined') {
-    return <></>;
-  }
-  const [renderForm, setRenderForm] = useState<(props:ContextMenuFormProps) => JSX.Element>();
-  const {
-    options = [],
-    ui,
-    renderInTooltip = true,
-    children,
-  } = props;
-  const { Toolbar } = getUI(ui);
-  const childOptions = React.Children.map(children, (child, i) => (
-    React.cloneElement(child as ReactElement, {
-      ui,
-      index: options.length + i,
-      setRenderForm: renderInTooltip ? undefined : setRenderForm,
-    })
-  ));
-
-  const elements = options
-    .map(
-      (option, index) => (
-        <ContextMenuItem
-          option={option}
-          index={index}
-          name={option.name}
-          key={option.name}
-          aria-label={option.name}
-          ui={ui}
-          setRenderForm={renderInTooltip ? undefined : setRenderForm}
-        />
-      ),
-    ).concat(<React.Fragment key="child-options">{childOptions}</React.Fragment>);
-  if (renderForm) {
-    const formProps: ContextMenuFormProps = {
-      closeForm: () => setRenderForm(undefined),
-      ui,
-      'aria-label': 'Context Submenu Form',
-    };
-    return renderForm(formProps);
-  }
-  if (elements.length > 0) {
-    return (
-      <Toolbar onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
-        {elements}
-      </Toolbar>
-    );
-  }
-  return null;
-};
-
 const ContextMenu: FC<IContextMenuProps> = (props) => {
   if (typeof window === 'undefined') return null;
 
@@ -109,6 +57,8 @@ const ContextMenu: FC<IContextMenuProps> = (props) => {
     children,
   } = props;
   const { Toolbar, ContextMenuGroup } = getUI(ui);
+
+  console.log('Prop!s: ', props);
 
   const childProps = {
     ui,
@@ -140,6 +90,3 @@ const ContextMenu: FC<IContextMenuProps> = (props) => {
 };
 
 export default ContextMenu;
-export {
-  ContextMenuBase,
-};
