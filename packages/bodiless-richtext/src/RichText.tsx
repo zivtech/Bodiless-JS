@@ -103,7 +103,6 @@ const withSlateSchema = <P extends object>(Component: ComponentType<P>) => (
 const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (props: P) => {
   const previousSlateContext = useSlateContext();
   const previousEditorProps = previousSlateContext!.editorProps;
-  const { onClick } = useContextActivator();
 
   // TODO: The following onCHange handler is only necessary if the menu options provided
   // by this editor depend on the state of the editor. If this is ever the case, we will
@@ -122,8 +121,7 @@ const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (p
 
   const editorProps = {
     ...previousEditorProps!,
-    // onChange,
-    onClick,
+    ...useContextActivator(),
   };
 
   const slateContext = {

@@ -18,9 +18,7 @@ import { flow } from 'lodash';
 import {
   addClasses, removeClasses, addProps,
 } from '@bodiless/fclasses';
-import {
-  ContextMenu, ContextMenuUI, ContextMenuProps, useEditContext,
-} from '@bodiless/core';
+import { ContextMenu, ContextMenuUI, ContextMenuProps } from '@bodiless/core';
 import {
   ComponentFormTitle, ComponentFormCloseButton, ComponentFormLabel, ComponentFormText,
   ComponentFormButton, Icon, Div, Hr, ToolbarButton, ComponentFormUnwrapButton,
@@ -49,7 +47,6 @@ export const ToolbarDivider = addClasses(
 )(Hr);
 
 export const GlobalTooltip: FC<ReactTooltip['props']> = props => {
-  const context = useEditContext();
   return (
     <ReactTooltip
       {...props}

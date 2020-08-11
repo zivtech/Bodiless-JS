@@ -55,7 +55,6 @@ type Props = {
 };
 
 const SortableResizable = observer(({ children, ui, ...props }: Props) => {
-  const { onClick } = useContextActivator();
   // We wabt to activate if nessesary
   useActivateOnEffectActivator(props.uuid);
   const context = useEditContext();
@@ -64,7 +63,7 @@ const SortableResizable = observer(({ children, ui, ...props }: Props) => {
   return (
     <Wrapper
       isEnabled={context.isActive as boolean}
-      onClick={onClick}
+      {...useContextActivator()}
       {...props}
     >
       {children}
