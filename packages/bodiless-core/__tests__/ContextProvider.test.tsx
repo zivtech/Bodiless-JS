@@ -28,11 +28,22 @@ import { defaultStore } from '../src/PageEditContext/Store';
 import PageEditContext from '../src/PageEditContext';
 import { TMenuOption } from '../src/Types/ContextMenuTypes';
 
+type ItemProps = {
+  option: TMenuOption,
+  id: string,
+};
+
+const itemRendered = jest.fn();
+const Item = observer(({ option, ...rest }: ItemProps) => {
+  itemRendered(option.name);
+  return <span {...rest}>{option.label || option.name}</span>;
+});
+
 const menuRendered = jest.fn();
 const Menu = observer(() => {
   menuRendered();
   const items = useEditContext().contextMenuOptions.map(
-    option => <span id={option.name} key={option.name}>{option.name}</span>,
+    option => <Item id={option.name} key={option.name} option={option} />,
   );
   return (
     <>
@@ -71,13 +82,13 @@ const FooBar: FC<any> = ({
   if (foo) {
     options$.push({
       name: 'foo',
-      label: foo,
+      label: typeof foo === 'string' ? foo : 'foo',
     });
   }
   if (bar) {
     options$.push({
       name: 'bar',
-      label: bar,
+      label: typeof bar === 'string' ? bar : 'bar',
     });
   }
   const options = useMemo(() => options$, [foo, bar]);
@@ -233,6 +244,7 @@ describe('ContextProvider', () => {
       foobarRendered.mockClear();
       activatorFired.mockClear();
       menuRendered.mockClear();
+      itemRendered.mockClear();
     });
 
     afterEach(() => {
@@ -240,28 +252,36 @@ describe('ContextProvider', () => {
       if (wrapper.length) wrapper.unmount();
     });
 
-    it('Re-renders a listener when options change', () => {
-      wrapper = mount(<ListenerTest foo="fiddle" />);
+    it('Re-renders only an item option properties change', () => {
+      wrapper = mount(<ListenerTest foo="fiddle" bar="biddle" />);
       wrapper.find('div#activate').simulate('click');
       expect(foobarRendered).toHaveBeenCalledTimes(1);
       expect(menuRendered).toHaveBeenCalledTimes(2);
+      expect(itemRendered).toHaveBeenCalledTimes(2);
       expect(activatorFired).toHaveBeenCalledTimes(1);
-      wrapper.setProps({ foo: 'fuddle' });
+      expect(wrapper.text()).toBe('fiddlebiddle');
+      wrapper.setProps({ foo: 'fuddle', bar: 'biddle' });
       expect(foobarRendered).toHaveBeenCalledTimes(2);
-      expect(menuRendered).toHaveBeenCalledTimes(3);
+      expect(menuRendered).toHaveBeenCalledTimes(2);
       expect(activatorFired).toHaveBeenCalledTimes(1);
+      expect(itemRendered).toHaveBeenCalledTimes(3);
+      expect(wrapper.text()).toBe('fuddlebiddle');
     });
 
-    it('Does not re-render a listener when options do not change', () => {
+    it('Does not re-render a menu or item when options do not change', () => {
       wrapper = mount(<ListenerTest foo="fiddle" />);
       wrapper.find('div#activate').simulate('click');
       expect(foobarRendered).toHaveBeenCalledTimes(1);
       expect(menuRendered).toHaveBeenCalledTimes(2);
+      expect(itemRendered).toHaveBeenCalledTimes(1);
       expect(activatorFired).toHaveBeenCalledTimes(1);
+      expect(wrapper.text()).toBe('fiddle');
       wrapper.setProps({ foo: 'fiddle', unusedProp: 'baz' });
       expect(foobarRendered).toHaveBeenCalledTimes(2);
       expect(activatorFired).toHaveBeenCalledTimes(1);
       expect(menuRendered).toHaveBeenCalledTimes(2);
+      expect(itemRendered).toHaveBeenCalledTimes(1);
+      expect(wrapper.text()).toBe('fiddle');
     });
 
     it('removes options when a provider is removed', () => {

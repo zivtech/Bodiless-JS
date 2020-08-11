@@ -12,7 +12,9 @@
  * limitations under the License.
  */
 
-import { action, computed, observable } from 'mobx';
+import {
+  action, computed, observable, ObservableMap,
+} from 'mobx';
 import { isEqual } from 'lodash';
 import {
   PageEditContextInterface,
@@ -53,28 +55,19 @@ const reduceRecursively = <T extends any>(
  * A proxy around a context menu option which defers accessing the option data
  * until a property is accessed.
  */
-class ContextMenuOption implements TMenuOption {
-  constructor(group: string, name: string, map: Map<string, TMenuOption>) {
-    this.group = group;
-    this.name = name;
-    this.map = map;
-  }
-
-  protected map: Map<string, TMenuOption> = new Map();
-
-  readonly group: string;
-
-  readonly name: string;
-
-  private get value(): TMenuOption {
-    if (!this.map.get(this.name)) throw new Error('Missing context menu option data');
-    return this.map.get(this.name)!;
-  }
-
-  get icon(): string|undefined {
-    return this.value.icon;
-  }
-}
+const createMenuOptionProxy = (
+  group: string,
+  name: string,
+  map: Map<string, TMenuOption>,
+): TMenuOption => new Proxy<TMenuOption>({ name, group }, {
+  get: (target, prop: keyof(TMenuOption)) => {
+    switch (prop) {
+      case 'group': return group;
+      case 'name': return name;
+      default: return map.get(name)![prop];
+    }
+  },
+});
 
 export const defaultOverlaySettings: TOverlaySettings = {
   isActive: false,
@@ -105,7 +98,7 @@ export class PageEditStore implements PageEditStoreInterface {
   };
 
   @observable
-  optionMap = new Map<string, Map<string, TMenuOption>>();
+  optionMap = new Map() as ObservableMap<string, ObservableMap<string, TMenuOption>>;
 
   @action reset() {
     this.activeContext = undefined;
@@ -136,11 +129,15 @@ export class PageEditStore implements PageEditStoreInterface {
       keys.push(...this.updateMenuOptions(c));
     }
 
-    // Delete options for any context which is not in the trail
-    const keySet = new Set(keys);
-    this.optionMap.forEach(($, key) => {
-      if (!keySet.has(key)) this.optionMap.delete(key);
+    // Ensure order is correct and remove obsolete entries.
+    const newTrail = new Map();
+    keys.reverse().forEach(key => {
+      newTrail.set(key, this.optionMap.get(key));
     });
+    // Note: requires mobx >5.15.5 to set order correctly.
+    // See https://github.com/mobxjs/mobx/issues/1980
+    // And https://codesandbox.io/s/wizardly-resonance-u97jm?file=/src/index.js
+    this.optionMap.replace(newTrail);
   }
 
   @action
@@ -174,9 +171,11 @@ export class PageEditStore implements PageEditStoreInterface {
 
   @computed get contextMenuOptions(): TMenuOption[] {
     const options: TMenuOption[] = [];
-    this.optionMap.forEach((optionMap, contextId) => {
-      Array.from(optionMap.keys()).forEach(optionName => {
-        options.push(new ContextMenuOption(contextId, optionName, optionMap));
+    const contextIds = Array.from(this.optionMap.keys());
+    contextIds.forEach(contextId => {
+      const optionMap = this.optionMap.get(contextId);
+      Array.from(optionMap!.keys()).forEach(optionName => {
+        options.push(createMenuOptionProxy(contextId, optionName, optionMap!));
       });
     });
     return options;

@@ -228,7 +228,7 @@ describe('Registering peer contexts', () => {
   });
 });
 
-describe.only('Update menu options', () => {
+describe('Update menu options', () => {
   const parentOptions = [{
     name: 'parent',
   }];
