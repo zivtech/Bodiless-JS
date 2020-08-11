@@ -58,8 +58,6 @@ const ContextMenu: FC<IContextMenuProps> = (props) => {
   } = props;
   const { Toolbar, ContextMenuGroup } = getUI(ui);
 
-  console.log('Prop!s: ', props);
-
   const childProps = {
     ui,
     setRenderForm: renderInTooltip ? undefined : setRenderForm,

@@ -25,10 +25,7 @@ type FormChromeProps = {
 
 const FormChrome: FC<FormChromeProps> = (props) => {
   const {
-    children,
-    title,
-    hasSubmit,
-    closeForm,
+    children, title, hasSubmit, closeForm,
   } = props;
   const {
     ComponentFormTitle, ComponentFormCloseButton, ComponentFormSubmitButton,
@@ -66,7 +63,6 @@ const ContextSubMenu: FC<IContextMenuItemProps> = props => {
         ContextMenuGroup: addProps({
           closeForm,
           title: option.label,
-          hasSubmit: false,
         })(FormChrome),
       }}
       renderInTooltip={false}
