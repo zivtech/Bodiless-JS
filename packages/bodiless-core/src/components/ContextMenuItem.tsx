@@ -18,6 +18,7 @@ import React, {
 import ReactTooltip from 'rc-tooltip';
 import { getUI as getFormUI } from '../contextMenuForm';
 import type { UI, IContextMenuItemProps as IProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
+import { useEditContext } from '../hooks';
 
 const defaultUI = {
   Icon: 'span',
@@ -62,10 +63,12 @@ const ContextMenuItem = (props: IProps) => {
   const isHidden = option.isHidden ? option.isHidden() : false;
   const isFirst = index === 0;
   const setRenderForm = setRenderFormProp || setRenderForm$;
+  const context = useEditContext();
 
   const onToolbarButtonClick = (event: React.MouseEvent<HTMLDivElement>): void => {
     const menuForm = option.handler ? option.handler(event) : undefined;
     if (menuForm) {
+      if (!option.local) context.toggleLocalTooltipsDisabled(true);
       setIsToolTipShown(!isToolTipShown);
       // We have to pass a function to setRenderForm b/c menuForm is itself a function
       // (a render prop) and, when a function is passed to setState, react interprets
@@ -77,6 +80,7 @@ const ContextMenuItem = (props: IProps) => {
 
   // Reset form and tooltip state
   const onFormClose = (): void => {
+    context.toggleLocalTooltipsDisabled(false);
     setIsToolTipShown(false);
     setRenderForm(undefined);
   };

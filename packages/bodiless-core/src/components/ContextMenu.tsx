@@ -78,8 +78,7 @@ const ContextMenu: FC<IContextMenuProps> = (props) => {
 
   if (finalChildren.length > 0) {
     return (
-      // We mark this as an activator to prevent clicks from changing the context.
-      <Toolbar data-bl-activator>
+      <Toolbar>
         <StructuredChildren components={{ Group: StructuredChildrenGroup }} {...childProps}>
           {finalChildren}
         </StructuredChildren>

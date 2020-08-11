@@ -68,3 +68,21 @@ export const withNodeAndHandlers = (defaultData?: any) => flowRight(
   withNode,
   withNodeDataHandlers(defaultData),
 );
+
+// type OnClickElsewhereProps = {
+//   onClickElsewhere: Function,
+// };
+
+// export const withOnClickElsewhere = <P extends object>(Component: ComponentType<P>|string) => (
+//  const WithOnClickElsewhere = (props: P & OnClickElsewhereProps) => {
+//    const { onClickElsewhere } = props;
+//    const ref = useRef();
+//    const handler = useCallback((e: MouseEvent) => {
+//      const target = e.target;
+//
+//    }
+//    useEffect(() => {
+//      document
+//    }
+//  }
+// )

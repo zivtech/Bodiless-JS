@@ -13,7 +13,6 @@
  */
 
 import { autorun, observable } from 'mobx';
-import { isEqualWith, isEqual, values } from 'lodash';
 import PageEditContext from '../src/PageEditContext';
 import { PageEditContextInterface } from '../src/PageEditContext/types';
 import { TMenuOption } from '../src/Types/ContextMenuTypes';
@@ -286,7 +285,7 @@ describe('Update menu options', () => {
   const clearListeners = () => {
     listener.mockClear();
     optionListener.mockClear();
-  }
+  };
 
   beforeAll(() => {
     disposer = autorun(listener);
