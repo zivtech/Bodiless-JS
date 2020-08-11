@@ -219,6 +219,14 @@ Please try your operation again if it was not successful.`,
     };
     this.showPageOverlay(settings);
   }
+
+  get areLocalTooltipsDisabled() {
+    return this.store.areLocalTooltipsDisabled || !this.store.isEdit;
+  }
+
+  toggleLocalTooltipsDisabled(isDisabled?: boolean) {
+    this.store.toggleLocalTooltipsDisabled(isDisabled);
+  }
 }
 
 export default PageEditContext;

@@ -50,6 +50,11 @@ const MockContextProvider: FC<Props> = ({
     get isInnermost() {
       return Boolean(active);
     }
+
+    // eslint-disable-next-line class-methods-use-this
+    get areLocalTooltipsDisabled() {
+      return Boolean(tooltipsDisabled);
+    }
   }
 
   const newValues = {
@@ -58,7 +63,7 @@ const MockContextProvider: FC<Props> = ({
     name: name || 'Unknown',
   };
 
-  const context = useEditContext() as PageEditContext;
+  const context = useEditContext();
   const mockPageContext = new MockPageEditContext(newValues, context);
 
   // Activate the context.

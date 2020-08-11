@@ -27,6 +27,11 @@ export interface CanControlEditMode {
   isEdit: boolean;
   toggleEdit: (mode?: boolean) => void;
 }
+export interface CanControlLocalTooltipsVisibility {
+  areLocalTooltipsDisabled: boolean;
+  toggleLocalTooltipsDisabled: (isDisabled?: boolean) => void;
+}
+
 export interface CanControlMenuPosition {
   isPositionToggled: boolean;
   togglePosition: (mode?: boolean) => void;
@@ -53,7 +58,7 @@ export interface CanBeActivated {
   isInnermostLocalMenu: boolean;
   activate: () => void;
 }
-export interface PageEditStoreInterface {
+export interface PageEditStoreInterface extends CanControlLocalTooltipsVisibility {
   activeContext: PageEditContextInterface | undefined;
   updateMenuOptions: (contexts: PageEditContextInterface) => string[];
   contextMenuOptions: TMenuOption[];
@@ -73,7 +78,8 @@ export interface PageEditContextInterface extends
   CanControlMenuPosition,
   CanGetContextMenuOptions,
   CanControlPageOverlay,
-  DefinesLocalEditContext
+  DefinesLocalEditContext,
+  CanControlLocalTooltipsVisibility
 // eslint-disable-next-line @typescript-eslint/brace-style
 {
   readonly id: string;

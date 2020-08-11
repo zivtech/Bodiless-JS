@@ -53,12 +53,7 @@ const GlobalContextMenu: FC<Props> = observer(() => {
     (op: TMenuOption) => op.global !== false,
   );
   return (
-    <div onClick={() => {
-      context.activate();
-    }}
-    >
-      <Menu options={options} isPositionToggled={isPositionToggled} />
-    </div>
+    <Menu options={options} isPositionToggled={isPositionToggled} />
   );
 });
 

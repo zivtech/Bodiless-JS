@@ -204,6 +204,16 @@ export class PageEditStore implements PageEditStoreInterface {
   @computed get contextTrail() {
     return reduceRecursively<string>([], context => [context.id], this.activeContext);
   }
+
+  @observable areLocalTooltipsDisabled = false;
+
+  @action toggleLocalTooltipsDisabled(isDisabled?: boolean) {
+    if (isDisabled === undefined) {
+      this.areLocalTooltipsDisabled = !this.areLocalTooltipsDisabled;
+    } else {
+      this.areLocalTooltipsDisabled = isDisabled;
+    }
+  }
 }
 
 export const defaultStore = new PageEditStore();
