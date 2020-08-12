@@ -42,9 +42,9 @@
 
 • **activeContext**: *[PageEditContext](pageeditcontext.md) | undefined* = undefined
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/types.ts#L74)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/types.ts#L74)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L76)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L76)*
 
 ___
 
@@ -52,9 +52,9 @@ ___
 
 • **areLocalTooltipsDisabled**: *boolean* = false
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/types.ts#L81)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/types.ts#L81)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L91)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L91)*
 
 ___
 
@@ -62,9 +62,9 @@ ___
 
 • **contextMenuOptions**: *[TMenuOption](../globals.md#tmenuoption)[]* = []
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/types.ts#L75)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/types.ts#L75)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L78)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L78)*
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 • **get contextTrail**(): *string[]*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:134](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L134)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:134](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L134)*
 
 **Returns:** *string[]*
 
@@ -82,9 +82,9 @@ ___
 
 • **isEdit**: *any* = getFromSessionStorage('isEdit', false)
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/types.ts#L76)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/types.ts#L76)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L80)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L80)*
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 • **isPositionToggled**: *any* = getFromSessionStorage('isPositionToggled', false)
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L82)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L82)*
 
 ## Methods
 
@@ -100,7 +100,7 @@ ___
 
 ▸ **setActiveContext**(`context?`: [PageEditContextInterface](../interfaces/pageeditcontextinterface.md)): *void*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/types.ts#L77)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/types.ts#L77)*
 
 **Parameters:**
 
@@ -116,7 +116,7 @@ ___
 
 ▸ **toggleEdit**(): *void*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/types.ts#L78)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/types.ts#L78)*
 
 **Returns:** *void*
 
@@ -126,7 +126,7 @@ ___
 
 ▸ **toggleLocalTooltipsDisabled**(`isDisabled?`: undefined | false | true): *void*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/types.ts#L82)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/types.ts#L82)*
 
 **Parameters:**
 
@@ -142,7 +142,7 @@ ___
 
 ▸ **togglePosition**(): *void*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/types.ts#L79)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/types.ts#L79)*
 
 **Returns:** *void*
 
@@ -152,14 +152,14 @@ ___
 
 ### ▪ **pageOverlay**: *object*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L84)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L84)*
 
 ###  timeoutId
 
 • **timeoutId**: *number* = 0
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L88)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L88)*
 
 ▪ **data**: *object*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/PageEditContext/index.tsx#L85)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6883c5b/packages/bodiless-core/src/PageEditContext/index.tsx#L85)*
