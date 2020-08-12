@@ -37,7 +37,7 @@ const createChildrenFromOptions = (options: TMenuOption[]) => options.map(
     return (
       <Component
         option={option}
-        group={option.group || option.name}
+        group={option.group}
         name={option.name}
         key={option.name}
         aria-label={option.name}

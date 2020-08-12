@@ -13,9 +13,9 @@
  */
 
 import { observer } from 'mobx-react-lite';
-import React, { ComponentType as CT } from 'react';
+import React, { ComponentType as CT, EventHandler, ComponentType } from 'react';
 import { flowRight, omit, pick } from 'lodash';
-import { useContextActivator } from './hooks';
+import { useContextActivator, useExtendHandler } from './hooks';
 import { useNodeDataHandlers } from './NodeProvider';
 import withNode from './withNode';
 import LocalContextMenu from './components/LocalContextMenu';
@@ -31,6 +31,31 @@ export const withoutProps = <Q extends object>(keys: string|string[], ...restKey
     return WithoutProps;
   }
 );
+
+/**
+ * Utility hoc to add an event handler which extends any handler passed to
+ * the original component.
+ *
+ * Only adds the extension when in edit mode.
+ *
+ * @param event The name of the event whose handler is to be extended
+ * @param useExtender Custom hook returning the handler to add. Will be invoked
+ *        during render and receive the original props of the component.
+ *
+ * @return An HOC which will add the handler.
+ */
+export const withExtendHandler = <P extends object>(
+  event: string,
+  useExtender: (props: P) => EventHandler<any>,
+) => (Component: ComponentType<P>) => {
+    const WithExtendHandler = (props: P) => (
+      <Component
+        {...props}
+        {...useExtendHandler(event, useExtender(props), props)}
+      />
+    );
+    return WithExtendHandler;
+  };
 
 export const withContextActivator = (
   event: string,

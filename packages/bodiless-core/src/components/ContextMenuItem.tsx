@@ -16,6 +16,7 @@ import React, {
   useState, createContext, useContext,
 } from 'react';
 import ReactTooltip from 'rc-tooltip';
+import { observer } from 'mobx-react-lite';
 import { getUI as getFormUI } from '../contextMenuForm';
 import type { UI, IContextMenuItemProps as IProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 import { useEditContext } from '../hooks';
@@ -137,4 +138,4 @@ const ContextMenuItem = (props: IProps) => {
   );
 };
 
-export default ContextMenuItem;
+export default observer(ContextMenuItem);

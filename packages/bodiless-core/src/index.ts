@@ -17,7 +17,9 @@ import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from './
 import PageEditContext from './PageEditContext';
 import asStatic from './asStatic';
 import asReadOnly from './asReadOnly';
-import { useEditContext, useUUID, useContextActivator } from './hooks';
+import {
+  useEditContext, useUUID, useContextActivator, useExtendHandler,
+} from './hooks';
 import withNode, { withNodeKey } from './withNode';
 import withSidecarNodes, { startSidecarNodes, endSidecarNodes } from './withSidecarNodes';
 import {
@@ -37,6 +39,7 @@ import {
   withLocalContextMenu,
   withContextActivator,
   withoutProps,
+  withExtendHandler,
 } from './hoc';
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
@@ -117,6 +120,8 @@ export {
   useEditToggle,
   useNotifications,
   useNotify,
+  withExtendHandler,
+  useExtendHandler,
 };
 
 export type {
