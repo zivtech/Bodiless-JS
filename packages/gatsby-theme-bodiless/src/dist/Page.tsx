@@ -16,6 +16,10 @@ import React, { FC, ComponentType } from 'react';
 import {
   StaticPage,
   ContextWrapperProps,
+  NotificationProvider,
+  useNotificationButton,
+  useSwitcherButton,
+  OnNodeErrorNotification,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
@@ -43,6 +47,12 @@ const defaultUI: FinalUI = {
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
+const OuterButtons: FC = () => {
+  useSwitcherButton();
+  useNotificationButton();
+  return <></>;
+};
+
 const InnerButtons: FC = () => {
   useNewPageButton();
   useGitButtons();
@@ -55,12 +65,16 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
     return (
       <GatsbyNodeProvider {...rest}>
         <GatsbyPageProvider pageContext={rest.pageContext}>
-          <Editor>
-            <InnerButtons />
-            <Wrapper clickable>
-              {children}
-            </Wrapper>
-          </Editor>
+          <NotificationProvider>
+            <OuterButtons />
+            <Editor>
+              <OnNodeErrorNotification />
+              <InnerButtons />
+              <Wrapper clickable>
+                {children}
+              </Wrapper>
+            </Editor>
+          </NotificationProvider>
         </GatsbyPageProvider>
       </GatsbyNodeProvider>
     );

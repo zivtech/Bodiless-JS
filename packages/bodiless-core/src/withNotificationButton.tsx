@@ -52,15 +52,14 @@ const renderForm = (props: ContextMenuFormProps) => <RenderForm {...props} />;
  * Hook to add a notification button.
  */
 const useNotificationButton = () => {
-  const { notifications } = useNotifications();
-
+  const { hasNotifications } = useNotifications();
   const getMenuOptions = useCallback(() => [{
     name: 'Notifications',
     label: 'Alerts',
-    icon: notifications.length > 0 ? 'notification_important' : 'notifications',
-    isActive: () => notifications.length > 0,
+    icon: () => (hasNotifications() ? 'notification_important' : 'notifications'),
+    isActive: () => hasNotifications(),
     handler: () => renderForm,
-  }], [notifications]);
+  }], [hasNotifications]);
   useRegisterMenuOptions({
     getMenuOptions,
     name: 'Notifications',
