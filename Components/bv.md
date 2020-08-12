@@ -1,7 +1,3 @@
-[@bodiless/bv](README.md) › [Globals](globals.md)
-
-# @bodiless/bv
-
 # Bazaarvoice Component
 
 This component provides ability to place [Bazaarvoice](https://www.bazaarvoice.com/) Reviews into a site.
@@ -141,6 +137,7 @@ Then you can place the custom component on a page
 ``` js
 <CustomBVComponent />
 ```
+
 
 ## BVReviewsBase
 

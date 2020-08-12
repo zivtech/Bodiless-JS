@@ -58,7 +58,7 @@
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[constructor](defaultcontentnode.md#constructor)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L57)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L57)*
 
 **Parameters:**
 
@@ -78,7 +78,7 @@ Name | Type |
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[actions](defaultcontentnode.md#protected-actions)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L53)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L53)*
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 • **baseContentPath**: *[Path](../globals.md#path)* = []
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L27)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L27)*
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 • **content**: *D*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L30)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L30)*
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[getters](defaultcontentnode.md#protected-getters)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L55)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L55)*
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[path](defaultcontentnode.md#path)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L57)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L57)*
 
 ## Accessors
 
@@ -124,7 +124,7 @@ ___
 
 *Overrides [DefaultContentNode](defaultcontentnode.md).[data](defaultcontentnode.md#data)*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L56)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L56)*
 
 **Returns:** *any*
 
@@ -136,7 +136,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[keys](defaultcontentnode.md#keys)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L92)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L92)*
 
 **Returns:** *string[]*
 
@@ -148,7 +148,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[child](defaultcontentnode.md#child)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L70)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L70)*
 
 **Type parameters:**
 
@@ -170,7 +170,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[delete](defaultcontentnode.md#delete)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L85)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L85)*
 
 **Parameters:**
 
@@ -188,7 +188,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[getActions](defaultcontentnode.md#getactions)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L101)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L101)*
 
 **Returns:** *object*
 
@@ -202,7 +202,7 @@ ___
 
 ▸ **getContentKey**(): *string*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L39)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L39)*
 
 **Returns:** *string*
 
@@ -212,7 +212,7 @@ ___
 
 ▸ **getDefaultContent**(): *any*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L43)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L43)*
 
 **Returns:** *any*
 
@@ -224,7 +224,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[getGetters](defaultcontentnode.md#getgetters)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L97)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L97)*
 
 **Returns:** *object*
 
@@ -240,7 +240,7 @@ ___
 
 *Overrides [DefaultContentNode](defaultcontentnode.md).[peer](defaultcontentnode.md#peer)*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L65)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L65)*
 
 **Parameters:**
 
@@ -256,7 +256,7 @@ ___
 
 ▸ **setBaseContentPath**(`path`: [Path](../globals.md#path)): *void*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L52)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L52)*
 
 **Parameters:**
 
@@ -272,7 +272,7 @@ ___
 
 ▸ **setContent**(`content`: D): *void*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L48)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L48)*
 
 **Parameters:**
 
@@ -290,7 +290,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[setData](defaultcontentnode.md#setdata)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L80)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L80)*
 
 **Parameters:**
 
@@ -306,7 +306,7 @@ ___
 
 ▸ **create**(`node`: [DefaultContentNode](defaultcontentnode.md)‹object›, `content`: object): *[ContentfulNode](contentfulnode.md)‹object›*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L32)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L32)*
 
 **Parameters:**
 
@@ -325,7 +325,7 @@ ___
 
 *Inherited from [DefaultContentNode](defaultcontentnode.md).[dummy](defaultcontentnode.md#static-dummy)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/bodiless-core/src/ContentNode.ts#L105)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/bodiless-core/src/ContentNode.ts#L105)*
 
 **Parameters:**
 

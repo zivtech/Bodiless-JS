@@ -18,7 +18,7 @@
 
 • **CanBePulled**:
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L76)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L76)*
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **CanNotBePulled**:
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L77)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L77)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **Errored**:
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L79)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L79)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **NoneAvailable**:
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L78)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L78)*
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 • **Pending**:
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/ad06710/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L75)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/58b4e21/packages/gatsby-theme-bodiless/src/dist/RemoteChanges.tsx#L75)*
