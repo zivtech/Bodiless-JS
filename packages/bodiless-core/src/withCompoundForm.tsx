@@ -7,7 +7,7 @@ import { pick } from 'lodash';
 import { designable, DesignableComponentsProps } from '@bodiless/fclasses';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
-import type { FormOptions } from './Types/PageContextProviderTypes';
+import type { MenuOptionsDefinition } from './Types/PageContextProviderTypes';
 import { withMenuOptions } from './PageContextProvider';
 import { useEditContext } from './hooks';
 
@@ -110,11 +110,12 @@ const Form = <D extends object>(props: FormProps<D>) => {
  *
  * @returns A menu options hook.
  */
-const createMenuOptions = <P extends object, D extends object>(options: FormOptions<D>) => {
+const createMenuOptions = <P extends object, D extends object>(
+  options: MenuOptionsDefinition<D>,
+) => {
   const useGetMenuOptions = ({ components, ...rest }: any) => {
     const {
       useGetMenuOptions: useGetMenuOptionsBase = () => undefined,
-      formOptions,
     } = options;
     const context = useEditContext();
     const getMenuOptionsBase = useGetMenuOptionsBase(rest, context) || (() => []);
@@ -128,7 +129,7 @@ const createMenuOptions = <P extends object, D extends object>(options: FormOpti
       const finalOption = {
         ...baseOptions[0],
         handler: () => (p: ContextMenuFormProps) => (
-          <Form {...p} {...formOptions} components={components} snippets={snippets!.current} />
+          <Form {...p} components={components} snippets={snippets!.current} />
         ),
       };
       return [finalOption];
@@ -146,7 +147,9 @@ const createMenuOptions = <P extends object, D extends object>(options: FormOpti
  * - a submit handler which will be passed all submitted values from the form.
  * @param option A context menu option (minus the handler).
  */
-const withCompoundForm = <P extends object>(options: FormOptions<P>) => (Component: CT<P>) => {
+const withCompoundForm = <P extends object>(options: MenuOptionsDefinition<P>) => (
+  Component: CT<P>,
+) => {
   const finalOptions = createMenuOptions(options);
   const ComponentWithButton = withMenuOptions(finalOptions)(Component);
 

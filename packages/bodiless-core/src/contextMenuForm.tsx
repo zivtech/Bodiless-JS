@@ -12,9 +12,10 @@
  * limitations under the License.
  */
 
-import React, { ReactNode, useCallback } from 'react';
+import React, { FC, ReactNode, useCallback } from 'react';
 import { Form, FormApi, FormState } from 'informed';
-import { getUI } from './components/ContextMenuContext';
+import { Div } from '@bodiless/fclasses';
+import { useContextMenuUIContext } from './components/ContextMenuContext';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
 
 export type Options<D> = {
@@ -35,6 +36,36 @@ export type ContextMenuPropsType<D> = ContextMenuFormProps & Options<D> & {
   children: FormBodyRenderer<D>|ReactNode,
 };
 
+export type FormChromeProps = {
+  hasSubmit: boolean;
+  title?: string;
+} & ContextMenuFormProps;
+
+export const FormChrome: FC<FormChromeProps> = (props) => {
+  const {
+    children,
+    title,
+    hasSubmit,
+    closeForm,
+  } = props;
+  const {
+    ComponentFormTitle, ComponentFormCloseButton, ComponentFormSubmitButton,
+  } = useContextMenuUIContext();
+
+  return (
+    <Div aria-label={`Context Submenu ${title} form`}>
+      <ComponentFormCloseButton
+        type="button"
+        aria-label="Cancel"
+        onClick={() => closeForm()}
+      />
+      <ComponentFormTitle>{title}</ComponentFormTitle>
+      {children}
+      {hasSubmit && (<ComponentFormSubmitButton aria-label="Submit" />)}
+    </Div>
+  );
+};
+
 export const ContextMenuForm = <D extends object>(props: ContextMenuPropsType<D>) => {
   const {
     closeForm,
@@ -46,7 +77,7 @@ export const ContextMenuForm = <D extends object>(props: ContextMenuPropsType<D>
     children = () => <></>,
     ...rest
   } = props;
-  const { ComponentFormCloseButton, ComponentFormSubmitButton } = getUI(ui);
+
   const callOnClose = (values: D) => {
     if (typeof onClose === 'function') {
       onClose(values);
@@ -64,22 +95,16 @@ export const ContextMenuForm = <D extends object>(props: ContextMenuPropsType<D>
       {...rest}
     >
       {({ formApi, formState }) => (
-        <>
-          <ComponentFormCloseButton
-            type="button"
-            onClick={() => callOnClose(formState.values)}
-            aria-label="Cancel"
-          />
+        <FormChrome
+          hasSubmit={hasSubmit && !formState.invalid}
+          closeForm={() => callOnClose(formState.values)}
+        >
           {typeof children === 'function'
             ? children({
               closeForm, formApi, formState, ui,
             })
             : children}
-          {hasSubmit && !formState.invalid
-          && (
-            <ComponentFormSubmitButton aria-label="Submit" />
-          )}
-        </>
+        </FormChrome>
       )}
     </Form>
   );

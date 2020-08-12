@@ -16,54 +16,28 @@ import React, { FC } from 'react';
 import { addProps, Div } from '@bodiless/fclasses';
 import ContextMenuItem from '../components/ContextMenuItem';
 import { ContextMenuBase } from '../components/ContextMenu';
-import { useContextMenuUIContext } from '../components/ContextMenuContext';
+import { getUI } from '../components/ContextMenuContext';
+import { FormChrome } from '../contextMenuForm';
 import type { IContextMenuItemProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
-
-type FormChromeProps = {
-  hasSubmit: boolean;
-  title?: string;
-} & ContextMenuFormProps;
-
-const FormChrome: FC<FormChromeProps> = (props) => {
-  const {
-    children,
-    title,
-    hasSubmit,
-    closeForm,
-  } = props;
-  const {
-    ComponentFormTitle, ComponentFormCloseButton, ComponentFormSubmitButton,
-    ContextSubMenu,
-  } = useContextMenuUIContext();
-
-  return (
-    <Div aria-label={`Context Submenu ${title} form`}>
-      <ComponentFormCloseButton
-        type="button"
-        aria-label="Cancel"
-        onClick={() => closeForm()}
-      />
-      <ComponentFormTitle>{title}</ComponentFormTitle>
-      <ContextSubMenu>{children}</ContextSubMenu>
-      {hasSubmit && (<ComponentFormSubmitButton aria-label="Submit" />)}
-    </Div>
-  );
-};
 
 const ContextSubMenu: FC<IContextMenuItemProps> = props => {
   const {
     option, children, ui, ...rest
   } = props;
 
-  const finalUi = {
+  const finalUi = getUI({
     ...ui,
     Toolbar: addProps({ 'aria-label': `Context Submenu ${option.label} form` })(Div),
-  };
+  });
+
+  const { ContextSubMenu: SubMenu } = finalUi;
 
   const handler = () => ({ closeForm }: ContextMenuFormProps) => (
     <ContextMenuBase ui={finalUi} renderInTooltip={false}>
       <FormChrome title={option.label} hasSubmit={false} closeForm={closeForm} {...rest}>
-        {children}
+        <SubMenu>
+          {children}
+        </SubMenu>
       </FormChrome>
     </ContextMenuBase>
   );

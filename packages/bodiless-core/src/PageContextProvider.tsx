@@ -15,7 +15,7 @@
 import React, { FC, useRef, ComponentType } from 'react';
 import PageEditContext from './PageEditContext';
 import { useEditContext, useUUID } from './hooks';
-import { Props, FormOptions, TMenuOptionGetter } from './Types/PageContextProviderTypes';
+import { Props, MenuOptionsDefinition, TMenuOptionGetter } from './Types/PageContextProviderTypes';
 
 /**
  * @private
@@ -90,7 +90,7 @@ export const withMenuOptions = <P extends object>({
   useGetMenuOptions,
   peer,
   ...rest
-}:FormOptions<P>) => (Component: ComponentType<P> | string) => {
+}:MenuOptionsDefinition<P>) => (Component: ComponentType<P> | string) => {
     const WithMenuOptions = (props: P) => {
       const getMenuOptions = useGetMenuOptions
         ? useGetMenuOptions(props, useEditContext())
