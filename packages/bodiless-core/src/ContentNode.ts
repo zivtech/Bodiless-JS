@@ -114,11 +114,12 @@ export class DefaultContentNode<D extends object> implements ContentNode<D> {
     const store = new DummyContentNodeStore(initialData);
     const getNode = () => store.data;
     const getKeys = () => path$1;
+    const hasError = () => false;
     const setNode = (p: Path, d: any) => {
       store.setData(d);
     };
     const deleteNode = () => {};
-    const getters = { getNode, getKeys };
+    const getters = { getNode, getKeys, hasError };
     const actions = { setNode, deleteNode };
     return new DefaultContentNode(actions, getters, path$1);
   }

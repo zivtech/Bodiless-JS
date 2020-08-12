@@ -40,8 +40,8 @@ import {
 } from './hoc';
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
-import type { ContextMenuFormProps, IContextMenuItemProps } from './Types/ContextMenuTypes';
-import type { PageEditContextInterface, TMenuOption } from './PageEditContext/types';
+import type { ContextMenuFormProps, IContextMenuItemProps, TMenuOption } from './Types/ContextMenuTypes';
+import type { PageEditContextInterface } from './PageEditContext/types';
 import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
 import type { TMenuOptionGetter, UseGetMenuOptions } from './Types/PageContextProviderTypes';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';

@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import {
+import React, {
   ComponentType,
   HTMLProps,
   ReactNode,
@@ -24,7 +24,20 @@ import {
 } from 'informed';
 import Tooltip from 'rc-tooltip';
 import { ReactTagsFieldProps } from '../components/ReactTagsField';
-import type { TMenuOption } from '../PageEditContext/types';
+
+export type TMenuOption = {
+  name: string;
+  icon?: (() => string) | string;
+  label?: (() => string) | string;
+  isActive?: (() => boolean) | boolean;
+  isDisabled?: (() => boolean) | boolean;
+  isHidden?: (() => boolean) | boolean;
+  handler?: (event: React.MouseEvent) => any;
+  local?: boolean;
+  global?: boolean;
+  group?: string;
+  Component?: ComponentType<IContextMenuItemProps>;
+};
 
 export type ButtonVariantProps = HTMLProps<HTMLDivElement> & {
   isActive?: boolean;

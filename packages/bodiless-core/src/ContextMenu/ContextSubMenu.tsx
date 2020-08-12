@@ -12,6 +12,7 @@
  * limitations under the License.
  */
 
+/* eslint-disable no-nested-ternary */
 import React, { FC } from 'react';
 import { addProps, Div } from '@bodiless/fclasses';
 import ContextMenuItem from '../components/ContextMenuItem';
@@ -31,10 +32,11 @@ const ContextSubMenu: FC<IContextMenuItemProps> = props => {
   });
 
   const { ContextSubMenu: SubMenu } = finalUi;
+  const title = option.label ? (typeof option.label === 'function' ? option.label() : option.label) : '';
 
   const handler = () => ({ closeForm }: ContextMenuFormProps) => (
     <ContextMenuBase ui={finalUi} renderInTooltip={false}>
-      <FormChrome title={option.label} hasSubmit={false} closeForm={closeForm} {...rest}>
+      <FormChrome title={title} hasSubmit={false} closeForm={closeForm} {...rest}>
         <SubMenu>
           {children}
         </SubMenu>
