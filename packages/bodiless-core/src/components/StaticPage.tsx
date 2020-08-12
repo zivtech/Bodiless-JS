@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /**
  * Copyright © 2019 Johnson & Johnson
  *
@@ -18,6 +19,12 @@ import PageEditContext from '../PageEditContext';
 import { PageEditContextInterface } from '../PageEditContext/types';
 
 class StaticContext implements PageEditContextInterface {
+  parent?: PageEditContextInterface | undefined;
+
+  areLocalTooltipsDisabled = true;
+
+  toggleLocalTooltipsDisabled() {}
+
   isActive = false;
 
   isInnermost = false;
