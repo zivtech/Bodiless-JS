@@ -17,6 +17,7 @@ import React, {
 } from 'react';
 import ReactTooltip from 'rc-tooltip';
 import { getUI as getFormUI } from '../contextMenuForm';
+import { useContextMenuContext } from './ContextMenuContext';
 import type { UI, IContextMenuItemProps as IProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 
 const defaultUI = {
@@ -45,7 +46,6 @@ const ContextMenuItem = (props: IProps) => {
     option,
     index,
     ui,
-    setRenderForm: setRenderFormProp,
   } = props;
   const [renderForm, setRenderForm$] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
@@ -61,7 +61,7 @@ const ContextMenuItem = (props: IProps) => {
   const isDisabled = option.isDisabled ? option.isDisabled() : false;
   const isHidden = option.isHidden ? option.isHidden() : false;
   const isFirst = index === 0;
-  const setRenderForm = setRenderFormProp || setRenderForm$;
+  const setRenderForm = useContextMenuContext().setRenderForm || setRenderForm$;
 
   const onToolbarButtonClick = (event: React.MouseEvent<HTMLDivElement>): void => {
     const menuForm = option.handler ? option.handler(event) : undefined;
@@ -85,7 +85,7 @@ const ContextMenuItem = (props: IProps) => {
     if (renderForm) {
       const formProps: ContextMenuFormProps = {
         closeForm: onFormClose,
-        ui,
+        ui: finalUI,
         'aria-label': `Context Menu ${option.label || option.name} Form`,
       };
       return (

@@ -13,9 +13,9 @@
  */
 
 import React, { FC } from 'react';
-import { Div, addProps } from '@bodiless/fclasses';
+import { addProps, Div } from '@bodiless/fclasses';
 import ContextMenuItem, { useUI as useFormUI } from '../components/ContextMenuItem';
-import ContextMenu from '../components/ContextMenu';
+import { ContextMenuBase } from '../components/ContextMenu';
 import type { IContextMenuItemProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 
 type FormChromeProps = {
@@ -25,7 +25,10 @@ type FormChromeProps = {
 
 const FormChrome: FC<FormChromeProps> = (props) => {
   const {
-    children, title, hasSubmit, closeForm,
+    children,
+    title,
+    hasSubmit,
+    closeForm,
   } = props;
   const {
     ComponentFormTitle, ComponentFormCloseButton, ComponentFormSubmitButton,
@@ -33,7 +36,7 @@ const FormChrome: FC<FormChromeProps> = (props) => {
   } = useFormUI();
 
   return (
-    <>
+    <Div aria-label={`Context Submenu ${title} form`}>
       <ComponentFormCloseButton
         type="button"
         aria-label="Cancel"
@@ -42,7 +45,7 @@ const FormChrome: FC<FormChromeProps> = (props) => {
       <ComponentFormTitle>{title}</ComponentFormTitle>
       <ContextSubMenu>{children}</ContextSubMenu>
       {hasSubmit && (<ComponentFormSubmitButton aria-label="Submit" />)}
-    </>
+    </Div>
   );
 };
 
@@ -57,18 +60,11 @@ const ContextSubMenu: FC<IContextMenuItemProps> = props => {
   };
 
   const handler = () => ({ closeForm }: ContextMenuFormProps) => (
-    <ContextMenu
-      ui={{
-        ...finalUi,
-        ContextMenuGroup: addProps({
-          closeForm,
-          title: option.label,
-        })(FormChrome),
-      }}
-      renderInTooltip={false}
-    >
-      {children}
-    </ContextMenu>
+    <ContextMenuBase ui={finalUi} renderInTooltip={false}>
+      <FormChrome title={option.label} hasSubmit={false} closeForm={closeForm} {...rest}>
+        {children}
+      </FormChrome>
+    </ContextMenuBase>
   );
   const newOption = { ...option, handler };
   return <ContextMenuItem option={newOption} ui={ui} {...rest} />;
