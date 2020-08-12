@@ -28,6 +28,7 @@ const getMockNode = (data: string) => {
   const getters = {
     getNode: jest.fn(() => ({ content: data })),
     getKeys: jest.fn(),
+    hasError: jest.fn(),
   };
   const actions = {
     setNode: jest.fn(),
