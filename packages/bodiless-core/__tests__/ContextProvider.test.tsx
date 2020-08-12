@@ -15,7 +15,7 @@
  */
 
 import React, {
-  useMemo, useEffect, FC, useCallback, useLayoutEffect,
+  useEffect, FC, useCallback, useLayoutEffect,
 } from 'react';
 import {
   shallow, mount, ReactWrapper, ComponentType,
@@ -88,20 +88,19 @@ const FooBar: FC<any> = ({
   children, foo, bar, peer,
 }) => {
   foobarRendered();
-  const options$: TMenuOption[] = [];
+  const options: TMenuOption[] = [];
   if (foo) {
-    options$.push({
+    options.push({
       name: 'foo',
       label: typeof foo === 'string' ? foo : 'foo',
     });
   }
   if (bar) {
-    options$.push({
+    options.push({
       name: 'bar',
       label: typeof bar === 'string' ? bar : 'bar',
     });
   }
-  const options = useMemo(() => options$, [foo, bar]);
   const props = {
     getMenuOptions: () => options,
     name: 'FooBar',
@@ -138,10 +137,9 @@ const RemoveTest = ({ baz, peer, ...rest }: any) => (
 const bazRendered = jest.fn();
 const Baz: FC<any> = ({ children, peer }) => {
   bazRendered();
-  const options$ = [{
+  const options = [{
     name: 'baz',
   }];
-  const options = useMemo(() => options$, []);
   const props = {
     getMenuOptions: () => options,
     name: 'Baz',

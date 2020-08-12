@@ -228,34 +228,30 @@ describe('Registering peer contexts', () => {
 });
 
 describe('Update menu options', () => {
-  const parentOptions = [{
-    name: 'parent',
-  }];
   const parentContext = new PageEditContext({
     // Note we need to return a reference to the same object here, or
     // the context menu will re-render even if the options don't change.
-    getMenuOptions: () => parentOptions,
+    getMenuOptions: () => [{
+      name: 'parent',
+    }],
     name: 'Parent',
     id: 'Parent',
   });
-  const peerOptions = [{
-    name: 'peer',
-  }];
   const peerContext = new PageEditContext({
     // Note we need to return a reference to the same object here, or
     // the context menu will re-render even if the options don't change.
-    getMenuOptions: () => peerOptions,
+    getMenuOptions: () => [{
+      name: 'peer',
+    }],
     name: 'Peer',
     id: 'Peer',
   });
 
-  const originalOptions: TMenuOption[] = [{
-    name: 'foo',
-  }];
-
   const createContext = (options?: TMenuOption[]) => {
     const context = new PageEditContext({
-      getMenuOptions: () => (options || originalOptions),
+      getMenuOptions: () => (options || [{
+        name: 'foo',
+      }]),
       name: 'Foo',
       id: 'Foo',
     }, parentContext);
@@ -332,7 +328,7 @@ describe('Update menu options', () => {
 
   it('Does not notify when an option is replaced by one with different properties', () => {
     clearListeners();
-    const newOptions = [{ ...originalOptions[0], icon: 'foo' }];
+    const newOptions = [{ name: 'foo', icon: 'foo' }];
     const newContext = createContext(newOptions);
     newContext.updateMenuOptions();
     expect(listener).toHaveBeenCalledTimes(0);
@@ -341,7 +337,7 @@ describe('Update menu options', () => {
 
   it('Notifies when an option is added', () => {
     clearListeners();
-    const newOptions = [...originalOptions, { name: 'new' }];
+    const newOptions = [{ name: 'foo' }, { name: 'new' }];
     const newContext = createContext(newOptions);
     newContext.updateMenuOptions();
     expect(listener).toHaveBeenCalledTimes(1);
