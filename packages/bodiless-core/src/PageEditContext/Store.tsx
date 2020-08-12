@@ -12,62 +12,19 @@
  * limitations under the License.
  */
 
-import {
-  action, computed, observable, ObservableMap,
-} from 'mobx';
-import { isEqual } from 'lodash';
-import {
+import { action, computed, observable } from 'mobx';
+import type { ObservableMap } from 'mobx';
+import type {
   PageEditContextInterface,
   PageEditStoreInterface,
   TPageOverlayStore,
 } from './types';
-import { TMenuOption } from '../Types/ContextMenuTypes';
+import type { TMenuOption } from '../Types/ContextMenuTypes';
 import {
   getFromSessionStorage,
   saveToSessionStorage,
 } from '../SessionStorage';
-import { TOverlaySettings } from '../Types/PageOverlayTypes';
-
-/**
- * @private
- * Helper function to cravel the context trail, invoking a callback on each context
- * and accumulating the results.
- * @param accumulator The accumulated results.
- * @param callback The callback which returns the results for each context.
- * @param context The context on which to execute the callback.
- */
-const reduceRecursively = <T extends any>(
-  accumulator: T[],
-  callback: (c: PageEditContextInterface) => T[],
-  context?: PageEditContextInterface,
-): T[] => {
-  if (!context) return [];
-  const newItems = callback(context);
-  const newAccumulator = [...newItems, ...accumulator];
-  return context.parent
-    ? reduceRecursively(newAccumulator, callback, context.parent)
-    : newAccumulator;
-};
-
-/**
- * @private
- *
- * A proxy around a context menu option which defers accessing the option data
- * until a property is accessed.
- */
-const createMenuOptionProxy = (
-  group: string,
-  name: string,
-  map: Map<string, TMenuOption>,
-): TMenuOption => new Proxy<TMenuOption>({ name, group }, {
-  get: (target, prop: keyof(TMenuOption)) => {
-    switch (prop) {
-      case 'group': return group;
-      case 'name': return name;
-      default: return map.get(name)![prop];
-    }
-  },
-});
+import type { TOverlaySettings } from '../Types/PageOverlayTypes';
 
 export const defaultOverlaySettings: TOverlaySettings = {
   isActive: false,
@@ -171,9 +128,10 @@ export class PageEditStore implements PageEditStoreInterface {
     const contextIds = Array.from(this.optionMap.keys());
     contextIds.forEach(contextId => {
       const optionMap = this.optionMap.get(contextId);
-      Array.from(optionMap!.keys()).forEach(optionName => {
-        options.push(createMenuOptionProxy(contextId, optionName, optionMap!));
-      });
+      options.push(...Array.from(optionMap!.values()));
+      // Array.from(optionMap!.keys()).forEach(optionName => {
+      //   options.push(createMenuOptionProxy(contextId, optionName, optionMap!));
+      // });
     });
     return options;
   }
@@ -199,7 +157,11 @@ export class PageEditStore implements PageEditStoreInterface {
   }
 
   @computed get contextTrail() {
-    return reduceRecursively<string>([], context => [context.id], this.activeContext);
+    const trail: string[] = [];
+    for (let c = this.activeContext; c?.parent; c = c.parent) {
+      trail.push(c.id);
+    }
+    return trail;
   }
 
   @observable areLocalTooltipsDisabled = false;
