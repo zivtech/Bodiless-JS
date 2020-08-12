@@ -31,10 +31,14 @@ import { TMenuOption } from '../src/Types/ContextMenuTypes';
 type ItemProps = {
   option: TMenuOption,
   id: string,
+  group: string|undefined,
+  global: boolean,
 };
 
 const itemRendered = jest.fn();
-const Item = observer(({ option, ...rest }: ItemProps) => {
+const Item = observer(({
+  option, group, global, ...rest
+}: ItemProps) => {
   itemRendered(option.name);
   return <span {...rest}>{option.label || option.name}</span>;
 });
@@ -42,9 +46,15 @@ const Item = observer(({ option, ...rest }: ItemProps) => {
 const menuRendered = jest.fn();
 const Menu = observer(() => {
   menuRendered();
-  const items = useEditContext().contextMenuOptions.map(
-    option => <Item id={option.name} key={option.name} option={option} />,
-  );
+  const items = useEditContext().contextMenuOptions.map(option => (
+    <Item
+      id={option.name}
+      key={option.name}
+      option={option}
+      group={option.group}
+      global={option.local || true}
+    />
+  ));
   return (
     <>
       {items}

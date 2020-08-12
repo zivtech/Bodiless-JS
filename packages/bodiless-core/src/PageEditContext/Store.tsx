@@ -143,9 +143,6 @@ export class PageEditStore implements PageEditStoreInterface {
   @action
   updateMenuOptions(context: PageEditContextInterface) {
     if (!this.optionMap.has(context.id)) {
-      // We create a shallow map for each context bc we expect the
-      // items to be memoized, so we need only compare references.
-      // this.optionMap.set(context.id, observable.map({}, { deep: false }));
       this.optionMap.set(context.id, observable.map({}));
     }
     const map = this.optionMap.get(context.id);
@@ -156,10 +153,10 @@ export class PageEditStore implements PageEditStoreInterface {
         keys.add(op.name);
         const existing = map!.get(op.name);
         if (existing) {
-          const equal = isEqual(existing, op);
-          if (equal) return;
+          Object.assign(existing, op);
+        } else {
+          map!.set(op.name, op);
         }
-        map!.set(op.name, op);
       });
     });
     // Delete any items which are no longer present.
