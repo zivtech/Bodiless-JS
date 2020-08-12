@@ -14,7 +14,6 @@
 
 import React, { FC, ReactNode, useCallback } from 'react';
 import { Form, FormApi, FormState } from 'informed';
-import { Div } from '@bodiless/fclasses';
 import { useContextMenuUIContext } from './components/ContextMenuContext';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
 
@@ -53,7 +52,7 @@ export const FormChrome: FC<FormChromeProps> = (props) => {
   } = useContextMenuUIContext();
 
   return (
-    <Div aria-label={`Context Submenu ${title} form`}>
+    <>
       <ComponentFormCloseButton
         type="button"
         aria-label="Cancel"
@@ -62,7 +61,7 @@ export const FormChrome: FC<FormChromeProps> = (props) => {
       <ComponentFormTitle>{title}</ComponentFormTitle>
       {children}
       {hasSubmit && (<ComponentFormSubmitButton aria-label="Submit" />)}
-    </Div>
+    </>
   );
 };
 
