@@ -13,24 +13,12 @@
  */
 
 import React, { FC, useState } from 'react';
-import { getUI as getFormUI } from '../contextMenuForm';
 import ContextMenuItem from './ContextMenuItem';
 import StructuredChildren from '../ContextMenu/StructuredChildren';
-import ContextMenuContext from './ContextMenuContext';
+import ContextMenuProvider, { getUI } from './ContextMenuContext';
 import type {
-  IContextMenuProps, UI, ContextMenuFormProps, TMenuOption,
+  IContextMenuProps, ContextMenuFormProps, TMenuOption,
 } from '../Types/ContextMenuTypes';
-
-const defaultUI = {
-  Toolbar: 'div',
-  ContextMenuGroup: React.Fragment,
-};
-
-export const getUI = (ui: UI = {}) => ({
-  ...defaultUI,
-  ...getFormUI(),
-  ...ui,
-});
 
 const createChildrenFromOptions = (options: TMenuOption[]) => options.map(
   option => {
@@ -58,10 +46,6 @@ const ContextMenuBase: FC<IContextMenuProps> = (props) => {
   } = props;
   const { Toolbar } = getUI(ui);
 
-  const childProps = {
-    setRenderForm: renderInTooltip ? undefined : setRenderForm,
-  };
-
   if (renderForm) {
     const formProps: ContextMenuFormProps = {
       closeForm: () => setRenderForm(undefined),
@@ -73,11 +57,11 @@ const ContextMenuBase: FC<IContextMenuProps> = (props) => {
 
   if (children) {
     return (
-      <ContextMenuContext.Provider value={childProps}>
+      <ContextMenuProvider setRenderForm={renderInTooltip ? undefined : setRenderForm} ui={ui}>
         <Toolbar onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
           {children}
         </Toolbar>
-      </ContextMenuContext.Provider>
+      </ContextMenuProvider>
     );
   }
 
@@ -87,22 +71,15 @@ const ContextMenuBase: FC<IContextMenuProps> = (props) => {
 const ContextMenu: FC<IContextMenuProps> = (props) => {
   if (typeof window === 'undefined') return null;
 
-  const {
-    options = [],
-    ui,
-    children,
-  } = props;
+  const { options, ui, children } = props;
   const { ContextMenuGroup } = getUI(ui);
-
-  const childProps = {
-    ui,
-  };
-  const childrenFromOptions = createChildrenFromOptions(options);
+  const childProps = { ui };
+  const childrenFromOptions = createChildrenFromOptions(options || []);
 
   if (children || childrenFromOptions.length > 0) {
     return (
       <ContextMenuBase {...props}>
-        <StructuredChildren components={{ Group: ContextMenuGroup }} {...childProps}>
+        <StructuredChildren components={{ Group: ContextMenuGroup! }} {...childProps}>
           {children}
           {childrenFromOptions}
         </StructuredChildren>

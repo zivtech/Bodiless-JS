@@ -14,8 +14,9 @@
 
 import React, { FC } from 'react';
 import { addProps, Div } from '@bodiless/fclasses';
-import ContextMenuItem, { useUI as useFormUI } from '../components/ContextMenuItem';
+import ContextMenuItem from '../components/ContextMenuItem';
 import { ContextMenuBase } from '../components/ContextMenu';
+import { useContextMenuUIContext } from '../components/ContextMenuContext';
 import type { IContextMenuItemProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 
 type FormChromeProps = {
@@ -33,7 +34,7 @@ const FormChrome: FC<FormChromeProps> = (props) => {
   const {
     ComponentFormTitle, ComponentFormCloseButton, ComponentFormSubmitButton,
     ContextSubMenu,
-  } = useFormUI();
+  } = useContextMenuUIContext();
 
   return (
     <Div aria-label={`Context Submenu ${title} form`}>

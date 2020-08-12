@@ -13,33 +13,9 @@
  */
 
 import React, { ReactNode, useCallback } from 'react';
-import {
-  Form, FormApi, FormState, Text, TextArea,
-} from 'informed';
-import type { UI, ContextMenuFormProps } from './Types/ContextMenuTypes';
-import ReactTagsField from './components/ReactTagsField';
-
-const defaultUI = {
-  Icon: 'i',
-  ComponentFormTitle: 'h3',
-  ComponentFormLabel: 'label',
-  ComponentFormButton: 'button',
-  ComponentFormCloseButton: 'button',
-  ComponentFormSubmitButton: 'button',
-  ComponentFormUnwrapButton: 'button',
-  ComponentFormText: Text,
-  ComponentFormTextArea: TextArea,
-  ComponentFormError: 'div',
-  ComponentFormWarning: 'div',
-  Form: 'div',
-  ReactTags: ReactTagsField,
-  ComponentFormList: 'ul',
-  ComponentFormListItem: 'li',
-  ComponentFormDescription: 'div',
-  ContextSubMenu: React.Fragment,
-};
-
-export const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });
+import { Form, FormApi, FormState } from 'informed';
+import { getUI } from './components/ContextMenuContext';
+import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
 
 export type Options<D> = {
   submitValues?: (componentData: D) => boolean|void;

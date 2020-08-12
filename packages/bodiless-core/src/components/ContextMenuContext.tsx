@@ -12,19 +12,69 @@
  * limitations under the License.
  */
 
-import React, { createContext, useContext } from 'react';
-import { ContextMenuFormProps } from '../Types/ContextMenuTypes';
+import React, { FC, createContext, useContext } from 'react';
+import { Text, TextArea } from 'informed';
+import ReactTooltip from 'rc-tooltip';
+import ReactTagsField from './ReactTagsField';
+import type { UI, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 
 type ContextType = {
   // eslint-disable-next-line max-len
   setRenderForm?: React.Dispatch<React.SetStateAction<((props: ContextMenuFormProps) => JSX.Element) | undefined>>;
 };
 
+type ContextUIType = {
+  ui?: UI;
+};
+
+const defaultUI = {
+  Icon: 'i',
+  ComponentFormTitle: 'h3',
+  ComponentFormLabel: 'label',
+  ComponentFormButton: 'button',
+  ComponentFormCloseButton: 'button',
+  ComponentFormSubmitButton: 'button',
+  ComponentFormUnwrapButton: 'button',
+  ComponentFormText: Text,
+  ComponentFormTextArea: TextArea,
+  ComponentFormError: 'div',
+  ComponentFormWarning: 'div',
+  Form: 'form',
+  ReactTags: ReactTagsField,
+  ComponentFormList: 'ul',
+  ComponentFormListItem: 'li',
+  ComponentFormDescription: 'div',
+  ContextSubMenu: React.Fragment,
+  ToolbarButton: 'div',
+  FormWrapper: 'div',
+  ToolbarDivider: 'div',
+  Tooltip: ReactTooltip,
+  Toolbar: 'div',
+  ContextMenuGroup: React.Fragment,
+};
+
+const getUI = (ui: UI = {}) => ({
+  ...defaultUI,
+  ...ui,
+});
+
 const ContextMenuContext = createContext<ContextType>({});
+const ContextMenuUIContext = createContext<UI>({});
 
 const useContextMenuContext = () => useContext(ContextMenuContext);
+const useContextMenuUIContext = () => getUI(useContext(ContextMenuUIContext));
 
-export default ContextMenuContext;
+const ContextMenuProvider: FC<ContextType & ContextUIType> = ({ children, setRenderForm, ui }) => (
+  <ContextMenuUIContext.Provider value={getUI(ui)}>
+    <ContextMenuContext.Provider value={{ setRenderForm }}>
+      { children }
+    </ContextMenuContext.Provider>
+  </ContextMenuUIContext.Provider>
+);
+
+export default ContextMenuProvider;
 export {
   useContextMenuContext,
+  useContextMenuUIContext,
+  getUI,
 };
