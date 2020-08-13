@@ -108,4 +108,4 @@ const ContextMenuItem = observer((props: IProps) => {
   );
 });
 
-export default observer(ContextMenuItem);
+export default ContextMenuItem;
