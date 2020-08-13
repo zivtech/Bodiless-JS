@@ -37,6 +37,7 @@ import {
   withLocalContextMenu,
   withContextActivator,
   withoutProps,
+  withOnlyProps,
 } from './hoc';
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
@@ -107,6 +108,7 @@ export {
   ifEditable,
   ifReadOnly,
   withoutProps,
+  withOnlyProps,
   ActivateOnEffectProvider,
   withActivateOnEffect,
   useActivateOnEffect,
