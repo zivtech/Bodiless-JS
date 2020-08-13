@@ -14,7 +14,7 @@
 
 import React, { Fragment, ComponentType, useMemo } from 'react';
 import {
-  useNode, TMenuOption, withMenuOptions,
+  useNode, TMenuOption, withMenuOptions, withOnlyProps,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 
@@ -45,7 +45,7 @@ const withToggleTo = <Q extends object>(OffComp: ComponentType<Q> | string) => (
   )
 );
 
-const withToggle = withToggleTo(Fragment);
+const withToggle = withToggleTo(withOnlyProps('key', 'children')(Fragment));
 
 type TMenuOptionGetter = () => TMenuOption[];
 

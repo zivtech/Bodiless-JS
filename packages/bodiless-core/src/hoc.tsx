@@ -13,7 +13,7 @@
  */
 
 import { observer } from 'mobx-react-lite';
-import React, { ComponentType as CT, EventHandler, ComponentType } from 'react';
+import React, { ComponentType as CT, EventHandler, FC } from 'react';
 import { flowRight, omit, pick } from 'lodash';
 import { useContextActivator, useExtendHandler } from './hooks';
 import { useNodeDataHandlers } from './NodeProvider';
@@ -47,7 +47,7 @@ export const withoutProps = <Q extends object>(keys: string|string[], ...restKey
 export const withExtendHandler = <P extends object>(
   event: string,
   useExtender: (props: P) => EventHandler<any>,
-) => (Component: ComponentType<P>) => {
+) => (Component: CT<P>) => {
     const WithExtendHandler = (props: P) => (
       <Component
         {...props}
@@ -56,6 +56,20 @@ export const withExtendHandler = <P extends object>(
     );
     return WithExtendHandler;
   };
+
+/*
+ * Creates an HOC which strips all but the specified props.
+ *
+ * @param keys A list of the prop-names to keep.
+ *
+ * @return An HOC which will strip all but the specified props.
+ */
+export const withOnlyProps = <Q extends object>(...keys: string[]) => (
+  <P extends object>(Component: CT<P> | string) => {
+    const WithOnlyProps: FC<P & Q> = props => <Component {...pick(props, keys) as P} />;
+    return WithOnlyProps;
+  }
+);
 
 export const withContextActivator = (
   event: string,
