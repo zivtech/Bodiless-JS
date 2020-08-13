@@ -4,18 +4,6 @@ import React, {
 import { flow } from 'lodash';
 import { ContextMenuGroupProps } from '../Types/ContextMenuTypes';
 
-export const Group: FC<ContextMenuGroupProps> = ({ label, children }) => (
-  <div>
-    {label && <h3>{label}</h3>}
-    <div>{children}</div>
-    <hr />
-  </div>
-);
-
-export const Item: FC<ContextMenuGroupProps> = ({ label }) => (
-  <button type="button">{label}</button>
-);
-
 type GroupTree = {
   [name: string]: {
     element: ReactElement,
@@ -62,11 +50,11 @@ export const cloneChildren = (props: any = {}) => (tree: GroupTree): ReactElemen
   }, []);
 
 const buildChildren = (
-  GroupComponent: ComponentType<ContextMenuGroupProps> = Group,
+  DefaultGroupComponent: ComponentType<ContextMenuGroupProps> = React.Fragment,
   props: any = {},
 ) => flow(
   asElementArray,
-  addMissingGroups(GroupComponent),
+  addMissingGroups(DefaultGroupComponent),
   buildGroupTree,
   cloneChildren(props),
 );
@@ -78,9 +66,8 @@ type GroupedChildrenProps = {
   [prop: string]: any,
 };
 
-const StructuredChildren: FC<GroupedChildrenProps> = ({ components, children, ...rest }) => {
-  const newChildren = buildChildren(components.Group || Group, rest)(children);
-  return <>{newChildren}</>;
-};
+const StructuredChildren: FC<GroupedChildrenProps> = ({ components, children, ...rest }) => (
+  <>{buildChildren(components.Group, rest)(children)}</>
+);
 
 export default StructuredChildren;

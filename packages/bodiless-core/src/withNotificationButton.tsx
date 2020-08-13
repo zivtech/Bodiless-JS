@@ -16,11 +16,11 @@ import React, { useMemo } from 'react';
 import { ContextMenuForm } from './contextMenuForm';
 import { useRegisterMenuOptions } from './PageContextProvider';
 import { useNotifications } from './NotificationProvider';
-import { useUI as useFormUI } from './components/ContextMenuItem';
+import { useContextMenuUIContext } from './components/ContextMenuContext';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
 
 const NotificationList = () => {
-  const { ComponentFormList, ComponentFormListItem } = useFormUI();
+  const { ComponentFormList, ComponentFormListItem } = useContextMenuUIContext();
   const { notifications } = useNotifications();
   if (notifications.length === 0) return (<p>There are no alerts.</p>);
   return (
@@ -35,7 +35,7 @@ const NotificationList = () => {
 };
 
 const RenderForm = (props: ContextMenuFormProps) => {
-  const { ComponentFormTitle } = useFormUI();
+  const { ComponentFormTitle } = useContextMenuUIContext();
   return (
     <ContextMenuForm {...props}>
       <ComponentFormTitle>Alerts</ComponentFormTitle>
@@ -52,15 +52,14 @@ const renderForm = (props: ContextMenuFormProps) => <RenderForm {...props} />;
  * Hook to add a notification button.
  */
 const useNotificationButton = () => {
-  const { notifications } = useNotifications();
-
-  const menuOptions = useMemo(() => [{
+  const { hasNotifications } = useNotifications();
+  const getMenuOptions = useCallback(() => [{
     name: 'Notifications',
     label: 'Alerts',
-    icon: notifications.length > 0 ? 'notification_important' : 'notifications',
-    isActive: () => notifications.length > 0,
+    icon: () => (hasNotifications() ? 'notification_important' : 'notifications'),
+    isActive: () => hasNotifications(),
     handler: () => renderForm,
-  }], [notifications]);
+  }], [hasNotifications]);
   useRegisterMenuOptions({
     getMenuOptions: () => menuOptions,
     name: 'Notifications',

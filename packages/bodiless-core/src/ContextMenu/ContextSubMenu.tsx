@@ -12,66 +12,37 @@
  * limitations under the License.
  */
 
-import React, { FC, ComponentType as CT } from 'react';
-import { Div } from '@bodiless/fclasses';
-import ContextMenuItem, { useUI as useFormUI } from '../components/ContextMenuItem';
-import ContextMenu from '../components/ContextMenu';
+/* eslint-disable no-nested-ternary */
+import React, { FC } from 'react';
+import { addProps, Div } from '@bodiless/fclasses';
+import ContextMenuItem from '../components/ContextMenuItem';
+import { ContextMenuBase } from '../components/ContextMenu';
+import { getUI } from '../components/ContextMenuContext';
+import { FormChrome } from '../contextMenuForm';
 import type { IContextMenuItemProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
-
-const SubMenuGroup: FC<any> = ({ children }) => {
-  const { ComponentFormSubMenu } = useFormUI();
-  return <ComponentFormSubMenu>{children}</ComponentFormSubMenu>;
-};
-
-type FormChromeOptions = {
-  title: string;
-  hasSubmit?: boolean;
-  closeForm: () => void;
-};
-
-const withFormChrome = <P extends object>(options: FormChromeOptions) => (Component: CT<P>) => {
-  const { title, closeForm, hasSubmit = true } = options;
-
-  const FormChrome = (props: P) => {
-    const {
-      ComponentFormTitle, ComponentFormCloseButton, ComponentFormSubmitButton,
-    } = useFormUI();
-
-    return (
-      <>
-        <ComponentFormCloseButton
-          type="button"
-          aria-label="Cancel"
-          onClick={() => closeForm()}
-        />
-        <ComponentFormTitle>{title}</ComponentFormTitle>
-        <Component {...props} />
-        {hasSubmit && (<ComponentFormSubmitButton aria-label="Submit" />)}
-      </>
-    );
-  };
-
-  return FormChrome;
-};
 
 const ContextSubMenu: FC<IContextMenuItemProps> = props => {
   const {
     option, children, ui, ...rest
   } = props;
-  const finalUi = { ...ui, Toolbar: Div };
 
-  const handler = () => ({ closeForm }: ContextMenuFormProps) => {
-    const StructuredChildrenGroup = withFormChrome({ closeForm, title: 'File', hasSubmit: false })(SubMenuGroup);
-    return (
-      <ContextMenu
-        options={[]}
-        renderInTooltip={false}
-        ui={{ ...finalUi, StructuredChildrenGroup }}
-      >
-        {children}
-      </ContextMenu>
-    );
-  };
+  const finalUi = getUI({
+    ...ui,
+    Toolbar: addProps({ 'aria-label': `Context Submenu ${option.label} form` })(Div),
+  });
+
+  const { ContextSubMenu: SubMenu } = finalUi;
+  const title = option.label ? (typeof option.label === 'function' ? option.label() : option.label) : '';
+
+  const handler = () => ({ closeForm }: ContextMenuFormProps) => (
+    <ContextMenuBase ui={finalUi} renderInTooltip={false}>
+      <FormChrome title={title} hasSubmit={false} closeForm={closeForm} {...rest}>
+        <SubMenu>
+          {children}
+        </SubMenu>
+      </FormChrome>
+    </ContextMenuBase>
+  );
   const newOption = { ...option, handler };
   return <ContextMenuItem option={newOption} ui={ui} {...rest} />;
 };

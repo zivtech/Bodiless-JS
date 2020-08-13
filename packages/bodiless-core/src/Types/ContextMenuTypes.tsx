@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import {
+import React, {
   ComponentType,
   HTMLProps,
   ReactNode,
@@ -27,11 +27,11 @@ import { ReactTagsFieldProps } from '../components/ReactTagsField';
 
 export type TMenuOption = {
   name: string;
-  icon?: string;
-  label?: string;
-  isActive?: () => boolean;
-  isDisabled?: () => boolean;
-  isHidden?: () => boolean;
+  icon?: (() => string) | string;
+  label?: (() => string) | string;
+  isActive?: (() => boolean) | boolean;
+  isDisabled?: (() => boolean) | boolean;
+  isHidden?: (() => boolean) | boolean;
   handler?: (event: React.MouseEvent) => any;
   local?: boolean;
   global?: boolean;
@@ -85,13 +85,13 @@ export type UI = {
   ReactTags?: ComponentType<ReactTagsFieldProps>;
   ComponentFormList?: ComponentType<HTMLProps<HTMLUListElement>> | string;
   ComponentFormListItem?: ComponentType<HTMLProps<HTMLLIElement>> | string;
-  ComponentFormSubMenu?: ComponentType<HTMLProps<HTMLDivElement>> | string;
-  StructuredChildrenGroup?: ComponentType<ContextMenuGroupProps>;
+  ContextSubMenu?: ComponentType<HTMLProps<HTMLDivElement>> | string;
+  ContextMenuGroup?: ComponentType<ContextMenuGroupProps>;
 };
 
 export type IContextMenuProps = {
   children?: ReactNode;
-  options: TMenuOption[];
+  options?: TMenuOption[];
   // onDispose?: (wasSubmitted: boolean) => void;
   ui?: UI;
   isPositionToggled?: boolean;

@@ -24,12 +24,7 @@ export type UseGetMenuOptions<P> = (
 
 export type PageContextProviderProps = Partial<DefinesLocalEditContext>;
 
-type CompoundFormOptions = {
-  hasSubmit?: Boolean;
-};
-
-export type Options<P> = Omit<PageContextProviderProps, 'getMenuOptions'> & {
+export type MenuOptionsDefinition<P> = Omit<PageContextProviderProps, 'getMenuOptions'> & {
   useGetMenuOptions?: UseGetMenuOptions<P>,
   peer?: boolean,
-  formOptions?: CompoundFormOptions,
 };

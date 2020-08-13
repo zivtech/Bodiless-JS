@@ -13,8 +13,8 @@
  */
 
 // Internal mobx store which holds the state.
-import type { TOverlaySettings } from '../Types/PageOverlayTypes';
-import { TMenuOption } from '../Types/ContextMenuTypes';
+import { TOverlaySettings } from '../Types/PageOverlayTypes';
+import type { TMenuOption } from '../Types/ContextMenuTypes';
 
 export type TMenuOptionGetter = () => TMenuOption[];
 

@@ -24,7 +24,7 @@ import {
   ComponentFormCloseButton, ComponentFormSubmitButton, Icon, Div, ToolbarButton,
   ComponentFormUnwrapButton, ComponentFormTextArea, ComponentFormDescription, ComponentFormWarning,
   ComponentFormFieldWrapper, ComponentFormFieldTitle, ComponentFormCheckBox, ComponentFormRadio,
-  ComponentFormRadioGroup, ComponentFormSelect, ComponentFormOption, ComponentFormSubMenu,
+  ComponentFormRadioGroup, ComponentFormSelect, ComponentFormOption, ContextSubMenu,
 } from '@bodiless/ui';
 import ReactTagsField from './ReactTags';
 
@@ -58,7 +58,7 @@ const ui: ContextMenuUI = {
   ComponentFormTitle,
   ComponentFormLabel,
   ComponentFormDescription,
-  ComponentFormSubMenu,
+  ContextSubMenu,
   ComponentFormWarning,
   Icon,
   Toolbar,

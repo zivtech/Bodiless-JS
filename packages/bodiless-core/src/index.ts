@@ -43,9 +43,8 @@ import {
 } from './hoc';
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
-import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
+import type { ContextMenuFormProps, IContextMenuItemProps, TMenuOption } from './Types/ContextMenuTypes';
 import type { PageEditContextInterface } from './PageEditContext/types';
-import { TMenuOption } from './Types/ContextMenuTypes';
 import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
 import type { TMenuOptionGetter, UseGetMenuOptions } from './Types/PageContextProviderTypes';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
@@ -58,14 +57,18 @@ import {
   useActivateOnEffectActivator,
 } from './ActivateContext';
 import {
+  NotificationProvider,
   useNotifications,
   useNotify,
 } from './NotificationProvider';
+import useNotificationButton from './withNotificationButton';
 import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
-import { useUI as useFormUI } from './components/ContextMenuItem';
+import { useContextMenuUIContext as useFormUI } from './components/ContextMenuContext';
 import ContextSubMenu from './ContextMenu/ContextSubMenu';
+import useSwitcherButton from './useSwitcherButton';
+import OnNodeErrorNotification from './OnNodeErrorNotification';
 
 export * from './components';
 export {
@@ -122,6 +125,10 @@ export {
   useNotify,
   withExtendHandler,
   useExtendHandler,
+  NotificationProvider,
+  useNotificationButton,
+  useSwitcherButton,
+  OnNodeErrorNotification,
 };
 
 export type {
@@ -136,6 +143,7 @@ export type {
   EditButtonProps,
   TOverlaySettings,
   ContextMenuFormProps,
+  IContextMenuItemProps,
   AsBodiless,
   FormSnippet,
 };
