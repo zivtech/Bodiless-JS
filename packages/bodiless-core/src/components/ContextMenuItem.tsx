@@ -13,47 +13,20 @@
  */
 
 /* eslint-disable no-nested-ternary */
-
-import React, {
-  useState, createContext, useContext,
-} from 'react';
-import ReactTooltip from 'rc-tooltip';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import { getUI as getFormUI, FormProps } from '../contextMenuForm';
-import { UI, IContextMenuItemProps as IProps } from '../Types/ContextMenuTypes';
+import { useContextMenuContext, useMenuOptionUI } from './ContextMenuContext';
+import type { IContextMenuItemProps as IProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 
-const defaultUI = {
-  Icon: 'span',
-  ToolbarButton: 'div',
-  FormWrapper: 'div',
-  ToolbarDivider: 'div',
-  Form: 'form',
-  Tooltip: ReactTooltip,
-};
-
-export const getUI = (ui: UI = {}) => ({
-  ...defaultUI,
-  ...getFormUI(),
-  ...ui,
-});
-
-const UIContext = createContext<UI>({});
-export const useUI = () => {
-  const ui = useContext(UIContext);
-  return getUI(ui);
-};
-
-const ContextMenuItem = observer(({ option, index, ui }: IProps) => {
-  const [renderForm, setRenderForm] = useState<(props:FormProps) => JSX.Element>();
+const ContextMenuItem = observer((props: IProps) => {
+  const { option, index } = props;
+  const [renderForm, setRenderForm$] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
-  const finalUI = getUI(ui);
+  const ui = useMenuOptionUI();
   const {
-    ToolbarDivider,
-    Icon,
-    ToolbarButton,
-    FormWrapper,
-    Tooltip,
-  } = finalUI;
+    ToolbarDivider, Icon, ToolbarButton,
+    FormWrapper, Tooltip,
+  } = ui;
   const isActive = option.isActive ? (typeof option.isActive === 'function' ? option.isActive() : option.isActive) : false;
   const isDisabled = option.isDisabled ? (typeof option.isDisabled === 'function' ? option.isDisabled() : option.isDisabled) : false;
   const isHidden = option.isHidden ? (typeof option.isHidden === 'function' ? option.isHidden() : option.isHidden) : false;
@@ -61,6 +34,7 @@ const ContextMenuItem = observer(({ option, index, ui }: IProps) => {
   const icon = option.icon ? (typeof option.icon === 'function' ? option.icon() : option.icon) : '';
 
   const isFirst = index === 0;
+  const setRenderForm = useContextMenuContext().setRenderForm || setRenderForm$;
 
   const onToolbarButtonClick = (event: React.MouseEvent<HTMLDivElement>): void => {
     const menuForm = option.handler ? option.handler(event) : undefined;
@@ -82,16 +56,14 @@ const ContextMenuItem = observer(({ option, index, ui }: IProps) => {
 
   function getContextMenuForm(): JSX.Element {
     if (renderForm) {
-      const formProps = {
+      const formProps: ContextMenuFormProps = {
         closeForm: onFormClose,
         ui,
         'aria-label': `Context Menu ${label || option.name} Form`,
       };
       return (
         <FormWrapper onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}>
-          <UIContext.Provider value={finalUI}>
-            {renderForm(formProps)}
-          </UIContext.Provider>
+          {renderForm(formProps)}
         </FormWrapper>
       );
     }

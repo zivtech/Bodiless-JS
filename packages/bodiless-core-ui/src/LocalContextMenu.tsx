@@ -17,14 +17,14 @@ import ReactTooltip from 'rc-tooltip';
 import { flow } from 'lodash';
 import { addClasses, addProps } from '@bodiless/fclasses';
 import {
-  ContextMenu, ContextMenuProps,
+  ContextMenu, ContextMenuProps, ContextMenuUI,
 } from '@bodiless/core';
 import {
   ComponentFormTitle, ComponentFormLabel, ComponentFormText, ComponentFormButton,
   ComponentFormCloseButton, ComponentFormSubmitButton, Icon, Div, ToolbarButton,
   ComponentFormUnwrapButton, ComponentFormTextArea, ComponentFormDescription, ComponentFormWarning,
   ComponentFormFieldWrapper, ComponentFormFieldTitle, ComponentFormCheckBox, ComponentFormRadio,
-  ComponentFormRadioGroup, ComponentFormSelect, ComponentFormOption,
+  ComponentFormRadioGroup, ComponentFormSelect, ComponentFormOption, ContextSubMenu,
 } from '@bodiless/ui';
 import ReactTagsField from './ReactTags';
 
@@ -41,7 +41,7 @@ const LocalTooltip: FC<ReactTooltip['props']> = props => (
   />
 );
 
-const ui = {
+const ui: ContextMenuUI = {
   ComponentFormText,
   ComponentFormTextArea,
   ComponentFormFieldWrapper,
@@ -58,6 +58,7 @@ const ui = {
   ComponentFormTitle,
   ComponentFormLabel,
   ComponentFormDescription,
+  ContextSubMenu,
   ComponentFormWarning,
   Icon,
   Toolbar,

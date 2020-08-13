@@ -22,6 +22,7 @@ import {
   useEditContext,
   useNotify,
   useRegisterMenuOptions,
+  ContextSubMenu,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
@@ -183,10 +184,17 @@ const getMenuOptions = (
   const saveChanges = canCommit ? formGitCommit(client) : undefined;
   return [
     {
+      name: 'file',
+      label: 'File',
+      icon: 'book',
+      Component: ContextSubMenu,
+    },
+    {
       name: 'listCommits',
       icon: 'book',
       label: 'History',
       handler: () => formGetCommitsList(client),
+      group: 'file',
     },
     {
       name: 'savechanges',
@@ -194,12 +202,14 @@ const getMenuOptions = (
       label: 'Push',
       isDisabled: () => !canCommit,
       handler: () => saveChanges,
+      group: 'file',
     },
     {
       name: 'Pull',
       label: 'Pull',
       icon: 'cloud_download',
       handler: () => formGitPull(client, notifyOfChanges),
+      group: 'file',
     },
     {
       name: 'resetchanges',
@@ -207,6 +217,7 @@ const getMenuOptions = (
       icon: 'undo',
       isHidden: () => !context.isEdit,
       handler: () => formGitReset(client, context),
+      group: 'file',
     },
   ];
 };

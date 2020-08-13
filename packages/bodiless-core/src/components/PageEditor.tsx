@@ -21,8 +21,7 @@ import { observer } from 'mobx-react-lite';
 
 import ContextMenu from './ContextMenu';
 import { useEditContext } from '../hooks';
-import { IContextMenuProps as ContextMenuProps } from '../Types/ContextMenuTypes';
-import { TMenuOption } from '../PageEditContext/types';
+import { IContextMenuProps as ContextMenuProps, TMenuOption } from '../Types/ContextMenuTypes';
 import { useRegisterMenuOptions } from '../PageContextProvider';
 
 type CompleteUI = {

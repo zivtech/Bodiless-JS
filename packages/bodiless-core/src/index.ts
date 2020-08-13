@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@ import {
   withResetButton,
 } from './Contentful';
 import withEditButton, { useEditFormProps } from './withEditButton';
-import type { EditButtonProps } from './withEditButton';
 import useContextMenuForm, { contextMenuForm, ContextMenuForm } from './contextMenuForm';
-import type { FormProps as ContextMenuFormProps } from './contextMenuForm';
+import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
+import withEditFormSnippet from './withEditFormSnippet';
 import withData from './withData';
 import NodeProvider, { useNode, useNodeDataHandlers } from './NodeProvider';
 import { DefaultContentNode } from './ContentNode';
@@ -40,13 +40,13 @@ import {
 } from './hoc';
 import { ifToggledOff, ifToggledOn, withFlowToggle } from './withFlowToggle';
 import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
-import type { TMenuOption, PageEditContextInterface } from './PageEditContext/types';
-import type { EditButtonOptions } from './Types/EditButtonTypes';
-import type {
-  TMenuOptionGetter, UseGetMenuOptions,
-} from './Types/PageContextProviderTypes';
+import type { ContextMenuFormProps, IContextMenuItemProps, TMenuOption } from './Types/ContextMenuTypes';
+import type { PageEditContextInterface } from './PageEditContext/types';
+import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
+import type { TMenuOptionGetter, UseGetMenuOptions } from './Types/PageContextProviderTypes';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
 import type { TOverlaySettings } from './Types/PageOverlayTypes';
+import type { Snippet as FormSnippet } from './withCompoundForm';
 import {
   ActivateOnEffectProvider,
   withActivateOnEffect,
@@ -62,18 +62,13 @@ import useNotificationButton from './withNotificationButton';
 import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
-import { useUI as useFormUI } from './components/ContextMenuItem';
-import withCompoundForm, { useRegisterSnippet } from './withCompoundForm';
-import type { Snippet as FormSnippet } from './withCompoundForm';
-import withEditFormSnippet from './withEditFormSnippet';
+import { useMenuOptionUI } from './components/ContextMenuContext';
+import ContextSubMenu from './ContextMenu/ContextSubMenu';
 import useSwitcherButton from './useSwitcherButton';
 import OnNodeErrorNotification from './OnNodeErrorNotification';
 
 export * from './components';
 export {
-  withEditFormSnippet,
-  withCompoundForm,
-  useRegisterSnippet,
   asBodilessComponent,
   asStatic,
   asReadOnly,
@@ -94,12 +89,16 @@ export {
   withNode,
   withNodeKey,
   withSidecarNodes,
+  withCompoundForm,
+  withEditFormSnippet,
+  useRegisterSnippet,
   startSidecarNodes,
   endSidecarNodes,
   contextMenuForm,
   useContextMenuForm,
   ContextMenuForm,
-  useFormUI,
+  ContextSubMenu,
+  useMenuOptionUI,
   withData,
   NodeProvider,
   useNode,
@@ -139,6 +138,7 @@ export type {
   EditButtonProps,
   TOverlaySettings,
   ContextMenuFormProps,
+  IContextMenuItemProps,
   AsBodiless,
   FormSnippet,
 };
