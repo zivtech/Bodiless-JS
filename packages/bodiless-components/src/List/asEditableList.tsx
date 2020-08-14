@@ -14,7 +14,7 @@
 
 import React, { ComponentType, useMemo } from 'react';
 import {
-  withMenuOptions, useEditContext, withLocalContextMenu,
+  withMenuOptions, withLocalContextMenu,
   withContextActivator, withoutProps, ifEditable,
 } from '@bodiless/core';
 import { flow, identity } from 'lodash';
