@@ -18,7 +18,7 @@ import React, {
   useEffect, FC, useCallback, useLayoutEffect,
 } from 'react';
 import {
-  shallow, mount, ReactWrapper, ComponentType,
+  shallow, mount, ReactWrapper,
 } from 'enzyme';
 import { observer } from 'mobx-react-lite';
 import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from '../src/PageContextProvider';
@@ -27,47 +27,9 @@ import { PageEditContextInterface } from '../src/PageEditContext/types';
 import { defaultStore } from '../src/PageEditContext/Store';
 import PageEditContext from '../src/PageEditContext';
 import { TMenuOption } from '../src/Types/ContextMenuTypes';
-
-type ItemProps = {
-  option: TMenuOption,
-  id: string,
-  group: string|undefined,
-  global: boolean,
-};
-
-const itemRendered = jest.fn();
-const Item = observer(({
-  option, group, global, ...rest
-}: ItemProps) => {
-  itemRendered(option.name);
-  return <span {...rest}>{option.label || option.name}</span>;
-});
-
-const menuRendered = jest.fn();
-const Menu = observer(() => {
-  menuRendered();
-  const items = useEditContext().contextMenuOptions.map(option => (
-    <Item
-      id={option.name}
-      key={option.name}
-      option={option}
-      group={option.group}
-      global={option.local || true}
-    />
-  ));
-  return (
-    <>
-      {items}
-    </>
-  );
-});
-
-const withMenu = (Component: ComponentType<any>) => (props: any) => (
-  <>
-    <Component {...props} />
-    <Menu />
-  </>
-);
+import {
+  Menu, menuRendered, itemRendered, withMenu,
+} from './helpers/Menu';
 
 const activatorFired = jest.fn();
 const Activator: FC<any> = ({ id = 'activate', children }) => {
@@ -161,14 +123,12 @@ describe('useEditContext', () => {
   it('re-renders only if observed property changes', () => {
     const activeContextObserverRendered = jest.fn();
     const ObserverOfActiveContext = observer(() => {
-      console.log('Active context observer rendered');
       activeContextObserverRendered();
       const { isActive } = useEditContext();
       return isActive ? <>active</> : <>not active</>;
     });
     const editModeObserverRendered = jest.fn();
     const ObserverOfEditMode = observer(() => {
-      console.log('Edit mode observer rendered');
       editModeObserverRendered();
       const { isEdit } = useEditContext();
       return isEdit ? <>edit</> : <>not edit</>;

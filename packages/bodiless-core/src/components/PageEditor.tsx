@@ -15,7 +15,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, {
-  FC, createContext, useContext, useEffect, useMemo,
+  FC, createContext, useContext, useEffect, useCallback,
 } from 'react';
 import { observer } from 'mobx-react-lite';
 
@@ -56,8 +56,7 @@ const GlobalContextMenu: FC<Props> = observer(() => {
 
 const PageEditor: FC<Props> = ({ children, ui }) => {
   const context = useEditContext();
-  const { isEdit } = context;
-  const menuOptions = useMemo(() => [
+  const getMenuOptions = useCallback(() => [
     {
       name: 'docs',
       icon: 'description',
@@ -70,12 +69,13 @@ const PageEditor: FC<Props> = ({ children, ui }) => {
       name: 'edit',
       icon: 'edit',
       label: 'Edit',
-      isActive: () => isEdit,
+      // We use a callback here to get the latest value from the context.
+      isActive: () => context.isEdit,
       handler: () => {
         context.toggleEdit();
       },
     },
-  ], [isEdit]);
+  ], []);
 
   const newUI = {
     ...useUI(),
@@ -86,7 +86,7 @@ const PageEditor: FC<Props> = ({ children, ui }) => {
 
   // Register buttons to the main menu.
   useRegisterMenuOptions({
-    getMenuOptions: () => menuOptions,
+    getMenuOptions,
     name: 'Editor',
   });
   useEffect(() => { if (!context.isActive) context.activate(); }, []);

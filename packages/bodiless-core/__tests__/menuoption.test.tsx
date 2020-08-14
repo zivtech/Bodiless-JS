@@ -73,6 +73,39 @@ describe('useMemo for getMenuOptions', () => {
     expect(innerSpy).toBeCalledTimes(1);
   });
 
+  it('Subscribers to edit context do not re-render when peer context is added', () => {
+    const innerSpy = jest.fn();
+    const Inner: FC<any> = ({ children }) => {
+      innerSpy();
+      const { isEdit } = useEditContext();
+      const className = isEdit ? 'foo' : undefined;
+      return <span className={className}>{children}</span>;
+    };
+    const outerSpy = jest.fn();
+    const Outer$: FC<any> = ({ children }) => {
+      outerSpy();
+      return <span>{children}</span>;
+    };
+    const withOuterOptions = withMenuOptions({
+      id: 'Outer',
+      useGetMenuOptions: () => [{ name: 'outer' }],
+      peer: true,
+    });
+    const Outer = withOuterOptions(Outer$);
+
+    const wrapper = mount((
+      <Outer>
+        <Inner />
+      </Outer>
+    ));
+    expect(innerSpy).toBeCalledTimes(1);
+    expect(outerSpy).toBeCalledTimes(1);
+    wrapper.setProps({ foo: 'bar' });
+    expect(outerSpy).toBeCalledTimes(2);
+    expect(innerSpy).toBeCalledTimes(1);
+    PageEditContext.root.unregisterPeers();
+  });
+
   it('Subscribers to edit content do not re-render when parent with memoized options re-renders', () => {
     const innerSpy = jest.fn();
     const Inner: FC<any> = ({ children }) => {

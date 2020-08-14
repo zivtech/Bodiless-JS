@@ -59,8 +59,8 @@ export class PageEditStore implements PageEditStoreInterface {
 
   @action reset() {
     this.activeContext = undefined;
-    this.isEdit = getFromSessionStorage('isEdit', false);
-    this.isPositionToggled = getFromSessionStorage('isPositionToggled', false);
+    this.isEdit = false;
+    this.isPositionToggled = false;
     this.optionMap.clear();
     this.pageOverlay = {
       data: {
