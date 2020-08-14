@@ -7,7 +7,7 @@ import { pick } from 'lodash';
 import { designable, DesignableComponentsProps } from '@bodiless/fclasses';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
-import type { MenuOptionsDefinition } from './Types/PageContextProviderTypes';
+import type { MenuOptionsDefinition, TMenuOptionGetter } from './Types/PageContextProviderTypes';
 import { withMenuOptions } from './PageContextProvider';
 import { useEditContext } from './hooks';
 
@@ -118,7 +118,12 @@ const createMenuOptions = <P extends object, D extends object>(
       useGetMenuOptions: useGetMenuOptionsBase = () => undefined,
     } = options;
     const context = useEditContext();
-    const getMenuOptionsBase = useGetMenuOptionsBase(rest, context) || (() => []);
+    // @TODO Fix this when we refactor useGetMenuOptions to useMenuOptions
+    const getMenuOptionsBase = useGetMenuOptionsBase(rest, context)
+      || (() => []) as TMenuOptionGetter;
+    if (typeof getMenuOptionsBase !== 'function') {
+      throw new Error('Compound form useGetMenuOptions must return a function');
+    }
     const snippets = useContext(SnippetContext);
     const getMenuOptions = useCallback(() => {
       const baseOptions = getMenuOptionsBase();

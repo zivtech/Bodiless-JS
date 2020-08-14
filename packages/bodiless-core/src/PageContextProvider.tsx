@@ -13,12 +13,13 @@
  */
 
 import React, {
-  FC, ComponentType, useEffect, useLayoutEffect, useRef, useMemo,
+  FC, ComponentType, useEffect, useLayoutEffect, useRef, useMemo, useCallback,
 } from 'react';
 import PageEditContext from './PageEditContext';
 import { useEditContext, useUUID } from './hooks';
-import { PageContextProviderProps, MenuOptionsDefinition } from './Types/PageContextProviderTypes';
+import { PageContextProviderProps, MenuOptionsDefinition, TMenuOptionGetter } from './Types/PageContextProviderTypes';
 import { PageEditContextInterface } from './PageEditContext/types';
+import { TMenuOption } from './Types/ContextMenuTypes';
 
 /**
  * @private
@@ -134,9 +135,18 @@ export const withMenuOptions = <P extends object>({
   ...rest
 }:MenuOptionsDefinition<P>) => (Component: ComponentType<P> | string) => {
     const WithMenuOptions = (props: P) => {
-      const getMenuOptions = useGetMenuOptions
-        ? useGetMenuOptions(props, useEditContext())
-        : undefined;
+      const options = useRef<TMenuOption[]>();
+      const getMenuOptions$ = useCallback(() => options.current || [], []);
+      let getMenuOptions: TMenuOptionGetter|undefined;
+      if (useGetMenuOptions) {
+        const menuOptionsOrGetter = useGetMenuOptions(props, useEditContext());
+        if (typeof menuOptionsOrGetter === 'function') {
+          getMenuOptions = menuOptionsOrGetter;
+        } else {
+          options.current = menuOptionsOrGetter;
+          getMenuOptions = getMenuOptions$;
+        }
+      }
       if (peer) {
         useRegisterMenuOptions({ getMenuOptions, ...rest });
         return <Component {...props} />;

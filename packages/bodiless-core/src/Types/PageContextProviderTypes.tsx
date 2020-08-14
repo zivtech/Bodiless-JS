@@ -20,7 +20,7 @@ export type TMenuOptionGetter = () => TMenuOption[];
 export type UseGetMenuOptions<P> = (
   props: P,
   context: PageEditContextInterface,
-) => TMenuOptionGetter | undefined;
+) => TMenuOption[] | (() => TMenuOption[]) | undefined;
 
 export type PageContextProviderProps = Partial<DefinesLocalEditContext>;
 

@@ -135,6 +135,37 @@ describe('useMemo for getMenuOptions', () => {
     expect(innerSpy).toBeCalledTimes(2);
   });
 
+  it('Subscribers to edit content do not re-render when parent changes options', () => {
+    const innerSpy = jest.fn();
+    const Inner: FC<any> = ({ children }) => {
+      innerSpy();
+      const { isEdit } = useEditContext();
+      const className = isEdit ? 'foo' : undefined;
+      return <span className={className}>{children}</span>;
+    };
+    const outerSpy = jest.fn();
+    const Outer$: FC<any> = ({ children }) => {
+      outerSpy();
+      return <span>{children}</span>;
+    };
+    const withOuterOptions = withMenuOptions({
+      id: 'Outer',
+      useGetMenuOptions: ({ foo }: any) => [{ name: foo }],
+    });
+    const Outer = withOuterOptions(Outer$);
+
+    const wrapper = mount((
+      <Outer>
+        <Inner />
+      </Outer>
+    ));
+    expect(innerSpy).toBeCalledTimes(1);
+    expect(outerSpy).toBeCalledTimes(1);
+    wrapper.setProps({ foo: 'bar' });
+    expect(outerSpy).toBeCalledTimes(2);
+    expect(innerSpy).toBeCalledTimes(1);
+  });
+
   it('correctly updates menu options with a memoized getter using a ref', () => {
     const Menu = observer(() => {
       const { contextMenuOptions } = useEditContext();
@@ -158,9 +189,40 @@ describe('useMemo for getMenuOptions', () => {
       withContextActivator('onClick'),
     )(Span);
   
-    class MockContext extends PageEditContext {
-      isEdit = true;
-    }
+    const Test = (props: any) => (
+      <>
+        <Provider {...props} />
+        <Menu />
+      </>
+    );
+    const wrapper = mount(<Test foo="bar" id="activate" />);
+    wrapper.find('span#activate').simulate('click');
+    expect(wrapper.text()).toBe('bar');
+    wrapper.setProps({ foo: 'baz' });
+    wrapper.update();
+    expect(wrapper.text()).toBe('baz');
+  });
+
+  it('correctly updates menu options when provided as an array to withMenuOptions', () => {
+    const Menu = observer(() => {
+      const { contextMenuOptions } = useEditContext();
+      const items = contextMenuOptions.map(option => (
+        <span key={option.name}>{option.name}</span>
+      ));
+      return <>{items}</>;
+    });
+
+    const useGetMenuOptions = ({ foo }: any) => [{ name: foo }];
+
+    const Span: FC<any> = props => <span {...props} />;
+    const Provider = flowRight(
+      withMenuOptions({
+        id: 'Provider',
+        useGetMenuOptions,
+      }),
+      withContextActivator('onClick'),
+    )(Span);
+  
     const Test = (props: any) => (
       <>
         <Provider {...props} />
