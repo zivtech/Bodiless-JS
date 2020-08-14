@@ -12,12 +12,12 @@
  * limitations under the License.
  */
 
-import React, { FC, ComponentType } from 'react';
+import React, { FC, ComponentType, Fragment } from 'react';
 import {
   StaticPage,
   ContextWrapperProps,
   NotificationProvider,
-  useNotificationButton,
+  withNotificationButton,
   useSwitcherButton,
   OnNodeErrorNotification,
 } from '@bodiless/core';
@@ -47,10 +47,11 @@ const defaultUI: FinalUI = {
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
+const NotificationButton = withNotificationButton(Fragment);
+
 const OuterButtons: FC = () => {
   useSwitcherButton();
-  useNotificationButton();
-  return <></>;
+  return <NotificationButton />;
 };
 
 const InnerButtons: FC = () => {

@@ -62,7 +62,7 @@ import {
   useNotifications,
   useNotify,
 } from './NotificationProvider';
-import useNotificationButton from './withNotificationButton';
+import withNotificationButton from './withNotificationButton';
 import withChild from './withChild';
 import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent';
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
@@ -128,7 +128,7 @@ export {
   withExtendHandler,
   useExtendHandler,
   NotificationProvider,
-  useNotificationButton,
+  withNotificationButton,
   useSwitcherButton,
   OnNodeErrorNotification,
 };
