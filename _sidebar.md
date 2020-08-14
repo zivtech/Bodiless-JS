@@ -29,6 +29,7 @@
         - [Components Starter Kit](/Development/Guides/BuildingSites/ComponentsStarterKit)
         - [Fonts](/Development/Guides/BuildingSites/Fonts)
         - [Identifying Components Guide](/Development/Guides/BuildingSites/IdentifyingComponentsGuide)
+        - [Responsiveness](/Development/Guides/BuildingSites/Responsiveness)
         - [Tailwind Guide](/Development/Guides/BuildingSites/TailwindGuide)
         - [Templates](/Development/Guides/BuildingSites/Templates/)
           - [Types](/Development/Guides/BuildingSites/Templates/Types/)
