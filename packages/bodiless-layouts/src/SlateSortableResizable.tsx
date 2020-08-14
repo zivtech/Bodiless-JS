@@ -95,7 +95,6 @@ const SlateSortableResizable = (props: Props) => {
 SlateSortableResizable.displayName = 'SlateSortableResizable';
 
 SlateSortableResizable.defaultProps = {
-  className: '',
   getMenuOptions: () => [],
   onResize: () => {},
   defaultSize: {
