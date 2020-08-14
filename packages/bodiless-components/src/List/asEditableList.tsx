@@ -14,7 +14,8 @@
 
 import React, { ComponentType, useMemo } from 'react';
 import {
-  withMenuOptions, useEditContext, withLocalContextMenu, withContextActivator, withoutProps,
+  withMenuOptions, useEditContext, withLocalContextMenu,
+  withContextActivator, withoutProps, ifEditable,
 } from '@bodiless/core';
 import { flow, identity } from 'lodash';
 import { Design } from '@bodiless/fclasses/lib/Design';
@@ -57,26 +58,19 @@ const useGetMenuOptions = (props: TitleProps) => {
 const asEditableList = (List: ComponentType<FinalProps>) => (
   ({ design, ...rest }: FinalProps) => {
     const { Title, ItemMenuOptionsProvider } = (design || {}) as Design<ListDesignableComponents>;
-    const { isEdit } = useEditContext();
-    if (!isEdit) {
-      const newDesign = {
-        ...(design || {}),
-        Title: flow(
-          Title || identity,
-          withoutProps(['onAdd', 'onDelete', 'canDelete']),
-        ),
-      };
-      return <List design={newDesign} {...rest} />;
-    }
     const newDesign = {
       ...(design || {}),
       Title: flow(
         Title || identity,
-        withContextActivator('onClick'),
-        withLocalContextMenu,
+        ifEditable(
+          withContextActivator('onClick'),
+          withLocalContextMenu,
+        ),
         withoutProps(['onAdd', 'onDelete', 'canDelete']),
         ItemMenuOptionsProvider || identity,
-        withMenuOptions({ useGetMenuOptions, name: 'list-item' }),
+        ifEditable(
+          withMenuOptions({ useGetMenuOptions, name: 'list-item' }),
+        ),
       ),
     };
     return <List design={newDesign} {...rest} />;
