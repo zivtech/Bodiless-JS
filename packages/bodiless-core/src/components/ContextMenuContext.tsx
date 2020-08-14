@@ -46,6 +46,7 @@ const defaultUI = {
   ComponentFormDescription: 'div',
   ContextSubMenu: React.Fragment,
   ToolbarButton: 'div',
+  ToolbarButtonLabel: 'span',
   FormWrapper: 'div',
   ToolbarDivider: 'div',
   Tooltip: ReactTooltip,

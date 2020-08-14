@@ -15,6 +15,7 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import { useEditContext } from '../hooks';
 import { useContextMenuContext, useMenuOptionUI } from './ContextMenuContext';
 import type { IContextMenuItemProps as IProps, ContextMenuFormProps } from '../Types/ContextMenuTypes';
 
@@ -22,10 +23,11 @@ const ContextMenuItem = observer((props: IProps) => {
   const { option, index } = props;
   const [renderForm, setRenderForm$] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
+  const { isPositionToggled } = useEditContext();
   const ui = useMenuOptionUI();
   const {
     ToolbarDivider, Icon, ToolbarButton,
-    FormWrapper, Tooltip,
+    FormWrapper, Tooltip, ToolbarButtonLabel,
   } = ui;
   const isActive = option.isActive ? (typeof option.isActive === 'function' ? option.isActive() : option.isActive) : false;
   const isDisabled = option.isDisabled ? (typeof option.isDisabled === 'function' ? option.isDisabled() : option.isDisabled) : false;
@@ -90,14 +92,16 @@ const ContextMenuItem = observer((props: IProps) => {
         trigger={['click']}
         overlay={getContextMenuForm()}
         visible={isToolTipShown}
+        destroyTooltipOnHide
+        align={{ offset: [10, 0], useCssRight: isPositionToggled && label !== 'Alerts' }}
       >
         <Icon isActive={isActive || isToolTipShown}>{icon}</Icon>
       </Tooltip>
       {
         (label) ? (
-          <div className="bl-text-center bl-text-white">
+          <ToolbarButtonLabel>
             {label}
-          </div>
+          </ToolbarButtonLabel>
         ) : (null)
       }
     </ToolbarButton>

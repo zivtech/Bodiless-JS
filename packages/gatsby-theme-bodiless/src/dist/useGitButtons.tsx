@@ -186,7 +186,7 @@ const getMenuOptions = (
     {
       name: 'file',
       label: 'File',
-      icon: 'book',
+      icon: 'cloud',
       Component: ContextSubMenu,
     },
     {

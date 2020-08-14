@@ -148,12 +148,14 @@ export const SubmitButton: FC<HTMLProps<HTMLButtonElement> & StylableProps> = pr
 
 export const ToolbarButton = flow(
   withoutProps<ButtonVariantProps>(['isActive', 'isFirst', 'isDisabled']),
-  addClasses('bl-cursor-pointer bl-text-grey-200 bl-block'),
+  addClasses('bl-flex bl-flex-col bl-items-center bl-cursor-pointer bl-text-grey-200 bl-block bl-px-grid-1'),
   flowIf(hasProp('isDisabled'))(
     addClasses('bl-text-grey-600').removeClasses('bl-text-grey-200'),
   ),
   addProps({ type: 'button' }),
 )(Button);
+
+export const ToolbarButtonLabel = addClasses('bl-text-center bl-text-white bl-text-base')(Span);
 
 export const ResizeHandle = addClasses(
   'bl-block bl-text-2xl bl-absolute material-icons bl-z-1 bl-text-red bl-rotate-45deg bl-bottom-grid-0 bl-right-grid-0',
