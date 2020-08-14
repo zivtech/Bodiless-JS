@@ -60,7 +60,7 @@ describe('File Submenu Smoke Tests', function () {
     closeFileForm()
   })
 
-  it.skip('File Submenu: 3 - Checking History button in Preview Mode (right)', () => {
+  it('File Submenu: 3 - Checking History button in Preview Mode (right)', () => {
     cy.toggleMenuRight()
     openFileForm()
     checkHistoryForm()
@@ -96,15 +96,14 @@ describe('File Submenu Smoke Tests', function () {
     openFileForm()
     checkRevertForm()
     isFileFormOpen()
-    closeFileForm()
-    cy.toggleMenuLeft()
   })
 
 
-  it.skip('File Submenu: 8 - Checking History button in Edit Mode (right)', () => {
+  it('File Submenu: 8 - Checking History button in Edit Mode (right)', () => {
     checkHistoryForm()
     isFileFormOpen()
     closeFileForm()
+    cy.toggleMenuLeft()
   })
 
 
