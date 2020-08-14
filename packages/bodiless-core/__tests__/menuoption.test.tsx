@@ -2,10 +2,10 @@ import React, { useCallback, FC, useRef } from 'react';
 // import { observable, action } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import { mount } from 'enzyme';
+import { flowRight } from 'lodash';
 import { withMenuOptions } from '../src/PageContextProvider';
 import { useEditContext } from '../src/hooks';
 import { withContextActivator } from '../src/hoc';
-import { flowRight } from 'lodash';
 import PageEditContext from '../src/PageEditContext';
 import { TMenuOption } from '../src/Types/ContextMenuTypes';
 
@@ -188,7 +188,7 @@ describe('useMemo for getMenuOptions', () => {
       }),
       withContextActivator('onClick'),
     )(Span);
-  
+
     const Test = (props: any) => (
       <>
         <Provider {...props} />
@@ -222,7 +222,7 @@ describe('useMemo for getMenuOptions', () => {
       }),
       withContextActivator('onClick'),
     )(Span);
-  
+
     const Test = (props: any) => (
       <>
         <Provider {...props} />
