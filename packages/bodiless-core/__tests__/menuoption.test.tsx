@@ -1,11 +1,25 @@
-import React, { useCallback, FC } from 'react';
+import React, { useCallback, FC, useRef } from 'react';
 // import { observable, action } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import { mount } from 'enzyme';
 import { withMenuOptions } from '../src/PageContextProvider';
 import { useEditContext } from '../src/hooks';
+import { withContextActivator } from '../src/hoc';
+import { flowRight } from 'lodash';
+import PageEditContext from '../src/PageEditContext';
+import { TMenuOption } from '../src/Types/ContextMenuTypes';
 
 describe('useMemo for getMenuOptions', () => {
+  let mockIsEdit: any;
+
+  beforeAll(() => {
+    mockIsEdit = jest.spyOn(PageEditContext.prototype, 'isEdit', 'get').mockReturnValue(true);
+  });
+
+  afterAll(() => {
+    mockIsEdit.mockRestore();
+  });
+
   it('Children do not re-render on parent prop change', () => {
     const innerSpy = jest.fn();
     const Inner: FC<any> = ({ children }) => {
@@ -121,7 +135,7 @@ describe('useMemo for getMenuOptions', () => {
     expect(innerSpy).toBeCalledTimes(2);
   });
 
-  it('ways of memoizing getMenuOptions', () => {
+  it('correctly updates menu options with a memoized getter using a ref', () => {
     const Menu = observer(() => {
       const { contextMenuOptions } = useEditContext();
       const items = contextMenuOptions.map(option => (
@@ -130,53 +144,34 @@ describe('useMemo for getMenuOptions', () => {
       return <>{items}</>;
     });
     const useGetMenuOptions = ({ foo }: any) => {
-      const getMenuOptions = () => [{ name: foo }];
-      return getMenuOptions;
+      const options = useRef<TMenuOption[]>([]);
+      options.current = [{ name: foo }];
+      const getMenuOptions = () => options.current;
+      return useCallback(getMenuOptions, []);
     };
-    const Provider = withMenuOptions({
-      id: 'Provider',
-      useGetMenuOptions,
-    })('span');
+    const Span: FC<any> = props => <span {...props} />;
+    const Provider = flowRight(
+      withMenuOptions({
+        id: 'Provider',
+        useGetMenuOptions,
+      }),
+      withContextActivator('onClick'),
+    )(Span);
+  
+    class MockContext extends PageEditContext {
+      isEdit = true;
+    }
     const Test = (props: any) => (
       <>
         <Provider {...props} />
         <Menu />
       </>
     );
-    const wrapper = mount(<Test foo="bar" />);
-    console.log(wrapper.text());
+    const wrapper = mount(<Test foo="bar" id="activate" />);
+    wrapper.find('span#activate').simulate('click');
+    expect(wrapper.text()).toBe('bar');
+    wrapper.setProps({ foo: 'baz' });
+    wrapper.update();
+    expect(wrapper.text()).toBe('baz');
   });
 });
-
-// class Store {
-//   // @ts-ignore
-//   @observable foo = false;
-//
-//   // @ts-ignore
-//   @action toggleFoo() { this.foo = !this.foo; }
-// }
-//
-// const Outer = withMenuOptions(...)('span');
-// const Inner = () => {
-//   const { isEdit } = useEditContext();
-//   doSomeExpensiveRenderingBasedOnIsEdit();
-// }
-// <Outer onMouseOver={doSomethingWhichChangesMenuOptions}>
-//   <Inner />
-// </Outer>
-//
-// describe('Not updating menu options', () => {
-//   const store = new Store();
-//   const withOptions = withMenuOptions({
-//     name: 'Foo',
-//     useGetMenuOptions: () => {
-//       const getMenuOptions = useCallback(() => {
-//         const options = store.foo ? [{ name: 'foo' }] : [];
-//         return options;
-//       }, []);
-//       return getMenuOptions;
-//     },
-//   });
-//   const ComponentWithOptions = withOptions('span');
-// });
-//
