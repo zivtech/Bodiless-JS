@@ -37,7 +37,7 @@ const useNewContext = (props: PageContextProviderProps, parent?: PageEditContext
     name: name || id$,
   };
   return useMemo(
-    () => new PageEditContext(finalValues, parent),
+    () => (parent ? parent.spawn(finalValues) : new PageEditContext(finalValues)),
     [getMenuOptions, id, name, parent],
   );
 };
