@@ -13,11 +13,12 @@
  */
 
 import React, {
-  FC, ComponentType, useEffect, useLayoutEffect, useRef,
+  FC, ComponentType, useEffect, useLayoutEffect, useRef, useMemo,
 } from 'react';
 import PageEditContext from './PageEditContext';
 import { useEditContext, useUUID } from './hooks';
 import { PageContextProviderProps, MenuOptionsDefinition } from './Types/PageContextProviderTypes';
+import { PageEditContextInterface } from './PageEditContext/types';
 
 /**
  * @private
@@ -27,13 +28,18 @@ import { PageContextProviderProps, MenuOptionsDefinition } from './Types/PageCon
  * @param props The props defining the `PageEditContext`
  * @return Values suitable for passing to the `PageEditContext` constructor.
  */
-const useNewContextValues = ({ getMenuOptions, name, id }: PageContextProviderProps) => {
+const useNewContext = (props: PageContextProviderProps, parent?: PageEditContextInterface) => {
+  const { getMenuOptions, name, id } = props;
   const id$ = id || useUUID();
-  return {
+  const finalValues = {
     getMenuOptions,
     id: id$,
     name: name || id$,
   };
+  return useMemo(
+    () => new PageEditContext(finalValues, parent),
+    [getMenuOptions, id, name, parent],
+  );
 };
 
 /**
@@ -42,9 +48,8 @@ const useNewContextValues = ({ getMenuOptions, name, id }: PageContextProviderPr
  * @param props Props which define the menu options to add.
  */
 export const useRegisterMenuOptions = (props: PageContextProviderProps) => {
-  const values = useNewContextValues(props);
   const context = useEditContext();
-  const peerContext = new PageEditContext(values, context.parent);
+  const peerContext = useNewContext(props, context.parent);
   context.registerPeer(peerContext);
 
   // Handle unregistering from the current context if a component is removed through a
@@ -90,10 +95,8 @@ export const useRegisterMenuOptions = (props: PageContextProviderProps) => {
  * @param props
  */
 const PageContextProvider: FC<PageContextProviderProps> = ({ children, ...rest }) => {
-  const values = useNewContextValues(rest);
   const context = useEditContext();
-  // eslint-disable-next-line react/destructuring-assignment
-  const newValue = context.spawn(values);
+  const newValue = useNewContext(rest, context);
   useEffect(() => {
     if (newValue.isActive) newValue.updateMenuOptions();
   });
