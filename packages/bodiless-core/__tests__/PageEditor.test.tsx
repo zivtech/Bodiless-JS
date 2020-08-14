@@ -34,7 +34,7 @@ describe('PageEditor', () => {
     expect(wrapper.find('div[aria-label="Edit"]').prop('isActive')).toBeFalsy();
     wrapper.find('div[aria-label="Edit"]').simulate('click');
     const button = wrapper.findWhere(
-      n => (n.name() === 'ToolbarButton' && n.prop('aria-label') === 'Edit')
+      n => (n.name() === 'ToolbarButton' && n.prop('aria-label') === 'Edit'),
     );
     expect(button.prop('isActive')).toBeTruthy();
   });
