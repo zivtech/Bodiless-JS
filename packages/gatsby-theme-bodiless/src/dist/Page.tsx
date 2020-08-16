@@ -18,7 +18,7 @@ import {
   ContextWrapperProps,
   NotificationProvider,
   withNotificationButton,
-  useSwitcherButton,
+  withSwitcherButton,
   OnNodeErrorNotification,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
@@ -27,7 +27,7 @@ import GatsbyNodeProvider, {
   Props as NodeProviderProps,
 } from './GatsbyNodeProvider';
 import GatsbyPageProvider, { Props as PageProviderProps } from './GatsbyPageProvider';
-import useNewPageButton from './useNewPageButton';
+import withNewPageButton from './withNewPageButton';
 import useGitButtons from './useGitButtons';
 
 type FinalUI = {
@@ -48,14 +48,10 @@ const defaultUI: FinalUI = {
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
 const NotificationButton = withNotificationButton(Fragment);
+const SwitcherButton = withSwitcherButton(Fragment);
+const NewPageButton = withNewPageButton(Fragment);
 
-const OuterButtons: FC = () => {
-  useSwitcherButton();
-  return <NotificationButton />;
-};
-
-const InnerButtons: FC = () => {
-  useNewPageButton();
+const GitButtons: FC = () => {
   useGitButtons();
   return <></>;
 };
@@ -67,10 +63,12 @@ const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
       <GatsbyNodeProvider {...rest}>
         <GatsbyPageProvider pageContext={rest.pageContext}>
           <NotificationProvider>
-            <OuterButtons />
+            <SwitcherButton />
+            <NotificationButton />
             <Editor>
               <OnNodeErrorNotification />
-              <InnerButtons />
+              <NewPageButton />
+              <GitButtons />
               <Wrapper clickable>
                 {children}
               </Wrapper>

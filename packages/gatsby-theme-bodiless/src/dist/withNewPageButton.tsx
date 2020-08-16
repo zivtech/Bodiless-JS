@@ -18,8 +18,7 @@ import {
   contextMenuForm,
   getUI,
   useEditContext,
-  useRegisterMenuOptions,
-  TMenuOptionGetter,
+  withMenuOptions,
 } from '@bodiless/core';
 import { AxiosPromise } from 'axios';
 import BackendClient from './BackendClient';
@@ -105,7 +104,7 @@ Click ok to visit the new page; if it does not load, wait a while and reload.`;
 
 const defaultClient = new BackendClient();
 
-const useGetMenuOptions = (): TMenuOptionGetter => {
+const useGetMenuOptions = () => {
   const context = useEditContext();
   const gatsbyPage = useGatsbyPageContext();
 
@@ -117,15 +116,14 @@ const useGetMenuOptions = (): TMenuOptionGetter => {
       isHidden: () => !context.isEdit,
       handler: () => formPageAdd(defaultClient, gatsbyPage.subPageTemplate, context),
     },
-  ], [gatsbyPage.subPageTemplate]);
-  return () => menuOptions;
+  ], []);
+  return menuOptions;
 };
 
-const useNewPageButton = () => {
-  useRegisterMenuOptions({
-    getMenuOptions: useGetMenuOptions(),
-    name: 'NewPage',
-  });
-};
+const withNewPageButton = withMenuOptions({
+  useGetMenuOptions,
+  name: 'NewPage',
+  peer: true,
+});
 
-export default useNewPageButton;
+export default withNewPageButton;

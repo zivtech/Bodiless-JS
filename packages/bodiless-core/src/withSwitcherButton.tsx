@@ -13,8 +13,8 @@
  */
 
 import { useMemo } from 'react';
-import { useRegisterMenuOptions } from './PageContextProvider';
 import { useEditContext } from './hooks';
+import { withMenuOptions } from './PageContextProvider';
 
 /**
  * Provide a component Button to switch the position of the global menu.
@@ -22,18 +22,19 @@ import { useEditContext } from './hooks';
  * @param children
  * @constructor
  */
-const useSwitcherButton = () => {
+const useGetMenuOptions = () => {
   const context = useEditContext();
-  const menuOptions = useMemo(() => [{
+  return useMemo(() => [{
     name: 'switcher',
     icon: 'compare_arrows',
     handler: () => context.togglePosition(),
-  }], []);
-  const getMenuOptions = () => menuOptions;
-  useRegisterMenuOptions({
-    getMenuOptions,
-    name: 'Switcher',
-  });
+  }], [context.togglePosition]);
 };
 
-export default useSwitcherButton;
+const withSwitcherButton = withMenuOptions({
+  useGetMenuOptions,
+  name: 'Switcher',
+  peer: true,
+});
+
+export default withSwitcherButton;

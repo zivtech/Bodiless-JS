@@ -68,7 +68,7 @@ import asBodilessComponent, { withActivatorWrapper } from './asBodilessComponent
 import type { Options as BodilessOptions, AsBodiless } from './asBodilessComponent';
 import { useMenuOptionUI } from './components/ContextMenuContext';
 import ContextSubMenu from './ContextMenu/ContextSubMenu';
-import useSwitcherButton from './useSwitcherButton';
+import withSwitcherButton from './withSwitcherButton';
 import OnNodeErrorNotification from './OnNodeErrorNotification';
 
 export * from './components';
@@ -129,7 +129,7 @@ export {
   useExtendHandler,
   NotificationProvider,
   withNotificationButton,
-  useSwitcherButton,
+  withSwitcherButton,
   OnNodeErrorNotification,
 };
 

@@ -54,6 +54,10 @@ const GlobalContextMenu: FC<Props> = observer(() => {
   );
 });
 
+/**
+ * Component providing the global Bodiless UI elements, the Main Menu and Page Overlay.
+ * Also provides the Edit and Docs buttons on the main menu.
+ */
 const PageEditor: FC<Props> = ({ children, ui }) => {
   const context = useEditContext();
   const getMenuOptions = useCallback(() => [

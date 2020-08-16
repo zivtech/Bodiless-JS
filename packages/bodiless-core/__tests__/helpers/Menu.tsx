@@ -15,7 +15,23 @@ const Item = observer(({
   option, group, global, ...rest
 }: ItemProps) => {
   itemRendered(option.name);
-  return <span {...rest}>{option.label || option.name}</span>;
+  const optionAttributes = Object.getOwnPropertyNames(option).reduce((acc, next) => {
+    const key = `data-option-property-${next.toLowerCase()}`;
+    return {
+      ...acc,
+      // @ts-ignore No index signature on TMenuOption
+      [key]: typeof option[next] === 'string' ? option[next] : option[next].toString(),
+    };
+  }, {});
+  return (
+    <span
+      {...rest}
+      {...optionAttributes}
+      id={option.name}
+    >
+      {option.label || option.name}
+    </span>
+  );
 });
 
 const menuRendered = jest.fn();
