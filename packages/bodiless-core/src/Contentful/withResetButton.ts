@@ -26,7 +26,7 @@ type MenuOptionWithNodeKey = TMenuOption & {
   nodeKey?: string;
 };
 
-const useGetMenuOptions = (menuOptionWithNodeKey?: MenuOptionWithNodeKey) => () => {
+const useMenuOptions = (menuOptionWithNodeKey?: MenuOptionWithNodeKey) => () => {
   const { node } = useNode();
   const { nodeKey, ...menuOption } = menuOptionWithNodeKey || { nodeKey: undefined };
   const nodeKeyToDelete = nodeKey ? node.path.concat(nodeKey) : undefined;
@@ -42,11 +42,11 @@ const useGetMenuOptions = (menuOptionWithNodeKey?: MenuOptionWithNodeKey) => () 
       ...menuOption,
     },
   ]), [nodeKeyToDelete]);
-  return () => menuOptions;
+  return menuOptions;
 };
 
 const withResetButton = (menuOptionWithNodeKey?: MenuOptionWithNodeKey) => flowRight(
-  withMenuOptions({ useGetMenuOptions: useGetMenuOptions(menuOptionWithNodeKey) }),
+  withMenuOptions({ useMenuOptions: useMenuOptions(menuOptionWithNodeKey) }),
   withContextActivator('onClick'),
   withLocalContextMenu,
 );
