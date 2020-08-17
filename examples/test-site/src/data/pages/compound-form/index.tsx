@@ -25,14 +25,14 @@ import {
 import { Div } from '@bodiless/fclasses';
 import Layout from '../../../components/Layout';
 
-const useGetMenuOptions = () => () => [{
+const useMenuOptions = () => [{
   icon: 'anchor',
   label: 'Test',
   name: 'form-test',
 }];
 const Test = flowRight(
   withCompoundForm({
-    useGetMenuOptions,
+    useMenuOptions,
     name: 'Test',
     id: 'test',
     peer: true,

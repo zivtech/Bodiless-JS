@@ -52,7 +52,7 @@ const withMetaCountry = withMetaStatic({
   name: 'bl-country',
 });
 
-const useGetMenuOptions = () => () => [
+const useMenuOptions = () => [
   {
     name: 'seo',
     icon: 'category',
@@ -67,7 +67,7 @@ const seoFormHeader = {
 };
 
 const SeoHelmet = flowRight(
-  withMetaForm(useGetMenuOptions, seoFormHeader),
+  withMetaForm(useMenuOptions, seoFormHeader),
   asBodilessHelmet('meta'),
   withMetaPageTitle('page-title', ''),
   withMetaPageDescription('description', ''),

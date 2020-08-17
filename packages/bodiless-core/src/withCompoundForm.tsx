@@ -1,15 +1,15 @@
 import React, {
-  createContext, ComponentType as CT, useRef, useContext, useCallback, MutableRefObject,
+  createContext, ComponentType as CT, useRef, useContext, MutableRefObject,
   ComponentType,
+  useMemo,
 } from 'react';
 import { useFormState, useFormApi } from 'informed';
 import { pick } from 'lodash';
 import { designable, DesignableComponentsProps } from '@bodiless/fclasses';
 import { ContextMenuForm, FormBodyProps, FormBodyRenderer } from './contextMenuForm';
 import type { ContextMenuFormProps } from './Types/ContextMenuTypes';
-import type { MenuOptionsDefinition, TMenuOptionGetter } from './Types/PageContextProviderTypes';
+import type { MenuOptionsDefinition } from './Types/PageContextProviderTypes';
 import { withMenuOptions } from './PageContextProvider';
-import { useEditContext } from './hooks';
 
 /**
  * A collection of form fields (with initial values and submit handler) which can be rendered
@@ -106,42 +106,30 @@ const Form = <D extends object>(props: FormProps<D>) => {
  *
  * Given the supplied options, returns a menu options hook suitable to pass to withMenuOptions.
  *
- * @param options The options defining this compound form.
+ * @param def The options defining this compound form.
  *
  * @returns A menu options hook.
  */
-const createMenuOptions = <P extends object, D extends object>(
-  options: MenuOptionsDefinition<D>,
-) => {
-  const useGetMenuOptions = ({ components, ...rest }: any) => {
+const createMenuOptions = <P extends object, D extends object>(def: MenuOptionsDefinition<D>) => {
+  const useMenuOptions = ({ components, ...rest }: any) => {
     const {
-      useGetMenuOptions: useGetMenuOptionsBase = () => undefined,
-    } = options;
-    const context = useEditContext();
-    // @TODO Fix this when we refactor useGetMenuOptions to useMenuOptions
-    const getMenuOptionsBase = useGetMenuOptionsBase(rest, context)
-      || (() => []) as TMenuOptionGetter;
-    if (typeof getMenuOptionsBase !== 'function') {
-      throw new Error('Compound form useGetMenuOptions must return a function');
+      useMenuOptions: useMenuOptionsBase = () => undefined,
+    } = def;
+    const baseOptions = useMenuOptionsBase(rest) || [];
+    if (baseOptions.length !== 1) {
+      // Fail fast if user has supplied more than one menu option definition.
+      throw new Error('Menu option getter for withCompoundForm must return a single item.');
     }
     const snippets = useContext(SnippetContext);
-    const getMenuOptions = useCallback(() => {
-      const baseOptions = getMenuOptionsBase();
-      if (baseOptions.length !== 1) {
-        throw new Error('Menu option getter for withCompoundForm must return a single item.');
-      }
-      // Add the handler to the provided menu option.
-      const finalOption = {
-        ...baseOptions[0],
-        handler: () => (p: ContextMenuFormProps) => (
-          <Form {...p} components={components} snippets={snippets!.current} />
-        ),
-      };
-      return [finalOption];
-    }, [getMenuOptionsBase]);
-    return getMenuOptions;
+    const finalOptions = [{
+      ...baseOptions[0],
+      handler: () => (p: ContextMenuFormProps) => (
+        <Form {...p} components={components} snippets={snippets!.current} />
+      ),
+    }];
+    return useMemo(() => finalOptions, [components, baseOptions]);
   };
-  return { ...options, useGetMenuOptions };
+  return { ...def, useMenuOptions };
 };
 
 /**
