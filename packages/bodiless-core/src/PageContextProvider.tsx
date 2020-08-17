@@ -129,17 +129,18 @@ PageContextProvider.defaultProps = {
  * @return An HOC which will cause the component it enhances to contribute the specified
  *         menu options when placed.
  */
-export const withMenuOptions = <P extends object>({
-  useGetMenuOptions,
-  peer,
-  ...rest
-}:MenuOptionsDefinition<P>) => (Component: ComponentType<P> | string) => {
+export const withMenuOptions = <P extends object>(def: MenuOptionsDefinition<P>) => (
+  (Component: ComponentType<P> | string) => {
+    const {
+      useMenuOptions, useGetMenuOptions, peer, ...rest
+    } = def;
     const WithMenuOptions = (props: P) => {
       const options = useRef<TMenuOption[]>();
       const getMenuOptions$ = useCallback(() => options.current || [], []);
       let getMenuOptions: TMenuOptionGetter|undefined;
-      if (useGetMenuOptions) {
-        const menuOptionsOrGetter = useGetMenuOptions(props, useEditContext());
+      const menuOptionHook = useMenuOptions || useGetMenuOptions;
+      if (menuOptionHook) {
+        const menuOptionsOrGetter = menuOptionHook(props, useEditContext());
         if (typeof menuOptionsOrGetter === 'function') {
           getMenuOptions = menuOptionsOrGetter;
         } else {
@@ -158,6 +159,7 @@ export const withMenuOptions = <P extends object>({
       );
     };
     return WithMenuOptions;
-  };
+  }
+);
 
 export default PageContextProvider;

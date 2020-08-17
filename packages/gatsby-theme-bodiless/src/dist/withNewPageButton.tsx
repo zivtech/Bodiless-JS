@@ -104,7 +104,7 @@ Click ok to visit the new page; if it does not load, wait a while and reload.`;
 
 const defaultClient = new BackendClient();
 
-const useGetMenuOptions = () => {
+const useMenuOptions = () => {
   const context = useEditContext();
   const gatsbyPage = useGatsbyPageContext();
 
@@ -121,7 +121,7 @@ const useGetMenuOptions = () => {
 };
 
 const withNewPageButton = withMenuOptions({
-  useGetMenuOptions,
+  useMenuOptions,
   name: 'NewPage',
   peer: true,
 });

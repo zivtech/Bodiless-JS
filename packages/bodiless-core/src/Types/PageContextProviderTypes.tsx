@@ -25,6 +25,8 @@ export type UseGetMenuOptions<P> = (
 export type PageContextProviderProps = Partial<DefinesLocalEditContext>;
 
 export type MenuOptionsDefinition<P> = Omit<PageContextProviderProps, 'getMenuOptions'> & {
+  // @TODO Deprecate useGetMenuOptions
   useGetMenuOptions?: UseGetMenuOptions<P>,
+  useMenuOptions?: (props: P) => TMenuOption[],
   peer?: boolean,
 };

@@ -51,7 +51,7 @@ const renderForm = (props: ContextMenuFormProps) => <RenderForm {...props} />;
  *
  * Hook to return the notification button.
  */
-const useGetMenuOptions = () => {
+const useMenuOptions = () => {
   const { notifications } = useNotifications();
   const handler = useCallback(() => renderForm, []);
   const menuOptions = [{
@@ -69,7 +69,7 @@ const useGetMenuOptions = () => {
  */
 const withNotificationButton = withMenuOptions({
   name: 'Notifications',
-  useGetMenuOptions,
+  useMenuOptions,
   peer: true,
 });
 

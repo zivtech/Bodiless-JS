@@ -22,7 +22,7 @@ import { withMenuOptions } from './PageContextProvider';
  * @param children
  * @constructor
  */
-const useGetMenuOptions = () => {
+const useMenuOptions = () => {
   const context = useEditContext();
   return useMemo(() => [{
     name: 'switcher',
@@ -32,7 +32,7 @@ const useGetMenuOptions = () => {
 };
 
 const withSwitcherButton = withMenuOptions({
-  useGetMenuOptions,
+  useMenuOptions,
   name: 'Switcher',
   peer: true,
 });
