@@ -47,33 +47,34 @@ const withToggleTo = <Q extends object>(OffComp: ComponentType<Q> | string) => (
 
 const withToggle = withToggleTo(withOnlyProps('key', 'children')(Fragment));
 
-type TMenuOptionGetter = () => TMenuOption[];
-
 type ToggleMenuOptions = {
   icon? : string;
   label?: string,
 };
 
 const withToggleButton = (options? : ToggleMenuOptions) => {
-  const useGetMenuOptions = (): TMenuOptionGetter => {
+  const useMenuOptions = (): TMenuOption[] => {
     const icon = options ? options.icon : false;
     const label = options ? options.label : undefined;
     const { setOn, isOn } = useAccessors();
 
+    // We can return an invariant set of menu options bc state only depends
+    // on the mobx data store.
     const menuOptions = useMemo(() => (
-      isOn() ? [] : [{
+      [{
         icon: icon || 'toggle_off',
         name: 'Toggle',
         label,
+        isHidden: () => isOn(),
         handler: () => setOn(true),
         global: false,
         local: true,
       }]
-    ), [isOn()]);
-    return () => menuOptions;
+    ), []);
+    return menuOptions;
   };
 
-  return withMenuOptions({ useGetMenuOptions, name: 'toggle' });
+  return withMenuOptions({ useMenuOptions, name: 'toggle' });
 };
 
 export const withToggleOnSubmit = <P extends object>(Component: ComponentType<P>) => (

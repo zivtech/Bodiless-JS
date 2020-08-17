@@ -22,36 +22,32 @@ import { Design } from '@bodiless/fclasses/lib/Design';
 
 import { TitleProps, FinalProps, ListDesignableComponents } from './types';
 
-const useGetMenuOptions = (props: TitleProps) => {
+const useMenuOptions = (props: TitleProps) => {
   const {
     onAdd, onDelete, canDelete,
   } = props;
 
-  const menuOptions = useMemo(() => {
-    const options = [];
-    options.push({
+  const menuOptions = useMemo(() => ([
+    {
       name: 'Add',
       icon: 'add',
       label: 'Add',
       handler: onAdd,
       global: false,
       local: true,
-    });
-    // TODO: Disable rather than hide this button when delete is not allowed.
-    if (canDelete()) {
-      options.push({
-        name: 'Remove',
-        icon: 'delete',
-        label: 'Delete',
-        handler: onDelete,
-        global: false,
-        local: true,
-      });
-    }
-    return options;
-  }, [canDelete()]);
+    },
+    {
+      name: 'Remove',
+      icon: 'delete',
+      label: 'Delete',
+      isHidden: () => !canDelete(),
+      handler: onDelete,
+      global: false,
+      local: true,
+    },
+  ]), []);
 
-  return () => menuOptions;
+  return menuOptions;
 };
 
 // TODO: Maybe generalize this as an "alterDesign()" method.
@@ -69,7 +65,7 @@ const asEditableList = (List: ComponentType<FinalProps>) => (
         withoutProps(['onAdd', 'onDelete', 'canDelete']),
         ItemMenuOptionsProvider || identity,
         ifEditable(
-          withMenuOptions({ useGetMenuOptions, name: 'list-item' }),
+          withMenuOptions({ useMenuOptions, name: 'list-item' }),
         ),
       ),
     };
