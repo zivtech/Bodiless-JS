@@ -38,13 +38,7 @@ const withFloatWrapper = <P extends object> (Component:ComponentType<P>) => obse
   return <div className={className}><Component {...props as P} /></div>;
 });
 
-// Type of the props accepted by this component.
-// Exclude the href from the props accepted as we write it.
-// An example of providing a useGetMenuOptions hook to withEditButton.
-// This hook will be chained with the one created by withEditButton so that
-// additional menu options can be added.
-
-const useGetMenuOptions = () => {
+const useMenuOptions = () => {
   const { node } = useNode<Data>();
   const menuOptions = useMemo(() => ([
     {
@@ -69,12 +63,12 @@ const useGetMenuOptions = () => {
       global: true,
     },
   ]), []);
-  return () => menuOptions;
+  return menuOptions;
 };
 const asFloat = flowRight(
   withFloatWrapper,
   ifEditable(
-    withMenuOptions({ useGetMenuOptions, name: 'float' }),
+    withMenuOptions({ useMenuOptions, name: 'float' }),
     withLocalContextMenu,
     withContextActivator('onClick'),
   ),

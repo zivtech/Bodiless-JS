@@ -139,17 +139,20 @@ const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (p
   );
 };
 
-type UseGetMenuOptionsProps = {
+type UseMenuOptionsProps = {
   globalButtons?: Function,
 };
 // This is a call back that goes to withMenuOptions so that we can add button to the global menu
-const richTextUseGetMenuOptions = (props: UseGetMenuOptionsProps) => {
+const useMenuOptions = (props: UseMenuOptionsProps) => {
   const slateContext = useSlateContext();
   const { editor } = slateContext!;
-  return () => (props.globalButtons ? props.globalButtons(editor) : []);
+  return useMemo(
+    () => (props.globalButtons ? props.globalButtons(editor) : []),
+    [props.globalButtons],
+  );
 };
 
-const ifMenuOptions = ifToggledOn((props: UseGetMenuOptionsProps) => {
+const ifMenuOptions = ifToggledOn((props: UseMenuOptionsProps) => {
   const context = useEditContext();
   return context.isEdit && Boolean(props.globalButtons);
 });
@@ -157,14 +160,14 @@ const ifMenuOptions = ifToggledOn((props: UseGetMenuOptionsProps) => {
 type RichTextProviderProps = {
   plugins: Plugin[],
   schema?: SchemaProperties,
-} & UseGetMenuOptionsProps;
+} & UseMenuOptionsProps;
 type RichTextProviderType = ComponentType<RichTextProviderProps>;
 const RichTextProvider = flowRight(
   withNode,
   withNodeStateHandlers,
   withSlateEditor,
   ifMenuOptions(
-    withMenuOptions({ useGetMenuOptions: richTextUseGetMenuOptions, name: 'editor' }),
+    withMenuOptions({ useMenuOptions, name: 'editor' }),
     withSlateActivator,
   ),
   withoutProps(['className', 'plugins', 'globalButtons', 'readOnly']),
