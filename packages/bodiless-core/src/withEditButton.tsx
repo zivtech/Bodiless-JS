@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import { useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 import { flowRight } from 'lodash';
 import { withoutProps } from './hoc';
 import useContextMenuForm, {
@@ -33,10 +33,6 @@ export const useEditFormProps = <P extends object, D extends object>({
     ? dataHandler.initialValueHandler(initialValues) : initialValues;
   const submitValues = (values: D) => {
     setComponentData(values);
-    Object.assign(componentData, values);
-    // @todo: refactor - replace this workaround fix.
-    Object.assign(initialValues$, dataHandler && dataHandler.initialValueHandler
-      ? dataHandler.initialValueHandler(initialValues) : initialValues);
     if (onSubmit) onSubmit();
   };
   const submitValues$ = dataHandler && dataHandler.submitValueHandler
@@ -54,21 +50,20 @@ export const createMenuOptionHook = <P extends object, D extends object>({
   global,
   local,
   renderForm,
-  // useGetMenuOptions,
 }: EditButtonOptions<P, D>) => (
     props: P & EditButtonProps<D>,
-    // context: PageEditContextInterface,
   ) => {
     const { unwrap, isActive } = props;
-    const renderFormBody = useCallback((p: ContextMenuFormBodyProps<D>) => renderForm({
+    const renderFormBody = (p: ContextMenuFormBodyProps<D>) => renderForm({
       ...p,
       unwrap,
+      // @TODO: Avoid passing all the props.
       componentProps: props,
-    }), [unwrap, ...Object.values(props)]);
-    const form = useCallback(useContextMenuForm({
+    });
+    const form = useContextMenuForm({
       ...useEditFormProps(props),
       renderFormBody,
-    }), [renderFormBody, ...Object.values(props)]);
+    });
     const menuOptions = useMemo(() => [
       {
         icon,
@@ -77,24 +72,17 @@ export const createMenuOptionHook = <P extends object, D extends object>({
         isActive,
         global,
         local,
-        // @TODO: Align this onSubmit prop received from ContextMenu with closeForm
         handler: () => form,
       },
-    ], [form]);
-    const getMenuOptions = () => menuOptions;
-    // If a hook providing additional menu options was specified, then call it.
-    // if (useGetMenuOptions) {
-    //   const getMenuOptions$1 = useGetMenuOptions(props, context) || (() => []);
-    //   return () => [...getMenuOptions(), ...getMenuOptions$1()];
-    // }
-    return getMenuOptions;
+    ], [unwrap, ...Object.values(props)]);
+    return menuOptions;
   };
 
 const withEditButton = <P extends object, D extends object>(
   options: EditButtonOptions<P, D>,
 ) => flowRight(
     withMenuOptions({
-      useGetMenuOptions: createMenuOptionHook(options),
+      useMenuOptions: createMenuOptionHook(options),
       name: options.name,
     }),
     withoutProps(['setComponentData', 'unwrap', 'isActive']),
