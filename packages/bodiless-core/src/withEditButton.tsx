@@ -53,10 +53,9 @@ export const createMenuOptionHook = <P extends object, D extends object>({
 }: EditButtonOptions<P, D>) => (
     props: P & EditButtonProps<D>,
   ) => {
-    const { unwrap, isActive } = props;
+    const { isActive } = props;
     const renderFormBody = (p: ContextMenuFormBodyProps<D>) => renderForm({
       ...p,
-      unwrap,
       // @TODO: Avoid passing all the props.
       componentProps: props,
     });
@@ -74,7 +73,7 @@ export const createMenuOptionHook = <P extends object, D extends object>({
         local,
         handler: () => form,
       },
-    ], [unwrap, ...Object.values(props)]);
+    ], [...Object.values(props)]);
     return menuOptions;
   };
 
@@ -85,7 +84,7 @@ const withEditButton = <P extends object, D extends object>(
       useMenuOptions: createMenuOptionHook(options),
       name: options.name,
     }),
-    withoutProps(['setComponentData', 'unwrap', 'isActive']),
+    withoutProps(['setComponentData', 'isActive']),
   );
 
 export default withEditButton;

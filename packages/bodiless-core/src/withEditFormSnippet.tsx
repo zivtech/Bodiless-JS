@@ -20,11 +20,9 @@ const withEditFormSnippet = <P extends object, D extends object>(options: Option
     const id = v1();
     const { render, initialValueHandler, submitValueHandler } = options;
     const WithEditFormSnippet = (props: P & EditButtonProps<D>) => {
-      const { unwrap } = props;
       // Pass additional props to the supplied render function.
       const render$ = (p: FormBodyProps<D>) => render({
         ...p,
-        unwrap,
         componentProps: props,
       });
       const snippet: Snippet<D> = {
