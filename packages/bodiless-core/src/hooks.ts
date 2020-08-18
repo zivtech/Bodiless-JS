@@ -66,9 +66,11 @@ export const useContextActivator = (
     // Do not activate the context if it is already innermost.
     if (context.isInnermost) return;
     // Do not activate if this event already activated an inner context.
-    const activatingElement = (e.target as HTMLElement).closest('[data-bl-activator=true]');
-    const thisElement = e.currentTarget;
-    if (thisElement !== activatingElement) return;
+    if (e.target) {
+      const activatingElement = (e.target as HTMLElement).closest('[data-bl-activator=true]');
+      const thisElement = e.currentTarget;
+      if (thisElement !== activatingElement) return;
+    }
     context.activate();
   }, [context, context.isEdit]);
 

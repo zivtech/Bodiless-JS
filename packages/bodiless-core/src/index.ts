@@ -13,7 +13,7 @@
  */
 
 import { ComponentType } from 'react';
-import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from './PageContextProvider';
+import PageContextProvider, { withMenuOptions, useRegisterMenuOptions, useGetMenuOptions } from './PageContextProvider';
 import PageEditContext from './PageEditContext';
 import asStatic from './asStatic';
 import asReadOnly from './asReadOnly';
@@ -47,7 +47,7 @@ import { ifEditable, ifReadOnly, useEditToggle } from './withEditToggle';
 import type { ContextMenuFormProps, IContextMenuItemProps, TMenuOption } from './Types/ContextMenuTypes';
 import type { PageEditContextInterface } from './PageEditContext/types';
 import type { EditButtonOptions, EditButtonProps } from './Types/EditButtonTypes';
-import type { TMenuOptionGetter, UseGetMenuOptions } from './Types/PageContextProviderTypes';
+import type { TMenuOptionGetter } from './Types/PageContextProviderTypes';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
 import type { TOverlaySettings } from './Types/PageOverlayTypes';
 import type { Snippet as FormSnippet } from './withCompoundForm';
@@ -84,6 +84,7 @@ export {
   PageContextProvider,
   withMenuOptions,
   useRegisterMenuOptions,
+  useGetMenuOptions,
   PageEditContext,
   useEditContext,
   useContextActivator,
@@ -138,7 +139,6 @@ export type {
   PageEditContextInterface,
   TMenuOption,
   TMenuOptionGetter,
-  UseGetMenuOptions,
   WithNodeProps,
   WithNodeKeyProps,
   EditButtonOptions,

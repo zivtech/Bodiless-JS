@@ -113,18 +113,33 @@ PageContextProvider.defaultProps = {
 };
 
 /**
+ * A memoized getter which will always return the current set of options.
+ *
+ * @param options An array of menu options.
+ */
+export const useGetMenuOptions = (options?: TMenuOption[]): TMenuOptionGetter|undefined => {
+  const optionsRef = useRef<TMenuOption[]>();
+  const getMenuOptions = useCallback(() => optionsRef.current || [], []);
+  if (options) {
+    optionsRef.current = options;
+    return getMenuOptions;
+  }
+  return undefined;
+};
+
+/**
  * Using supplied options, returns an HOC which adds one or more menu options (buttons).
  * This simplly wraps the supplied component with a `PageContextProvider`.
  *
  * Note that, unlike `PageContexProvider` itself, this function takes a custom hook
- * (`useGetMenuOptions`), which is invoked to create the 'getMenuOptions' prop
+ * (`useMenuOptions`), which is invoked to create the 'getMenuOptions' prop
  * for `PageContextProvider`.  This allows you to use props and context at render
  * time to create your `getMenuOptions` callback.
  *
  * Based on the value of the `peer` option, this will associate the menu options either
  * with a new local context (`peer === false`, the default), or with the existing one.
  *
- * @param options The values used to define the menu options.
+ * @param def The definition of the menu options to be provided.
  *
  * @return An HOC which will cause the component it enhances to contribute the specified
  *         menu options when placed.
@@ -132,22 +147,10 @@ PageContextProvider.defaultProps = {
 export const withMenuOptions = <P extends object>(def: MenuOptionsDefinition<P>) => (
   (Component: ComponentType<P> | string) => {
     const {
-      useMenuOptions, useGetMenuOptions, peer, ...rest
+      useMenuOptions, peer, ...rest
     } = def;
     const WithMenuOptions = (props: P) => {
-      const options = useRef<TMenuOption[]>();
-      const getMenuOptions$ = useCallback(() => options.current || [], []);
-      let getMenuOptions: TMenuOptionGetter|undefined;
-      const menuOptionHook = useMenuOptions || useGetMenuOptions;
-      if (menuOptionHook) {
-        const menuOptionsOrGetter = menuOptionHook(props, useEditContext());
-        if (typeof menuOptionsOrGetter === 'function') {
-          getMenuOptions = menuOptionsOrGetter;
-        } else {
-          options.current = menuOptionsOrGetter;
-          getMenuOptions = getMenuOptions$;
-        }
-      }
+      const getMenuOptions = useGetMenuOptions(useMenuOptions && useMenuOptions(props));
       if (peer) {
         useRegisterMenuOptions({ getMenuOptions, ...rest });
         return <Component {...props} />;

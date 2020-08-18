@@ -1,4 +1,6 @@
-import React, { useCallback, FC, useRef } from 'react';
+import React, {
+  FC, useMemo,
+} from 'react';
 // import { observable, action } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import { mount } from 'enzyme';
@@ -7,7 +9,6 @@ import { withMenuOptions } from '../src/PageContextProvider';
 import { useEditContext } from '../src/hooks';
 import { withContextActivator } from '../src/hoc';
 import PageEditContext from '../src/PageEditContext';
-import { TMenuOption } from '../src/Types/ContextMenuTypes';
 
 describe('useMemo for getMenuOptions', () => {
   let mockIsEdit: any;
@@ -57,7 +58,7 @@ describe('useMemo for getMenuOptions', () => {
     };
     const withOuterOptions = withMenuOptions({
       id: 'Outer',
-      useGetMenuOptions: () => useCallback(() => [{ name: 'outer' }], []),
+      useMenuOptions: () => useMemo(() => [{ name: 'outer' }], []),
     });
     const Outer = withOuterOptions(Outer$);
 
@@ -88,7 +89,7 @@ describe('useMemo for getMenuOptions', () => {
     };
     const withOuterOptions = withMenuOptions({
       id: 'Outer',
-      useGetMenuOptions: () => [{ name: 'outer' }],
+      useMenuOptions: () => [{ name: 'outer' }],
       peer: true,
     });
     const Outer = withOuterOptions(Outer$);
@@ -121,7 +122,7 @@ describe('useMemo for getMenuOptions', () => {
     };
     const withOuterOptions = withMenuOptions({
       id: 'Outer',
-      useGetMenuOptions: () => useCallback(() => [{ name: 'outer' }], []),
+      useMenuOptions: () => useMemo(() => [{ name: 'outer' }], []),
     });
     const Outer = withOuterOptions(Outer$);
 
@@ -137,7 +138,7 @@ describe('useMemo for getMenuOptions', () => {
     expect(innerSpy).toBeCalledTimes(1);
   });
 
-  it('Subscribers to edit content do re-render when parent changes memoized options', () => {
+  it('Subscribers to edit content do not re-render when parent changes  options', () => {
     const innerSpy = jest.fn();
     const Inner: FC<any> = ({ children }) => {
       innerSpy();
@@ -152,7 +153,7 @@ describe('useMemo for getMenuOptions', () => {
     };
     const withOuterOptions = withMenuOptions({
       id: 'Outer',
-      useGetMenuOptions: ({ foo }: any) => useCallback(() => [{ name: foo }], [foo]),
+      useMenuOptions: ({ foo }: any) => [{ name: foo }],
     });
     const Outer = withOuterOptions(Outer$);
 
@@ -165,7 +166,7 @@ describe('useMemo for getMenuOptions', () => {
     expect(outerSpy).toBeCalledTimes(1);
     wrapper.setProps({ foo: 'bar' });
     expect(outerSpy).toBeCalledTimes(2);
-    expect(innerSpy).toBeCalledTimes(2);
+    expect(innerSpy).toBeCalledTimes(1);
   });
 
   it('Subscribers to edit content do not re-render when parent changes options', () => {
@@ -183,7 +184,7 @@ describe('useMemo for getMenuOptions', () => {
     };
     const withOuterOptions = withMenuOptions({
       id: 'Outer',
-      useGetMenuOptions: ({ foo }: any) => [{ name: foo }],
+      useMenuOptions: ({ foo }: any) => [{ name: foo }],
     });
     const Outer = withOuterOptions(Outer$);
 
@@ -207,17 +208,12 @@ describe('useMemo for getMenuOptions', () => {
       ));
       return <>{items}</>;
     });
-    const useGetMenuOptions = ({ foo }: any) => {
-      const options = useRef<TMenuOption[]>([]);
-      options.current = [{ name: foo }];
-      const getMenuOptions = () => options.current;
-      return useCallback(getMenuOptions, []);
-    };
+    const useMenuOptions = ({ foo }: any) => [{ name: foo }];
     const Span: FC<any> = props => <span {...props} />;
     const Provider = flowRight(
       withMenuOptions({
         id: 'Provider',
-        useGetMenuOptions,
+        useMenuOptions,
       }),
       withContextActivator('onClick'),
     )(Span);
@@ -245,13 +241,13 @@ describe('useMemo for getMenuOptions', () => {
       return <>{items}</>;
     });
 
-    const useGetMenuOptions = ({ foo }: any) => [{ name: foo }];
+    const useMenuOptions = ({ foo }: any) => [{ name: foo }];
 
     const Span: FC<any> = props => <span {...props} />;
     const Provider = flowRight(
       withMenuOptions({
         id: 'Provider',
-        useGetMenuOptions,
+        useMenuOptions,
       }),
       withContextActivator('onClick'),
     )(Span);

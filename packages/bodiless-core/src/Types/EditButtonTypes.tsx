@@ -13,7 +13,6 @@
  */
 
 import { ReactNode } from 'react';
-import { UseGetMenuOptions } from './PageContextProviderTypes';
 import { FormBodyProps as ContextMenuFormBodyProps } from '../contextMenuForm';
 
 type EditDataHandler<D> = {
@@ -43,6 +42,4 @@ export type EditButtonOptions<P, D> = {
   local?: boolean;
   label?: string,
   renderForm: FormBodyRenderer<P, D>;
-  // Allow additional buttons.
-  useGetMenuOptions?: UseGetMenuOptions<P>;
 };

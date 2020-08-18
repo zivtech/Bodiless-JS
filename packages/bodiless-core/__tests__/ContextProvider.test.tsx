@@ -23,7 +23,6 @@ import {
 import { observer } from 'mobx-react-lite';
 import PageContextProvider, { withMenuOptions, useRegisterMenuOptions } from '../src/PageContextProvider';
 import { useEditContext } from '../src/hooks';
-import { PageEditContextInterface } from '../src/PageEditContext/types';
 import { defaultStore } from '../src/PageEditContext/Store';
 import PageEditContext from '../src/PageEditContext';
 import { TMenuOption } from '../src/Types/ContextMenuTypes';
@@ -168,13 +167,12 @@ describe('withMenuOptions', () => {
 
   // A menu option getter creator which uses values from
   // both props and context to define menu options.
-  const useGetMenuOptions = (
+  const useMenuOptions = (
     { foo }: Props,
-    { id }: PageEditContextInterface,
-  ) => () => [
+  ) => [
     {
       name: foo,
-      icon: id,
+      icon: useEditContext().id,
       isActive: () => true,
       handler: () => undefined,
     },
@@ -182,7 +180,7 @@ describe('withMenuOptions', () => {
 
   const WrappedComponent = ({ foo }: Props) => <span>{foo}</span>;
 
-  const Test = withMenuOptions({ useGetMenuOptions })(WrappedComponent);
+  const Test = withMenuOptions({ useMenuOptions })(WrappedComponent);
 
   it('passes props and context correctly to the getMenuOptions creator', () => {
     const ShowContextId = () => <span>{useEditContext().id}</span>;

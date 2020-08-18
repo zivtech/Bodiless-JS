@@ -12,21 +12,14 @@
  * limitations under the License.
  */
 
-import { PageEditContextInterface, DefinesLocalEditContext } from '../PageEditContext/types';
+import { DefinesLocalEditContext } from '../PageEditContext/types';
 import { TMenuOption } from './ContextMenuTypes';
 
 export type TMenuOptionGetter = () => TMenuOption[];
 
-export type UseGetMenuOptions<P> = (
-  props: P,
-  context: PageEditContextInterface,
-) => TMenuOption[] | (() => TMenuOption[]) | undefined;
-
 export type PageContextProviderProps = Partial<DefinesLocalEditContext>;
 
 export type MenuOptionsDefinition<P> = Omit<PageContextProviderProps, 'getMenuOptions'> & {
-  // @TODO Deprecate useGetMenuOptions
-  useGetMenuOptions?: UseGetMenuOptions<P>,
   useMenuOptions?: (props: P) => TMenuOption[],
   peer?: boolean,
 };
