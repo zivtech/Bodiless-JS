@@ -120,7 +120,8 @@ function useSwapButton(props: EditFlowContainerProps, item: FlowContainerItem) {
 }
 
 function useMenuOptions(props: EditFlowContainerProps) {
-  return useMemo(() => [useAddButton(withNoDesign(props))], []);
+  const addButton = useAddButton(withNoDesign(props));
+  return useMemo(() => [addButton], []);
 }
 
 /**
