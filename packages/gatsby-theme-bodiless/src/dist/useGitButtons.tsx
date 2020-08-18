@@ -190,10 +190,10 @@ const getMenuOptions = (
       Component: ContextSubMenu,
     },
     {
-      name: 'listCommits',
-      icon: 'book',
-      label: 'History',
-      handler: () => formGetCommitsList(client),
+      name: 'Pull',
+      label: 'Pull',
+      icon: 'cloud_download',
+      handler: () => formGitPull(client, notifyOfChanges),
       group: 'file',
     },
     {
@@ -205,10 +205,10 @@ const getMenuOptions = (
       group: 'file',
     },
     {
-      name: 'Pull',
-      label: 'Pull',
-      icon: 'cloud_download',
-      handler: () => formGitPull(client, notifyOfChanges),
+      name: 'listCommits',
+      icon: 'book',
+      label: 'History',
+      handler: () => formGetCommitsList(client),
       group: 'file',
     },
     {

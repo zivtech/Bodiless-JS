@@ -34,6 +34,7 @@ const ContextMenuItem = observer((props: IProps) => {
   const isHidden = option.isHidden ? (typeof option.isHidden === 'function' ? option.isHidden() : option.isHidden) : false;
   const label = option.label ? (typeof option.label === 'function' ? option.label() : option.label) : '';
   const icon = option.icon ? (typeof option.icon === 'function' ? option.icon() : option.icon) : '';
+  const useCssRight = isPositionToggled && option.Component;
 
   const isFirst = index === 0;
   const setRenderForm = useContextMenuContext().setRenderForm || setRenderForm$;
@@ -93,7 +94,7 @@ const ContextMenuItem = observer((props: IProps) => {
         overlay={getContextMenuForm()}
         visible={isToolTipShown}
         destroyTooltipOnHide
-        align={{ offset: [10, 0], useCssRight: isPositionToggled && label !== 'Alerts' }}
+        align={{ offset: [10, 0], useCssRight }}
       >
         <Icon isActive={isActive || isToolTipShown}>{icon}</Icon>
       </Tooltip>
