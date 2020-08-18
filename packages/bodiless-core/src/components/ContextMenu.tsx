@@ -13,6 +13,7 @@
  */
 
 import React, { FC, useState } from 'react';
+import { uniqBy } from 'lodash';
 import ContextMenuItem from './ContextMenuItem';
 import StructuredChildren from '../ContextMenu/StructuredChildren';
 import ContextMenuProvider, { getUI } from './ContextMenuContext';
@@ -74,7 +75,7 @@ const ContextMenu: FC<IContextMenuProps> = (props) => {
   const { options, ui, children } = props;
   const { ContextMenuGroup } = getUI(ui);
   const childProps = { ui };
-  const childrenFromOptions = createChildrenFromOptions(options || []);
+  const childrenFromOptions = uniqBy(createChildrenFromOptions(options || []), 'key');
 
   if (children || childrenFromOptions.length > 0) {
     return (
