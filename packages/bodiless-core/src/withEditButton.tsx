@@ -19,15 +19,25 @@ import useContextMenuForm, {
   FormBodyProps as ContextMenuFormBodyProps,
 } from './contextMenuForm';
 import { withMenuOptions } from './PageContextProvider';
-import type { EditButtonProps, EditButtonOptions } from './Types/EditButtonTypes';
+import type { EditButtonProps, EditButtonOptions, FormBodyRenderer } from './Types/EditButtonTypes';
 
-export const useEditFormProps = <P extends object, D extends object>({
-  componentData,
-  setComponentData,
-  onSubmit,
-  dataHandler,
-}: P & EditButtonProps<D>) => {
-  const initialValues = componentData;
+export const useEditFormProps = <P extends object, D extends object>(
+  props: P & EditButtonProps<D> & { renderForm: FormBodyRenderer<P, D> },
+) => {
+  const {
+    componentData: initialValues,
+    setComponentData,
+    onSubmit,
+    dataHandler,
+    renderForm: renderForm$,
+  } = props;
+
+  // Pass component props to the render function.
+  const renderForm = (p: ContextMenuFormBodyProps<D>) => renderForm$({
+    ...p,
+    // @TODO: Avoid passing all the props.
+    componentProps: props,
+  });
 
   const initialValues$ = dataHandler && dataHandler.initialValueHandler
     ? dataHandler.initialValueHandler(initialValues) : initialValues;
@@ -40,6 +50,7 @@ export const useEditFormProps = <P extends object, D extends object>({
   return {
     submitValues: submitValues$,
     initialValues: initialValues$,
+    renderForm,
   };
 };
 
@@ -54,15 +65,7 @@ export const createMenuOptionHook = <P extends object, D extends object>({
     props: P & EditButtonProps<D>,
   ) => {
     const { isActive } = props;
-    const renderFormBody = (p: ContextMenuFormBodyProps<D>) => renderForm({
-      ...p,
-      // @TODO: Avoid passing all the props.
-      componentProps: props,
-    });
-    const form = useContextMenuForm({
-      ...useEditFormProps(props),
-      renderFormBody,
-    });
+    const form = useContextMenuForm(useEditFormProps({ ...props, renderForm }));
     const menuOptions = useMemo(() => [
       {
         icon,

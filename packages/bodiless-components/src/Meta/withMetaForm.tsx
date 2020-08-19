@@ -29,7 +29,7 @@ export type MetaSnippetOptions = {
 export const withMetaSnippet = (
   options: MetaSnippetOptions,
 ) => withEditFormSnippet({
-  render: () => {
+  renderForm: () => {
     const {
       name, label, placeholder, useFormElement,
     } = options;

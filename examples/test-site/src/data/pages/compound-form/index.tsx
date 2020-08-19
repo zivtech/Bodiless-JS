@@ -65,7 +65,7 @@ const asTestFormSnippet = (nodeKey: WithNodeKeyProps, defaultData: any) => flowR
   withNodeKey(nodeKey),
   withNode,
   withNodeDataHandlers(defaultData),
-  withEditFormSnippet({ render: () => <TestSnippet {...defaultData} /> }),
+  withEditFormSnippet({ renderForm: () => <TestSnippet {...defaultData} /> }),
   withoutProps('setComponentData'),
   withData,
 );
