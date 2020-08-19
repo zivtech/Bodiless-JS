@@ -46,8 +46,8 @@ const defaultUI = {
   ComponentFormListItem: 'li',
   ComponentFormDescription: 'div',
   ContextSubMenu: React.Fragment,
-
   ToolbarButton: (props: any) => <div {...omit(props, 'isActive', 'isDisabled', 'isFirst')} />,
+  ToolbarButtonLabel: 'span',
   FormWrapper: 'div',
   ToolbarDivider: 'div',
   Tooltip: ReactTooltip,

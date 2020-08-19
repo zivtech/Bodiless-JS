@@ -23,16 +23,18 @@ const ContextMenuItem = observer((props: IProps) => {
   const { option, index } = props;
   const [renderForm, setRenderForm$] = useState<(props:ContextMenuFormProps) => JSX.Element>();
   const [isToolTipShown, setIsToolTipShown] = useState(false);
+  const { isPositionToggled } = useEditContext();
   const ui = useMenuOptionUI();
   const {
     ToolbarDivider, Icon, ToolbarButton,
-    FormWrapper, Tooltip,
+    FormWrapper, Tooltip, ToolbarButtonLabel,
   } = ui;
   const isActive = option.isActive ? (typeof option.isActive === 'function' ? option.isActive() : option.isActive) : false;
   const isDisabled = option.isDisabled ? (typeof option.isDisabled === 'function' ? option.isDisabled() : option.isDisabled) : false;
   const isHidden = option.isHidden ? (typeof option.isHidden === 'function' ? option.isHidden() : option.isHidden) : false;
   const label = option.label ? (typeof option.label === 'function' ? option.label() : option.label) : '';
   const icon = option.icon ? (typeof option.icon === 'function' ? option.icon() : option.icon) : '';
+  const useCssRight = isPositionToggled && option.Component;
 
   const isFirst = index === 0;
   const setRenderForm = useContextMenuContext().setRenderForm || setRenderForm$;
@@ -94,14 +96,16 @@ const ContextMenuItem = observer((props: IProps) => {
         trigger={['click']}
         overlay={getContextMenuForm()}
         visible={isToolTipShown}
+        destroyTooltipOnHide
+        align={{ offset: [10, 0], useCssRight }}
       >
         <Icon isActive={isActive || isToolTipShown}>{icon}</Icon>
       </Tooltip>
       {
         (label) ? (
-          <div className="bl-text-center bl-text-white">
+          <ToolbarButtonLabel>
             {label}
-          </div>
+          </ToolbarButtonLabel>
         ) : (null)
       }
     </ToolbarButton>
