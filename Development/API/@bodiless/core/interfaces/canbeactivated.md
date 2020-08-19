@@ -25,7 +25,7 @@
 
 • **activate**: *function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/PageEditContext/types.ts#L70)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/PageEditContext/types.ts#L57)*
 
 #### Type declaration:
 
@@ -37,7 +37,7 @@ ___
 
 • **hasLocalMenu**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/PageEditContext/types.ts#L68)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/PageEditContext/types.ts#L55)*
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 • **isActive**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/PageEditContext/types.ts#L66)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/PageEditContext/types.ts#L53)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **isInnermost**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/PageEditContext/types.ts#L67)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/PageEditContext/types.ts#L54)*
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 • **isInnermostLocalMenu**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/PageEditContext/types.ts#L69)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/PageEditContext/types.ts#L56)*
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 • **refresh**: *function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/PageEditContext/types.ts#L71)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/PageEditContext/types.ts#L58)*
 
 #### Type declaration:
 

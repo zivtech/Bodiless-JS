@@ -15,6 +15,7 @@
 ### Properties
 
 * [data](gatsbymobxstoreitem.md#data)
+* [hasFlushingError](gatsbymobxstoreitem.md#hasflushingerror)
 * [isDeleted](gatsbymobxstoreitem.md#isdeleted)
 * [key](gatsbymobxstoreitem.md#key)
 * [lockTimeout](gatsbymobxstoreitem.md#optional-locktimeout)
@@ -45,7 +46,7 @@
 
 \+ **new GatsbyMobxStoreItem**(`store`: [GatsbyMobxStore](gatsbymobxstore.md), `key`: string, `initialData`: object, `event`: [ItemStateEvent](../enums/itemstateevent.md)): *[GatsbyMobxStoreItem](gatsbymobxstoreitem.md)*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:160](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L160)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:164](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L164)*
 
 **Parameters:**
 
@@ -64,9 +65,17 @@ Name | Type | Default |
 
 • **data**: *object*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L34)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L34)*
 
 #### Type declaration:
+
+___
+
+###  hasFlushingError
+
+• **hasFlushingError**: *boolean* = false
+
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L40)*
 
 ___
 
@@ -74,7 +83,7 @@ ___
 
 • **isDeleted**: *boolean* = false
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L38)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L38)*
 
 ___
 
@@ -82,7 +91,7 @@ ___
 
 • **key**: *string*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L40)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L42)*
 
 ___
 
@@ -90,7 +99,7 @@ ___
 
 • **lockTimeout**? : *NodeJS.Timeout*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L44)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L46)*
 
 ___
 
@@ -98,7 +107,7 @@ ___
 
 • **requestDelay**: *number* = DEFAULT_REQUEST_DELAY
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L48)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L50)*
 
 ___
 
@@ -106,7 +115,7 @@ ___
 
 • **requestTimeout**? : *NodeJS.Timeout*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L46)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L48)*
 
 ___
 
@@ -114,7 +123,7 @@ ___
 
 • **state**: *[ItemState](../enums/itemstate.md)* = ItemState.Clean
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L36)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L36)*
 
 ___
 
@@ -122,7 +131,7 @@ ___
 
 • **store**: *[GatsbyMobxStore](gatsbymobxstore.md)*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L42)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L44)*
 
 ## Methods
 
@@ -130,7 +139,7 @@ ___
 
 ▸ **delete**(): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:191](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L191)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:195](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L195)*
 
 **Returns:** *void*
 
@@ -140,7 +149,7 @@ ___
 
 ▸ **getResoucePath**(): *string*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L115)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:119](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L119)*
 
 **Returns:** *string*
 
@@ -150,7 +159,7 @@ ___
 
 ▸ **isClean**(): *boolean*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:200](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L200)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:204](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L204)*
 
 **Returns:** *boolean*
 
@@ -160,7 +169,7 @@ ___
 
 ▸ **isPending**(): *boolean*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:196](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L196)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:200](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L200)*
 
 **Returns:** *boolean*
 
@@ -170,7 +179,7 @@ ___
 
 ▸ **request**(): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:131](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L131)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:135](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L135)*
 
 **Returns:** *void*
 
@@ -180,7 +189,7 @@ ___
 
 ▸ **scheduleRequest**(): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:146](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L146)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:150](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L150)*
 
 **Returns:** *void*
 
@@ -190,7 +199,7 @@ ___
 
 ▸ **setData**(`data`: any): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L65)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L67)*
 
 **Parameters:**
 
@@ -206,7 +215,7 @@ ___
 
 ▸ **setLockTimeout**(): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:153](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L153)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:157](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L157)*
 
 **Returns:** *void*
 
@@ -216,7 +225,7 @@ ___
 
 ▸ **setState**(`state`: [ItemState](../enums/itemstate.md)): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L70)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L72)*
 
 **Parameters:**
 
@@ -232,7 +241,7 @@ ___
 
 ▸ **shouldAccept**(): *boolean*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L50)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L52)*
 
 **Returns:** *boolean*
 
@@ -242,7 +251,7 @@ ___
 
 ▸ **shouldSave**(): *boolean*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L56)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L58)*
 
 **Returns:** *boolean*
 
@@ -252,7 +261,7 @@ ___
 
 ▸ **update**(`data`: object, `event`: [ItemStateEvent](../enums/itemstateevent.md)): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:174](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L174)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:178](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L178)*
 
 **Parameters:**
 
@@ -269,7 +278,7 @@ ___
 
 ▸ **updateState**(`event`: [ItemStateEvent](../enums/itemstateevent.md)): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L74)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/gatsby-theme-bodiless/src/dist/GatsbyMobxStoreItem.ts#L76)*
 
 **Parameters:**
 

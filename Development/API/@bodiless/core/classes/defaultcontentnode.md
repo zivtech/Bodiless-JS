@@ -31,6 +31,7 @@
 ### Accessors
 
 * [data](defaultcontentnode.md#data)
+* [hasError](defaultcontentnode.md#haserror)
 * [keys](defaultcontentnode.md#keys)
 
 ### Methods
@@ -49,7 +50,7 @@
 
 \+ **new DefaultContentNode**(`actions`: [Actions](../globals.md#actions), `getters`: [Getters](../globals.md#getters), `path`: [Path](../globals.md#path)): *[DefaultContentNode](defaultcontentnode.md)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L57)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L59)*
 
 **Parameters:**
 
@@ -67,7 +68,7 @@ Name | Type |
 
 • **actions**: *[Actions](../globals.md#actions)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L53)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L55)*
 
 ___
 
@@ -75,7 +76,7 @@ ___
 
 • **getters**: *[Getters](../globals.md#getters)*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L55)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L57)*
 
 ___
 
@@ -83,7 +84,7 @@ ___
 
 • **path**: *string[]*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L57)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L59)*
 
 ## Accessors
 
@@ -91,9 +92,19 @@ ___
 
 • **get data**(): *D*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L75)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L77)*
 
 **Returns:** *D*
+
+___
+
+###  hasError
+
+• **get hasError**(): *hasError*
+
+*Defined in [packages/bodiless-core/src/ContentNode.ts:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L99)*
+
+**Returns:** *hasError*
 
 ___
 
@@ -101,7 +112,7 @@ ___
 
 • **get keys**(): *string[]*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L92)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L94)*
 
 **Returns:** *string[]*
 
@@ -111,7 +122,7 @@ ___
 
 ▸ **child**‹**E**›(`path`: [Path](../globals.md#path)): *[DefaultContentNode](defaultcontentnode.md)‹E›*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L70)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L72)*
 
 **Type parameters:**
 
@@ -131,7 +142,7 @@ ___
 
 ▸ **delete**(`path?`: [Path](../globals.md#path)): *void*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L85)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L87)*
 
 **Parameters:**
 
@@ -147,7 +158,7 @@ ___
 
 ▸ **getActions**(): *object*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L101)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:108](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L108)*
 
 **Returns:** *object*
 
@@ -161,7 +172,7 @@ ___
 
 ▸ **getGetters**(): *object*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L97)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:104](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L104)*
 
 **Returns:** *object*
 
@@ -169,13 +180,15 @@ ___
 
 * **getNode**(`path`: string[]): *any*
 
+* **hasError**(): *boolean*
+
 ___
 
 ###  peer
 
 ▸ **peer**‹**E**›(`path`: [Path](../globals.md#path)): *[DefaultContentNode](defaultcontentnode.md)‹E›*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L66)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L68)*
 
 **Type parameters:**
 
@@ -195,7 +208,7 @@ ___
 
 ▸ **setData**(`dataObj`: D): *void*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L80)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L82)*
 
 **Parameters:**
 
@@ -211,7 +224,7 @@ ___
 
 ▸ **dummy**(`path`: string, `initialData`: object): *[DefaultContentNode](defaultcontentnode.md)‹object›*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/ContentNode.ts#L105)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/ContentNode.ts#L112)*
 
 **Parameters:**
 

@@ -21,7 +21,7 @@
 
 • **isEdit**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/PageEditContext/types.ts#L40)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/PageEditContext/types.ts#L27)*
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 • **toggleEdit**: *function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/d3d522b/packages/bodiless-core/src/PageEditContext/types.ts#L41)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/444155f/packages/bodiless-core/src/PageEditContext/types.ts#L28)*
 
 #### Type declaration:
 
