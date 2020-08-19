@@ -26,7 +26,6 @@ import {
   useMenuOptionUI,
   useEditContext,
 } from '@bodiless/core';
-import { useMemo } from 'react';
 
 const withMetaPageTitle = withTitle({
   name: 'title',
