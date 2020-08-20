@@ -11,6 +11,7 @@ import withEditButton from './withEditButton';
 import withData from './withData';
 import type { WithNodeProps, WithNodeKeyProps } from './Types/NodeTypes';
 import type { EditButtonOptions } from './Types/EditButtonTypes';
+import { useContextActivator } from './hooks';
 
 /**
  * Options for making a component "bodiless".
@@ -45,8 +46,9 @@ type AsBodiless<P, D> = (nodeKeys?: WithNodeKeyProps, defaultData?: D) => HOC<P,
  */
 export const withActivatorWrapper = <P extends object>(event: string, Wrapper: CT<any>|string) => (
   (Component: CT<P>) => (props: P) => {
-    const eventProps = pick(props, event, 'data-bl-activator');
-    const rest = omit(props, event) as P;
+    const wrapperPropNames = Object.getOwnPropertyNames(useContextActivator(event));
+    const eventProps = pick(props, wrapperPropNames);
+    const rest = omit(props, wrapperPropNames) as P;
     return (
       <Wrapper {...eventProps}>
         <Component {...rest} />
