@@ -35,7 +35,11 @@ export type Options<P, D> = EditButtonOptions<P, D> & {
 
 type HOC<P, Q> = (Component: CT<P>|string) => CT<Q>;
 type BodilessProps = Partial<WithNodeProps>;
-type AsBodiless<P, D> = (nodeKeys?: WithNodeKeyProps, defaultData?: D) => HOC<P, P & BodilessProps>;
+type AsBodiless<P, D> = (
+  nodeKeys?: WithNodeKeyProps,
+  defaultData?: D,
+  useOverrides?: ((props: P) => Partial<EditButtonOptions<P, D>>),
+) => HOC<P, P & BodilessProps>;
 
 /**
  * Given an event name and a wrapper component, provides an HOC which will wrap the base component
@@ -66,17 +70,30 @@ export const withActivatorWrapper = <P extends object>(event: string, Wrapper: C
  * @param options An object describing how this component should be made editable.
  */
 // eslint-disable-next-line max-len
-const asBodilessComponent = <P extends object, D extends object>(options: Options<P, D>): AsBodiless<P, D> => {
-  const {
-    activateEvent = 'onClick', Wrapper, defaultData: defaultDataOption = {}, ...rest
-  } = options;
+const asBodilessComponent = <P extends object, D extends object>(options: Options<P, D>): AsBodiless<P, D> => (
   /**
-   * A function which produces an HOC that will make a component "Bodilesss".
+   * Creates an HOC that will make a component "Bodilesss".
+   * 
    * @param nodeKey The nodeKey identifying where the components data will be stored.
    * @param defaultData An object representing the initial/default data. Supercedes any default
    * data provided as an option.
+   * @param useOverrides A hook which returns overrides for edit button options. Will
+   * be invoked in the render context of the wrapped component and passed the
+   * component's props.
+   *
+   * @return An HOC which will make the wrapped component "bodiless".
    */
-  return (nodeKeys?: WithNodeKeyProps, defaultData: D = {} as D) => {
+  (
+    nodeKeys?,
+    defaultData = {} as D,
+    useOverrides?: (props: P) => Partial<EditButtonOptions<P, D>>,
+  ) => {
+    const {
+      activateEvent = 'onClick', Wrapper, defaultData: defaultDataOption = {}, ...rest
+    } = options;
+    const editButtonOptions = useOverrides
+      ? (props: P) => ({ ...rest, ...useOverrides(props) })
+      : rest;
     const finalData = { ...defaultDataOption, ...defaultData };
     return flowRight(
       withNodeKey(nodeKeys),
@@ -86,15 +103,15 @@ const asBodilessComponent = <P extends object, D extends object>(options: Option
         withoutProps(['setComponentData']),
       ),
       ifEditable(
-        withEditButton(rest),
+        withEditButton(editButtonOptions),
         withContextActivator(activateEvent),
         withLocalContextMenu,
         Wrapper ? withActivatorWrapper(activateEvent, Wrapper) : identity,
       ),
       withData,
     );
-  };
-};
+  }
+);
 
 export default asBodilessComponent;
 export type { AsBodiless };
