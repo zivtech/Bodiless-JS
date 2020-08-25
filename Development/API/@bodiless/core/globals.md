@@ -213,7 +213,7 @@
 
 Ƭ **Actions**: *object*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContentNode.ts#L30)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContentNode.ts#L30)*
 
 #### Type declaration:
 
@@ -227,7 +227,7 @@ ___
 
 Ƭ **ActivateOnEffectState**: *object*
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L18)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L18)*
 
 #### Type declaration:
 
@@ -243,7 +243,7 @@ ___
 
 Ƭ **AsBodiless**: *function*
 
-*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/asBodilessComponent.tsx#L37)*
+*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/asBodilessComponent.tsx#L37)*
 
 #### Type declaration:
 
@@ -262,7 +262,7 @@ ___
 
 Ƭ **Bodiless**: *function*
 
-*Defined in [packages/bodiless-core/src/index.ts:148](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/index.ts#L148)*
+*Defined in [packages/bodiless-core/src/index.ts:148](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/index.ts#L148)*
 
 #### Type declaration:
 
@@ -280,7 +280,7 @@ ___
 
 Ƭ **BodilessProps**: *Partial‹[WithNodeProps](globals.md#withnodeprops)›*
 
-*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/asBodilessComponent.tsx#L36)*
+*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/asBodilessComponent.tsx#L36)*
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 Ƭ **ButtonVariantProps**: *HTMLProps‹HTMLDivElement› & object*
 
-*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L39)*
+*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L39)*
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 Ƭ **CompleteUI**: *object*
 
-*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageEditor.tsx#L27)*
+*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageEditor.tsx#L27)*
 
 #### Type declaration:
 
@@ -312,7 +312,7 @@ ___
 
 Ƭ **CompoundFormComponents**: *object*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L42)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L42)*
 
 A collection of compound form Design Components.
 
@@ -326,7 +326,7 @@ ___
 
 Ƭ **ContentNode**: *object*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContentNode.ts#L43)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContentNode.ts#L43)*
 
 #### Type declaration:
 
@@ -358,7 +358,7 @@ ___
 
 Ƭ **ContextMenuFormProps**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L99)*
+*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L99)*
 
 #### Type declaration:
 
@@ -376,7 +376,7 @@ ___
 
 Ƭ **ContextMenuGroupProps**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L49)*
+*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L49)*
 
 #### Type declaration:
 
@@ -392,7 +392,7 @@ ___
 
 Ƭ **ContextMenuPropsType**: *[ContextMenuFormProps](globals.md#contextmenuformprops) & [Options](globals.md#options)‹D› & object*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L34)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L34)*
 
 ___
 
@@ -400,7 +400,7 @@ ___
 
 Ƭ **ContextType**: *object*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L21)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L21)*
 
 #### Type declaration:
 
@@ -412,7 +412,7 @@ ___
 
 Ƭ **ContextUIType**: *object*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L26)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L26)*
 
 #### Type declaration:
 
@@ -424,7 +424,7 @@ ___
 
 Ƭ **EditButtonOptions**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L39)*
+*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L39)*
 
 #### Type declaration:
 
@@ -448,7 +448,7 @@ ___
 
 Ƭ **EditButtonProps**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L31)*
+*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L31)*
 
 #### Type declaration:
 
@@ -472,7 +472,7 @@ ___
 
 Ƭ **EditDataHandler**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L19)*
+*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L19)*
 
 #### Type declaration:
 
@@ -486,9 +486,9 @@ ___
 
 Ƭ **FormBodyProps**: *ContextMenuFormBodyProps‹D› & object*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L27)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L27)*
 
-*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L24)*
+*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L24)*
 
 ___
 
@@ -496,9 +496,9 @@ ___
 
 Ƭ **FormBodyRenderer**: *function*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L32)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L32)*
 
-*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L29)*
+*Defined in [packages/bodiless-core/src/Types/EditButtonTypes.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/EditButtonTypes.tsx#L29)*
 
 #### Type declaration:
 
@@ -516,7 +516,7 @@ ___
 
 Ƭ **FormChromeProps**: *object & [ContextMenuFormProps](globals.md#contextmenuformprops)*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L38)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L38)*
 
 ___
 
@@ -524,7 +524,7 @@ ___
 
 Ƭ **FormProps**: *[ContextMenuFormProps](globals.md#contextmenuformprops) & object & DesignableComponentsProps‹[CompoundFormComponents](globals.md#compoundformcomponents)›*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L48)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L48)*
 
 ___
 
@@ -532,7 +532,7 @@ ___
 
 Ƭ **FullUI**: *object*
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L21)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L21)*
 
 #### Type declaration:
 
@@ -552,7 +552,7 @@ ___
 
 Ƭ **Getters**: *object*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContentNode.ts#L35)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContentNode.ts#L35)*
 
 #### Type declaration:
 
@@ -568,7 +568,7 @@ ___
 
 Ƭ **GroupTree**: *object*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:7](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L7)*
+*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:7](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L7)*
 
 #### Type declaration:
 
@@ -584,7 +584,7 @@ ___
 
 Ƭ **GroupedChildrenProps**: *object*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L62)*
+*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L62)*
 
 #### Type declaration:
 
@@ -600,9 +600,9 @@ ___
 
 Ƭ **HOC**: *function*
 
-*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/asBodilessComponent.tsx#L35)*
+*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/asBodilessComponent.tsx#L35)*
 
-*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withSidecarNodes.tsx#L70)*
+*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withSidecarNodes.tsx#L70)*
 
 #### Type declaration:
 
@@ -620,7 +620,7 @@ ___
 
 Ƭ **HasDataProp**: *object*
 
-*Defined in [packages/bodiless-core/src/withData.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withData.tsx#L17)*
+*Defined in [packages/bodiless-core/src/withData.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withData.tsx#L17)*
 
 #### Type declaration:
 
@@ -632,7 +632,7 @@ ___
 
 Ƭ **HookOptions**: *[Options](globals.md#options)‹D› & object*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:122](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L122)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:122](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L122)*
 
 ___
 
@@ -640,7 +640,7 @@ ___
 
 Ƭ **IContextMenuItemProps**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L105)*
+*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L105)*
 
 #### Type declaration:
 
@@ -662,7 +662,7 @@ ___
 
 Ƭ **IContextMenuProps**: *object & HTMLProps‹HTMLElement›*
 
-*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L90)*
+*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L90)*
 
 ___
 
@@ -670,7 +670,7 @@ ___
 
 Ƭ **IconVariantProps**: *HTMLProps‹HTMLSpanElement› & object*
 
-*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L45)*
+*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L45)*
 
 ___
 
@@ -678,7 +678,7 @@ ___
 
 Ƭ **MenuOptionWithNodeKey**: *Partial‹[TMenuOption](globals.md#tmenuoption)› & object*
 
-*Defined in [packages/bodiless-core/src/Contentful/withResetButton.ts:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Contentful/withResetButton.ts#L24)*
+*Defined in [packages/bodiless-core/src/Contentful/withResetButton.ts:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Contentful/withResetButton.ts#L24)*
 
 ___
 
@@ -686,7 +686,7 @@ ___
 
 Ƭ **MenuOptionsDefinition**: *Omit‹[Props](globals.md#props), "getMenuOptions"› & object*
 
-*Defined in [packages/bodiless-core/src/Types/PageContextProviderTypes.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/PageContextProviderTypes.tsx#L31)*
+*Defined in [packages/bodiless-core/src/Types/PageContextProviderTypes.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/PageContextProviderTypes.tsx#L31)*
 
 ___
 
@@ -694,7 +694,7 @@ ___
 
 Ƭ **NodeMap**: *object*
 
-*Defined in [packages/bodiless-core/src/NodeProvider.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NodeProvider.tsx#L18)*
+*Defined in [packages/bodiless-core/src/NodeProvider.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NodeProvider.tsx#L18)*
 
 #### Type declaration:
 
@@ -708,7 +708,7 @@ ___
 
 Ƭ **Notification**: *object*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L26)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L26)*
 
 #### Type declaration:
 
@@ -722,7 +722,7 @@ ___
 
 Ƭ **NotificationProviderItem**: *[Notification](globals.md#notification) & object*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L31)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L31)*
 
 ___
 
@@ -730,7 +730,7 @@ ___
 
 Ƭ **NotificationsContextType**: *object*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L37)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L37)*
 
 #### Type declaration:
 
@@ -746,7 +746,7 @@ ___
 
 Ƭ **Notifier**: *function*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L35)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L35)*
 
 #### Type declaration:
 
@@ -765,7 +765,7 @@ ___
 
 Ƭ **NotifyContextType**: *object*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L41)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L41)*
 
 #### Type declaration:
 
@@ -777,11 +777,11 @@ ___
 
 Ƭ **Options**: *object*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L20)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L20)*
 
-*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/asBodilessComponent.tsx#L18)*
+*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/asBodilessComponent.tsx#L18)*
 
-*Defined in [packages/bodiless-core/src/withEditFormSnippet.tsx:12](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withEditFormSnippet.tsx#L12)*
+*Defined in [packages/bodiless-core/src/withEditFormSnippet.tsx:12](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withEditFormSnippet.tsx#L12)*
 
 Options for making a component "bodiless".
 
@@ -799,7 +799,7 @@ ___
 
 Ƭ **Path**: *string | string[]*
 
-*Defined in [packages/bodiless-core/src/ContentNode.ts:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContentNode.ts#L41)*
+*Defined in [packages/bodiless-core/src/ContentNode.ts:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContentNode.ts#L41)*
 
 ___
 
@@ -807,13 +807,13 @@ ___
 
 Ƭ **Props**: *object & HTMLProps‹HTMLDivElement›*
 
-*Defined in [packages/bodiless-core/src/NodeProvider.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NodeProvider.tsx#L54)*
+*Defined in [packages/bodiless-core/src/NodeProvider.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NodeProvider.tsx#L54)*
 
-*Defined in [packages/bodiless-core/src/Types/PageContextProviderTypes.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/PageContextProviderTypes.tsx#L25)*
+*Defined in [packages/bodiless-core/src/Types/PageContextProviderTypes.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/PageContextProviderTypes.tsx#L25)*
 
-*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageEditor.tsx#L34)*
+*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageEditor.tsx#L34)*
 
-*Defined in [packages/bodiless-core/src/Types/ContextWrapperTypes.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextWrapperTypes.tsx#L25)*
+*Defined in [packages/bodiless-core/src/Types/ContextWrapperTypes.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextWrapperTypes.tsx#L25)*
 
 ___
 
@@ -821,7 +821,7 @@ ___
 
 Ƭ **ReactTagsFieldProps**: *object & Omit‹ReactTagsProps, "handleDelete" | "handleAddition"›*
 
-*Defined in [packages/bodiless-core/src/components/ReactTagsField.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ReactTagsField.tsx#L30)*
+*Defined in [packages/bodiless-core/src/components/ReactTagsField.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ReactTagsField.tsx#L30)*
 
 ___
 
@@ -829,7 +829,7 @@ ___
 
 Ƭ **Snippet**: *object*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L18)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L18)*
 
 A collection of form fields (with initial values and submit handler) which can be rendered
 as part of a compound form.
@@ -850,7 +850,7 @@ ___
 
 Ƭ **SnippetRegister**: *function*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L46)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L46)*
 
 #### Type declaration:
 
@@ -868,7 +868,7 @@ ___
 
 Ƭ **TFullOverlaySettings**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/PageOverlayTypes.tsx:15](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/PageOverlayTypes.tsx#L15)*
+*Defined in [packages/bodiless-core/src/Types/PageOverlayTypes.tsx:15](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/PageOverlayTypes.tsx#L15)*
 
 Copyright © 2019 Johnson & Johnson
 
@@ -904,7 +904,7 @@ ___
 
 Ƭ **TMenuOption**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L25)*
+*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L25)*
 
 #### Type declaration:
 
@@ -936,9 +936,9 @@ ___
 
 Ƭ **TMenuOptionGetter**: *function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/types.ts#L19)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/types.ts#L19)*
 
-*Defined in [packages/bodiless-core/src/Types/PageContextProviderTypes.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/PageContextProviderTypes.tsx#L18)*
+*Defined in [packages/bodiless-core/src/Types/PageContextProviderTypes.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/PageContextProviderTypes.tsx#L18)*
 
 #### Type declaration:
 
@@ -950,7 +950,7 @@ ___
 
 Ƭ **TOverlaySettings**: *Partial‹[TFullOverlaySettings](globals.md#tfulloverlaysettings)›*
 
-*Defined in [packages/bodiless-core/src/Types/PageOverlayTypes.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/PageOverlayTypes.tsx#L24)*
+*Defined in [packages/bodiless-core/src/Types/PageOverlayTypes.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/PageOverlayTypes.tsx#L24)*
 
 ___
 
@@ -958,7 +958,7 @@ ___
 
 Ƭ **TPageOverlayStore**: *object*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/types.ts#L21)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/types.ts#L21)*
 
 #### Type declaration:
 
@@ -972,7 +972,7 @@ ___
 
 Ƭ **ToggleHook**: *function*
 
-*Defined in [packages/bodiless-core/src/withFlowToggle.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withFlowToggle.tsx#L19)*
+*Defined in [packages/bodiless-core/src/withFlowToggle.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withFlowToggle.tsx#L19)*
 
 #### Type declaration:
 
@@ -990,13 +990,13 @@ ___
 
 Ƭ **UI**: *Partial‹[FullUI](globals.md#fullui)›*
 
-*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L55)*
+*Defined in [packages/bodiless-core/src/Types/ContextMenuTypes.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextMenuTypes.tsx#L55)*
 
-*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageEditor.tsx#L32)*
+*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageEditor.tsx#L32)*
 
-*Defined in [packages/bodiless-core/src/Types/ContextWrapperTypes.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextWrapperTypes.tsx#L21)*
+*Defined in [packages/bodiless-core/src/Types/ContextWrapperTypes.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextWrapperTypes.tsx#L21)*
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L37)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L37)*
 
 ___
 
@@ -1004,7 +1004,7 @@ ___
 
 Ƭ **UseGetMenuOptions**: *function*
 
-*Defined in [packages/bodiless-core/src/Types/PageContextProviderTypes.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/PageContextProviderTypes.tsx#L20)*
+*Defined in [packages/bodiless-core/src/Types/PageContextProviderTypes.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/PageContextProviderTypes.tsx#L20)*
 
 #### Type declaration:
 
@@ -1023,7 +1023,7 @@ ___
 
 Ƭ **VariantProps**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/ContextWrapperTypes.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/ContextWrapperTypes.tsx#L17)*
+*Defined in [packages/bodiless-core/src/Types/ContextWrapperTypes.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/ContextWrapperTypes.tsx#L17)*
 
 #### Type declaration:
 
@@ -1035,7 +1035,7 @@ ___
 
 Ƭ **WithNodeKeyProps**: *string | Partial‹[WithNodeProps](globals.md#withnodeprops)›*
 
-*Defined in [packages/bodiless-core/src/Types/NodeTypes.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/NodeTypes.tsx#L21)*
+*Defined in [packages/bodiless-core/src/Types/NodeTypes.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/NodeTypes.tsx#L21)*
 
 ___
 
@@ -1043,7 +1043,7 @@ ___
 
 Ƭ **WithNodeProps**: *object*
 
-*Defined in [packages/bodiless-core/src/Types/NodeTypes.tsx:16](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Types/NodeTypes.tsx#L16)*
+*Defined in [packages/bodiless-core/src/Types/NodeTypes.tsx:16](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Types/NodeTypes.tsx#L16)*
 
 Copyright © 2019 Johnson & Johnson
 
@@ -1069,7 +1069,7 @@ limitations under the License.
 
 • **Context**: *Context‹function›* = createContext<SnippetRegister<any>>(() => {})
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L52)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L52)*
 
 ___
 
@@ -1077,7 +1077,7 @@ ___
 
 • **ContextMenuContext**: *Context‹object›* = createContext<ContextType>({})
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L62)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L62)*
 
 ___
 
@@ -1173,7 +1173,7 @@ ___
   );
 })
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuItem.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuItem.tsx#L22)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuItem.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuItem.tsx#L22)*
 
 ___
 
@@ -1187,7 +1187,7 @@ ___
   return <Menu options={options} />;
 })
 
-*Defined in [packages/bodiless-core/src/components/LocalContextMenu.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/LocalContextMenu.tsx#L46)*
+*Defined in [packages/bodiless-core/src/components/LocalContextMenu.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/LocalContextMenu.tsx#L46)*
 
 ___
 
@@ -1195,7 +1195,7 @@ ___
 
 • **ContextMenuUIContext**: *Context‹object›* = createContext<UI>({})
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L63)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L63)*
 
 ___
 
@@ -1203,7 +1203,7 @@ ___
 
 • **DefaultDiv**: *WithoutProps* = withoutProps<HTMLProps<HTMLDivElement>>(['isActive'])('div')
 
-*Defined in [packages/bodiless-core/src/components/ContextWrapper.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextWrapper.tsx#L21)*
+*Defined in [packages/bodiless-core/src/components/ContextWrapper.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextWrapper.tsx#L21)*
 
 ___
 
@@ -1219,7 +1219,7 @@ ___
   return <Menu options={options} isPositionToggled={isPositionToggled} />;
 })
 
-*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageEditor.tsx#L45)*
+*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageEditor.tsx#L45)*
 
 ___
 
@@ -1227,7 +1227,7 @@ ___
 
 • **NODE_ERROR_NOTIFICATION_ID**: *"STORE_ERROR_NOTIFICATION_ID"* = "STORE_ERROR_NOTIFICATION_ID"
 
-*Defined in [packages/bodiless-core/src/OnNodeErrorNotification.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/OnNodeErrorNotification.tsx#L20)*
+*Defined in [packages/bodiless-core/src/OnNodeErrorNotification.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/OnNodeErrorNotification.tsx#L20)*
 
 ___
 
@@ -1240,7 +1240,7 @@ ___
   },
 })
 
-*Defined in [packages/bodiless-core/src/NodeProvider.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NodeProvider.tsx#L25)*
+*Defined in [packages/bodiless-core/src/NodeProvider.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NodeProvider.tsx#L25)*
 
 ___
 
@@ -1251,7 +1251,7 @@ ___
   hasNotifications: () => false,
 })
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L45)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L45)*
 
 ___
 
@@ -1280,7 +1280,7 @@ ___
   );
 })
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L80)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L80)*
 
 A component used to provide notifications.
 
@@ -1294,7 +1294,7 @@ ___
   notify: () => undefined,
 })
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L52)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L52)*
 
 ___
 
@@ -1311,7 +1311,7 @@ ___
   return <></>;
 })
 
-*Defined in [packages/bodiless-core/src/OnNodeErrorNotification.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/OnNodeErrorNotification.tsx#L22)*
+*Defined in [packages/bodiless-core/src/OnNodeErrorNotification.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/OnNodeErrorNotification.tsx#L22)*
 
 ___
 
@@ -1327,7 +1327,7 @@ ___
   );
 })
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L83)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L83)*
 
 ___
 
@@ -1335,7 +1335,7 @@ ___
 
 • **SidecarNodeContext**: *Context‹object[]›* = createContext<NodeMap<any>[]>([])
 
-*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withSidecarNodes.tsx#L20)*
+*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withSidecarNodes.tsx#L20)*
 
 ___
 
@@ -1343,7 +1343,7 @@ ___
 
 • **SnippetContext**: *Context‹undefined | MutableRefObject‹object[]››* = createContext<MutableRefObject<Snippet<any>[]>|undefined>(undefined)
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L53)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L53)*
 
 ___
 
@@ -1351,7 +1351,7 @@ ___
 
 • **activateOnEffect**: *Context‹object›* = React.createContext(defaultActivateOnEffectState)
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L30)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L30)*
 
 ___
 
@@ -1359,7 +1359,7 @@ ___
 
 • **defaultStore**: *[PageEditStore](classes/pageeditstore.md)‹›* = new PageEditStore()
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:129](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L129)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:129](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L129)*
 
 ___
 
@@ -1367,7 +1367,7 @@ ___
 
 • **ifEditable**: *(Anonymous function)* = ifToggledOn(useEditToggle)
 
-*Defined in [packages/bodiless-core/src/withEditToggle.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withEditToggle.tsx#L23)*
+*Defined in [packages/bodiless-core/src/withEditToggle.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withEditToggle.tsx#L23)*
 
 ___
 
@@ -1375,7 +1375,7 @@ ___
 
 • **ifReadOnly**: *(Anonymous function)* = ifToggledOff(useEditToggle)
 
-*Defined in [packages/bodiless-core/src/withEditToggle.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withEditToggle.tsx#L25)*
+*Defined in [packages/bodiless-core/src/withEditToggle.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withEditToggle.tsx#L25)*
 
 ___
 
@@ -1383,7 +1383,7 @@ ___
 
 • **notificationStore**: *[NotificationStore](classes/notificationstore.md)‹›* = new NotificationStore()
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L72)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L72)*
 
 ___
 
@@ -1391,7 +1391,7 @@ ___
 
 • **staticContext**: *[StaticContext](classes/staticcontext.md)‹›* = new StaticContext()
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/StaticPage.tsx#L73)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/StaticPage.tsx#L73)*
 
 ___
 
@@ -1402,7 +1402,7 @@ ___
   LocalContextMenu: ContextMenu,
 })
 
-*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageEditor.tsx#L38)*
+*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageEditor.tsx#L38)*
 
 ___
 
@@ -1414,7 +1414,7 @@ ___
   )
 )
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L41)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L41)*
 
 WithActivateContext is a HOC that wraps the Component in a ActivateContextProvider
 
@@ -1426,7 +1426,7 @@ WithActivateContext is a HOC that wraps the Component in a ActivateContextProvid
 
 ▸ **ActivateOnEffectProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L31)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L31)*
 
 **Parameters:**
 
@@ -1444,7 +1444,7 @@ ___
 
 ▸ **ContextMenu**(`props`: object & HTMLProps‹HTMLElement› & object): *null | Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenu.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenu.tsx#L72)*
+*Defined in [packages/bodiless-core/src/components/ContextMenu.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenu.tsx#L72)*
 
 **Parameters:**
 
@@ -1460,7 +1460,7 @@ ___
 
 ▸ **ContextMenuBase**(`props`: object & HTMLProps‹HTMLElement› & object): *null | Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenu.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenu.tsx#L39)*
+*Defined in [packages/bodiless-core/src/components/ContextMenu.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenu.tsx#L39)*
 
 **Parameters:**
 
@@ -1476,7 +1476,7 @@ ___
 
 ▸ **ContextMenuForm**‹**D**›(`props`: [ContextMenuPropsType](globals.md#contextmenupropstype)‹D›): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L68)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L68)*
 
 **Type parameters:**
 
@@ -1496,7 +1496,7 @@ ___
 
 ▸ **ContextMenuProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L68)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L68)*
 
 **Parameters:**
 
@@ -1516,7 +1516,7 @@ ___
 
 ▸ **ContextSubMenu**(`props`: object & object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/ContextSubMenu.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/ContextSubMenu.tsx#L24)*
+*Defined in [packages/bodiless-core/src/ContextMenu/ContextSubMenu.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/ContextSubMenu.tsx#L24)*
 
 **Parameters:**
 
@@ -1532,7 +1532,7 @@ ___
 
 ▸ **ContextWrapper**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/ContextWrapper.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextWrapper.tsx#L23)*
+*Defined in [packages/bodiless-core/src/components/ContextWrapper.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextWrapper.tsx#L23)*
 
 **Parameters:**
 
@@ -1554,7 +1554,7 @@ ___
 
 ▸ **Form**‹**D**›(`props`: [FormProps](globals.md#formprops)‹D›): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L66)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L66)*
 
 **Type parameters:**
 
@@ -1574,7 +1574,7 @@ ___
 
 ▸ **FormChrome**(`props`: object & object & object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L43)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L43)*
 
 **Parameters:**
 
@@ -1590,7 +1590,7 @@ ___
 
 ▸ **LocalContextMenu**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/LocalContextMenu.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/LocalContextMenu.tsx#L58)*
+*Defined in [packages/bodiless-core/src/components/LocalContextMenu.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/LocalContextMenu.tsx#L58)*
 
 **Parameters:**
 
@@ -1608,7 +1608,7 @@ ___
 
 ▸ **NodeProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/NodeProvider.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NodeProvider.tsx#L59)*
+*Defined in [packages/bodiless-core/src/NodeProvider.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NodeProvider.tsx#L59)*
 
 **Parameters:**
 
@@ -1628,7 +1628,7 @@ ___
 
 ▸ **NotificationList**(): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/withNotificationButton.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withNotificationButton.tsx#L22)*
+*Defined in [packages/bodiless-core/src/withNotificationButton.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withNotificationButton.tsx#L22)*
 
 **Returns:** *Element‹›*
 
@@ -1638,7 +1638,7 @@ ___
 
 ▸ **Overlay**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L41)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L41)*
 
 **Parameters:**
 
@@ -1657,7 +1657,7 @@ ___
 
 ▸ **PageContextProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/PageContextProvider.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageContextProvider.tsx#L56)*
+*Defined in [packages/bodiless-core/src/PageContextProvider.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageContextProvider.tsx#L56)*
 
 Component which provides its children with a new `PageEditContext` using the specified
 menu options.
@@ -1679,7 +1679,7 @@ ___
 
 ▸ **PageEditor**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageEditor.tsx#L55)*
+*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageEditor.tsx#L55)*
 
 **Parameters:**
 
@@ -1698,7 +1698,7 @@ ___
 
 ▸ **PageOverlay**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L93)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L93)*
 
 **Parameters:**
 
@@ -1716,7 +1716,7 @@ ___
 
 ▸ **ReactTagsField**(`props`: [ReactTagsFieldProps](globals.md#reacttagsfieldprops)): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/ReactTagsField.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ReactTagsField.tsx#L34)*
+*Defined in [packages/bodiless-core/src/components/ReactTagsField.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ReactTagsField.tsx#L34)*
 
 **Parameters:**
 
@@ -1732,7 +1732,7 @@ ___
 
 ▸ **RenderForm**(`props`: [ContextMenuFormProps](globals.md#contextmenuformprops)): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/withNotificationButton.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withNotificationButton.tsx#L37)*
+*Defined in [packages/bodiless-core/src/withNotificationButton.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withNotificationButton.tsx#L37)*
 
 **Parameters:**
 
@@ -1748,7 +1748,7 @@ ___
 
 ▸ **StaticPage**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/StaticPage.tsx#L75)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/StaticPage.tsx#L75)*
 
 **Parameters:**
 
@@ -1766,7 +1766,7 @@ ___
 
 ▸ **StructuredChildren**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L69)*
+*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L69)*
 
 **Parameters:**
 
@@ -1786,7 +1786,7 @@ ___
 
 ▸ **addMissingGroups**(`GroupComponent`: ComponentType‹[ContextMenuGroupProps](globals.md#contextmenugroupprops)›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L18)*
+*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L18)*
 
 **Parameters:**
 
@@ -1802,7 +1802,7 @@ ___
 
 ▸ **asBodilessComponent**‹**P**, **D**›(`options`: [Options](globals.md#options)‹P, D›): *[AsBodiless](globals.md#asbodiless)‹P, D›*
 
-*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/asBodilessComponent.tsx#L67)*
+*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/asBodilessComponent.tsx#L67)*
 
 Makes a component "Bodiless" by connecting it to the Bodiless-jS data flow and giving it
 a form which can be used to edit its props. Returns a standard `asBodiless...` function,
@@ -1829,7 +1829,7 @@ ___
 
 ▸ **asElementArray**(`children`: ReactNode): *ReactElement[]*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:14](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L14)*
+*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:14](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L14)*
 
 **Parameters:**
 
@@ -1845,7 +1845,7 @@ ___
 
 ▸ **asReadOnly**(`Component`: ComponentType‹any› | string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/asReadOnly.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/asReadOnly.tsx#L24)*
+*Defined in [packages/bodiless-core/src/asReadOnly.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/asReadOnly.tsx#L24)*
 
 **Parameters:**
 
@@ -1861,7 +1861,7 @@ ___
 
 ▸ **asStatic**(`Component`: ComponentType‹any› | string): *withStatic*
 
-*Defined in [packages/bodiless-core/src/asStatic.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/asStatic.tsx#L24)*
+*Defined in [packages/bodiless-core/src/asStatic.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/asStatic.tsx#L24)*
 
 Wraps given component in StaticPage component making the component and its children read-only
 
@@ -1879,7 +1879,7 @@ ___
 
 ▸ **buildChildren**(`DefaultGroupComponent`: ComponentType‹[ContextMenuGroupProps](globals.md#contextmenugroupprops)›, `props`: any): *function*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L52)*
+*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L52)*
 
 **Parameters:**
 
@@ -1904,7 +1904,7 @@ ___
 
 ▸ **buildGroupTree**(`elements`: ReactElement[], `groupName`: string): *[GroupTree](globals.md#grouptree)*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L30)*
+*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L30)*
 
 **Parameters:**
 
@@ -1921,7 +1921,7 @@ ___
 
 ▸ **cloneChildren**(`props`: any): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L40)*
+*Defined in [packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ContextMenu/StructuredChildren.tsx#L40)*
 
 **Parameters:**
 
@@ -1937,7 +1937,7 @@ ___
 
 ▸ **contextMenuForm**‹**D**›(`options`: [Options](globals.md#options)‹D›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L112)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L112)*
 
 **Type parameters:**
 
@@ -1957,7 +1957,7 @@ ___
 
 ▸ **createChildrenFromOptions**(`options`: [TMenuOption](globals.md#tmenuoption)[]): *Element‹›[]*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenu.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenu.tsx#L24)*
+*Defined in [packages/bodiless-core/src/components/ContextMenu.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenu.tsx#L24)*
 
 **Parameters:**
 
@@ -1973,7 +1973,7 @@ ___
 
 ▸ **createMenuOptionHook**‹**P**, **D**›(`__namedParameters`: object): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withEditButton.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withEditButton.tsx#L51)*
+*Defined in [packages/bodiless-core/src/withEditButton.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withEditButton.tsx#L51)*
 
 **Type parameters:**
 
@@ -2003,7 +2003,7 @@ ___
 
 ▸ **createMenuOptions**‹**P**, **D**›(`options`: [MenuOptionsDefinition](globals.md#menuoptionsdefinition)‹D›): *object*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L113)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L113)*
 
 **Type parameters:**
 
@@ -2029,7 +2029,7 @@ ___
 
 ▸ **endSidecarNodes**‹**P**›(`Component`: ComponentType‹P›): *EndSidecarNodes*
 
-*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withSidecarNodes.tsx#L52)*
+*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withSidecarNodes.tsx#L52)*
 
 `endSidecarNodes` is an HOC which restores the ContentNode preserved
 by `startSidecarNodes`.
@@ -2054,7 +2054,7 @@ ___
 
 ▸ **getFromSessionStorage**(`key`: string, `defValue`: any): *any*
 
-*Defined in [packages/bodiless-core/src/SessionStorage.ts:16](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/SessionStorage.ts#L16)*
+*Defined in [packages/bodiless-core/src/SessionStorage.ts:16](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/SessionStorage.ts#L16)*
 
 Copyright © 2020 Johnson & Johnson
 
@@ -2083,7 +2083,7 @@ ___
 
 ▸ **getRelativeNodeKey**(`basePath`: [Path](globals.md#path), `nodePath`: [Path](globals.md#path)): *string*
 
-*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L17)*
+*Defined in [packages/bodiless-core/src/Contentful/ContentfulNode.ts:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Contentful/ContentfulNode.ts#L17)*
 
 **Parameters:**
 
@@ -2100,7 +2100,7 @@ ___
 
 ▸ **getUI**(`ui`: [UI](globals.md#ui)): *object*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L57)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L57)*
 
 **Parameters:**
 
@@ -2112,7 +2112,7 @@ Name | Type | Default |
 
 ▸ **getUI**(`ui`: [UI](globals.md#ui)): *object*
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L39)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L39)*
 
 **Parameters:**
 
@@ -2128,7 +2128,7 @@ ___
 
 ▸ **ifToggledOff**(`useToggle`: [ToggleHook](globals.md#togglehook)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withFlowToggle.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withFlowToggle.tsx#L41)*
+*Defined in [packages/bodiless-core/src/withFlowToggle.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withFlowToggle.tsx#L41)*
 
 **Parameters:**
 
@@ -2144,7 +2144,7 @@ ___
 
 ▸ **ifToggledOn**(`useToggle`: [ToggleHook](globals.md#togglehook)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withFlowToggle.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withFlowToggle.tsx#L34)*
+*Defined in [packages/bodiless-core/src/withFlowToggle.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withFlowToggle.tsx#L34)*
 
 **Parameters:**
 
@@ -2160,7 +2160,7 @@ ___
 
 ▸ **onPopupAlign**(`domNode`: Element): *void*
 
-*Defined in [packages/bodiless-core/src/components/LocalContextMenu.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/LocalContextMenu.tsx#L32)*
+*Defined in [packages/bodiless-core/src/components/LocalContextMenu.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/LocalContextMenu.tsx#L32)*
 
 **Parameters:**
 
@@ -2176,7 +2176,7 @@ ___
 
 ▸ **reduceRecursively**‹**T**›(`accumulator`: T[], `callback`: function, `context?`: [PageEditContext](classes/pageeditcontext.md)): *T[]*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L41)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L41)*
 
 **Type parameters:**
 
@@ -2212,7 +2212,7 @@ ___
 
 ▸ **renderForm**(`props`: [ContextMenuFormProps](globals.md#contextmenuformprops)): *Element‹›*
 
-*Defined in [packages/bodiless-core/src/withNotificationButton.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withNotificationButton.tsx#L47)*
+*Defined in [packages/bodiless-core/src/withNotificationButton.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withNotificationButton.tsx#L47)*
 
 **Parameters:**
 
@@ -2228,7 +2228,7 @@ ___
 
 ▸ **saveToSessionStorage**(`key`: string, `val`: any): *void*
 
-*Defined in [packages/bodiless-core/src/SessionStorage.ts:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/SessionStorage.ts#L30)*
+*Defined in [packages/bodiless-core/src/SessionStorage.ts:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/SessionStorage.ts#L30)*
 
 **Parameters:**
 
@@ -2245,7 +2245,7 @@ ___
 
 ▸ **startSidecarNodes**‹**P**›(`Component`: ComponentType‹P›): *StartSidecarNodes*
 
-*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withSidecarNodes.tsx#L30)*
+*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withSidecarNodes.tsx#L30)*
 
 `startSidecarNodes` is an HOC which records the current ContentNode so that
 it can later be restored.
@@ -2270,7 +2270,7 @@ ___
 
 ▸ **useActivateOnEffect**(): *object*
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L50)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L50)*
 
 useActivateContext is a hook that returns the ActivateContext
 
@@ -2288,7 +2288,7 @@ ___
 
 ▸ **useActivateOnEffectActivator**(`uuid`: string): *void*
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L57)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L57)*
 
 useActivateOnEffect is a hook that will check if a id is stored in the ActivateContext
 if it is it will run the iseContextActivator hook
@@ -2307,7 +2307,7 @@ ___
 
 ▸ **useContextActivator**(`event`: string, `handler?`: EventHandler‹any›): *object*
 
-*Defined in [packages/bodiless-core/src/hooks.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hooks.ts#L23)*
+*Defined in [packages/bodiless-core/src/hooks.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hooks.ts#L23)*
 
 **Parameters:**
 
@@ -2326,7 +2326,7 @@ ___
 
 ▸ **useContextMenuContext**(): *object*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L65)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L65)*
 
 **Returns:** *object*
 
@@ -2338,7 +2338,7 @@ ___
 
 ▸ **useContextMenuForm**‹**D**›(`options`: [HookOptions](globals.md#hookoptions)‹D›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/contextMenuForm.tsx#L126)*
+*Defined in [packages/bodiless-core/src/contextMenuForm.tsx:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/contextMenuForm.tsx#L126)*
 
 **Type parameters:**
 
@@ -2358,7 +2358,7 @@ ___
 
 ▸ **useEditContext**(): *[PageEditContextInterface](interfaces/pageeditcontextinterface.md)*
 
-*Defined in [packages/bodiless-core/src/hooks.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hooks.ts#L19)*
+*Defined in [packages/bodiless-core/src/hooks.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hooks.ts#L19)*
 
 **Returns:** *[PageEditContextInterface](interfaces/pageeditcontextinterface.md)*
 
@@ -2368,7 +2368,7 @@ ___
 
 ▸ **useEditFormProps**‹**P**, **D**›(`__namedParameters`: object): *object*
 
-*Defined in [packages/bodiless-core/src/withEditButton.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withEditButton.tsx#L25)*
+*Defined in [packages/bodiless-core/src/withEditButton.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withEditButton.tsx#L25)*
 
 **Type parameters:**
 
@@ -2401,7 +2401,7 @@ ___
 
 ▸ **useEditToggle**(): *boolean*
 
-*Defined in [packages/bodiless-core/src/withEditToggle.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withEditToggle.tsx#L18)*
+*Defined in [packages/bodiless-core/src/withEditToggle.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withEditToggle.tsx#L18)*
 
 **Returns:** *boolean*
 
@@ -2411,7 +2411,7 @@ ___
 
 ▸ **useGetMenuOptions**(`menuOptionWithNodeKey?`: [MenuOptionWithNodeKey](globals.md#menuoptionwithnodekey)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/Contentful/withResetButton.ts:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Contentful/withResetButton.ts#L28)*
+*Defined in [packages/bodiless-core/src/Contentful/withResetButton.ts:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Contentful/withResetButton.ts#L28)*
 
 **Parameters:**
 
@@ -2427,7 +2427,7 @@ ___
 
 ▸ **useMenuOptionUI**(): *object*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L66)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L66)*
 
 **Returns:** *object*
 
@@ -2437,7 +2437,7 @@ ___
 
 ▸ **useNewContextValues**(`__namedParameters`: object): *object*
 
-*Defined in [packages/bodiless-core/src/PageContextProvider.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageContextProvider.tsx#L28)*
+*Defined in [packages/bodiless-core/src/PageContextProvider.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageContextProvider.tsx#L28)*
 
 **Parameters:**
 
@@ -2465,7 +2465,7 @@ ___
 
 ▸ **useNode**‹**D**›(`collection?`: undefined | string): *object*
 
-*Defined in [packages/bodiless-core/src/NodeProvider.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NodeProvider.tsx#L32)*
+*Defined in [packages/bodiless-core/src/NodeProvider.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NodeProvider.tsx#L32)*
 
 **Type parameters:**
 
@@ -2509,7 +2509,7 @@ ___
 
 ▸ **useNodeDataHandlers**‹**D**›(`collection?`: undefined | string, `defaultValue`: D): *object*
 
-*Defined in [packages/bodiless-core/src/NodeProvider.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NodeProvider.tsx#L43)*
+*Defined in [packages/bodiless-core/src/NodeProvider.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NodeProvider.tsx#L43)*
 
 **Type parameters:**
 
@@ -2534,7 +2534,7 @@ ___
 
 ▸ **useNotificationButton**(): *void*
 
-*Defined in [packages/bodiless-core/src/withNotificationButton.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withNotificationButton.tsx#L54)*
+*Defined in [packages/bodiless-core/src/withNotificationButton.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withNotificationButton.tsx#L54)*
 
 **Returns:** *void*
 
@@ -2544,7 +2544,7 @@ ___
 
 ▸ **useNotifications**(): *object*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L50)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L50)*
 
 **Returns:** *object*
 
@@ -2560,7 +2560,7 @@ ___
 
 ▸ **useNotify**(`notifications`: [Notification](globals.md#notification)[]): *void*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/NotificationProvider.tsx#L114)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/NotificationProvider.tsx#L114)*
 
 The useNotify() hook allows you to register notifications which should be
 displayed to the user upon clicking the "Notifications" button on the main
@@ -2584,7 +2584,7 @@ ___
 
 ▸ **useRegisterMenuOptions**(`props`: [Props](globals.md#props)): *void*
 
-*Defined in [packages/bodiless-core/src/PageContextProvider.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageContextProvider.tsx#L44)*
+*Defined in [packages/bodiless-core/src/PageContextProvider.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageContextProvider.tsx#L44)*
 
 Hook which registers additional menu options for the current context.
 
@@ -2602,7 +2602,7 @@ ___
 
 ▸ **useRegisterSnippet**‹**D**›(`snippet`: [Snippet](globals.md#snippet)‹D›): *void*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:187](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L187)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:187](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L187)*
 
 Hook to register a form snippet which will be rendered as part of a compound form. Should
 be invoked within a component wrapped in `withCompoundForm`.
@@ -2625,7 +2625,7 @@ ___
 
 ▸ **useSwitcherButton**(): *void*
 
-*Defined in [packages/bodiless-core/src/useSwitcherButton.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/useSwitcherButton.tsx#L25)*
+*Defined in [packages/bodiless-core/src/useSwitcherButton.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/useSwitcherButton.tsx#L25)*
 
 Provide a component Button to switch the position of the global menu.
 
@@ -2637,7 +2637,7 @@ ___
 
 ▸ **useUI**(): *object*
 
-*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageEditor.tsx#L43)*
+*Defined in [packages/bodiless-core/src/components/PageEditor.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageEditor.tsx#L43)*
 
 **Returns:** *object*
 
@@ -2653,7 +2653,7 @@ ___
 
 ▸ **useUUID**(): *string*
 
-*Defined in [packages/bodiless-core/src/hooks.ts:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hooks.ts#L21)*
+*Defined in [packages/bodiless-core/src/hooks.ts:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hooks.ts#L21)*
 
 **Returns:** *string*
 
@@ -2663,7 +2663,7 @@ ___
 
 ▸ **withActivatorWrapper**‹**P**›(`event`: string, `Wrapper`: CT‹any› | string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/asBodilessComponent.tsx#L46)*
+*Defined in [packages/bodiless-core/src/asBodilessComponent.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/asBodilessComponent.tsx#L46)*
 
 Given an event name and a wrapper component, provides an HOC which will wrap the base component
 the wrapper, passing the event prop to the wrapper, and all other props to the base compoent.
@@ -2687,7 +2687,7 @@ ___
 
 ▸ **withChild**(`Child`: CT): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withChild.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withChild.tsx#L17)*
+*Defined in [packages/bodiless-core/src/withChild.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withChild.tsx#L17)*
 
 **Parameters:**
 
@@ -2703,7 +2703,7 @@ ___
 
 ▸ **withCompoundForm**‹**P**›(`options`: [MenuOptionsDefinition](globals.md#menuoptionsdefinition)‹P›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:150](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L150)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:150](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L150)*
 
 HOC to create a menu option which will display a "compound form". Children of this
 component can contribute "snippets" to the form. Each snippet consists of
@@ -2729,7 +2729,7 @@ ___
 
 ▸ **withContextActivator**(`event`: string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/hoc.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hoc.tsx#L49)*
+*Defined in [packages/bodiless-core/src/hoc.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hoc.tsx#L49)*
 
 **Parameters:**
 
@@ -2745,7 +2745,7 @@ ___
 
 ▸ **withData**‹**P**, **D**›(`Component`: CT‹P | D› | string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withData.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withData.tsx#L21)*
+*Defined in [packages/bodiless-core/src/withData.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withData.tsx#L21)*
 
 **Type parameters:**
 
@@ -2767,7 +2767,7 @@ ___
 
 ▸ **withDefaultContent**‹**P**›(`content`: object): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/Contentful/withDefaultContent.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Contentful/withDefaultContent.tsx#L20)*
+*Defined in [packages/bodiless-core/src/Contentful/withDefaultContent.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Contentful/withDefaultContent.tsx#L20)*
 
 **Type parameters:**
 
@@ -2787,7 +2787,7 @@ ___
 
 ▸ **withEditButton**‹**P**, **D**›(`options`: [EditButtonOptions](globals.md#editbuttonoptions)‹P, D›): *function*
 
-*Defined in [packages/bodiless-core/src/withEditButton.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withEditButton.tsx#L93)*
+*Defined in [packages/bodiless-core/src/withEditButton.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withEditButton.tsx#L93)*
 
 **Type parameters:**
 
@@ -2817,7 +2817,7 @@ ___
 
 ▸ **withEditFormSnippet**‹**P**, **D**›(`options`: [Options](globals.md#options)‹P, D›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withEditFormSnippet.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withEditFormSnippet.tsx#L18)*
+*Defined in [packages/bodiless-core/src/withEditFormSnippet.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withEditFormSnippet.tsx#L18)*
 
 **Type parameters:**
 
@@ -2839,7 +2839,7 @@ ___
 
 ▸ **withFlowToggle**(`useToggle`: [ToggleHook](globals.md#togglehook)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withFlowToggle.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withFlowToggle.tsx#L29)*
+*Defined in [packages/bodiless-core/src/withFlowToggle.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withFlowToggle.tsx#L29)*
 
 Allow components to be toggled on/off based on the value of useToggle function
 
@@ -2859,7 +2859,7 @@ ___
 
 ▸ **withLocalContextMenu**(`Component`: CT‹any› | string): *WithLocalContextMenu*
 
-*Defined in [packages/bodiless-core/src/hoc.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hoc.tsx#L56)*
+*Defined in [packages/bodiless-core/src/hoc.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hoc.tsx#L56)*
 
 **Parameters:**
 
@@ -2875,7 +2875,7 @@ ___
 
 ▸ **withMenuOptions**‹**P**›(`__namedParameters`: object): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/PageContextProvider.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageContextProvider.tsx#L89)*
+*Defined in [packages/bodiless-core/src/PageContextProvider.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageContextProvider.tsx#L89)*
 
 Using supplied options, returns an HOC which adds one or more menu options (buttons).
 This simplly wraps the supplied component with a `PageContextProvider`.
@@ -2913,7 +2913,7 @@ ___
 
 ▸ **withNode**‹**P**, **D**›(`Component`: CT‹P›): *WithNode*
 
-*Defined in [packages/bodiless-core/src/withNode.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withNode.tsx#L20)*
+*Defined in [packages/bodiless-core/src/withNode.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withNode.tsx#L20)*
 
 **Type parameters:**
 
@@ -2935,7 +2935,7 @@ ___
 
 ▸ **withNodeAndHandlers**(`defaultData?`: any): *function*
 
-*Defined in [packages/bodiless-core/src/hoc.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hoc.tsx#L80)*
+*Defined in [packages/bodiless-core/src/hoc.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hoc.tsx#L80)*
 
 **Parameters:**
 
@@ -2959,7 +2959,7 @@ ___
 
 ▸ **withNodeDataHandlers**(`defaultData?`: any): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/hoc.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hoc.tsx#L70)*
+*Defined in [packages/bodiless-core/src/hoc.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hoc.tsx#L70)*
 
 **Parameters:**
 
@@ -2975,7 +2975,7 @@ ___
 
 ▸ **withNodeKey**‹**P**›(`nodeKeys`: string | Partial‹[WithNodeProps](globals.md#withnodeprops)›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/withNode.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withNode.tsx#L36)*
+*Defined in [packages/bodiless-core/src/withNode.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withNode.tsx#L36)*
 
 **Type parameters:**
 
@@ -2995,7 +2995,7 @@ ___
 
 ▸ **withOnlyProps**‹**Q**›(...`keys`: string[]): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/hoc.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hoc.tsx#L42)*
+*Defined in [packages/bodiless-core/src/hoc.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hoc.tsx#L42)*
 
 Creates an HOC which strips all but the specified props.
 
@@ -3019,7 +3019,7 @@ ___
 
 ▸ **withResetButton**(`menuOptionWithNodeKey?`: [MenuOptionWithNodeKey](globals.md#menuoptionwithnodekey)): *function*
 
-*Defined in [packages/bodiless-core/src/Contentful/withResetButton.ts:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/Contentful/withResetButton.ts#L47)*
+*Defined in [packages/bodiless-core/src/Contentful/withResetButton.ts:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/Contentful/withResetButton.ts#L47)*
 
 **Parameters:**
 
@@ -3043,7 +3043,7 @@ ___
 
 ▸ **withSidecarNodes**(...`hocs`: [HOC](globals.md#hoc)[]): *function*
 
-*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withSidecarNodes.tsx#L96)*
+*Defined in [packages/bodiless-core/src/withSidecarNodes.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withSidecarNodes.tsx#L96)*
 
 `withSidecarNodes` allows you to establish a `ContentNode` sub-hierarchiy which should
 be used by a series of one or more HOC's. Any nodes created by the HOC's enclosed in this
@@ -3087,7 +3087,7 @@ ___
 
 ▸ **withoutProps**‹**Q**›(`keys`: string | string[], ...`restKeys`: string[]): *(Anonymous function)*
 
-*Defined in [packages/bodiless-core/src/hoc.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/hoc.tsx#L27)*
+*Defined in [packages/bodiless-core/src/hoc.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/hoc.tsx#L27)*
 
 Removes the specified props from the wrapped component.
 
@@ -3110,19 +3110,19 @@ Name | Type |
 
 ### ▪ **defaultActivateOnEffectState**: *object*
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L22)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L22)*
 
 ###  id
 
 • **id**: *string* = ""
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L23)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L23)*
 
 ###  setId
 
 ▸ **setId**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/ActivateContext.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/ActivateContext.tsx#L24)*
+*Defined in [packages/bodiless-core/src/ActivateContext.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/ActivateContext.tsx#L24)*
 
 **Returns:** *undefined*
 
@@ -3132,13 +3132,13 @@ ___
 
 ### ▪ **defaultComponents**: *object*
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L55)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L55)*
 
 ###  Wrapper
 
 • **Wrapper**: *ExoticComponent‹object›* = React.Fragment
 
-*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/withCompoundForm.tsx#L56)*
+*Defined in [packages/bodiless-core/src/withCompoundForm.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/withCompoundForm.tsx#L56)*
 
 ___
 
@@ -3146,43 +3146,43 @@ ___
 
 ### ▪ **defaultOverlaySettings**: *object*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L54)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L54)*
 
 ###  hasCloseButton
 
 • **hasCloseButton**: *false* = false
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L56)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L56)*
 
 ###  hasSpinner
 
 • **hasSpinner**: *true* = true
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L57)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L57)*
 
 ###  isActive
 
 • **isActive**: *false* = false
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L55)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L55)*
 
 ###  maxTimeoutInSeconds
 
 • **maxTimeoutInSeconds**: *null* = null
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L59)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L59)*
 
 ###  message
 
 • **message**: *string* = ""
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L58)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L58)*
 
 ###  onClose
 
 ▸ **onClose**(): *void*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/PageEditContext/index.tsx#L60)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/PageEditContext/index.tsx#L60)*
 
 **Returns:** *void*
 
@@ -3192,180 +3192,180 @@ ___
 
 ### ▪ **defaultUI**: *object*
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L30)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L30)*
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L29)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L29)*
 
 ###  Button
 
 • **Button**: *string* = "button"
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L32)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L32)*
 
 ###  ComponentFormButton
 
 • **ComponentFormButton**: *string* = "button"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L34)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L34)*
 
 ###  ComponentFormCloseButton
 
 • **ComponentFormCloseButton**: *string* = "button"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L35)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L35)*
 
 ###  ComponentFormDescription
 
 • **ComponentFormDescription**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L46)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L46)*
 
 ###  ComponentFormError
 
 • **ComponentFormError**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L40)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L40)*
 
 ###  ComponentFormLabel
 
 • **ComponentFormLabel**: *string* = "label"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L33)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L33)*
 
 ###  ComponentFormList
 
 • **ComponentFormList**: *string* = "ul"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L44)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L44)*
 
 ###  ComponentFormListItem
 
 • **ComponentFormListItem**: *string* = "li"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L45)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L45)*
 
 ###  ComponentFormSubmitButton
 
 • **ComponentFormSubmitButton**: *string* = "button"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L36)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L36)*
 
 ###  ComponentFormText
 
 • **ComponentFormText**: *Text* = Text
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L38)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L38)*
 
 ###  ComponentFormTextArea
 
 • **ComponentFormTextArea**: *TextArea* = TextArea
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L39)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L39)*
 
 ###  ComponentFormTitle
 
 • **ComponentFormTitle**: *string* = "h3"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L32)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L32)*
 
 ###  ComponentFormUnwrapButton
 
 • **ComponentFormUnwrapButton**: *string* = "button"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L37)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L37)*
 
 ###  ComponentFormWarning
 
 • **ComponentFormWarning**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L41)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L41)*
 
 ###  ContextMenuGroup
 
 • **ContextMenuGroup**: *ExoticComponent‹object›* = React.Fragment
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L54)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L54)*
 
 ###  ContextSubMenu
 
 • **ContextSubMenu**: *ExoticComponent‹object›* = React.Fragment
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L47)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L47)*
 
 ###  Form
 
 • **Form**: *string* = "form"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L42)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L42)*
 
 ###  FormWrapper
 
 • **FormWrapper**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L50)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L50)*
 
 ###  Icon
 
 • **Icon**: *string* = "i"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L31)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L31)*
 
 ###  Message
 
 • **Message**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L34)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L34)*
 
 ###  OverlayWrapper
 
 • **OverlayWrapper**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L30)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L30)*
 
 ###  PopupWrapper
 
 • **PopupWrapper**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L31)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L31)*
 
 ###  ReactTags
 
 • **ReactTags**: *[ReactTagsField](globals.md#const-reacttagsfield)* = ReactTagsField
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L43)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L43)*
 
 ###  Spinner
 
 • **Spinner**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/PageOverlay.tsx#L33)*
+*Defined in [packages/bodiless-core/src/components/PageOverlay.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/PageOverlay.tsx#L33)*
 
 ###  Toolbar
 
 • **Toolbar**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L53)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L53)*
 
 ###  ToolbarButton
 
 • **ToolbarButton**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L48)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L48)*
 
 ###  ToolbarButtonLabel
 
 • **ToolbarButtonLabel**: *string* = "span"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L49)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L49)*
 
 ###  ToolbarDivider
 
 • **ToolbarDivider**: *string* = "div"
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L51)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L51)*
 
 ###  Tooltip
 
 • **Tooltip**: *Tooltip* = ReactTooltip
 
-*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/572f382/packages/bodiless-core/src/components/ContextMenuContext.tsx#L52)*
+*Defined in [packages/bodiless-core/src/components/ContextMenuContext.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/afa155a/packages/bodiless-core/src/components/ContextMenuContext.tsx#L52)*
