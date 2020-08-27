@@ -53,16 +53,16 @@ of the following dispositions by setting the labels:
   the core team. Pull requests are welcome.  
 
 In addition each label will be set on the issue to help with additional categorizing. 
-- "bug": issue with current behavior.
-- "enhancement": feature enhancement.
-- "documentation": documentation change/request/addition.
-- "testing enhancement": automation story enhancements.
-- "windows": the bug is specific to Windows platform.
+- "bug": Issue with current behavior.
+- "enhancement": Feature enhancement.
+- "documentation": Documentation change/request/addition.
+- "testing enhancement": Automation story enhancements.
+- "windows": Bug specific to Windows platform.
 
 Additional labels that can be used as needed:
-- "duplicate": duplicate of another issue or bug.
+- "duplicate": Duplicate of another issue or bug.
 - "invalid": This doesn't seem right.
-- "question": Further information is requested. Submitter should response with more information/clarifications.
+- "question": Further information is requested. Submitter should respond with more information/clarifications.
 - "dependencies": Pull requests that update a dependency file.
 
 ## Commits
