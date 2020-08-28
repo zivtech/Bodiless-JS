@@ -12,7 +12,9 @@
  * limitations under the License.
  */
 
-import { action, computed, observable } from 'mobx';
+import {
+  action, computed, observable, extendObservable,
+} from 'mobx';
 import type { ObservableMap } from 'mobx';
 import type {
   PageEditContextInterface,
@@ -25,62 +27,6 @@ import {
   saveToSessionStorage,
 } from '../SessionStorage';
 import type { TOverlaySettings } from '../Types/PageOverlayTypes';
-
-/**
- * @private
- *
- * Utility to create a menu option with existing (but undefined) properties for all possible
- * keys.  This guarantees that adding or removing keys will be an obwervable event.
- *
- * @param option The original option
- * @returh The option with all keys present.
- */
-const toObservableOption = (option: TMenuOption): TMenuOption => {
-  // This guarantees that if we add a property to TMenuyOption we'll get a ts error here if
-  // we don't provide a default "undefined" value for it.
-  type AllUndefined<T> = {
-    [K in keyof T]: undefined
-  };
-  type ObservableMenuOption = AllUndefined<Required<TMenuOption>>;
-  const observableMenuOption: ObservableMenuOption = {
-    name: undefined,
-    icon: undefined,
-    label: undefined,
-    isActive: undefined,
-    isDisabled: undefined,
-    isHidden: undefined,
-    handler: undefined,
-    local: undefined,
-    global: undefined,
-    group: undefined,
-    Component: undefined,
-    context: undefined,
-  };
-  return ({
-    ...observableMenuOption,
-    ...option,
-  });
-};
-
-/**
- * @private
- *
- * Creates a proxy for a menu option which ensures that keys with value of undefined
- * are not enumerated.
- *
- * Note - we do this as a proxy to avoid iterating the keys prematurely and thus notifying
- * observers when irrelevant prperties change.
- *
- * @param option The observable option (as created by toObservableOption).
- *
- * @return A proxy which ensures that "undrefined" properties will not be enumerated.
- */
-const fromObservableOption = (option: TMenuOption): TMenuOption => new Proxy(
-  option, {
-    ownKeys: (target: any) => Object.getOwnPropertyNames(target)
-      .filter(key => target[key] !== undefined),
-  },
-);
 
 export const defaultOverlaySettings: TOverlaySettings = {
   isActive: false,
@@ -165,9 +111,16 @@ export class PageEditStore implements PageEditStoreInterface {
       c.getMenuOptions().forEach(op => {
         keys.add(op.name);
         const existing = map!.get(op.name);
-        const next = toObservableOption(op);
+        const next = op;
         if (existing) {
+          Object.keys(existing)
+            .filter(key => next[key as keyof TMenuOption] === undefined)
+            .forEach(key => delete existing[key as keyof TMenuOption]);
+          const newProps = Object.keys(next)
+            .filter(key => existing[key as keyof TMenuOption] === undefined)
+            .reduce((acc, key) => ({ ...acc, key: next[key as keyof TMenuOption] }), {});
           Object.assign(existing, next);
+          extendObservable(existing, newProps);
         } else {
           map!.set(op.name, next);
         }
@@ -185,7 +138,7 @@ export class PageEditStore implements PageEditStoreInterface {
     const contextIds = Array.from(this.optionMap.keys());
     contextIds.forEach(contextId => {
       const optionMap = this.optionMap.get(contextId);
-      const nextOptions = Array.from(optionMap!.values()).map(fromObservableOption);
+      const nextOptions = Array.from(optionMap!.values());
       options.push(...nextOptions);
     });
     return options;

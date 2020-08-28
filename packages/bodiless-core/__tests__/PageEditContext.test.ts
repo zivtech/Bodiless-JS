@@ -349,6 +349,13 @@ describe('Update menu options', () => {
     expect(listener).toHaveBeenCalledTimes(0);
     expect(optionListener).toHaveBeenCalledTimes(1);
     expect(newContext.getMenuOptions()[0]).toEqual(option);
+
+    const option$ = { name: 'foo', icon: 'foo', label: 'bar' };
+    const newContext$ = createContext([option$]);
+    newContext$.updateMenuOptions();
+    expect(listener).toHaveBeenCalledTimes(0);
+    expect(optionListener).toHaveBeenCalledTimes(2);
+    expect(newContext$.getMenuOptions()[0]).toEqual(option$);
   });
 
   it('Notifies only the button listener when an option property is removed', () => {
