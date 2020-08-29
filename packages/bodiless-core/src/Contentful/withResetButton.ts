@@ -42,7 +42,7 @@ const useMenuOptions = (menuOptionWithNodeKey?: MenuOptionWithNodeKey) => () => 
       global: false,
       ...menuOption,
     },
-  ]), [nodeKeyToDelete]);
+  ]), [nodeKeysToDelete]);
   return menuOptions;
 };
 
