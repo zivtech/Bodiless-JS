@@ -63,7 +63,7 @@
 
 *Inherited from [PageEditContext](pageeditcontext.md).[constructor](pageeditcontext.md#constructor)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:161](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L161)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:161](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L161)*
 
 **Parameters:**
 
@@ -84,7 +84,7 @@ Name | Type |
 
 *Inherited from [PageEditContext](pageeditcontext.md).[hasLocalMenu](pageeditcontext.md#haslocalmenu)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:161](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L161)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:161](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L161)*
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[id](pageeditcontext.md#readonly-id)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:151](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L151)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:151](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L151)*
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[name](pageeditcontext.md#readonly-name)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:153](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L153)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:153](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L153)*
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[parent](pageeditcontext.md#readonly-parent)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:157](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L157)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:157](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L157)*
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[peerContexts](pageeditcontext.md#peercontexts)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:176](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L176)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:176](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L176)*
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[Provider](pageeditcontext.md#static-provider)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:209](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L209)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:209](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L209)*
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[context](pageeditcontext.md#static-context)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:198](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L198)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:198](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L198)*
 
 ## Accessors
 
@@ -160,7 +160,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[allMenuOptions](pageeditcontext.md#allmenuoptions)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:186](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L186)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:186](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L186)*
 
 **Returns:** *object[]*
 
@@ -172,7 +172,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[areLocalTooltipsDisabled](pageeditcontext.md#arelocaltooltipsdisabled)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:309](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L309)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:309](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L309)*
 
 **Returns:** *boolean*
 
@@ -184,7 +184,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[contextMenuOptions](pageeditcontext.md#contextmenuoptions)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:266](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L266)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:266](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L266)*
 
 **Returns:** *object[]*
 
@@ -196,7 +196,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[isActive](pageeditcontext.md#isactive)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:227](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L227)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:227](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L227)*
 
 **Returns:** *boolean*
 
@@ -208,7 +208,7 @@ ___
 
 *Overrides [PageEditContext](pageeditcontext.md).[isEdit](pageeditcontext.md#isedit)*
 
-*Defined in [packages/bodiless-core/src/asReadOnly.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/asReadOnly.tsx#L21)*
+*Defined in [packages/bodiless-core/src/asReadOnly.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/asReadOnly.tsx#L21)*
 
 **Returns:** *boolean*
 
@@ -220,7 +220,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[isInnermost](pageeditcontext.md#isinnermost)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:231](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L231)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:231](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L231)*
 
 **Returns:** *boolean*
 
@@ -232,7 +232,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[isInnermostLocalMenu](pageeditcontext.md#isinnermostlocalmenu)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:237](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L237)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:237](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L237)*
 
 **Returns:** *boolean*
 
@@ -244,7 +244,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[isPositionToggled](pageeditcontext.md#ispositiontoggled)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:258](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L258)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:258](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L258)*
 
 **Returns:** *any*
 
@@ -256,7 +256,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[pageOverlay](pageeditcontext.md#pageoverlay)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:270](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L270)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:270](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L270)*
 
 **Returns:** *object*
 
@@ -272,7 +272,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[activate](pageeditcontext.md#activate)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:217](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L217)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:217](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L217)*
 
 **Returns:** *void*
 
@@ -284,7 +284,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[getMenuOptions](pageeditcontext.md#readonly-getmenuoptions)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:155](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L155)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:155](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L155)*
 
 **Returns:** *never[]*
 
@@ -296,7 +296,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[hidePageOverlay](pageeditcontext.md#hidepageoverlay)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:293](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L293)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:293](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L293)*
 
 **Returns:** *void*
 
@@ -308,7 +308,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[refresh](pageeditcontext.md#refresh)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:221](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L221)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:221](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L221)*
 
 **Returns:** *void*
 
@@ -320,7 +320,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[registerPeer](pageeditcontext.md#registerpeer)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:178](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L178)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:178](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L178)*
 
 **Parameters:**
 
@@ -338,7 +338,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[showError](pageeditcontext.md#showerror)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:299](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L299)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:299](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L299)*
 
 **Parameters:**
 
@@ -356,7 +356,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[showPageOverlay](pageeditcontext.md#showpageoverlay)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:274](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L274)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:274](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L274)*
 
 **Parameters:**
 
@@ -374,7 +374,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[spawn](pageeditcontext.md#spawn)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:212](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L212)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:212](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L212)*
 
 **Parameters:**
 
@@ -392,7 +392,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[toggleEdit](pageeditcontext.md#toggleedit)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:254](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L254)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:254](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L254)*
 
 **Parameters:**
 
@@ -410,7 +410,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[toggleLocalTooltipsDisabled](pageeditcontext.md#togglelocaltooltipsdisabled)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:313](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L313)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:313](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L313)*
 
 **Parameters:**
 
@@ -428,7 +428,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[togglePosition](pageeditcontext.md#toggleposition)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:262](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L262)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:262](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L262)*
 
 **Parameters:**
 
@@ -446,7 +446,7 @@ ___
 
 *Inherited from [PageEditContext](pageeditcontext.md).[Consumer](pageeditcontext.md#static-consumer)*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:203](https://github.com/johnsonandjohnson/Bodiless-JS/blob/c56c96f/packages/bodiless-core/src/PageEditContext/index.tsx#L203)*
+*Defined in [packages/bodiless-core/src/PageEditContext/index.tsx:203](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/PageEditContext/index.tsx#L203)*
 
 **Parameters:**
 

@@ -1,6 +1,7 @@
   - [About](/About/)
     - [Getting Started](/About/GettingStarted)
     - [Core Principles](/About/CorePrinciples)
+  - [Content Editor User Guide](/ContentEditorUserGuide/)
   - [Design](/Design/)
     - [Design System](/Design/DesignSystem)
   - [Components](/Components/)
