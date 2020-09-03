@@ -27,7 +27,7 @@
 
 • **notificationsMap**: *Map‹string, object & object[]›* = new Map<string, NotificationProviderItem[]>()
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/NotificationProvider.tsx#L57)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6a3896a/packages/bodiless-core/src/NotificationProvider.tsx#L57)*
 
 ## Accessors
 
@@ -35,7 +35,7 @@
 
 • **get hasNotifications**(): *boolean*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/NotificationProvider.tsx#L59)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6a3896a/packages/bodiless-core/src/NotificationProvider.tsx#L59)*
 
 **Returns:** *boolean*
 
@@ -45,7 +45,7 @@ ___
 
 • **get notifications**(): *any[]*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/NotificationProvider.tsx#L63)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6a3896a/packages/bodiless-core/src/NotificationProvider.tsx#L63)*
 
 **Returns:** *any[]*
 
@@ -55,7 +55,7 @@ ___
 
 ▸ **setNotifications**(`owner`: string, `notifications`: [NotificationProviderItem](../globals.md#notificationprovideritem)[]): *void*
 
-*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-core/src/NotificationProvider.tsx#L67)*
+*Defined in [packages/bodiless-core/src/NotificationProvider.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6a3896a/packages/bodiless-core/src/NotificationProvider.tsx#L67)*
 
 **Parameters:**
 

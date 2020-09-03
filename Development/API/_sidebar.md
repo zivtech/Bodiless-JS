@@ -6,7 +6,6 @@
 * [@bodiless/fclasses](/Development/API/@bodiless/fclasses/globals)
 * [@bodiless/gatsby-theme-bodiless](/Development/API/@bodiless/gatsby-theme-bodiless/globals)
 * [@bodiless/layouts](/Development/API/@bodiless/layouts/globals)
-* [@bodiless/layouts-ui](/Development/API/@bodiless/layouts-ui/globals)
 * [@bodiless/organisms](/Development/API/@bodiless/organisms/globals)
 * [@bodiless/richtext](/Development/API/@bodiless/richtext/globals)
 * [@bodiless/ui](/Development/API/@bodiless/ui/globals)

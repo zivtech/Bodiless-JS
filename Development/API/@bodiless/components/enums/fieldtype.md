@@ -15,7 +15,7 @@
 
 • **Text**: = "text"
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:11](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-components/src/Meta/withMetaForm.tsx#L11)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:11](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6a3896a/packages/bodiless-components/src/Meta/withMetaForm.tsx#L11)*
 
 ___
 
@@ -23,4 +23,4 @@ ___
 
 • **TextArea**: = "textarea"
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:12](https://github.com/johnsonandjohnson/Bodiless-JS/blob/98ebb28/packages/bodiless-components/src/Meta/withMetaForm.tsx#L12)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:12](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6a3896a/packages/bodiless-components/src/Meta/withMetaForm.tsx#L12)*
