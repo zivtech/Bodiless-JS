@@ -21,6 +21,7 @@ const { spawn } = require('child_process');
 const formidable = require('formidable');
 const tmp = require('tmp');
 const path = require('path');
+const uniq = require('lodash/uniq');
 const Page = require('./page');
 const GitCmd = require('./GitCmd');
 const { getChanges, getConflicts, mergeMaster } = require('./git');
@@ -30,6 +31,7 @@ const Logger = require('./logger');
 const backendPrefix = process.env.GATSBY_BACKEND_PREFIX || '/___backend';
 const backendFilePath = process.env.BODILESS_BACKEND_DATA_FILE_PATH || '';
 const defaultBackendPagePath = path.resolve(backendFilePath, 'pages');
+const defaultBackendSitePath = path.resolve(backendFilePath, 'site');
 const backendPagePath = process.env.BODILESS_BACKEND_DATA_PAGE_PATH || defaultBackendPagePath;
 const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
 const backendPublicPath = process.env.BODILESS_BACKEND_PUBLIC_PAGE_PATH || 'public/page-data';
@@ -166,7 +168,7 @@ class GitCommit {
       throw rebaseErr;
     } finally {
       // If there was a temporary commit, rewind working directory back one commit.
-      if (dirty.code) {
+      if (dirty.code && (result.stdout.search('Already applied') === -1)) {
         await GitCmd.cmd()
           .add('reset', 'HEAD^')
           .exec();
@@ -328,9 +330,19 @@ class Backend {
 
   static getConflicts(route) {
     route.get(async (req, res) => {
+      const target = req.query.target || undefined;
       try {
-        const status = await getConflicts();
-        res.send(status);
+        const conflicts = await getConflicts(target);
+        const pages = uniq(conflicts.files.filter(file => (file.search(backendPagePath) !== -1))
+          .map(file => (
+            path.dirname(file).replace(backendPagePath, '').replace(/^\/|\/$/g, '') || 'homepage'
+          )));
+        const site = uniq(conflicts.files.filter(
+          file => (file.search(defaultBackendSitePath) !== -1),
+        ).map(file => (
+          path.dirname(file).replace(defaultBackendSitePath, '').replace(/^\/|\/$/g, '') || 'site'
+        )));
+        res.send({ ...conflicts, pages, site });
       } catch (error) {
         logger.log(error);
         error.code = 500;
