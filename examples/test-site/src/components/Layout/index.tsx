@@ -18,7 +18,7 @@ import { Div } from '@bodiless/fclasses';
 import Header from './header';
 import Footer from './footer';
 import SeoHelmet from './meta';
-import SiteGTMHelmetEvent from './GTM';
+import SiteGTMHelmetEvent, { GTMHelmetWithForm } from './GTM';
 import { asPageContainer, asYMargin } from '../Elements.token';
 import { asSiteHeader, asSiteFooter } from './token';
 
@@ -30,9 +30,11 @@ const Container = flow(
   asYMargin,
 )(Div);
 
-const Layout = ({ children }) => (
+const Layout = ({ children } : any) => (
   <>
+
     <SeoHelmet />
+    <GTMHelmetWithForm />
     <SiteGTMHelmetEvent />
     <SiteHeader />
     <Container>

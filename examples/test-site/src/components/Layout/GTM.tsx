@@ -17,10 +17,13 @@ import Helmet from 'react-helmet';
 import {
   asBodilessHelmet,
   withEvent,
+  withGTMForm,
 } from '@bodiless/components';
+import { useEditContext } from '@bodiless/core';
 
 const SiteGTMHelmetEvent = flowRight(
   asBodilessHelmet('datalayer'),
+  // @ts-ignore
   withEvent(
     'digitalData',
     {
@@ -33,6 +36,29 @@ const SiteGTMHelmetEvent = flowRight(
     },
     'page-loaded',
   ),
+)(Helmet);
+
+const useGetMenuOptions = () => {
+  const context = useEditContext();
+  return () => ([
+    {
+      name: 'gtm',
+      isHidden: () => !context.isEdit,
+      icon: 'category',
+      label: 'gtm',
+    },
+  ]);
+};
+
+const GTMFormHeader = {
+  title: 'GTM Data Management',
+  description: `Enter the page level data used for GTM. 
+  This is data needed for GTM that will go in the page header.`,
+};
+
+export const GTMHelmetWithForm = flowRight(
+  withGTMForm(useGetMenuOptions, GTMFormHeader),
+  asBodilessHelmet('datalayer'),
 )(Helmet);
 
 export default SiteGTMHelmetEvent;

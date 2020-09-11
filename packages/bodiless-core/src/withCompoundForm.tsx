@@ -159,6 +159,7 @@ const withCompoundForm = <P extends object>(options: MenuOptionsDefinition<P>) =
     // This callback will be used by child components to contribute their snippets.
     const registerSnippet = (snippet: Snippet<any>) => {
       // Ensure that there is only a single entry for each snippet.
+      console.log(snippets.current);
       const existsAt = snippets.current.findIndex(s => s.id === snippet.id);
       if (existsAt >= 0) snippets.current.splice(existsAt, 1, snippet);
       else snippets.current.push(snippet);

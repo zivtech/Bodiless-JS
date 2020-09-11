@@ -43,7 +43,8 @@ const withEvent = (
   nodeKey: string,
   nodeCollection: string,
 ) => (HelmetComponent: CT) => (props: any) => {
-  if (process.env.NODE_ENV === 'production' && tagManagerEnabled) {
+  // @todo: fixme condition for testing.
+  if ((process.env.NODE_ENV === 'production' && tagManagerEnabled) || 1) {
     const { children, ...rest } = props;
     const { node } = useNode(nodeCollection);
     const { data } = node.child<GtmEventData>(nodeKey);

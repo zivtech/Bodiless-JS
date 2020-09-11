@@ -35,6 +35,7 @@ import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
 import type { FieldType as MetaFormFieldType } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helmet';
 import withEvent from './GTM/gtm';
+import withGTMForm, { withGTMSnippet } from './GTM/withGTMForm';
 import { withToggle, withToggleTo, withToggleButton } from './Toggle';
 import withEditPlaceholder from './Placeholder';
 import { TagButtonProps, withTagButton, useTagsAccessors } from './TagButton';
@@ -94,6 +95,8 @@ export {
   ifViewportIsNot,
   withMetaForm,
   withMetaSnippet,
+  withGTMForm,
+  withGTMSnippet,
 };
 
 export type {
