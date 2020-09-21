@@ -49,7 +49,7 @@
 
 \+ **new FilterBase**(`props`: [FilterProps](../globals.md#filterprops)): *[FilterBase](filterbase.md)*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6524581/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L193)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L193)*
 
 **Parameters:**
 
@@ -65,7 +65,7 @@ Name | Type |
 
 • **Filter**: *ComponentType‹HTMLProps‹HTMLHeadingElement››* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:191](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6524581/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L191)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:191](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L191)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **RestProps**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6524581/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L193)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L193)*
 
 #### Type declaration:
 
@@ -85,7 +85,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[UNSAFE_componentWillMount](filterbase.md#optional-unsafe_componentwillmount)*
 
-Defined in node_modules/@types/react/index.d.ts:709
+Defined in node_modules/@types/react/index.d.ts:712
 
 Called immediately before mounting occurs, and before `Component#render`.
 Avoid introducing any side-effects or subscriptions in this method.
@@ -111,7 +111,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[UNSAFE_componentWillReceiveProps](filterbase.md#optional-unsafe_componentwillreceiveprops)*
 
-Defined in node_modules/@types/react/index.d.ts:741
+Defined in node_modules/@types/react/index.d.ts:744
 
 Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
@@ -147,7 +147,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[UNSAFE_componentWillUpdate](filterbase.md#optional-unsafe_componentwillupdate)*
 
-Defined in node_modules/@types/react/index.d.ts:769
+Defined in node_modules/@types/react/index.d.ts:772
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
@@ -182,7 +182,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[componentDidCatch](filterbase.md#optional-componentdidcatch)*
 
-Defined in node_modules/@types/react/index.d.ts:638
+Defined in node_modules/@types/react/index.d.ts:641
 
 Catches exceptions generated in descendant components. Unhandled exceptions will cause
 the entire component tree to unmount.
@@ -204,7 +204,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[componentDidMount](filterbase.md#optional-componentdidmount)*
 
-Defined in node_modules/@types/react/index.d.ts:617
+Defined in node_modules/@types/react/index.d.ts:620
 
 Called immediately after a component is mounted. Setting state here will trigger re-rendering.
 
@@ -218,7 +218,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[componentDidUpdate](filterbase.md#optional-componentdidupdate)*
 
-Defined in node_modules/@types/react/index.d.ts:680
+Defined in node_modules/@types/react/index.d.ts:683
 
 Called immediately after updating occurs. Not called for the initial render.
 
@@ -242,7 +242,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[componentWillMount](filterbase.md#optional-componentwillmount)*
 
-Defined in node_modules/@types/react/index.d.ts:695
+Defined in node_modules/@types/react/index.d.ts:698
 
 Called immediately before mounting occurs, and before `Component#render`.
 Avoid introducing any side-effects or subscriptions in this method.
@@ -266,7 +266,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[componentWillReceiveProps](filterbase.md#optional-componentwillreceiveprops)*
 
-Defined in node_modules/@types/react/index.d.ts:724
+Defined in node_modules/@types/react/index.d.ts:727
 
 Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
@@ -300,7 +300,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[componentWillUnmount](filterbase.md#optional-componentwillunmount)*
 
-Defined in node_modules/@types/react/index.d.ts:633
+Defined in node_modules/@types/react/index.d.ts:636
 
 Called immediately before a component is destroyed. Perform any necessary cleanup in this method, such as
 cancelled network requests, or cleaning up any DOM elements created in `componentDidMount`.
@@ -315,7 +315,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[componentWillUpdate](filterbase.md#optional-componentwillupdate)*
 
-Defined in node_modules/@types/react/index.d.ts:754
+Defined in node_modules/@types/react/index.d.ts:757
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
@@ -348,7 +348,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[getSnapshotBeforeUpdate](filterbase.md#optional-getsnapshotbeforeupdate)*
 
-Defined in node_modules/@types/react/index.d.ts:674
+Defined in node_modules/@types/react/index.d.ts:677
 
 Runs before React applies the result of `render` to the document, and
 returns an object to be given to componentDidUpdate. Useful for saving
@@ -372,7 +372,7 @@ ___
 
 ▸ **render**(): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:209](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6524581/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L209)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:209](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L209)*
 
 **Returns:** *Element‹›*
 
@@ -384,7 +384,7 @@ ___
 
 *Inherited from [FilterBase](filterbase.md).[shouldComponentUpdate](filterbase.md#optional-shouldcomponentupdate)*
 
-Defined in node_modules/@types/react/index.d.ts:628
+Defined in node_modules/@types/react/index.d.ts:631
 
 Called to determine whether the change in props and state should trigger a re-render.
 
