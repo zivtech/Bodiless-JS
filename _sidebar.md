@@ -4,6 +4,7 @@
   - [Content Editor User Guide](/ContentEditorUserGuide/)
   - [Design](/Design/)
     - [Design System](/Design/DesignSystem)
+    - [Image Guidelines](/Design/ImageGuidelines)
   - [Components](/Components/)
     - [Bv](/Components/bv)
     - [Youtube](/Components/Youtube)

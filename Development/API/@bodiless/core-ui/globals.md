@@ -44,7 +44,7 @@
 
 Ƭ **ButtonProps**: *object*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L34)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L34)*
 
 #### Type declaration:
 
@@ -58,7 +58,7 @@ ___
 
 Ƭ **VariantProps**: *object*
 
-*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/ContextWrapper.tsx#L29)*
+*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/ContextWrapper.tsx#L29)*
 
 #### Type declaration:
 
@@ -75,7 +75,7 @@ ___
   removeClassesIf(isActive)('bl-border-transparent'),
 )(Div)
 
-*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/ContextWrapper.tsx#L34)*
+*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/ContextWrapper.tsx#L34)*
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 • **FormWrapper**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›* = addClasses('bl-flex')(Div)
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L44)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L44)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
   'bl-text-gray-100 bl-text-center bl-text-lg bl-whitespace-pre-line clear-right',
 ])(Div)
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L53)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L53)*
 
 ___
 
@@ -109,7 +109,7 @@ ___
   }),
 )(Div)
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L22)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L22)*
 
 #### Type declaration:
 
@@ -127,7 +127,7 @@ ___
 
 • **PopupWrapper**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›* = addClasses('bl-p-5 bl-rounded bl-bg-black')(Div)
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L32)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L32)*
 
 ___
 
@@ -138,9 +138,9 @@ ___
   addProps({ role: 'toolbar', 'aria-label': 'Local Context Menu' }),
 )(Div)
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L33)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L33)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L33)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L33)*
 
 #### Type declaration:
 
@@ -160,7 +160,7 @@ ___
   'bl-bg-grey bl-w-grid-12 bl--ml-grid-2 bl-mb-grid-3 bl-h-px',
 )(Hr)
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L46)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L46)*
 
 ___
 
@@ -172,7 +172,7 @@ ___
   addProps({ 'aria-label': 'Global Context Menu Right' }),
 )(Toolbar)
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L38)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L38)*
 
 #### Type declaration:
 
@@ -190,7 +190,7 @@ Name | Type |
 
 ▸ **Button**(`props`: [ButtonProps](globals.md#buttonprops)): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L38)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L38)*
 
 **Parameters:**
 
@@ -206,7 +206,7 @@ ___
 
 ▸ **ContextWrapper**(`props`: object & HTMLProps‹HTMLDivElement› & object): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/ContextWrapper.tsx#L45)*
+*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/ContextWrapper.tsx#L45)*
 
 **Parameters:**
 
@@ -222,7 +222,7 @@ ___
 
 ▸ **GlobalContextMenu**(`props`: object & HTMLProps‹HTMLElement› & object): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:104](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L104)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:104](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L104)*
 
 **Parameters:**
 
@@ -238,7 +238,7 @@ ___
 
 ▸ **GlobalTooltip**(`props`: object & object & object): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L50)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L50)*
 
 **Parameters:**
 
@@ -254,7 +254,7 @@ ___
 
 ▸ **LocalContextMenu**(`props`: object & HTMLProps‹HTMLElement› & object): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L72)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L72)*
 
 **Parameters:**
 
@@ -270,7 +270,7 @@ ___
 
 ▸ **LocalTooltip**(`props`: object & object & object): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L38)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L38)*
 
 **Parameters:**
 
@@ -286,7 +286,7 @@ ___
 
 ▸ **PageEditor**(`props`: object): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageEditor.tsx#L27)*
+*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageEditor.tsx#L27)*
 
 **Parameters:**
 
@@ -304,7 +304,7 @@ ___
 
 ▸ **PageOverlay**(`props`: any): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L65)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L65)*
 
 **Parameters:**
 
@@ -320,7 +320,7 @@ ___
 
 ▸ **ReactTagsField**(`props`: object & object & object): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/ReactTags.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/ReactTags.tsx#L18)*
+*Defined in [packages/bodiless-core-ui/src/ReactTags.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/ReactTags.tsx#L18)*
 
 **Parameters:**
 
@@ -336,7 +336,7 @@ ___
 
 ▸ **WrappedSpinner**(): *Element‹›*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L48)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L48)*
 
 **Returns:** *Element‹›*
 
@@ -346,7 +346,7 @@ ___
 
 ▸ **isActive**(`props`: any): *boolean*
 
-*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/ContextWrapper.tsx#L33)*
+*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/ContextWrapper.tsx#L33)*
 
 **Parameters:**
 
@@ -362,45 +362,45 @@ Name | Type |
 
 ### ▪ **ui**: *object*
 
-*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/ContextWrapper.tsx#L41)*
+*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/ContextWrapper.tsx#L41)*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L70)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L70)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L45)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L45)*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L57)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L57)*
 
-*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageEditor.tsx#L21)*
+*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageEditor.tsx#L21)*
 
 ###  Button
 
 • **Button**: *[Button](globals.md#const-button)*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L60)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L60)*
 
 ###  ComponentFormButton
 
 • **ComponentFormButton**: *FunctionComponent‹HTMLProps‹HTMLButtonElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L83)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L83)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L55)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L55)*
 
 ###  ComponentFormCheckBox
 
 • **ComponentFormCheckBox**: *FunctionComponent‹FieldProps‹any, any› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L78)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L78)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L50)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L50)*
 
 ###  ComponentFormCloseButton
 
 • **ComponentFormCloseButton**: *function*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L84)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L84)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L56)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L56)*
 
 #### Type declaration:
 
@@ -416,65 +416,65 @@ Name | Type |
 
 • **ComponentFormDescription**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L73)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L73)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L61)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L61)*
 
 ###  ComponentFormError
 
 • **ComponentFormError**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L87)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L87)*
 
 ###  ComponentFormFieldTitle
 
 • **ComponentFormFieldTitle**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L77)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L77)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L49)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L49)*
 
 ###  ComponentFormFieldWrapper
 
 • **ComponentFormFieldWrapper**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L76)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L76)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L48)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L48)*
 
 ###  ComponentFormLabel
 
 • **ComponentFormLabel**: *FunctionComponent‹HTMLProps‹HTMLLabelElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L72)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L72)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L60)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L60)*
 
 ###  ComponentFormLink
 
 • **ComponentFormLink**: *FunctionComponent‹HTMLProps‹HTMLAnchorElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L89)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L89)*
 
 ###  ComponentFormList
 
 • **ComponentFormList**: *FunctionComponent‹HTMLProps‹HTMLUListElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L90)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L90)*
 
 ###  ComponentFormListItem
 
 • **ComponentFormListItem**: *FunctionComponent‹HTMLProps‹HTMLLIElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L91)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L91)*
 
 ###  ComponentFormOption
 
 • **ComponentFormOption**: *object*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L82)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L82)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L54)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L54)*
 
 #### Type declaration:
 
@@ -492,33 +492,33 @@ Name | Type |
 
 • **ComponentFormRadio**: *FunctionComponent‹ChildFieldProps‹any, any› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L79)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L79)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L51)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L51)*
 
 ###  ComponentFormRadioGroup
 
 • **ComponentFormRadioGroup**: *FunctionComponent‹FieldProps‹any, any› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L80)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L80)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L52)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L52)*
 
 ###  ComponentFormSelect
 
 • **ComponentFormSelect**: *FunctionComponent‹SelectFieldProps‹any, any› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L81)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L81)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L53)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L53)*
 
 ###  ComponentFormSubmitButton
 
 • **ComponentFormSubmitButton**: *function*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L85)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L85)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L58)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L58)*
 
 #### Type declaration:
 
@@ -534,49 +534,49 @@ Name | Type |
 
 • **ComponentFormText**: *FunctionComponent‹FieldProps‹any, any› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L74)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L74)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L46)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L46)*
 
 ###  ComponentFormTextArea
 
 • **ComponentFormTextArea**: *FunctionComponent‹FieldProps‹any, any› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L75)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L75)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L47)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L47)*
 
 ###  ComponentFormTitle
 
 • **ComponentFormTitle**: *FunctionComponent‹HTMLProps‹HTMLHeadingElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L71)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L71)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L59)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L59)*
 
 ###  ComponentFormUnwrapButton
 
 • **ComponentFormUnwrapButton**: *FunctionComponent‹HTMLProps‹HTMLButtonElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:86](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L86)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:86](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L86)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L57)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L57)*
 
 ###  ComponentFormWarning
 
 • **ComponentFormWarning**: *any*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L88)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L88)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L63)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L63)*
 
 ###  ContextSubMenu
 
 • **ContextSubMenu**: *function*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L93)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L93)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L62)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L62)*
 
 #### Type declaration:
 
@@ -592,51 +592,51 @@ Name | Type |
 
 • **ContextWrapper**: *any* = ContextWrapperDiv
 
-*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/ContextWrapper.tsx#L42)*
+*Defined in [packages/bodiless-core-ui/src/ContextWrapper.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/ContextWrapper.tsx#L42)*
 
 ###  FormWrapper
 
 • **FormWrapper**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L99)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L99)*
 
 ###  GlobalContextMenu
 
 • **GlobalContextMenu**: *FunctionComponent‹object & HTMLProps‹HTMLElement››*
 
-*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageEditor.tsx#L23)*
+*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageEditor.tsx#L23)*
 
 ###  HorizontalToolbarButton
 
 • **HorizontalToolbarButton**: *FunctionComponent‹object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L96)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L96)*
 
 ###  Icon
 
 • **Icon**: *FunctionComponent‹object›* = ToolbarIcon
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L92)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L92)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L64)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L64)*
 
 ###  LocalContextMenu
 
 • **LocalContextMenu**: *FunctionComponent‹object & HTMLProps‹HTMLElement››*
 
-*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageEditor.tsx#L22)*
+*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageEditor.tsx#L22)*
 
 ###  Message
 
 • **Message**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L62)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L62)*
 
 ###  OverlayWrapper
 
 • **OverlayWrapper**: *function*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L58)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L58)*
 
 #### Type declaration:
 
@@ -652,35 +652,35 @@ Name | Type |
 
 • **PageOverlay**: *[PageOverlay](globals.md#const-pageoverlay)*
 
-*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageEditor.tsx#L24)*
+*Defined in [packages/bodiless-core-ui/src/PageEditor.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageEditor.tsx#L24)*
 
 ###  PopupWrapper
 
 • **PopupWrapper**: *FunctionComponent‹HTMLProps‹HTMLDivElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L59)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L59)*
 
 ###  ReactTags
 
 • **ReactTags**: *ComponentClass‹object & object, any› | FunctionComponent‹object & object›* = ReactTagsField
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L101)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L101)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L69)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L69)*
 
 ###  Spinner
 
 • **Spinner**: *[WrappedSpinner](globals.md#const-wrappedspinner)* = WrappedSpinner
 
-*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/PageOverlay.tsx#L61)*
+*Defined in [packages/bodiless-core-ui/src/PageOverlay.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/PageOverlay.tsx#L61)*
 
 ###  Toolbar
 
 • **Toolbar**: *function*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L94)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L94)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L65)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L65)*
 
 #### Type declaration:
 
@@ -696,28 +696,28 @@ Name | Type |
 
 • **ToolbarButton**: *FunctionComponent‹object›* = HorizontalToolbarButton
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:95](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L95)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:95](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L95)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L66)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L66)*
 
 ###  ToolbarButtonLabel
 
 • **ToolbarButtonLabel**: *FunctionComponent‹HTMLProps‹HTMLSpanElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L97)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L97)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L67)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L67)*
 
 ###  ToolbarDivider
 
 • **ToolbarDivider**: *FunctionComponent‹HTMLProps‹HTMLHRElement› & object›*
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L98)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L98)*
 
 ###  Tooltip
 
 • **Tooltip**: *FunctionComponent‹object & object›* = LocalTooltip
 
-*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L100)*
+*Defined in [packages/bodiless-core-ui/src/GlobalContextMenu.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/GlobalContextMenu.tsx#L100)*
 
-*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/463e8f6/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L68)*
+*Defined in [packages/bodiless-core-ui/src/LocalContextMenu.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0970b9/packages/bodiless-core-ui/src/LocalContextMenu.tsx#L68)*
