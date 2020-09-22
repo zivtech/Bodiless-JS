@@ -1,3 +1,4 @@
+* [@bodiless/bv](/Development/API/@bodiless/bv/globals)
 * [@bodiless/components](/Development/API/@bodiless/components/globals)
 * [@bodiless/components-ui](/Development/API/@bodiless/components-ui/globals)
 * [@bodiless/core](/Development/API/@bodiless/core/globals)
@@ -8,4 +9,3 @@
 * [@bodiless/organisms](/Development/API/@bodiless/organisms/globals)
 * [@bodiless/richtext](/Development/API/@bodiless/richtext/globals)
 * [@bodiless/ui](/Development/API/@bodiless/ui/globals)
-* [@bodiless/bv](/Development/API/@bodiless/bv/globals)
