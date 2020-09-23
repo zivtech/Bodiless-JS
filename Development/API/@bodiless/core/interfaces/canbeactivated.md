@@ -24,7 +24,7 @@
 
 • **activate**: *function*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f2017f1/packages/bodiless-core/src/PageEditContext/types.ts#L59)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/19d5cfc/packages/bodiless-core/src/PageEditContext/types.ts#L59)*
 
 #### Type declaration:
 
@@ -36,7 +36,7 @@ ___
 
 • **hasLocalMenu**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f2017f1/packages/bodiless-core/src/PageEditContext/types.ts#L57)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/19d5cfc/packages/bodiless-core/src/PageEditContext/types.ts#L57)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **isActive**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f2017f1/packages/bodiless-core/src/PageEditContext/types.ts#L55)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/19d5cfc/packages/bodiless-core/src/PageEditContext/types.ts#L55)*
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 • **isInnermost**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f2017f1/packages/bodiless-core/src/PageEditContext/types.ts#L56)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/19d5cfc/packages/bodiless-core/src/PageEditContext/types.ts#L56)*
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 • **isInnermostLocalMenu**: *boolean*
 
-*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f2017f1/packages/bodiless-core/src/PageEditContext/types.ts#L58)*
+*Defined in [packages/bodiless-core/src/PageEditContext/types.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/19d5cfc/packages/bodiless-core/src/PageEditContext/types.ts#L58)*
