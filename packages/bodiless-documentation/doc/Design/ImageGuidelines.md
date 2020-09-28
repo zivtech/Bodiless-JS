@@ -71,7 +71,7 @@ pages or custom landing pages. It is recommended to use landscape orientation.
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-| .jpg .png | 1280 px |	Double the width of the content under the header. |	100 kB OR LESS |	200 kB |
+| .jpg .png | 1280 px |	Double the width of the content under the header. |	100 KB OR LESS |	200 KB |
 
 ---
 
@@ -82,7 +82,7 @@ or  2:3 for vertical orientation. Landscape orientation is NOT recommended.
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-|.jpg .png |	980 px |	980px |	50-80 kB OR LESS |	150 kB |
+|.jpg .png |	980 px |	980px |	50-80 KB OR LESS |	150 KB |
 
 ---
 
@@ -93,7 +93,7 @@ or size ratio.
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-| .jpg .png |	For 100% wide image: 980 px For 50% wide image: 615 px	| 1280 px | 30-60 kB OR LESS |	150 kB |
+| .jpg .png |	For 100% wide image: 980 px For 50% wide image: 615 px	| 1280 px | 30-60 KB OR LESS |	150 KB |
 
 ---
 
@@ -106,7 +106,7 @@ You can use portrait or landscape orientation.
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-|.jpg .png | 980 px | 980 px | 50-80 kB OR LESS | 100 kB |
+|.jpg .png | 980 px | 980 px | 50-80 KB OR LESS | 100 KB |
 
 ---
 
@@ -118,7 +118,7 @@ is no recommended size ratio. Both portrait or landscape orientation is acceptab
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-|.jpg .png|	615 px | 615 px | 30-50 kB OR LESS | 80 kB |
+|.jpg .png|	615 px | 615 px | 30-50 KB OR LESS | 80 KB |
 
 ---
 
@@ -129,7 +129,7 @@ image with a transparent background.
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-| .png | 450 px (Minimum: 205px) | 500 px |	15 kB OR LESS |	30 kB |
+| .png | 450 px (Minimum: 205px) | 500 px |	15 KB OR LESS |	30 KB |
 
 ---
 
@@ -140,7 +140,7 @@ background is present.
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-|.jpg .png | N/A |	N/A |	10-40 kB OR LESS |	200 kB |
+|.jpg .png | N/A |	N/A |	10-40 KB OR LESS |	200 KB |
 
 ---
 
@@ -151,7 +151,7 @@ Social media icons are icons or logos used for social media links
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-|.png |	48 px |	N/A |	5 kB OR LESS |	15 kB |
+|.png |	48 px |	N/A |	5 KB OR LESS |	15 kB |
 
 ---
 
@@ -172,8 +172,8 @@ icons (envelope), etc. These icons typically use 1:1 size ratio. No recommended 
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-|.ico |	512 px* <br>_see note below_ | 512px	|1 kB OR LESS |	5 kB |
+|.jpeg .png .webp <br> .tiff .gif .svg |	512 px* <br>_see note below_ | 512px	|50 KB |	50 KB |
 
->? Note: BodilessJS offers ability to upload one large favicon and generate all favicons sizes. 
+?> Note: BodilessJS offers ability to upload one large favicon and generate all favicons sizes. 
 BodilessJS will take the largest size (512px) and auto generate the smaller size (32px).
 
