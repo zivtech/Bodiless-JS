@@ -172,8 +172,7 @@ icons (envelope), etc. These icons typically use 1:1 size ratio. No recommended 
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-|.jpeg .png .webp <br> .tiff .gif .svg |	512 px* <br>_see note below_ | 512px	|50 KB |	50 KB |
+|.jpg .png .webp <br> .tiff .gif .svg |	512 px* <br>_see note below_ | 512px	|50 KB |	50 KB |
 
 ?> Note: BodilessJS offers ability to upload one large favicon and generate all favicons sizes. 
 BodilessJS will take the largest size (512px) and auto generate the smaller size (32px).
-
