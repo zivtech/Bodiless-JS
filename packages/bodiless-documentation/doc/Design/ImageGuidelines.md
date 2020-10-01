@@ -151,7 +151,7 @@ Social media icons are icons or logos used for social media links
 
 |   Extension |   Recommended width (px) | Maximum width (px)   |   Recommended size (KB) | Maximum size (KB)   |
 |--|--|--|--|--|
-|.png |	48 px |	N/A |	5 KB OR LESS |	15 kB |
+|.png |	48 px |	N/A |	5 KB OR LESS |	15 KB |
 
 ---
 
