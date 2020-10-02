@@ -87,7 +87,7 @@ const withMetaForm = (
   metaFormHeader?: HeaderProps,
 ) => flowRight(
   withCompoundForm({
-    useGetMenuOptions, name: 'Meta', peer: true, id: 'meta',
+    useGetMenuOptions, name: 'Meta', peer: true
   }),
   withMetaFormHeader(metaFormHeader || defaultMetaFormHeader),
 );

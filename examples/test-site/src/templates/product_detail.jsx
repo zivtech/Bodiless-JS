@@ -29,7 +29,6 @@ import {
   SingleAccordionClean,
   asTestableAccordion,
 } from '@bodiless/organisms';
-import { withEvent, asBodilessHelmet } from '@bodiless/components';
 import Layout from '../components/Layout';
 import {
   ProductTitle,
@@ -91,16 +90,9 @@ const asTestableFlowContainer = withDesign({
 });
 const ProductFlowContainer = asTestableFlowContainer(FlowContainerDefault);
 
-const ExampleGTMHelmetEvent = flowRight(
-  asBodilessHelmet('datalayer'),
-  // On product pages, we may add product related datalayer info:
-  withEvent('digitalData', { event: 'Product Viewed' }, 'product-viewed'),
-)(Helmet);
-
 export default (props: any) => (
   <Page {...props}>
     <Layout>
-      <ExampleGTMHelmetEvent />
       <SectionMargin>
         <div className="flex flex-wrap md:items-end md:flex-row-reverse">
           <div className="w-full md:flex-1 md:flex-grow-0 md:flex-shrink-0 text-right"><p>Placeholder_for_Share</p></div>

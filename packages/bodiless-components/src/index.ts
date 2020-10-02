@@ -34,7 +34,7 @@ import {
 import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
 import type { FieldType as MetaFormFieldType } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helmet';
-import withEvent from './GTM/gtm';
+import withDataLayer from './GTM/gtm';
 import withGTMForm, { withGTMSnippet } from './GTM/withGTMForm';
 import { withToggle, withToggleTo, withToggleButton } from './Toggle';
 import withEditPlaceholder from './Placeholder';
@@ -79,7 +79,6 @@ export {
   withMetaHtml,
   asBodilessHelmet,
   withEditPlaceholder,
-  withEvent,
   withTagButton,
   TagButtonProps,
   asTaggableItem,
@@ -97,6 +96,7 @@ export {
   withMetaSnippet,
   withGTMForm,
   withGTMSnippet,
+  withDataLayer,
 };
 
 export type {

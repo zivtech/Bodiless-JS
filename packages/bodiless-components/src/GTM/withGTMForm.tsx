@@ -87,7 +87,7 @@ const withGTMForm = (
   gtmFormHeader?: HeaderProps,
 ) => flowRight(
   withCompoundForm({
-    useGetMenuOptions, name: 'GTM', peer: true, id: 'gtmx',
+    useGetMenuOptions, name: 'GTM', peer: true, id: 'gtm',
   }),
   withGTMFormHeader(gtmFormHeader || defaultGTMFormHeader),
 );

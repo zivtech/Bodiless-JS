@@ -1,3 +1,4 @@
+// @ts-no-check
 /**
  * Copyright © 2020 Johnson & Johnson
  *
@@ -15,50 +16,42 @@
 import { flowRight } from 'lodash';
 import Helmet from 'react-helmet';
 import {
+  withDataLayer,
   asBodilessHelmet,
-  withEvent,
   withGTMForm,
 } from '@bodiless/components';
-import { useEditContext } from '@bodiless/core';
+import {
+  useEditContext,
+} from '@bodiless/core';
 
-const SiteGTMHelmetEvent = flowRight(
-  asBodilessHelmet('datalayer'),
-  // @ts-ignore
-  withEvent(
-    'digitalData',
-    {
-      event: 'Page Loaded',
-      page: {
-        country: 'US',
-        language: 'EN',
-        hostname: 'bodilessjs.com',
-      },
-    },
-    'page-loaded',
-  ),
-)(Helmet);
+const withDataLayerPageType = withDataLayer({
+  name: 'pagetype',
+  label: 'Page Type',
+});
 
 const useGetMenuOptions = () => {
   const context = useEditContext();
+
   return () => ([
     {
-      name: 'gtm',
+      name: 'GTM',
       isHidden: () => !context.isEdit,
-      icon: 'category',
-      label: 'gtm',
+      icon: 'local_offer',
+      label: 'GTM',
     },
   ]);
 };
 
-const GTMFormHeader = {
-  title: 'GTM Data Management',
-  description: `Enter the page level data used for GTM. 
-  This is data needed for GTM that will go in the page header.`,
+const seoFormHeader = {
+  title: 'SEO Data Management',
+  description: `Enter the page level data used for SEO. 
+  This is metadata needed for SEO that will go in the page header.`,
 };
 
-export const GTMHelmetWithForm = flowRight(
-  withGTMForm(useGetMenuOptions, GTMFormHeader),
+const GTMDataLayerHelmet = flowRight(
+  withGTMForm(useGetMenuOptions, seoFormHeader),
   asBodilessHelmet('datalayer'),
+  withDataLayerPageType('page-type'),
 )(Helmet);
 
-export default SiteGTMHelmetEvent;
+export default GTMDataLayerHelmet;

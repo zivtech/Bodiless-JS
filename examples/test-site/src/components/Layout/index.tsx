@@ -18,7 +18,7 @@ import { Div } from '@bodiless/fclasses';
 import Header from './header';
 import Footer from './footer';
 import SeoHelmet from './meta';
-import SiteGTMHelmetEvent, { GTMHelmetWithForm } from './GTM';
+import GTMDataLayerHelmet  from './GTM';
 import { asPageContainer, asYMargin } from '../Elements.token';
 import { asSiteHeader, asSiteFooter } from './token';
 
@@ -34,8 +34,7 @@ const Layout = ({ children } : any) => (
   <>
 
     <SeoHelmet />
-    <GTMHelmetWithForm />
-    <SiteGTMHelmetEvent />
+    <GTMDataLayerHelmet />
     <SiteHeader />
     <Container>
       {children}

@@ -57,7 +57,8 @@ const withMeta$ = (options: Options) => (
   </HelmetComponent>
 );
 
-const withHeadElement = (renderHoc: Function) => (options: Options) => (
+// @todo withHeadElement to its own file.
+export const withHeadElement = (renderHoc: Function) => (options: Options) => (
   nodeKey?: WithNodeKeyProps, defaultContent?: string,
 ) => withSidecarNodes(
   withNodeKey(nodeKey),
