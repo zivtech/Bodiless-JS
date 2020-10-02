@@ -18,7 +18,7 @@ import Helmet from 'react-helmet';
 import {
   withDataLayer,
   asBodilessHelmet,
-  withGTMForm,
+  withMetaForm,
 } from '@bodiless/components';
 import {
   useEditContext,
@@ -48,8 +48,10 @@ const seoFormHeader = {
   This is metadata needed for SEO that will go in the page header.`,
 };
 
+//const withDefaultDataLayer = () => {};
+
 const GTMDataLayerHelmet = flowRight(
-  withGTMForm(useGetMenuOptions, seoFormHeader),
+  withMetaForm(useGetMenuOptions, seoFormHeader),
   asBodilessHelmet('datalayer'),
   withDataLayerPageType('page-type'),
 )(Helmet);
