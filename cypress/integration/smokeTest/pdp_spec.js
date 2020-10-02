@@ -1,3 +1,17 @@
+/**
+ * Copyright © 2020 Johnson & Johnson
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 describe('PDP (Product Details Page) smoke tests', function () {
 
   before(function () {
@@ -26,7 +40,7 @@ describe('PDP (Product Details Page) smoke tests', function () {
   const accordionDirectionsBodyPlaceholderXpath = '//*[@data-accordion-element="accordion"][@aria-label="Directions"]//*[@data-accordion-element="accordion-body"]//*[text()="Enter Product Information"]'
   const bvTextXpath = '//*[@data-product-element="ratings-summary"][text()="Please hover and click to enter Bazaarvoice Product External ID: "]'
   const editBVIconXpath = '//*[@aria-label="Local Context Menu"]/*[@aria-label="Settings"]'
-  const closeBVFormXpath = '//*[@aria-label="Context Menu Settings Form"]/*[@aria-label="Cancel"]'
+  const closeBVFormXpath = '//*[@aria-label="Context Menu Settings Form"]//*[@aria-label="Cancel"]'
   const imagePlaceholderXpath = '//*[@data-product-element="image"]'
   const imageIconXpath = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Image"]'
   const checkmarkIconImageFormXpath = '//form[@aria-label="Context Menu Image Form"]//button[@aria-label="Submit"]'
