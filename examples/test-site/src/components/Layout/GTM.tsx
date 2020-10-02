@@ -1,4 +1,3 @@
-// @ts-no-check
 /**
  * Copyright © 2020 Johnson & Johnson
  *
@@ -29,17 +28,16 @@ const withDataLayerPageType = withDataLayer({
   label: 'Page Type',
 });
 
-const useGetMenuOptions = () => {
+const useMenuOptions = () => {
   const context = useEditContext();
-
-  return () => ([
+  return [
     {
-      name: 'GTM',
-      isHidden: () => !context.isEdit,
+      name: 'gtm',
       icon: 'local_offer',
       label: 'GTM',
+      isHidden: () => !context.isEdit,
     },
-  ]);
+  ];
 };
 
 const seoFormHeader = {
@@ -51,7 +49,7 @@ const seoFormHeader = {
 //const withDefaultDataLayer = () => {};
 
 const GTMDataLayerHelmet = flowRight(
-  withMetaForm(useGetMenuOptions, seoFormHeader),
+  withMetaForm(useMenuOptions, seoFormHeader),
   asBodilessHelmet('datalayer'),
   withDataLayerPageType('page-type', 'foo'),
 )(Helmet);
