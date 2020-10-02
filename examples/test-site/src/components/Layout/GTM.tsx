@@ -16,13 +16,36 @@ import { flowRight } from 'lodash';
 import Helmet from 'react-helmet';
 import {
   withDataLayer,
+  withDefaultDataLayer,
   asBodilessHelmet,
   withMetaForm,
 } from '@bodiless/components';
 import {
   useEditContext,
 } from '@bodiless/core';
+import { addProps } from '@bodiless/fclasses';
 
+const defaultDataLayer = {
+  name: 'DigitalData',
+  events: [
+    {
+      event: 'Page Loaded',
+      page: {
+        country: 'US',
+        language: 'en',
+        hostname: 'www.listerine.com',
+      },
+    },
+    {
+      event: 'Product Viewed',
+      product: [{
+        productInfo: {
+          productCustomAttribute: 'Product Static Value',
+        },
+      }],
+    },
+  ],
+};
 const withDataLayerPageType = withDataLayer({
   name: 'pagetype',
   label: 'Page Type',
@@ -41,16 +64,16 @@ const useMenuOptions = () => {
 };
 
 const seoFormHeader = {
-  title: 'SEO Data Management',
-  description: `Enter the page level data used for SEO. 
-  This is metadata needed for SEO that will go in the page header.`,
+  title: 'GTM Data Management',
+  description: 'Enter the page level data used for DataLayer.',
 };
 
-//const withDefaultDataLayer = () => {};
+// const withDefaultDataLayer = () => {};
 
 const GTMDataLayerHelmet = flowRight(
   withMetaForm(useMenuOptions, seoFormHeader),
   asBodilessHelmet('datalayer'),
+  withDefaultDataLayer(defaultDataLayer),
   withDataLayerPageType('page-type', 'foo'),
 )(Helmet);
 

@@ -17,6 +17,7 @@ import React, { ComponentType as CT, PropsWithChildren } from 'react';
 import { stripIndent } from 'common-tags';
 import { FieldProps } from 'informed';
 import { HelmetProps } from 'react-helmet';
+import { mergeWith } from 'lodash';
 import { withHeadElement } from '../Meta/Meta';
 
 // type GtmEventData = {
@@ -80,14 +81,13 @@ type Options = {
 
 const withDataLayer$ = (options: Options) => (
   HelmetComponent: CT<BaseProps>,
-) => ({ children, content, ...rest }: Props) => {
-  console.log('options', options);
-  console.log('content', content);
+) => (props: any) => {
+  console.log('options', props);
   return (
-    <HelmetComponent {...rest}>
-      {children}
+    <HelmetComponent >
+      {props.children}
       <script>
-        {content}
+        {props.content}
       </script>
     </HelmetComponent>
   );
@@ -95,4 +95,25 @@ const withDataLayer$ = (options: Options) => (
 
 const withDataLayer = withHeadElement(withDataLayer$);
 
+// export const withDefaultDataLayer = (dataLayer: any) => (
+//   HelmetComponent: CT<any>,
+// ) => ({ children, ...rest }: any) => {
+//   console.log('props', children);
+//   console.log('dataLayer', dataLayer);
+//   return (
+//     <HelmetComponent {...dataLayer} {...rest}>
+//       {children}
+//     </HelmetComponent>
+//   );
+// };
+
+/**
+ * HOC that adds properties to a Component
+ * @param propsToAdd
+ */
+export const withDefaultDataLayer = <P extends object, Q extends object>(dataLayer: Q) => (
+  (Component: ComponentType<P>) => (
+    (props: P) => <Component {...dataLayer} {...props} />
+  )
+);
 export default withDataLayer;
