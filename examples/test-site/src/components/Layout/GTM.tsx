@@ -53,7 +53,7 @@ const seoFormHeader = {
 const GTMDataLayerHelmet = flowRight(
   withMetaForm(useGetMenuOptions, seoFormHeader),
   asBodilessHelmet('datalayer'),
-  withDataLayerPageType('page-type'),
+  withDataLayerPageType('page-type', 'foo'),
 )(Helmet);
 
 export default GTMDataLayerHelmet;
