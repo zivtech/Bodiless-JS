@@ -23,11 +23,16 @@ import {
 import {
   useEditContext,
 } from '@bodiless/core';
-import { addProps } from '@bodiless/fclasses';
 
 const defaultDataLayer = {
-  name: 'DigitalData',
-  events: [
+  dataLayerName: 'DigitalData',
+  data: [
+    {
+      foo: 'foo value',
+      bar: {
+        bat: 'baz value',
+      },
+    },
     {
       event: 'Page Loaded',
       page: {
@@ -46,9 +51,18 @@ const defaultDataLayer = {
     },
   ],
 };
+// Add a page type editable field:
 const withDataLayerPageType = withDataLayer({
   name: 'pagetype',
   label: 'Page Type',
+  path: '1.page.pageType',
+});
+
+// Add a product sku editable field:
+const withDataLayerSku = withDataLayer({
+  name: 'sku',
+  label: 'SKU',
+  path: '2.product.1.productInfo.sku',
 });
 
 const useMenuOptions = () => {
@@ -68,13 +82,13 @@ const seoFormHeader = {
   description: 'Enter the page level data used for DataLayer.',
 };
 
-// const withDefaultDataLayer = () => {};
-
 const GTMDataLayerHelmet = flowRight(
   withMetaForm(useMenuOptions, seoFormHeader),
   asBodilessHelmet('datalayer'),
   withDefaultDataLayer(defaultDataLayer),
   withDataLayerPageType('page-type', 'foo'),
+  // adding extra attribute in this fashion is not working
+  withDataLayerSku('product-sku', 'bar'),
 )(Helmet);
 
 export default GTMDataLayerHelmet;

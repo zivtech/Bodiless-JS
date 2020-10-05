@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * Copyright © 2020 Johnson & Johnson
  *
@@ -17,8 +16,8 @@ import React, { ComponentType as CT, PropsWithChildren } from 'react';
 import { stripIndent } from 'common-tags';
 import { FieldProps } from 'informed';
 import { HelmetProps } from 'react-helmet';
-import { mergeWith } from 'lodash';
 import { withHeadElement } from '../Meta/Meta';
+import * as _ from 'lodash';
 
 // type GtmEventData = {
 //   content: string;
@@ -40,34 +39,16 @@ const generateDataLayer = (dataLayer: any, dataLayerName: string) => {
   return stripIndent`${result}`;
 };
 
-// const tagManagerEnabled = (process.env.GOOGLE_TAGMANAGER_ENABLED || '1') === '1';
-// const withEvent = (
-//   dataLayerName: string,
-//   defaultPageData: GtmDefaultPageData,
-//   nodeKey: string,
-//   nodeCollection: string,
-// ) => (HelmetComponent: CT) => (props: any) => {
-//   // @todo: fixme condition for testing.
-//   if ((process.env.NODE_ENV === 'production' && tagManagerEnabled) || 1) {
-//     const { children, ...rest } = props;
-//     const { node } = useNode(nodeCollection);
-//     const { data } = node.child<GtmEventData>(nodeKey);
-//     const merged = _.merge({}, defaultPageData, data);
-//     return (
-//       <HelmetComponent {...rest}>
-//         {children}
-//         <script>{generateDataLayer(merged, dataLayerName)}</script>
-//       </HelmetComponent>
-//     );
-//   }
-//   return <></>;
-// };
-
 type BaseProps = PropsWithChildren<HelmetProps>;
 type Data = {
   content: string;
 };
-type Props = BaseProps & Data;
+export type DataLayer = {
+  dataLayerName: string
+  data?: any,
+};
+
+type Props = BaseProps & Data & DataLayer;
 
 type BasicOptions = {
   name: string;
@@ -75,19 +56,27 @@ type BasicOptions = {
 
 type Options = {
   label: string;
+  path: string;
   useFormElement?: () => CT<FieldProps<any, any>>,
   placeholder?: string;
 } & BasicOptions;
 
 const withDataLayer$ = (options: Options) => (
   HelmetComponent: CT<BaseProps>,
-) => (props: any) => {
-  console.log('options', props);
+) => (props : Props) => {
+  const {
+    dataLayerName, data, children, content,
+  } = props;
+  const { name, path } = options;
+  console.log('props', props);
+  console.log('options', options);
+  _.set(data, path, content);
+  console.log('data', data);
   return (
-    <HelmetComponent >
-      {props.children}
+    <HelmetComponent>
+      {children}
       <script>
-        {props.content}
+        {generateDataLayer(data, dataLayerName)}
       </script>
     </HelmetComponent>
   );
@@ -95,25 +84,13 @@ const withDataLayer$ = (options: Options) => (
 
 const withDataLayer = withHeadElement(withDataLayer$);
 
-// export const withDefaultDataLayer = (dataLayer: any) => (
-//   HelmetComponent: CT<any>,
-// ) => ({ children, ...rest }: any) => {
-//   console.log('props', children);
-//   console.log('dataLayer', dataLayer);
-//   return (
-//     <HelmetComponent {...dataLayer} {...rest}>
-//       {children}
-//     </HelmetComponent>
-//   );
-// };
-
 /**
- * HOC that adds properties to a Component
+ * HOC that adds Default Datalayer to a Component
  * @param propsToAdd
  */
-export const withDefaultDataLayer = <P extends object, Q extends object>(dataLayer: Q) => (
-  (Component: ComponentType<P>) => (
-    (props: P) => <Component {...dataLayer} {...props} />
+export const withDefaultDataLayer = (dataLayer: DataLayer) => (
+  (HelmetComponent: CT<BaseProps>) => (
+    (props: Props) => (<HelmetComponent {...dataLayer} {...props} />)
   )
 );
 export default withDataLayer;
