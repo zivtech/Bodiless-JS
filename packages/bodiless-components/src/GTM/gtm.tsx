@@ -16,8 +16,8 @@ import React, { ComponentType as CT, PropsWithChildren } from 'react';
 import { stripIndent } from 'common-tags';
 import { FieldProps } from 'informed';
 import { HelmetProps } from 'react-helmet';
-import { withHeadElement } from '../Meta/Meta';
 import * as _ from 'lodash';
+import { withHeadElement } from '../Meta/Meta';
 
 // type GtmEventData = {
 //   content: string;
