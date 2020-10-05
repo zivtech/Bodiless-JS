@@ -13,8 +13,7 @@
  */
 
 import React from 'react';
-import Helmet from 'react-helmet';
-import { flow, flowRight } from 'lodash';
+import { flow } from 'lodash';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 import { BVRatingsSummary, BVReviews } from '@bodiless/bv';
