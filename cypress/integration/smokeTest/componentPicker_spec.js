@@ -28,7 +28,8 @@ describe('Component Picker smoke test', function () {
    const allCheckbox = '//*[@id="All"]';
    const allLabel = '//*[@for="All"]';
    const typeLabelArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Type"]';
-   const orientationLabelArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Orientation"]';
+   const orientationExpandArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Orientation"]';
+   const orientationCollapseArrow = '//*[text()="expand_more"]//following-sibling::label[text()="Orientation"]';
    const imageLabelArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Image"]';
    const toutLabelArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Tout Structure"]';
    const arrowFilter = '//*[text()="expand_less"]';
@@ -97,7 +98,7 @@ describe('Component Picker smoke test', function () {
       vertCheckbox + '[not(@disabled)]',
          allLabel,
          typeLabelArrow,
-         orientationLabelArrow,
+         orientationExpandArrow,
          richTextLabel,
          imageLabel,
          toutLabel,
@@ -345,6 +346,18 @@ describe('Component Picker smoke test', function () {
          .should('not.exist');
       cy.xpath(addComponentIconXpath)
          .click();
+      cy.xpath(orientationExpandArrow)
+         .click();
+      [horizCheckbox, vertCheckbox, naCheckbox].forEach((element) => {
+         cy.xpath(element)
+            .should('not.exist');
+      })
+      cy.xpath(orientationCollapseArrow)
+         .click();
+      [horizCheckbox, vertCheckbox, naCheckbox].forEach((element) => {
+         cy.xpath(element)
+            .should('exist');
+      })
       cy.xpath(addComponentIconXpath)
          .click();
       cy.xpath(titleInComponentPicker)
