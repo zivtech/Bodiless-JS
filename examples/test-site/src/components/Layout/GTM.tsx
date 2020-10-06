@@ -20,9 +20,7 @@ import {
   asBodilessHelmet,
   withMetaForm,
 } from '@bodiless/components';
-import {
-  useEditContext,
-} from '@bodiless/core';
+import { useEditContext } from '@bodiless/core';
 
 const defaultDataLayer = {
   dataLayerName: 'DigitalData',
@@ -43,11 +41,13 @@ const defaultDataLayer = {
     },
     {
       event: 'Product Viewed',
-      product: [{
-        productInfo: {
-          productCustomAttribute: 'Product Static Value',
+      product: [
+        {
+          productInfo: {
+            productCustomAttribute: 'Product Static Value',
+          },
         },
-      }],
+      ],
     },
   ],
 };
@@ -62,7 +62,7 @@ const withDataLayerPageType = withDataLayer({
 const withDataLayerSku = withDataLayer({
   name: 'sku',
   label: 'SKU',
-  path: '2.product.1.productInfo.sku',
+  path: '2.product.0.productInfo.sku',
 });
 
 const useMenuOptions = () => {
@@ -86,9 +86,9 @@ const GTMDataLayerHelmet = flowRight(
   withMetaForm(useMenuOptions, seoFormHeader),
   asBodilessHelmet('datalayer'),
   withDefaultDataLayer(defaultDataLayer),
-  withDataLayerPageType('page-type', 'foo'),
   // adding extra attribute in this fashion is not working
   withDataLayerSku('product-sku', 'bar'),
+  withDataLayerPageType('page-type', 'foo'),
 )(Helmet);
 
 export default GTMDataLayerHelmet;

@@ -64,16 +64,17 @@ type Options = {
 const withDataLayer$ = (options: Options) => (
   HelmetComponent: CT<BaseProps>,
 ) => (props : Props) => {
+  // @ts-ignore
   const {
-    dataLayerName, data, children, content,
+    dataLayerName, data, children, content, ...rest
   } = props;
-  const { name, path } = options;
+  const { path } = options;
   console.log('props', props);
   console.log('options', options);
   _.set(data, path, content);
-  console.log('data', data);
+  console.log('content', content);
   return (
-    <HelmetComponent>
+    <HelmetComponent {...rest}>
       {children}
       <script>
         {generateDataLayer(data, dataLayerName)}
