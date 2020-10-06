@@ -20,15 +20,17 @@ describe('Component Picker smoke test', function () {
    })
 
    const pagePath = '/flow-container/';
-   const flowContainer = '//div[text()="Empty FlowContainer"]';
-   const addComponentIconXpath = '//button[@aria-label="Add"]';
-   const itemInComponentPicker = '//div[@class="bl-p-grid-2"]';
+   const searchTerm = 'rich text';
+   const flowContainer = '//*[text()="Empty FlowContainer"]';
+   const addComponentIconXpath = '//*[@aria-label="Add"]';
+   const itemInComponentPicker = '//*[@class="bl-p-grid-2"]';
    const accordionIteminComponentPicker = '//*[@class="bl-p-grid-2"]//*[text()="Accordion Title"]';
    const allCheckbox = '//*[@id="All"]';
    const allLabel = '//*[@for="All"]';
    const typeLabelArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Type"]';
    const orientationLabelArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Orientation"]';
    const imageLabelArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Image"]';
+   const toutLabelArrow = '//*[text()="expand_less"]//following-sibling::label[text()="Tout Structure"]';
    const arrowFilter = '//*[text()="expand_less"]';
    const richTextCheckbox = '//*[@id="Rich Text"]';
    const richTextLabel = '//*[@for="Rich Text"]';
@@ -46,83 +48,164 @@ describe('Component Picker smoke test', function () {
    const horizLabel = '//*[@for="Horizontal"]';
    const vertCheckbox = '//*[@id="Vertical"]';
    const vertLabel = '//*[@for="Vertical"]';
-   const searchField = '//input[@id="Search"][@placeholder="Search"]';
-   const searchTerm = 'rich text';
+   const searchField = '//*[@id="Search"][@placeholder="Search"]';
    const squareCheckbox = '//*[@id="Square"]';
    const squareLabel = '//*[@for="Square"]';
    const landscapeCheckbox = '//*[@id="Landscape"]';
    const landscapeLabel = '//*[@for="Landscape"]';
    const linkableCheckbox = '//*[@id="Linkable"]';
    const linkableLabel = '//*[@for="Linkable"]';
-   const simpleRTEItem = '//*[text()="Simple Rich Text"]//following-sibling::*//i[text()="format_size"]';
-   const basicRTEItem = '//*[text()="Basic Rich Text"]//following-sibling::*//i[text()="format_bold"]';
-   const fullRTEItem = '//*[text()="Full Rich Text"]//following-sibling::*//i[text()="format_quote"]';
+   const withTitleaBodyLabel = '//*[@for="With Title and Body"]';
+   const withCTALabel = '//*[@for="With CTA"]';
+   const noCTALabel = '//*[@for="No CTA"]';
+   const noTitleLabel = '//*[@for="No Title"]';
+   const noBodyLabel = '//*[@for="No Body"]';
+   const noTitleaBodyLabel = '//*[@for="No Title and Body"]';
+   const withTitleaBodyCheckbox = '//*[@id="With Title and Body"]';
+   const withCTACheckbox = '//*[@id="With CTA"]';
+   const noCTACheckbox = '//*[@id="No CTA"]';
+   const noTitleCheckbox = '//*[@id="No Title"]';
+   const noBodyCheckbox = '//*[@id="No Body"]';
+   const noTitleaBodyCheckbox = '//*[@id="No Title and Body"]';
+   const simpleRTEItem = '//*[text()="Simple Rich Text"]//following-sibling::*//*[text()="format_size"]';
+   const basicRTEItem = '//*[text()="Basic Rich Text"]//following-sibling::*//*[text()="format_bold"]';
+   const fullRTEItem = '//*[text()="Full Rich Text"]//following-sibling::*//*[text()="format_quote"]';
    const closeIcon = '//*[text()="cancel"]';
    const titleInComponentPicker = '//h3[text()="Components"]';
 
 
-   it('Component Picker: 1 - checking availability of the Component Picker Filter and Search elements', () => {
+   it('Component Picker: 1 - checking presence of all components by amount', () => {
       cy.xpath(flowContainer)
          .eq(0)
          .click({ force: true });
       cy.xpath(addComponentIconXpath)
          .click();
-      cy.xpath(allCheckbox + '[not(@disabled)]');
-      [allLabel, typeLabelArrow, orientationLabelArrow].forEach((element) => {
-         cy.xpath(element);
-      })
-      cy.xpath(imageLabelArrow)
-         .should('not.exist');
-      cy.xpath(arrowFilter)
-         .should('have.length', 2);
-      [richTextLabel, imageLabel, toutLabel, contentfulLabel, accordionLabel, naLabel,
-         horizLabel, vertLabel, searchField].forEach((element) => {
-            cy.xpath(element);
-         })
-      cy.xpath(richTextCheckbox + '[not(@disabled)]');
-      cy.xpath(imageCheckbox + '[not(@disabled)]');
-      cy.xpath(toutCheckbox + '[not(@disabled)]');
-      cy.xpath(contentfulCheckbox + '[not(@disabled)]');
-      cy.xpath(accordionCheckbox + '[not(@disabled)]');
-      cy.xpath(naCheckbox + '[not(@disabled)]');
-      cy.xpath(horizCheckbox + '[not(@disabled)]');
-      cy.xpath(vertCheckbox + '[not(@disabled)]');
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 24);
    })
 
 
-   it('Component Picker: 2 - checking Component Picker Filter functionality', () => {
+   it('Component Picker: 2 - checking presence of the Filter and Search elements', () => {
+      [allCheckbox + '[not(@disabled)]',
+      richTextCheckbox + '[not(@disabled)]',
+      imageCheckbox + '[not(@disabled)]',
+      toutCheckbox + '[not(@disabled)]',
+      contentfulCheckbox + '[not(@disabled)]',
+      accordionCheckbox + '[not(@disabled)]',
+      naCheckbox + '[not(@disabled)]',
+      horizCheckbox + '[not(@disabled)]',
+      vertCheckbox + '[not(@disabled)]',
+         allLabel,
+         typeLabelArrow,
+         orientationLabelArrow,
+         richTextLabel,
+         imageLabel,
+         toutLabel,
+         contentfulLabel,
+         accordionLabel,
+         naLabel,
+         horizLabel,
+         vertLabel,
+         searchField].forEach((element) => {
+            cy.xpath(element);
+         })
+      cy.xpath(arrowFilter)
+         .should('have.length', 2);
+      cy.xpath(imageLabelArrow)
+         .should('not.exist');
+   })
+
+
+   it('Component Picker: 3 - checking Search functionality - Rich Text', () => {
+      cy.xpath(searchField)
+         .type(searchTerm);
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 3);
+      [itemInComponentPicker + '//*[text()="Simple Rich Text"]',
+      itemInComponentPicker + '//*[text()="Basic Rich Text"]',
+      itemInComponentPicker + '//*[text()="Full Rich Text"]',
+         simpleRTEItem,
+         basicRTEItem,
+         fullRTEItem,
+      richTextCheckbox + '[not(@disabled)]',
+      imageCheckbox + '[@disabled]',
+      toutCheckbox + '[@disabled]',
+      contentfulCheckbox + '[@disabled]',
+      accordionCheckbox + '[@disabled]',
+      naCheckbox + '[not(@disabled)]',
+      horizCheckbox + '[@disabled]',
+      vertCheckbox + '[@disabled]'].forEach((element) => {
+         cy.xpath(element);
+      })
+      cy.xpath(searchField)
+         .clear();
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 24);
+   })
+
+
+   it('Component Picker: 4 - checking Filter functionality - Accordion', () => {
       cy.xpath(accordionCheckbox)
          .click();
       cy.xpath(itemInComponentPicker)
          .should('have.length', 1);
-      cy.xpath(accordionIteminComponentPicker);
-      cy.xpath(richTextCheckbox + '[@disabled]');
-      cy.xpath(imageCheckbox + '[@disabled]');
-      cy.xpath(toutCheckbox + '[@disabled]');
-      cy.xpath(contentfulCheckbox + '[@disabled]');
-      cy.xpath(accordionCheckbox + '[not(@disabled)]');
-      cy.xpath(naCheckbox + '[not(@disabled)]');
-      cy.xpath(horizCheckbox + '[@disabled]');
-      cy.xpath(vertCheckbox + '[@disabled]')
+      cy.xpath(itemInComponentPicker + '//*[text()="Single Accordion"]');
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 1);
+      [accordionIteminComponentPicker,
+         richTextCheckbox + '[@disabled]',
+         imageCheckbox + '[@disabled]',
+         toutCheckbox + '[@disabled]',
+         contentfulCheckbox + '[@disabled]',
+         accordionCheckbox + '[not(@disabled)]',
+         naCheckbox + '[not(@disabled)]',
+         horizCheckbox + '[@disabled]',
+         vertCheckbox + '[@disabled]'].forEach((element) => {
+            cy.xpath(element);
+         })
       cy.xpath(accordionLabel)
          .click();
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 24);
+   })
+
+
+   it('Component Picker: 5 - checking Filter functionality - Image', () => {
       cy.xpath(imageCheckbox)
          .click();
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 4);
+      [itemInComponentPicker + '//*[text()="Square Image"]',
+      itemInComponentPicker + '//*[text()="Landscape Image"]',
+      itemInComponentPicker + '//*[text()="Square Linkable Image"]',
+      itemInComponentPicker + '//*[text()="Landscape Linkable Image"]'].forEach((element) => {
+         cy.xpath(element);
+      })
       cy.xpath(imageLabelArrow)
          .should('exist');
       cy.xpath(arrowFilter)
          .should('have.length', 3);
-      [squareLabel, landscapeLabel, linkableLabel, squareCheckbox + '[not(@disabled)]',
-         landscapeCheckbox + '[not(@disabled)]', linkableCheckbox + '[not(@disabled)]'].forEach((element) => {
+      [squareLabel,
+         landscapeLabel,
+         linkableLabel,
+         squareCheckbox + '[not(@disabled)]',
+         landscapeCheckbox + '[not(@disabled)]',
+         linkableCheckbox + '[not(@disabled)]'].forEach((element) => {
             cy.xpath(element);
          })
       cy.xpath(imageLabel)
          .click();
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 24);
       cy.xpath(imageLabelArrow)
          .should('not.exist');
       cy.xpath(arrowFilter)
          .should('have.length', 2);
-      [squareCheckbox, squareLabel, landscapeCheckbox, landscapeLabel, linkableCheckbox,
+      [squareCheckbox,
+         squareLabel,
+         landscapeCheckbox,
+         landscapeLabel,
+         linkableCheckbox,
          linkableLabel].forEach((element) => {
             cy.xpath(element)
                .should('not.exist');
@@ -130,42 +213,141 @@ describe('Component Picker smoke test', function () {
    })
 
 
-   it('Component Picker: 3 - checking Component Picker Search functionality', () => {
-      cy.xpath(searchField)
-         .type(searchTerm);
+   it('Component Picker: 6 - checking Filter functionality - Contentful Tout', () => {
+      cy.xpath(contentfulCheckbox)
+         .click();
       cy.xpath(itemInComponentPicker)
-         .should('have.length', 3);
-      [simpleRTEItem, basicRTEItem, fullRTEItem].forEach((element) => {
+         .should('have.length', 2);
+      [itemInComponentPicker + '//*[text()="Giving Back To Community"]',
+      itemInComponentPicker + '//*[text()="Want To Learn More?"]'].forEach((element) => {
          cy.xpath(element);
       })
-      cy.xpath(richTextCheckbox + '[not(@disabled)]');
-      cy.xpath(imageCheckbox + '[@disabled]');
-      cy.xpath(toutCheckbox + '[@disabled]');
-      cy.xpath(contentfulCheckbox + '[@disabled]');
-      cy.xpath(accordionCheckbox + '[@disabled]');
-      cy.xpath(naCheckbox + '[not(@disabled)]');
-      cy.xpath(horizCheckbox + '[@disabled]');
-      cy.xpath(vertCheckbox + '[@disabled]');
+      cy.xpath(toutLabelArrow)
+         .should('exist');
+      cy.xpath(arrowFilter)
+         .should('have.length', 3);
+      [withTitleaBodyLabel,
+         withCTALabel,
+         noCTALabel,
+         noTitleLabel,
+         noBodyLabel,
+         noTitleaBodyLabel,
+         withTitleaBodyCheckbox + '[not(@disabled)]',
+         withCTACheckbox + '[not(@disabled)]',
+         noCTACheckbox + '[@disabled]',
+         noTitleCheckbox + '[@disabled]',
+         noBodyCheckbox + '[@disabled]',
+         noTitleaBodyCheckbox + '[@disabled]',
+         toutCheckbox + '[not(@disabled)]',
+         horizCheckbox + '[not(@disabled)]',
+         vertCheckbox + '[@disabled]',
+         naCheckbox + '[@disabled]',
+         richTextCheckbox + '[@disabled]',
+         imageCheckbox + '[@disabled]',
+         accordionCheckbox + '[@disabled]']
+         .forEach((element) => {
+            cy.xpath(element);
+         })
+      cy.xpath(addComponentIconXpath)
+         .click();
    })
 
 
-   it('Component Picker: 4 - checking closing Component Picker form', () => {
+   it('Component Picker: 7 - checking Filter functionality - Tout', () => {
+      cy.xpath(addComponentIconXpath)
+         .click();
+      cy.xpath(toutCheckbox)
+         .click();
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 16);
+      [itemInComponentPicker + '//*[text()="Tout Horizontal With Title and Body With CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Horizontal With Title and Body No CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Horizontal No Title With CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Horizontal No Title No CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Horizontal No Body With CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Horizontal No Body No CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical With Title and Body With CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical With Title and Body No CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical No Title With CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical No Title No CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical No Body With CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical No Body No CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical No Title and Body With CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical No Title and Body No CTA"]',
+      itemInComponentPicker + '//*[text()="Giving Back To Community"]',
+      itemInComponentPicker + '//*[text()="Want To Learn More?"]'].forEach((element) => {
+         cy.xpath(element);
+      })
+      cy.xpath(toutLabelArrow)
+         .should('exist');
+      cy.xpath(arrowFilter)
+         .should('have.length', 3);
+      [withTitleaBodyLabel,
+         withCTALabel,
+         noCTALabel,
+         noTitleLabel,
+         noBodyLabel,
+         noTitleaBodyLabel,
+         withTitleaBodyCheckbox + '[not(@disabled)]',
+         withCTACheckbox + '[not(@disabled)]',
+         noCTACheckbox + '[not(@disabled)]',
+         noTitleCheckbox + '[not(@disabled)]',
+         noBodyCheckbox + '[not(@disabled)]',
+         noTitleaBodyCheckbox + '[not(@disabled)]',
+         contentfulCheckbox + '[not(@disabled)]',
+         horizCheckbox + '[not(@disabled)]',
+         vertCheckbox + '[not(@disabled)]',
+         naCheckbox + '[@disabled]'].forEach((element) => {
+            cy.xpath(element);
+         })
+      cy.xpath(noCTACheckbox)
+         .click();
+      cy.xpath(noTitleCheckbox)
+         .click();
+
+      [withTitleaBodyCheckbox + '[@disabled]',
+      withCTACheckbox + '[@disabled]',
+      noCTACheckbox + '[not(@disabled)]',
+      noTitleCheckbox + '[not(@disabled)]',
+      noBodyCheckbox + '[@disabled]',
+      noTitleaBodyCheckbox + '[@disabled]',
+      contentfulCheckbox + '[@disabled]',
+      horizCheckbox + '[not(@disabled)]',
+      vertCheckbox + '[not(@disabled)]',
+      naCheckbox + '[@disabled]',
+      itemInComponentPicker + '//*[text()="Tout Horizontal No Title No CTA"]',
+      itemInComponentPicker + '//*[text()="Tout Vertical No Title No CTA"]'].forEach((element) => {
+         cy.xpath(element);
+      })
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 2);
+      cy.xpath(horizCheckbox)
+         .click();
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 1);
+      cy.xpath(itemInComponentPicker + '//*[text()="Tout Horizontal No Title No CTA"]');
+      cy.xpath(allCheckbox)
+         .click();
+      cy.xpath(itemInComponentPicker)
+         .should('have.length', 24);
+      cy.xpath(toutLabelArrow)
+         .should('not.exist');
+      //=========== commented out until #557 is fixed ===========
+      // cy.xpath(toutCheckbox)
+      //    .should('not.checked');
+   })
+
+
+   it('Component Picker: 8 - checking closing Component Picker form', () => {
       cy.xpath(closeIcon)
          .click();
       cy.xpath(titleInComponentPicker)
          .should('not.exist');
       cy.xpath(addComponentIconXpath)
          .click();
-      cy.xpath(titleInComponentPicker);
       cy.xpath(addComponentIconXpath)
          .click();
       cy.xpath(titleInComponentPicker)
          .should('not.exist');
    })
-
-   
-   it.skip('Component Picker: 4 - checking availability of all components', () => {
-      //tbc
-   })
-
 })
