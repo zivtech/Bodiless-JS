@@ -15,7 +15,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { flowRight } from 'lodash';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import {
   DefaultContentNode,
   NodeProvider,
