@@ -44,8 +44,8 @@ type Data = {
   content: string;
 };
 export type DataLayer = {
-  dataLayerName: string
-  data?: any,
+  dataLayerName: string;
+  dataLayerData?: any;
 };
 
 type Props = BaseProps & Data & DataLayer;
@@ -57,29 +57,24 @@ type BasicOptions = {
 type Options = {
   label: string;
   path: string;
-  useFormElement?: () => CT<FieldProps<any, any>>,
+  useFormElement?: () => CT<FieldProps<any, any>>;
   placeholder?: string;
 } & BasicOptions;
 
-const withDataLayer$ = (options: Options) => (
-  HelmetComponent: CT<BaseProps>,
-) => (props : Props) => {
-  // @ts-ignore
+const withDataLayer$ = (options: Options) => (HelmetComponent: CT<any>) => (
+  props: Props,
+) => {
   const {
-    dataLayerName, data, children, content, ...rest
+    dataLayerName, dataLayerData, children, content, ...rest
   } = props;
   const { path } = options;
-  console.log('props', props);
-  console.log('options', options);
-  _.set(data, path, content);
-  console.log('content', content);
+  _.set(dataLayerData, path, content);
   return (
-    <HelmetComponent {...rest}>
-      {children}
-      <script>
-        {generateDataLayer(data, dataLayerName)}
-      </script>
-    </HelmetComponent>
+    <HelmetComponent
+      dataLayerName={dataLayerName}
+      dataLayerData={dataLayerData}
+      {...rest}
+    />
   );
 };
 
@@ -89,9 +84,25 @@ const withDataLayer = withHeadElement(withDataLayer$);
  * HOC that adds Default Datalayer to a Component
  * @param propsToAdd
  */
+export const asBodilessDataLayer = (HelmetComponent: CT<any>) => (
+  props: any,
+) => {
+  const {
+    dataLayerData, dataLayerName, children, ...rest
+  } = props;
+  console.log('in as bodiless', props);
+  return (
+    <HelmetComponent {...rest}>
+      {children}
+      <script>{generateDataLayer(dataLayerData, dataLayerName)}</script>
+    </HelmetComponent>
+  );
+};
+/**
+ * HOC that adds Default Datalayer to a Component
+ * @param propsToAdd
+ */
 export const withDefaultDataLayer = (dataLayer: DataLayer) => (
-  (HelmetComponent: CT<BaseProps>) => (
-    (props: Props) => (<HelmetComponent {...dataLayer} {...props} />)
-  )
-);
+  HelmetComponent: CT<BaseProps>,
+) => (props: Props) => <HelmetComponent {...dataLayer} {...props} />;
 export default withDataLayer;

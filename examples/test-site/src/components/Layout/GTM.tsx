@@ -18,13 +18,14 @@ import {
   withDataLayer,
   withDefaultDataLayer,
   asBodilessHelmet,
+  asBodilessDataLayer,
   withMetaForm,
 } from '@bodiless/components';
 import { useEditContext } from '@bodiless/core';
 
 const defaultDataLayer = {
   dataLayerName: 'DigitalData',
-  data: [
+  dataLayerData: [
     {
       foo: 'foo value',
       bar: {
@@ -89,6 +90,7 @@ const GTMDataLayerHelmet = flowRight(
   // adding extra attribute in this fashion is not working
   withDataLayerSku('product-sku', 'bar'),
   withDataLayerPageType('page-type', 'foo'),
+  asBodilessDataLayer,
 )(Helmet);
 
 export default GTMDataLayerHelmet;
