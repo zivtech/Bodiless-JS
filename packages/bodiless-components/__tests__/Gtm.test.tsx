@@ -1,5 +1,5 @@
 /**
- * Copyright © 2020 Johnson & Johnson
+ * Copyright © 2019 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,50 +15,142 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { flowRight } from 'lodash';
-import { shallow } from 'enzyme';
-import withEvent from '../src/GTM/gtm';
+import { shallow, mount } from 'enzyme';
+import {
+  DefaultContentNode,
+  NodeProvider,
+  PageEditContext,
+  useEditContext,
+} from '@bodiless/core';
+import withDataLayer, { withDefaultDataLayer, asBodilessDataLayer } from '../src/GTM/gtm';
 
-const core = require('@bodiless/core');
-
-jest.mock('@bodiless/core');
-
-const setMockNode = (items: any) => {
-  const node = {
-    child: (key: string) => ({
-      data: items[key],
-    }),
+const getMockNode = (data: string) => {
+  const getters = {
+    getNode: jest.fn(() => ({ content: data })),
+    getKeys: jest.fn(),
+    hasError: jest.fn(),
+    getPagePath: jest.fn(() => '/'),
+    getBaseResourcePath: jest.fn(() => '/'),
   };
-  core.useNode.mockReturnValue({ node });
-  return node;
+  const actions = {
+    setNode: jest.fn(),
+    deleteNode: jest.fn(),
+  };
+  return new DefaultContentNode(actions, getters, '');
 };
-process.env.NODE_ENV = 'production';
-const ExampleGTMHelmetEvent = flowRight(
-  withEvent(
-    'digitalData',
+
+class EditOnlyContext extends PageEditContext {
+  // eslint-disable-next-line class-methods-use-this
+  get isEdit() { return true; }
+}
+class NonEditContext extends PageEditContext {
+  // eslint-disable-next-line class-methods-use-this
+  get isEdit() { return false; }
+}
+
+const testDefaultDataLayer = {
+  dataLayerName: 'dataLayer',
+  dataLayerData: [
     {
-      event: 'foo',
-      page: {
-        country: 'US',
-        language: 'EN',
-        hostname: 'bodilessjs.com',
+      foo: 'foo value',
+      bar: {
+        bat: 'bat value',
       },
     },
-    'foo',
-    '',
-  ),
-)(Helmet);
-
-describe('withEvent', () => {
-  it('add a data layer script in the Helmet component', () => {
-    const mockItem = {
-      foo: {
-        page: {
-          pageType: 'pageType',
-        },
+  ],
+};
+describe('DataLayer process', () => {
+  describe('withDataLayer', () => {
+    // dataSet array, to be expendable for future test cases.
+    const dataSet = [
+      {
+        name: 'data1',
+        label: 'Date 1',
+        key: 'data-1',
+        content: 'Page Type',
       },
-    };
-    setMockNode(mockItem);
-    const wrapper = shallow(<ExampleGTMHelmetEvent />);
-    expect(wrapper.childAt(0).type()).toEqual('script');
+    ];
+    it('Add dataLayer data to Helmet', () => {
+      const data = dataSet[0];
+
+      const withDataLayerPageType = withDataLayer({
+        name: data.name,
+        label: data.label,
+        // @ts-ignore
+        path: '0.pageType',
+      });
+
+      const expectedScript = 'window.dataLayer = window.dataLayer || [];window.dataLayer.push([{"foo":"foo value","bar":{"bat":"bat value"},"pageType":"Page Type"}]);';
+      const PageDataLayer = flowRight(
+        withDefaultDataLayer(testDefaultDataLayer),
+        withDataLayerPageType(data.key),
+        asBodilessDataLayer,
+      )(Helmet);
+      const TestDataLayerComponent = () => (
+        <NodeProvider node={getMockNode(data.content)}>
+          <PageDataLayer />
+        </NodeProvider>
+      );
+      const wrapper = mount(<TestDataLayerComponent />);
+      const helmet = Helmet.peek() as any;
+      console.log(helmet);
+      console.log(wrapper.debug());
+      expect(helmet.scriptTags).toHaveLength(1);
+      expect(helmet.scriptTags[0].innerHTML).toBe(expectedScript);
+      // withDataLayer has Sidecar applied.
+      expect(wrapper.find('EndSidecarNodes')).toHaveLength(1);
+      expect(wrapper.find('StartSidecarNodes')).toHaveLength(1);
+      wrapper.unmount();
+    });
+
+    it('adds GTM form snippet when UI is editable', () => {
+      const data = dataSet[0];
+      const withDataLayerPageType = withDataLayer({
+        name: data.name,
+        label: data.label,
+        // @ts-ignore
+        path: '0.pageType',
+      });
+
+      const PageType = flowRight(withDataLayerPageType(data.key))(Helmet);
+      const TestMetaComponent = () => {
+        const oldContext = useEditContext();
+        const newContext = new EditOnlyContext(oldContext);
+        return (
+          <PageEditContext.Provider value={newContext}>
+            <NodeProvider node={getMockNode(data.content)}>
+              <PageType />
+            </NodeProvider>
+          </PageEditContext.Provider>
+        );
+      };
+      const wrapper = mount(<TestMetaComponent />);
+      expect(wrapper.find('WithEditFormSnippet')).toHaveLength(1);
+      wrapper.unmount();
+    });
+
+    it('does NOT add GTM form snippet when UI is not editable', () => {
+      const data = dataSet[0];
+      const withDataLayerPageType = withDataLayer({
+        name: data.name,
+        label: data.label,
+      });
+
+      const PageType = flowRight(withDataLayerPageType(data.key))(Helmet);
+      const TestMetaComponent = () => {
+        const oldContext = useEditContext();
+        const newContext = new NonEditContext(oldContext);
+        return (
+          <PageEditContext.Provider value={newContext}>
+            <NodeProvider node={getMockNode(data.content)}>
+              <PageType />
+            </NodeProvider>
+          </PageEditContext.Provider>
+        );
+      };
+      const wrapper = mount(<TestMetaComponent />);
+      expect(wrapper.find('WithEditFormSnippet')).toHaveLength(0);
+      wrapper.unmount();
+    });
   });
 });

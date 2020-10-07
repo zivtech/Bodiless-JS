@@ -19,26 +19,6 @@ import { HelmetProps } from 'react-helmet';
 import * as _ from 'lodash';
 import { withHeadElement } from '../Meta/Meta';
 
-// type GtmEventData = {
-//   content: string;
-// };
-//
-// type GtmDefaultPageData = {
-//   event: string;
-//   page: object;
-// };
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const generateDataLayer = (dataLayer: any, dataLayerName: string) => {
-  let result = `window.${dataLayerName} = window.${dataLayerName} || [];`;
-
-  if (dataLayer !== undefined) {
-    result += `window.${dataLayerName}.push(${JSON.stringify(dataLayer)});`;
-  }
-
-  return stripIndent`${result}`;
-};
-
 type BaseProps = PropsWithChildren<HelmetProps>;
 type Data = {
   content: string;
@@ -49,6 +29,8 @@ export type DataLayer = {
 };
 
 type Props = BaseProps & Data & DataLayer;
+
+type ItemProps = BaseProps & DataLayer;
 
 type BasicOptions = {
   name: string;
@@ -61,7 +43,17 @@ type Options = {
   placeholder?: string;
 } & BasicOptions;
 
-const withDataLayer$ = (options: Options) => (HelmetComponent: CT<any>) => (
+const generateDataLayer = (dataLayer: any, dataLayerName: string) => {
+  let result = `window.${dataLayerName} = window.${dataLayerName} || [];`;
+
+  if (dataLayer !== undefined) {
+    result += `window.${dataLayerName}.push(${JSON.stringify(dataLayer)});`;
+  }
+
+  return stripIndent`${result}`;
+};
+
+const withDataLayer$ = (options: Options) => (HelmetComponent: CT<ItemProps>) => (
   props: Props,
 ) => {
   const {
@@ -78,19 +70,22 @@ const withDataLayer$ = (options: Options) => (HelmetComponent: CT<any>) => (
   );
 };
 
-const withDataLayer = withHeadElement(withDataLayer$);
-
 /**
  * HOC that adds Default Datalayer to a Component
- * @param propsToAdd
  */
-export const asBodilessDataLayer = (HelmetComponent: CT<any>) => (
-  props: any,
+const withDefaultDataLayer = (dataLayer: DataLayer) => (
+  HelmetComponent: CT<BaseProps>,
+) => (props: Props) => <HelmetComponent {...dataLayer} {...props} />;
+
+/**
+ * Render the dataLayer component.
+ */
+const asBodilessDataLayer = (HelmetComponent: CT<BaseProps>) => (
+  props: Props,
 ) => {
   const {
     dataLayerData, dataLayerName, children, ...rest
   } = props;
-  console.log('in as bodiless', props);
   return (
     <HelmetComponent {...rest}>
       {children}
@@ -98,11 +93,8 @@ export const asBodilessDataLayer = (HelmetComponent: CT<any>) => (
     </HelmetComponent>
   );
 };
-/**
- * HOC that adds Default Datalayer to a Component
- * @param propsToAdd
- */
-export const withDefaultDataLayer = (dataLayer: DataLayer) => (
-  HelmetComponent: CT<BaseProps>,
-) => (props: Props) => <HelmetComponent {...dataLayer} {...props} />;
+
+const withDataLayer = withHeadElement(withDataLayer$);
+
 export default withDataLayer;
+export { asBodilessDataLayer, withDefaultDataLayer };
