@@ -93,8 +93,6 @@ describe('DataLayer process', () => {
       );
       const wrapper = mount(<TestDataLayerComponent />);
       const helmet = Helmet.peek() as any;
-      console.log(helmet);
-      console.log(wrapper.debug());
       expect(helmet.scriptTags).toHaveLength(1);
       expect(helmet.scriptTags[0].innerHTML).toBe(expectedScript);
       // withDataLayer has Sidecar applied.
