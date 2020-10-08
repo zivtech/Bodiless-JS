@@ -15,15 +15,15 @@
 import { flowRight } from 'lodash';
 import Helmet from 'react-helmet';
 import {
-  withDataLayer,
+  withDataLayerItem,
   withDefaultDataLayer,
   asBodilessHelmet,
-  asBodilessDataLayer,
+  withDataLayerScript,
   withMetaForm,
 } from '@bodiless/components';
 import { useEditContext } from '@bodiless/core';
 
-const defaultDataLayer = {
+export const defaultDataLayer = {
   dataLayerName: 'DigitalData',
   dataLayerData: [
     {
@@ -37,33 +37,16 @@ const defaultDataLayer = {
       page: {
         country: 'US',
         language: 'en',
-        hostname: 'www.listerine.com',
+        hostname: 'www.example.com',
       },
-    },
-    {
-      event: 'Product Viewed',
-      product: [
-        {
-          productInfo: {
-            productCustomAttribute: 'Product Static Value',
-          },
-        },
-      ],
     },
   ],
 };
 // Add a page type editable field:
-const withDataLayerPageType = withDataLayer({
+const withDataLayerPageType = withDataLayerItem({
   name: 'pagetype',
   label: 'Page Type',
   path: '1.page.pageType',
-});
-
-// Add a product sku editable field:
-const withDataLayerSku = withDataLayer({
-  name: 'sku',
-  label: 'SKU',
-  path: '2.product.0.productInfo.sku',
 });
 
 const useMenuOptions = () => {
@@ -78,19 +61,17 @@ const useMenuOptions = () => {
   ];
 };
 
-const seoFormHeader = {
+export const gtmFormHeader = {
   title: 'GTM Data Management',
   description: 'Enter the page level data used for DataLayer.',
 };
 
 const GTMDataLayerHelmet = flowRight(
-  withMetaForm(useMenuOptions, seoFormHeader),
+  withMetaForm(useMenuOptions, gtmFormHeader),
   asBodilessHelmet('datalayer'),
   withDefaultDataLayer(defaultDataLayer),
-  // adding extra attribute in this fashion is not working
-  withDataLayerSku('product-sku', 'bar'),
   withDataLayerPageType('page-type', 'foo'),
-  asBodilessDataLayer,
+  withDataLayerScript,
 )(Helmet);
 
 export default GTMDataLayerHelmet;

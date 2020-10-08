@@ -38,7 +38,7 @@ type BasicOptions = {
 
 type Options = {
   label: string;
-  path: string;
+  path?: string;
   useFormElement?: () => CT<FieldProps<any, any>>;
   placeholder?: string;
 } & BasicOptions;
@@ -53,14 +53,17 @@ const generateDataLayer = (dataLayer: any, dataLayerName: string) => {
   return stripIndent`${result}`;
 };
 
-const withDataLayer$ = (options: Options) => (HelmetComponent: CT<ItemProps>) => (
+const withDataLayerItem$ = (options: Options) => (HelmetComponent: CT<ItemProps>) => (
   props: Props,
 ) => {
   const {
     dataLayerName, dataLayerData, children, content, ...rest
   } = props;
   const { path } = options;
-  _.set(dataLayerData, path, content);
+  console.log('path', path);
+  if (path) {
+    _.set(dataLayerData, path, content);
+  }
   return (
     <HelmetComponent
       dataLayerName={dataLayerName}
@@ -80,7 +83,7 @@ const withDefaultDataLayer = (dataLayer: DataLayer) => (
 /**
  * Render the dataLayer component.
  */
-const asBodilessDataLayer = (HelmetComponent: CT<BaseProps>) => (
+const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   props: Props,
 ) => {
   const {
@@ -94,7 +97,7 @@ const asBodilessDataLayer = (HelmetComponent: CT<BaseProps>) => (
   );
 };
 
-const withDataLayer = withHeadElement(withDataLayer$);
+const withDataLayerItem = withHeadElement(withDataLayerItem$);
 
-export default withDataLayer;
-export { asBodilessDataLayer, withDefaultDataLayer };
+export default withDataLayerItem;
+export { withDataLayerScript, withDefaultDataLayer };

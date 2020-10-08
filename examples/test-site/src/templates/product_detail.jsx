@@ -13,7 +13,7 @@
  */
 
 import React from 'react';
-import { flow } from 'lodash';
+import { flow, flowRight } from 'lodash';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 import { BVRatingsSummary, BVReviews } from '@bodiless/bv';
@@ -28,6 +28,15 @@ import {
   AccordionClean,
   asTestableAccordion,
 } from '@bodiless/organisms';
+import {
+  asBodilessHelmet,
+  withDataLayerItem,
+  withDataLayerScript,
+  withDefaultDataLayer,
+  withMetaForm,
+} from '@bodiless/components/src';
+import { useEditContext } from '@bodiless/core/src';
+import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import {
   ProductTitle,
@@ -40,6 +49,81 @@ import {
 import { FlowContainerDefault } from '../components/FlowContainer';
 import { withEditorBasic } from '../components/Editors';
 import asAccordionDefaultStyle from '../components/SingleAccordion/token';
+import { gtmFormHeader } from '../components/Layout/GTM';
+
+// Example of datalayer information on specific for a product page.
+const productDefaultDataLayer = {
+  dataLayerName: 'DigitalData',
+  dataLayerData: [
+    {
+      event: 'Product Viewed',
+      product: [
+        {
+          productInfo: {
+            productCustomAttribute: 'Product Static Value',
+          },
+        },
+      ],
+    },
+  ],
+};
+
+// Override the page Type defined for the default global dataLayer by excluding.
+const withDataLayerPageType = withDataLayerItem({
+  name: 'pagetype',
+  label: 'Page Type',
+});
+
+const withDataLayerSku = withDataLayerItem({
+  name: 'sku',
+  label: 'SKU',
+  path: '0.product.0.productInfo.sku',
+});
+// Add a product sku editable field:
+const withDataLayerUPC = withDataLayerItem({
+  name: 'upc',
+  label: 'Product UPC',
+  path: '0.product.0.productInfo.upc',
+});
+// Add a product sku editable field:
+const withDataLayerProductName = withDataLayerItem({
+  name: 'productName',
+  label: 'Product Name',
+  path: '0.product.0.productInfo.name',
+});
+
+// Add a product sku editable field:
+const withDataLayerProductVariant = withDataLayerItem({
+  name: 'variant',
+  label: 'Product Variant',
+  // The path relevant to you default datalayer defined above.
+  path: '0.product.0.productInfo.variant',
+});
+
+// Define a Menu option to show the GTM UI in the editorial menu:
+const useMenuOptions = () => {
+  const context = useEditContext();
+  return [
+    {
+      name: 'gtm',
+      icon: 'local_offer',
+      label: 'GTM',
+      isHidden: () => !context.isEdit,
+    },
+  ];
+};
+
+const GTMDataLayerProductHelmet = flowRight(
+  withMetaForm(useMenuOptions, gtmFormHeader),
+  asBodilessHelmet('datalayer'),
+  withDefaultDataLayer(productDefaultDataLayer),
+  withDataLayerPageType('page-type', 'foo'),
+  withDataLayerSku('product-sku', 'bar'),
+  withDataLayerUPC('product-upc', 'baz'),
+  withDataLayerProductName('product-name', 'bing'),
+  withDataLayerProductVariant('product-variant', 'bang'),
+  withDataLayerScript,
+)(Helmet);
 
 // Do not allow editors to set accordion titles.
 const NonEditableTitle = ({ producttitle, ...rest }) => (
@@ -97,6 +181,7 @@ const ProductFlowContainer = asTestableFlowContainer(FlowContainerDefault);
 export default (props: any) => (
   <Page {...props}>
     <Layout>
+      <GTMDataLayerProductHelmet />
       <SectionMargin>
         <div className="flex flex-wrap md:items-end md:flex-row-reverse">
           <div className="w-full md:flex-1 md:flex-grow-0 md:flex-shrink-0 text-right"><p>Placeholder_for_Share</p></div>

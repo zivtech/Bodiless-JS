@@ -34,7 +34,7 @@ import {
 import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
 import type { FieldType as MetaFormFieldType } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helmet';
-import withDataLayer, { withDefaultDataLayer, asBodilessDataLayer } from './GTM/gtm';
+import withDataLayerItem, { withDefaultDataLayer, withDataLayerScript } from './GTM/gtm';
 import { withToggle, withToggleTo, withToggleButton } from './Toggle';
 import withEditPlaceholder from './Placeholder';
 import { TagButtonProps, withTagButton, useTagsAccessors } from './TagButton';
@@ -93,9 +93,9 @@ export {
   ifViewportIsNot,
   withMetaForm,
   withMetaSnippet,
-  withDataLayer,
+  withDataLayerItem,
   withDefaultDataLayer,
-  asBodilessDataLayer,
+  withDataLayerScript,
 };
 
 export type {

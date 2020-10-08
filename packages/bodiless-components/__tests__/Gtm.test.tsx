@@ -22,7 +22,7 @@ import {
   PageEditContext,
   useEditContext,
 } from '@bodiless/core';
-import withDataLayer, { withDefaultDataLayer, asBodilessDataLayer } from '../src/GTM/gtm';
+import withDataLayerItem, { withDefaultDataLayer, withDataLayerItemScript } from '../src/GTM/gtm';
 
 const getMockNode = (data: string) => {
   const getters = {
@@ -60,7 +60,7 @@ const testDefaultDataLayer = {
   ],
 };
 describe('DataLayer process', () => {
-  describe('withDataLayer', () => {
+  describe('withDataLayerItem', () => {
     // dataSet array, to be expendable for future test cases.
     const dataSet = [
       {
@@ -73,7 +73,7 @@ describe('DataLayer process', () => {
     it('Add dataLayer data to Helmet', () => {
       const data = dataSet[0];
 
-      const withDataLayerPageType = withDataLayer({
+      const withDataLayerItemPageType = withDataLayerItem({
         name: data.name,
         label: data.label,
         // @ts-ignore
@@ -83,8 +83,8 @@ describe('DataLayer process', () => {
       const expectedScript = 'window.dataLayer = window.dataLayer || [];window.dataLayer.push([{"foo":"foo value","bar":{"bat":"bat value"},"pageType":"Page Type"}]);';
       const PageDataLayer = flowRight(
         withDefaultDataLayer(testDefaultDataLayer),
-        withDataLayerPageType(data.key),
-        asBodilessDataLayer,
+        withDataLayerItemPageType(data.key),
+        withDataLayerItemScript,
       )(Helmet);
       const TestDataLayerComponent = () => (
         <NodeProvider node={getMockNode(data.content)}>
@@ -95,7 +95,7 @@ describe('DataLayer process', () => {
       const helmet = Helmet.peek() as any;
       expect(helmet.scriptTags).toHaveLength(1);
       expect(helmet.scriptTags[0].innerHTML).toBe(expectedScript);
-      // withDataLayer has Sidecar applied.
+      // withDataLayerItem has Sidecar applied.
       expect(wrapper.find('EndSidecarNodes')).toHaveLength(1);
       expect(wrapper.find('StartSidecarNodes')).toHaveLength(1);
       wrapper.unmount();
@@ -103,14 +103,14 @@ describe('DataLayer process', () => {
 
     it('adds GTM form snippet when UI is editable', () => {
       const data = dataSet[0];
-      const withDataLayerPageType = withDataLayer({
+      const withDataLayerItemPageType = withDataLayerItem({
         name: data.name,
         label: data.label,
         // @ts-ignore
         path: '0.pageType',
       });
 
-      const PageType = flowRight(withDataLayerPageType(data.key))(Helmet);
+      const PageType = flowRight(withDataLayerItemPageType(data.key))(Helmet);
       const TestMetaComponent = () => {
         const oldContext = useEditContext();
         const newContext = new EditOnlyContext(oldContext);
@@ -129,12 +129,12 @@ describe('DataLayer process', () => {
 
     it('does NOT add GTM form snippet when UI is not editable', () => {
       const data = dataSet[0];
-      const withDataLayerPageType = withDataLayer({
+      const withDataLayerItemPageType = withDataLayerItem({
         name: data.name,
         label: data.label,
       });
 
-      const PageType = flowRight(withDataLayerPageType(data.key))(Helmet);
+      const PageType = flowRight(withDataLayerItemPageType(data.key))(Helmet);
       const TestMetaComponent = () => {
         const oldContext = useEditContext();
         const newContext = new NonEditContext(oldContext);
