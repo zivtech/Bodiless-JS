@@ -45,9 +45,10 @@ type Options = {
 
 const generateDataLayer = (dataLayer: any, dataLayerName: string) => {
   let result = `window.${dataLayerName} = window.${dataLayerName} || [];`;
-
   if (dataLayer !== undefined) {
-    result += `window.${dataLayerName}.push(${JSON.stringify(dataLayer)});`;
+    dataLayer.forEach((entry: any) => {
+      result += `window.${dataLayerName}.push(${JSON.stringify(entry)});`;
+    });
   }
 
   return stripIndent`${result}`;
