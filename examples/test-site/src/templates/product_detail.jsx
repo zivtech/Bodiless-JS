@@ -29,6 +29,7 @@ import {
   asTestableAccordion,
 } from '@bodiless/organisms';
 import {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   withDataLayerItem,
   withDefaultDataLayer,
 } from '@bodiless/components';
