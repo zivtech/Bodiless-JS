@@ -22,7 +22,7 @@ import {
   addProps,
   withDesign,
   replaceWith,
-  removeClasses, HOC,
+  removeClasses,
 } from '@bodiless/fclasses';
 import {
   AccordionClean,
