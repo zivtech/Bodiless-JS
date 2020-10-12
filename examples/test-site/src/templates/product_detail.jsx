@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  */
 
 import React from 'react';
-import { flow, flowRight } from 'lodash';
+import { flow } from 'lodash';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 import { BVRatingsSummary, BVReviews } from '@bodiless/bv';
@@ -71,51 +71,40 @@ const productDefaultDataLayer = {
 //   // if you are overriding a global item do't add a path
 //   path: '1.page.pageType',
 // });
+//
+// const withDataLayerSku = withDataLayerItem({
+//   name: 'sku',
+//   label: 'SKU',
+//   path: '0.product.0.productInfo.sku',
+// });
+// // Add a product sku editable field:
+// const withDataLayerUPC = withDataLayerItem({
+//   name: 'upc',
+//   label: 'Product UPC',
+//   path: '0.product.0.productInfo.upc',
+// });
+// // Add a product sku editable field:
+// const withDataLayerProductName = withDataLayerItem({
+//   name: 'productName',
+//   label: 'Product Name',
+//   path: '0.product.0.productInfo.name',
+// });
+//
+// // Add a product sku editable field:
+// const withDataLayerProductVariant = withDataLayerItem({
+//   name: 'variant',
+//   label: 'Product Variant',
+//   // The path relevant to you default datalayer defined above.
+//   path: '0.product.0.productInfo.variant',
+// });
 
-const withDataLayerSku = withDataLayerItem({
-  name: 'sku',
-  label: 'SKU',
-  path: '0.product.0.productInfo.sku',
-});
-// Add a product sku editable field:
-const withDataLayerUPC = withDataLayerItem({
-  name: 'upc',
-  label: 'Product UPC',
-  path: '0.product.0.productInfo.upc',
-});
-// Add a product sku editable field:
-const withDataLayerProductName = withDataLayerItem({
-  name: 'productName',
-  label: 'Product Name',
-  path: '0.product.0.productInfo.name',
-});
-
-// Add a product sku editable field:
-const withDataLayerProductVariant = withDataLayerItem({
-  name: 'variant',
-  label: 'Product Variant',
-  // The path relevant to you default datalayer defined above.
-  path: '0.product.0.productInfo.variant',
-});
-// withDataLayerSku('product-sku', 'bar'),
+const GTMDataLayerProductHelmet = withGlobalGTMForm(
+  withDefaultDataLayer(productDefaultDataLayer),
+  // withDataLayerSku('product-sku', 'bar'),
   // withDataLayerUPC('product-upc', 'baz'),
   // withDataLayerProductName('product-name', 'bing'),
   // withDataLayerProductVariant('product-variant', 'bang'),
-const GTMDataLayerProductHelmet = withGlobalGTMForm(
-  withDefaultDataLayer(productDefaultDataLayer),
 )(Helmet);
-
-// const GTMDataLayerProductHelmet = flowRight(
-//   withMetaForm(useMenuOptions, gtmFormHeader),
-//   asBodilessHelmet('datalayer'),
-//   withDefaultDataLayer(productDefaultDataLayer),
-//   withDataLayerPageType('page-type', 'foo'),
-//   withDataLayerSku('product-sku', 'bar'),
-//   withDataLayerUPC('product-upc', 'baz'),
-//   withDataLayerProductName('product-name', 'bing'),
-//   withDataLayerProductVariant('product-variant', 'bang'),
-//   withDataLayerScript,
-// )(Helmet);
 
 // Do not allow editors to set accordion titles.
 const NonEditableTitle = ({ producttitle, ...rest }) => (
