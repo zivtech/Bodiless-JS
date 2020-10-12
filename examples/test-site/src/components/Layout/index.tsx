@@ -34,7 +34,6 @@ const Layout = ({ children } : any) => (
   <>
 
     <SeoHelmet />
-    <GTMDataLayerHelmet />
     <SiteHeader />
     <Container>
       {children}

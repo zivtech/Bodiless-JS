@@ -61,6 +61,7 @@ const withDataLayerItem$ = (options: Options) => (HelmetComponent: CT<ItemProps>
     dataLayerName, dataLayerData, children, content, ...rest
   } = props;
   const { path } = options;
+  console.log('datalayer data', dataLayerData);
   console.log('path', path);
   if (path) {
     _.set(dataLayerData, path, content);
@@ -79,7 +80,10 @@ const withDataLayerItem$ = (options: Options) => (HelmetComponent: CT<ItemProps>
  */
 const withDefaultDataLayer = (dataLayer: DataLayer) => (
   HelmetComponent: CT<BaseProps>,
-) => (props: Props) => <HelmetComponent {...dataLayer} {...props} />;
+) => (props: Props) => {
+  console.log('default data layer', dataLayer);
+  return (<HelmetComponent {...dataLayer} {...props} />);
+};
 
 /**
  * Render the dataLayer component.
@@ -90,6 +94,7 @@ const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   const {
     dataLayerData, dataLayerName, children, ...rest
   } = props;
+  console.log('with datalayer script', dataLayerData);
   return (
     <HelmetComponent {...rest}>
       {children}

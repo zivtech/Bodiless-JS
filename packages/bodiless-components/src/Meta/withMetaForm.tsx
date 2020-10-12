@@ -13,9 +13,9 @@
  */
 
 import React, { ComponentType as CT } from 'react';
-import { flowRight } from 'lodash';
 import { v1 } from 'uuid';
 import {
+  ifEditable,
   useMenuOptionUI, useRegisterSnippet, withCompoundForm, withEditFormSnippet,
 } from '@bodiless/core';
 import type { FormSnippet, TMenuOption } from '@bodiless/core';
@@ -42,7 +42,7 @@ export type MetaSnippetOptions = {
 
 export const withMetaSnippet = (
   options: MetaSnippetOptions,
-) => withEditFormSnippet({
+) => ifEditable(withEditFormSnippet({
   renderForm: () => {
     const {
       name, label, placeholder, useFormElement,
@@ -66,7 +66,7 @@ export const withMetaSnippet = (
     const initialValues = { [name]: values.content };
     return nextInitialValuesHandler ? nextInitialValuesHandler(initialValues) : initialValues;
   },
-});
+}));
 
 const withMetaFormHeader = (headerProps: HeaderProps | undefined) => (Component: CT) => {
   const metaHeaderSnippet: FormSnippet<any> = {
@@ -99,7 +99,7 @@ const defaultMetaFormHeader = {
 const withMetaForm = (
   useMenuOptions: (props: any) => TMenuOption[],
   metaFormHeader?: HeaderProps,
-) => flowRight(
+) => ifEditable(
   withCompoundForm({
     useMenuOptions, name: 'Meta', peer: true,
   }),

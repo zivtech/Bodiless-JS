@@ -15,11 +15,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
+import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import { FlowContainerDefault } from '../components/FlowContainer';
+import { withGlobalGTMForm } from '../components/GTM';
+
+const DefaultPageGTMDataLayerHelmet = withGlobalGTMForm()(Helmet);
 
 export default props => (
   <Page {...props}>
+    <DefaultPageGTMDataLayerHelmet />
     <Layout>
       <FlowContainerDefault nodeKey="page" />
     </Layout>

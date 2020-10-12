@@ -22,21 +22,18 @@ import {
   addProps,
   withDesign,
   replaceWith,
-  removeClasses,
+  removeClasses, HOC,
 } from '@bodiless/fclasses';
 import {
   AccordionClean,
   asTestableAccordion,
 } from '@bodiless/organisms';
 import {
-  asBodilessHelmet,
   withDataLayerItem,
-  withDataLayerScript,
   withDefaultDataLayer,
-  withMetaForm,
-} from '@bodiless/components/src';
-import { useEditContext } from '@bodiless/core/src';
+} from '@bodiless/components';
 import Helmet from 'react-helmet';
+import { withGlobalGTMForm } from '../components/GTM';
 import Layout from '../components/Layout';
 import {
   ProductTitle,
@@ -49,7 +46,6 @@ import {
 import { FlowContainerDefault } from '../components/FlowContainer';
 import { withEditorBasic } from '../components/Editors';
 import asAccordionDefaultStyle from '../components/SingleAccordion/token';
-import { gtmFormHeader } from '../components/Layout/GTM';
 
 // Example of datalayer information on specific for a product page.
 const productDefaultDataLayer = {
@@ -68,11 +64,13 @@ const productDefaultDataLayer = {
   ],
 };
 
-// Override the page Type defined for the default global dataLayer by excluding.
-const withDataLayerPageType = withDataLayerItem({
-  name: 'pagetype',
-  label: 'Page Type',
-});
+// // Override the page Type defined for the default global dataLayer by excluding.
+// const withDataLayerPageType = withDataLayerItem({
+//   name: 'pagetype',
+//   label: 'Page Type',
+//   // if you are overriding a global item do't add a path
+//   path: '1.page.pageType',
+// });
 
 const withDataLayerSku = withDataLayerItem({
   name: 'sku',
@@ -99,31 +97,25 @@ const withDataLayerProductVariant = withDataLayerItem({
   // The path relevant to you default datalayer defined above.
   path: '0.product.0.productInfo.variant',
 });
-
-// Define a Menu option to show the GTM UI in the editorial menu:
-const useMenuOptions = () => {
-  const context = useEditContext();
-  return [
-    {
-      name: 'gtm',
-      icon: 'local_offer',
-      label: 'GTM',
-      isHidden: () => !context.isEdit,
-    },
-  ];
-};
-
-const GTMDataLayerProductHelmet = flowRight(
-  withMetaForm(useMenuOptions, gtmFormHeader),
-  asBodilessHelmet('datalayer'),
+// withDataLayerSku('product-sku', 'bar'),
+  // withDataLayerUPC('product-upc', 'baz'),
+  // withDataLayerProductName('product-name', 'bing'),
+  // withDataLayerProductVariant('product-variant', 'bang'),
+const GTMDataLayerProductHelmet = withGlobalGTMForm(
   withDefaultDataLayer(productDefaultDataLayer),
-  withDataLayerPageType('page-type', 'foo'),
-  withDataLayerSku('product-sku', 'bar'),
-  withDataLayerUPC('product-upc', 'baz'),
-  withDataLayerProductName('product-name', 'bing'),
-  withDataLayerProductVariant('product-variant', 'bang'),
-  withDataLayerScript,
 )(Helmet);
+
+// const GTMDataLayerProductHelmet = flowRight(
+//   withMetaForm(useMenuOptions, gtmFormHeader),
+//   asBodilessHelmet('datalayer'),
+//   withDefaultDataLayer(productDefaultDataLayer),
+//   withDataLayerPageType('page-type', 'foo'),
+//   withDataLayerSku('product-sku', 'bar'),
+//   withDataLayerUPC('product-upc', 'baz'),
+//   withDataLayerProductName('product-name', 'bing'),
+//   withDataLayerProductVariant('product-variant', 'bang'),
+//   withDataLayerScript,
+// )(Helmet);
 
 // Do not allow editors to set accordion titles.
 const NonEditableTitle = ({ producttitle, ...rest }) => (
