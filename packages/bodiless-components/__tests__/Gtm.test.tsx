@@ -22,7 +22,7 @@ import {
   PageEditContext,
   useEditContext,
 } from '@bodiless/core';
-import withDataLayerItem, { withDefaultDataLayer, withDataLayerItemScript } from '../src/GTM/gtm';
+import withDataLayerItem, { withDefaultDataLayer, withDataLayerScript } from '../src/GTM/gtm';
 
 const getMockNode = (data: string) => {
   const getters = {
@@ -80,11 +80,11 @@ describe('DataLayer process', () => {
         path: '0.pageType',
       });
 
-      const expectedScript = 'window.dataLayer = window.dataLayer || [];window.dataLayer.push([{"foo":"foo value","bar":{"bat":"bat value"},"pageType":"Page Type"}]);';
+      const expectedScript = 'window.dataLayer = window.dataLayer || [];window.dataLayer.push({"foo":"foo value","bar":{"bat":"bat value"},"pageType":"Page Type"});';
       const PageDataLayer = flowRight(
         withDefaultDataLayer(testDefaultDataLayer),
         withDataLayerItemPageType(data.key),
-        withDataLayerItemScript,
+        withDataLayerScript,
       )(Helmet);
       const TestDataLayerComponent = () => (
         <NodeProvider node={getMockNode(data.content)}>
