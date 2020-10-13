@@ -61,8 +61,6 @@ const withDataLayerItem$ = (options: Options) => (HelmetComponent: CT<ItemProps>
     dataLayerName, dataLayerData, children, content, ...rest
   } = props;
   const { path } = options;
-  console.log('datalayer data', dataLayerData);
-  console.log('path', path);
   if (path) {
     _.set(dataLayerData, path, content);
   }
@@ -85,8 +83,11 @@ const withDefaultDataLayer = (dataLayer: DataLayer) => (
   const { dataLayerData, ...rest } = props;
   console.log('current', dataLayerData);
   if (dataLayerData !== undefined) {
-    // eslint-disable-next-line no-param-reassign
-    dataLayer.dataLayerData = dataLayerData.concat(dataLayer.dataLayerData);
+    _.set(
+      dataLayer,
+      'dataLayerData',
+      _.union(dataLayerData, dataLayer.dataLayerData),
+    );
   }
   console.log('In with Default DataLayer', dataLayer);
   return (<HelmetComponent {...dataLayer} {...rest} />);
