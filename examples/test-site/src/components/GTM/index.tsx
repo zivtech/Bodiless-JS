@@ -62,9 +62,9 @@ export const gtmFormHeader = {
   description: 'Enter the page level data used for DataLayer.',
 };
 /**
- * An HOC to be used to define and re-use global GTM/DataLayer form and data.
+ * An HOC to be used to define a reusable global GTM/DataLayer form and script.
  * @param hocs array
- *   An array of HOCs to act on the helmet component.
+ *   An array of HOCs to act on the helmet component before it renders.
  */
 const withGlobalGTMForm = (...hocs: HOC[]) => flowRight(
   withMetaForm(useMenuOptions, gtmFormHeader),

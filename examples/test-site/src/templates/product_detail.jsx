@@ -48,7 +48,7 @@ import { FlowContainerDefault } from '../components/FlowContainer';
 import { withEditorBasic } from '../components/Editors';
 import asAccordionDefaultStyle from '../components/SingleAccordion/token';
 
-// Example of datalayer information on specific for a product page.
+// Example of datalayer information specific for a product page.
 const productDefaultDataLayer = {
   dataLayerName: 'DigitalData',
   dataLayerData: [
@@ -64,35 +64,46 @@ const productDefaultDataLayer = {
     },
   ],
 };
+
+// Define a product UPC editable field to be added to the GTM form.
 const withDataLayerSku = withDataLayerItem({
   name: 'sku',
   label: 'SKU',
-  // The path relevant the default dataLayer which is constructed
-  // from the product default and the global default.
+  // The path relevant the default dataLayer which is a union of page or
+  // product level data and the global site data. In this example, the product
+  // data are added to the global data array at index 2 hence the 2.product...
   path: '2.product.0.productInfo.sku',
 });
-// Add a product sku editable field:
+
+// Define a product UPC editable field to be added to the GTM form.
 const withDataLayerUPC = withDataLayerItem({
   name: 'upc',
   label: 'Product UPC',
   path: '2.product.0.productInfo.upc',
 });
-// Add a product sku editable field:
+
+// Define a product Name editable field to be added to the GTM form.
 const withDataLayerProductName = withDataLayerItem({
   name: 'productName',
   label: 'Product Name',
   path: '2.product.0.productInfo.name',
 });
 
-// Add a product sku editable field:
+// Define a product variant editable field to be added to the GTM form.
 const withDataLayerProductVariant = withDataLayerItem({
   name: 'variant',
   label: 'Product Variant',
   path: '2.product.0.productInfo.variant',
 });
 
+/**
+ *  A helmet Component containing google datalayer script which, in edit mode
+ *   makes given fields editable so site editors can update their values.
+ *   The use of withGlobalGTMForm allows us to add extra fields and data to what is already defined globaly.
+ */
 const GTMDataLayerProductHelmet = withGlobalGTMForm(
   withDefaultDataLayer(productDefaultDataLayer),
+  // Exposes a SKU field in the GTM form with default content 'bar'.
   withDataLayerSku('product-sku', 'bar'),
   withDataLayerUPC('product-upc', 'baz'),
   withDataLayerProductName('product-name', 'bing'),

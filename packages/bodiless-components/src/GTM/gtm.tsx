@@ -79,17 +79,10 @@ const withDataLayerItem$ = (options: Options) => (HelmetComponent: CT<ItemProps>
 const withDefaultDataLayer = (dataLayer: DataLayer) => (
   HelmetComponent: CT<BaseProps>,
 ) => (props: Props) => {
-  console.log('default data layer', dataLayer);
-  const { dataLayerData, ...rest } = props;
-  console.log('current', dataLayerData);
-  if (dataLayerData !== undefined) {
-    _.set(
-      dataLayer,
-      'dataLayerData',
-      _.union(dataLayerData, dataLayer.dataLayerData),
-    );
+  const { dataLayerData: defaultData, ...rest } = props;
+  if (defaultData !== undefined) {
+    _.set(dataLayer, 'dataLayerData', _.union(defaultData, dataLayer.dataLayerData));
   }
-  console.log('In with Default DataLayer', dataLayer);
   return (<HelmetComponent {...dataLayer} {...rest} />);
 };
 
