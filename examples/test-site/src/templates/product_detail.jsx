@@ -64,47 +64,39 @@ const productDefaultDataLayer = {
     },
   ],
 };
+const withDataLayerSku = withDataLayerItem({
+  name: 'sku',
+  label: 'SKU',
+  // The path relevant the default dataLayer which is constructed
+  // from the product default and the global default.
+  path: '2.product.0.productInfo.sku',
+});
+// Add a product sku editable field:
+const withDataLayerUPC = withDataLayerItem({
+  name: 'upc',
+  label: 'Product UPC',
+  path: '2.product.0.productInfo.upc',
+});
+// Add a product sku editable field:
+const withDataLayerProductName = withDataLayerItem({
+  name: 'productName',
+  label: 'Product Name',
+  path: '2.product.0.productInfo.name',
+});
 
-// // Override the page Type defined for the default global dataLayer by excluding.
-// const withDataLayerPageType = withDataLayerItem({
-//   name: 'pagetype',
-//   label: 'Page Type',
-//   // if you are overriding a global item do't add a path
-//   path: '1.page.pageType',
-// });
-//
-// const withDataLayerSku = withDataLayerItem({
-//   name: 'sku',
-//   label: 'SKU',
-//   path: '0.product.0.productInfo.sku',
-// });
-// // Add a product sku editable field:
-// const withDataLayerUPC = withDataLayerItem({
-//   name: 'upc',
-//   label: 'Product UPC',
-//   path: '0.product.0.productInfo.upc',
-// });
-// // Add a product sku editable field:
-// const withDataLayerProductName = withDataLayerItem({
-//   name: 'productName',
-//   label: 'Product Name',
-//   path: '0.product.0.productInfo.name',
-// });
-//
-// // Add a product sku editable field:
-// const withDataLayerProductVariant = withDataLayerItem({
-//   name: 'variant',
-//   label: 'Product Variant',
-//   // The path relevant to you default datalayer defined above.
-//   path: '0.product.0.productInfo.variant',
-// });
+// Add a product sku editable field:
+const withDataLayerProductVariant = withDataLayerItem({
+  name: 'variant',
+  label: 'Product Variant',
+  path: '2.product.0.productInfo.variant',
+});
 
 const GTMDataLayerProductHelmet = withGlobalGTMForm(
   withDefaultDataLayer(productDefaultDataLayer),
-  // withDataLayerSku('product-sku', 'bar'),
-  // withDataLayerUPC('product-upc', 'baz'),
-  // withDataLayerProductName('product-name', 'bing'),
-  // withDataLayerProductVariant('product-variant', 'bang'),
+  withDataLayerSku('product-sku', 'bar'),
+  withDataLayerUPC('product-upc', 'baz'),
+  withDataLayerProductName('product-name', 'bing'),
+  withDataLayerProductVariant('product-variant', 'bang'),
 )(Helmet);
 
 // Do not allow editors to set accordion titles.

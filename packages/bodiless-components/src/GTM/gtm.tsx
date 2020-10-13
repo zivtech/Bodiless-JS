@@ -82,7 +82,14 @@ const withDefaultDataLayer = (dataLayer: DataLayer) => (
   HelmetComponent: CT<BaseProps>,
 ) => (props: Props) => {
   console.log('default data layer', dataLayer);
-  return (<HelmetComponent {...dataLayer} {...props} />);
+  const { dataLayerData, ...rest } = props;
+  console.log('current', dataLayerData);
+  if (dataLayerData !== undefined) {
+    // eslint-disable-next-line no-param-reassign
+    dataLayer.dataLayerData = dataLayerData.concat(dataLayer.dataLayerData);
+  }
+  console.log('In with Default DataLayer', dataLayer);
+  return (<HelmetComponent {...dataLayer} {...rest} />);
 };
 
 /**
