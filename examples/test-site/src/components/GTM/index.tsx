@@ -22,6 +22,7 @@ import {
   withMetaForm,
 } from '@bodiless/components';
 
+// Define the global dataLayer default data.
 export const defaultDataLayer = {
   dataLayerName: 'DigitalData',
   dataLayerData: [
@@ -41,14 +42,18 @@ export const defaultDataLayer = {
     },
   ],
 };
-// Add a page type editable field:
+
+// Add a page type editable field which value will be injected in the default
+// dataLayer defined above at a given path.
 const withDataLayerPageType = withDataLayerItem({
   name: 'pagetype',
   label: 'Page Type',
-  // @ts-ignore
   path: '1.page.pageType',
 });
 
+// Define the menu item that would show when the site is in edit mode so that
+// a site builder can enter the values of the fields defined by withDataLayerItem
+// withDataLayerItem as shown above.
 const useMenuOptions = () => [
   {
     name: 'gtm',
@@ -57,14 +62,21 @@ const useMenuOptions = () => [
   },
 ];
 
+// Define the form Title and description.
 export const gtmFormHeader = {
   title: 'GTM Data Management',
   description: 'Enter the page level data used for DataLayer.',
 };
+
 /**
- * An HOC to be used to define a reusable global GTM/DataLayer form and script.
+*
+ * Utility hoc to add a reusable global GTM/DataLayer form and data to a helmet
+ * component.
+ *
  * @param hocs array
  *   An array of HOCs to act on the helmet component before it renders.
+ *
+ * @return An HOC which will add the the DataLayer properties.
  */
 const withGlobalGTMForm = (...hocs: HOC[]) => flowRight(
   withMetaForm(useMenuOptions, gtmFormHeader),

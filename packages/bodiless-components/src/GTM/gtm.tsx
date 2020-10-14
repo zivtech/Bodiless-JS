@@ -43,6 +43,14 @@ type Options = {
   placeholder?: string;
 } & BasicOptions;
 
+/**
+ * Generate the dataLayer script.
+ *
+ * @param {any} dataLayer - The dataLayer Object.
+ * @param {string} dataLayerName - The dataLayer name.
+ *
+ * Return {string} - Datalayer script.
+ */
 const generateDataLayer = (dataLayer: any, dataLayerName: string) => {
   let result = `window.${dataLayerName} = window.${dataLayerName} || [];`;
   if (dataLayer !== undefined) {
@@ -87,7 +95,9 @@ const withDefaultDataLayer = (dataLayer: DataLayer) => (
 };
 
 /**
- * Render the dataLayer component.
+ * An HOC that renders the dataLayer scrip.
+ *
+ * @param HelmetComponent
  */
 const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   props: Props,
@@ -95,7 +105,6 @@ const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   const {
     dataLayerData, dataLayerName, children, ...rest
   } = props;
-  console.log('with datalayer script', dataLayerData);
   return (
     <HelmetComponent {...rest}>
       {children}
