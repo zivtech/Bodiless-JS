@@ -47,11 +47,11 @@ import { FlowContainerDefault } from '../components/FlowContainer';
 import { withEditorBasic } from '../components/Editors';
 import asAccordionDefaultStyle from '../components/SingleAccordion/token';
 
-// Example of datalayer information specific for a product page.
+// Define the global dataLayer default data.
 const productDefaultDataLayer = {
   dataLayerName: 'DigitalData',
-  dataLayerData: [
-    {
+  dataLayerData: {
+    productObject: {
       event: 'Product Viewed',
       product: [
         {
@@ -61,7 +61,7 @@ const productDefaultDataLayer = {
         },
       ],
     },
-  ],
+  },
 };
 
 // Define a product UPC editable field to be added to the GTM form.
@@ -71,28 +71,28 @@ const withDataLayerSku = withDataLayerItem({
   // The path relevant the default dataLayer which is a union of page or
   // product level data and the global site data. In this example, the product
   // data are added to the global data array at index 2 hence the 2.product...
-  path: '2.product.0.productInfo.sku',
+  path: 'productObject.product.0.productInfo.sku',
 });
 
 // Define a product UPC editable field to be added to the GTM form.
 const withDataLayerUPC = withDataLayerItem({
   name: 'upc',
   label: 'Product UPC',
-  path: '2.product.0.productInfo.upc',
+  path: 'productObject.product.0.productInfo.upc',
 });
 
 // Define a product Name editable field to be added to the GTM form.
 const withDataLayerProductName = withDataLayerItem({
   name: 'productName',
   label: 'Product Name',
-  path: '2.product.0.productInfo.name',
+  path: 'productObject.product.0.productInfo.name',
 });
 
 // Define a product variant editable field to be added to the GTM form.
 const withDataLayerProductVariant = withDataLayerItem({
   name: 'variant',
   label: 'Product Variant',
-  path: '2.product.0.productInfo.variant',
+  path: 'productObject.product.0.productInfo.variant',
 });
 
 /**

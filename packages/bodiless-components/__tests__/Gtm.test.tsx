@@ -50,14 +50,14 @@ class NonEditContext extends PageEditContext {
 
 const testDefaultDataLayer = {
   dataLayerName: 'dataLayer',
-  dataLayerData: [
-    {
+  dataLayerData: {
+    customKey: {
       foo: 'foo value',
       bar: {
         bat: 'bat value',
       },
     },
-  ],
+  },
 };
 describe('DataLayer process', () => {
   describe('withDataLayerItem', () => {
@@ -77,7 +77,7 @@ describe('DataLayer process', () => {
         name: data.name,
         label: data.label,
         // @ts-ignore
-        path: '0.pageType',
+        path: 'customKey.pageType',
       });
 
       const expectedScript = 'window.dataLayer = window.dataLayer || [];window.dataLayer.push({"foo":"foo value","bar":{"bat":"bat value"},"pageType":"Page Type"});';
@@ -95,9 +95,6 @@ describe('DataLayer process', () => {
       const helmet = Helmet.peek() as any;
       expect(helmet.scriptTags).toHaveLength(1);
       expect(helmet.scriptTags[0].innerHTML).toBe(expectedScript);
-      // withDataLayerItem has Sidecar applied.
-      expect(wrapper.find('EndSidecarNodes')).toHaveLength(1);
-      expect(wrapper.find('StartSidecarNodes')).toHaveLength(1);
       wrapper.unmount();
     });
 

@@ -31,14 +31,14 @@ import Helmet from 'react-helmet';
 // Define the global dataLayer default data.
 export const defaultDataLayer = {
   dataLayerName: 'DigitalData',
-  dataLayerData: [
-    {
+  dataLayerData: {
+    firstObject: {
       foo: 'foo value',
       bar: {
         bat: 'baz value',
       },
     },
-    {
+    secondObject: {
       event: 'Page Loaded',
       page: {
         country: 'US',
@@ -46,15 +46,17 @@ export const defaultDataLayer = {
         hostname: 'www.example.com',
       },
     },
-  ],
+  },
 };
+
+// Define the global dataLayer default data.
 
 // Add a page type editable field which value will be injected in the default
 // dataLayer defined above at a given path.
 const withDataLayerPageType = withDataLayerItem({
   name: 'pagetype',
   label: 'Page Type',
-  path: '1.page.pageType',
+  path: 'secondObject.page.pageType',
 });
 
 // Define the menu item that shows when the site is in edit mode.

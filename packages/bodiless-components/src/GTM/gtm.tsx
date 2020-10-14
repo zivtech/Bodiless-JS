@@ -54,7 +54,7 @@ type Options = {
 const generateDataLayer = (dataLayer: any, dataLayerName: string) => {
   let result = `window.${dataLayerName} = window.${dataLayerName} || [];`;
   if (dataLayer !== undefined) {
-    dataLayer.forEach((entry: any) => {
+    Object.values(dataLayer).forEach((entry: any) => {
       result += `window.${dataLayerName}.push(${JSON.stringify(entry)});`;
     });
   }
@@ -89,7 +89,7 @@ const withDefaultDataLayer = (dataLayer: DataLayer) => (
 ) => (props: Props) => {
   const { dataLayerData: defaultData, ...rest } = props;
   if (defaultData !== undefined) {
-    _.set(dataLayer, 'dataLayerData', _.union(defaultData, dataLayer.dataLayerData));
+    _.set(dataLayer, 'dataLayerData', { ...defaultData, ...dataLayer.dataLayerData });
   }
   return (<HelmetComponent {...dataLayer} {...rest} />);
 };
