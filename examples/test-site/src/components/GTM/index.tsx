@@ -12,6 +12,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file Example definition of a global GTM Datalayer Component with editable
+ * fields.
+ */
+
 import { flowRight } from 'lodash';
 import { HOC } from '@bodiless/fclasses';
 import {
@@ -51,9 +56,7 @@ const withDataLayerPageType = withDataLayerItem({
   path: '1.page.pageType',
 });
 
-// Define the menu item that would show when the site is in edit mode so that
-// a site builder can enter the values of the fields defined by withDataLayerItem
-// withDataLayerItem as shown above.
+// Define the menu item that shows when the site is in edit mode.
 const useMenuOptions = () => [
   {
     name: 'gtm',
