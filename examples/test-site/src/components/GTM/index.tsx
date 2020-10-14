@@ -26,6 +26,7 @@ import {
   withDataLayerScript,
   withMetaForm,
 } from '@bodiless/components';
+import Helmet from 'react-helmet';
 
 // Define the global dataLayer default data.
 export const defaultDataLayer = {
@@ -90,4 +91,7 @@ const withGlobalGTMForm = (...hocs: HOC[]) => flowRight(
   withDataLayerScript,
 );
 
+const DefaultPageGTMDataLayerHelmet = withGlobalGTMForm()(Helmet);
+
 export { withGlobalGTMForm };
+export default DefaultPageGTMDataLayerHelmet;

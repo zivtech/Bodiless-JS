@@ -25,6 +25,7 @@ import {
 import Layout from '../../components/Layout';
 import { FluidGatsbyImage } from '../../components/Image';
 import { FlowContainerDefault } from '../../components/FlowContainer';
+import DefaultPageGTMDataLayerHelmet from '../../components/GTM';
 
 const HOME_PAGE_PATH = 'homepage';
 
@@ -43,6 +44,7 @@ const EditableBulletPoints = flow(
 
 const HomePage = (props: any) => (
   <Page {...props}>
+    <DefaultPageGTMDataLayerHelmet />
     <Layout>
       <div className="flex my-3">
         <FluidGatsbyImage className="w-full" nodeKey="header_image" />
