@@ -17,6 +17,7 @@ import { stripIndent } from 'common-tags';
 import { FieldProps } from 'informed';
 import { HelmetProps } from 'react-helmet';
 import * as _ from 'lodash';
+import { useEditContext } from '@bodiless/core';
 import { withHeadElement } from '../Meta/Meta';
 
 type BaseProps = PropsWithChildren<HelmetProps>;
@@ -94,6 +95,7 @@ const withDefaultDataLayer = (dataLayer: DataLayer) => (
   return (<HelmetComponent {...dataLayer} {...rest} />);
 };
 
+const tagManagerEnabled = (process.env.GOOGLE_TAGMANAGER_ENABLED || '1') === '1';
 /**
  * An HOC that renders the dataLayer scrip.
  *
@@ -102,9 +104,14 @@ const withDefaultDataLayer = (dataLayer: DataLayer) => (
 const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   props: Props,
 ) => {
+  const { isEdit } = useEditContext();
+  if (!tagManagerEnabled || isEdit) {
+    return (<></>);
+  }
   const {
     dataLayerData, dataLayerName, children, ...rest
   } = props;
+
   return (
     <HelmetComponent {...rest}>
       {children}
