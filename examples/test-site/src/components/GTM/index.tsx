@@ -70,8 +70,8 @@ const useMenuOptions = () => [
 
 // Define the form Title and description.
 export const gtmFormHeader = {
-  title: 'GTM Data Management',
-  description: 'Enter the page level data used for DataLayer.',
+  title: 'Google Tag Manager',
+  description: 'Enter the page level metadata that will be used with Google Tag Manager.',
 };
 
 /**

@@ -67,7 +67,7 @@ const productDefaultDataLayer = {
 // Define a product UPC editable field to be added to the GTM form.
 const withDataLayerSku = withDataLayerItem({
   name: 'sku',
-  label: 'SKU',
+  label: 'Product SKU',
   // The path relevant the default dataLayer which is a union of page or
   // product level data and the global site data. In this example, the product
   // data are added to the global data array at index 2 hence the 2.product...
@@ -91,7 +91,7 @@ const withDataLayerProductName = withDataLayerItem({
 // Define a product variant editable field to be added to the GTM form.
 const withDataLayerProductVariant = withDataLayerItem({
   name: 'variant',
-  label: 'Product Variant',
+  label: 'Product Variant Name',
   path: 'productObject.product.0.productInfo.variant',
 });
 
