@@ -97,9 +97,11 @@ const withDataLayerProductVariant = withDataLayerItem({
 });
 
 /**
- *  A helmet Component containing google datalayer script which, in edit mode
- *   makes given fields editable so site editors can update their values.
- *   The use of withGlobalGTMForm allows us to add extra fields and data to what is already defined globaly.
+ * A helmet Component containing datalayer script. In edit mode, it shows a form
+ * to edit the values for sku, upc, product name, product variant respectively.
+ *
+ * The use of withGlobalGTMForm allows us to retain the global datalayer script
+ * and only add product information to it.
  */
 const GTMDataLayerProductHelmet = withGlobalGTMForm(
   withDefaultDataLayer(productDefaultDataLayer),
