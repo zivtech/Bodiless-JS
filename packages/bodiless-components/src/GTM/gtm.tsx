@@ -14,11 +14,10 @@
 
 import React, { ComponentType as CT, PropsWithChildren } from 'react';
 import { stripIndent } from 'common-tags';
-import { FieldProps } from 'informed';
 import { HelmetProps } from 'react-helmet';
 import * as _ from 'lodash';
-import { useEditContext } from '@bodiless/core';
-import { withHeadElement } from '../Meta/Meta';
+import { useEditContext, WithNodeKeyProps } from '@bodiless/core';
+import { withHeadElement, Options as BaseOptions } from '../Meta/Meta';
 
 type BaseProps = PropsWithChildren<HelmetProps>;
 type Data = {
@@ -33,16 +32,9 @@ type Props = BaseProps & Data & DataLayer;
 
 type ItemProps = BaseProps & DataLayer;
 
-type BasicOptions = {
-  name: string;
+type Options = BaseOptions & {
+  path: string
 };
-
-type Options = {
-  label: string;
-  path?: string;
-  useFormElement?: () => CT<FieldProps<any, any>>;
-  placeholder?: string;
-} & BasicOptions;
 
 /**
  * Generate the dataLayer script.
@@ -120,7 +112,12 @@ const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   );
 };
 
-const withDataLayerItem = withHeadElement(withDataLayerItem$);
+const withDataLayerItem: (
+  options: Options,
+) => (
+  nodeKey?: WithNodeKeyProps,
+  defaultContent?: string,
+) => (...args: any[]) => any = withHeadElement(withDataLayerItem$);
 
 export default withDataLayerItem;
 export { withDataLayerScript, withDefaultDataLayer };

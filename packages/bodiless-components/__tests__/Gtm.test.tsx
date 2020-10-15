@@ -76,7 +76,6 @@ describe('DataLayer process', () => {
       const withDataLayerItemPageType = withDataLayerItem({
         name: data.name,
         label: data.label,
-        // @ts-ignore
         path: 'customKey.pageType',
       });
 
@@ -103,7 +102,6 @@ describe('DataLayer process', () => {
       const withDataLayerItemPageType = withDataLayerItem({
         name: data.name,
         label: data.label,
-        // @ts-ignore
         path: '0.pageType',
       });
 
@@ -129,6 +127,8 @@ describe('DataLayer process', () => {
       const withDataLayerItemPageType = withDataLayerItem({
         name: data.name,
         label: data.label,
+        path: '0.pageType',
+
       });
 
       const PageType = flowRight(withDataLayerItemPageType(data.key))(Helmet);
