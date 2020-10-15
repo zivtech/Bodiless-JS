@@ -17,7 +17,6 @@ import { stripIndent } from 'common-tags';
 import { HelmetProps } from 'react-helmet';
 import * as _ from 'lodash';
 import { useEditContext } from '@bodiless/core';
-import { HOC } from '@bodiless/fclasses';
 import { withHeadElement, Options as BaseOptions } from '../Meta/Meta';
 
 type BaseProps = PropsWithChildren<HelmetProps>;
