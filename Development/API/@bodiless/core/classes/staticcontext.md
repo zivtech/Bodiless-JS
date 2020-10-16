@@ -54,7 +54,7 @@
 
 • **allMenuOptions**: *never[]* = []
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L79)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L79)*
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[areLocalTooltipsDisabled](../interfaces/pageeditcontextinterface.md#arelocaltooltipsdisabled)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L24)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L24)*
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[contextMenuOptions](../interfaces/pageeditcontextinterface.md#contextmenuoptions)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L50)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L50)*
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[hasLocalMenu](../interfaces/pageeditcontextinterface.md#haslocalmenu)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L32)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L32)*
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[id](../interfaces/pageeditcontextinterface.md#readonly-id)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L54)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L54)*
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[isActive](../interfaces/pageeditcontextinterface.md#isactive)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L28)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L28)*
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[isEdit](../interfaces/pageeditcontextinterface.md#isedit)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L40)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L40)*
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[isInnermost](../interfaces/pageeditcontextinterface.md#isinnermost)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L30)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L30)*
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[isInnermostLocalMenu](../interfaces/pageeditcontextinterface.md#isinnermostlocalmenu)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L56)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L56)*
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[isPositionToggled](../interfaces/pageeditcontextinterface.md#ispositiontoggled)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L44)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L44)*
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[name](../interfaces/pageeditcontextinterface.md#readonly-name)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L52)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L52)*
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[parent](../interfaces/pageeditcontextinterface.md#optional-readonly-parent)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L22)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L22)*
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[peerContexts](../interfaces/pageeditcontextinterface.md#readonly-peercontexts)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L48)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L48)*
 
 ## Methods
 
@@ -182,7 +182,7 @@ ___
 
 ▸ **activate**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L34)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L34)*
 
 **Returns:** *undefined*
 
@@ -192,7 +192,7 @@ ___
 
 ▸ **getMenuOptions**(): *never[]*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L63)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L63)*
 
 **Returns:** *never[]*
 
@@ -202,7 +202,7 @@ ___
 
 ▸ **hidePageOverlay**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L67)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L67)*
 
 **Returns:** *undefined*
 
@@ -212,7 +212,7 @@ ___
 
 ▸ **refresh**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L38)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L38)*
 
 **Returns:** *undefined*
 
@@ -222,7 +222,7 @@ ___
 
 ▸ **registerPeer**(): *void*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L75)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L75)*
 
 **Returns:** *void*
 
@@ -232,7 +232,7 @@ ___
 
 ▸ **showError**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L69)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L69)*
 
 **Returns:** *undefined*
 
@@ -242,7 +242,7 @@ ___
 
 ▸ **showPageOverlay**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L65)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L65)*
 
 **Returns:** *undefined*
 
@@ -252,7 +252,7 @@ ___
 
 ▸ **spawn**(): *[PageEditContextInterface](../interfaces/pageeditcontextinterface.md)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L73)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L73)*
 
 **Returns:** *[PageEditContextInterface](../interfaces/pageeditcontextinterface.md)*
 
@@ -262,7 +262,7 @@ ___
 
 ▸ **toggleEdit**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L42)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L42)*
 
 **Returns:** *undefined*
 
@@ -272,7 +272,7 @@ ___
 
 ▸ **toggleLocalTooltipsDisabled**(): *void*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L26)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L26)*
 
 **Returns:** *void*
 
@@ -282,7 +282,7 @@ ___
 
 ▸ **togglePosition**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L46)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L46)*
 
 **Returns:** *undefined*
 
@@ -292,7 +292,7 @@ ___
 
 ▸ **unregisterPeer**(): *void*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L77)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L77)*
 
 **Returns:** *void*
 
@@ -302,7 +302,7 @@ ___
 
 ▸ **updateMenuOptions**(): *undefined*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L36)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L36)*
 
 **Returns:** *undefined*
 
@@ -314,13 +314,13 @@ ___
 
 *Implementation of [PageEditContextInterface](../interfaces/pageeditcontextinterface.md).[pageOverlay](../interfaces/pageeditcontextinterface.md#pageoverlay)*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L58)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L58)*
 
 ###  data
 
 • **data**: *object*
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L59)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L59)*
 
 #### Type declaration:
 
@@ -328,4 +328,4 @@ ___
 
 • **timeoutId**: *number* = 0
 
-*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/17b4c71/packages/bodiless-core/src/components/StaticPage.tsx#L60)*
+*Defined in [packages/bodiless-core/src/components/StaticPage.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-core/src/components/StaticPage.tsx#L60)*

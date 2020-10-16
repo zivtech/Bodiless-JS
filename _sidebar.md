@@ -14,6 +14,7 @@
     - [Link](/Components/Link)
     - [Image](/Components/Image)
     - [Flow Container](/Components/FlowContainer)
+    - [Tout](/Components/Tout)
     - [Embed](/Components/Embed)
     - [Carousel](/Components/Carousel)
     - [Filter By Group](/Components/FilterByGroup)
