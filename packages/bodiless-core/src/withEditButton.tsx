@@ -121,11 +121,11 @@ const withEditButton = <P extends object, D extends object>(
     : withMenuOptions({
       useMenuOptions: createMenuOptionHook(options),
       name: options.name,
-      peer: (options as EditButtonOptions<P, D>).peer,	
     });
   return flowRight(
     withMenuOptions$,
     withoutProps(['setComponentData', 'isActive']),
   );
+};
 
 export default withEditButton;
