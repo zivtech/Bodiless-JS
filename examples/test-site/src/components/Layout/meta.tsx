@@ -24,7 +24,6 @@ import {
 } from '@bodiless/components';
 import {
   useMenuOptionUI,
-  useEditContext,
 } from '@bodiless/core';
 
 const withMetaPageTitle = withTitle({
@@ -54,13 +53,11 @@ const withMetaCountry = withMetaStatic({
 });
 
 const useMenuOptions = () => {
-  const context = useEditContext();
   return [
     {
       name: 'seo',
       icon: 'category',
       label: 'SEO',
-      isHidden: () => !context.isEdit,
     },
   ];
 };
