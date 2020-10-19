@@ -42,7 +42,7 @@ export type MetaSnippetOptions = {
 
 export const withMetaSnippet = (
   options: MetaSnippetOptions,
-) => ifEditable(withEditFormSnippet({
+) => withEditFormSnippet({
   renderForm: () => {
     const {
       name, label, placeholder, useFormElement,
@@ -66,7 +66,7 @@ export const withMetaSnippet = (
     const initialValues = { [name]: values.content };
     return nextInitialValuesHandler ? nextInitialValuesHandler(initialValues) : initialValues;
   },
-}));
+});
 
 const withMetaFormHeader = (headerProps: HeaderProps | undefined) => (Component: CT) => {
   const metaHeaderSnippet: FormSnippet<any> = {
@@ -99,11 +99,11 @@ const defaultMetaFormHeader = {
 const withMetaForm = (
   useMenuOptions: (props: any) => TMenuOption[],
   metaFormHeader?: HeaderProps,
-) => ifEditable(
+) => (
   withCompoundForm({
     useMenuOptions, name: 'Meta', peer: true,
   }),
-  withMetaFormHeader(metaFormHeader || defaultMetaFormHeader),
+  withMetaFormHeader(metaFormHeader || defaultMetaFormHeader)
 );
 
 export default withMetaForm;
