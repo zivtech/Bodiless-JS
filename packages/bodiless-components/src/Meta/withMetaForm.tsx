@@ -99,11 +99,11 @@ const defaultMetaFormHeader = {
 const withMetaForm = (
   useMenuOptions: (props: any) => TMenuOption[],
   metaFormHeader?: HeaderProps,
-) => (
+) => ifEditable(
   withCompoundForm({
     useMenuOptions, name: 'Meta', peer: true,
   }),
-  withMetaFormHeader(metaFormHeader || defaultMetaFormHeader)
+  withMetaFormHeader(metaFormHeader || defaultMetaFormHeader),
 );
 
 export default withMetaForm;
