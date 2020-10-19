@@ -19,6 +19,7 @@
 
 import { flowRight } from 'lodash';
 import { HOC } from '@bodiless/fclasses';
+import Helmet from 'react-helmet';
 import {
   withDataLayerItem,
   withDefaultDataLayer,
@@ -26,7 +27,6 @@ import {
   withDataLayerScript,
   withMetaForm,
 } from '@bodiless/components';
-import Helmet from 'react-helmet';
 
 // Define the global dataLayer default data.
 export const defaultDataLayer = {
@@ -49,8 +49,6 @@ export const defaultDataLayer = {
   },
 };
 
-// Define the global dataLayer default data.
-
 // Add a page type editable field which value will be injected in the default
 // dataLayer defined above at a given path.
 const withDataLayerPageType = withDataLayerItem({
@@ -69,7 +67,7 @@ const useMenuOptions = () => [
 ];
 
 // Define the form Title and description.
-export const gtmFormHeader = {
+const gtmFormHeader = {
   title: 'Google Tag Manager',
   description: 'Enter the page level metadata that will be used with Google Tag Manager.',
 };

@@ -52,15 +52,13 @@ const withMetaCountry = withMetaStatic({
   name: 'bl-country',
 });
 
-const useMenuOptions = () => {
-  return [
-    {
-      name: 'seo',
-      icon: 'category',
-      label: 'SEO',
-    },
-  ];
-};
+const useMenuOptions = () => [
+  {
+    name: 'seo',
+    icon: 'category',
+    label: 'SEO',
+  },
+];
 
 const seoFormHeader = {
   title: 'SEO Data Management',

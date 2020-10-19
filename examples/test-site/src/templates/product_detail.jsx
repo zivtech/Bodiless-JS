@@ -68,9 +68,9 @@ const productDefaultDataLayer = {
 const withDataLayerSku = withDataLayerItem({
   name: 'sku',
   label: 'Product SKU',
-  // The path relevant the default dataLayer which is a union of page or
-  // product level data and the global site data. In this example, the product
-  // data are added to the global data array at index 2 hence the 2.product...
+  // The path relevant the product dataLayer defined above note.
+  // 'productObject.product.0.productInfo.sku' will add the SKU at
+  // productObject.product[0].productInfo.sku
   path: 'productObject.product.0.productInfo.sku',
 });
 
