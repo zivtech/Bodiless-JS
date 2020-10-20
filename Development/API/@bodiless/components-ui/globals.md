@@ -39,7 +39,7 @@
 
 Ƭ **HOC**: *function*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L48)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L48)*
 
 #### Type declaration:
 
@@ -57,7 +57,7 @@ Name | Type |
 
 • **Image**: *any* = asBodilessImage()(Img)
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:107](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L107)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:107](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L107)*
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 • **Input**: *any* = withForwardedRef()('input')
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L69)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L69)*
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 • **MasterWrapper**: *FunctionComponent‹HTMLProps‹HTMLElement› & object›* = addClasses('bl-container')(Section)
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L58)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L58)*
 
 ___
 
@@ -88,7 +88,7 @@ ___
   ),
 )('div')
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L60)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L60)*
 
 ## Functions
 
@@ -96,7 +96,7 @@ ___
 
 ▸ **DragRejected**(): *Element‹›*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L77)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L77)*
 
 **Returns:** *Element‹›*
 
@@ -106,7 +106,7 @@ ___
 
 ▸ **UploadArea**(): *Element‹›*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L71)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L71)*
 
 **Returns:** *Element‹›*
 
@@ -116,7 +116,7 @@ ___
 
 ▸ **UploadFinished**(): *Element‹›*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L84)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L84)*
 
 **Returns:** *Element‹›*
 
@@ -126,7 +126,7 @@ ___
 
 ▸ **UploadStatus**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L85)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L85)*
 
 **Parameters:**
 
@@ -144,7 +144,7 @@ ___
 
 ▸ **UploadTimeout**(): *Element‹›*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L80)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L80)*
 
 **Returns:** *Element‹›*
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **Uploading**(): *Element‹›*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L83)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L83)*
 
 **Returns:** *Element‹›*
 
@@ -164,7 +164,7 @@ ___
 
 ▸ **asBodilessImage**(`nodeKey?`: undefined | string): *function*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L101)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L101)*
 
 **Parameters:**
 
@@ -188,7 +188,7 @@ ___
 
 ▸ **withForwardedRef**(...`hocs`: [HOC](globals.md#hoc)[]): *function*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L52)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L52)*
 
 **Parameters:**
 
@@ -212,7 +212,7 @@ ___
 
 ▸ **withForwardedRefEnd**(`Component`: ComponentType‹any›): *WithForwardedRefEnd*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L40)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L40)*
 
 **Parameters:**
 
@@ -228,7 +228,7 @@ ___
 
 ▸ **withForwardedRefStart**(`Component`: ComponentType‹any›): *ForwardRefExoticComponent‹RefAttributes‹unknown››*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L32)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L32)*
 
 **Parameters:**
 
@@ -244,7 +244,7 @@ ___
 
 ▸ **withUI**(`ui`: TImagePickerUI): *function*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L99)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L99)*
 
 **Parameters:**
 
@@ -276,58 +276,58 @@ Name | Type |
 
 ### ▪ **imagePickerUI**: *object*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L87)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L87)*
 
 ###  DragRejected
 
 • **DragRejected**: *[DragRejected](globals.md#const-dragrejected)*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L93)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L93)*
 
 ###  Input
 
 • **Input**: *any*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L90)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L90)*
 
 ###  MasterWrapper
 
 • **MasterWrapper**: *FunctionComponent‹HTMLProps‹HTMLElement› & object›*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L88)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L88)*
 
 ###  UploadArea
 
 • **UploadArea**: *[UploadArea](globals.md#const-uploadarea)*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L91)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L91)*
 
 ###  UploadFinished
 
 • **UploadFinished**: *[UploadFinished](globals.md#const-uploadfinished)*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:95](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L95)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:95](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L95)*
 
 ###  UploadStatus
 
 • **UploadStatus**: *[UploadStatus](globals.md#const-uploadstatus)*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L96)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L96)*
 
 ###  UploadTimeout
 
 • **UploadTimeout**: *[UploadTimeout](globals.md#const-uploadtimeout)*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L94)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L94)*
 
 ###  Uploading
 
 • **Uploading**: *[Uploading](globals.md#const-uploading)*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L92)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L92)*
 
 ###  Wrapper
 
 • **Wrapper**: *any*
 
-*Defined in [packages/bodiless-components-ui/src/Image.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a9dcb8a/packages/bodiless-components-ui/src/Image.tsx#L89)*
+*Defined in [packages/bodiless-components-ui/src/Image.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/bodiless-components-ui/src/Image.tsx#L89)*
