@@ -16,7 +16,7 @@ import React, { ComponentType as CT, PropsWithChildren } from 'react';
 import { stripIndent } from 'common-tags';
 import { HelmetProps } from 'react-helmet';
 import * as _ from 'lodash';
-import { useEditContext } from '@bodiless/core';
+import { useEditContext, WithNodeKeyProps } from '@bodiless/core';
 import { withHeadElement, Options as BaseOptions } from '../Meta/Meta';
 
 type BaseProps = PropsWithChildren<HelmetProps>;
@@ -112,9 +112,12 @@ const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   );
 };
 
-const withDataLayerItem: (options: Options) => Function = withHeadElement(
-  withDataLayerItem$,
-);
+const withDataLayerItem: (
+  options: Options,
+) => (
+  nodeKey?: WithNodeKeyProps,
+  defaultContent?: string,
+) => (...args: any[]) => any = withHeadElement(withDataLayerItem$);
 
 export default withDataLayerItem;
 export { withDataLayerScript, withDefaultDataLayer };
