@@ -26,7 +26,6 @@ import {
   withDataLayerScript,
   withMetaForm, withDataLayerItem,
 } from '@bodiless/components';
-import { asStatic } from '@bodiless/core';
 
 // Define the global dataLayer default data.
 export const defaultDataLayer = {
