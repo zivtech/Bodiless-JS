@@ -97,7 +97,7 @@ const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   props: Props,
 ) => {
   const { isEdit } = useEditContext();
-  if (!tagManagerEnabled || isEdit) {
+  if (!tagManagerEnabled || isEdit || process.env.NODE_ENV !== 'production') {
     return (<></>);
   }
   const {

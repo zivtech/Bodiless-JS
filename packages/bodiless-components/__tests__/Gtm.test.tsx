@@ -71,6 +71,7 @@ describe('DataLayer process', () => {
       },
     ];
     it('Add dataLayer data to Helmet', () => {
+      process.env.NODE_ENV = 'production';
       const data = dataSet[0];
 
       const withDataLayerItemPageType = withDataLayerItem({

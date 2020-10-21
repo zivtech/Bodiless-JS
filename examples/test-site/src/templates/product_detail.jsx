@@ -33,7 +33,7 @@ import {
   withDefaultDataLayer,
 } from '@bodiless/components';
 import Helmet from 'react-helmet';
-import { withGlobalGTMForm } from '../components/GTM';
+import { withGlobalGTMForm, withDataLayerPageType } from '../components/GTM';
 import Layout from '../components/Layout';
 import {
   ProductTitle,
@@ -53,17 +53,19 @@ const productDefaultDataLayer = {
   dataLayerData: {
     productObject: {
       event: 'Product Viewed',
-      product: [
-        {
-          productInfo: {
-            productCustomAttribute: 'Product Static Value',
-          },
-        },
-      ],
     },
   },
 };
 
+// Define a product UPC editable field to be added to the GTM form.
+const withDataLayerProductID = withDataLayerItem({
+  name: 'id',
+  label: 'Product ID',
+  // The path relevant the product dataLayer defined above note.
+  // 'productObject.product.0.productInfo.sku' will add the SKU at
+  // productObject.product[0].productInfo.sku
+  path: 'productObject.product.0.productInfo.productID',
+});
 // Define a product UPC editable field to be added to the GTM form.
 const withDataLayerSku = withDataLayerItem({
   name: 'sku',
@@ -85,7 +87,7 @@ const withDataLayerUPC = withDataLayerItem({
 const withDataLayerProductName = withDataLayerItem({
   name: 'productName',
   label: 'Product Name',
-  path: 'productObject.product.0.productInfo.name',
+  path: 'productObject.product.0.productInfo.productName',
 });
 
 // Define a product variant editable field to be added to the GTM form.
@@ -104,11 +106,13 @@ const withDataLayerProductVariant = withDataLayerItem({
  */
 const GTMDataLayerProductHelmet = withGlobalGTMForm(
   withDefaultDataLayer(productDefaultDataLayer),
+  withDataLayerPageType('page-type', 'Product'),
+  withDataLayerProductID('product-id'),
   // Exposes a SKU field in the GTM form with default content 'bar'.
-  withDataLayerSku('product-sku', 'bar'),
-  withDataLayerUPC('product-upc', 'baz'),
-  withDataLayerProductName('product-name', 'bing'),
-  withDataLayerProductVariant('product-variant', 'bang'),
+  withDataLayerSku('product-sku'),
+  withDataLayerUPC('product-upc'),
+  withDataLayerProductName('product-name'),
+  withDataLayerProductVariant('product-variant'),
 )(Helmet);
 
 // Do not allow editors to set accordion titles.

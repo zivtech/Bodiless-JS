@@ -21,12 +21,12 @@ import { flowRight } from 'lodash';
 import { HOC } from '@bodiless/fclasses';
 import Helmet from 'react-helmet';
 import {
-  withDataLayerItem,
   withDefaultDataLayer,
   asBodilessHelmet,
   withDataLayerScript,
-  withMetaForm,
+  withMetaForm, withDataLayerItem,
 } from '@bodiless/components';
+import { asStatic } from '@bodiless/core';
 
 // Define the global dataLayer default data.
 export const defaultDataLayer = {
@@ -49,14 +49,6 @@ export const defaultDataLayer = {
   },
 };
 
-// Add a page type editable field which value will be injected in the default
-// dataLayer defined above at a given path.
-const withDataLayerPageType = withDataLayerItem({
-  name: 'pagetype',
-  label: 'Page Type',
-  path: 'secondObject.page.pageType',
-});
-
 // Define the menu item that shows when the site is in edit mode.
 const useMenuOptions = () => [
   {
@@ -72,6 +64,14 @@ const gtmFormHeader = {
   description: 'Enter the page level metadata that will be used with Google Tag Manager.',
 };
 
+// Add a page type editable field which value will be injected in the default
+// dataLayer defined above at a given path.
+const withDataLayerPageType = withDataLayerItem({
+  name: 'pagetype',
+  label: 'Page Type',
+  path: 'secondObject.page.pageType',
+});
+
 /**
 *
  * Utility hoc to add a reusable global GTM/DataLayer form and data to a helmet
@@ -86,12 +86,11 @@ const withGlobalGTMForm = (...hocs: HOC[]) => flowRight(
   withMetaForm(useMenuOptions, gtmFormHeader),
   asBodilessHelmet('datalayer'),
   withDefaultDataLayer(defaultDataLayer),
-  withDataLayerPageType('page-type', 'foo'),
   ...hocs,
   withDataLayerScript,
 );
 
 const DefaultPageGTMDataLayerHelmet = withGlobalGTMForm()(Helmet);
 
-export { withGlobalGTMForm };
+export { withGlobalGTMForm, withDataLayerPageType };
 export default DefaultPageGTMDataLayerHelmet;
