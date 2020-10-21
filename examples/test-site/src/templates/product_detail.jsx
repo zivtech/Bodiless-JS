@@ -47,7 +47,7 @@ import { FlowContainerDefault } from '../components/FlowContainer';
 import { withEditorBasic } from '../components/Editors';
 import asAccordionDefaultStyle from '../components/SingleAccordion/token';
 
-// Define the global dataLayer default data.
+// Define the product dataLayer default data.
 const productDefaultDataLayer = {
   dataLayerName: 'DigitalData',
   dataLayerData: {
@@ -66,6 +66,7 @@ const withDataLayerProductID = withDataLayerItem({
   // productObject.product[0].productInfo.sku
   path: 'productObject.product.0.productInfo.productID',
 });
+
 // Define a product UPC editable field to be added to the GTM form.
 const withDataLayerSku = withDataLayerItem({
   name: 'sku',
@@ -90,6 +91,12 @@ const withDataLayerProductName = withDataLayerItem({
   path: 'productObject.product.0.productInfo.productName',
 });
 
+// Define a product category editable field to be added to the GTM form.
+const withDataLayerCategory = withDataLayerItem({
+  name: 'category',
+  label: 'Product Category',
+  path: 'productObject.product.0.productInfo.category',
+});
 // Define a product variant editable field to be added to the GTM form.
 const withDataLayerProductVariant = withDataLayerItem({
   name: 'variant',
@@ -108,10 +115,10 @@ const GTMDataLayerProductHelmet = withGlobalGTMForm(
   withDefaultDataLayer(productDefaultDataLayer),
   withDataLayerPageType('page-type', 'Product'),
   withDataLayerProductID('product-id'),
-  // Exposes a SKU field in the GTM form with default content 'bar'.
   withDataLayerSku('product-sku'),
   withDataLayerUPC('product-upc'),
   withDataLayerProductName('product-name'),
+  withDataLayerCategory('product-category'),
   withDataLayerProductVariant('product-variant'),
 )(Helmet);
 
