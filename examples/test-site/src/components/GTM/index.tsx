@@ -76,7 +76,7 @@ const withDataLayerPageType = withDataLayerItem({
  * Only render the script in static/production mode.
  */
 const renderDataLayerScript = (ct : ComponentType) => {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' || 1) {
     return withDataLayerScript(ct);
   }
   return ct;
