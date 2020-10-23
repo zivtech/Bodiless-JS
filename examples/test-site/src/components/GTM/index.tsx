@@ -79,7 +79,7 @@ const renderDataLayerScript = (ct : ComponentType) => {
   if (process.env.NODE_ENV === 'production') {
     return withDataLayerScript(ct);
   }
-  return () => (<></>);
+  return ct;
 };
 
 /**

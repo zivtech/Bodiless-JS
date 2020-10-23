@@ -40,7 +40,7 @@ import {
 import { FlowContainerDefault } from '../components/FlowContainer';
 import { withEditorBasic } from '../components/Editors';
 import asAccordionDefaultStyle from '../components/SingleAccordion/token';
-import GTMDataLayerProductHelmet from '../components/GTM/productViewd';
+import GTMDataLayerProductHelmet from '../components/GTM/productViewed';
 
 // Do not allow editors to set accordion titles.
 const NonEditableTitle = ({ producttitle, ...rest }) => (
