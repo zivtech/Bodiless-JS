@@ -98,7 +98,7 @@ const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   props: Props,
 ) => {
   if (!tagManagerEnabled) {
-    return (<></>);
+    return HelmetComponent;
   }
   const {
     dataLayerData, dataLayerName, children, ...rest
