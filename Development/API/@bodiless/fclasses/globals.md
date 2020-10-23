@@ -25,6 +25,7 @@
 * [HOC](globals.md#hoc)
 * [HOD](globals.md#hod)
 * [StylableProps](globals.md#stylableprops)
+* [TransformDesign](globals.md#transformdesign)
 * [TransformerProps](globals.md#transformerprops)
 * [WithTransformerProps](globals.md#withtransformerprops)
 
@@ -150,6 +151,7 @@
 * [addClasses](globals.md#const-addclasses)
 * [addClassesIf](globals.md#const-addclassesif)
 * [designContextDefault](globals.md#const-designcontextdefault)
+* [designable](globals.md#const-designable)
 * [extendDesign](globals.md#const-extenddesign)
 * [removeClasses](globals.md#const-removeclasses)
 * [removeClassesIf](globals.md#const-removeclassesif)
@@ -165,8 +167,8 @@
 * [asClassName](globals.md#const-asclassname)
 * [asComponent](globals.md#const-ascomponent)
 * [asFClasses](globals.md#const-asfclasses)
-* [designable](globals.md#const-designable)
-* [extendDesign$](globals.md#const-extenddesign)
+* [extendDesign$](globals.md#private-const-extenddesign)
+* [extendDesignable](globals.md#const-extenddesignable)
 * [flowDesignsWith](globals.md#const-flowdesignswith)
 * [flowIf](globals.md#const-flowif)
 * [hasProp](globals.md#const-hasprop)
@@ -179,6 +181,8 @@
 * [varyDesign$](globals.md#const-varydesign)
 * [withDesign](globals.md#const-withdesign)
 * [withDisplayName](globals.md#const-withdisplayname)
+* [withFinalDesign](globals.md#const-withfinaldesign)
+* [withOnlyProps](globals.md#const-withonlyprops)
 * [withTransformer](globals.md#const-withtransformer)
 * [withoutProps](globals.md#const-withoutprops)
 
@@ -188,7 +192,7 @@
 
 Ƭ **Classable**: *object*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L32)*
+*Defined in [packages/fclasses/src/FClasses.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L32)*
 
 #### Type declaration:
 
@@ -200,7 +204,7 @@ ___
 
 Ƭ **Classes**: *string | string[]*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L20)*
+*Defined in [packages/fclasses/src/FClasses.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L20)*
 
 ___
 
@@ -208,9 +212,9 @@ ___
 
 Ƭ **Condition**: *function*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L38)*
+*Defined in [packages/fclasses/src/FClasses.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L38)*
 
-*Defined in [packages/fclasses/src/hoc-util.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/hoc-util.tsx#L18)*
+*Defined in [packages/fclasses/src/hoc-util.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/hoc-util.tsx#L18)*
 
 #### Type declaration:
 
@@ -226,14 +230,12 @@ ___
 
 ###  Design
 
-Ƭ **Design**: *object*
+Ƭ **Design**: *object & object*
 
-*Defined in [packages/fclasses/src/Design.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L34)*
+*Defined in [packages/fclasses/src/Design.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L35)*
 
 This is the type of a design which can be applied to a component which accepts
 a components prop of type "C".
-
-#### Type declaration:
 
 ___
 
@@ -241,7 +243,7 @@ ___
 
 Ƭ **DesignElement**: *function*
 
-*Defined in [packages/fclasses/src/Design.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L21)*
+*Defined in [packages/fclasses/src/Design.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L22)*
 
 #### Type declaration:
 
@@ -259,7 +261,7 @@ ___
 
 Ƭ **DesignOrHod**: *[Design](globals.md#design)‹C› | [HOD](globals.md#hod)‹C›*
 
-*Defined in [packages/fclasses/src/Design.tsx:253](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L253)*
+*Defined in [packages/fclasses/src/Design.tsx:356](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L356)*
 
 ___
 
@@ -267,7 +269,7 @@ ___
 
 Ƭ **DesignableComponents**: *object*
 
-*Defined in [packages/fclasses/src/Design.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L26)*
+*Defined in [packages/fclasses/src/Design.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L27)*
 
 This is the type to use for the components prop of a component with a fluid design.
 
@@ -281,7 +283,7 @@ ___
 
 Ƭ **DesignableComponentsProps**: *object*
 
-*Defined in [packages/fclasses/src/Design.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L46)*
+*Defined in [packages/fclasses/src/Design.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L47)*
 
 #### Type declaration:
 
@@ -293,7 +295,7 @@ ___
 
 Ƭ **DesignableProps**: *object*
 
-*Defined in [packages/fclasses/src/Design.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L42)*
+*Defined in [packages/fclasses/src/Design.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L43)*
 
 This is the type of the props for a designable whose underlying component
 accepts a components prop of type "C".
@@ -308,7 +310,7 @@ ___
 
 Ƭ **FClasses**: *object*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L22)*
+*Defined in [packages/fclasses/src/FClasses.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L22)*
 
 #### Type declaration:
 
@@ -324,7 +326,7 @@ ___
 
 Ƭ **FluidDesign**: *[Design](globals.md#design)‹[DesignableComponents](globals.md#designablecomponents)›*
 
-*Defined in [packages/fclasses/src/Design.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L60)*
+*Defined in [packages/fclasses/src/Design.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L61)*
 
 ___
 
@@ -332,7 +334,7 @@ ___
 
 Ƭ **FluidHOD**: *[HOD](globals.md#hod)‹[DesignableComponents](globals.md#designablecomponents)›*
 
-*Defined in [packages/fclasses/src/Design.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L59)*
+*Defined in [packages/fclasses/src/Design.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L60)*
 
 This is a GOD that accepts any DesignableComponents
 
@@ -342,7 +344,7 @@ ___
 
 Ƭ **HOC**: *function*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L36)*
+*Defined in [packages/fclasses/src/FClasses.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L36)*
 
 #### Type declaration:
 
@@ -364,7 +366,7 @@ ___
 
 Ƭ **HOD**: *function*
 
-*Defined in [packages/fclasses/src/Design.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L54)*
+*Defined in [packages/fclasses/src/Design.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L55)*
 
 This is the type of a  Higher order design which can be applied to a component which accepts
 a components prop of type "C".
@@ -385,7 +387,7 @@ ___
 
 Ƭ **StylableProps**: *object*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L28)*
+*Defined in [packages/fclasses/src/FClasses.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L28)*
 
 #### Type declaration:
 
@@ -393,11 +395,29 @@ ___
 
 ___
 
+###  TransformDesign
+
+Ƭ **TransformDesign**: *function*
+
+*Defined in [packages/fclasses/src/Design.tsx:286](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L286)*
+
+#### Type declaration:
+
+▸ (`design?`: [Design](globals.md#design)‹any›): *[Design](globals.md#design)‹any› | undefined*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`design?` | [Design](globals.md#design)‹any› |
+
+___
+
 ###  TransformerProps
 
 Ƭ **TransformerProps**: *[WithTransformerProps](globals.md#withtransformerprops)‹P, Q, X› & object*
 
-*Defined in [packages/fclasses/src/Design.tsx:171](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L171)*
+*Defined in [packages/fclasses/src/Design.tsx:194](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L194)*
 
 ___
 
@@ -405,7 +425,7 @@ ___
 
 Ƭ **WithTransformerProps**: *object*
 
-*Defined in [packages/fclasses/src/Design.tsx:167](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L167)*
+*Defined in [packages/fclasses/src/Design.tsx:190](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L190)*
 
 #### Type declaration:
 
@@ -423,7 +443,7 @@ ___
 
 • **A**: *Stylable* = stylable<HTMLProps<HTMLAnchorElement>>('a')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L18)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L18)*
 
 ___
 
@@ -431,7 +451,7 @@ ___
 
 • **Abbr**: *Stylable* = stylable<HTMLProps<HTMLElement>>('abbr')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L19)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L19)*
 
 ___
 
@@ -439,7 +459,7 @@ ___
 
 • **Acronym**: *Stylable* = stylable<HTMLProps<HTMLElement>>('acronym')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L20)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L20)*
 
 ___
 
@@ -447,7 +467,7 @@ ___
 
 • **Address**: *Stylable* = stylable<HTMLProps<HTMLElement>>('address')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L21)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L21)*
 
 ___
 
@@ -455,7 +475,7 @@ ___
 
 • **Applet**: *Stylable* = stylable<HTMLProps<HTMLAppletElement>>('applet')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L22)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L22)*
 
 ___
 
@@ -463,7 +483,7 @@ ___
 
 • **Area**: *Stylable* = stylable<HTMLProps<HTMLAreaElement>>('area')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L23)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L23)*
 
 ___
 
@@ -471,7 +491,7 @@ ___
 
 • **Article**: *Stylable* = stylable<HTMLProps<HTMLElement>>('article')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L24)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L24)*
 
 ___
 
@@ -479,7 +499,7 @@ ___
 
 • **Aside**: *Stylable* = stylable<HTMLProps<HTMLElement>>('aside')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L25)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L25)*
 
 ___
 
@@ -487,7 +507,7 @@ ___
 
 • **Audio**: *Stylable* = stylable<HTMLProps<HTMLAudioElement>>('audio')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L26)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L26)*
 
 ___
 
@@ -495,7 +515,7 @@ ___
 
 • **B**: *Stylable* = stylable<HTMLProps<HTMLElement>>('b')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L27)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L27)*
 
 ___
 
@@ -503,7 +523,7 @@ ___
 
 • **Base**: *Stylable* = stylable<HTMLProps<HTMLBaseElement>>('base')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L28)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L28)*
 
 ___
 
@@ -511,7 +531,7 @@ ___
 
 • **Basefont**: *Stylable* = stylable<HTMLProps<HTMLBaseFontElement>>('basefont')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L29)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L29)*
 
 ___
 
@@ -519,7 +539,7 @@ ___
 
 • **Bdi**: *Stylable* = stylable<HTMLProps<HTMLElement>>('bdi')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L30)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L30)*
 
 ___
 
@@ -527,7 +547,7 @@ ___
 
 • **Bdo**: *Stylable* = stylable<HTMLProps<HTMLElement>>('bdo')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L31)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L31)*
 
 ___
 
@@ -535,7 +555,7 @@ ___
 
 • **Big**: *Stylable* = stylable<HTMLProps<HTMLElement>>('big')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L32)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L32)*
 
 ___
 
@@ -543,7 +563,7 @@ ___
 
 • **Blockquote**: *Stylable* = stylable<HTMLProps<HTMLQuoteElement>>('blockquote')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L33)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L33)*
 
 ___
 
@@ -551,7 +571,7 @@ ___
 
 • **Body**: *Stylable* = stylable<HTMLProps<HTMLBodyElement>>('body')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L34)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L34)*
 
 ___
 
@@ -559,7 +579,7 @@ ___
 
 • **Br**: *Stylable* = stylable<HTMLProps<HTMLBRElement>>('br')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L35)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L35)*
 
 ___
 
@@ -567,7 +587,7 @@ ___
 
 • **Button**: *Stylable* = stylable<HTMLProps<HTMLButtonElement>>('button')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L36)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L36)*
 
 ___
 
@@ -575,7 +595,7 @@ ___
 
 • **Canvas**: *Stylable* = stylable<HTMLProps<HTMLCanvasElement>>('canvas')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L37)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L37)*
 
 ___
 
@@ -583,7 +603,7 @@ ___
 
 • **Caption**: *Stylable* = stylable<HTMLProps<HTMLCanvasElement>>('caption')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L38)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L38)*
 
 ___
 
@@ -591,7 +611,7 @@ ___
 
 • **Center**: *Stylable* = stylable<HTMLProps<HTMLElement>>('center')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L39)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L39)*
 
 ___
 
@@ -599,7 +619,7 @@ ___
 
 • **Cite**: *Stylable* = stylable<HTMLProps<HTMLElement>>('cite')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L40)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L40)*
 
 ___
 
@@ -607,7 +627,7 @@ ___
 
 • **Code**: *Stylable* = stylable<HTMLProps<HTMLElement>>('code')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L41)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L41)*
 
 ___
 
@@ -615,7 +635,7 @@ ___
 
 • **Col**: *Stylable* = stylable<HTMLProps<HTMLElement>>('col')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L42)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L42)*
 
 ___
 
@@ -623,7 +643,7 @@ ___
 
 • **Colgroup**: *Stylable* = stylable<HTMLProps<HTMLElement>>('colgroup')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L43)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L43)*
 
 ___
 
@@ -631,7 +651,7 @@ ___
 
 • **Datalist**: *Stylable* = stylable<HTMLProps<HTMLDataListElement>>('datalist')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L44)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L44)*
 
 ___
 
@@ -639,7 +659,7 @@ ___
 
 • **Dd**: *Stylable* = stylable<HTMLProps<HTMLElement>>('dd')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L45)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L45)*
 
 ___
 
@@ -647,7 +667,7 @@ ___
 
 • **Del**: *Stylable* = stylable<HTMLProps<HTMLElement>>('del')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L46)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L46)*
 
 ___
 
@@ -655,7 +675,7 @@ ___
 
 • **DesignContext**: *Context‹undefined | ComponentClass‹any, any› | FunctionComponent‹any››* = React.createContext(designContextDefault)
 
-*Defined in [packages/fclasses/src/Design.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L84)*
+*Defined in [packages/fclasses/src/Design.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L89)*
 
 ___
 
@@ -663,7 +683,7 @@ ___
 
 • **Details**: *Stylable* = stylable<HTMLProps<HTMLDetailsElement>>('details')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L47)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L47)*
 
 ___
 
@@ -671,7 +691,7 @@ ___
 
 • **Dfn**: *Stylable* = stylable<HTMLProps<HTMLElement>>('dfn')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L48)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L48)*
 
 ___
 
@@ -679,7 +699,7 @@ ___
 
 • **Dir**: *Stylable* = stylable<HTMLProps<HTMLElement>>('dir')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L49)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L49)*
 
 ___
 
@@ -687,7 +707,7 @@ ___
 
 • **Div**: *Stylable* = stylable<HTMLProps<HTMLDivElement>>('div')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L50)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L50)*
 
 ___
 
@@ -695,7 +715,7 @@ ___
 
 • **Dl**: *Stylable* = stylable<HTMLProps<HTMLDListElement>>('dl')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L51)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L51)*
 
 ___
 
@@ -703,7 +723,7 @@ ___
 
 • **Dt**: *Stylable* = stylable<HTMLProps<HTMLElement>>('dt')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L52)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L52)*
 
 ___
 
@@ -711,7 +731,7 @@ ___
 
 • **Em**: *Stylable* = stylable<HTMLProps<HTMLElement>>('em')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L53)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L53)*
 
 ___
 
@@ -719,7 +739,7 @@ ___
 
 • **Embed**: *Stylable* = stylable<HTMLProps<HTMLEmbedElement>>('embed')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L54)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L54)*
 
 ___
 
@@ -727,7 +747,7 @@ ___
 
 • **Fieldset**: *Stylable* = stylable<HTMLProps<HTMLFieldSetElement>>('fieldset')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L55)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L55)*
 
 ___
 
@@ -735,7 +755,7 @@ ___
 
 • **Figcaption**: *Stylable* = stylable<HTMLProps<HTMLElement>>('figcaption')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L56)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L56)*
 
 ___
 
@@ -743,7 +763,7 @@ ___
 
 • **Figure**: *Stylable* = stylable<HTMLProps<HTMLElement>>('figure')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L57)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L57)*
 
 ___
 
@@ -751,7 +771,7 @@ ___
 
 • **Font**: *Stylable* = stylable<HTMLProps<HTMLFontElement>>('font')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L58)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L58)*
 
 ___
 
@@ -759,7 +779,7 @@ ___
 
 • **Footer**: *Stylable* = stylable<HTMLProps<HTMLElement>>('footer')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L59)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L59)*
 
 ___
 
@@ -767,7 +787,7 @@ ___
 
 • **Form**: *Stylable* = stylable<HTMLProps<HTMLFormElement>>('form')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L60)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L60)*
 
 ___
 
@@ -775,7 +795,7 @@ ___
 
 • **Frame**: *Stylable* = stylable<HTMLProps<HTMLFrameElement>>('frame')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L61)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L61)*
 
 ___
 
@@ -783,7 +803,7 @@ ___
 
 • **Frameset**: *Stylable* = stylable<HTMLProps<HTMLFrameSetElement>>('frameset')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L62)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L62)*
 
 ___
 
@@ -791,7 +811,7 @@ ___
 
 • **H1**: *Stylable* = stylable<HTMLProps<HTMLHeadingElement>>('h1')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L63)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L63)*
 
 ___
 
@@ -799,7 +819,7 @@ ___
 
 • **H2**: *Stylable* = stylable<HTMLProps<HTMLHeadingElement>>('h2')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L64)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L64)*
 
 ___
 
@@ -807,7 +827,7 @@ ___
 
 • **H3**: *Stylable* = stylable<HTMLProps<HTMLHeadingElement>>('h3')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L65)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L65)*
 
 ___
 
@@ -815,7 +835,7 @@ ___
 
 • **H4**: *Stylable* = stylable<HTMLProps<HTMLHeadingElement>>('h4')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L66)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L66)*
 
 ___
 
@@ -823,7 +843,7 @@ ___
 
 • **H5**: *Stylable* = stylable<HTMLProps<HTMLHeadingElement>>('h5')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L67)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L67)*
 
 ___
 
@@ -831,7 +851,7 @@ ___
 
 • **H6**: *Stylable* = stylable<HTMLProps<HTMLHeadingElement>>('h6')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L68)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L68)*
 
 ___
 
@@ -839,7 +859,7 @@ ___
 
 • **Head**: *Stylable* = stylable<HTMLProps<HTMLHeadElement>>('head')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L69)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L69)*
 
 ___
 
@@ -847,7 +867,7 @@ ___
 
 • **Header**: *Stylable* = stylable<HTMLProps<HTMLElement>>('header')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L70)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L70)*
 
 ___
 
@@ -855,7 +875,7 @@ ___
 
 • **Hgroup**: *Stylable* = stylable<HTMLProps<HTMLElement>>('hgroup')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L71)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L71)*
 
 ___
 
@@ -863,7 +883,7 @@ ___
 
 • **Hr**: *Stylable* = stylable<HTMLProps<HTMLHRElement>>('hr')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L72)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L72)*
 
 ___
 
@@ -871,7 +891,7 @@ ___
 
 • **Html**: *Stylable* = stylable<HTMLProps<HTMLHtmlElement>>('html')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L73)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L73)*
 
 ___
 
@@ -879,7 +899,7 @@ ___
 
 • **I**: *Stylable* = stylable<HTMLProps<HTMLElement>>('i')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L74)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L74)*
 
 ___
 
@@ -887,7 +907,7 @@ ___
 
 • **Iframe**: *Stylable* = stylable<HTMLProps<HTMLIFrameElement>>('iframe')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L75)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L75)*
 
 ___
 
@@ -895,7 +915,7 @@ ___
 
 • **Img**: *Stylable* = stylable<HTMLProps<HTMLImageElement>>('img')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L76)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L76)*
 
 ___
 
@@ -903,7 +923,7 @@ ___
 
 • **Input**: *Stylable* = stylable<HTMLProps<HTMLInputElement>>('input')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L77)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L77)*
 
 ___
 
@@ -911,7 +931,7 @@ ___
 
 • **Ins**: *Stylable* = stylable<HTMLProps<HTMLElement>>('ins')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L78)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L78)*
 
 ___
 
@@ -919,7 +939,7 @@ ___
 
 • **Kbd**: *Stylable* = stylable<HTMLProps<HTMLElement>>('kbd')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L79)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L79)*
 
 ___
 
@@ -927,7 +947,7 @@ ___
 
 • **Keygen**: *Stylable* = stylable<HTMLProps<HTMLElement>>('keygen')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L80)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L80)*
 
 ___
 
@@ -935,7 +955,7 @@ ___
 
 • **Label**: *Stylable* = stylable<HTMLProps<HTMLLabelElement>>('label')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L81)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L81)*
 
 ___
 
@@ -943,7 +963,7 @@ ___
 
 • **Legend**: *Stylable* = stylable<HTMLProps<HTMLLegendElement>>('legend')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L82)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L82)*
 
 ___
 
@@ -951,7 +971,7 @@ ___
 
 • **Li**: *Stylable* = stylable<HTMLProps<HTMLLIElement>>('li')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L83)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L83)*
 
 ___
 
@@ -959,7 +979,7 @@ ___
 
 • **Map**: *Stylable* = stylable<HTMLProps<HTMLMapElement>>('map')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L84)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L84)*
 
 ___
 
@@ -967,7 +987,7 @@ ___
 
 • **Mark**: *Stylable* = stylable<HTMLProps<HTMLElement>>('mark')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L85)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L85)*
 
 ___
 
@@ -975,7 +995,7 @@ ___
 
 • **Menu**: *Stylable* = stylable<HTMLProps<HTMLMenuElement>>('menu')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:86](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L86)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:86](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L86)*
 
 ___
 
@@ -983,7 +1003,7 @@ ___
 
 • **Meta**: *Stylable* = stylable<HTMLProps<HTMLMetaElement>>('meta')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L87)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L87)*
 
 ___
 
@@ -991,7 +1011,7 @@ ___
 
 • **Meter**: *Stylable* = stylable<HTMLProps<HTMLMeterElement>>('meter')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L88)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L88)*
 
 ___
 
@@ -999,7 +1019,7 @@ ___
 
 • **Nav**: *Stylable* = stylable<HTMLProps<HTMLElement>>('nav')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L89)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L89)*
 
 ___
 
@@ -1007,7 +1027,7 @@ ___
 
 • **Noframes**: *Stylable* = stylable<HTMLProps<HTMLElement>>('noframes')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L90)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L90)*
 
 ___
 
@@ -1015,7 +1035,7 @@ ___
 
 • **Noscript**: *Stylable* = stylable<HTMLProps<HTMLElement>>('noscript')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L91)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L91)*
 
 ___
 
@@ -1023,7 +1043,7 @@ ___
 
 • **Ol**: *Stylable* = stylable<HTMLProps<HTMLOListElement>>('ol')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L92)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L92)*
 
 ___
 
@@ -1031,7 +1051,7 @@ ___
 
 • **Optgroup**: *Stylable* = stylable<HTMLProps<HTMLOptGroupElement>>('optgroup')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L93)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L93)*
 
 ___
 
@@ -1039,7 +1059,7 @@ ___
 
 • **Option**: *Stylable* = stylable<HTMLProps<HTMLOptionElement>>('option')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L94)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L94)*
 
 ___
 
@@ -1047,7 +1067,7 @@ ___
 
 • **Output**: *Stylable* = stylable<HTMLProps<HTMLOutputElement>>('output')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:95](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L95)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:95](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L95)*
 
 ___
 
@@ -1055,7 +1075,7 @@ ___
 
 • **P**: *Stylable* = stylable<HTMLProps<HTMLParagraphElement>>('p')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L96)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L96)*
 
 ___
 
@@ -1063,7 +1083,7 @@ ___
 
 • **Param**: *Stylable* = stylable<HTMLProps<HTMLParamElement>>('param')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L97)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L97)*
 
 ___
 
@@ -1071,7 +1091,7 @@ ___
 
 • **Pre**: *Stylable* = stylable<HTMLProps<HTMLPreElement>>('pre')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L98)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L98)*
 
 ___
 
@@ -1079,7 +1099,7 @@ ___
 
 • **Progress**: *Stylable* = stylable<HTMLProps<HTMLProgressElement>>('progress')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L99)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L99)*
 
 ___
 
@@ -1087,7 +1107,7 @@ ___
 
 • **Q**: *Stylable* = stylable<HTMLProps<HTMLQuoteElement>>('q')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L100)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L100)*
 
 ___
 
@@ -1095,7 +1115,7 @@ ___
 
 • **Rp**: *Stylable* = stylable<HTMLProps<HTMLElement>>('rp')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L101)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L101)*
 
 ___
 
@@ -1103,7 +1123,7 @@ ___
 
 • **Rt**: *Stylable* = stylable<HTMLProps<HTMLElement>>('rt')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:102](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L102)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:102](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L102)*
 
 ___
 
@@ -1111,7 +1131,7 @@ ___
 
 • **Ruby**: *Stylable* = stylable<HTMLProps<HTMLElement>>('ruby')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:103](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L103)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:103](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L103)*
 
 ___
 
@@ -1119,7 +1139,7 @@ ___
 
 • **S**: *Stylable* = stylable<HTMLProps<HTMLElement>>('s')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:104](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L104)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:104](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L104)*
 
 ___
 
@@ -1127,7 +1147,7 @@ ___
 
 • **Samp**: *Stylable* = stylable<HTMLProps<HTMLElement>>('samp')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L105)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L105)*
 
 ___
 
@@ -1135,7 +1155,7 @@ ___
 
 • **Script**: *Stylable* = stylable<HTMLProps<HTMLScriptElement>>('script')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:106](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L106)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:106](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L106)*
 
 ___
 
@@ -1143,7 +1163,7 @@ ___
 
 • **Section**: *Stylable* = stylable<HTMLProps<HTMLElement>>('section')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:107](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L107)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:107](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L107)*
 
 ___
 
@@ -1151,7 +1171,7 @@ ___
 
 • **Select**: *Stylable* = stylable<HTMLProps<HTMLSelectElement>>('select')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:108](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L108)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:108](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L108)*
 
 ___
 
@@ -1159,7 +1179,7 @@ ___
 
 • **Small**: *Stylable* = stylable<HTMLProps<HTMLElement>>('small')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:109](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L109)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:109](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L109)*
 
 ___
 
@@ -1167,7 +1187,7 @@ ___
 
 • **Source**: *Stylable* = stylable<HTMLProps<HTMLSourceElement>>('source')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:110](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L110)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:110](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L110)*
 
 ___
 
@@ -1175,7 +1195,7 @@ ___
 
 • **Span**: *Stylable* = stylable<HTMLProps<HTMLSpanElement>>('span')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:111](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L111)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:111](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L111)*
 
 ___
 
@@ -1183,7 +1203,7 @@ ___
 
 • **Strike**: *Stylable* = stylable<HTMLProps<HTMLElement>>('strike')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L112)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L112)*
 
 ___
 
@@ -1191,7 +1211,7 @@ ___
 
 • **Strong**: *Stylable* = stylable<HTMLProps<HTMLElement>>('strong')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L113)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L113)*
 
 ___
 
@@ -1199,7 +1219,7 @@ ___
 
 • **Style**: *Stylable* = stylable<HTMLProps<HTMLStyleElement>>('style')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L114)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L114)*
 
 ___
 
@@ -1207,7 +1227,7 @@ ___
 
 • **Sub**: *Stylable* = stylable<HTMLProps<HTMLElement>>('sub')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L115)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L115)*
 
 ___
 
@@ -1215,7 +1235,7 @@ ___
 
 • **Summary**: *Stylable* = stylable<HTMLProps<HTMLElement>>('summary')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:116](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L116)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:116](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L116)*
 
 ___
 
@@ -1223,7 +1243,7 @@ ___
 
 • **Sup**: *Stylable* = stylable<HTMLProps<HTMLElement>>('sup')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:117](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L117)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:117](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L117)*
 
 ___
 
@@ -1231,7 +1251,7 @@ ___
 
 • **Table**: *Stylable* = stylable<HTMLProps<HTMLTableElement>>('table')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L118)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L118)*
 
 ___
 
@@ -1239,7 +1259,7 @@ ___
 
 • **Tbody**: *Stylable* = stylable<HTMLProps<HTMLElement>>('tbody')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:119](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L119)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:119](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L119)*
 
 ___
 
@@ -1247,7 +1267,7 @@ ___
 
 • **Td**: *Stylable* = stylable<HTMLProps<HTMLTableDataCellElement>>('td')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L120)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L120)*
 
 ___
 
@@ -1255,7 +1275,7 @@ ___
 
 • **Textarea**: *Stylable* = stylable<HTMLProps<HTMLTextAreaElement>>('textarea')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:121](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L121)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:121](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L121)*
 
 ___
 
@@ -1263,7 +1283,7 @@ ___
 
 • **Tfoot**: *Stylable* = stylable<HTMLProps<HTMLElement>>('tfoot')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:122](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L122)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:122](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L122)*
 
 ___
 
@@ -1271,7 +1291,7 @@ ___
 
 • **Th**: *Stylable* = stylable<HTMLProps<HTMLTableHeaderCellElement>>('th')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:123](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L123)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:123](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L123)*
 
 ___
 
@@ -1279,7 +1299,7 @@ ___
 
 • **Thead**: *Stylable* = stylable<HTMLProps<HTMLTableHeaderCellElement>>('thead')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:124](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L124)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:124](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L124)*
 
 ___
 
@@ -1287,7 +1307,7 @@ ___
 
 • **Time**: *Stylable* = stylable<HTMLProps<HTMLTimeElement>>('time')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:125](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L125)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:125](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L125)*
 
 ___
 
@@ -1295,7 +1315,7 @@ ___
 
 • **Title**: *Stylable* = stylable<HTMLProps<HTMLTitleElement>>('title')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L126)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L126)*
 
 ___
 
@@ -1303,7 +1323,7 @@ ___
 
 • **Tr**: *Stylable* = stylable<HTMLProps<HTMLTableRowElement>>('tr')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:127](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L127)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:127](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L127)*
 
 ___
 
@@ -1311,7 +1331,7 @@ ___
 
 • **Tt**: *Stylable* = stylable<HTMLProps<HTMLElement>>('tt')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:128](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L128)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:128](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L128)*
 
 ___
 
@@ -1319,7 +1339,7 @@ ___
 
 • **U**: *Stylable* = stylable<HTMLProps<HTMLElement>>('u')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:129](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L129)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:129](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L129)*
 
 ___
 
@@ -1327,7 +1347,7 @@ ___
 
 • **Ul**: *Stylable* = stylable<HTMLProps<HTMLUListElement>>('ul')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:130](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L130)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:130](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L130)*
 
 ___
 
@@ -1335,7 +1355,7 @@ ___
 
 • **Var**: *Stylable* = stylable<HTMLProps<HTMLElement>>('var')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:131](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L131)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:131](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L131)*
 
 ___
 
@@ -1343,7 +1363,7 @@ ___
 
 • **Video**: *Stylable* = stylable<HTMLProps<HTMLVideoElement>>('video')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:132](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L132)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:132](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L132)*
 
 ___
 
@@ -1351,7 +1371,7 @@ ___
 
 • **Wbr**: *Stylable* = stylable<HTMLProps<HTMLElement>>('wbr')
 
-*Defined in [packages/fclasses/src/StyledHTML.tsx:133](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/StyledHTML.tsx#L133)*
+*Defined in [packages/fclasses/src/StyledHTML.tsx:133](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/StyledHTML.tsx#L133)*
 
 ___
 
@@ -1359,7 +1379,7 @@ ___
 
 • **addClasses**: *(Anonymous function)* = addClassesIf(alwaysTrueCondition)
 
-*Defined in [packages/fclasses/src/FClasses.tsx:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L74)*
+*Defined in [packages/fclasses/src/FClasses.tsx:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L74)*
 
 HOC which specifies that a list of classes should be added to the wrapped component's className.
 
@@ -1371,7 +1391,7 @@ ___
 
 • **addClassesIf**: *(Anonymous function)* = modifyClassesIf('add')
 
-*Defined in [packages/fclasses/src/FClasses.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L67)*
+*Defined in [packages/fclasses/src/FClasses.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L67)*
 
 Allows to add classes to a component conditionally.
 
@@ -1385,7 +1405,25 @@ ___
 
 • **designContextDefault**: *undefined | ComponentClass‹any, any› | FunctionComponent‹any›* = undefined as undefined | ComponentType<any>
 
-*Defined in [packages/fclasses/src/Design.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L83)*
+*Defined in [packages/fclasses/src/Design.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L88)*
+
+___
+
+### `Const` designable
+
+• **designable**: *(Anonymous function)* = extendDesignable(() => undefined)
+
+*Defined in [packages/fclasses/src/Design.tsx:335](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L335)*
+
+Makes a component "designable". A designable component defines a set of constituent
+sub-components which can be modified by applying one or more HOC's.  You specify the
+HOC's to apply to each sub-component via the `withDesign` HOC.
+
+**`param`** An object defining the set of constituent subcomponents. Each key
+  is a string which identifies the component. Each value is the component itself, which
+  will be modified by any HOC's provided by withDesign.
+
+**`returns`** An HOC which yields a designable version of the component to which it is applied.
 
 ___
 
@@ -1393,7 +1431,7 @@ ___
 
 • **extendDesign**: *Object* = flowDesignsWith(extendDesign$)
 
-*Defined in [packages/fclasses/src/Design.tsx:264](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L264)*
+*Defined in [packages/fclasses/src/Design.tsx:367](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L367)*
 
 ___
 
@@ -1401,7 +1439,7 @@ ___
 
 • **removeClasses**: *(Anonymous function)* = removeClassesIf(alwaysTrueCondition)
 
-*Defined in [packages/fclasses/src/FClasses.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L91)*
+*Defined in [packages/fclasses/src/FClasses.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L91)*
 
 HOC which specifies that a list of classes shoudl be removed from the wrapped component's
 className.
@@ -1415,7 +1453,7 @@ ___
 
 • **removeClassesIf**: *(Anonymous function)* = modifyClassesIf('remove')
 
-*Defined in [packages/fclasses/src/FClasses.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L82)*
+*Defined in [packages/fclasses/src/FClasses.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L82)*
 
 Allows to remove classes from a component conditionally.
 
@@ -1429,7 +1467,7 @@ ___
 
 • **varyDesign**: *Object* = flowDesignsWith(varyDesign$)
 
-*Defined in [packages/fclasses/src/Design.tsx:263](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L263)*
+*Defined in [packages/fclasses/src/Design.tsx:366](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L366)*
 
 ## Functions
 
@@ -1437,7 +1475,7 @@ ___
 
 ▸ **addProps**‹**P**, **Q**›(`propsToAdd`: Q): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/addProps.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/addProps.tsx#L20)*
+*Defined in [packages/fclasses/src/addProps.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/addProps.tsx#L20)*
 
 HOC that adds properties to a Component
 
@@ -1461,7 +1499,7 @@ ___
 
 ▸ **alwaysTrueCondition**(): *boolean*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L39)*
+*Defined in [packages/fclasses/src/FClasses.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L39)*
 
 **Returns:** *boolean*
 
@@ -1471,7 +1509,7 @@ ___
 
 ▸ **apply**(`__namedParameters`: object, `className`: [Classes](globals.md#classes)): *[Classes](globals.md#classes)*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:103](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L103)*
+*Defined in [packages/fclasses/src/FClasses.tsx:103](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L103)*
 
 **Parameters:**
 
@@ -1493,7 +1531,7 @@ ___
 
 ▸ **applyDesign**‹**C**›(`components`: C, `DefaultComponent`: ComponentType‹any›): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/Design.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L105)*
+*Defined in [packages/fclasses/src/Design.tsx:110](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L110)*
 
 **Type parameters:**
 
@@ -1514,7 +1552,7 @@ ___
 
 ▸ **asArray**(`classes`: [Classes](globals.md#classes)): *string[]*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L93)*
+*Defined in [packages/fclasses/src/FClasses.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L93)*
 
 **Parameters:**
 
@@ -1530,7 +1568,7 @@ ___
 
 ▸ **asClassName**(`classes`: [Classes](globals.md#classes)): *undefined | string*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L94)*
+*Defined in [packages/fclasses/src/FClasses.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L94)*
 
 **Parameters:**
 
@@ -1544,9 +1582,9 @@ ___
 
 ### `Const` asComponent
 
-▸ **asComponent**‹**P**›(`Tag`: keyof IntrinsicElements): *(Anonymous function)*
+▸ **asComponent**‹**P**›(`Tag`: ComponentType‹P› | "symbol" | "object" | "a" | "abbr" | "address" | "area" | "article" | "aside" | "audio" | "b" | "base" | "bdi" | "bdo" | "big" | "blockquote" | "body" | "br" | "button" | "canvas" | "caption" | "cite" | "code" | "col" | "colgroup" | "data" | "datalist" | "dd" | "del" | "details" | "dfn" | "dialog" | "div" | "dl" | "dt" | "em" | "embed" | "fieldset" | "figcaption" | "figure" | "footer" | "form" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "head" | "header" | "hgroup" | "hr" | "html" | "i" | "iframe" | "img" | "input" | "ins" | "kbd" | "keygen" | "label" | "legend" | "li" | "link" | "main" | "map" | "mark" | "menu" | "menuitem" | "meta" | "meter" | "nav" | "noindex" | "noscript" | "ol" | "optgroup" | "option" | "output" | "p" | "param" | "picture" | "pre" | "progress" | "q" | "rp" | "rt" | "ruby" | "s" | "samp" | "slot" | "script" | "section" | "select" | "small" | "source" | "span" | "strong" | "style" | "sub" | "summary" | "sup" | "table" | "template" | "tbody" | "td" | "textarea" | "tfoot" | "th" | "thead" | "time" | "title" | "tr" | "track" | "u" | "ul" | "var" | "video" | "wbr" | "webview" | "svg" | "animate" | "animateMotion" | "animateTransform" | "circle" | "clipPath" | "defs" | "desc" | "ellipse" | "feBlend" | "feColorMatrix" | "feComponentTransfer" | "feComposite" | "feConvolveMatrix" | "feDiffuseLighting" | "feDisplacementMap" | "feDistantLight" | "feDropShadow" | "feFlood" | "feFuncA" | "feFuncB" | "feFuncG" | "feFuncR" | "feGaussianBlur" | "feImage" | "feMerge" | "feMergeNode" | "feMorphology" | "feOffset" | "fePointLight" | "feSpecularLighting" | "feSpotLight" | "feTile" | "feTurbulence" | "filter" | "foreignObject" | "g" | "image" | "line" | "linearGradient" | "marker" | "mask" | "metadata" | "mpath" | "path" | "pattern" | "polygon" | "polyline" | "radialGradient" | "rect" | "stop" | "switch" | "text" | "textPath" | "tspan" | "use" | "view"): *ComponentClass‹P, any› | FunctionComponent‹P› | AsComponent*
 
-*Defined in [packages/fclasses/src/Design.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L70)*
+*Defined in [packages/fclasses/src/Design.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L71)*
 
 Converts a react HTML element to a component. This is a generic, and the type
 of the props of the resulting component should be specified, eg:
@@ -1562,9 +1600,9 @@ const Div = asComponent<JSX.IntrinsicElements['div']>('div');
 
 Name | Type | Description |
 ------ | ------ | ------ |
-`Tag` | keyof IntrinsicElements | A valid HTML element.  |
+`Tag` | ComponentType‹P› &#124; "symbol" &#124; "object" &#124; "a" &#124; "abbr" &#124; "address" &#124; "area" &#124; "article" &#124; "aside" &#124; "audio" &#124; "b" &#124; "base" &#124; "bdi" &#124; "bdo" &#124; "big" &#124; "blockquote" &#124; "body" &#124; "br" &#124; "button" &#124; "canvas" &#124; "caption" &#124; "cite" &#124; "code" &#124; "col" &#124; "colgroup" &#124; "data" &#124; "datalist" &#124; "dd" &#124; "del" &#124; "details" &#124; "dfn" &#124; "dialog" &#124; "div" &#124; "dl" &#124; "dt" &#124; "em" &#124; "embed" &#124; "fieldset" &#124; "figcaption" &#124; "figure" &#124; "footer" &#124; "form" &#124; "h1" &#124; "h2" &#124; "h3" &#124; "h4" &#124; "h5" &#124; "h6" &#124; "head" &#124; "header" &#124; "hgroup" &#124; "hr" &#124; "html" &#124; "i" &#124; "iframe" &#124; "img" &#124; "input" &#124; "ins" &#124; "kbd" &#124; "keygen" &#124; "label" &#124; "legend" &#124; "li" &#124; "link" &#124; "main" &#124; "map" &#124; "mark" &#124; "menu" &#124; "menuitem" &#124; "meta" &#124; "meter" &#124; "nav" &#124; "noindex" &#124; "noscript" &#124; "ol" &#124; "optgroup" &#124; "option" &#124; "output" &#124; "p" &#124; "param" &#124; "picture" &#124; "pre" &#124; "progress" &#124; "q" &#124; "rp" &#124; "rt" &#124; "ruby" &#124; "s" &#124; "samp" &#124; "slot" &#124; "script" &#124; "section" &#124; "select" &#124; "small" &#124; "source" &#124; "span" &#124; "strong" &#124; "style" &#124; "sub" &#124; "summary" &#124; "sup" &#124; "table" &#124; "template" &#124; "tbody" &#124; "td" &#124; "textarea" &#124; "tfoot" &#124; "th" &#124; "thead" &#124; "time" &#124; "title" &#124; "tr" &#124; "track" &#124; "u" &#124; "ul" &#124; "var" &#124; "video" &#124; "wbr" &#124; "webview" &#124; "svg" &#124; "animate" &#124; "animateMotion" &#124; "animateTransform" &#124; "circle" &#124; "clipPath" &#124; "defs" &#124; "desc" &#124; "ellipse" &#124; "feBlend" &#124; "feColorMatrix" &#124; "feComponentTransfer" &#124; "feComposite" &#124; "feConvolveMatrix" &#124; "feDiffuseLighting" &#124; "feDisplacementMap" &#124; "feDistantLight" &#124; "feDropShadow" &#124; "feFlood" &#124; "feFuncA" &#124; "feFuncB" &#124; "feFuncG" &#124; "feFuncR" &#124; "feGaussianBlur" &#124; "feImage" &#124; "feMerge" &#124; "feMergeNode" &#124; "feMorphology" &#124; "feOffset" &#124; "fePointLight" &#124; "feSpecularLighting" &#124; "feSpotLight" &#124; "feTile" &#124; "feTurbulence" &#124; "filter" &#124; "foreignObject" &#124; "g" &#124; "image" &#124; "line" &#124; "linearGradient" &#124; "marker" &#124; "mask" &#124; "metadata" &#124; "mpath" &#124; "path" &#124; "pattern" &#124; "polygon" &#124; "polyline" &#124; "radialGradient" &#124; "rect" &#124; "stop" &#124; "switch" &#124; "text" &#124; "textPath" &#124; "tspan" &#124; "use" &#124; "view" | A valid HTML element.  |
 
-**Returns:** *(Anonymous function)*
+**Returns:** *ComponentClass‹P, any› | FunctionComponent‹P› | AsComponent*
 
 ___
 
@@ -1572,7 +1610,7 @@ ___
 
 ▸ **asFClasses**(`classes`: [Classes](globals.md#classes)): *[FClasses](globals.md#fclasses)*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L98)*
+*Defined in [packages/fclasses/src/FClasses.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L98)*
 
 **Parameters:**
 
@@ -1584,31 +1622,11 @@ Name | Type |
 
 ___
 
-### `Const` designable
-
-▸ **designable**‹**C**›(`start`: C | Function): *(Anonymous function)*
-
-*Defined in [packages/fclasses/src/Design.tsx:208](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L208)*
-
-**Type parameters:**
-
-▪ **C**: *[DesignableComponents](globals.md#designablecomponents)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`start` | C &#124; Function |
-
-**Returns:** *(Anonymous function)*
-
-___
-
-### `Const` extendDesign$
+### `Private` `Const` extendDesign$
 
 ▸ **extendDesign$**‹**C**›(`design`: [Design](globals.md#design)‹C›): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/Design.tsx:240](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L240)*
+*Defined in [packages/fclasses/src/Design.tsx:241](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L241)*
 
 **Type parameters:**
 
@@ -1616,11 +1634,35 @@ ___
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`design` | [Design](globals.md#design)‹C› |
+Name | Type | Description |
+------ | ------ | ------ |
+`design` | [Design](globals.md#design)‹C› | The design which will extend the base design.  |
 
 **Returns:** *(Anonymous function)*
+
+HOD which extends a base design with the provided design.
+
+___
+
+### `Const` extendDesignable
+
+▸ **extendDesignable**(`transformDesign`: [TransformDesign](globals.md#transformdesign)): *(Anonymous function)*
+
+*Defined in [packages/fclasses/src/Design.tsx:299](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L299)*
+
+May be used to extend the design specification of an underlying designable component.
+This allows you to add constituent sub-components to the design, and pass the original
+design on to the underlying component.
+
+**Parameters:**
+
+Name | Type | Default | Description |
+------ | ------ | ------ | ------ |
+`transformDesign` | [TransformDesign](globals.md#transformdesign) | identity | An optional transformer function which can be used to alter the   design of the original component (for example to remove irrelevant entries).  If this   function returns `undefined`, the design will be removed from the underlying component.  |
+
+**Returns:** *(Anonymous function)*
+
+A function with the same signature as `designable`.
 
 ___
 
@@ -1628,7 +1670,7 @@ ___
 
 ▸ **flowDesignsWith**‹**C**›(`func`: function): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/Design.tsx:254](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L254)*
+*Defined in [packages/fclasses/src/Design.tsx:357](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L357)*
 
 **Type parameters:**
 
@@ -1654,7 +1696,7 @@ ___
 
 ▸ **flowIf**(`condition`: function): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/hoc-util.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/hoc-util.tsx#L29)*
+*Defined in [packages/fclasses/src/hoc-util.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/hoc-util.tsx#L29)*
 
 **Parameters:**
 
@@ -1676,7 +1718,7 @@ ___
 
 ▸ **hasProp**(`name`: string): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/hoc-util.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/hoc-util.tsx#L48)*
+*Defined in [packages/fclasses/src/hoc-util.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/hoc-util.tsx#L67)*
 
 **Parameters:**
 
@@ -1692,7 +1734,7 @@ ___
 
 ▸ **modifyClassesIf**(`operation`: "add" | "remove"): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L41)*
+*Defined in [packages/fclasses/src/FClasses.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L41)*
 
 **Parameters:**
 
@@ -1708,7 +1750,7 @@ ___
 
 ▸ **remove**‹**P**›(): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/Design.tsx:161](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L161)*
+*Defined in [packages/fclasses/src/Design.tsx:184](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L184)*
 
 **Type parameters:**
 
@@ -1720,9 +1762,9 @@ ___
 
 ### `Const` replaceWith
 
-▸ **replaceWith**‹**P**›(`Component`: ComponentType‹P›): *(Anonymous function)*
+▸ **replaceWith**‹**P**›(`Component`: ComponentType‹P›): *function*
 
-*Defined in [packages/fclasses/src/Design.tsx:160](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L160)*
+*Defined in [packages/fclasses/src/Design.tsx:181](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L181)*
 
 **Type parameters:**
 
@@ -1734,7 +1776,19 @@ Name | Type |
 ------ | ------ |
 `Component` | ComponentType‹P› |
 
-**Returns:** *(Anonymous function)*
+**Returns:** *function*
+
+▸ ‹**P**›(`C`: ComponentType‹P› | string): *ComponentType‹P›*
+
+**Type parameters:**
+
+▪ **P**: *object*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`C` | ComponentType‹P› &#124; string |
 
 ___
 
@@ -1742,7 +1796,7 @@ ___
 
 ▸ **replaceable**‹**P**›(`Component`: ComponentType‹P›): *Replaceable*
 
-*Defined in [packages/fclasses/src/Design.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L85)*
+*Defined in [packages/fclasses/src/Design.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L90)*
 
 **Type parameters:**
 
@@ -1762,7 +1816,7 @@ ___
 
 ▸ **startWith**‹**P**›(`ReplacementComponent`: ComponentType‹P›): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/Design.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L93)*
+*Defined in [packages/fclasses/src/Design.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L98)*
 
 **Type parameters:**
 
@@ -1782,7 +1836,7 @@ ___
 
 ▸ **stylable**‹**P**›(`Component`: ComponentType‹P› | string): *Stylable*
 
-*Defined in [packages/fclasses/src/FClasses.tsx:123](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/FClasses.tsx#L123)*
+*Defined in [packages/fclasses/src/FClasses.tsx:123](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/FClasses.tsx#L123)*
 
 Makes any component or intrinsic element stylable using FClasses. When the component is
 wrapped by `addClasses()` or `removeClasses()`, the specified operations will be applied
@@ -1806,7 +1860,7 @@ ___
 
 ▸ **varyDesign$**‹**C**›(`design`: [Design](globals.md#design)‹C›): *[HOD](globals.md#hod)‹C›*
 
-*Defined in [packages/fclasses/src/Design.tsx:221](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L221)*
+*Defined in [packages/fclasses/src/Design.tsx:337](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L337)*
 
 **Type parameters:**
 
@@ -1826,7 +1880,14 @@ ___
 
 ▸ **withDesign**‹**C**›(`design`: [Design](globals.md#design)‹C›): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/Design.tsx:139](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L139)*
+*Defined in [packages/fclasses/src/Design.tsx:160](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L160)*
+
+Creates an HOC which applies a specified design to the wrapped component.
+
+A design is a keyed set of HOC's which should be applied to constituant elements
+of the wrapped component. The wrapped component itself should accept a components
+prop, and be wrapped in the `designable` HOC to define a set of base components
+to which the HOC's should apply.
 
 **Type parameters:**
 
@@ -1834,11 +1895,13 @@ ___
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`design` | [Design](globals.md#design)‹C› |
+Name | Type | Description |
+------ | ------ | ------ |
+`design` | [Design](globals.md#design)‹C› |  The design to apply  |
 
 **Returns:** *(Anonymous function)*
+
+HOC which applies the design to the wrapped component.
 
 ___
 
@@ -1846,7 +1909,7 @@ ___
 
 ▸ **withDisplayName**‹**P**›(`name`: string): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/Design.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L78)*
+*Defined in [packages/fclasses/src/Design.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L83)*
 
 is an HOC that will attach a displayName to an object
 
@@ -1864,11 +1927,63 @@ Name | Type | Description |
 
 ___
 
+### `Const` withFinalDesign
+
+▸ **withFinalDesign**‹**C**›(`design`: [Design](globals.md#design)‹C›): *(Anonymous function)*
+
+*Defined in [packages/fclasses/src/Design.tsx:272](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L272)*
+
+Specifies a design which should be applied to a component "finally" (ie after
+all normal designs have been applied). This is useful if you want to be sure
+that your design will take effect even if a normal design uses `replaceWith`
+to replace a component.
+
+Note that just like `withDesign`, this may be called more than once on the
+same component, and the final designs will be applied "outside-in", just
+like normal designs.
+
+**Type parameters:**
+
+▪ **C**: *[DesignableComponents](globals.md#designablecomponents)*
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`design` | [Design](globals.md#design)‹C› |  The design to apply  |
+
+**Returns:** *(Anonymous function)*
+
+An HOC which applies the speciried design to the wrapped component after
+all other designes
+
+___
+
+### `Const` withOnlyProps
+
+▸ **withOnlyProps**‹**Q**›(...`keys`: string[]): *(Anonymous function)*
+
+*Defined in [packages/fclasses/src/hoc-util.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/hoc-util.tsx#L60)*
+
+**Type parameters:**
+
+▪ **Q**: *object*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...keys` | string[] |
+
+**Returns:** *(Anonymous function)*
+
+___
+
 ### `Const` withTransformer
 
 ▸ **withTransformer**‹**P**, **Q**, **X**›(`funcs`: [WithTransformerProps](globals.md#withtransformerprops)‹P, Q, X›): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/Design.tsx:192](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/Design.tsx#L192)*
+*Defined in [packages/fclasses/src/Design.tsx:215](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/Design.tsx#L215)*
 
 **Type parameters:**
 
@@ -1890,9 +2005,11 @@ ___
 
 ### `Const` withoutProps
 
-▸ **withoutProps**‹**Q**›(`keys`: string[]): *(Anonymous function)*
+▸ **withoutProps**‹**Q**›(`keys`: string | string[], ...`restKeys`: string[]): *(Anonymous function)*
 
-*Defined in [packages/fclasses/src/hoc-util.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/fclasses/src/hoc-util.tsx#L42)*
+*Defined in [packages/fclasses/src/hoc-util.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/fclasses/src/hoc-util.tsx#L45)*
+
+Removes the specified props from the wrapped component.
 
 **Type parameters:**
 
@@ -1902,6 +2019,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`keys` | string[] |
+`keys` | string &#124; string[] |
+`...restKeys` | string[] |
 
 **Returns:** *(Anonymous function)*

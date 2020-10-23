@@ -105,7 +105,7 @@ ___
 
 • **preset**: *string*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts#L19)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts#L19)*
 
 ## Accessors
 
@@ -263,7 +263,7 @@ ___
 
 *Overrides void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts#L32)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts#L32)*
 
 **Parameters:**
 
@@ -279,7 +279,7 @@ ___
 
 ▸ **setPreset**(`preset`: string): *void*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts#L28)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts#L28)*
 
 **Parameters:**
 
@@ -295,7 +295,7 @@ ___
 
 ▸ **create**(`node`: DefaultContentNode‹object›, `nodeKey`: string, `preset`: string): *[GatsbyImageNode](gatsbyimagenode.md)‹object›*
 
-*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a70cce3/packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts#L21)*
+*Defined in [packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9f43d0e/packages/gatsby-theme-bodiless/src/dist/GatsbyImage/GatsbyImageNode.ts#L21)*
 
 **Parameters:**
 
