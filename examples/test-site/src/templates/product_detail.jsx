@@ -28,12 +28,6 @@ import {
   AccordionClean,
   asTestableAccordion,
 } from '@bodiless/organisms';
-import {
-  withDataLayerItem,
-  withDefaultDataLayer,
-} from '@bodiless/components';
-import Helmet from 'react-helmet';
-import { withGlobalGTMForm, withDataLayerPageType } from '../components/GTM';
 import Layout from '../components/Layout';
 import {
   ProductTitle,
