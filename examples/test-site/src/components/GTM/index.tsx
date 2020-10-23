@@ -26,7 +26,7 @@ import {
   withDataLayerScript,
   withMetaForm, withDataLayerItem,
 } from '@bodiless/components';
-import React, { ComponentType } from 'react';
+import { ComponentType } from 'react';
 
 // Define the global dataLayer default data.
 export const defaultDataLayer = {
