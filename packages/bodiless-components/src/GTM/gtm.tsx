@@ -62,9 +62,8 @@ const withDataLayerItem$ = (options: Options) => (HelmetComponent: CT<ItemProps>
     dataLayerName, dataLayerData, children, content, ...rest
   } = props;
   const { path } = options;
-  const value = content !== undefined ? content : "";
   if (path) {
-    _.set(dataLayerData, path, value);
+    _.set(dataLayerData, path, content);
   }
   return (
     <HelmetComponent
