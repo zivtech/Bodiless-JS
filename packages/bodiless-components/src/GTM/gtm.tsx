@@ -16,7 +16,7 @@ import React, { ComponentType as CT, PropsWithChildren } from 'react';
 import { stripIndent } from 'common-tags';
 import { HelmetProps } from 'react-helmet';
 import * as _ from 'lodash';
-import { useEditContext, WithNodeKeyProps } from '@bodiless/core';
+import { WithNodeKeyProps } from '@bodiless/core';
 import { withHeadElement, Options as BaseOptions } from '../Meta/Meta';
 
 type BaseProps = PropsWithChildren<HelmetProps>;
@@ -96,8 +96,7 @@ const tagManagerEnabled = (process.env.GOOGLE_TAGMANAGER_ENABLED || '1') === '1'
 const withDataLayerScript = (HelmetComponent: CT<BaseProps>) => (
   props: Props,
 ) => {
-  const { isEdit } = useEditContext();
-  if (!tagManagerEnabled || isEdit || process.env.NODE_ENV !== 'production') {
+  if (!tagManagerEnabled) {
     return (<></>);
   }
   const {

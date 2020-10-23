@@ -20,6 +20,7 @@ import Helmet from 'react-helmet';
 import {
   withDefaultDataLayer, withDataLayerItem,
 } from '@bodiless/components';
+import { HOC } from '@bodiless/fclasses';
 import { withDataLayerPageType, withGlobalGTMForm } from './index';
 // Define the product dataLayer default data.
 const productDefaultDataLayer = {
@@ -86,7 +87,7 @@ const withDataLayerProductVariant = withDataLayerItem({
  * and only add product information to it.
  */
 const GTMDataLayerProductHelmet = withGlobalGTMForm(
-  withDefaultDataLayer(productDefaultDataLayer),
+  withDefaultDataLayer(productDefaultDataLayer) as HOC,
   withDataLayerPageType('page-type', 'Product'),
   withDataLayerProductID('product-id'),
   withDataLayerSku('product-sku'),

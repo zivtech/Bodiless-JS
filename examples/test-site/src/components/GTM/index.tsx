@@ -26,6 +26,7 @@ import {
   withDataLayerScript,
   withMetaForm, withDataLayerItem,
 } from '@bodiless/components';
+import React, { ComponentType } from 'react';
 
 // Define the global dataLayer default data.
 export const defaultDataLayer = {
@@ -71,6 +72,16 @@ const withDataLayerPageType = withDataLayerItem({
   path: 'secondObject.page.pageType',
 });
 
+/*
+ * Only render the script in static/production mode.
+ */
+const renderDataLayerScript = (ct : ComponentType) => {
+  if (process.env.NODE_ENV === 'production') {
+    return withDataLayerScript(ct);
+  }
+  return () => (<></>);
+};
+
 /**
 *
  * Utility hoc to add a reusable global GTM/DataLayer form and data to a helmet
@@ -86,7 +97,7 @@ const withGlobalGTMForm = (...hocs: HOC[]) => flowRight(
   asBodilessHelmet('datalayer'),
   withDefaultDataLayer(defaultDataLayer),
   ...hocs,
-  withDataLayerScript,
+  renderDataLayerScript,
 );
 
 const DefaultPageGTMDataLayerHelmet = withGlobalGTMForm()(Helmet);
