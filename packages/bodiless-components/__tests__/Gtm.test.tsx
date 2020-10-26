@@ -22,7 +22,6 @@ import {
   PageEditContext,
   useEditContext,
 } from '@bodiless/core';
-import { HOC } from '@bodiless/fclasses';
 import withDataLayerItem, { withDefaultDataLayer, withDataLayerScript } from '../src/GTM/gtm';
 
 const getMockNode = (data: string) => {
@@ -83,7 +82,7 @@ describe('DataLayer process', () => {
 
       const expectedScript = 'window.dataLayer = window.dataLayer || [];window.dataLayer.push({"foo":"foo value","bar":{"bat":"bat value"},"pageType":"Page Type"});';
       const PageDataLayer = flowRight(
-        withDefaultDataLayer(testDefaultDataLayer) as HOC,
+        withDefaultDataLayer(testDefaultDataLayer) as () => React.ComponentType,
         withDataLayerItemPageType(data.key),
         withDataLayerScript,
       )(Helmet);
