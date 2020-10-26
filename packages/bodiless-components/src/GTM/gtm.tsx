@@ -78,7 +78,7 @@ const withDataLayerItem$ = (options: Options) => (HelmetComponent: CT<ItemProps>
 /**
  * HOC that adds Default Datalayer to a Component
  */
-const withDefaultDataLayer = (dataLayer: DataLayer) => (
+const withDefaultDataLayer : Function = (dataLayer: DataLayer) => (
   HelmetComponent: CT<BaseProps>,
 ) => (props: Props) => {
   const { dataLayerData: defaultData, ...rest } = props;
