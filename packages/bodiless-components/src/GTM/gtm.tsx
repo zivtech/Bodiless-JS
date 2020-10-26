@@ -83,9 +83,12 @@ const withDefaultDataLayer : Function = (dataLayer: DataLayer) => (
 ) => (props: Props) => {
   const { dataLayerData: defaultData, ...rest } = props;
   if (defaultData !== undefined) {
-    _.set(dataLayer, 'dataLayerData', { ...defaultData, ...dataLayer.dataLayerData });
+    _.set(dataLayer, 'dataLayerData', {
+      ...defaultData,
+      ...dataLayer.dataLayerData,
+    });
   }
-  return (<HelmetComponent {...dataLayer} {...rest} />);
+  return <HelmetComponent {...dataLayer} {...rest} />;
 };
 
 const tagManagerEnabled = (process.env.GOOGLE_TAGMANAGER_ENABLED || '1') === '1';
