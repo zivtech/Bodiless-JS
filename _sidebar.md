@@ -10,6 +10,7 @@
     - [Bv](/Components/bv)
     - [Iframe](/Components/Iframe)
     - [Editable](/Components/Editable)
+    - [Chameleon](/Components/Chameleon)
     - [List](/Components/List)
     - [Link](/Components/Link)
     - [Image](/Components/Image)
