@@ -23,6 +23,7 @@
     - [Burger Menu](/Components/BurgerMenu)
     - [Single Accordion](/Components/SingleAccordion)
     - [Rich Text](/Components/RichText)
+    - [Search](/Components/Search)
   - [Tools](/Tools/)
     - [Bodiless CLI](/Tools/BodilessCLI)
   - [Development](/Development/)
