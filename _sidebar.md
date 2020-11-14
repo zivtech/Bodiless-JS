@@ -36,6 +36,7 @@
         - [Components Starter Kit](/Development/Guides/BuildingSites/ComponentsStarterKit)
         - [Fonts](/Development/Guides/BuildingSites/Fonts)
         - [Identifying Components Guide](/Development/Guides/BuildingSites/IdentifyingComponentsGuide)
+        - [Image Configurations](/Development/Guides/BuildingSites/ImageConfigurations)
         - [Responsiveness](/Development/Guides/BuildingSites/Responsiveness)
         - [Tailwind Guide](/Development/Guides/BuildingSites/TailwindGuide)
         - Building Components
@@ -61,8 +62,8 @@
     - [Local Sites](/Development/LocalSites)
     - [Other Resources](/Development/OtherResources/)
       - [Lessons](/Development/OtherResources/Lessons)
+      - [Windows](/Development/OtherResources/Windows)
       - [Npm Commands](/Development/OtherResources/npm_commands)
       - [Vscode](/Development/OtherResources/vscode)
-      - [Windows](/Development/OtherResources/Windows)
     - [Platform.sh](/Development/Platform.sh)
     - [API](/Development/API/)
