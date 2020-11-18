@@ -71,7 +71,7 @@
 
 Ƭ **SearchComponents**: *object*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L40)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L40)*
 
 #### Type declaration:
 
@@ -87,7 +87,7 @@ ___
 
 Ƭ **SearchIndex**: *object*
 
-*Defined in [packages/bodiless-search/src/SearchClient.ts:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/SearchClient.ts#L25)*
+*Defined in [packages/bodiless-search/src/SearchClient.ts:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/SearchClient.ts#L25)*
 
 #### Type declaration:
 
@@ -103,7 +103,7 @@ ___
 
 Ƭ **SearchProps**: *DesignableComponentsProps‹[SearchComponents](globals.md#searchcomponents)› & HTMLProps‹HTMLElement›*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L118)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L118)*
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 Ƭ **SearchResultComponents**: *object*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L46)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L46)*
 
 #### Type declaration:
 
@@ -129,7 +129,7 @@ ___
 
 Ƭ **SearchResultItemComponents**: *object*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L53)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L53)*
 
 #### Type declaration:
 
@@ -147,7 +147,7 @@ ___
 
 Ƭ **SearchResultItemProps**: *DesignableComponentsProps‹[SearchResultItemComponents](globals.md#searchresultitemcomponents)› & object*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L60)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L60)*
 
 ___
 
@@ -155,7 +155,7 @@ ___
 
 Ƭ **SearchResultProps**: *DesignableComponentsProps‹[SearchResultComponents](globals.md#searchresultcomponents)› & HTMLProps‹HTMLElement› & object*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L120)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L120)*
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 Ƭ **TDocument**: *object*
 
-*Defined in [packages/bodiless-search/src/types.ts:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/types.ts#L34)*
+*Defined in [packages/bodiless-search/src/types.ts:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/types.ts#L34)*
 
 #### Type declaration:
 
@@ -175,7 +175,7 @@ ___
 
 Ƭ **TField**: *object*
 
-*Defined in [packages/bodiless-search/src/types.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/types.ts#L42)*
+*Defined in [packages/bodiless-search/src/types.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/types.ts#L42)*
 
 #### Type declaration:
 
@@ -189,7 +189,7 @@ ___
 
 Ƭ **TIndexConfig**: *object*
 
-*Defined in [packages/bodiless-search/src/types.ts:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/types.ts#L50)*
+*Defined in [packages/bodiless-search/src/types.ts:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/types.ts#L50)*
 
 #### Type declaration:
 
@@ -203,7 +203,7 @@ ___
 
 Ƭ **TPreview**: *object*
 
-*Defined in [packages/bodiless-search/src/types.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/types.ts#L36)*
+*Defined in [packages/bodiless-search/src/types.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/types.ts#L36)*
 
 #### Type declaration:
 
@@ -215,7 +215,7 @@ ___
 
 Ƭ **TSearchConf**: *object*
 
-*Defined in [packages/bodiless-search/src/types.ts:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/types.ts#L38)*
+*Defined in [packages/bodiless-search/src/types.ts:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/types.ts#L38)*
 
 #### Type declaration:
 
@@ -227,7 +227,7 @@ ___
 
 Ƭ **TSearchIndexSettings**: *object*
 
-*Defined in [packages/bodiless-search/src/types.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/types.ts#L55)*
+*Defined in [packages/bodiless-search/src/types.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/types.ts#L55)*
 
 #### Type declaration:
 
@@ -245,7 +245,7 @@ ___
 
 Ƭ **TSearchResult**: *object*
 
-*Defined in [packages/bodiless-search/src/types.ts:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/types.ts#L62)*
+*Defined in [packages/bodiless-search/src/types.ts:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/types.ts#L62)*
 
 #### Type declaration:
 
@@ -265,7 +265,7 @@ ___
 
 Ƭ **TSearchResultContextValue**: *object*
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L22)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L22)*
 
 #### Type declaration:
 
@@ -283,7 +283,7 @@ ___
 
 Ƭ **TSearchResults**: *[TSearchResult](globals.md#tsearchresult)[]*
 
-*Defined in [packages/bodiless-search/src/types.ts:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/types.ts#L70)*
+*Defined in [packages/bodiless-search/src/types.ts:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/types.ts#L70)*
 
 ## Variables
 
@@ -293,7 +293,7 @@ ___
   searchComponents, 'SearchBox',
 )(SearchBoxBase) as ComponentType<SearchProps>
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:218](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L218)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:218](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L218)*
 
 ___
 
@@ -303,7 +303,7 @@ ___
   searchResultComponents, 'SearchResult',
 )(SearchResultBase) as ComponentType<SearchResultProps>
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:221](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L221)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:221](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L221)*
 
 ___
 
@@ -313,7 +313,7 @@ ___
   designable(searchResultItemComponents, 'SearchResultItem'),
 )(SearchResultItemBase)
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:107](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L107)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:107](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L107)*
 
 ___
 
@@ -321,7 +321,7 @@ ___
 
 • **config**: *[TSearchConf](globals.md#tsearchconf)*
 
-*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L24)*
+*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L24)*
 
 ___
 
@@ -329,7 +329,7 @@ ___
 
 • **defaultResultCountMessage**: *"Showing %count% result(s)."* = "Showing %count% result(s)."
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:123](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L123)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:123](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L123)*
 
 ___
 
@@ -337,7 +337,7 @@ ___
 
 • **defaultResultEmptyMessage**: *"No content matches your request, please enter new keywords."* = "No content matches your request, please enter new keywords."
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:124](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L124)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:124](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L124)*
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 • **searchClient**: *[SearchClient](classes/searchclient.md)‹›* = new SearchClient()
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L29)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L29)*
 
 ___
 
@@ -353,7 +353,7 @@ ___
 
 • **searchResultContext**: *Context‹object›* = React.createContext<TSearchResultContextValue>(defaultSearchResults)
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L40)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L40)*
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 • **tool**: *[SearchTool](classes/searchtool.md)‹›* = new SearchTool(config)
 
-*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L26)*
+*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L26)*
 
 ## Functions
 
@@ -369,7 +369,7 @@ ___
 
 ▸ **SearchBoxBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:159](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L159)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:159](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L159)*
 
 **Parameters:**
 
@@ -388,7 +388,7 @@ ___
 
 ▸ **SearchButtonBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L70)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L70)*
 
 **Parameters:**
 
@@ -407,7 +407,7 @@ ___
 
 ▸ **SearchInputBase**(`props`: HTMLProps‹HTMLInputElement› & object): *Element‹›*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L63)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L63)*
 
 **Parameters:**
 
@@ -423,7 +423,7 @@ ___
 
 ▸ **SearchResultBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:125](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L125)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:125](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L125)*
 
 **Parameters:**
 
@@ -443,7 +443,7 @@ ___
 
 ▸ **SearchResultItemBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L87)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L87)*
 
 **Parameters:**
 
@@ -462,7 +462,7 @@ ___
 
 ▸ **SearchResultProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L42)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L42)*
 
 **Parameters:**
 
@@ -480,7 +480,7 @@ ___
 
 ▸ **useSearchResultContext**(): *object*
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L41)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L41)*
 
 **Returns:** *object*
 
@@ -498,7 +498,7 @@ ___
 
 ▸ **withSearchResult**‹**P**›(`Component`: ComponentType‹P›): *WithSearchResult*
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L85)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L85)*
 
 **Type parameters:**
 
@@ -518,7 +518,7 @@ Name | Type |
 
 ### ▪ **defaultSearchResults**: *object*
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L34)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L34)*
 
 Search result context
 
@@ -526,19 +526,19 @@ Search result context
 
 • **results**: *never[]* = []
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L35)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L35)*
 
 ###  searchTerm
 
 • **searchTerm**: *string* = ""
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L37)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L37)*
 
 ###  setResult
 
 ▸ **setResult**(): *void*
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L36)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L36)*
 
 **Returns:** *void*
 
@@ -546,7 +546,7 @@ Search result context
 
 ▸ **setSearchTerm**(): *string*
 
-*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/SearchContextProvider.tsx#L38)*
+*Defined in [packages/bodiless-search/src/components/SearchContextProvider.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/SearchContextProvider.tsx#L38)*
 
 **Returns:** *string*
 
@@ -556,25 +556,25 @@ ___
 
 ### ▪ **searchComponents**: *object*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L74)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L74)*
 
 ###  SearchButton
 
 • **SearchButton**: *FunctionComponent‹HTMLProps‹HTMLButtonElement››* = SearchButtonBase
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L77)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L77)*
 
 ###  SearchInput
 
 • **SearchInput**: *FunctionComponent‹HTMLProps‹HTMLInputElement››* = SearchInputBase
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L76)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L76)*
 
 ###  SearchWrapper
 
 • **SearchWrapper**: *object* = Div
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L75)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L75)*
 
 #### Type declaration:
 
@@ -594,13 +594,13 @@ ___
 
 ### ▪ **searchResultComponents**: *object*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:111](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L111)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:111](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L111)*
 
 ###  SearchResultList
 
 • **SearchResultList**: *object* = Ul
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L113)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L113)*
 
 #### Type declaration:
 
@@ -618,13 +618,13 @@ Name | Type |
 
 • **SearchResultListItem**: *any* = SearchResultItemClean
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L114)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L114)*
 
 ###  SearchResultSummary
 
 • **SearchResultSummary**: *object* = P
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L115)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L115)*
 
 #### Type declaration:
 
@@ -642,7 +642,7 @@ Name | Type |
 
 • **SearchResultWrapper**: *object* = Div
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L112)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L112)*
 
 #### Type declaration:
 
@@ -662,13 +662,13 @@ ___
 
 ### ▪ **searchResultItemComponents**: *object*
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L80)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L80)*
 
 ###  ItemAnchor
 
 • **ItemAnchor**: *object* = A
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L83)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L83)*
 
 #### Type declaration:
 
@@ -686,7 +686,7 @@ Name | Type |
 
 • **ItemH3**: *object* = H3
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L82)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L82)*
 
 #### Type declaration:
 
@@ -704,7 +704,7 @@ Name | Type |
 
 • **ItemList**: *object* = Li
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L81)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L81)*
 
 #### Type declaration:
 
@@ -722,7 +722,7 @@ Name | Type |
 
 • **ItemParagraph**: *object* = P
 
-*Defined in [packages/bodiless-search/src/components/Search.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/components/Search.tsx#L84)*
+*Defined in [packages/bodiless-search/src/components/Search.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/components/Search.tsx#L84)*
 
 #### Type declaration:
 
@@ -742,7 +742,7 @@ ___
 
 ### ▪ **settings**: *object*
 
-*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L36)*
+*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L36)*
 
 Search index creation configures
 
@@ -755,23 +755,23 @@ Search index creation configures
 
 • **sourcePath**: *string* = process.env.BODILESS_SEARCH_SOURCE_PATH || './public'
 
-*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L37)*
+*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L37)*
 
 ###  sourceTypes
 
 • **sourceTypes**: *string[]* = process.env.BODILESS_SEARCH_SOURCE_TYPE ? process.env.BODILESS_SEARCH_SOURCE_TYPE.split('|') : ['html', 'htm']
 
-*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L38)*
+*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L38)*
 
 ###  targetPath
 
 • **targetPath**: *string* = process.env.BODILESS_SEARCH_INDEX_PATH ? process.env.BODILESS_SEARCH_INDEX_PATH : './public/default.idx'
 
-*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L39)*
+*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L39)*
 
 ▪ **indexConfig**: *object*
 
-*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L40)*
+*Defined in [packages/bodiless-search/src/scripts/bodiless-search-index.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3cab826/packages/bodiless-search/src/scripts/bodiless-search-index.ts#L40)*
 
 * **fields**: *(object | object)[]* = [
       { name: 'title', attributes: { boost: 2 } },
