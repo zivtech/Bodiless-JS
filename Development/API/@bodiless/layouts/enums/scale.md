@@ -16,7 +16,7 @@
 
 • **Full**: = 1
 
-*Defined in [packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/23af96d/packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx#L28)*
+*Defined in [packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx#L28)*
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 • **Half**: = 2
 
-*Defined in [packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/23af96d/packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx#L29)*
+*Defined in [packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx#L29)*
 
 ___
 
@@ -32,4 +32,4 @@ ___
 
 • **Quarter**: = 4
 
-*Defined in [packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/23af96d/packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx#L30)*
+*Defined in [packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/78035b5/packages/bodiless-layouts/src/ComponentSelector/ItemListScale.tsx#L30)*
