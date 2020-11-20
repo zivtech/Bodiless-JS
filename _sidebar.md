@@ -15,6 +15,7 @@
     - [Link](/Components/Link)
     - [Image](/Components/Image)
     - [Flow Container](/Components/FlowContainer)
+    - [Social Share](/Components/SocialShare)
     - [Tout](/Components/Tout)
     - [Embed](/Components/Embed)
     - [Carousel](/Components/Carousel)
