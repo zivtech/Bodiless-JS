@@ -73,7 +73,7 @@
 
 • **Anchor**: *object* = stylable<HTMLProps<HTMLAnchorElement>>('a')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L54)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L54)*
 
 #### Type declaration:
 
@@ -93,7 +93,7 @@ ___
 
 • **BarsCount**: *12* = 12
 
-*Defined in [packages/bodiless-ui/src/Spinner.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/Spinner.tsx#L18)*
+*Defined in [packages/bodiless-ui/src/Spinner.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/Spinner.tsx#L18)*
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 • **Button**: *object* = stylable<HTMLProps<HTMLButtonElement>>('button')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L44)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L44)*
 
 #### Type declaration:
 
@@ -121,7 +121,7 @@ ___
 
 • **CheckBox**: *object* = stylable<FieldProps<any, any>>(BaseCheckBox)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L51)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L51)*
 
 #### Type declaration:
 
@@ -143,7 +143,7 @@ ___
   'bl-text-grey-200 bl-cursor-pointer hover:bl-text-green',
 )(Button)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L120)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L120)*
 
 ___
 
@@ -153,7 +153,7 @@ ___
   'bl-mr-grid-2 bl-mb-grid-2 align-baseline',
 )(CheckBox)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:109](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L109)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:109](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L109)*
 
 ___
 
@@ -165,7 +165,7 @@ ___
   withChild(() => <Icon>cancel</Icon>),
 )(ComponentFormButton)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:128](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L128)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:128](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L128)*
 
 #### Type declaration:
 
@@ -185,7 +185,7 @@ ___
   'bl-text-xs bl-text-grey-100 bl-block bl-mb-grid-2 bl-max-w-xl-grid-1',
 )(Div)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L77)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L77)*
 
 ___
 
@@ -195,7 +195,7 @@ ___
   'bl-block bl-italic',
 )(Div)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:142](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L142)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:142](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L142)*
 
 ___
 
@@ -205,7 +205,7 @@ ___
   'bl-mb-grid-2 bl-font-bold bl-text-grey-100',
 )(Div)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L73)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L73)*
 
 ___
 
@@ -215,7 +215,7 @@ ___
   'bl-mb-grid-3 bl-w-full',
 )(Div)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L69)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L69)*
 
 ___
 
@@ -225,7 +225,7 @@ ___
   'bl-text-xs bl-text-grey-100 bl-block',
 )(Label)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L89)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L89)*
 
 ___
 
@@ -237,7 +237,7 @@ ___
   removeClassesIf(isDisabled)('bl-cursor-pointer bl-text-grey-100 '),
 )(Anchor)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:204](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L204)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:204](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L204)*
 
 ___
 
@@ -247,7 +247,7 @@ ___
   'list-none bl-max-h-xl-grid-1 bl-overflow-y-scroll',
 )(Ul)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L85)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L85)*
 
 ___
 
@@ -257,7 +257,7 @@ ___
   'first:bl-border-t-0 bl-border-t bl-py-grid-1 bl-px-grid-1 bl-max-w-xl-grid-1',
 )(Li)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L81)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L81)*
 
 ___
 
@@ -265,7 +265,7 @@ ___
 
 • **ComponentFormOption**: *object* = Option
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L118)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L118)*
 
 #### Type declaration:
 
@@ -287,7 +287,7 @@ ___
   'bl-mr-grid-2 bl-mb-grid-2 align-baseline',
 )(Radio)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L105)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L105)*
 
 ___
 
@@ -297,7 +297,7 @@ ___
   'bl-mb-grid-2',
 )(RadioGroup)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L101)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L101)*
 
 ___
 
@@ -308,7 +308,7 @@ ___
   bl-min-w-xl-grid-1 bl-block bl-my-grid-2 bl-p-grid-1`,
 )(Select)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L113)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L113)*
 
 ___
 
@@ -318,7 +318,7 @@ ___
   'bl-text-grey-900 bg-grey-100 bl-text-xs bl-w-full bl-min-w-xl-grid-1 bl-block bl-my-grid-2 bl-p-grid-1',
 )(Text)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L93)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L93)*
 
 ___
 
@@ -328,7 +328,7 @@ ___
   'bl-resize bl-text-grey-900 bg-grey-100 bl-text-xs bl-w-full bl-min-w-xl-grid-1 bl-min-h-grid-16 bl-block bl-my-grid-2 bl-p-grid-1',
 )(TextArea)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L97)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L97)*
 
 ___
 
@@ -338,7 +338,7 @@ ___
   'bl-text-lg bl-font-bold bl-text-grey-100 bl-block bl-mb-grid-2 bl-min-w-xl-grid-1',
 )(Title)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L65)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L65)*
 
 ___
 
@@ -348,7 +348,7 @@ ___
   'bl-absolute bl-bottom-0 bl-left-0 bl-mb-5 bl-ml-3 bl-cursor-pointer bl-underline',
 )(Button)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:124](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L124)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:124](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L124)*
 
 ___
 
@@ -363,7 +363,7 @@ ___
   </Div>
 ))
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:194](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L194)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:194](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L194)*
 
 ___
 
@@ -374,7 +374,7 @@ ___
   addProps({ role: 'toolbar', 'aria-label': 'Submenu' }),
 )(Div)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:183](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L183)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:183](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L183)*
 
 #### Type declaration:
 
@@ -392,7 +392,7 @@ ___
 
 • **Div**: *object* = stylable<HTMLProps<HTMLDivElement>>('div')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L42)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L42)*
 
 #### Type declaration:
 
@@ -412,7 +412,7 @@ ___
 
 • **Form**: *object* = stylable<HTMLProps<HTMLFormElement>>('form')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L46)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L46)*
 
 #### Type declaration:
 
@@ -435,7 +435,7 @@ ___
   addClasses('bl-mr-grid-2 last:bl-mr-grid-0'),
 )(ToolbarButton)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:165](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L165)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:165](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L165)*
 
 ___
 
@@ -443,7 +443,7 @@ ___
 
 • **Hr**: *object* = stylable<HTMLProps<HTMLHRElement>>('hr')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L45)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L45)*
 
 #### Type declaration:
 
@@ -470,7 +470,7 @@ ___
   addProps({ 'aria-hidden': true }),
 )(Span)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L56)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L56)*
 
 ___
 
@@ -478,7 +478,7 @@ ___
 
 • **Img**: *object* = stylable<HTMLProps<HTMLImageElement>>('img')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L40)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L40)*
 
 #### Type declaration:
 
@@ -498,7 +498,7 @@ ___
 
 • **Input**: *object* = stylable<HTMLProps<HTMLInputElement>>('input')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L41)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L41)*
 
 #### Type declaration:
 
@@ -518,7 +518,7 @@ ___
 
 • **Label**: *object* = stylable<HTMLProps<HTMLLabelElement>>('label')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L39)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L39)*
 
 #### Type declaration:
 
@@ -538,7 +538,7 @@ ___
 
 • **MaxDegrees**: *360* = 360
 
-*Defined in [packages/bodiless-ui/src/Spinner.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/Spinner.tsx#L19)*
+*Defined in [packages/bodiless-ui/src/Spinner.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/Spinner.tsx#L19)*
 
 ___
 
@@ -546,7 +546,7 @@ ___
 
 • **Option**: *object* = stylable<ChildFieldProps<any, any>>(BaseOption)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L53)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L53)*
 
 #### Type declaration:
 
@@ -566,7 +566,7 @@ ___
 
 • **Radio**: *object* = stylable<ChildFieldProps<any, any>>(BaseRadio)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L50)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L50)*
 
 #### Type declaration:
 
@@ -586,7 +586,7 @@ ___
 
 • **RadioGroup**: *object* = stylable<FieldProps<any, any>>(BaseRadioGroup)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L49)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L49)*
 
 #### Type declaration:
 
@@ -611,7 +611,7 @@ ___
   withChild(() => <ResizeHandleBar />),
 )(Div)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:176](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L176)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:176](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L176)*
 
 #### Type declaration:
 
@@ -631,7 +631,7 @@ ___
   'bl-resizable-handle bl-border-solid bl-border-l-2 bl-border-primary bl-h-full',
 )(Div)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:172](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L172)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:172](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L172)*
 
 ___
 
@@ -639,7 +639,7 @@ ___
 
 • **Select**: *object* = stylable<SelectFieldProps<any, any>>(BaseSelect)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L52)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L52)*
 
 #### Type declaration:
 
@@ -659,7 +659,7 @@ ___
 
 • **Span**: *object* = stylable<HTMLProps<HTMLSpanElement>>('span')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L43)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L43)*
 
 #### Type declaration:
 
@@ -679,7 +679,7 @@ ___
 
 • **Text**: *object* = stylable<FieldProps<any, any>>(BaseText)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L47)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L47)*
 
 #### Type declaration:
 
@@ -699,7 +699,7 @@ ___
 
 • **TextArea**: *object* = stylable<FieldProps<any, any>>(BaseTextArea)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L48)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L48)*
 
 #### Type declaration:
 
@@ -719,7 +719,7 @@ ___
 
 • **Title**: *object* = stylable<HTMLProps<HTMLHeadingElement>>('h3')
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L38)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L38)*
 
 #### Type declaration:
 
@@ -749,7 +749,7 @@ ___
   addProps({ type: 'button' }),
 )(Button)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:153](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L153)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:153](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L153)*
 
 ___
 
@@ -757,7 +757,7 @@ ___
 
 • **ToolbarButtonLabel**: *FunctionComponent‹HTMLProps‹HTMLSpanElement› & object›* = addClasses('bl-text-center bl-text-base')(Span)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:170](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L170)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:170](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L170)*
 
 ___
 
@@ -768,7 +768,7 @@ ___
   addClasses('bl-w-grid-8 bl-h-grid-8 md-36'),
 )(Icon)
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:148](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L148)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:148](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L148)*
 
 ___
 
@@ -780,7 +780,7 @@ ___
   <Icon {...props}>report_problem_outlined</Icon>
 ))
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:188](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L188)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:188](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L188)*
 
 ## Functions
 
@@ -788,7 +788,7 @@ ___
 
 ▸ **ComponentFormSpinner**(): *Element‹›*
 
-*Defined in [packages/bodiless-ui/src/Spinner.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/Spinner.tsx#L44)*
+*Defined in [packages/bodiless-ui/src/Spinner.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/Spinner.tsx#L44)*
 
 **Returns:** *Element‹›*
 
@@ -798,7 +798,7 @@ ___
 
 ▸ **ComponentFormSubmitButton**(`props`: HTMLProps‹HTMLButtonElement›): *Element‹›*
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:134](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L134)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:134](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L134)*
 
 **Parameters:**
 
@@ -814,7 +814,7 @@ ___
 
 ▸ **Spinner**(`props`: any): *Element‹›*
 
-*Defined in [packages/bodiless-ui/src/Spinner.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/Spinner.tsx#L25)*
+*Defined in [packages/bodiless-ui/src/Spinner.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/Spinner.tsx#L25)*
 
 **Parameters:**
 
@@ -830,7 +830,7 @@ ___
 
 ▸ **SubmitButton**(`props`: HTMLProps‹HTMLButtonElement› & object & object): *Element‹›*
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:146](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L146)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:146](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L146)*
 
 **Parameters:**
 
@@ -846,7 +846,7 @@ ___
 
 ▸ **isDisabled**(`props`: any): *boolean*
 
-*Defined in [packages/bodiless-ui/src/elements.tsx:203](https://github.com/johnsonandjohnson/Bodiless-JS/blob/54d2d4f/packages/bodiless-ui/src/elements.tsx#L203)*
+*Defined in [packages/bodiless-ui/src/elements.tsx:203](https://github.com/johnsonandjohnson/Bodiless-JS/blob/60dd9c8/packages/bodiless-ui/src/elements.tsx#L203)*
 
 **Parameters:**
 
