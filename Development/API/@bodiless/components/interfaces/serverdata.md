@@ -18,4 +18,4 @@
 
 • **filesPath**: *string[]*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/635d7ca/packages/bodiless-components/src/BackendSave.tsx#L24)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/3e38267/packages/bodiless-components/src/BackendSave.tsx#L24)*
