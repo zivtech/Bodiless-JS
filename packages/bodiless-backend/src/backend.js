@@ -21,16 +21,20 @@ const { spawn } = require('child_process');
 const formidable = require('formidable');
 const tmp = require('tmp');
 const path = require('path');
+const uniq = require('lodash/uniq');
 const Page = require('./page');
 const GitCmd = require('./GitCmd');
-const { getChanges, getConflicts } = require('./git');
+const { getChanges, getConflicts, mergeMaster } = require('./git');
+const { copyAllFiles } = require('./fileHelper');
 const Logger = require('./logger');
 
 const backendPrefix = process.env.GATSBY_BACKEND_PREFIX || '/___backend';
 const backendFilePath = process.env.BODILESS_BACKEND_DATA_FILE_PATH || '';
 const defaultBackendPagePath = path.resolve(backendFilePath, 'pages');
+const defaultBackendSitePath = path.resolve(backendFilePath, 'site');
 const backendPagePath = process.env.BODILESS_BACKEND_DATA_PAGE_PATH || defaultBackendPagePath;
 const backendStaticPath = process.env.BODILESS_BACKEND_STATIC_PATH || '';
+const backendPublicPath = process.env.BODILESS_BACKEND_PUBLIC_PAGE_PATH || 'public/page-data';
 const isExtendedLogging = (process.env.BODILESS_BACKEND_EXTENDED_LOGGING_ENABLED || '0') === '1';
 const canCommit = (process.env.BODILESS_BACKEND_COMMIT_ENABLED || '0') === '1';
 
@@ -118,7 +122,7 @@ class GitCommit {
 
     // Check if there are any unstaged files left before rebasing.
     const dirty = await GitCmd.cmd()
-      .add('diff-files', '--quiet')
+      .add('diff', '--quiet')
       .exec();
     if (dirty.code) {
       await GitCmd.cmd()
@@ -164,7 +168,7 @@ class GitCommit {
       throw rebaseErr;
     } finally {
       // If there was a temporary commit, rewind working directory back one commit.
-      if (dirty.code) {
+      if (dirty.code && (result.stdout.search('Already applied') === -1)) {
         await GitCmd.cmd()
           .add('reset', 'HEAD^')
           .exec();
@@ -272,7 +276,8 @@ class Backend {
     this.setRoute(`${backendPrefix}/change/push`, Backend.setChangePush);
     this.setRoute(`${backendPrefix}/change/reset`, Backend.setChangeReset);
     this.setRoute(`${backendPrefix}/change/pull`, Backend.setChangePull);
-    this.setRoute(`${backendPrefix}/asset`, Backend.setAsset);
+    this.setRoute(`${backendPrefix}/merge/master`, Backend.mergeMaster);
+    this.setRoute(`${backendPrefix}/asset/*`, Backend.setAsset);
     this.setRoute(`${backendPrefix}/set/current`, Backend.setSetCurrent);
     this.setRoute(`${backendPrefix}/set/list`, Backend.setSetList);
     this.setRoute(`${backendPrefix}/content/*`, Backend.setContent);
@@ -325,9 +330,19 @@ class Backend {
 
   static getConflicts(route) {
     route.get(async (req, res) => {
+      const target = req.query.target || undefined;
       try {
-        const status = await getConflicts();
-        res.send(status);
+        const conflicts = await getConflicts(target);
+        const pages = uniq(conflicts.files.filter(file => (file.search(backendPagePath) !== -1))
+          .map(file => (
+            path.dirname(file).replace(backendPagePath, '').replace(/^\/|\/$/g, '') || 'homepage'
+          )));
+        const site = uniq(conflicts.files.filter(
+          file => (file.search(defaultBackendSitePath) !== -1),
+        ).map(file => (
+          path.dirname(file).replace(defaultBackendSitePath, '').replace(/^\/|\/$/g, '') || 'site'
+        )));
+        res.send({ ...conflicts, pages, site });
       } catch (error) {
         logger.log(error);
         error.code = 500;
@@ -354,18 +369,43 @@ class Backend {
     route.post(async (req, res) => {
       logger.log('Start reset');
       try {
-        // Clean up untracked files first.
+        // Clean up untracked files.
         if (backendFilePath && backendStaticPath) {
-          const gitCleanResponse = await GitCmd.cmd()
-            .add('clean', '-df', backendFilePath, backendStaticPath)
+          // Clean up public folder.
+          const gitStatus = await GitCmd.cmd()
+            .add('status', '--porcelain', backendPagePath)
             .exec();
-          res.send(gitCleanResponse.stdout);
+          const gitRootRelPath = await GitCmd.cmd()
+            .add('rev-parse', '--show-cdup')
+            .exec();
+          const reGetDeletedAndUntracked = /(?<= D |\?\? ).*/gm;
+          const deletedAndUntracked = gitStatus.stdout.match(reGetDeletedAndUntracked);
+          if (deletedAndUntracked !== null) {
+            const dataPagePath = path.join(backendFilePath, 'pages');
+            const obsoletePublicPages = deletedAndUntracked.map(gitPath => {
+              const publicPagePath = gitPath.replace(dataPagePath, backendPublicPath);
+              // Get absolute path considering location of .git folder
+              return path.resolve(
+                gitRootRelPath.stdout.trim(),
+                publicPagePath,
+              );
+            });
+            // Have to loop through every path since 'git clean' can work incorrectly when passing
+            // all the paths at once.
+            await Promise.all(obsoletePublicPages.map(
+              async (gitPath) => GitCmd.cmd().add('clean', '-dfx').addFiles(gitPath).exec(),
+            ));
+          }
+          // Clean up data folder.
+          await Promise.all([backendFilePath, backendStaticPath].map(
+            async (gitPath) => GitCmd.cmd().add('clean', '-df').addFiles(gitPath).exec(),
+          ));
         }
         // Discard changes in existing files.
-        const gitResetResponse = await GitCmd.cmd()
+        const cleanExisting = await GitCmd.cmd()
           .add('reset', '--hard', 'HEAD')
           .exec();
-        res.send(gitResetResponse.stdout);
+        res.send(cleanExisting.stdout);
       } catch (error) {
         // Need to inform user of merge operation fails.
         Backend.exitWithErrorResponse(error, res);
@@ -381,6 +421,19 @@ class Backend {
         .then(data => res.send(data.stdout))
         // Need to inform user of merge operation fails.
         .catch(error => Backend.exitWithErrorResponse(error, res));
+    });
+  }
+
+  static mergeMaster(route) {
+    route.post(async (req, res) => {
+      try {
+        const status = await mergeMaster();
+        res.send(status);
+      } catch (error) {
+        logger.log(error);
+        error.code = 500;
+        Backend.exitWithErrorResponse(error, res);
+      }
     });
   }
 
@@ -451,37 +504,19 @@ class Backend {
 
   static setAsset(route) {
     route.post((req, res) => {
-      // create an incoming form object
-      const form = new formidable.IncomingForm();
-
-      // specify that we want to allow the user to upload multiple files in a single request
-      form.multiples = true;
-
-      // store all uploads in a temporary directory
+      const baseResourcePath = Backend.getPath(req);
       const tmpDir = tmp.dirSync({ mode: '0755', unsafeCleanup: true, prefix: 'backendTmpDir_' });
-      form.uploadDir = tmpDir.name;
+      const form = formidable({ multiples: true, uploadDir: tmpDir.name });
 
-      // every time a file has been uploaded successfully,
-      // copy to static path with orignal name
-      form.on('file', (field, file) => {
-        fs.copyFile(file.path, path.join(backendStaticPath, file.name), err => {
-          if (err) throw err;
-          fs.unlinkSync(file.path);
+      form.parse(req, (err, fields, files) => {
+        const { nodePath } = fields;
+        copyAllFiles(files, baseResourcePath, nodePath).then((filesPath) => {
+          res.json({ filesPath });
+        }).catch(copyErr => {
+          console.log(copyErr);
+          res.send(copyErr);
         });
       });
-
-      // log any errors that occur
-      form.on('error', err => {
-        logger.log(`An error has occured here: \n${err}`);
-      });
-
-      // once all the files have been uploaded, send a response to the client
-      form.on('end', () => {
-        res.send('success');
-      });
-
-      // parse the incoming request containing the form data
-      form.parse(req);
     });
   }
 

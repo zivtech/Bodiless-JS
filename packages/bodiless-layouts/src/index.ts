@@ -12,19 +12,23 @@
  * limitations under the License.
  */
 
+import './main.css';
+
 export { default as ComponentSelector } from './ComponentSelector';
 export * from './ComponentSelector/types';
 export type { FlowContainerProps } from './FlowContainer/types';
-export { default as FlowContainer } from './FlowContainer';
+export { default as FlowContainer, withMandatoryCategories } from './FlowContainer';
 export type {
   Props as SortableResizableProps,
   UI as SortableResizableUI,
 } from './SortableResizableWrapper';
 export { default as SortableResizableWrapper } from './SortableResizableWrapper';
 export { default as SlateSortableResizable } from './SlateSortableResizable';
+export { default as SortableChild } from './FlowContainer/SortableChild';
 export {
   withTuple,
   getSnapFrom,
   withTailwindClasses,
 } from './FlowContainer/utils/appendTailwindWidthClass';
 export * from './meta';
+export { ifComponentSelector } from './FlowContainer/ComponentDisplayMode';

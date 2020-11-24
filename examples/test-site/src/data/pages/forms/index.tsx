@@ -14,36 +14,11 @@
 import React, { HTMLProps } from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
-import { asBodilessComponent, useFormUI } from '@bodiless/core';
 import { asEditable } from '@bodiless/components';
-import ReactMarkdown, { ReactMarkdownProps as Props } from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
 
 import Layout from '../../../components/Layout';
-import MarkdownField from './InformedMarkdown';
-
-type Data = Pick<Props, 'source'>;
-
-const asBodilessMarkdown = asBodilessComponent<Props, Data>({
-  icon: 'edit',
-  name: 'edit',
-  renderForm: () => {
-    // const { ComponentFormLabel, ComponentFormTitle, ComponentFormTextArea } = useFormUI();
-    const { ComponentFormLabel, ComponentFormTitle } = useFormUI();
-    return (
-      <>
-        <ComponentFormTitle>Markdown</ComponentFormTitle>
-        <ComponentFormLabel>Content</ComponentFormLabel>
-        {/* <ComponentFormTextArea field="source" /> */}
-        <MarkdownField field="source" />
-      </>
-    );
-  },
-  global: false,
-  local: true,
-  Wrapper: 'div',
-  defaultData: { source: 'Initial Value' },
-});
-
+import asBodilessMarkdown from './asCustomBodilessMarkdown';
 
 const Markdown = asBodilessMarkdown('body')(ReactMarkdown);
 const H1 = asEditable('title', 'Title')<HTMLProps<HTMLHeadingElement>>('h1');

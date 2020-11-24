@@ -17,6 +17,9 @@ import {
   ifEditable,
   withDefaultContent,
   withResetButton,
+  withSidecarNodes,
+  withMenuOptions,
+  withContextActivator,
 } from '@bodiless/core';
 import {
   ToutClean,
@@ -36,22 +39,42 @@ const asNonDraggable = addProps({ draggable: false });
 export const withToutEditors = flow(
   withDesign({
     Image: asEditableImage('image'),
-    ImageLink: asEditableLink('cta'),
+    ImageLink: withSidecarNodes(
+      asEditableLink('link'),
+    ),
     Title: withEditorSimple('title', 'Tout Title Text'),
     Link: flow(
-      withEditorSimple('text', 'CTA'),
-      asEditableLink('cta'),
+      withEditorSimple('ctatext', 'CTA'),
+      withSidecarNodes(
+        asEditableLink('link', undefined, () => ({ groupLabel: 'CTA' })),
+      ),
       ifEditable(asNonDraggable),
     ),
     Body: withEditorBasic('body', 'Tout Body Text'),
   }),
 );
 
+const withEmptyContext = (name: string) => flow(
+  withContextActivator('onClick'),
+  withMenuOptions({
+    name,
+    useMenuOptions: () => ([{
+      name, isHidden: true, global: false, local: true,
+    }]),
+  }),
+);
+
 export const withToutResetButtons = withDesign({
-  ImageLink: withResetButton({ nodeKey: 'cta$image' }),
-  Title: withResetButton({ nodeKey: 'title' }),
-  Body: withResetButton({ nodeKey: 'body' }),
-  Link: withResetButton({ nodeKey: 'cta' }),
+  ImageLink: withResetButton({ nodeKey: ['image', 'link'] }),
+  Title: flow(
+    withEmptyContext('Title'),
+    withResetButton({ nodeKey: 'title' }),
+  ),
+  Body: flow(
+    withEmptyContext('Body'),
+    withResetButton({ nodeKey: 'body' }),
+  ),
+  Link: withResetButton({ nodeKey: ['link', 'ctatext'] }),
 });
 
 export const asEditableTout = flow(

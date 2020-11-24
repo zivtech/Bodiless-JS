@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,74 +13,64 @@
  */
 
 import React, { FC, ComponentType, HTMLProps } from 'react';
-import { Link } from 'gatsby';
 import { flow } from 'lodash';
 import {
-  addClasses,
-  withDesign,
   designable,
   DesignableComponentsProps,
-  DesignableProps,
+  withDesign,
   Div,
 } from '@bodiless/fclasses';
-import MainMenu from '../Menus/MainMenu';
-import BurgerMenu from '../Menus/BurgerMenu';
-import {
-  asPageContainer,
-  asHeader1,
-  asPrimaryColorBackground,
-} from '../Elements.token';
+import { withNodeKey } from '@bodiless/core';
+import { ResponsiveMegaMenu } from '../Menu';
+import { SimpleSearchBox } from '../Search';
+import Logo from './logo';
 
 type HeaderComponents = {
   Wrapper: ComponentType<any>,
   Container: ComponentType<any>,
-  MobileContainer: ComponentType<any>,
-  SiteReturn: ComponentType<any>,
-  DesktopMenu: ComponentType<any>,
-  MobileMenu: ComponentType<any>,
+  MenuContainer: ComponentType<any>,
+  Menu: ComponentType<any>,
+  SiteLogoReturn: ComponentType<any>,
+  Search: ComponentType<any>,
 };
-export type Props = {
-  siteLogo: string,
-} & DesignableComponentsProps<HeaderComponents> & HTMLProps<HTMLElement>;
+export type Props = DesignableComponentsProps<HeaderComponents> & HTMLProps<HTMLElement>;
 
 const headerComponents:HeaderComponents = {
   Wrapper: Div,
   Container: Div,
-  SiteReturn: Div,
-  DesktopMenu: MainMenu,
-  MobileMenu: BurgerMenu,
+  MenuContainer: Div,
+  Menu: ResponsiveMegaMenu,
+  SiteLogoReturn: Logo,
+  Search: SimpleSearchBox,
 };
-const Header: FC<DesignableProps & { siteLogo: string }> = ({ siteLogo, components }) => {
+const HeaderClean: FC<Props> = ({ components }) => {
   const {
     Wrapper,
     Container,
-    SiteReturn,
-    DesktopMenu,
-    MobileMenu,
+    MenuContainer,
+    Menu,
+    SiteLogoReturn,
   } = components;
 
   return (
     <Wrapper>
       <Container>
-        <SiteReturn>
-          <Link to="/">
-            <img src={siteLogo} className="h-16" alt="Return To Home" />
-          </Link>
-        </SiteReturn>
+        <SiteLogoReturn />
+        <SimpleSearchBox placeholder="Search" />
       </Container>
-      <div className="container mx-auto">
-        <DesktopMenu nodeKey="MainMenu" nodeCollection="site" />
-        <MobileMenu nodeKey="MainMenu" nodeCollection="site" />
-      </div>
+      <MenuContainer>
+        <Menu />
+      </MenuContainer>
     </Wrapper>
   );
 };
+
 const asSiteHeader = flow(
-  designable(headerComponents),
+  designable(headerComponents, 'Header'),
   withDesign({
-    Wrapper: flow(asPrimaryColorBackground, addClasses('')),
-    Container: flow(asPageContainer, addClasses('flex min-h-16 items-end')),
-    SiteReturn: flow(asHeader1, addClasses('flex-shrink')),
+    Menu: withNodeKey({ nodeKey: 'MainMenu', nodeCollection: 'site' }),
   }),
 );
-export default asSiteHeader(Header);
+
+const Header = asSiteHeader(HeaderClean);
+export default Header;

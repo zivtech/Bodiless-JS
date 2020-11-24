@@ -113,12 +113,15 @@ atomic design lingo, though we don't draw much of a distinction among them). A
 "Component Token" is usually a colletion of element tokens which should be applied
 to the constituent elements of a complex component.  For example, imagine a `Tout`
 component which has a title, an image, body text and a call-to-action link. We can
-then define the follwing HOC to apply tokens to the title and link:
+then define the following HOC to apply tokens to the title and link:
 
 ``` js
 const asToutPink = withDesign({
   Title: addClasses('text-base text-pink font-bold'),
-  Link: addClasses('bg-pink').removeClasses('bg-blue-dark'),
+  Link: flow(
+    addClasses('bg-pink'),
+    removeClasses('bg-blue-dark'),
+  ),
 });
 ```
 
@@ -140,7 +143,10 @@ import { asToutPink as asToutPinkBase } from 'some-design-system';
 const asToutPink = flow(
   asToutPinkBase,
   withDesign({
-    Title: removeClasses('text-base').addClasses('text-lg'),
+    Title: flow(
+      removeClasses('text-base'),
+      addClasses('text-lg'),
+    ),
   }),
 );
 ```

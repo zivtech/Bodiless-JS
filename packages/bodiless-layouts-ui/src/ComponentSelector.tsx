@@ -16,21 +16,44 @@ import React, { FC } from 'react';
 import MaterialIcon, { MaterialIconDefaultProps } from '@material/react-material-icon';
 import { addClasses } from '@bodiless/fclasses';
 import {
-  SubmitButton as SubmitButtonBase, Div, Span, Label, CheckBox, Input,
-  Button, Anchor, ComponentFormTitle,
+  SubmitButton as SubmitButtonBase, Div, Span, Label, Input,
+  Button, Anchor, ComponentFormTitle, ComponentFormLink,
 } from '@bodiless/ui';
 import { ComponentSelector as CleanComponentSelector, ComponentSelectorUI, ComponentSelectorProps } from '@bodiless/layouts';
+
+/**
+ * Checkbox component used on flow container.
+ *
+ * Used instead of informed Checkbox for more concise handling.
+ */
+const CheckBox = ({
+  name, checked, onChange, disabled, id, ...rest
+} : any) => (
+  <Input
+    type="checkbox"
+    name={name}
+    disabled={disabled}
+    checked={checked}
+    onChange={onChange}
+    id={id}
+    {...rest}
+  />
+);
 
 // eslint-disable-next-line import/prefer-default-export
 export const ui: ComponentSelectorUI = {
   MasterWrapper: addClasses('bl-flex bl-form-wrapper')(Div),
   FlexSection: addClasses('bl-pt-grid-16')(Div),
+  FlexSectionFull: addClasses('bl-pt-grid-16 bl-w-full')(Div),
   FlowContainerEmpty: addClasses(
     'bl-border-2 bl-border-dashed bl-text-gray-600',
   )(Div),
   ItemBoxWrapper: addClasses('bl-p-grid-2')(Div),
   ItemBox: addClasses(
-    'bl-bg-grey-200 bl-flex bl-flex-col bl-items-center bl-justify-center bl-p-grid-2 bl-h-full bl-w-full bl-relative bl-overflow-hidden bl-cursor-pointer',
+    'bl-bg-grey-200 bl-flex bl-flex-col bl-items-center bl-p-grid-2 bl-h-full bl-w-full bl-relative bl-overflow-hidden bl-cursor-pointer',
+  )(Div),
+  GridListBoxWrapper: addClasses(
+    'bl-w-full bl-h-xl-grid-2',
   )(Div),
   GridListBoxInner: addClasses(
     'bl-w-full bl-overflow-y-scroll bl-flex bl-flex-wrap bl-h-xl-grid-2',
@@ -46,21 +69,19 @@ export const ui: ComponentSelectorUI = {
 
   ComponentTitleWrapper: ComponentFormTitle,
 
+  ComponentLinkWrapper: ComponentFormLink,
+
   IconWrapper: addClasses(
     'bl-block bl-absolute bl-left-grid-0 bl-top-grid-0',
   )(Span),
 
   ComponentSelectorWrapper: addClasses(
-    'bl-text-white bl-mr-grid-3',
+    'bl-text-white bl-mr-grid-3  bl-whitespace-no-wrap',
   )(Div),
 
   SubmitButton: addClasses(
     'bl-right-grid-0 bl-absolute tbl-ext-m bl-mr-grid-2',
   )(SubmitButtonBase),
-
-  AllCheckboxWrapper: addClasses(
-    'bl-text-white',
-  )(Div),
 
   AccordionWrapper: addClasses(
     'bl-font-semibold',
@@ -79,7 +100,7 @@ export const ui: ComponentSelectorUI = {
   )(Label),
 
   AccordionCheckBox: addClasses(
-    'bl-ml-grid-1',
+    'bl-ml-grid-1 bl-mr-grid-1',
   )(CheckBox),
 
   SearchBarWrapper: addClasses(

@@ -1,12 +1,27 @@
 /**
+ * Copyright © 2020 Johnson & Johnson
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * @file
  * Integration tests for context menu forms.
  */
 import React, { useState } from 'react';
 import { mount, shallow } from 'enzyme';
 import {
-  contextMenuForm, ContextMenuForm, FormProps, FormBodyRenderer,
+  contextMenuForm, ContextMenuForm, FormBodyRenderer,
 } from '../src/contextMenuForm';
+import type { ContextMenuFormProps } from '../src/Types/ContextMenuTypes';
 
 describe('contextMenuForm', () => {
   it('Applies options as props to the innter ContextMenuForm', () => {
@@ -88,15 +103,15 @@ describe('ContextMenuForm (High Level)', () => {
   it('Allows state from an enclosing component to be used in the form and submit handler', () => {
     const submit = jest.fn();
     const close = jest.fn();
-    const Form = (props: FormProps) => {
+    const Form = (props: ContextMenuFormProps) => {
       const [state, setState] = useState('unclicked');
-      const renderFormBody: FormBodyRenderer<{}> = () => (
+      const renderForm: FormBodyRenderer<{}> = () => (
         <button type="button" id="clickme" onClick={() => setState('clicked')}>{state}</button>
       );
       const submitValues = () => submit(state);
       return (
         <ContextMenuForm {...props} submitValues={submitValues}>
-          {renderFormBody}
+          {renderForm}
         </ContextMenuForm>
       );
     };

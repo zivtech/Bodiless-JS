@@ -13,7 +13,6 @@ we've done our very best to explain each section.
 
 View the full documentation at https://tailwindcss.com.
 
-
 |-------------------------------------------------------------------------------
 | The default config
 |-------------------------------------------------------------------------------
@@ -27,8 +26,11 @@ View the full documentation at https://tailwindcss.com.
 
 // let defaultConfig = require('tailwindcss/defaultConfig');
 
-const defaultGrid = {
+const defaultUtility = {
   'auto': 'auto',
+};
+
+const defaultGrid = {
   'grid-0': '0px',
   'grid-1': '5px',
   'grid-2': '10px',
@@ -73,7 +75,15 @@ const percentGrid = {
   'full': '100%',
 };
 
+const remGrid = {
+  'rem-1': '1rem',
+};
+
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: false,
+  },
   prefix: 'bl-',
   theme: {
     extend: {
@@ -94,9 +104,11 @@ module.exports = {
       */
 
       inset: {
+        ...defaultUtility,
         ...defaultGrid,
         ...negativeGrid,
         ...percentGrid,
+        ...remGrid,
       },
 
       /*
@@ -152,6 +164,7 @@ module.exports = {
       */
 
       minHeight: {
+        ...defaultUtility,
         ...defaultGrid,
       },
 
@@ -484,7 +497,9 @@ module.exports = {
       |
       */
 
-      // maxHeight: { },
+      maxHeight: {
+        ...xlGrid,
+      },
 
       /*
       |---------------------------------------------------------------------------
@@ -625,9 +640,10 @@ module.exports = {
   |
   */
 
-  // variants: {
-
-  // },
+  variants: {
+    borderWidth: ['first', 'responsive'],
+    margin: ['responsive', 'first', 'last'],
+  },
 
   // corePlugins: {},
 

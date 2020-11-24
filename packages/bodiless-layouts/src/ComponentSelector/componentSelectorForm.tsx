@@ -36,8 +36,9 @@ const componentSelectorForm = (
       {...props}
       ui={{ ...ui as ComponentSelectorUI, ...props.ui as ComponentSelectorUI }}
       closeForm={closeForm}
-      onSelect={(...args) => { onSelect(...args); closeForm(); }}
+      onSelect={(...args) => { onSelect(...args); closeForm(null); }}
       components={Object.values(props.components)}
+      mandatoryCategories={props.mandatoryCategories}
     />
   ),
 );

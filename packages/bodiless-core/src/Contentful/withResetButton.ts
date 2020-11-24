@@ -14,36 +14,51 @@
 
 import { flowRight } from 'lodash';
 import {
-  withMenuOptions,
   withContextActivator,
   withLocalContextMenu,
 } from '../hoc';
+import { withMenuOptions } from '../PageContextProvider';
 import { useNode } from '../NodeProvider';
-import { TMenuOption } from '../PageEditContext/types';
+import { TMenuOption } from '../Types/ContextMenuTypes';
 
-type MenuOptionWithNodeKey = TMenuOption & {
-  nodeKey?: string;
+type MenuOptionWithNodeKey = Partial<TMenuOption> & {
+  nodeKey?: string | string[];
 };
 
-const useGetMenuOptions = (menuOptionWithNodeKey?: MenuOptionWithNodeKey) => () => {
+const useMenuOptions = (menuOptionWithNodeKey?: MenuOptionWithNodeKey) => () => {
   const { node } = useNode();
   const { nodeKey, ...menuOption } = menuOptionWithNodeKey || { nodeKey: undefined };
-  const nodeKeyToDelete = nodeKey ? node.path.concat(nodeKey) : undefined;
+  const nodeKeys = Array.isArray(nodeKey) ? nodeKey : [nodeKey];
+  const nodeKeysToDelete = nodeKeys.map(key => (key ? node.path.concat(key) : undefined));
   // TODO: we should disable or remove the button when the node is already reverted
-  return () => ([
+  const menuOptions: TMenuOption[] = [
     {
       icon: 'undo',
-      name: 'Reset',
-      handler: () => node.delete(nodeKeyToDelete),
+      name: 'reset-default-content',
+      label: 'Reset',
+      handler: () => nodeKeysToDelete.forEach(key => node.delete(key)),
       local: true,
       global: false,
+      group: 'reset-default-content-group',
       ...menuOption,
     },
-  ]);
+    {
+      name: 'reset-default-content-group',
+      label: 'Content',
+      local: true,
+      global: false,
+      Component: 'group',
+      groupMerge: 'merge',
+    },
+  ];
+  return menuOptions;
 };
 
 const withResetButton = (menuOptionWithNodeKey?: MenuOptionWithNodeKey) => flowRight(
-  withMenuOptions({ useGetMenuOptions: useGetMenuOptions(menuOptionWithNodeKey) }),
+  withMenuOptions({
+    useMenuOptions: useMenuOptions(menuOptionWithNodeKey),
+    name: 'Default Content',
+  }),
   withContextActivator('onClick'),
   withLocalContextMenu,
 );

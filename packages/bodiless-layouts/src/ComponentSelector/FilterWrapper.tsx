@@ -51,14 +51,14 @@ function Checkbox({
   const finalUI:FinalUI = useContext(uiContext);
   return (
     <finalUI.AccordionCheckboxWrapper>
-      <finalUI.AccordionCheckBox
-        onChange={onToggle}
-        checked={isChecked}
-        disabled={disabled}
-        id={type}
-        name={type}
-      />
       <finalUI.AccordionCheckboxLabel htmlFor={type}>
+        <finalUI.AccordionCheckBox
+          onChange={onToggle}
+          checked={isChecked}
+          disabled={disabled}
+          id={type}
+          name={type}
+        />
         {Capitalize(type)}
       </finalUI.AccordionCheckboxLabel>
     </finalUI.AccordionCheckboxWrapper>
@@ -68,7 +68,7 @@ function Checkbox({
 // The Dropdown component
 // On click render or do not render the checkbox (children)
 function Dropdown({ children, type }: { children: any; type: any }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const finalUI:FinalUI = useContext(uiContext);
   return (
     <finalUI.AccordionWrapper>
@@ -89,26 +89,33 @@ function Dropdown({ children, type }: { children: any; type: any }) {
 }
 
 // The wrapper that wraps the checkboxes and dropdown menus
-export const FilterWrapper = (props: any) => {
+const FilterWrapper = (props: any) => {
   const {
-    allfilters, filters, activeFilter, setActiveFilters,
+    allfilters,
+    filters,
+    activeFilter,
+    setActiveFilters,
   } = props;
   const finalUI:FinalUI = useContext(uiContext);
+  const isTermDisabled = (category: string, term: string) => Object.entries(filters).length === 0
+    || !Object.keys(filters).includes(category)
+    || !filters[category].includes(term);
+  const areAllTermsDisabled = (category: string) => allfilters[category]
+    .every((term: string) => isTermDisabled(category, term));
   return (
     <finalUI.ComponentSelectorWrapper>
       {Object.keys(allfilters).map(category => {
         if (allfilters[category].length > 0) {
+          if (areAllTermsDisabled(category)) {
+            return true;
+          }
           return (
             <Dropdown type={category} key={category}>
               {allfilters[category].map((value: string) => (
                 <Checkbox
                   key={value}
                   type={value}
-                  disabled={
-                    Object.entries(filters).length === 0
-                    || !Object.keys(filters).includes(category)
-                    || !filters[category].includes(value)
-                  }
+                  disabled={isTermDisabled(category, value)}
                   onToggle={() => {
                     if (activeFilter.indexOf(value) !== -1) {
                       setActiveFilters(removefromArray(activeFilter, value));
@@ -128,30 +135,4 @@ export const FilterWrapper = (props: any) => {
   );
 };
 
-// The AllCheckbox component
-// If a filter or search value exist, it is unchecked
-// If checked from unchecked state will remove all existing filters
-export function AllCheckbox(props: any) {
-  const {
-    activeFilter,
-    setActiveFilters,
-    activeSearch,
-    setActiveSearch,
-  } = props;
-  const finalUI:FinalUI = useContext(uiContext);
-  return (
-    <finalUI.AllCheckboxWrapper>
-      <Checkbox
-        type="All"
-        disabled={false}
-        isChecked={activeFilter.length === 0 && activeSearch.length === 0}
-        onToggle={() => {
-          if (activeFilter.length !== 0 || activeSearch.length !== 0) {
-            setActiveFilters([]);
-            setActiveSearch('');
-          }
-        }}
-      />
-    </finalUI.AllCheckboxWrapper>
-  );
-}
+export default FilterWrapper;

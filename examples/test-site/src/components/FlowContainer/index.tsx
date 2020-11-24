@@ -12,14 +12,19 @@
  * limitations under the License.
  */
 import { flow } from 'lodash';
+import { withMandatoryCategories } from '@bodiless/layouts';
 import { FlowContainer } from '@bodiless/layouts-ui';
 import withToutVariations from './withToutVariations';
 import withContentfulTouts from './withContentfulTouts';
 import withRichTextVariations from './withRichTextVariations';
 import withSingleAccordionVariations from './withSingleAccordionVariations';
 import withImageVariations from './withImageVariations';
+import withIframeVariations from './withIframeVariations';
+import withYouTubeVariations from './withYouTubeVariations';
+import withSocialShare from './withSocialShare';
 
 import { asFlowContainerWithMargins } from './token';
+import withListVariations from './withListVariations';
 
 // Order of includes currently dictates order in Component Picker
 // thus recommend putting more frequently used components toward top for quicker access.
@@ -29,7 +34,12 @@ const FlowContainerDefault = flow(
   withToutVariations,
   withContentfulTouts,
   withSingleAccordionVariations,
+  withListVariations,
+  withIframeVariations,
+  withSocialShare,
+  withYouTubeVariations,
   asFlowContainerWithMargins,
+  withMandatoryCategories(['Orientation', 'Type']),
 )(FlowContainer);
 
 // eslint-disable-next-line import/prefer-default-export

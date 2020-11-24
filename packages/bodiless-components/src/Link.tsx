@@ -12,40 +12,63 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps } from 'react';
+import React, { HTMLProps, ComponentType } from 'react';
 import {
-  useFormUI,
-  BodilessOptions,
+  useMenuOptionUI,
   asBodilessComponent,
+  withoutProps,
+  ifEditable,
+  withExtendHandler,
+  useNode,
+  ifToggledOn,
 } from '@bodiless/core';
+import type { AsBodiless, BodilessOptions } from '@bodiless/core';
+import {
+  replaceWith,
+  Fragment,
+} from '@bodiless/fclasses';
+import { flowRight } from 'lodash';
 
 // Type of the data used by this component.
-type Data = {
+export type LinkData = {
   href: string;
 };
 
-const options: BodilessOptions<HTMLProps<HTMLAnchorElement>, Data> = {
+type Props = HTMLProps<HTMLAnchorElement> & {
+  unwrap?: () => void,
+};
+
+const options: BodilessOptions<Props, LinkData> = {
   icon: 'link',
   name: 'Link',
-  renderForm: ({ unwrap, closeForm }) => {
+  label: 'Edit',
+  groupLabel: 'Link',
+  groupMerge: 'merge',
+  renderForm: ({ componentProps: { unwrap }, closeForm }) => {
     const {
       ComponentFormTitle,
       ComponentFormLabel,
       ComponentFormText,
       ComponentFormUnwrapButton,
-    } = useFormUI();
+      ComponentFormDescription,
+    } = useMenuOptionUI();
     const removeLinkHandler = (event: React.MouseEvent) => {
       event.preventDefault();
       if (unwrap) {
         unwrap();
       }
-      closeForm();
+      closeForm(event);
     };
     return (
       <>
         <ComponentFormTitle>Link</ComponentFormTitle>
         <ComponentFormLabel htmlFor="link-href">URL</ComponentFormLabel>
-        <ComponentFormText field="href" id="link-href" />
+        <ComponentFormText field="href" id="link-href" aria-describedby="description" placeholder="/link" />
+        <ComponentFormDescription id="description">
+          Use relative URLs for internal links. Preface the link with `/` to be
+          relative to the root, otherwise the link is relative to the page. Use
+          a fully formed URL for external links, e.g., https://www.example.com.
+        </ComponentFormDescription>
         {unwrap && (
         <ComponentFormUnwrapButton type="button" onClick={removeLinkHandler}>
           Remove Link
@@ -57,10 +80,53 @@ const options: BodilessOptions<HTMLProps<HTMLAnchorElement>, Data> = {
   global: false,
   local: true,
   defaultData: {
-    href: '#',
+    href: '',
   },
 };
 
-export const asBodilessLink = asBodilessComponent<HTMLProps<HTMLAnchorElement>, Data>(options);
+const withHrefTransformer = (Component : ComponentType<Props>) => {
+  const TransformedHref = ({ href, ...rest } : Props) => <Component href={href !== '' ? href : '#'} {...rest} />;
+  return TransformedHref;
+};
+
+export type AsBodilessLink = AsBodiless<Props, LinkData>;
+
+export const asBodilessLink: AsBodilessLink = (
+  nodeKeys,
+  defaultData,
+  useOverrides,
+) => flowRight(
+  // Prevent following the link in edit mode
+  ifEditable(
+    withExtendHandler('onClick', () => (e: MouseEvent) => e.preventDefault()),
+  ),
+  asBodilessComponent<Props, LinkData>(options)(nodeKeys, defaultData, useOverrides),
+  withoutProps(['unwrap']),
+  withHrefTransformer,
+);
 const Link = asBodilessLink()('a');
+
+/**
+ * hook that determines if the link data is empty
+ * the hook validates the data in the current node and in the corresponding prop
+ *
+ * @param props - link based component props
+ * @returns true when link data is empty, otherwise false
+ */
+const useEmptyLinkToggle = ({ href }: Props) => {
+  const { node } = useNode<LinkData>();
+  return (href === undefined || href === '#') && node.data.href === undefined;
+};
+
+/**
+ * HOC that can be applied to a link based component to not render the component
+ * when the component link data is empty
+ * Note: the component will still render its children
+ *
+ * @param Component - link based component
+ * @returns Component - Fragment when link data empty, input Component otherwise
+ */
+const withoutLinkWhenLinkDataEmpty = ifToggledOn(useEmptyLinkToggle)(replaceWith(Fragment));
+
 export default Link;
+export { withoutLinkWhenLinkDataEmpty };

@@ -12,14 +12,26 @@
  * limitations under the License.
  */
 
-import axios from 'axios';
+import axios, { CancelTokenSource } from 'axios';
 
-const source = axios.CancelToken.source();
+type FileOptions = {
+  file: File,
+  nodePath: string,
+  baseResourcePath: string,
+};
+
+interface ServerData {
+  filesPath: string[]
+}
 
 export default class BackendSave {
   private root: string;
 
   private prefix: string;
+
+  // @ts-ignore it is not initialized in constructor on purpose
+  // the plan is to initiliaze it during saveFile
+  private cancelTokenSource: CancelTokenSource;
 
   constructor(baseUrl?: string, prefix?: string) {
     let host = 'http://localhost:8005';
@@ -32,21 +44,28 @@ export default class BackendSave {
     this.prefix = prefix || process.env.BODILESS_BACKEND_PREFIX || '/___backend';
   }
 
-  post(resourcePath: string, data: any, config: any) {
-    return axios.post(this.root + resourcePath, data, config);
+  post<T>(resourcePath: string, data: any, config: any) {
+    return axios.post<T>(this.root + resourcePath, data, config);
   }
 
-  saveFile(file: string) {
+  saveFile(options: FileOptions) {
+    const {
+      file, nodePath, baseResourcePath,
+    } = options;
     // eslint-disable-next-line no-undef
     const payload = new FormData();
     payload.append('file', file);
-
-    return this.post(`${this.prefix}/asset/`, payload, {
-      cancelToken: source.token,
+    payload.append('nodePath', nodePath);
+    this.cancelTokenSource = axios.CancelToken.source();
+    return this.post<ServerData>(`${this.prefix}/asset/${baseResourcePath}`, payload, {
+      cancelToken: this.cancelTokenSource.token,
     });
   }
 
-  static cancel(reason: string) {
-    source.cancel(reason);
+  cancel(reason: string) {
+    // cancelTokenSource can be undefined when saveFile was not invoked before cancel
+    if (this.cancelTokenSource !== undefined) {
+      this.cancelTokenSource.cancel(reason);
+    }
   }
 }

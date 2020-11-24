@@ -12,22 +12,24 @@
  * limitations under the License.
  */
 
-import React, { FC, ComponentType, useEffect } from 'react';
+import React, { FC, ComponentType, Fragment } from 'react';
 import {
   StaticPage,
   ContextWrapperProps,
-  useEditContext,
+  NotificationProvider,
+  withNotificationButton,
+  withSwitcherButton,
+  OnNodeErrorNotification,
 } from '@bodiless/core';
+import { withShowDesignKeys } from '@bodiless/fclasses';
 import { observer } from 'mobx-react-lite';
 import { ContextWrapper, PageEditor } from '@bodiless/core-ui';
 import GatsbyNodeProvider, {
   Props as NodeProviderProps,
 } from './GatsbyNodeProvider';
-import GitProvider from './GitProvider';
-import NewPageProvider from './NewPageProvider';
-import GatsbyPageProvider, {
-  Props as PageProviderProps,
-} from './GatsbyPageProvider';
+import GatsbyPageProvider, { Props as PageProviderProps } from './GatsbyPageProvider';
+import withNewPageButton from './withNewPageButton';
+import useGitButtons from './useGitButtons';
 
 type FinalUI = {
   ContextWrapper: ComponentType<ContextWrapperProps>;
@@ -46,43 +48,50 @@ const defaultUI: FinalUI = {
 
 const getUI = (ui: UI = {}): FinalUI => ({ ...defaultUI, ...ui });
 
+const NotificationButton = withNotificationButton(Fragment);
+const SwitcherButton = withSwitcherButton(Fragment);
+const NewPageButton = withNewPageButton(Fragment);
+
+const GitButtons: FC = () => {
+  useGitButtons();
+  return <></>;
+};
+
+const ShowDesignKeys = (
+  process.env.NODE_ENV === 'development' || process.env.BODILESS_DEBUG === '1'
+) ? withShowDesignKeys()(Fragment) : Fragment;
+
 const Page: FC<Props> = observer(({ children, ui, ...rest }) => {
   const { PageEditor: Editor, ContextWrapper: Wrapper } = getUI(ui);
   if (process.env.NODE_ENV === 'development') {
     return (
       <GatsbyNodeProvider {...rest}>
-        <GatsbyPageProvider pageContext={rest.pageContext}>
-          <Editor>
-            <NewPageProvider>
-              <GitProvider>
+        <ShowDesignKeys>
+          <GatsbyPageProvider pageContext={rest.pageContext}>
+            <NotificationProvider>
+              <SwitcherButton />
+              <NotificationButton />
+              <Editor>
+                <OnNodeErrorNotification />
+                <NewPageButton />
+                <GitButtons />
                 <Wrapper clickable>
-                  <DefaultActiveMenuOptions>
-                    {children}
-                  </DefaultActiveMenuOptions>
+                  {children}
                 </Wrapper>
-              </GitProvider>
-            </NewPageProvider>
-          </Editor>
-        </GatsbyPageProvider>
+              </Editor>
+            </NotificationProvider>
+          </GatsbyPageProvider>
+        </ShowDesignKeys>
       </GatsbyNodeProvider>
     );
   }
   return (
     <GatsbyNodeProvider {...rest}>
-      <StaticPage>{children}</StaticPage>
+      <ShowDesignKeys>
+        <StaticPage>{children}</StaticPage>
+      </ShowDesignKeys>
     </GatsbyNodeProvider>
   );
-});
-
-/**
- * General component that define default active menu.
- */
-const DefaultActiveMenuOptions = observer(({ children }: any) => {
-  const context = useEditContext();
-  useEffect(() => {
-    context.activate();
-  });
-  return <>{children}</>;
 });
 
 export default Page;

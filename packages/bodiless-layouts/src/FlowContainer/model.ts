@@ -14,10 +14,16 @@
 
 import { v1 } from 'uuid';
 import { useNode } from '@bodiless/core';
-import { FlowContainerItem, FlowContainerItemProps, FlowContainerData } from './types';
+import {
+  FlowContainerItem, FlowContainerItemProps, FlowContainerData,
+} from './types';
 
 // eslint-disable-next-line max-len
-type InsertContentNode = (componentName: string, afterItem?: FlowContainerItem) => FlowContainerItem;
+type InsertContentNode = (
+  componentName: string,
+  afterItem?: FlowContainerItem,
+  wrapperProps?: FlowContainerItemProps
+) => FlowContainerItem;
 type SetFlowContainerItems = (items: FlowContainerItem[]) => void;
 type UpdateFlowContainerItem = (flowContainerItem: FlowContainerItem) => void;
 type OnFlowContainerItemResize = (
@@ -25,15 +31,20 @@ type OnFlowContainerItemResize = (
   props: FlowContainerItemProps,
 ) => void;
 type DeleteFlowContainerItem = (uuid: string) => FlowContainerItem | undefined;
-type FlowContainerDataHandlers = {
+export type FlowContainerDataHandlers = {
   insertFlowContainerItem: InsertContentNode,
   setFlowContainerItems: SetFlowContainerItems,
   updateFlowContainerItem: UpdateFlowContainerItem,
   onFlowContainerItemResize: OnFlowContainerItemResize,
   deleteFlowContainerItem: DeleteFlowContainerItem,
 };
+export type FlowContainerItemHandlers = {
+  getItems: () => FlowContainerItem[],
+  setItems: (items: FlowContainerItem[]) => void,
+  deleteItem: (uuid?: string | undefined) => void,
+};
 
-export function useItemHandlers() {
+export function useItemHandlers(): FlowContainerItemHandlers {
   const { node } = useNode<FlowContainerData>();
   const getItems = () => {
     const { items } = node.data;
@@ -66,10 +77,14 @@ export function useFlowContainerDataHandlers(): FlowContainerDataHandlers {
     setItems(newItems);
   };
   return {
-    insertFlowContainerItem: (componentName: string, afterItem?: FlowContainerItem) => {
+    insertFlowContainerItem: (
+      componentName: string,
+      afterItem?: FlowContainerItem,
+      wrapperPropsToClone: FlowContainerItemProps = {},
+    ) => {
       const newItem = {
         uuid: v1(),
-        wrapperProps: {},
+        wrapperProps: wrapperPropsToClone,
         type: componentName,
       };
       const index = findItem(afterItem);
@@ -95,7 +110,9 @@ export function useFlowContainerDataHandlers(): FlowContainerDataHandlers {
             ...itemProps,
           },
         };
-        spliceItem(itemIndex, 1, updatedFlowContainerItem);
+        if (JSON.stringify(currentFlowContainerItem) !== JSON.stringify(updatedFlowContainerItem)) {
+          spliceItem(itemIndex, 1, updatedFlowContainerItem);
+        }
       }
     },
     deleteFlowContainerItem: (uuid: string) => {

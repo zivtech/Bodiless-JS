@@ -25,6 +25,8 @@ import {
   getUI,
   asBodilessComponent,
   BodilessOptions,
+  useNode,
+  AsBodiless,
 } from '@bodiless/core';
 
 import { useDropzone } from 'react-dropzone';
@@ -71,21 +73,24 @@ const defaultImagePickerUI = {
 };
 
 // DropZonePlugin control the upload of file and only saves jpg/png files.
-function DropZonePlugin({ formApi, targetFieldName, ui }: {
+export function DropZonePlugin({ formApi, targetFieldName, ui }: {
   formApi: FormApi<Data>;
   targetFieldName:string;
-  ui?: TImagePickerUI;
+  ui?: Partial<TImagePickerUI>;
 }) {
   const [statusText, setStatusText] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [isUploadTimeout, setIsUploadingTimeout] = useState(false);
   const [isUploadFinished, setIsUploadFinished] = useState(false);
+  const saveRequest = new BackendSave();
+  const { node } = useNode<any>();
+
   useEffect(() => {
     if (isUploading) {
       const timer = setTimeout(
         () => {
           if (isUploading) {
-            BackendSave.cancel('Timeout exceeded');
+            saveRequest.cancel('Timeout exceeded');
             formApi.setError(targetFieldName, 'Timeout exceeded');
             setIsUploadingTimeout(true);
             setIsUploading(false);
@@ -97,18 +102,22 @@ function DropZonePlugin({ formApi, targetFieldName, ui }: {
     }
     return () => null;
   });
+
   const onDrop = useCallback(acceptedFiles => {
     setIsUploading(true);
     setIsUploadFinished(false);
+    setIsUploadingTimeout(false);
     setStatusText(`File "${acceptedFiles[0].name}" selected`);
     formApi.setError(targetFieldName, 'Uploading in progress');
-    const saveRequest = new BackendSave();
-    saveRequest.saveFile(acceptedFiles[0])
-      .then(() => {
-        const state = formApi.getState();
-        // *HACK* as the formApi does not provide a interface to unset errors
-        delete state.errors[targetFieldName as ('alt' | 'src')];
-        formApi.setValue(targetFieldName, `/${acceptedFiles[0].name}`);
+    saveRequest.saveFile({
+      file: acceptedFiles[0],
+      nodePath: node.path.join('$'),
+      baseResourcePath: node.baseResourcePath,
+    })
+      .then(({ data }) => {
+        // unset errors
+        formApi.setError(targetFieldName, undefined);
+        formApi.setValue(targetFieldName, data.filesPath[0]);
         // formApi.validate();
         setIsUploading(false);
         setIsUploadingTimeout(false);
@@ -152,6 +161,9 @@ function DropZonePlugin({ formApi, targetFieldName, ui }: {
     </MasterWrapper>
   );
 }
+DropZonePlugin.defaultProps = {
+  ui: {},
+};
 
 // Type of the props accepted by this component.
 // Exclude the src and alt from the props accepted as we write it.
@@ -161,6 +173,8 @@ type Props = ImageProps & { ui?: TImagePickerUI};
 // Options used to create an edit button.
 const options: BodilessOptions<Props, Data> = {
   icon: 'image',
+  label: 'Select',
+  groupLabel: 'Image',
   name: 'Image',
   renderForm: ({ ui: formUi, formApi, componentProps }) => {
     const { ui: imagePickerUI } = componentProps;
@@ -186,7 +200,9 @@ const options: BodilessOptions<Props, Data> = {
 
 export const withImagePlaceholder = withPropsFromPlaceholder(['src']);
 
-export const asBodilessImage = asBodilessComponent<HTMLProps<HTMLImageElement>, Data>(options);
+export type AsBodilessImage = AsBodiless<HTMLProps<HTMLImageElement>, Data>;
+
+export const asBodilessImage: AsBodilessImage = asBodilessComponent(options);
 
 const Image = asBodilessImage()('img');
 

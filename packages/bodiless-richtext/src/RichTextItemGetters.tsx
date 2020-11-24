@@ -19,7 +19,9 @@ import {
   SchemaProperties,
 } from 'slate';
 
-import { NodeProvider, DefaultContentNode, withoutProps } from '@bodiless/core';
+import {
+  NodeProvider, DefaultContentNode, withoutProps, useNode,
+} from '@bodiless/core';
 import { RenderNodeProps } from 'slate-react';
 import { flow } from 'lodash';
 import {
@@ -55,10 +57,14 @@ const addAttributes = <P extends object> (Component:ComponentType<P>) => (
 const SlateComponentProvider = (update:Function) => (
   <P extends object, D extends object>(Component:ComponentType<P>) => (
     (props:P & RenderNodeProps) => {
+      const { node: bodilessNode } = useNode();
       const { editor, node } = props;
       const getters = {
         getNode: (path: string[]) => node.data.toJS()[path.join('$')],
         getKeys: () => ['slatenode'],
+        hasError: () => bodilessNode.hasError(),
+        getPagePath: () => bodilessNode.pagePath,
+        getBaseResourcePath: () => bodilessNode.baseResourcePath,
       };
       const actions = {
         // tslint: disable-next-line:no-unused-vars
@@ -276,12 +282,17 @@ const getSelectorButtons = (components: RichTextComponents) => Object.values(com
   getGlobalButtons takes an array of RichTextitems and maps that to a array of objects used
   to create global buttons
 */
-const getGlobalButtons = (components: RichTextComponents) => (editor:Editor) => (
-  Object.values(components)
+const getGlobalButtons = (components: RichTextComponents) => {
+  const componentsWithButtons = Object.values(components)
     // eslint-disable-next-line no-prototype-builtins
-    .filter(Component => Component.hasOwnProperty('globalButton'))
-    .map(Component => getGlobalButton(Component as RichTextComponentWithGlobalButton)(editor))
-);
+    .filter(Component => Component.hasOwnProperty('globalButton'));
+  if (!componentsWithButtons.length) return undefined;
+  return (
+    (editor:Editor) => componentsWithButtons.map(
+      Component => getGlobalButton(Component as RichTextComponentWithGlobalButton)(editor),
+    )
+  );
+};
 
 export {
   getPlugins,

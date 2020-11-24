@@ -21,6 +21,8 @@ import withNode, { withNodeKey } from '../src/withNode';
 class MockContentNode<D extends object> implements ContentNode<D> {
   data: D = {} as D;
 
+  pagePath = '/';
+
   delete = jest.fn();
 
   setData = jest.fn();
@@ -28,6 +30,10 @@ class MockContentNode<D extends object> implements ContentNode<D> {
   path: string[] = [];
 
   keys = [];
+
+  hasError = jest.fn();
+
+  baseResourcePath: string = '/';
 
   // eslint-disable-next-line class-methods-use-this
   peer<E extends object>(key: string) {

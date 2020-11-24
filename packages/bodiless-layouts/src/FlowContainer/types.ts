@@ -31,8 +31,9 @@ export type StaticFlowContainerProps = {
 export type EditFlowContainerProps = StaticFlowContainerProps & {
   ui?: UI,
   snapData?: SnapData,
-  defaultWidth?: string|number,
+  getDefaultWidth?: (snapData: SnapData) => string;
   maxComponents?: number,
+  mandatoryCategories?: string[],
 };
 export type WidthClassTuple = {
   width: number;
@@ -60,12 +61,12 @@ export interface FlowContainerItem {
 export type SortableChildProps = {
   flowContainerItem: FlowContainerItem;
   onResizeStop(props: FlowContainerItemProps): void;
-  getMenuOptions: TMenuOptionGetter;
+  useGetMenuOptions: () => TMenuOptionGetter;
   index: number;
   children: React.ReactNode;
   ui?: SortableResizableUI;
   snapData?: SnapData;
-  defaultWidth?: string | number;
+  getDefaultWidth?: (snapData: SnapData) => string;
   className?: string;
 };
 

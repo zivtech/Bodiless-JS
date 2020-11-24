@@ -113,7 +113,7 @@ const TagTitleBase: FC<TagTitleProps> = ({
   const isNodeSelected = Boolean(selectedNode === nodeId);
 
   return (
-    <FilterInputWrapper {...rest} key={tag.id} bl-prevent="false">
+    <FilterInputWrapper {...rest} key={tag.id}>
       <FilterGroupItemInput
         type="radio"
         name="filter-item"
@@ -161,7 +161,7 @@ const TagTitle = flow(
   withNodeDataHandlers({ tags: [] }),
   withNode,
   withNodeKey('tag'),
-  designable(tagTitleComponentsStart),
+  designable(tagTitleComponentsStart, 'TagTitle'),
 )(TagTitleBase);
 
 const TestFilterComponentsStart: FilterComponents = {
@@ -213,7 +213,7 @@ class FilterBase extends React.PureComponent {
 
 const FilterClean = flow(
   withNodeKey('filter'),
-  designable(TestFilterComponentsStart),
+  designable(TestFilterComponentsStart, 'Filter'),
 )(FilterBase);
 
 export default FilterClean;

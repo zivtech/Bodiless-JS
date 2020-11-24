@@ -19,6 +19,7 @@ import {
   designable,
   Div,
 } from '@bodiless/fclasses';
+import { observer } from 'mobx-react-lite';
 import { useItemHandlers } from './model';
 import { StaticFlowContainerProps, FlowContainerItem, FlowContainerComponents } from './types';
 
@@ -43,9 +44,8 @@ const StaticFlowContainer: FC<StaticFlowContainerProps> = ({ components }) => {
             throw new Error(`${flowContainerItem.type} is not an allowed content type`);
           }
           return (
-            <NodeProvider nodeKey={flowContainerItem.uuid}>
+            <NodeProvider nodeKey={flowContainerItem.uuid} key={`flex-${flowContainerItem.uuid}`}>
               <ComponentWrapper
-                key={`flex-${flowContainerItem.uuid}`}
                 className={
                     (flowContainerItem.wrapperProps
                       && flowContainerItem.wrapperProps.className)
@@ -65,7 +65,8 @@ const StaticFlowContainer: FC<StaticFlowContainerProps> = ({ components }) => {
 StaticFlowContainer.displayName = 'FlowContainer';
 
 const asStaticFlowContainer = flow(
-  designable(flowContainerComponentStart),
+  observer,
+  designable(flowContainerComponentStart, 'FlowContainer'),
 );
 
 export default asStaticFlowContainer(StaticFlowContainer);

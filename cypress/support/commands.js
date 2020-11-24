@@ -40,8 +40,11 @@
 
 import 'cypress-file-upload'
 
+const menuSwitcherButton = '//*[@aria-label="switcher"]'
+
+
 Cypress.Commands.add("revertChanges", () => {
-  cy.xpath('//*[@aria-label="resetchanges"]')
+  cy.xpath('//*[@aria-label="Revert"]')
     .click()
   cy.xpath('//*[@aria-label="Submit"]')
     .click()
@@ -49,10 +52,52 @@ Cypress.Commands.add("revertChanges", () => {
 
 
 Cypress.Commands.add("clickEdit", () => {
-  cy.xpath('//*[@aria-label="Edit"]')
+  cy.xpath('//*[contains(@aria-label,"Global Context Menu")]//*[@aria-label="Edit"]')
     .click()
 })
 
+Cypress.Commands.add("toggleEditMode", () => {
+  cy.window().then(win => {
+    const isEdit = win.sessionStorage.getItem('isEdit')
+    if (isEdit !== true) cy.clickEdit()
+  });
+})
+
+Cypress.Commands.add("togglePreviewMode", () => {
+  cy.window().then(win => {
+    const isEdit = win.sessionStorage.getItem('isEdit')
+    if (isEdit && isEdit !== false) cy.clickEdit()
+  });
+})
+
+Cypress.Commands.add("toggleMenuRight", () => {
+  cy.window().then(win => {
+    const isPositionToggled = win.sessionStorage.getItem('isPositionToggled')
+    if (isPositionToggled !== true) {
+      cy.xpath(menuSwitcherButton)
+         .click()
+    }
+  });
+})
+
+Cypress.Commands.add("toggleMenuLeft", () => {
+  cy.window().then(win => {
+    const isPositionToggled = win.sessionStorage.getItem('isPositionToggled')
+    if (isPositionToggled && isPositionToggled !== false) {
+      cy.xpath(menuSwitcherButton)
+         .click()
+    }
+  });
+})
+
+Cypress.Commands.add("isImageVisible", (imageXpath) => {
+  cy.xpath(imageXpath)
+    .should('be.visible')
+    .and(($img) => {
+      // "naturalWidth" and "naturalHeight" are set when the image loads
+      expect($img[0].naturalWidth).to.be.greaterThan(0)
+    })
+})
 
 Cypress.Commands.add("hideContextMenu", () => {
   cy.xpath('//h1')

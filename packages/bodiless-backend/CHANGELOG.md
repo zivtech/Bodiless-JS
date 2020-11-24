@@ -3,6 +3,114 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.60](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.58...v0.0.60) (2020-11-18)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.59](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.58...v0.0.59) (2020-11-05)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.58](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.57...v0.0.58) (2020-10-23)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.57](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.56...v0.0.57) (2020-10-15)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.56](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.55...v0.0.56) (2020-09-21)
+
+
+### Features
+
+* **backend, components:** Image files should be uploaded to path per page ([#527](https://github.com/johnsonandjohnson/Bodiless-JS/issues/527)) ([8bffeac](https://github.com/johnsonandjohnson/Bodiless-JS/commit/8bffeacfa2a1fdc4dc7ff61dea9aaff360673af8))
+* **gatsby-theme-bodiless, backend:** Better handling of merge conflicts ([#502](https://github.com/johnsonandjohnson/Bodiless-JS/issues/502)) ([8ae1edb](https://github.com/johnsonandjohnson/Bodiless-JS/commit/8ae1edb3457a91b1013125209d7dd22e2f0ea7fd))
+
+
+
+
+
+## [0.0.55](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.54...v0.0.55) (2020-08-28)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.54](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.53...v0.0.54) (2020-08-24)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.53](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.52...v0.0.53) (2020-08-13)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.52](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.51...v0.0.52) (2020-07-29)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.51](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.50...v0.0.51) (2020-07-01)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.50](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.49...v0.0.50) (2020-06-12)
+
+**Note:** Version bump only for package @bodiless/backend
+
+
+
+
+
+## [0.0.49](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.48...v0.0.49) (2020-06-08)
+
+
+### Bug Fixes
+
+* **gatsby-theme-bodiless:** Revert pulling the changes to local when "Pull" is executed ([#358](https://github.com/johnsonandjohnson/Bodiless-JS/issues/358)) ([022ac75](https://github.com/johnsonandjohnson/Bodiless-JS/commit/022ac757c60a86667050eb2b823503dd1f3d9abc))
+
+
+### Features
+
+* **gatsby-theme-bodiless:** Merge Production Changes on Pull ([#353](https://github.com/johnsonandjohnson/Bodiless-JS/issues/353)) ([4c6808e](https://github.com/johnsonandjohnson/Bodiless-JS/commit/4c6808e73b91da665c87e58ec35a36fd6574793f))
+
+
+
+
+
 ## [0.0.48](https://github.com/johnsonandjohnson/Bodiless-JS/compare/v0.0.47...v0.0.48) (2020-05-20)
 
 
