@@ -3,6 +3,7 @@ import { withDefaultContent } from '@bodiless/core';
 import useDrupalTitleData from '../title/useDrupalData';
 import useDrupalImageData from '../image/useDrupalData';
 import useDrupalBodyData from '../body/useDrupalData';
+import useDrupalSubtitleData from '../subtitle/useDrupalData';
 
 export const fragment = graphql`
   fragment DrupalArticlePage on Query {
@@ -10,6 +11,7 @@ export const fragment = graphql`
       edges {
         node {
           ...DrupalMarkdownBody
+          ...DrupalMarkdownSubtitle
           ...DrupalNodeTitle
           ...DrupalFieldImage
         }
@@ -21,6 +23,7 @@ export const fragment = graphql`
 const withDrupalData = withDefaultContent(() => ({
   title: useDrupalTitleData(),
   image: useDrupalImageData('field_image'),
+  subtitle: useDrupalSubtitleData(),
   body: useDrupalBodyData(),
 }));
 

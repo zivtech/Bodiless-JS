@@ -10,6 +10,7 @@ import asBodilessMarkdown from '../markdown/asBodilessMarkdown';
 
 type Components = {
   Title: CT<any>,
+  SubTitle: CT<any>,
   Image: CT<any>,
   Body: CT<any>,
 };
@@ -18,17 +19,21 @@ const startComponents: Components = {
   Title: H1,
   Image: Img,
   Body: Div,
+  SubTitle: Div,
 };
 
 type Props = DesignableComponentsProps<Components> & HTMLProps<HTMLElement>;
 
 const ArticlePageBase = ({ components }: Props) => {
-  const { Title, Image, Body } = components;
+  const {
+    Title, SubTitle, Image, Body,
+  } = components;
   return (
     <>
       <Title />
-      <Image />
+      <SubTitle />
       <Body />
+      <Image />
     </>
   );
 };
@@ -41,6 +46,10 @@ export const ArticlePageClean = flow(
 export const asEditableArticlePage = withDesign({
   Title: asEditable('title', 'Page Title'),
   Image: asBodilessImage('image'),
+  SubTitle: flow(
+    replaceWith(ReactMarkdown),
+    asBodilessMarkdown('subtitle'),
+  ),
   Body: flow(
     replaceWith(ReactMarkdown),
     asBodilessMarkdown('body'),
