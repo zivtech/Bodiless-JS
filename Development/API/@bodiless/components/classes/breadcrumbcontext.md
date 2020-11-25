@@ -39,7 +39,7 @@
 
 \+ **new BreadcrumbContext**(`href`: string, `parent?`: [BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface)): *[BreadcrumbContext](breadcrumbcontext.md)*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L68)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L68)*
 
 **Parameters:**
 
@@ -56,7 +56,7 @@ Name | Type | Default |
 
 • **parent**: *[BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface) | undefined*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L68)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L68)*
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 • **store**: *[BreadcrumbStoreInterface](../globals.md#breadcrumbstoreinterface)* = defaultStore
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L64)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L64)*
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 • **url**: *URL*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L66)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L66)*
 
 ## Accessors
 
@@ -80,7 +80,7 @@ ___
 
 • **get isActive**(): *boolean*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L98)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L98)*
 
 **Returns:** *boolean*
 
@@ -90,7 +90,7 @@ ___
 
 ▸ **activate**(): *void*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:102](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L102)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:102](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L102)*
 
 **Returns:** *void*
 
@@ -100,7 +100,7 @@ ___
 
 ▸ **isAncestorOf**(`descendant?`: [BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface)): *boolean*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L83)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L83)*
 
 **Parameters:**
 
@@ -116,7 +116,7 @@ ___
 
 ▸ **isSubpathOf**(`parent?`: [BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface)): *boolean*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L78)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L78)*
 
 **Parameters:**
 
@@ -132,7 +132,7 @@ ___
 
 ▸ **spawn**(`path`: string): *[BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface)*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/9ef7d1a/packages/bodiless-components/src/asBreadcrumb.tsx#L94)*
+*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f6aca9b/packages/bodiless-components/src/asBreadcrumb.tsx#L94)*
 
 **Parameters:**
 
