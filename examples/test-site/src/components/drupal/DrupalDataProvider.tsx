@@ -3,7 +3,12 @@ import { get } from 'lodash';
 
 const DrupalDataContext = createContext<any>({});
 
-export const useDrupalNode = () => useContext(DrupalDataContext);
+export const useDrupalNode = (props: any) => {
+  const { drupalNodeKey } = props;
+  const node = useContext(DrupalDataContext);
+  const finalNode = drupalNodeKey !== undefined ? get(node, drupalNodeKey, {}) : node;
+  return finalNode;
+};
 
 export const withDrupalData = (P: CT<any>) => {
   const WithDrupalData = ({ data, ...rest }: any) => {
@@ -17,17 +22,16 @@ export const withDrupalData = (P: CT<any>) => {
   return WithDrupalData;
 };
 
-export const withDrupalNode = (path?: string) => <P extends object>(Component: CT<P>) => {
-  const WithDrupalNode = ({ drupalNodeKey, ...rest }: P & { drupalNodeKey?: string }) => {
+export const withDrupalNode = (key?: string) => <P extends object>(Component: CT<P>) => {
+  const WithDrupalNode = (props: P) => {
     const oldNode = useContext(DrupalDataContext);
-    const key = drupalNodeKey || path;
     if (!key) {
-      return <Component {...rest as P} />;
+      return <Component {...props} />;
     }
     const newNode = get(oldNode, key, {});
     return (
       <DrupalDataContext.Provider value={newNode}>
-        <Component {...rest as P} />
+        <Component {...props} />
       </DrupalDataContext.Provider>
     );
   };

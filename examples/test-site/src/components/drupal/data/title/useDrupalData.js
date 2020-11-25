@@ -20,8 +20,8 @@ export const titleFragment = graphql`
   }
 `;
 
-const useDrupalData = () => {
-  const drupalNode = useDrupalNode();
+const useDrupalData = (explicitDrupalNode) => {
+  const drupalNode = explicitDrupalNode || useDrupalNode();
   return {
     text: drupalNode.title,
   };

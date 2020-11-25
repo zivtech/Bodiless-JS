@@ -25,8 +25,8 @@ export const fragments = graphql`
   }
 `;
 
-const useDrupalData = (drupalFieldName: string) => {
-  const drupalNode = useDrupalNode();
+const useDrupalData = (drupalFieldName: string) => (props:any) => {
+  const drupalNode = useDrupalNode(props);
   return {
     src: drupalNode.relationships[drupalFieldName].localFile.publicURL,
     alt: drupalNode[drupalFieldName].alt,

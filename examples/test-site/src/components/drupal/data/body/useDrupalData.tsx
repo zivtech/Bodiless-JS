@@ -12,8 +12,8 @@ export const fragments = graphql`
   }
 `;
 
-const useDrupalData = () => {
-  const drupalNode = useDrupalNode();
+const useDrupalData = (props: any) => {
+  const drupalNode = useDrupalNode(props);
   return {
     source: drupalNode.body.value,
   };
