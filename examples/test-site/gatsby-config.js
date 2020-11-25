@@ -13,7 +13,7 @@ const plugins = [
   {
     resolve: 'gatsby-source-drupal',
     options: {
-      baseUrl: 'http://localhost:32771/',
+      baseUrl: 'http://localhost:32773/',
       // apiBase: `api`, // optional, defaults to `jsonapi`
     },
   },
