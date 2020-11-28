@@ -29,15 +29,16 @@ const useArticleData = (prefix = '') => (props: any) => ({
   [`${prefix}body`]: useDrupalBodyData(props),
 });
 
-const useAllDrupalArticles = (props: any) => {
+const useAllDrupalArticles = (prefix?: string) => (props: any) => {
+  const finalPrefix = prefix ? `${prefix}$` : '';
   const edges = useDrupalNode(props);
   const entries = edges.reduce((acc:any, { node }:any, ix:number) => ({
     ...acc,
-    ...useArticleData(`${node.drupal_id}$`)({ drupalNodeKey: `${ix}.node` }),
+    ...useArticleData(`${finalPrefix}${node.drupal_id}$`)({ drupalNodeKey: `${ix}.node` }),
   }), {});
   return entries;
 };
 
-const withDrupalData = withDefaultContent(useAllDrupalArticles);
+const withDrupalData = (prefix?: string) => withDefaultContent(useAllDrupalArticles(prefix));
 
 export default withDrupalData;
