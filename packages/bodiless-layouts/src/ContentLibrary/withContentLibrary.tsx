@@ -48,7 +48,6 @@ const withContentLibrary = (options: ContentLibraryOptions) => (
     useLibraryNode,
     useMeta,
     useOverrides = () => {},
-    peer = false,
   } = options;
 
   const useMenuOptions = (props: any) => {
@@ -112,8 +111,13 @@ const withContentLibrary = (options: ContentLibraryOptions) => (
     };
     return createMenuOptionGroup(finalOption);
   };
+  const {
+    name = 'Content Library', id, type, peer = false,
+  } = options;
   return flow(
-    withMenuOptions({ useMenuOptions, name: 'Content Library', peer }),
+    withMenuOptions({
+      useMenuOptions, name, peer, id, type,
+    }),
     observer,
   )(Component);
 };
