@@ -1,5 +1,5 @@
 import React from 'react';
-import { asBodilessComponent, useFormUI } from '@bodiless/core';
+import { asBodilessComponent, useFormUI, useMenuOptionUI } from '@bodiless/core';
 import { ReactMarkdownProps as Props } from 'react-markdown';
 
 import MarkdownField from './InformedMarkdown';
@@ -11,7 +11,7 @@ const asBodilessMarkdown = asBodilessComponent<Props, Data>({
   name: 'edit',
   renderForm: () => {
     // const { ComponentFormLabel, ComponentFormTitle, ComponentFormTextArea } = useFormUI();
-    const { ComponentFormLabel, ComponentFormTitle } = useFormUI();
+    const { ComponentFormLabel, ComponentFormTitle } = useMenuOptionUI();
     return (
       <>
         <ComponentFormTitle>Markdown</ComponentFormTitle>
