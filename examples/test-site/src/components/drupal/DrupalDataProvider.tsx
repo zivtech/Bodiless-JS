@@ -3,11 +3,18 @@ import { get } from 'lodash';
 
 const DrupalDataContext = createContext<any>({});
 
-export const useDrupalNode = (props: any) => {
+type DrupalNodeKeyProps = {
+  drupalNodeKey?: string,
+};
+
+export const useDrupalNode = <
+  D extends object = any,
+  P extends DrupalNodeKeyProps = DrupalNodeKeyProps
+>(props: P) => {
   const { drupalNodeKey } = props;
   const node = useContext(DrupalDataContext);
   const finalNode = drupalNodeKey !== undefined ? get(node, drupalNodeKey, {}) : node;
-  return finalNode;
+  return finalNode as D;
 };
 
 export const withDrupalData = (P: CT<any>) => {

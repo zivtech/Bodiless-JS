@@ -32,7 +32,9 @@ const childKeys = (node: ContentNode<any>) => {
   ));
 };
 
-const copyNode = (source: ContentNode<any>, dest: ContentNode<any>, copyChildren: boolean) => {
+export const copyNode = (
+  source: ContentNode<any>, dest: ContentNode<any>, copyChildren: boolean,
+) => {
   dest.setData(source.data);
   if (copyChildren) {
     childKeys(source).forEach(key => copyNode(source.child(key), dest.child(key), true));
