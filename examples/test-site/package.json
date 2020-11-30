@@ -74,6 +74,7 @@
     "dev-frontend": "gatsby develop -p 8005",
     "serve": "gatsby serve",
     "prebuild:watch": "run-s build:env-vars build:doc",
+    "refresh": "curl -X POST http://localhost:8005/__refresh",
     "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=1 npm run build:watch",
     "prestart": "run-s build:env-vars build:doc",
     "docs:build": "bl-docs-build",
