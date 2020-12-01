@@ -20,7 +20,7 @@
 
 • **type**: *string*
 
-*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-layouts/src/FlowContainer/types.ts#L56)*
+*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-layouts/src/FlowContainer/types.ts#L56)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **uuid**: *string*
 
-*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-layouts/src/FlowContainer/types.ts#L57)*
+*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-layouts/src/FlowContainer/types.ts#L57)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **wrapperProps**: *[FlowContainerItemProps](flowcontaineritemprops.md)*
 
-*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-layouts/src/FlowContainer/types.ts#L58)*
+*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-layouts/src/FlowContainer/types.ts#L58)*

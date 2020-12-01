@@ -45,7 +45,7 @@ Wrapper class for Lunr static site search engine.
 
 \+ **new LunrSearch**(): *[LunrSearch](lunrsearch.md)*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L33)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L33)*
 
 **Returns:** *[LunrSearch](lunrsearch.md)*
 
@@ -55,7 +55,7 @@ Wrapper class for Lunr static site search engine.
 
 • **documents**: *[TDocument](../globals.md#tdocument)[]*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L27)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L27)*
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **index**: *Index | null*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L31)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L31)*
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 • **indexConfig**: *[TIndexConfig](../globals.md#tindexconfig) | null*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L29)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L29)*
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 • **name**: *string*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L25)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L25)*
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 • **previews**: *object | null*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L33)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L33)*
 
 ## Methods
 
@@ -95,7 +95,7 @@ ___
 
 ▸ **addDocuments**(`doc`: [TDocument](../globals.md#tdocument) | [TDocument](../globals.md#tdocument)[]): *void*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L78)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L78)*
 
 **Parameters:**
 
@@ -111,7 +111,7 @@ ___
 
 ▸ **createIndex**(): *Index*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L89)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L89)*
 
 Create Lunr search index object with given configures.
 
@@ -123,7 +123,7 @@ ___
 
 ▸ **createPreview**(): *object*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L126)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L126)*
 
 Create index preview JSON object.
 
@@ -137,7 +137,7 @@ ___
 
 ▸ **exportIndex**(): *string*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:148](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L148)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:148](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L148)*
 
 Export serialized index.
 
@@ -149,7 +149,7 @@ ___
 
 ▸ **getEngineName**(): *string*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L72)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L72)*
 
 **Returns:** *string*
 
@@ -159,7 +159,7 @@ ___
 
 ▸ **getIndexConfig**(): *null | object*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L74)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:74](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L74)*
 
 **Returns:** *null | object*
 
@@ -169,7 +169,7 @@ ___
 
 ▸ **loadIndex**(`index`: object): *void*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L44)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L44)*
 
 **Parameters:**
 
@@ -185,7 +185,7 @@ ___
 
 ▸ **loadPreviews**(`previews`: object): *void*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L48)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L48)*
 
 **Parameters:**
 
@@ -201,7 +201,7 @@ ___
 
 ▸ **search**(`queryString`: string): *[TSearchResults](../globals.md#tsearchresults)*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L52)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L52)*
 
 **Parameters:**
 
@@ -217,7 +217,7 @@ ___
 
 ▸ **setIndexConfig**(`conf`: [TIndexConfig](../globals.md#tindexconfig)): *void*
 
-*Defined in [packages/bodiless-search/src/LunrSearch.ts:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-search/src/LunrSearch.ts#L76)*
+*Defined in [packages/bodiless-search/src/LunrSearch.ts:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-search/src/LunrSearch.ts#L76)*
 
 **Parameters:**
 

@@ -78,7 +78,7 @@ ___
 
 • **children**? : *any*
 
-*Defined in [packages/bodiless-richtext/src/withNodeStateHandlers.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-richtext/src/withNodeStateHandlers.tsx#L23)*
+*Defined in [packages/bodiless-richtext/src/withNodeStateHandlers.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-richtext/src/withNodeStateHandlers.tsx#L23)*
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 • **initialValue**: *object*
 
-*Defined in [packages/bodiless-richtext/src/withNodeStateHandlers.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/898237b/packages/bodiless-richtext/src/withNodeStateHandlers.tsx#L24)*
+*Defined in [packages/bodiless-richtext/src/withNodeStateHandlers.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/5d99541/packages/bodiless-richtext/src/withNodeStateHandlers.tsx#L24)*
 
 ___
 
