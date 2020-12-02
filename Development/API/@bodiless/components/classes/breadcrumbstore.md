@@ -15,7 +15,6 @@ API:
 ## Implements
 
 * object
-* object
 
 ## Index
 
@@ -25,7 +24,7 @@ API:
 
 ### Properties
 
-* [activeItem](breadcrumbstore.md#activeitem)
+* [activeItem](breadcrumbstore.md#private-optional-activeitem)
 * [items](breadcrumbstore.md#private-items)
 * [pagePath](breadcrumbstore.md#private-pagepath)
 
@@ -40,11 +39,11 @@ API:
 * [getItem](breadcrumbstore.md#getitem)
 * [getPagePath](breadcrumbstore.md#getpagepath)
 * [hasCurrentPageItem](breadcrumbstore.md#hascurrentpageitem)
-* [isActive](breadcrumbstore.md#isactive)
 * [isActiveItemPathChanged](breadcrumbstore.md#private-isactiveitempathchanged)
 * [isNewActive](breadcrumbstore.md#private-isnewactive)
-* [setActiveItem](breadcrumbstore.md#setactiveitem)
+* [setActiveItem](breadcrumbstore.md#private-setactiveitem)
 * [setItem](breadcrumbstore.md#setitem)
+* [toString](breadcrumbstore.md#tostring)
 * [updateActive](breadcrumbstore.md#private-updateactive)
 
 ## Constructors
@@ -53,7 +52,7 @@ API:
 
 \+ **new BreadcrumbStore**(`pagePath`: string): *[BreadcrumbStore](breadcrumbstore.md)*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L193)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:204](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L204)*
 
 **Parameters:**
 
@@ -65,13 +64,11 @@ Name | Type |
 
 ## Properties
 
-###  activeItem
+### `Private` `Optional` activeItem
 
-• **activeItem**: *[BreadcrumbItemType](../globals.md#breadcrumbitemtype)* = undefined
+• **activeItem**? : *[BreadcrumbItemType](../globals.md#breadcrumbitemtype)* = undefined
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/asBreadcrumb.tsx#L47)*
-
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:191](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L191)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:202](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L202)*
 
 ___
 
@@ -79,7 +76,7 @@ ___
 
 • **items**: *Map‹string, [BreadcrumbItemType](../globals.md#breadcrumbitemtype)›* = new Map<string, BreadcrumbItemType>()
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:189](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L189)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:200](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L200)*
 
 ___
 
@@ -87,7 +84,7 @@ ___
 
 • **pagePath**: *string*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L193)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:204](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L204)*
 
 ## Accessors
 
@@ -95,7 +92,7 @@ ___
 
 • **get breadcrumbTrail**(): *object[]*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:246](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L246)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:257](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L257)*
 
 **Returns:** *object[]*
 
@@ -105,7 +102,7 @@ ___
 
 ▸ **deleteItem**(`item`: [BreadcrumbItemType](../globals.md#breadcrumbitemtype) | string): *boolean*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:232](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L232)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:243](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L243)*
 
 **Parameters:**
 
@@ -121,7 +118,7 @@ ___
 
 ▸ **export**(): *object[]*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:254](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L254)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:265](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L265)*
 
 **Returns:** *object[]*
 
@@ -131,7 +128,7 @@ ___
 
 ▸ **getItem**(`key`: string): *undefined | object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:221](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L221)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:232](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L232)*
 
 **Parameters:**
 
@@ -147,7 +144,7 @@ ___
 
 ▸ **getPagePath**(): *string*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:242](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L242)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:253](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L253)*
 
 **Returns:** *string*
 
@@ -157,23 +154,7 @@ ___
 
 ▸ **hasCurrentPageItem**(): *boolean*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:258](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L258)*
-
-**Returns:** *boolean*
-
-___
-
-###  isActive
-
-▸ **isActive**(`item`: [BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface)): *boolean*
-
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/asBreadcrumb.tsx#L56)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`item` | [BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface) |
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:269](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L269)*
 
 **Returns:** *boolean*
 
@@ -183,7 +164,7 @@ ___
 
 ▸ **isActiveItemPathChanged**(`item`: [BreadcrumbItemType](../globals.md#breadcrumbitemtype)): *boolean*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:215](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L215)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:226](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L226)*
 
 **Parameters:**
 
@@ -199,7 +180,7 @@ ___
 
 ▸ **isNewActive**(`item`: [BreadcrumbItemType](../globals.md#breadcrumbitemtype)): *boolean*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:203](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L203)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:214](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L214)*
 
 **Parameters:**
 
@@ -211,17 +192,17 @@ Name | Type |
 
 ___
 
-###  setActiveItem
+### `Private` setActiveItem
 
-▸ **setActiveItem**(`item`: [BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface)): *void*
+▸ **setActiveItem**(`item`: [BreadcrumbItemType](../globals.md#breadcrumbitemtype) | undefined): *void*
 
-*Defined in [packages/bodiless-components/src/asBreadcrumb.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/asBreadcrumb.tsx#L49)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:210](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L210)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`item` | [BreadcrumbContextInterface](../globals.md#breadcrumbcontextinterface) |
+`item` | [BreadcrumbItemType](../globals.md#breadcrumbitemtype) &#124; undefined |
 
 **Returns:** *void*
 
@@ -231,7 +212,7 @@ ___
 
 ▸ **setItem**(`item`: [BreadcrumbItemType](../globals.md#breadcrumbitemtype)): *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:225](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L225)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:236](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L236)*
 
 **Parameters:**
 
@@ -248,6 +229,10 @@ Name | Type |
 * **hasPath**(): *function*
 
   * (`item`: [BreadcrumbItemType](../globals.md#breadcrumbitemtype) | string): *boolean*
+
+* **isActive**(): *function*
+
+  * (): *boolean*
 
 * **isAncestorOf**(): *function*
 
@@ -291,10 +276,20 @@ Name | Type |
 
 ___
 
+###  toString
+
+▸ **toString**(): *string*
+
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:273](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L273)*
+
+**Returns:** *string*
+
+___
+
 ### `Private` updateActive
 
 ▸ **updateActive**(): *void*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:208](https://github.com/johnsonandjohnson/Bodiless-JS/blob/51e459d/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L208)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:219](https://github.com/johnsonandjohnson/Bodiless-JS/blob/b0b16b4/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L219)*
 
 **Returns:** *void*
