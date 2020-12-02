@@ -11,32 +11,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { flow } from 'lodash';
-import { withDesign, addProps } from '@bodiless/fclasses';
-
-import { asDefaultLogoStyle } from '../Layout/token';
+import { SearchBox as SearchBoxClean, SearchResult as SearchResultClean } from '@bodiless/search';
 import {
-  asPrimaryColorBackground, withPadding1, asTealBackground,
-} from '../Elements.token';
+  asSimpleSearchResult, asInlineSearch, asSimpleSearch,
+} from './token';
 
-/**
- * Burger Menu Styles
- * ===========================================
- */
-const withBurgerMenuStyles = withDesign({
-  Wrapper: flow(
-    withPadding1,
-    asTealBackground,
-  ),
-  Header: flow(
-    asDefaultLogoStyle,
-    withDesign({ SiteReturn: asTealBackground }),
-  ),
-  Menu: flow(
-    asPrimaryColorBackground,
-    addProps({ noOverlay: true, width: '100%', right: true }),
-  ),
-});
-
-export default withBurgerMenuStyles;
+export const SimpleSearchResult = flow(asSimpleSearchResult)(SearchResultClean);
+export const InlineSearchBox = flow(asInlineSearch)(SearchBoxClean);
+export const SimpleSearchBox = flow(asSimpleSearch)(SearchBoxClean);

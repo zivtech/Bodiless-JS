@@ -15,22 +15,26 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
-import Layout from '../components/Layout';
-import { FlowContainerDefault } from '../components/FlowContainer';
-import SocialShare from '../components/SocialShare';
+import { withSearchResult } from '@bodiless/search';
+import Layout from '../../../components/Layout';
+import { InlineSearchBox, SimpleSearchResult } from '../../../components/Search';
 
-export default props => (
+const SearchLayout = withSearchResult(Layout);
+
+const SearchPage = (props: any) => (
   <Page {...props}>
-    <Layout>
-      <SocialShare />
-      <FlowContainerDefault nodeKey="page" />
-    </Layout>
+    <SearchLayout>
+      <h1 className="text-3xl font-bold">Search Result</h1>
+      <InlineSearchBox />
+      <SimpleSearchResult />
+    </SearchLayout>
   </Page>
 );
 
 export const query = graphql`
   query($slug: String!) {
-    ...PageQuery,
+    ...PageQuery
     ...SiteQuery
   }
 `;
+export default SearchPage;
