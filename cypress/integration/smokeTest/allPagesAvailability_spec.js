@@ -29,14 +29,15 @@ describe('All pages are available', function () {
     checkPageLoads();
   })
 
-  it('3 - /accordion/', () => {
+  
+  it.skip('3 - /accordion/', () => {
     cy.visit('/accordion/');
     checkPageLoads();
   })
 
 
-  it('4 - /burger-menu/', () => {
-    cy.visit('/burger-menu/');
+  it('4 - /breadcrumb/', () => {
+    cy.visit('/breadcrumb/');
     checkPageLoads();
   })
 
@@ -59,8 +60,8 @@ describe('All pages are available', function () {
   })
 
 
-  it('8 - /context/', () => {
-    cy.visit('/context/');
+  it('8 - /content-library/', () => {
+    cy.visit('/content-library/');
     checkPageLoads();
   })
 
@@ -101,49 +102,49 @@ describe('All pages are available', function () {
   })
 
 
-  it('15 - /images/', () => {
+  it('15 - /iframe/', () => {
+    cy.visit('/iframe/');
+    checkPageLoads();
+  })
+
+
+  it('16 - /images/', () => {
     cy.visit('/images/');
     checkPageLoads();
   })
 
 
-  it('16 - /link-toggle/', () => {
+  it.skip('17 - /link-toggle/', () => {
     cy.visit('/link-toggle/');
     checkPageLoads();
   })
 
 
-  it('17 - /list/', () => {
+  it.skip('18 - /list/', () => {
     cy.visit('/list/');
     checkPageLoads();
   })
 
 
-  it('18 - /list2/', () => {
+  it('19 - /list2/', () => {
     cy.visit('/list2/');
     checkPageLoads();
   })
 
 
-  it('19 - /megamenu/', () => {
+  it('20 - /megamenu/', () => {
     cy.visit('/megamenu/');
     checkPageLoads();
   })
 
 
-  it('20 - /notification/', () => {
+  it('21 - /notification/', () => {
     cy.visit('/notification/');
     checkPageLoads();
   })
 
 
-  it('21 - /rcmenu/', () => {
-    cy.visit('/rcmenu/');
-    checkPageLoads();
-  })
-
-
-  it('22 - /products/', () => {
+  it.skip('22 - /products/', () => {
     cy.visit('/products/');
     checkPageLoads();
   })
@@ -155,8 +156,8 @@ describe('All pages are available', function () {
   })
 
 
-  it('24 - /sitedatapage2/', () => {
-    cy.visit('/sitedatapage2/');
+  it('24 - /search/', () => {
+    cy.visit('/search/');
     checkPageLoads();
   })
 
@@ -167,37 +168,49 @@ describe('All pages are available', function () {
   })
 
 
-  it('26 - /slate-shared-node/', () => {
+  it('26 - /sitedatapage2/', () => {
+    cy.visit('/sitedatapage2/');
+    checkPageLoads();
+  })
+
+
+  it('27 - /slate-shared-node/', () => {
     cy.visit('/slate-shared-node/');
     checkPageLoads();
   })
 
 
-  it('27 - /youtube/', () => {
+  it('28 - /social-share/', () => {
+    cy.visit('/social-share/');
+    checkPageLoads();
+  })
+
+
+  it('29 - /youtube/', () => {
     cy.visit('/youtube/');
     checkPageLoads();
   })
 
 
-  it('28 - /touts/', () => {
+  it.skip('30 - /touts/', () => {
     cy.visit('/touts/');
     checkPageLoads();
   })
 
 
-  it('29 - /products/product-a/', () => {
+  it('31 - /products/product-a/', () => {
     cy.visit('/products/product-a/');
     checkPageLoads();
   })
 
 
-  it('30 - /products/product-b/', () => {
+  it('32 - /products/product-b/', () => {
     cy.visit('/products/product-b/');
     checkPageLoads();
   })
 
 
-  it('31 - /api/fclasses/', () => {
+  it('33 - /api/fclasses/', () => {
     cy.visit('/api/fclasses/');
     checkPageLoads();
   })
