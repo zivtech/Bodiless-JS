@@ -12,15 +12,21 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { flow } from 'lodash';
-import { Div } from '@bodiless/fclasses';
+import {
+  Div, designable, addClasses, replaceWith,
+} from '@bodiless/fclasses';
+import { useNode, withNodeKey, ifToggledOn } from '@bodiless/core';
+import { withBreadcrumbStore } from '@bodiless/components';
 import Header from './header';
 import Footer from './footer';
 import SeoHelmet from './meta';
-import SiteGTMHelmetEvent from './GTM';
+import { SocialShareHelmet } from '../SocialShare';
 import { asPageContainer, asYMargin } from '../Elements.token';
 import { asSiteHeader, asSiteFooter } from './token';
+
+import { MegaMenuBreadcrumbs } from '../Breadcrumbs/MenuBreadcrumbs';
 
 const SiteHeader = asSiteHeader(Header);
 const SiteFooter = asSiteFooter(Footer);
@@ -30,16 +36,35 @@ const Container = flow(
   asYMargin,
 )(Div);
 
-const Layout = ({ children }) => (
-  <>
-    <SeoHelmet />
-    <SiteGTMHelmetEvent />
-    <SiteHeader />
-    <Container>
-      {children}
-    </Container>
-    <SiteFooter />
-  </>
-);
+const BreadcrumbProvider = withBreadcrumbStore(Fragment);
+
+const BaseLayout = ({ children, components }) => {
+  const { Breadcrumbs } = components;
+  return (
+    <>
+      <SeoHelmet />
+      <BreadcrumbProvider>
+        <SocialShareHelmet />
+        <SiteHeader />
+        <Container>
+          { Breadcrumbs && <Breadcrumbs />}
+          {children}
+        </Container>
+      </BreadcrumbProvider>
+      <SiteFooter />
+    </>
+  );
+};
+
+const isHomePage = () => useNode().node.pagePath === '/';
+
+const Layout = designable({
+  Breadcrumbs: flow(
+    withNodeKey({ nodeKey: 'MainMenu', nodeCollection: 'site' }),
+    addClasses('pt-2'),
+    // hide breadcrumbs on home page
+    ifToggledOn(isHomePage)(replaceWith(React.Fragment)),
+  )(MegaMenuBreadcrumbs),
+})(BaseLayout);
 
 export default Layout;

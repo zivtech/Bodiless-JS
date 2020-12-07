@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.62](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.61...v0.0.62) (2020-12-02)
+
+
+### Features
+
+* **components:** Normalize link Href ([#659](https://github.com/johnsonandjohnson/bodiless-js/issues/659)) ([5d99541](https://github.com/johnsonandjohnson/bodiless-js/commit/5d99541919a3f17be22a9fde522dbd9b137b03c3)), closes [#633](https://github.com/johnsonandjohnson/bodiless-js/issues/633)
+
+
+
+
+
+## [0.0.61](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.60...v0.0.61) (2020-11-25)
+
+
+### Features
+
+* **components:** Content Library ([#696](https://github.com/johnsonandjohnson/bodiless-js/issues/696)) ([ee66fb8](https://github.com/johnsonandjohnson/bodiless-js/commit/ee66fb876754e17ef551bc2a87e257957b9bd2aa)), closes [#1](https://github.com/johnsonandjohnson/bodiless-js/issues/1) [#4](https://github.com/johnsonandjohnson/bodiless-js/issues/4) [#2](https://github.com/johnsonandjohnson/bodiless-js/issues/2) [#5](https://github.com/johnsonandjohnson/bodiless-js/issues/5) [#3](https://github.com/johnsonandjohnson/bodiless-js/issues/3)
+
+
+
+
+
+## [0.0.60](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.58...v0.0.60) (2020-11-18)
+
+
+### Bug Fixes
+
+* **core:** Context Menu Panel for link/image/seo disappear when you mouse moves off ([#639](https://github.com/johnsonandjohnson/bodiless-js/issues/639)) ([43e0d84](https://github.com/johnsonandjohnson/bodiless-js/commit/43e0d84e3235845dc4938c41526c227c4cb5ad63))
+
+
+### Features
+
+* **fclasses:** Design Keys ([#685](https://github.com/johnsonandjohnson/bodiless-js/issues/685)) ([0db060a](https://github.com/johnsonandjohnson/bodiless-js/commit/0db060ad1e7496553cd8eae3654770530d543010)), closes [#660](https://github.com/johnsonandjohnson/bodiless-js/issues/660)
+
+
+
+
+
+## [0.0.59](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.58...v0.0.59) (2020-11-05)
+
+
+### Bug Fixes
+
+* **core:** Context Menu Panel for link/image/seo disappear when you mouse moves off ([#639](https://github.com/johnsonandjohnson/bodiless-js/issues/639)) ([43e0d84](https://github.com/johnsonandjohnson/bodiless-js/commit/43e0d84e3235845dc4938c41526c227c4cb5ad63))
+
+
+
+
+
+## [0.0.58](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.57...v0.0.58) (2020-10-23)
+
+
+### Features
+
+* **components,organisms:** Mega-menu support ([#572](https://github.com/johnsonandjohnson/bodiless-js/issues/572)) ([9f43d0e](https://github.com/johnsonandjohnson/bodiless-js/commit/9f43d0e38abd7b7ac48d8ea1c3c06a97cf48fdef)), closes [#546](https://github.com/johnsonandjohnson/bodiless-js/issues/546)
+
+
+
+
+
+## [0.0.57](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.56...v0.0.57) (2020-10-15)
+
+
+### Bug Fixes
+
+* **core:** The forms overlay the bottom part of Local Menus ([#562](https://github.com/johnsonandjohnson/bodiless-js/issues/562)) ([cd1458f](https://github.com/johnsonandjohnson/bodiless-js/commit/cd1458f52658d372fa83921c9a331d4060f45f9e))
+
+
+### Features
+
+* **components:** youtube and iframe ([#569](https://github.com/johnsonandjohnson/bodiless-js/issues/569)) ([388166c](https://github.com/johnsonandjohnson/bodiless-js/commit/388166cdbeebedc71bd287c2794867c76f09b794))
+* **core:** Remove submit button from non-interactive forms ([#564](https://github.com/johnsonandjohnson/bodiless-js/issues/564)) ([3382d54](https://github.com/johnsonandjohnson/bodiless-js/commit/3382d54acc98735e7fdc49ab843c06b5a39cc271))
+* **core, layouts:** Closing Main Menu Panel Windows ([#571](https://github.com/johnsonandjohnson/bodiless-js/issues/571)) ([3e0b9f0](https://github.com/johnsonandjohnson/bodiless-js/commit/3e0b9f0df681c146e61d1905c312706dd11d5f1d))
+
+
+### BREAKING CHANGES
+
+* **core:** Describe the nature of the breaking change here.
+
+More Details about the breaking change.
+-->
+
+
+
+
+
 ## [0.0.56](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.55...v0.0.56) (2020-09-21)
 
 

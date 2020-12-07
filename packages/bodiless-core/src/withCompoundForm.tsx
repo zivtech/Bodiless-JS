@@ -99,16 +99,21 @@ const Form = <D extends object>(props: FormProps<D>) => {
   );
 
   const formProps = { submitValues, initialValues };
-  const renderProps: FormBodyProps<D> = {
-    formState: useFormState(),
-    formApi: useFormApi(),
-    ...rest,
+
+  const Snippets = (props$: Omit<FormProps<D>, 'components'>) => {
+    const { snippets: snippets$, ...rest$ } = props$;
+    const renderProps: FormBodyProps<D> = {
+      formState: useFormState(),
+      formApi: useFormApi(),
+      ...rest$,
+    };
+    return <>{snippets$.map(s => s.render(renderProps))}</>;
   };
 
   return (
     <ContextMenuForm {...rest} {...formProps}>
       <Wrapper>
-        {snippets.map(s => s.render(renderProps))}
+        <Snippets snippets={snippets} {...rest} />
       </Wrapper>
     </ContextMenuForm>
   );
@@ -129,18 +134,18 @@ const createMenuOptions = <P extends object, D extends object>(def: MenuOptionsD
       useMenuOptions: useMenuOptionsBase = () => undefined,
     } = def;
     const baseOptions = useMenuOptionsBase(rest) || [];
-    if (baseOptions.length !== 1) {
-      // Fail fast if user has supplied more than one menu option definition.
-      throw new Error('Menu option getter for withCompoundForm must return a single item.');
-    }
+    const [compoundFormOption, ...otherOptions] = baseOptions;
     const snippets = useContext(SnippetContext);
     const render = (p: ContextMenuFormProps) => (
       <Form {...p} components={components} snippets={snippets!.current} />
     );
-    return [{
-      ...baseOptions[0],
-      handler: () => render,
-    }];
+    return [
+      {
+        ...compoundFormOption,
+        handler: () => render,
+      },
+      ...otherOptions,
+    ];
   };
   return { ...def, useMenuOptions };
 };
@@ -179,7 +184,7 @@ const withCompoundForm = <P extends object>(options: MenuOptionsDefinition<P>) =
       </Context.Provider>
     );
   };
-  return designable(defaultComponents)(WithCompoundForm);
+  return designable(defaultComponents, 'CompoundForm')(WithCompoundForm);
 };
 
 export default withCompoundForm;

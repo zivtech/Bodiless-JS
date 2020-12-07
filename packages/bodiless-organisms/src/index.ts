@@ -11,12 +11,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {
-  asBurgerSubMenu,
-  asEditableBurgerSubMenu,
-  BurgerMenuClean,
-  withBurgerSubmenu,
-} from './components/BurgerMenu';
 
 export {
   SingleAccordion,
@@ -24,19 +18,6 @@ export {
   asSingleAccordion,
   asTestableSingleAccordion,
 } from './components/SingleAccordion';
-
-export {
-  asEditableMainMenu,
-  asEditableMenu,
-  asEditableMainSubMenu,
-  asHorizontalMenu,
-  asHorizontalSubMenu,
-  asMainMenu,
-  asMainSubMenu,
-  asMenu,
-  MenuLink,
-  withSubmenu,
-} from './components/MainMenu/index';
 
 export {
   ToutClean,
@@ -70,13 +51,6 @@ export {
 } from './components/FilterByGroup';
 
 export {
-  asBurgerSubMenu,
-  asEditableBurgerSubMenu,
-  BurgerMenuClean,
-  withBurgerSubmenu,
-};
-
-export {
   AccordionClean,
   useAccordionContext,
   asAccordionWrapper,
@@ -94,3 +68,25 @@ export {
   BCarouselClean,
   asEditableCarousel,
 } from './components/Carousel';
+
+export * from './components/Menu';
+
+export { default as Embed } from './components/Embed';
+export {
+  asResponsive21By9Embed,
+  asResponsive16By9Embed,
+  asResponsive4By3Embed,
+  asResponsive1By1Embed,
+} from './components/Embed.tokens';
+
+export {
+  asBaseResponsiveIframe,
+  asResponsiveIframe,
+} from './components/ResponsiveIframe';
+export {
+  asBaseResponsiveYouTube,
+  asResponsiveYouTube,
+} from './components/ResponsiveYouTube';
+
+export { default as SocialShare } from './components/SocialShare';
+export type { SocialShareProvider } from './components/SocialShare/types';

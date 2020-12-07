@@ -12,8 +12,10 @@
  * limitations under the License.
  */
 
-import React, { ComponentType } from 'react';
-import { flow, omit } from 'lodash';
+import React, {
+  ComponentType, FC, useEffect, useState,
+} from 'react';
+import { flow, omit, pick } from 'lodash';
 
 export type Condition<P> = (props: P) => boolean;
 
@@ -38,13 +40,52 @@ export const flowIf = (condition: (args: any) => boolean) => (
   )
 );
 
-// Helper hoc function to strip props.
-export const withoutProps = <Q extends object>(keys: string[]) => (
-  <P extends object>(Component: ComponentType<P> | string) => (
-    (props: P & Q) => <Component {...omit(props, keys) as P} />
-  )
+/**
+ * Removes the specified props from the wrapped component.
+ * @param ...keys The names of the props to remove.
+ */
+export const withoutProps = <Q extends object>(keys: string|string[], ...restKeys: string[]) => (
+  <P extends object>(Component: ComponentType<P> | string) => {
+    const keys$ = typeof keys === 'string' ? [keys, ...restKeys] : keys;
+    const WithoutProps = (props: P & Q) => <Component {...omit(props, keys$) as P} />;
+    return WithoutProps;
+  }
+);
+
+/*
+ * Creates an HOC which strips all but the specified props.
+ *
+ * @param keys A list of the prop-names to keep.
+ *
+ * @return An HOC which will strip all but the specified props.
+ */
+export const withOnlyProps = <Q extends object>(...keys: string[]) => (
+  <P extends object>(Component: ComponentType<P> | string) => {
+    const WithOnlyProps: FC<P & Q> = props => <Component {...pick(props, keys) as P} />;
+    return WithOnlyProps;
+  }
 );
 
 export const hasProp = (name: string) => (
   ({ [name]: prop }: { [name: string]: any }) => Boolean(prop)
 );
+
+/**
+ * Like replaceWith, but performs the repacement on effect. Useful when you need to
+ * ensure that both versions of a component are rendered during SSR, but want to
+ * remove one when displayed in the browser (eg for responsive design).
+ *
+ * @param Replacement The component to replace with.
+ */
+export const replaceOnEffect = <P extends object>(
+  Replacement: ComponentType<P>,
+) => (
+    Component: ComponentType<P>,
+  ) => {
+    const ReplaceOnEffect = (props: P) => {
+      const [replaced, setReplaced] = useState(false);
+      useEffect(() => setReplaced(true), []);
+      return replaced ? <Replacement {...props} /> : <Component {...props} />;
+    };
+    return ReplaceOnEffect;
+  };

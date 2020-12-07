@@ -18,9 +18,41 @@ import useContextMenuForm, {
   FormBodyProps as ContextMenuFormBodyProps,
 } from './contextMenuForm';
 import { withMenuOptions } from './PageContextProvider';
+import withCompoundForm from './withCompoundForm';
 import type { EditButtonProps, EditButtonOptions } from './Types/EditButtonTypes';
+import { TMenuOption } from './Types/ContextMenuTypes';
 
 type UseEditFormProps<P, D> = P & EditButtonProps<D> & Pick<EditButtonOptions<P, D>, 'renderForm'|'initialValueHandler'|'submitValueHandler'>;
+
+/**
+ * Given a base option, creates a pair of menu options including
+ * the base option and a group which contains it.
+ *
+ * @param baseOption The option for which to create the group.
+ *
+ * @return The base option and a group which contains it.
+ */
+export const createMenuOptionGroup = (
+  baseOption: Omit<EditButtonOptions<any, any>, 'renderForm'>,
+):TMenuOption[] => {
+  const {
+    groupLabel,
+    groupMerge,
+    ...menuOption
+  } = baseOption;
+
+  const menuGroup:TMenuOption = {
+    name: `${menuOption.name}-group`,
+    label: groupLabel || menuOption.label,
+    groupMerge: groupMerge || 'none',
+    local: menuOption.local,
+    global: menuOption.global,
+    Component: 'group',
+  };
+
+  menuOption.group = menuGroup.name;
+  return [menuOption, menuGroup];
+};
 
 /**
  * Generates required props to pass to `ContextMenuForm`
@@ -89,16 +121,23 @@ const createMenuOptionHook = <P extends object, D extends object>(
     const options$ = typeof options === 'function' ? options(props) : options;
     const {
       renderForm,
+      initialValueHandler,
+      submitValueHandler,
       ...rest
     } = options$;
     const { isActive } = props;
-    const render = useContextMenuForm(useEditFormProps({ ...props, renderForm }));
+    const render = useContextMenuForm(useEditFormProps({
+      ...props,
+      renderForm,
+      initialValueHandler,
+      submitValueHandler,
+    }));
     const menuOption = {
       ...rest,
       handler: () => render,
     };
     if (isActive) menuOption.isActive = isActive;
-    return [menuOption];
+    return createMenuOptionGroup(menuOption);
   };
 
 /**
@@ -111,12 +150,23 @@ const createMenuOptionHook = <P extends object, D extends object>(
  */
 const withEditButton = <P extends object, D extends object>(
   options: EditButtonOptions<P, D> | ((props: P) => EditButtonOptions<P, D>),
-) => flowRight(
-    withMenuOptions({
+) => {
+  const isCompoundForm = typeof options === 'object'
+    && options.useCompoundForm !== undefined
+    && options.useCompoundForm();
+  const withMenuOptions$ = isCompoundForm
+    ? withCompoundForm({
       useMenuOptions: createMenuOptionHook(options),
-      name: options.name,
-    }),
+      name: `Edit ${options.name}`,
+    })
+    : withMenuOptions({
+      useMenuOptions: createMenuOptionHook(options),
+      name: `Edit${options.name}`,
+    });
+  return flowRight(
+    withMenuOptions$,
     withoutProps(['setComponentData', 'isActive']),
   );
+};
 
 export default withEditButton;

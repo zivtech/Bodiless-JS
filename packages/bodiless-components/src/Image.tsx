@@ -26,6 +26,7 @@ import {
   asBodilessComponent,
   BodilessOptions,
   useNode,
+  AsBodiless,
 } from '@bodiless/core';
 
 import { useDropzone } from 'react-dropzone';
@@ -72,7 +73,7 @@ const defaultImagePickerUI = {
 };
 
 // DropZonePlugin control the upload of file and only saves jpg/png files.
-function DropZonePlugin({ formApi, targetFieldName, ui }: {
+export function DropZonePlugin({ formApi, targetFieldName, ui }: {
   formApi: FormApi<Data>;
   targetFieldName:string;
   ui?: Partial<TImagePickerUI>;
@@ -127,7 +128,7 @@ function DropZonePlugin({ formApi, targetFieldName, ui }: {
 
   const { getRootProps, getInputProps, isDragReject } = useDropzone({
     onDrop,
-    accept: 'image/jpeg, image/png, image/svg+xml, image/gif, image/webp, image/apng',
+    accept: 'image/jpeg, image/png, image/svg+xml, image/gif, image/apng',
     multiple: false,
   });
 
@@ -172,14 +173,15 @@ type Props = ImageProps & { ui?: TImagePickerUI};
 // Options used to create an edit button.
 const options: BodilessOptions<Props, Data> = {
   icon: 'image',
-  label: 'Image',
+  label: 'Select',
+  groupLabel: 'Image',
+  formTitle: 'Image',
   name: 'Image',
   renderForm: ({ ui: formUi, formApi, componentProps }) => {
     const { ui: imagePickerUI } = componentProps;
-    const { ComponentFormTitle, ComponentFormLabel, ComponentFormText } = getUI(formUi);
+    const { ComponentFormLabel, ComponentFormText } = getUI(formUi);
     return (
       <>
-        <ComponentFormTitle>Image</ComponentFormTitle>
         <ComponentFormLabel htmlFor="image-src">Src</ComponentFormLabel>
         <ComponentFormText field="src" id="image-src" />
         <ComponentFormLabel htmlFor="image-alt">Alt</ComponentFormLabel>
@@ -198,7 +200,9 @@ const options: BodilessOptions<Props, Data> = {
 
 export const withImagePlaceholder = withPropsFromPlaceholder(['src']);
 
-export const asBodilessImage = asBodilessComponent<HTMLProps<HTMLImageElement>, Data>(options);
+export type AsBodilessImage = AsBodiless<HTMLProps<HTMLImageElement>, Data>;
+
+export const asBodilessImage: AsBodilessImage = asBodilessComponent(options);
 
 const Image = asBodilessImage()('img');
 

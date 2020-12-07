@@ -34,6 +34,31 @@ export type EditButtonProps<D> = {
   onSubmit?: () => void;
 };
 
-export type EditButtonOptions<P, D> = Omit<TMenuOption, 'handler'> & {
+/**
+ * A menu option with an optional group label.
+ */
+export type OptionGroupDefinition = TMenuOption & {
+  /**
+   * Optional label for the context menu group to which the button will belong.
+   * If omitted, will use the button label.
+   */
+  groupLabel?: string,
+};
+
+export type EditButtonOptions<P = any, D = any> = Omit<OptionGroupDefinition, 'handler'> & {
+  /**
+   * Callback to render the body of the edit form.
+   */
   renderForm: FormBodyRenderer<P, D>,
+  /**
+  * An optional function that determines if the created menu option displays "compound form".
+  * If the function returns true, then "compound form" is displayed.
+  * Otherwise, standard form is displayed.
+  * Default is to display standard form.
+  */
+  useCompoundForm?: () => boolean,
 } & EditDataHandler<D>;
+
+export type UseBodilessOverrides<P = any, D = any, E = {}> = (
+  props: P & EditButtonProps<D>,
+) => Partial<EditButtonOptions<P, D> & E>;
