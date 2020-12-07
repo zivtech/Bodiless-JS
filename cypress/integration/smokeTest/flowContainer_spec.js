@@ -36,28 +36,30 @@ describe('Flow Container smoke tests', function () {
    const h2_50 = '//h2[text()="Default Width of 50%"]';
    const h2_66 = '//h2[text()="Default Width of 66.66% "]';
    const h2_75 = '//h2[text()="Default Width of 75%"]';
-   const addComponentIconXpath = '//*[@aria-label="Add"]';
-   const swapComponentIconXpath = '//*[@aria-label="Swap"]';
-   const deleteComponentIconXpath = '//*[@aria-label="Delete"]';
-   const checkmarkIconImageFormXpath = '//*[@aria-label="Context Menu Image Form"]//*[@aria-label="Submit"]';
-   const imagePlaceholderEditXpath = '//*[contains(@class,"md:p-5")][contains(@style,"100%")]//img';
-   const imagePlaceholderPreviewXpath = '//*[contains(@class," lg:w-full")]//img';
-   const altFieldXpath = '//*[@aria-label="Context Menu Image Form"]//*[@id="image-alt"]';
+   const addComponentIconXpath = '//*[@aria-label="Add Flow Container"]';
+   const addComponentIconItemXpath = '//*[@aria-label="Add Flow Container Item"]';  
+   const copyComponentIconItemXpath = '//*[@aria-label="Copy Flow Container Item"]';
+   const swapComponentIconItemXpath = '//*[@aria-label="Swap Flow Container Item"]';
+   const deleteComponentIconItemXpath = '//*[@aria-label="Delete Flow Container Item"]';
+   const checkmarkIconImageFormXpath = '//*[@aria-label="Context Menu Select Image Form"]//*[@aria-label="Submit"]';
+   const imagePlaceholderEditXpath = '//section[1]//*[contains(@class,"w-full md:p-5")]//img';
+   const imagePlaceholderPreviewXpath = '//*[contains(@class,"md:-m-5")][1]//img';
+   const altFieldXpath = '//*[@aria-label="Context Menu Select Image Form"]//*[@id="image-alt"]';
    const titleAccordionXpath = '//*[@data-accordion-element="accordion-title"]';
    const bodyAccordionXpath = '//*[@data-accordion-element="accordion-body"]';
    const plusIconAccordionXpath = '//*[@data-accordion-icon="expand"]';
    const minusIconAccordionXpath = '//*[@data-accordion-icon="collapse"]';
    const itemInComponentPicker = '//*[@class="bl-p-grid-2"]';
    const titleInComponentPicker = '//h3[text()="Components"]';
-   const imageIconXpath = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Image"]';
-   const contentfulToutEdit = '//*[contains(@style,"width: 33.33%")]//*[@data-tout-element="wrapper"]';
-   const contentfulToutLinkEdit = '//*[contains(@style,"width: 33.33%")]//a[@href="https://www.jnj.com/"][@data-tout-element="image-link"]';
+   const imageIconXpath = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Select Image"]';
+   const contentfulToutEdit = '//section[5]//*[@data-tout-element="wrapper"]';
+   const contentfulToutLinkEdit = '//section[5]//a[@href="https://www.jnj.com/"][@data-tout-element="image-link"]';
    const contentfulToutPreview = '//*[contains(@class,"w-1/3")]//*[@data-tout-element="wrapper"]';
    const contentfulToutLinkPreview = '//*[contains(@class,"w-1/3")]//a[@href="https://www.jnj.com/"][@data-tout-element="image-link"]';
    const searchField = '//input[@id="Search"][@placeholder="Search"]';
-   const linkIconXpath = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Link"]';
-   const urlFieldXpath = '//*[@aria-label="Context Menu Link Form"]//*[@id="link-href"]';
-   const checkmarkIconLinkFormXpath = '//*[@aria-label="Context Menu Link Form"]//*[@aria-label="Submit"]';
+   const linkIconXpath = '//*[@aria-label="Edit Image"]';
+   const urlFieldXpath = '//*[@id="link-href"]';
+   const checkmarkIconLinkFormXpath = '//*[@aria-label="Submit"]';
    const imageLinkXpath = '//*[contains(@class,"md:p-5")]//a';
 
 
@@ -65,8 +67,6 @@ describe('Flow Container smoke tests', function () {
       [h2_default, h2_50_100, h2_restr_1, h2_25, h2_33, h2_50, h2_66, h2_75].forEach((element) => {
          cy.xpath(element);
       })
-      cy.xpath(flowContainer)
-         .should('have.length', 8);
    })
 
 
@@ -100,7 +100,7 @@ describe('Flow Container smoke tests', function () {
       cy.isImageVisible(imagePlaceholderEditXpath);
       cy.xpath(imagePlaceholderEditXpath)
          .should('have.attr', 'alt', imageAltText);
-      [addComponentIconXpath, swapComponentIconXpath, deleteComponentIconXpath].forEach((element) => {
+      [addComponentIconItemXpath, copyComponentIconItemXpath, swapComponentIconItemXpath, deleteComponentIconItemXpath].forEach((element) => {
          cy.xpath(element);
       })
    })
@@ -112,7 +112,9 @@ describe('Flow Container smoke tests', function () {
          .click({ force: true });
       cy.xpath(addComponentIconXpath)
          .click();
-      cy.xpath(itemInComponentPicker + '[24]')
+         cy.xpath(searchField)
+         .type('Single Accordion');
+      cy.xpath(itemInComponentPicker + '[1]')
          .click();
       cy.xpath(titleAccordionXpath)
          .type(title)
@@ -127,10 +129,10 @@ describe('Flow Container smoke tests', function () {
          .click();
       cy.xpath(bodyAccordionXpath)
          .should('be.hidden');
-      cy.xpath(addComponentIconXpath)
+      cy.xpath(addComponentIconItemXpath)
          .should('not.exist');
-      cy.xpath(swapComponentIconXpath);
-      cy.xpath(deleteComponentIconXpath);
+      cy.xpath(swapComponentIconItemXpath);
+      cy.xpath(deleteComponentIconItemXpath);
    })
 
 
@@ -140,7 +142,9 @@ describe('Flow Container smoke tests', function () {
          .click({ force: true });
       cy.xpath(addComponentIconXpath)
          .click();
-      cy.xpath(itemInComponentPicker + '[22]')
+      cy.xpath(searchField)
+         .type('Giving Back To Community');
+      cy.xpath(itemInComponentPicker + '[1]')
          .click();
       cy.xpath(contentfulToutEdit);
       cy.xpath(contentfulToutLinkEdit);
@@ -150,7 +154,7 @@ describe('Flow Container smoke tests', function () {
    it('Flow Container: 5 - checking the added components in Preview Mode', () => {
       cy.wait(3000);
       cy.clickEdit();
-      [addComponentIconXpath, swapComponentIconXpath, deleteComponentIconXpath].forEach((element) => {
+      [addComponentIconItemXpath, swapComponentIconItemXpath, deleteComponentIconItemXpath].forEach((element) => {
          cy.xpath(element)
             .should('not.exist');
       })
@@ -177,7 +181,7 @@ describe('Flow Container smoke tests', function () {
       cy.clickEdit();
       cy.xpath(imagePlaceholderEditXpath + '[not(@data-tout-element)]')
          .click();
-      cy.xpath(swapComponentIconXpath)
+      cy.xpath(swapComponentIconItemXpath)
          .click();
       cy.xpath(searchField)
          .type('Landscape Linkable');
@@ -205,7 +209,7 @@ describe('Flow Container smoke tests', function () {
    it('Flow Container: 7 - checking deleting a component (Accordion)', () => {
       cy.xpath(plusIconAccordionXpath)
          .click();
-      cy.xpath(deleteComponentIconXpath)
+      cy.xpath(deleteComponentIconItemXpath)
          .click();
       [titleAccordionXpath, bodyAccordionXpath, plusIconAccordionXpath, minusIconAccordionXpath].forEach((element) => {
          cy.xpath(element)
