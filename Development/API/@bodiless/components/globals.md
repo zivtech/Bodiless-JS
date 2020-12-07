@@ -283,7 +283,7 @@
 
 Ƭ **AsBodilessImage**: *AsBodiless‹HTMLProps‹HTMLImageElement›, [Data](globals.md#data)›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:203](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L203)*
+*Defined in [packages/bodiless-components/src/Image.tsx:203](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L203)*
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 Ƭ **AsBodilessLink**: *AsBodiless‹[Props](globals.md#props), [LinkData](globals.md#linkdata), [ExtraLinkOptions](globals.md#extralinkoptions)›*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:138](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L138)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:138](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L138)*
 
 ___
 
@@ -299,9 +299,9 @@ ___
 
 Ƭ **BaseProps**: *PropsWithChildren‹HelmetProps›*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L26)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L26)*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L22)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L22)*
 
 ___
 
@@ -309,7 +309,7 @@ ___
 
 Ƭ **BasicOptions**: *object*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L32)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L32)*
 
 #### Type declaration:
 
@@ -321,7 +321,7 @@ ___
 
 Ƭ **BreadcrumbItemLink**: *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L24)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L24)*
 
 #### Type declaration:
 
@@ -335,7 +335,7 @@ ___
 
 Ƭ **BreadcrumbItemSettings**: *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L28)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L28)*
 
 #### Type declaration:
 
@@ -355,7 +355,7 @@ ___
 
 Ƭ **BreadcrumbItemTitle**: *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L19)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L19)*
 
 #### Type declaration:
 
@@ -369,9 +369,9 @@ ___
 
 Ƭ **BreadcrumbItemType**: *Pick‹BreadcrumbStoreItemType, "uuid" | "title" | "link" | "isFirst" | "hasPath"›*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L35)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L35)*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L49)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L49)*
 
 contains breadcrumb item public properties
 
@@ -381,7 +381,7 @@ ___
 
 Ƭ **BreadcrumbSettings**: *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L37)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L37)*
 
 #### Type declaration:
 
@@ -395,7 +395,7 @@ ___
 
 Ƭ **BreadcrumbStoreItemsReducer**: *function*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L59)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L59)*
 
 reduces items retrieved from breadcrumb store
 
@@ -422,7 +422,7 @@ ___
 
 Ƭ **BreadcrumbStoreType**: *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:181](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L181)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:181](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L181)*
 
 #### Type declaration:
 
@@ -458,7 +458,7 @@ ___
 
 Ƭ **BreadcrumbsComponents**: *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L25)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L25)*
 
 #### Type declaration:
 
@@ -482,7 +482,7 @@ ___
 
 Ƭ **BreadcrumbsProps**: *DesignableComponentsProps‹[BreadcrumbsComponents](globals.md#breadcrumbscomponents)› & object & object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L64)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L64)*
 
 ___
 
@@ -490,7 +490,7 @@ ___
 
 Ƭ **BreakpointsType**: *object*
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L31)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L31)*
 
 #### Type declaration:
 
@@ -502,7 +502,7 @@ ___
 
 Ƭ **ChameleonButtonProps**: *[ChameleonProps](globals.md#chameleonprops) & EditButtonProps‹[ChameleonData](globals.md#chameleondata)›*
 
-*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/types.tsx#L36)*
+*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/types.tsx#L36)*
 
 ___
 
@@ -510,7 +510,7 @@ ___
 
 Ƭ **ChameleonComponents**: *DesignableComponents*
 
-*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/types.tsx#L25)*
+*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/types.tsx#L25)*
 
 ___
 
@@ -518,7 +518,7 @@ ___
 
 Ƭ **ChameleonData**: *object*
 
-*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/types.tsx#L21)*
+*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/types.tsx#L21)*
 
 #### Type declaration:
 
@@ -530,7 +530,7 @@ ___
 
 Ƭ **ChameleonProps**: *EditButtonProps‹[ChameleonData](globals.md#chameleondata)› & DesignableComponentsProps‹[ChameleonComponents](globals.md#chameleoncomponents)›*
 
-*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/types.tsx#L34)*
+*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/types.tsx#L34)*
 
 ___
 
@@ -538,7 +538,7 @@ ___
 
 Ƭ **ChameleonState**: *object*
 
-*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/types.tsx#L27)*
+*Defined in [packages/bodiless-components/src/Chameleon/types.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/types.tsx#L27)*
 
 #### Type declaration:
 
@@ -558,7 +558,7 @@ ___
 
 Ƭ **CleanBreadcrumbItemType**: *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L38)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L38)*
 
 #### Type declaration:
 
@@ -578,7 +578,7 @@ ___
 
 Ƭ **CleanBreadcrumbsProps**: *Omit‹[BreadcrumbsProps](globals.md#breadcrumbsprops), "itemsReducer"›*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:107](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L107)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:107](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L107)*
 
 ___
 
@@ -586,7 +586,7 @@ ___
 
 Ƭ **ComponentOrTag**: *ComponentType‹P› | keyof IntrinsicElements*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L31)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L31)*
 
 ___
 
@@ -594,21 +594,21 @@ ___
 
 Ƭ **Data**: *object*
 
-*Defined in [packages/bodiless-components/src/Editable.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Editable.tsx#L34)*
+*Defined in [packages/bodiless-components/src/Editable.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Editable.tsx#L34)*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L32)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L32)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L40)*
+*Defined in [packages/bodiless-components/src/Image.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L40)*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L21)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L21)*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/types.ts#L44)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/types.ts#L44)*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L27)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L27)*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L23)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L23)*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L44)*
+*Defined in [packages/bodiless-components/src/List/types.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L44)*
 
 #### Type declaration:
 
@@ -620,7 +620,7 @@ ___
 
 Ƭ **DataLayer**: *object*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L26)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L26)*
 
 #### Type declaration:
 
@@ -634,7 +634,7 @@ ___
 
 Ƭ **EditFormSnippet**: *object*
 
-*Defined in [packages/bodiless-components/src/withFormSnippet.ts:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFormSnippet.ts#L30)*
+*Defined in [packages/bodiless-components/src/withFormSnippet.ts:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFormSnippet.ts#L30)*
 
 #### Type declaration:
 
@@ -650,7 +650,7 @@ ___
 
 Ƭ **ExtraLinkOptions**: *object*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L45)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L45)*
 
 #### Type declaration:
 
@@ -664,7 +664,7 @@ ___
 
 Ƭ **FileOptions**: *object*
 
-*Defined in [packages/bodiless-components/src/BackendSave.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/BackendSave.tsx#L17)*
+*Defined in [packages/bodiless-components/src/BackendSave.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/BackendSave.tsx#L17)*
 
 #### Type declaration:
 
@@ -680,7 +680,7 @@ ___
 
 Ƭ **FinalComponents**: *object*
 
-*Defined in [packages/bodiless-components/src/withResponsiveVariants.tsx:8](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withResponsiveVariants.tsx#L8)*
+*Defined in [packages/bodiless-components/src/withResponsiveVariants.tsx:8](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withResponsiveVariants.tsx#L8)*
 
 #### Type declaration:
 
@@ -694,9 +694,9 @@ ___
 
 Ƭ **FinalProps**: *Omit‹[Props](globals.md#props), keyof DesignableComponentsProps<ListDesignableComponents>› & WithNodeProps & DesignableProps‹[ListDesignableComponents](globals.md#listdesignablecomponents)›*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/types.ts#L37)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/types.ts#L37)*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L37)*
+*Defined in [packages/bodiless-components/src/List/types.ts:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L37)*
 
 ___
 
@@ -704,9 +704,9 @@ ___
 
 Ƭ **HeaderProps**: *object*
 
-*Defined in [packages/bodiless-components/src/withFormHeader.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFormHeader.tsx#L24)*
+*Defined in [packages/bodiless-components/src/withFormHeader.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFormHeader.tsx#L24)*
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/withMetaForm.tsx#L29)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/withMetaForm.tsx#L29)*
 
 #### Type declaration:
 
@@ -720,7 +720,7 @@ ___
 
 Ƭ **HrefNormalizer**: *function*
 
-*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/NormalHref.ts#L38)*
+*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/NormalHref.ts#L38)*
 
 #### Type declaration:
 
@@ -738,7 +738,7 @@ ___
 
 Ƭ **ImageProps**: *HTMLProps‹HTMLImageElement›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:170](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L170)*
+*Defined in [packages/bodiless-components/src/Image.tsx:170](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L170)*
 
 ___
 
@@ -746,7 +746,7 @@ ___
 
 Ƭ **InputAttributes**: *object*
 
-*Defined in [packages/bodiless-components/src/TagButton/types.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/types.tsx#L21)*
+*Defined in [packages/bodiless-components/src/TagButton/types.tsx:21](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/types.tsx#L21)*
 
 #### Type declaration:
 
@@ -758,9 +758,9 @@ ___
 
 Ƭ **ItemProps**: *object*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L33)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L33)*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L19)*
+*Defined in [packages/bodiless-components/src/List/types.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L19)*
 
 #### Type declaration:
 
@@ -782,9 +782,9 @@ ___
 
 Ƭ **ItemWithNodeProps**: *object*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L31)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L31)*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L33)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L33)*
 
 #### Type declaration:
 
@@ -798,9 +798,9 @@ ___
 
 Ƭ **ItemsMutator**: *function*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/types.ts#L42)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/types.ts#L42)*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L42)*
+*Defined in [packages/bodiless-components/src/List/types.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L42)*
 
 #### Type declaration:
 
@@ -818,7 +818,7 @@ ___
 
 Ƭ **LinkData**: *object*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L37)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L37)*
 
 #### Type declaration:
 
@@ -830,9 +830,9 @@ ___
 
 Ƭ **ListDesignableComponents**: *object*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/types.ts#L25)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/types.ts#L25)*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L25)*
+*Defined in [packages/bodiless-components/src/List/types.ts:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L25)*
 
 #### Type declaration:
 
@@ -850,7 +850,7 @@ ___
 
 Ƭ **MetaSnippetOptions**: *object*
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/withMetaForm.tsx#L34)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/withMetaForm.tsx#L34)*
 
 #### Type declaration:
 
@@ -872,7 +872,7 @@ ___
 
 Ƭ **NormalHrefOptions**: *object*
 
-*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/NormalHref.ts#L40)*
+*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/NormalHref.ts#L40)*
 
 #### Type declaration:
 
@@ -884,7 +884,7 @@ ___
 
 Ƭ **OnSubmitProps**: *object*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L96)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:96](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L96)*
 
 #### Type declaration:
 
@@ -896,9 +896,9 @@ ___
 
 Ƭ **Options**: *BaseOptions & object*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L36)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L36)*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L35)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L35)*
 
 ___
 
@@ -906,7 +906,7 @@ ___
 
 Ƭ **OverviewItem**: *PropsWithChildren‹object›*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L37)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L37)*
 
 ___
 
@@ -914,7 +914,7 @@ ___
 
 Ƭ **PageDimensions**: *object*
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L25)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L25)*
 
 #### Type declaration:
 
@@ -930,7 +930,7 @@ ___
 
 Ƭ **PageDimensionsProviderProps**: *object*
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L35)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L35)*
 
 #### Type declaration:
 
@@ -942,27 +942,27 @@ ___
 
 Ƭ **Props**: *object & DesignableComponentsProps‹[ListDesignableComponents](globals.md#listdesignablecomponents)› & HTMLProps‹HTMLElement›*
 
-*Defined in [packages/bodiless-components/src/Editable.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Editable.tsx#L29)*
+*Defined in [packages/bodiless-components/src/Editable.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Editable.tsx#L29)*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L37)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L37)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:171](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L171)*
+*Defined in [packages/bodiless-components/src/Image.tsx:171](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L171)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L41)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L41)*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L100)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L100)*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L54)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L54)*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/types.ts#L32)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/types.ts#L32)*
 
-*Defined in [packages/bodiless-components/src/Taggable/asTaggableItem.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Taggable/asTaggableItem.tsx#L31)*
+*Defined in [packages/bodiless-components/src/Taggable/asTaggableItem.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Taggable/asTaggableItem.tsx#L31)*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L30)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L30)*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L31)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L31)*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L32)*
+*Defined in [packages/bodiless-components/src/List/types.ts:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L32)*
 
 ___
 
@@ -970,7 +970,7 @@ ___
 
 Ƭ **StaticOptions**: *object & [BasicOptions](globals.md#basicoptions)*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L43)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L43)*
 
 ___
 
@@ -978,7 +978,7 @@ ___
 
 Ƭ **SubListComponents**: *object*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L55)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L55)*
 
 #### Type declaration:
 
@@ -994,7 +994,7 @@ ___
 
 Ƭ **SubListProps**: *[TitledItemProps](globals.md#titleditemprops) & [OverviewItem](globals.md#overviewitem) & DesignableComponentsProps‹[SubListComponents](globals.md#sublistcomponents)›*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L67)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L67)*
 
 ___
 
@@ -1002,7 +1002,7 @@ ___
 
 Ƭ **TImagePickerUI**: *object*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L51)*
+*Defined in [packages/bodiless-components/src/Image.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L51)*
 
 #### Type declaration:
 
@@ -1030,7 +1030,7 @@ ___
 
 Ƭ **TagButtonProps**: *object*
 
-*Defined in [packages/bodiless-components/src/TagButton/types.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/types.tsx#L25)*
+*Defined in [packages/bodiless-components/src/TagButton/types.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/types.tsx#L25)*
 
 #### Type declaration:
 
@@ -1062,7 +1062,7 @@ ___
 
 Ƭ **TagButtonType**: *EditButtonOptions‹[TagButtonProps](globals.md#tagbuttonprops) & HTMLProps‹HTMLElement›, [TagsNodeType](globals.md#tagsnodetype)›*
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L27)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L27)*
 
 ___
 
@@ -1070,7 +1070,7 @@ ___
 
 Ƭ **TagsNodeType**: *object*
 
-*Defined in [packages/bodiless-components/src/TagButton/types.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/types.tsx#L17)*
+*Defined in [packages/bodiless-components/src/TagButton/types.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/types.tsx#L17)*
 
 #### Type declaration:
 
@@ -1082,7 +1082,7 @@ ___
 
 Ƭ **TitleProps**: *object*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/types.ts#L19)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/types.ts#L19)*
 
 #### Type declaration:
 
@@ -1104,7 +1104,7 @@ ___
 
 Ƭ **TitledItemProps**: *PropsWithChildren‹object›*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L33)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L33)*
 
 ___
 
@@ -1112,7 +1112,7 @@ ___
 
 Ƭ **ToggleByTagsProps**: *object*
 
-*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFilterByTags.tsx#L25)*
+*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFilterByTags.tsx#L25)*
 
 #### Type declaration:
 
@@ -1124,7 +1124,7 @@ ___
 
 Ƭ **ToggleMenuOptions**: *object*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L50)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L50)*
 
 #### Type declaration:
 
@@ -1138,7 +1138,7 @@ ___
 
 Ƭ **UploadStatusProps**: *HTMLProps‹HTMLElement› & object*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L50)*
+*Defined in [packages/bodiless-components/src/Image.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L50)*
 
 ___
 
@@ -1146,9 +1146,9 @@ ___
 
 Ƭ **UseItemWithSublist**: *function*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/types.ts#L48)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/types.ts#L48)*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L48)*
+*Defined in [packages/bodiless-components/src/List/types.ts:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L48)*
 
 #### Type declaration:
 
@@ -1178,7 +1178,7 @@ ___
 
 Ƭ **UseLinkOverrides**: *UseBodilessOverrides‹[Props](globals.md#props), [LinkData](globals.md#linkdata), [ExtraLinkOptions](globals.md#extralinkoptions)›*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L50)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L50)*
 
 ___
 
@@ -1186,7 +1186,7 @@ ___
 
 Ƭ **UseListOverrides**: *function*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L56)*
+*Defined in [packages/bodiless-components/src/List/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L56)*
 
 #### Type declaration:
 
@@ -1204,7 +1204,7 @@ ___
 
 Ƭ **WithRegisterSuggestionsType**: *object*
 
-*Defined in [packages/bodiless-components/src/TagButton/types.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/types.tsx#L39)*
+*Defined in [packages/bodiless-components/src/TagButton/types.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/types.tsx#L39)*
 
 #### Type declaration:
 
@@ -1218,9 +1218,9 @@ ___
 
 Ƭ **WithSublistToggle**: *function*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/types.ts#L54)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/types.ts:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/types.ts#L54)*
 
-*Defined in [packages/bodiless-components/src/List/types.ts:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/types.ts#L54)*
+*Defined in [packages/bodiless-components/src/List/types.ts:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/types.ts#L54)*
 
 #### Type declaration:
 
@@ -1238,7 +1238,7 @@ ___
 
 Ƭ **YouTubePlayerContextData**: *object*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:110](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L110)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:110](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L110)*
 
 #### Type declaration:
 
@@ -1250,7 +1250,7 @@ ___
 
 Ƭ **YouTubePlayerSettings**: *object*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L39)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L39)*
 
 YouTube embed player parameters
 
@@ -1288,7 +1288,7 @@ YouTube embed player parameters
 
 • **BreadcrumbContextProvider**: *ProviderExoticComponent‹ProviderProps‹undefined | object››* = breadcrumbContext.Provider
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L29)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L29)*
 
 ___
 
@@ -1299,7 +1299,7 @@ ___
   withBreadcrumbItemsFromStore,
 )(BreadcrumbsClean)
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:312](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L312)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:312](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L312)*
 
 Component that renders breadcrumb items retrieved from breadcrumb store.
 
@@ -1309,7 +1309,7 @@ ___
 
 • **BreadcrumbsClean**: *ComponentClass‹object & object, any› | FunctionComponent‹object & object›* = designable(BreadcrumbStartComponents, 'Breadcrumbs')(BreadcrumbsClean$)
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:206](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L206)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:206](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L206)*
 
 Clean component that renders breadcrumbs.
 
@@ -1321,7 +1321,7 @@ ___
 
 • **BreadcrumbsStoreContext**: *Context‹undefined | object›* = React.createContext<BreadcrumbStoreType | undefined>(undefined)
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx#L20)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx#L20)*
 
 ___
 
@@ -1329,7 +1329,7 @@ ___
 
 • **ChameleonContext**: *Context‹undefined | object›* = createContext<ChameleonState|undefined>(undefined)
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L27)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L27)*
 
 ___
 
@@ -1337,7 +1337,7 @@ ___
 
 • **DEFAULT_BASE**: *"http://host"* = "http://host"
 
-*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/NormalHref.ts#L44)*
+*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/NormalHref.ts#L44)*
 
 ___
 
@@ -1357,7 +1357,7 @@ ___
   the site root.  All links will have a trailing slash appended.
 `
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L52)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L52)*
 
 ___
 
@@ -1365,7 +1365,7 @@ ___
 
 • **DEFAULT_KEY**: *"_default"* = "_default"
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L29)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L29)*
 
 ___
 
@@ -1373,7 +1373,7 @@ ___
 
 • **DEFAULT_URL_BASE**: *"http://host"* = "http://host"
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L53)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L53)*
 
 ___
 
@@ -1390,7 +1390,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-components/src/Editable.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Editable.tsx#L73)*
+*Defined in [packages/bodiless-components/src/Editable.tsx:73](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Editable.tsx#L73)*
 
 #### Type declaration:
 
@@ -1438,7 +1438,7 @@ ___
   );
 })
 
-*Defined in [packages/bodiless-components/src/Editable.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Editable.tsx#L46)*
+*Defined in [packages/bodiless-components/src/Editable.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Editable.tsx#L46)*
 
 ___
 
@@ -1456,7 +1456,7 @@ ___
   withOnlyProps('key', 'children'),
 )(Fragment)
 
-*Defined in [packages/bodiless-components/src/LinkToggle.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/LinkToggle.tsx#L25)*
+*Defined in [packages/bodiless-components/src/LinkToggle.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/LinkToggle.tsx#L25)*
 
 ___
 
@@ -1464,7 +1464,7 @@ ___
 
 • **Image**: *ComponentClass‹HTMLProps‹HTMLImageElement› & object, any› | FunctionComponent‹HTMLProps‹HTMLImageElement› & object›* = asBodilessImage()('img')
 
-*Defined in [packages/bodiless-components/src/Image.tsx:207](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L207)*
+*Defined in [packages/bodiless-components/src/Image.tsx:207](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L207)*
 
 ___
 
@@ -1476,9 +1476,9 @@ ___
   withNode,
 )(BasicList) as ComponentType<FinalProps>
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L92)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L92)*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L101)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L101)*
 
 A List component.
 A List component.
@@ -1489,7 +1489,7 @@ ___
 
 • **MaxTimeout**: *number* = 10000
 
-*Defined in [packages/bodiless-components/src/Image.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L46)*
+*Defined in [packages/bodiless-components/src/Image.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L46)*
 
 ___
 
@@ -1497,9 +1497,9 @@ ___
 
 • **NodeProvider**: *function* = withNode<PropsWithChildren<{}>, any>(Fragment)
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L30)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L30)*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L32)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L32)*
 
 #### Type declaration:
 
@@ -1531,7 +1531,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-components/src/NodeViewer.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/NodeViewer.tsx#L19)*
+*Defined in [packages/bodiless-components/src/NodeViewer.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/NodeViewer.tsx#L19)*
 
 ___
 
@@ -1543,7 +1543,7 @@ ___
   size: 'sm',
 })
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L39)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L39)*
 
 ___
 
@@ -1551,7 +1551,7 @@ ___
 
 • **SafeFragment**: *FunctionComponent‹object›* = withOnlyProps('key', 'children')(Fragment)
 
-*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L29)*
+*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L29)*
 
 ___
 
@@ -1559,7 +1559,7 @@ ___
 
 • **SafeSpan**: *function* = withoutProps('href')('span')
 
-*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L30)*
+*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L30)*
 
 #### Type declaration:
 
@@ -1577,7 +1577,7 @@ ___
 
 • **SubList**: *ComponentClass‹object & object & object & object, any› | FunctionComponent‹object & object & object & object›* = designable(startComponents, 'SubList')(SubList$)
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L83)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L83)*
 
 ___
 
@@ -1591,7 +1591,7 @@ ___
   return <span dangerouslySetInnerHTML={{ __html: text }} />;
 })
 
-*Defined in [packages/bodiless-components/src/Editable.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Editable.tsx#L39)*
+*Defined in [packages/bodiless-components/src/Editable.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Editable.tsx#L39)*
 
 ___
 
@@ -1599,7 +1599,7 @@ ___
 
 • **YouTube**: *ComponentClass‹HTMLProps‹HTMLIFrameElement› & object & object, any› | FunctionComponent‹HTMLProps‹HTMLIFrameElement› & object & object›* = asBodilessYouTube()('iframe')
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:211](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L211)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:211](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L211)*
 
 ___
 
@@ -1609,7 +1609,7 @@ ___
   isLoaded: false,
 })
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L114)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L114)*
 
 ___
 
@@ -1617,7 +1617,7 @@ ___
 
 • **asBaseBodilessYouTube**: *AsBodiless‹[Props](globals.md#props), IframeData›* = asBaseBodilessIframe
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:198](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L198)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:198](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L198)*
 
 ___
 
@@ -1625,7 +1625,7 @@ ___
 
 • **asBodilessImage**: *[AsBodilessImage](globals.md#asbodilessimage)* = asBodilessComponent(options)
 
-*Defined in [packages/bodiless-components/src/Image.tsx:205](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L205)*
+*Defined in [packages/bodiless-components/src/Image.tsx:205](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L205)*
 
 ___
 
@@ -1633,7 +1633,7 @@ ___
 
 • **breadcrumbContext**: *Context‹undefined | object›* = createContext<BreadcrumbItemType | undefined>(undefined)
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L26)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L26)*
 
 ___
 
@@ -1644,7 +1644,7 @@ ___
   ifReadOnly(replaceWith(SafeFragment)),
 )
 
-*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L45)*
+*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L45)*
 
 #### Type declaration:
 
@@ -1662,7 +1662,7 @@ ___
 
 • **errorLog**: *IDebugger* = debug('Image')
 
-*Defined in [packages/bodiless-components/src/Image.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L48)*
+*Defined in [packages/bodiless-components/src/Image.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L48)*
 
 ___
 
@@ -1670,7 +1670,7 @@ ___
 
 • **ifTagsNotSelected**: *function* = ifToggledOff(useToggleByTags)
 
-*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFilterByTags.tsx#L55)*
+*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFilterByTags.tsx#L55)*
 
 #### Type declaration:
 
@@ -1700,7 +1700,7 @@ ___
 
 • **ifTagsSelected**: *function* = ifToggledOn(useToggleByTags)
 
-*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFilterByTags.tsx#L54)*
+*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFilterByTags.tsx#L54)*
 
 #### Type declaration:
 
@@ -1730,7 +1730,7 @@ ___
 
 • **isValidYouTubeUrl**: *[extractVideoIdFromUrl](globals.md#const-extractvideoidfromurl)* = extractVideoIdFromUrl
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L75)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L75)*
 
 ___
 
@@ -1738,7 +1738,7 @@ ___
 
 • **tagManagerEnabled**: *boolean* = (process.env.GOOGLE_TAGMANAGER_ENABLED || '1') === '1'
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L94)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L94)*
 
 ___
 
@@ -1750,7 +1750,7 @@ ___
   withSublist,
 )
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/withSublist.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/withSublist.tsx#L34)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/withSublist.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/withSublist.tsx#L34)*
 
 #### Type declaration:
 
@@ -1771,7 +1771,7 @@ ___
   withUnwrap,
 )
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonComponentFormControls.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonComponentFormControls.tsx#L32)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonComponentFormControls.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonComponentFormControls.tsx#L32)*
 
 #### Type declaration:
 
@@ -1789,7 +1789,7 @@ ___
 
 • **withDataLayerItem**: *function* = withHeadElement(withDataLayerItem$)
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L118)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L118)*
 
 #### Type declaration:
 
@@ -1827,7 +1827,7 @@ ___
   withoutProps(['selectedTags']),
 )
 
-*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFilterByTags.tsx#L57)*
+*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFilterByTags.tsx#L57)*
 
 #### Type declaration:
 
@@ -1847,7 +1847,7 @@ ___
   hasFinalTrail: true,
 })
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:297](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L297)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:297](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L297)*
 
 HOC that enables rendering of final trail for a breadcrumb based component.
 
@@ -1910,7 +1910,7 @@ ___
   },
 })
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L62)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L62)*
 
 #### Type declaration:
 
@@ -1930,7 +1930,7 @@ ___
   title: 'Iframe Configuration',
 })
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L113)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L113)*
 
 ___
 
@@ -1938,7 +1938,7 @@ ___
 
 • **withImagePlaceholder**: *(Anonymous function)* = withPropsFromPlaceholder(['src'])
 
-*Defined in [packages/bodiless-components/src/Image.tsx:201](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L201)*
+*Defined in [packages/bodiless-components/src/Image.tsx:201](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L201)*
 
 ___
 
@@ -1953,7 +1953,7 @@ ___
   withToggleTo(EmptyToggle),
 )
 
-*Defined in [packages/bodiless-components/src/LinkToggle.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/LinkToggle.tsx#L37)*
+*Defined in [packages/bodiless-components/src/LinkToggle.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/LinkToggle.tsx#L37)*
 
 #### Type declaration:
 
@@ -1971,7 +1971,7 @@ ___
 
 • **withMeta**: *(Anonymous function)* = withHeadElement(withMeta$)
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L81)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L81)*
 
 ___
 
@@ -1993,7 +1993,7 @@ ___
   },
 })
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L97)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L97)*
 
 #### Type declaration:
 
@@ -2013,7 +2013,7 @@ ___
   hasStartingTrail: true,
 })
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:281](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L281)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:281](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L281)*
 
 HOC that enables rendering of starting trail for a breadcrumb based component.
 
@@ -2046,7 +2046,7 @@ ___
   withRegisteredTags,
 )
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:106](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L106)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:106](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L106)*
 
 #### Type declaration:
 
@@ -2064,7 +2064,7 @@ ___
 
 • **withTitle**: *(Anonymous function)* = withHeadElement(withTitle$)
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L82)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L82)*
 
 ___
 
@@ -2072,7 +2072,7 @@ ___
 
 • **withToggle**: *(Anonymous function)* = withToggleTo(withOnlyProps('key', 'children')(Fragment))
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L48)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L48)*
 
 ___
 
@@ -2082,7 +2082,7 @@ ___
   title: 'YouTube Configuration',
 })
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:194](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L194)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:194](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L194)*
 
 ___
 
@@ -2124,7 +2124,7 @@ ___
   },
 })
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:158](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L158)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:158](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L158)*
 
 #### Type declaration:
 
@@ -2144,7 +2144,7 @@ ___
   hasFinalTrail: false,
 })
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:305](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L305)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:305](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L305)*
 
 HOC that disables rendering of final trail for a breadcrumb based component.
 
@@ -2174,7 +2174,7 @@ ___
 
 • **withoutLinkWhenLinkDataEmpty**: *function* = ifToggledOn(useEmptyLinkToggle)(replaceWith(Fragment))
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:174](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L174)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:174](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L174)*
 
 HOC that can be applied to a link based component to not render the component
 when the component link data is empty
@@ -2204,7 +2204,7 @@ ___
   },
 })
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L54)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L54)*
 
 #### Type declaration:
 
@@ -2232,7 +2232,7 @@ ___
   hasStartingTrail: false,
 })
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:289](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L289)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:289](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L289)*
 
 HOC that disables rendering of starting trail for a breadcrumb based component.
 
@@ -2262,7 +2262,7 @@ Name | Type |
 
 ▸ **BasicList**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L49)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L49)*
 
 **Parameters:**
 
@@ -2279,7 +2279,7 @@ Name | Type |
 
 ▸ **BasicList**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L55)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L55)*
 
 **Parameters:**
 
@@ -2300,7 +2300,7 @@ ___
 
 ▸ **BreadcrumbStoreProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx#L25)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx#L25)*
 
 Component that adds react context provider containing store to its children.
 
@@ -2321,7 +2321,7 @@ ___
 
 ▸ **BreadcrumbsClean$**(`props`: [CleanBreadcrumbsProps](globals.md#cleanbreadcrumbsprops)): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:108](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L108)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:108](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L108)*
 
 **Parameters:**
 
@@ -2337,7 +2337,7 @@ ___
 
 ▸ **DropZonePlugin**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L76)*
+*Defined in [packages/bodiless-components/src/Image.tsx:76](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L76)*
 
 **Parameters:**
 
@@ -2357,7 +2357,7 @@ ___
 
 ▸ **ItemWithNode**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L35)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L35)*
 
 **Parameters:**
 
@@ -2373,7 +2373,7 @@ Name | Type |
 
 ▸ **ItemWithNode**(`props`: object & object & object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L38)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L38)*
 
 **Parameters:**
 
@@ -2389,7 +2389,7 @@ ___
 
 ▸ **PageDimensionsProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L63)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L63)*
 
 **Parameters:**
 
@@ -2408,7 +2408,7 @@ ___
 
 ▸ **SubList$**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L69)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L69)*
 
 **Parameters:**
 
@@ -2430,7 +2430,7 @@ ___
 
 ▸ **YouTubePlayerAPIProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L118)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L118)*
 
 **Parameters:**
 
@@ -2448,7 +2448,7 @@ ___
 
 ▸ **adjustLoopPlayerSettings**(`settings`: Partial‹[YouTubePlayerSettings](globals.md#youtubeplayersettings)›, `videoId`: string): *object | object | object*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:86](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L86)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:86](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L86)*
 
 **Parameters:**
 
@@ -2465,7 +2465,7 @@ ___
 
 ▸ **applyChameleon**‹**P**›(`Component`: ComponentType‹P› | string): *any*
 
-*Defined in [packages/bodiless-components/src/Chameleon/applyChameleon.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/applyChameleon.tsx#L47)*
+*Defined in [packages/bodiless-components/src/Chameleon/applyChameleon.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/applyChameleon.tsx#L47)*
 
 Applies the appropriate design to the wrapped component depending on the
 chameleon state.  Must be called within a context defined by `withChameleonContext`.
@@ -2510,7 +2510,7 @@ ___
 
 ▸ **applyChameleonDesign**‹**P**›(`Component`: ComponentType‹P› | string): *function*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L65)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L65)*
 
 **Type parameters:**
 
@@ -2542,7 +2542,7 @@ ___
 
 ▸ **asBaseBodilessIframe**(`nodeKeys?`: undefined | string | object, `defaultData?`: undefined | object, `useOverrides?`: undefined | function): *function*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:117](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L117)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:117](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L117)*
 
 **Parameters:**
 
@@ -2568,7 +2568,7 @@ ___
 
 ▸ **asBasicSublist**(`Sublist`: CT‹ListProps›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/asBasicSublist.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/asBasicSublist.tsx#L25)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/asBasicSublist.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/asBasicSublist.tsx#L25)*
 
 Takes a sublist component and returns a HOC which, when applied to a list item,
 adds a toggled version of the sublist to the list item.
@@ -2587,7 +2587,7 @@ ___
 
 ▸ **asBodilessChameleon**(`nodeKeys`: WithNodeKeyProps, `defaultData?`: [ChameleonData](globals.md#chameleondata), `useOverrides?`: UseBodilessOverrides): *function*
 
-*Defined in [packages/bodiless-components/src/Chameleon/asBodilessChameleon.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/asBodilessChameleon.tsx#L63)*
+*Defined in [packages/bodiless-components/src/Chameleon/asBodilessChameleon.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/asBodilessChameleon.tsx#L63)*
 
 Transforms the wrapped component into a "chameleon".  The chameleon accepts a design and
 applies one of the design elements to itself depending on the chameleon state, which
@@ -2618,7 +2618,7 @@ ___
 
 ▸ **asBodilessHelmet**(`nodeKey?`: undefined | string): *function*
 
-*Defined in [packages/bodiless-components/src/Helmet/Helmet.ts:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Helmet/Helmet.ts#L18)*
+*Defined in [packages/bodiless-components/src/Helmet/Helmet.ts:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Helmet/Helmet.ts#L18)*
 
 **Parameters:**
 
@@ -2642,7 +2642,7 @@ ___
 
 ▸ **asBodilessIframe**(`nodeKeys?`: undefined | string | object, `defaultData?`: undefined | object, `useOverrides?`: undefined | function): *function*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L126)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L126)*
 
 **Parameters:**
 
@@ -2668,7 +2668,7 @@ ___
 
 ▸ **asBodilessLink**(`nodeKeys`: undefined | string | object, `defaultData`: undefined | object, `useOverrides`: undefined | function): *function*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:140](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L140)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:140](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L140)*
 
 **Parameters:**
 
@@ -2694,7 +2694,7 @@ ___
 
 ▸ **asBodilessList**‹**P**›(`nodeKeys?`: WithNodeKeyProps, `defaultData?`: [Data](globals.md#data), `useOverrides?`: [UseListOverrides](globals.md#uselistoverrides)‹P›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L92)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L92)*
 
 Converts a component or tag to a "bodiless" list. The component itself (usually
 a variant of 'ul' or 'ol') will be used as the wrapper for the list, and the data
@@ -2720,7 +2720,7 @@ ___
 
 ▸ **asBodilessYouTube**(`nodeKeys?`: undefined | string | object, `defaultData?`: undefined | object, `useOverrides?`: undefined | function): *function*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:200](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L200)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:200](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L200)*
 
 **Parameters:**
 
@@ -2746,7 +2746,7 @@ ___
 
 ▸ **asBreadcrumb**(`__namedParameters`: object): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L52)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L52)*
 
 Creates an HOC which specifies that a wrapped component is a breadcrumb. The HOC
 will read link and title from the specified nodekeys and will push link and title
@@ -2772,7 +2772,7 @@ ___
 
 ▸ **asBreadcrumbSource**(`withMenuDesign`: Function): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L113)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L113)*
 
 Use this HOC to wrap a menu so as to generate data for breadcrumbs
 and menu trails. Must be rendered within a BreadcrumbStoreContext
@@ -2793,7 +2793,7 @@ ___
 
 ▸ **asChameleonSubList**(`useOverrides?`: UseBodilessOverrides): *function*
 
-*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asChameleonSubList.tsx#L46)*
+*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asChameleonSubList.tsx#L46)*
 
 **Parameters:**
 
@@ -2817,7 +2817,7 @@ ___
 
 ▸ **asEditable**(`nodeKeys?`: WithNodeKeyProps, `placeholder?`: undefined | string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Editable.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Editable.tsx#L101)*
+*Defined in [packages/bodiless-components/src/Editable.tsx:101](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Editable.tsx#L101)*
 
 asEditable takes a nodeKey and a placeholder, and returns an HOC which injects
 an editable span as a child of the wrapped component.  The original children
@@ -2842,7 +2842,7 @@ ___
 
 ▸ **asEditableList**(`List`: ComponentType‹[FinalProps](globals.md#finalprops)›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/asEditableList.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/asEditableList.tsx#L54)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/asEditableList.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/asEditableList.tsx#L54)*
 
 **Parameters:**
 
@@ -2858,7 +2858,7 @@ ___
 
 ▸ **asHiddenBreadcrumbSource**‹**P**›(`Component`: ComponentType‹P›): *AsHiddenBreadcrumbSource*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx#L43)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx#L43)*
 
 **Type parameters:**
 
@@ -2878,7 +2878,7 @@ ___
 
 ▸ **asSubList**(`useOverrides?`: [UseListOverrides](globals.md#uselistoverrides)): *function*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:116](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L116)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:116](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L116)*
 
 HOC which can be applied to a list item to convert it to a sublist.
 
@@ -2904,7 +2904,7 @@ ___
 
 ▸ **asSubListWrapper**(`Component`: any): *function*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:109](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L109)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:109](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L109)*
 
 **Parameters:**
 
@@ -2928,7 +2928,7 @@ ___
 
 ▸ **asTaggableItem**(`nodeKey?`: undefined | string): *function*
 
-*Defined in [packages/bodiless-components/src/Taggable/asTaggableItem.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Taggable/asTaggableItem.tsx#L43)*
+*Defined in [packages/bodiless-components/src/Taggable/asTaggableItem.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Taggable/asTaggableItem.tsx#L43)*
 
 **Parameters:**
 
@@ -2952,7 +2952,7 @@ ___
 
 ▸ **asTestableList**(`listName`: string): *function*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L83)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L83)*
 
 **Parameters:**
 
@@ -2984,7 +2984,7 @@ Name | Type |
 
 ▸ **asTestableList**(`listName`: string): *function*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L92)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L92)*
 
 **Parameters:**
 
@@ -3020,7 +3020,7 @@ ___
 
 ▸ **asTitledItem**‹**P**›(`Item`: ComponentType‹P›): *FunctionComponent‹P›*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L41)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L41)*
 
 **Type parameters:**
 
@@ -3040,7 +3040,7 @@ ___
 
 ▸ **extendOverrides**‹**P**, **D**›(`useOverrides`: UseBodilessOverrides‹P, D›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L32)*
+*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L32)*
 
 **Type parameters:**
 
@@ -3062,7 +3062,7 @@ ___
 
 ▸ **extractVideoIdFromUrl**(`url`: string): *undefined | string*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L69)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L69)*
 
 **Parameters:**
 
@@ -3078,7 +3078,7 @@ ___
 
 ▸ **firstItemHomeLinkReducer**(`items`: [BreadcrumbItemType](globals.md#breadcrumbitemtype)[], `__namedParameters`: object): *string[]*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L100)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L100)*
 
 removes first item from the trail
 when there is a custom starting trail and
@@ -3106,7 +3106,7 @@ ___
 
 ▸ **generateDataLayer**(`dataLayer`: any, `dataLayerName`: string): *string*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L47)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L47)*
 
 Generate the dataLayer script.
 
@@ -3125,7 +3125,7 @@ ___
 
 ▸ **getActiveComponent**(`props`: [ChameleonButtonProps](globals.md#chameleonbuttonprops)): *string*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L38)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L38)*
 
 **Parameters:**
 
@@ -3141,7 +3141,7 @@ ___
 
 ▸ **getDimensions**(`breakpoints?`: [BreakpointsType](globals.md#breakpointstype)): *[PageDimensions](globals.md#pagedimensions)*
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L51)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L51)*
 
 **Parameters:**
 
@@ -3157,7 +3157,7 @@ ___
 
 ▸ **getIsOn**(`props`: [ChameleonButtonProps](globals.md#chameleonbuttonprops)): *boolean*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L44)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L44)*
 
 **Parameters:**
 
@@ -3173,7 +3173,7 @@ ___
 
 ▸ **getSelectableComponents**(`props`: [ChameleonButtonProps](globals.md#chameleonbuttonprops)): *object*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L31)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L31)*
 
 **Parameters:**
 
@@ -3191,7 +3191,7 @@ ___
 
 ▸ **getUseOverrides**(`useOverrides`: UseBodilessOverrides): *UseBodilessOverrides*
 
-*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asChameleonSubList.tsx#L37)*
+*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asChameleonSubList.tsx#L37)*
 
 **Parameters:**
 
@@ -3207,7 +3207,7 @@ ___
 
 ▸ **hasChildSubList**(`context`: PageEditContextInterface, `count`: number): *boolean*
 
-*Defined in [packages/bodiless-components/src/List/withListButtons.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/withListButtons.tsx#L26)*
+*Defined in [packages/bodiless-components/src/List/withListButtons.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/withListButtons.tsx#L26)*
 
 **Parameters:**
 
@@ -3224,7 +3224,7 @@ ___
 
 ▸ **ifNotYouTubePlayerAPILoaded**(): *boolean*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:156](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L156)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:156](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L156)*
 
 **Returns:** *boolean*
 
@@ -3234,7 +3234,7 @@ ___
 
 ▸ **ifViewportIs**(`sizes`: string[] | string): *function*
 
-*Defined in [packages/bodiless-components/src/withResponsiveToggle.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withResponsiveToggle.tsx#L29)*
+*Defined in [packages/bodiless-components/src/withResponsiveToggle.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withResponsiveToggle.tsx#L29)*
 
 Flow toggle which applies the supplied hocs if the viewport matches a specified
 set of sizes.
@@ -3273,7 +3273,7 @@ ___
 
 ▸ **ifViewportIsNot**(`sizes`: string[] | string): *function*
 
-*Defined in [packages/bodiless-components/src/withResponsiveToggle.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withResponsiveToggle.tsx#L37)*
+*Defined in [packages/bodiless-components/src/withResponsiveToggle.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withResponsiveToggle.tsx#L37)*
 
 Flow toggle which applies the supplied hocs if the viewport does not match
 a specified set of sizes.
@@ -3312,7 +3312,7 @@ ___
 
 ▸ **ifYouTubePlayerAPILoaded**(): *boolean*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:155](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L155)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:155](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L155)*
 
 **Returns:** *boolean*
 
@@ -3322,7 +3322,7 @@ ___
 
 ▸ **isChildOf**(`child`: string, `parent`: string): *boolean*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L57)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L57)*
 
 **Parameters:**
 
@@ -3339,7 +3339,7 @@ ___
 
 ▸ **isNonNegativeNumber**(`value`: string): *boolean*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L60)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L60)*
 
 **Parameters:**
 
@@ -3355,7 +3355,7 @@ ___
 
 ▸ **isSSR**(): *boolean*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L31)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L31)*
 
 **Returns:** *boolean*
 
@@ -3365,7 +3365,7 @@ ___
 
 ▸ **mapBreakpointsSize**(`breakpoints`: [BreakpointsType](globals.md#breakpointstype), `width`: number): *string*
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L45)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L45)*
 
 **Parameters:**
 
@@ -3382,7 +3382,7 @@ ___
 
 ▸ **trimTrailingSlash**(`str`: string): *string*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L55)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStore.ts#L55)*
 
 **Parameters:**
 
@@ -3398,7 +3398,7 @@ ___
 
 ▸ **useAccessors**(): *object*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L25)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L25)*
 
 **Returns:** *object*
 
@@ -3412,7 +3412,7 @@ ___
 
 ▸ **useAddItem**(): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/model.ts#L67)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/model.ts#L67)*
 
 Returns a method which can be used to add an item after the specified
 item.
@@ -3423,7 +3423,7 @@ item.
 
 ▸ **useAddItem**(): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/model.ts:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/model.ts#L67)*
+*Defined in [packages/bodiless-components/src/List/model.ts:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/model.ts#L67)*
 
 Returns a method which can be used to add an item after the specified
 item.
@@ -3438,7 +3438,7 @@ ___
 
 ▸ **useBreadcrumbContext**(): *undefined | object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L28)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/asBreadcrumb.tsx#L28)*
 
 **Returns:** *undefined | object*
 
@@ -3448,7 +3448,7 @@ ___
 
 ▸ **useBreadcrumbStore**(): *undefined | object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx#L32)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/BreadcrumbStoreProvider.tsx#L32)*
 
 React hook to get store.
 
@@ -3460,7 +3460,7 @@ ___
 
 ▸ **useChameleonContext**(): *[ChameleonState](globals.md#chameleonstate)*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L51)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L51)*
 
 Gets the current chameleon context value.
 
@@ -3474,7 +3474,7 @@ ___
 
 ▸ **useChameleonOverrides**(): *Partial‹EditButtonOptions‹any, any››*
 
-*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:12](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asChameleonSubList.tsx#L12)*
+*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:12](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asChameleonSubList.tsx#L12)*
 
 **Returns:** *Partial‹EditButtonOptions‹any, any››*
 
@@ -3484,7 +3484,7 @@ ___
 
 ▸ **useDeleteItem**(`__namedParameters`: object): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/model.ts#L40)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/model.ts#L40)*
 
 Returns a method which can be used to delete an item, or call
 an "unwrap" handler if there is only one item in the list.
@@ -3504,7 +3504,7 @@ Name | Type |
 
 ▸ **useDeleteItem**(`__namedParameters`: object): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/model.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/model.ts#L40)*
+*Defined in [packages/bodiless-components/src/List/model.ts:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/model.ts#L40)*
 
 Returns a method which can be used to delete an item, or call
 an "unwrap" handler if there is only one item in the list.
@@ -3528,7 +3528,7 @@ ___
 
 ▸ **useDeleteSublist**(): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/model.ts#L58)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/model.ts#L58)*
 
 Returns a method which can be used to delete a sublist
 Returns a method which can be used to delete a sublist
@@ -3537,7 +3537,7 @@ Returns a method which can be used to delete a sublist
 
 ▸ **useDeleteSublist**(): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/model.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/model.ts#L58)*
+*Defined in [packages/bodiless-components/src/List/model.ts:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/model.ts#L58)*
 
 Returns a method which can be used to delete a sublist
 Returns a method which can be used to delete a sublist
@@ -3550,7 +3550,7 @@ ___
 
 ▸ **useEmptyLinkToggle**(`__namedParameters`: object): *boolean*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:161](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L161)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:161](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L161)*
 
 hook that determines if the link data is empty
 the hook validates the data in the current node and in the corresponding prop
@@ -3573,7 +3573,7 @@ ___
 
 ▸ **useIframeBodilessOptions**(): *object & object & object & object*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L52)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L52)*
 
 **Returns:** *object & object & object & object*
 
@@ -3583,7 +3583,7 @@ ___
 
 ▸ **useItemsAccessors**(): *object*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/model.ts#L23)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/model.ts#L23)*
 
 Returns a pair of functions which can be used to get or set
 the items in the component's ContentNode.
@@ -3600,7 +3600,7 @@ the items in the component's ContentNode.
 
 ▸ **useItemsAccessors**(): *object*
 
-*Defined in [packages/bodiless-components/src/List/model.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/model.ts#L23)*
+*Defined in [packages/bodiless-components/src/List/model.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/model.ts#L23)*
 
 Returns a pair of functions which can be used to get or set
 the items in the component's ContentNode.
@@ -3621,7 +3621,7 @@ ___
 
 ▸ **useItemsMutators**(`props?`: Pick‹[Props](globals.md#props), "unwrap" | "onDelete"›): *object*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/model.ts#L85)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/model.ts:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/model.ts#L85)*
 
 Returns a pair of functions which can be used to insert
 or delete items.
@@ -3644,7 +3644,7 @@ Name | Type |
 
 ▸ **useItemsMutators**(`props?`: Pick‹[Props](globals.md#props), "unwrap" | "onDelete"›): *object*
 
-*Defined in [packages/bodiless-components/src/List/model.ts:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/model.ts#L85)*
+*Defined in [packages/bodiless-components/src/List/model.ts:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/model.ts#L85)*
 
 Returns a pair of functions which can be used to insert
 or delete items.
@@ -3671,7 +3671,7 @@ ___
 
 ▸ **useLinkOverrides**(`useOverrides`: [UseLinkOverrides](globals.md#uselinkoverrides)): *[UseLinkOverrides](globals.md#uselinkoverrides)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L60)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:60](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L60)*
 
 **Parameters:**
 
@@ -3687,7 +3687,7 @@ ___
 
 ▸ **useMenuOptions**(`props`: [TitleProps](globals.md#titleprops)): *(object | object)[]*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/asEditableList.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/asEditableList.tsx#L25)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/asEditableList.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/asEditableList.tsx#L25)*
 
 **Parameters:**
 
@@ -3699,7 +3699,7 @@ Name | Type |
 
 ▸ **useMenuOptions**(`useOverrides`: [UseListOverrides](globals.md#uselistoverrides)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/withListButtons.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/withListButtons.tsx#L33)*
+*Defined in [packages/bodiless-components/src/List/withListButtons.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/withListButtons.tsx#L33)*
 
 **Parameters:**
 
@@ -3715,7 +3715,7 @@ ___
 
 ▸ **usePageDimensionsContext**(): *object*
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L49)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L49)*
 
 **Returns:** *object*
 
@@ -3731,7 +3731,7 @@ ___
 
 ▸ **useResponsiveToggle**(`sizes`: string[] | string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/withResponsiveToggle.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withResponsiveToggle.tsx#L18)*
+*Defined in [packages/bodiless-components/src/withResponsiveToggle.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withResponsiveToggle.tsx#L18)*
 
 **Parameters:**
 
@@ -3747,7 +3747,7 @@ ___
 
 ▸ **useSwapButtonMenuOption**(): *object*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonButton.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonButton.tsx#L39)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonButton.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonButton.tsx#L39)*
 
 **Returns:** *object*
 
@@ -3767,7 +3767,7 @@ ___
 
 ▸ **useTagsAccessors**(): *object*
 
-*Defined in [packages/bodiless-components/src/TagButton/TagModel.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/TagModel.tsx#L19)*
+*Defined in [packages/bodiless-components/src/TagButton/TagModel.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/TagModel.tsx#L19)*
 
 **Returns:** *object*
 
@@ -3783,7 +3783,7 @@ ___
 
 ▸ **useToggleButtonMenuOption**(): *object*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonButton.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonButton.tsx#L26)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonButton.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonButton.tsx#L26)*
 
 **Returns:** *object*
 
@@ -3799,7 +3799,7 @@ ___
 
 ▸ **useToggleByTags**‹**P**›(`__namedParameters`: object): *boolean*
 
-*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFilterByTags.tsx#L34)*
+*Defined in [packages/bodiless-components/src/withFilterByTags.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFilterByTags.tsx#L34)*
 
 Determine which component to show based on selected tags.
 
@@ -3823,7 +3823,7 @@ ___
 
 ▸ **useToggleOverrides**(): *Partial‹EditButtonOptions‹any, any››*
 
-*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asChameleonSubList.tsx#L23)*
+*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asChameleonSubList.tsx#L23)*
 
 **Returns:** *Partial‹EditButtonOptions‹any, any››*
 
@@ -3833,7 +3833,7 @@ ___
 
 ▸ **useYouTubePlayerAPI**(): *object*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:154](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L154)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:154](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L154)*
 
 **Returns:** *object*
 
@@ -3845,7 +3845,7 @@ ___
 
 ▸ **withBodilessLinkToggle**(`asEditableLink`: [AsBodilessLink](globals.md#asbodilesslink), `asOff`: HOC): *[AsBodilessLink](globals.md#asbodilesslink)*
 
-*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L61)*
+*Defined in [packages/bodiless-components/src/withBodilessLinkToggle.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withBodilessLinkToggle.tsx#L61)*
 
 Creates an AsBodiless... HOC factory which can be used to wrap a component
 in a toggled bodiless link.
@@ -3865,7 +3865,7 @@ ___
 
 ▸ **withBreadcrumbItemsFromStore**(`Component`: ComponentType‹[BreadcrumbsProps](globals.md#breadcrumbsprops) & WithNodeProps›): *WithBreadcrumbItemsFromStore*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:213](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L213)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:213](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L213)*
 
 HOC that populates a breadcrumb based component with data from breadcrumb store.
 
@@ -3883,7 +3883,7 @@ ___
 
 ▸ **withBreadcrumbStore**(`Component`: ComponentType‹any›): *WithBreadcrumbStore*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/withBreadcrumbs.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/withBreadcrumbs.tsx#L25)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/withBreadcrumbs.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/withBreadcrumbs.tsx#L25)*
 
 HOC that adds breadcrumb store and renders breadcrumbs.
 
@@ -3901,7 +3901,7 @@ ___
 
 ▸ **withBreadcrumbs**(`Component`: ComponentType‹any›): *WithBreadcrumbStore*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/withBreadcrumbs.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/withBreadcrumbs.tsx#L43)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/withBreadcrumbs.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/withBreadcrumbs.tsx#L43)*
 
 HOC that adds breadcrumb store and renders breadcrumbs.
 
@@ -3919,7 +3919,7 @@ ___
 
 ▸ **withChameleonButton**‹**P**, **D**›(`useOverrides`: UseBodilessOverrides‹P, D›): *function*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonButton.tsx:102](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonButton.tsx#L102)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonButton.tsx:102](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonButton.tsx#L102)*
 
 Adds a menu button which controls the state of the chameleon.
 
@@ -3956,7 +3956,7 @@ ___
 
 ▸ **withChameleonContext**(`nodeKeys`: WithNodeKeyProps, `defaultData?`: [ChameleonData](globals.md#chameleondata)): *HOC*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L77)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonContext.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonContext.tsx#L77)*
 
 **Parameters:**
 
@@ -3973,7 +3973,7 @@ ___
 
 ▸ **withDataLayerItem$**(`options`: [Options](globals.md#options)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L58)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L58)*
 
 **Parameters:**
 
@@ -3989,7 +3989,7 @@ ___
 
 ▸ **withDataLayerScript**(`HelmetComponent`: CT‹[BaseProps](globals.md#baseprops)›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L100)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:100](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L100)*
 
 An HOC that renders the dataLayer scrip.
 
@@ -4007,7 +4007,7 @@ ___
 
 ▸ **withDefaultDataLayer**(`dataLayer`: [DataLayer](globals.md#datalayer)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/GTM/gtm.tsx#L81)*
+*Defined in [packages/bodiless-components/src/GTM/gtm.tsx:81](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/GTM/gtm.tsx#L81)*
 
 HOC that adds Default Datalayer to a Component
 
@@ -4025,7 +4025,7 @@ ___
 
 ▸ **withDeleteNodeOnUnwrap**(`nodeKey?`: WithNodeKeyProps): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Chameleon/asBodilessChameleon.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/asBodilessChameleon.tsx#L34)*
+*Defined in [packages/bodiless-components/src/Chameleon/asBodilessChameleon.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/asBodilessChameleon.tsx#L34)*
 
 Ensures that sublist data is purged when sublists are removed.
 
@@ -4043,7 +4043,7 @@ ___
 
 ▸ **withDeleteSublistOnUnwrap**‹**T**›(`Sublist`: CT‹T›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/withDeleteSublistOnUnwrap.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/withDeleteSublistOnUnwrap.tsx#L23)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/withDeleteSublistOnUnwrap.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/withDeleteSublistOnUnwrap.tsx#L23)*
 
 Takes a component
 returns a new component with sublist node key and sublist deletion on unwrap
@@ -4066,7 +4066,7 @@ ___
 
 ▸ **withEditPlaceholder**‹**P**›(`PlaceholderComponent`: CT‹P›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Placeholder.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Placeholder.tsx#L18)*
+*Defined in [packages/bodiless-components/src/Placeholder.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Placeholder.tsx#L18)*
 
 **Type parameters:**
 
@@ -4086,7 +4086,7 @@ ___
 
 ▸ **withFormHeader**(`headerProps`: [HeaderProps](globals.md#headerprops) | undefined): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/withFormHeader.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFormHeader.tsx#L29)*
+*Defined in [packages/bodiless-components/src/withFormHeader.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFormHeader.tsx#L29)*
 
 **Parameters:**
 
@@ -4102,7 +4102,7 @@ ___
 
 ▸ **withFormSnippet**‹**P**, **D**›(`__namedParameters`: object): *function*
 
-*Defined in [packages/bodiless-components/src/withFormSnippet.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withFormSnippet.ts#L36)*
+*Defined in [packages/bodiless-components/src/withFormSnippet.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withFormSnippet.ts#L36)*
 
 **Type parameters:**
 
@@ -4136,7 +4136,7 @@ ___
 
 ▸ **withHeadElement**(`renderHoc`: Function): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L69)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L69)*
 
 **Parameters:**
 
@@ -4152,7 +4152,7 @@ ___
 
 ▸ **withListButtons**(`useOverrides?`: [UseListOverrides](globals.md#uselistoverrides)): *function*
 
-*Defined in [packages/bodiless-components/src/List/withListButtons.tsx:86](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/withListButtons.tsx#L86)*
+*Defined in [packages/bodiless-components/src/List/withListButtons.tsx:86](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/withListButtons.tsx#L86)*
 
 HOC which adds list edit buttons (Add and Delete Item).
 
@@ -4178,7 +4178,7 @@ ___
 
 ▸ **withListTitle**(`title`: ComponentType‹ListTitleProps›): *function*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/withListTitle.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/withListTitle.tsx#L24)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/withListTitle.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/withListTitle.tsx#L24)*
 
 HOC that replaces the Title of List Component with given component
 
@@ -4216,7 +4216,7 @@ ___
 
 ▸ **withMeta$**(`options`: [Options](globals.md#options)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L56)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L56)*
 
 **Parameters:**
 
@@ -4232,7 +4232,7 @@ ___
 
 ▸ **withMetaForm**(`useMenuOptions`: function, `metaFormHeader?`: [HeaderProps](globals.md#headerprops)): *function*
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/withMetaForm.tsx#L99)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/withMetaForm.tsx#L99)*
 
 **Parameters:**
 
@@ -4264,7 +4264,7 @@ ___
 
 ▸ **withMetaFormHeader**(`headerProps`: [HeaderProps](globals.md#headerprops) | undefined): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/withMetaForm.tsx#L71)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/withMetaForm.tsx#L71)*
 
 **Parameters:**
 
@@ -4280,7 +4280,7 @@ ___
 
 ▸ **withMetaHtml**(`lang`: string, `nodeKey`: string, `nodeCollection`: string | undefined): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L92)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:92](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L92)*
 
 **Parameters:**
 
@@ -4298,7 +4298,7 @@ ___
 
 ▸ **withMetaSnippet**(`options`: [MetaSnippetOptions](globals.md#metasnippetoptions)): *function*
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/withMetaForm.tsx#L43)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/withMetaForm.tsx#L43)*
 
 **Parameters:**
 
@@ -4330,7 +4330,7 @@ ___
 
 ▸ **withMetaStatic**(`options`: [StaticOptions](globals.md#staticoptions)): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L84)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L84)*
 
 **Parameters:**
 
@@ -4346,7 +4346,7 @@ ___
 
 ▸ **withNormalHref**(`useOverrides`: function): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L126)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:126](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L126)*
 
 **Parameters:**
 
@@ -4362,7 +4362,7 @@ ___
 
 ▸ **withPageDimensionsContext**‹**P**›(`__namedParameters`: object): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/PageDimensionsProvider.tsx#L91)*
+*Defined in [packages/bodiless-components/src/PageDimensionsProvider.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/PageDimensionsProvider.tsx#L91)*
 
 Adds a context which provides the current viewport size as well as the
 breakpoint to which it maps.
@@ -4389,7 +4389,7 @@ ___
 
 ▸ **withPlaceholder**‹**P**›(`placeholder?`: undefined | string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Editable.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Editable.tsx#L83)*
+*Defined in [packages/bodiless-components/src/Editable.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Editable.tsx#L83)*
 
 **Type parameters:**
 
@@ -4409,7 +4409,7 @@ ___
 
 ▸ **withPropsFromPlaceholder**(`keys`: string[]): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/withPropsFromPlaceholder.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withPropsFromPlaceholder.tsx#L19)*
+*Defined in [packages/bodiless-components/src/withPropsFromPlaceholder.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withPropsFromPlaceholder.tsx#L19)*
 
 **Parameters:**
 
@@ -4425,7 +4425,7 @@ ___
 
 ▸ **withRegisteredTags**‹**P**›(`Component`: ComponentType‹P›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L93)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L93)*
 
 **Type parameters:**
 
@@ -4445,7 +4445,7 @@ ___
 
 ▸ **withResponsiveVariants**(`options`: Required‹[PageDimensionsProviderProps](globals.md#pagedimensionsproviderprops)›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/withResponsiveVariants.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/withResponsiveVariants.tsx#L33)*
+*Defined in [packages/bodiless-components/src/withResponsiveVariants.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/withResponsiveVariants.tsx#L33)*
 
 Generates an HOC which makes the underlying component designable at diferent
 breakpoints. This allows responsive rendering or swapping a component entirely
@@ -4476,7 +4476,7 @@ ___
 
 ▸ **withSimpleSubListDesign**(`depth`: number): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:124](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L124)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:124](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L124)*
 
 **Parameters:**
 
@@ -4492,7 +4492,7 @@ ___
 
 ▸ **withSubListDesign**(`depth`: number): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asChameleonSubList.tsx#L70)*
+*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asChameleonSubList.tsx#L70)*
 
 **Parameters:**
 
@@ -4508,7 +4508,7 @@ ___
 
 ▸ **withSubListDesign$**(`depth`: number): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asChameleonSubList.tsx#L54)*
+*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asChameleonSubList.tsx#L54)*
 
 **Parameters:**
 
@@ -4524,7 +4524,7 @@ ___
 
 ▸ **withSubLists**(`depth`: number, `useOverrides?`: UseBodilessOverrides): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asChameleonSubList.tsx#L90)*
+*Defined in [packages/bodiless-components/src/List/asChameleonSubList.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asChameleonSubList.tsx#L90)*
 
 Attaches nested chameleon sublists of arbitrary depth to a list.
 
@@ -4550,7 +4550,7 @@ ___
 
 ▸ **withSublist**(`withSublistToggle`: [WithSublistToggle](globals.md#withsublisttoggle)): *function*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/withSublist.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/withSublist.tsx#L29)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/withSublist.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/withSublist.tsx#L29)*
 
 Takes a sublist toggle HOC and returns another HOC which, when applied to a list,
 applies the sublist toggle HOC to each item in the list
@@ -4590,7 +4590,7 @@ ___
 
 ▸ **withTitle$**(): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/Meta.tsx#L47)*
+*Defined in [packages/bodiless-components/src/Meta/Meta.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/Meta.tsx#L47)*
 
 **Returns:** *(Anonymous function)*
 
@@ -4600,7 +4600,7 @@ ___
 
 ▸ **withToggleButton**(`options?`: [ToggleMenuOptions](globals.md#togglemenuoptions)): *function*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L55)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L55)*
 
 **Parameters:**
 
@@ -4632,7 +4632,7 @@ ___
 
 ▸ **withToggleOnSubmit**‹**P**›(`Component`: ComponentType‹P›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L89)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L89)*
 
 **Type parameters:**
 
@@ -4652,7 +4652,7 @@ ___
 
 ▸ **withToggleTo**‹**Q**›(`OffComp`: ComponentType‹Q› | string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L35)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L35)*
 
 **Type parameters:**
 
@@ -4672,7 +4672,7 @@ ___
 
 ▸ **withUnwrap**‹**P**›(`Component`: ComponentType‹P›): *WithUnwrapChameleon*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonButton.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonButton.tsx#L80)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonButton.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonButton.tsx#L80)*
 
 **Type parameters:**
 
@@ -4692,7 +4692,7 @@ ___
 
 ▸ **withWrapOnSubmit**‹**P**›(`Component`: ComponentType‹P & [OnSubmitProps](globals.md#onsubmitprops)›): *(Anonymous function)*
 
-*Defined in [packages/bodiless-components/src/Toggle.tsx:104](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Toggle.tsx#L104)*
+*Defined in [packages/bodiless-components/src/Toggle.tsx:104](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Toggle.tsx#L104)*
 
 **Type parameters:**
 
@@ -4708,7 +4708,7 @@ Name | Type |
 
 ▸ **withWrapOnSubmit**‹**P**›(`Component`: ComponentType‹P›): *FunctionComponent‹P & object & object›*
 
-*Defined in [packages/bodiless-components/src/Chameleon/withChameleonComponentFormControls.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Chameleon/withChameleonComponentFormControls.tsx#L22)*
+*Defined in [packages/bodiless-components/src/Chameleon/withChameleonComponentFormControls.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Chameleon/withChameleonComponentFormControls.tsx#L22)*
 
 **Type parameters:**
 
@@ -4728,7 +4728,7 @@ ___
 
 ▸ **withYouTubePlayerAPI**(`Component`: ComponentType‹any›): *WithYouTubePlayerAPI*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:144](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L144)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:144](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L144)*
 
 **Parameters:**
 
@@ -4744,7 +4744,7 @@ ___
 
 ▸ **withYouTubePlayerSettings**(`settings`: Partial‹[YouTubePlayerSettings](globals.md#youtubeplayersettings)›): *function*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L77)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:77](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L77)*
 
 **Parameters:**
 
@@ -4776,7 +4776,7 @@ ___
 
 ▸ **withYouTubePlayerTransformer**(`Component`: ComponentType‹[Props](globals.md#props)›): *WithYouTubePlayerTransformer*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/YouTube.tsx#L91)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:91](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/YouTube.tsx#L91)*
 
 **Parameters:**
 
@@ -4792,7 +4792,7 @@ Name | Type |
 
 ### ▪ **BreadcrumbStartComponents**: *object*
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:189](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L189)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:189](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L189)*
 
 ###  BreadcrumbItem
 
@@ -4801,43 +4801,43 @@ Name | Type |
     asComponent,
   )('li')
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L193)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L193)*
 
 ###  BreadcrumbLink
 
 • **BreadcrumbLink**: *FunctionComponent‹HTMLProps‹HTMLAnchorElement› & string | HTMLProps‹HTMLAnchorElement› & object› | ComponentClass‹HTMLProps‹HTMLAnchorElement› & string | HTMLProps‹HTMLAnchorElement› & object, any› | function* = asComponent('a')
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:197](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L197)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:197](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L197)*
 
 ###  BreadcrumbTitle
 
 • **BreadcrumbTitle**: *FunctionComponent‹HTMLProps‹HTMLSpanElement› & string | HTMLProps‹HTMLSpanElement› & object› | ComponentClass‹HTMLProps‹HTMLSpanElement› & string | HTMLProps‹HTMLSpanElement› & object, any› | function* = asComponent('span')
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:198](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L198)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:198](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L198)*
 
 ###  BreadcrumbWrapper
 
 • **BreadcrumbWrapper**: *FunctionComponent‹HTMLProps‹HTMLUListElement›› | ComponentClass‹HTMLProps‹HTMLUListElement›, any› | function* = asComponent('ul')
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:192](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L192)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:192](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L192)*
 
 ###  FinalTrail
 
 • **FinalTrail**: *FunctionComponent‹HTMLProps‹HTMLSpanElement›› | ComponentClass‹HTMLProps‹HTMLSpanElement›, any› | function* = asComponent('span')
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:199](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L199)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:199](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L199)*
 
 ###  Separator
 
 • **Separator**: *FunctionComponent‹HTMLProps‹HTMLSpanElement›› | ComponentClass‹HTMLProps‹HTMLSpanElement›, any› | function* = asComponent('span')
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:191](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L191)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:191](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L191)*
 
 ###  StartingTrail
 
 • **StartingTrail**: *FunctionComponent‹HTMLProps‹HTMLSpanElement›› | ComponentClass‹HTMLProps‹HTMLSpanElement›, any› | function* = asComponent('span')
 
-*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:190](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L190)*
+*Defined in [packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx:190](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Breadcrumbs/Breadcrumbs.tsx#L190)*
 
 ___
 
@@ -4845,31 +4845,31 @@ ___
 
 ### ▪ **defaultImagePickerUI**: *object*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L63)*
+*Defined in [packages/bodiless-components/src/Image.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L63)*
 
 ###  Input
 
 • **Input**: *string* = "input"
 
-*Defined in [packages/bodiless-components/src/Image.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L66)*
+*Defined in [packages/bodiless-components/src/Image.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L66)*
 
 ###  MasterWrapper
 
 • **MasterWrapper**: *string* = "section"
 
-*Defined in [packages/bodiless-components/src/Image.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L64)*
+*Defined in [packages/bodiless-components/src/Image.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L64)*
 
 ###  Wrapper
 
 • **Wrapper**: *string* = "div"
 
-*Defined in [packages/bodiless-components/src/Image.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L65)*
+*Defined in [packages/bodiless-components/src/Image.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L65)*
 
 ###  DragRejected
 
 ▸ **DragRejected**(): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L69)*
+*Defined in [packages/bodiless-components/src/Image.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L69)*
 
 **Returns:** *Element‹›*
 
@@ -4877,7 +4877,7 @@ ___
 
 ▸ **UploadArea**(): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L67)*
+*Defined in [packages/bodiless-components/src/Image.tsx:67](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L67)*
 
 **Returns:** *Element‹›*
 
@@ -4885,7 +4885,7 @@ ___
 
 ▸ **UploadFinished**(): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L71)*
+*Defined in [packages/bodiless-components/src/Image.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L71)*
 
 **Returns:** *Element‹›*
 
@@ -4893,7 +4893,7 @@ ___
 
 ▸ **UploadStatus**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L72)*
+*Defined in [packages/bodiless-components/src/Image.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L72)*
 
 **Parameters:**
 
@@ -4909,7 +4909,7 @@ Name | Type |
 
 ▸ **UploadTimeout**(): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L70)*
+*Defined in [packages/bodiless-components/src/Image.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L70)*
 
 **Returns:** *Element‹›*
 
@@ -4917,7 +4917,7 @@ Name | Type |
 
 ▸ **Uploading**(): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L68)*
+*Defined in [packages/bodiless-components/src/Image.tsx:68](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L68)*
 
 **Returns:** *Element‹›*
 
@@ -4927,20 +4927,20 @@ ___
 
 ### ▪ **defaultMetaFormHeader**: *object*
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/withMetaForm.tsx#L93)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/withMetaForm.tsx#L93)*
 
 ###  description
 
 • **description**: *string* = `Enter the page level data used for SEO. 
   This is metadata needed for SEO that will go in the page header.`
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:95](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/withMetaForm.tsx#L95)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:95](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/withMetaForm.tsx#L95)*
 
 ###  title
 
 • **title**: *string* = "SEO Data Management"
 
-*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Meta/withMetaForm.tsx#L94)*
+*Defined in [packages/bodiless-components/src/Meta/withMetaForm.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Meta/withMetaForm.tsx#L94)*
 
 ___
 
@@ -4948,13 +4948,13 @@ ___
 
 ### ▪ **defaultOptions**: *object*
 
-*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/NormalHref.ts#L45)*
+*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/NormalHref.ts#L45)*
 
 ###  trailingSlash
 
 • **trailingSlash**: *true* = true
 
-*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/NormalHref.ts#L46)*
+*Defined in [packages/bodiless-components/src/Link/NormalHref.ts:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/NormalHref.ts#L46)*
 
 ___
 
@@ -4962,13 +4962,13 @@ ___
 
 ### ▪ **emptyValue**: *object*
 
-*Defined in [packages/bodiless-components/src/Taggable/asTaggableItem.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Taggable/asTaggableItem.tsx#L33)*
+*Defined in [packages/bodiless-components/src/Taggable/asTaggableItem.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Taggable/asTaggableItem.tsx#L33)*
 
 ###  tags
 
 • **tags**: *never[]* = []
 
-*Defined in [packages/bodiless-components/src/Taggable/asTaggableItem.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Taggable/asTaggableItem.tsx#L34)*
+*Defined in [packages/bodiless-components/src/Taggable/asTaggableItem.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Taggable/asTaggableItem.tsx#L34)*
 
 ___
 
@@ -4976,101 +4976,101 @@ ___
 
 ### ▪ **options**: *object*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L40)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L40)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:174](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L174)*
+*Defined in [packages/bodiless-components/src/Image.tsx:174](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L174)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:111](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L111)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:111](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L111)*
 
 ###  Wrapper
 
 • **Wrapper**: *string* = "div"
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L47)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L47)*
 
 ###  formTitle
 
 • **formTitle**: *string* = "Image"
 
-*Defined in [packages/bodiless-components/src/Image.tsx:178](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L178)*
+*Defined in [packages/bodiless-components/src/Image.tsx:178](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L178)*
 
 ###  global
 
 • **global**: *false* = false
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L45)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L45)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L193)*
+*Defined in [packages/bodiless-components/src/Image.tsx:193](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L193)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:119](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L119)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:119](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L119)*
 
 ###  groupLabel
 
 • **groupLabel**: *string* = "Link"
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L42)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L42)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:177](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L177)*
+*Defined in [packages/bodiless-components/src/Image.tsx:177](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L177)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L115)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L115)*
 
 ###  groupMerge
 
 • **groupMerge**: *"merge"* = "merge"
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:116](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L116)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:116](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L116)*
 
 ###  icon
 
 • **icon**: *string* = "link"
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L41)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L41)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:175](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L175)*
+*Defined in [packages/bodiless-components/src/Image.tsx:175](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L175)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L112)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L112)*
 
 ###  label
 
 • **label**: *string* = "Edit"
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L43)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L43)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:176](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L176)*
+*Defined in [packages/bodiless-components/src/Image.tsx:176](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L176)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L114)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:114](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L114)*
 
 ###  local
 
 • **local**: *true* = true
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L46)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L46)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:194](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L194)*
+*Defined in [packages/bodiless-components/src/Image.tsx:194](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L194)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L120)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L120)*
 
 ###  name
 
 • **name**: *string* = "Link"
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L44)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L44)*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:179](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L179)*
+*Defined in [packages/bodiless-components/src/Image.tsx:179](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L179)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L113)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:113](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L113)*
 
 ###  renderForm
 
 ▸ **renderForm**(): *true*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L49)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L49)*
 
 **Returns:** *true*
 
 ▸ **renderForm**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:180](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L180)*
+*Defined in [packages/bodiless-components/src/Image.tsx:180](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L180)*
 
 **Parameters:**
 
@@ -5086,7 +5086,7 @@ Name | Type |
 
 ▸ **renderForm**(): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L118)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L118)*
 
 **Returns:** *Element‹›*
 
@@ -5094,15 +5094,15 @@ Name | Type |
 
 ▸ **useCompoundForm**(): *true*
 
-*Defined in [packages/bodiless-components/src/Iframe.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Iframe.tsx#L48)*
+*Defined in [packages/bodiless-components/src/Iframe.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Iframe.tsx#L48)*
 
 **Returns:** *true*
 
 ▪ **defaultData**: *object*
 
-*Defined in [packages/bodiless-components/src/Image.tsx:195](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Image.tsx#L195)*
+*Defined in [packages/bodiless-components/src/Image.tsx:195](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Image.tsx#L195)*
 
-*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:121](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/Link/asBodilessLink.tsx#L121)*
+*Defined in [packages/bodiless-components/src/Link/asBodilessLink.tsx:121](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/Link/asBodilessLink.tsx#L121)*
 
 * **alt**: *string* = "Alt Text"
 
@@ -5116,57 +5116,57 @@ ___
 
 ### ▪ **startComponents**: *object*
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L41)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L41)*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L47)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L47)*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L61)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L61)*
 
 ###  Item
 
 • **Item**: *FunctionComponent‹object› | ComponentClass‹object, any› | function* = asComponent('li')
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L43)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L43)*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L49)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L49)*
 
 ###  ItemMenuOptionsProvider
 
 • **ItemMenuOptionsProvider**: *ExoticComponent‹object›* = Fragment
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L46)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L46)*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L52)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L52)*
 
 ###  List
 
 • **List**: *FunctionComponent‹any› | ComponentClass‹any, any› | function* = asComponent('ul')
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L63)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L63)*
 
 ###  Title
 
 • **Title**: *FunctionComponent‹any›* = withOnlyProps('key', 'children')(Fragment)
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L45)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L45)*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L51)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L51)*
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L64)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L64)*
 
 ###  Wrapper
 
 • **Wrapper**: *FunctionComponent‹any› | ComponentClass‹any, any› | function* = asComponent('ul')
 
-*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L42)*
+*Defined in [packages/bodiless-components/src/List_DEPRECATED/index.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List_DEPRECATED/index.tsx#L42)*
 
-*Defined in [packages/bodiless-components/src/List/List.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/List.tsx#L48)*
+*Defined in [packages/bodiless-components/src/List/List.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/List.tsx#L48)*
 
 ###  WrapperItem
 
 • **WrapperItem**: *FunctionComponent‹any› | ComponentClass‹any, any› | function* = asComponent('li')
 
-*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/List/asBodilessList.tsx#L62)*
+*Defined in [packages/bodiless-components/src/List/asBodilessList.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/List/asBodilessList.tsx#L62)*
 
 ___
 
@@ -5174,49 +5174,49 @@ ___
 
 ### ▪ **tagButtonOptions**: *object*
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L30)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L30)*
 
 ###  global
 
 • **global**: *false* = false
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L89)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L89)*
 
 ###  groupLabel
 
 • **groupLabel**: *string* = "Filter"
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L33)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L33)*
 
 ###  icon
 
 • **icon**: *string* = "local_offer"
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L31)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L31)*
 
 ###  label
 
 • **label**: *string* = "Groups"
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L32)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L32)*
 
 ###  local
 
 • **local**: *true* = true
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L90)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L90)*
 
 ###  name
 
 • **name**: *string* = "Tag"
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L34)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L34)*
 
 ###  renderForm
 
 ▸ **renderForm**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/836f8ba/packages/bodiless-components/src/TagButton/withTagButton.tsx#L35)*
+*Defined in [packages/bodiless-components/src/TagButton/withTagButton.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f5e19a1/packages/bodiless-components/src/TagButton/withTagButton.tsx#L35)*
 
 **Parameters:**
 
