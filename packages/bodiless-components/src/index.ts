@@ -5,20 +5,21 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
+ * Unless required by applicable law or agreed to in writing, softwkare
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * See the License for the specific language governing permissions andk
+ * limitations under the License.kk
  */
 
 import Editable, { withPlaceholder, asEditable } from './Editable';
-import { asBodilessLink } from './Link';
 import Image, {
   asBodilessImage,
   TImagePickerUI,
   withImagePlaceholder,
+  DropZonePlugin as ImageDropZone,
 } from './Image';
+import type { AsBodilessImage } from './Image';
 import NodeViewer from './NodeViewer';
 import withLinkToggle from './LinkToggle';
 import List from './List_DEPRECATED';
@@ -34,7 +35,7 @@ import {
 import withMetaForm, { withMetaSnippet } from './Meta/withMetaForm';
 import type { FieldType as MetaFormFieldType } from './Meta/withMetaForm';
 import asBodilessHelmet from './Helmet/Helmet';
-import withEvent from './GTM/gtm';
+import withDataLayerItem, { withDefaultDataLayer, withDataLayerScript } from './GTM/gtm';
 import { withToggle, withToggleTo, withToggleButton } from './Toggle';
 import withEditPlaceholder from './Placeholder';
 import { TagButtonProps, withTagButton, useTagsAccessors } from './TagButton';
@@ -70,14 +71,14 @@ import {
   ifViewportIs,
   ifViewportIsNot,
 } from './withResponsiveToggle';
-import asBreadcrumb, { useBreadcrumbContext } from './asBreadcrumb';
+import withResponsiveVariants from './withResponsiveVariants';
 import withBodilessLinkToggle from './withBodilessLinkToggle';
 
 export {
   withBodilessLinkToggle,
-  asBodilessLink,
   Image,
   asBodilessImage,
+  ImageDropZone,
   withImagePlaceholder,
   TImagePickerUI,
   Editable,
@@ -101,7 +102,6 @@ export {
   withMetaHtml,
   asBodilessHelmet,
   withEditPlaceholder,
-  withEvent,
   withTagButton,
   TagButtonProps,
   asTaggableItem,
@@ -132,13 +132,22 @@ export {
   BreakpointsType,
   ifViewportIs,
   ifViewportIsNot,
+  withResponsiveVariants,
   withMetaForm,
   withMetaSnippet,
-  asBreadcrumb,
-  useBreadcrumbContext,
+  withDataLayerItem,
+  withDefaultDataLayer,
+  withDataLayerScript,
 };
 
 export * from './Chameleon/index';
 export * from './List';
+export * from './Link';
+
+export * from './Breadcrumbs';
 
 export type { MetaFormFieldType, YouTubePlayerSettings };
+
+export type {
+  AsBodilessImage,
+};

@@ -20,13 +20,13 @@ describe('Tout testing', function () {
   })
 
   const pagePath = '/touts/';
-  const title = 'AT - Title 1';
-  const description = 'AT - Description 1';
-  const ctaLabel = 'AT - CTA Link 1';
+  const title = 'AT - Title 1 -';
+  const description = 'AT - Description 1 -';
+  const ctaLabel = 'AT - CTA Link 1 -';
   const toutUrl = 'AT-toutUrl1';
+  const normilizedUrl = '/' + toutUrl + '/';
   const imageAltText = 'AT-1stToutAltText';
-  const editedPostfix = ' - edited';
-  const editedToutUrl = '-edited';
+  const editedPostfix = 'edited';
   const imagesFolderPath = "images";
   const imageNameOriginal = 'img_615x500.jpg';
   const imageNameUpdated = 'img_615x502.jpg';
@@ -34,12 +34,12 @@ describe('Tout testing', function () {
   const descriptionXpath = '//*[@id="tout-horizontal"]//*[@data-tout-element="body"]//div[@data-slate-editor="true"]';
   const ctaLabelXpath = '//*[@id="tout-horizontal"]//*[@data-tout-element="link"]//div[@data-slate-editor="true"]';
   const imagePlaceholderXpath = '//*[@id="tout-horizontal"]//img[@data-tout-element="image"]';
-  const urlFieldXpath = '//form[@aria-label="Context Menu Link Form"]//input[@id="link-href"]';
-  const linkIconXpath = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Link"]';
-  const checkmarkIconLinkFormXpath = '//form[@aria-label="Context Menu Link Form"]//button[@aria-label="Submit"]';
-  const altFieldXpath = '//form[@aria-label="Context Menu Image Form"]//input[@id="image-alt"]';
-  const checkmarkIconImageFormXpath = '//form[@aria-label="Context Menu Image Form"]//button[@aria-label="Submit"]';
-  const imageIconXpath = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Image"]';
+  const urlFieldCTAXpath = '//form[@aria-label="Context Menu Edit CTA Form"]//input[@id="link-href"]';
+  const linkIconCTAXpath = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Edit CTA"]';
+  const checkmarkIconLinkCTAFormXpath = '//form[@aria-label="Context Menu Edit CTA Form"]//button[@aria-label="Submit"]';
+  const altFieldXpath = '//form[@aria-label="Context Menu Select Image Form"]//input[@id="image-alt"]';
+  const checkmarkIconImageFormXpath = '//form[@aria-label="Context Menu Select Image Form"]//button[@aria-label="Submit"]';
+  const imageIconXpath = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Select Image"]';
   const ctaButtonXpath = '//*[@id="tout-horizontal"]//a[@data-tout-element="link"]';
   const imageLinkXpath = '//div[@id="tout-horizontal"]//a[@data-tout-element="image-link"]';
   const imageOrigPathRegex = new RegExp("images\/pages"+ pagePath + "[a-zA-Z0-9]+\/" + imageNameOriginal, "");
@@ -69,11 +69,11 @@ describe('Tout testing', function () {
 
 
   it('touts: 4 - filling in CTA url', () => {
-    cy.xpath(linkIconXpath)
+    cy.xpath(linkIconCTAXpath)
       .click();
-    cy.xpath(urlFieldXpath)
+    cy.xpath(urlFieldCTAXpath)
       .type(toutUrl);
-    cy.xpath(checkmarkIconLinkFormXpath)
+    cy.xpath(checkmarkIconLinkCTAFormXpath)
       .click();
   })
 
@@ -120,10 +120,10 @@ describe('Tout testing', function () {
     cy.xpath(imagePlaceholderXpath)
       .should('have.attr', 'alt', imageAltText);
     cy.xpath(imageLinkXpath)
-      .should('have.attr', 'href', toutUrl);
+      .should('have.attr', 'href', normilizedUrl);
     cy.xpath(ctaButtonXpath)
       .click();
-    cy.url().should('include', toutUrl);
+    cy.url().should('eq', Cypress.config().baseUrl + normilizedUrl);
     cy.visit(pagePath);
   })
 
@@ -143,7 +143,7 @@ describe('Tout testing', function () {
     cy.xpath(imagePlaceholderXpath)
       .should('have.attr', 'alt', imageAltText);
     cy.xpath(imageLinkXpath)
-      .should('have.attr', 'href', toutUrl);
+      .should('have.attr', 'href', normilizedUrl);
   })
 
 
@@ -171,11 +171,11 @@ describe('Tout testing', function () {
 
 
   it('touts: 12 - editing CTA url', () => {
-    cy.xpath(linkIconXpath)
+    cy.xpath(linkIconCTAXpath)
       .click();
-    cy.xpath(urlFieldXpath)
-      .type(editedToutUrl);
-    cy.xpath(checkmarkIconLinkFormXpath)
+    cy.xpath(urlFieldCTAXpath)
+      .type(editedPostfix);
+    cy.xpath(checkmarkIconLinkCTAFormXpath)
       .click();
   })
 
@@ -213,10 +213,10 @@ describe('Tout testing', function () {
     cy.xpath(imagePlaceholderXpath)
       .should('have.attr', 'alt', imageAltText + editedPostfix);
     cy.xpath(ctaButtonXpath)
-      .should('have.attr', 'href', toutUrl + editedToutUrl);
+      .should('have.attr', 'href', normilizedUrl + editedPostfix + '/');
     cy.xpath(imagePlaceholderXpath)
       .click();
-    cy.url().should('include', toutUrl + editedToutUrl);
+    cy.url().should('eq', Cypress.config().baseUrl + normilizedUrl + editedPostfix + '/');
     cy.visit(pagePath);
   })
 
@@ -236,6 +236,6 @@ describe('Tout testing', function () {
     cy.xpath(imagePlaceholderXpath)
       .should('have.attr', 'alt', imageAltText + editedPostfix);
     cy.xpath(imageLinkXpath)
-      .should('have.attr', 'href', toutUrl + editedToutUrl);
+      .should('have.attr', 'href', normilizedUrl + editedPostfix + '/');
   })
 })
