@@ -1,44 +1,43 @@
 describe('Burger Menu smoke tests', function () {
 
   before(function () {
-    cy.visit('/burger-menu/');
+    cy.visit('/megamenu/');
     cy.clickEdit();
   })
 
   const menuItemLabel = 'AT - Menu Item'
   const submenuItemLabel = 'AT - Submenu Item'
   const menuItemUrl = 'AT-menuItemUrl'
-  
   const menuItem = [
-    '//*[contains(@class,"ml-10")]//ul[contains(@class,"rc-menu")]//li[contains(@class,"leading-loose")][1]',
-    '//*[contains(@class,"ml-10")]//ul[contains(@class,"rc-menu")]//li[contains(@class,"leading-loose")][2]' 
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]',
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]'
   ]
   const menuItemNoLink = [
-    menuItem[0] + '/span/span',
-    menuItem[1] + '/span/span'
+    menuItem[0] + '//div[@data-slate-node="element"]',
+    menuItem[1] + '//div[@data-slate-node="element"]'
   ]
   const menuItemWithLink = [
-    menuItem[0] + '//a',
+    menuItem[0] + '/a',
     menuItem[1]
   ]
   const menuItemBM = [
-    '//div[@class="ml-10"]//ul[contains(@class,"bm-item p-3 text-black")]/li[1]',
-    '//div[@class="ml-10"]//ul[contains(@class,"bm-item p-3 text-black")]/li[2]'
+    '//div[contains(@class,"my-2")]/div[2]//ul[contains(@class,"bm-item p-3")]/li[1]',
+    '//div[contains(@class,"my-2")]/div[2]//ul[contains(@class,"bm-item p-3")]/li[2]'
   ]
   const menuItemNoSubmenuBM = [
     menuItemBM[0] + '/a',
     menuItemBM[1]
   ]
   const menuItemWithSubmenuBM = [
-    menuItemBM[0] + '/div[contains(@class,"justify-between")]/span[1]',
-    menuItemBM[1] + '/div[contains(@class,"justify-between")]/span[1]'
+    menuItemBM[0] + '/div[contains(@class,"justify-between")]//div[@data-slate-node="element"]',
+    menuItemBM[1] + '/div[contains(@class,"justify-between")]//div[@data-slate-node="element"]'
   ]
   const expandIcon = '//*[@data-accordion-icon="expand"]'
   const collapseIcon = '//*[@data-accordion-icon="collapse"]'
   const menuItem1SubmenuBM = [
     menuItemBM[0] + '//a[text()="Overview"]',
-    menuItemBM[0] + '//li[1]/a',
-    menuItemBM[0] + '//li[2]/a'
+    menuItemBM[0] + '//li[2]/a',
+    menuItemBM[0] + '//li[3]/a'
   ]
   const menuItem2SubmenuBM = [
     menuItemBM[1] + '//a[text()="Overview"]',
@@ -46,21 +45,23 @@ describe('Burger Menu smoke tests', function () {
     menuItemBM[1] + '//li[2]/a'
   ]
   const menuItem1SubmenuNoLink = [
-    '//div[contains(@class,"rc-menu-submenu")]//li[contains(@class,"leading-loose")][1]/span/span',
-    '//div[contains(@class,"rc-menu-submenu")]//li[contains(@class,"leading-loose")][2]/span/span'
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]/ul/li[1]',
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]/ul/li[2]'
   ]
   const menuItem2SubmenuNoLink = [
-    '//div[contains(@style,"position")][2]//div[contains(@class,"rc-menu-submenu")]//li[contains(@class,"leading-loose")][1]/span/span',
-    '//div[contains(@style,"position")][2]//div[contains(@class,"rc-menu-submenu")]//li[contains(@class,"leading-loose")][2]/span/span'
-  ]
-  const addListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add"]'
-  const addSubListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Toggle"]'
-  const linkIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Link"]'
-  const urlField = '//form[@aria-label="Context Menu Link Form"]//input[@id="link-href"]'
-  const checkmarkIcon = '//form[@aria-label="Context Menu Link Form"]//button[@aria-label="Submit"]'
-  const burgerMenuXpath = '//div[@class="ml-10"]//*[@class="bm-burger-button"]//button[text()="Open Menu"]'
-  const closeBurgerMenuXpath = '//div[@class="ml-10"]//*[contains(@class,"bg-burger-menu")]//button[text()="Close Menu"]'
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[1]',
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[2]']
+  const addListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add Menu Item"]'
+  const addSubListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Sub Menu Item"]'
+  const addSubItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add Sub-Menu Item"]'
+  const removeListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[contains(@aria-label,"Delete")]'
+  const linkIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[contains(@aria-label,"Link")]'
+  const urlField = '//form[contains(@aria-label,"Link Form")]//input[@id="link-href"]'
+  const checkmarkIcon = '//form[contains(@aria-label,"Link Form")]//button[@aria-label="Submit"]'
+  const burgerMenuXpath = '//div[contains(@class,"my-2")]/div[2]//*[@class="bm-burger-button"]//button[text()="Open Menu"]'
+  const closeBurgerMenuXpath = '//div[contains(@class,"my-2")]/div[2]//*[contains(@class,"bm-cross-button")]//button[text()="Close Menu"]'
   const itemCount = 2
+
 
   it('Burger Menu: 1 - checking the menu items without a link in Edit Mode', () => {
     addMenuItems(menuItemNoLink, menuItemLabel, itemCount);
@@ -107,7 +108,7 @@ describe('Burger Menu smoke tests', function () {
     cy.xpath(burgerMenuXpath)
       .click();
     cy.xpath(menuItemNoSubmenuBM[0])
-      .should('have.attr', 'href', '#' + menuItemUrl + '-1');
+      .should('have.attr', 'href', '/' + menuItemUrl + '-1/');
     cy.xpath(closeBurgerMenuXpath)
       .click();
   })
@@ -120,37 +121,36 @@ describe('Burger Menu smoke tests', function () {
       .click();
     cy.xpath(menuItemNoSubmenuBM[0])
       .should('have.text', menuItemLabel + ' 1');
-    cy.xpath(menuItemNoSubmenuBM[0])
-      .click();
-    cy.url().should('eq', Cypress.config().baseUrl + '/burger-menu/#' + menuItemUrl + '-1');
+    cy.xpath(menuItemNoSubmenuBM[0] + '//div[@data-slate-node="element"]')
+      .click({ force: true });
+    cy.url().should('eq', Cypress.config().baseUrl + '/' + menuItemUrl + '-1/');
+    cy.visit('/megamenu/');
     cy.xpath(menuItemNoSubmenuBM[1])
       .should('have.text', menuItemLabel + ' 2');
     cy.xpath(menuItemBM[1] + '//a')
       .should('not.exist');
     cy.xpath(closeBurgerMenuXpath)
-      .click();
+      .click({ force: true });
   })
 
 
   it('Burger Menu: 5 - checking a submenu for an item with a link and an item without a link in Edit Mode', () => {
-    cy.visit('/burger-menu/');
     cy.clickEdit();
-    
     addSubmenuItems(menuItemWithLink[0], menuItem1SubmenuNoLink, submenuItemLabel, 2);
     var i;
     for (i = 0; i < itemCount; i++) {
       cy.xpath(menuItemWithLink[0])
         .trigger('mouseover');
-      addUrlInMenuItem(menuItem1SubmenuNoLink[i], menuItemUrl + '-1.' + (i + 1).toString());
+      addUrlInMenuItem(menuItem1SubmenuNoLink[i], menuItemUrl + '-1-' + (i + 1).toString());
     }
     addSubmenuItems(menuItemWithLink[1], menuItem2SubmenuNoLink, submenuItemLabel, 2);
     for (i = 0; i < itemCount; i++) {
       cy.xpath(menuItemWithLink[1])
         .trigger('mouseover');
-      addUrlInMenuItem(menuItem2SubmenuNoLink[i], menuItemUrl + '-1.' + (i + 1).toString());
+      addUrlInMenuItem(menuItem2SubmenuNoLink[i], menuItemUrl + '-1-' + (i + 1).toString());
     }
     cy.setTabletView();
-    
+
     cy.xpath(burgerMenuXpath)
       .click();
     for (i = 0; i < itemCount; i++) {
@@ -160,11 +160,11 @@ describe('Burger Menu smoke tests', function () {
     cy.xpath(menuItemBM[0] + expandIcon)
       .click();
     cy.xpath(menuItem1SubmenuBM[0])
-      .should('have.attr', 'href', '#' + menuItemUrl + '-1');
+      .should('have.attr', 'href', '/' + menuItemUrl + '-1/');
     for (i = 1; i < itemCount + 1; i++) {
       cy.xpath(menuItem1SubmenuBM[i])
-        .should('have.text', submenuItemLabel + ' 1.' + (i).toString())
-        .should('have.attr', 'href', '#' + menuItemUrl + '-1.' + (i).toString());
+        .should('have.text', submenuItemLabel + ' 1-' + (i).toString())
+        .should('have.attr', 'href', '/' + menuItemUrl + '-1-' + (i).toString() + '/');
     }
     cy.xpath(menuItemBM[1] + expandIcon)
       .click();
@@ -172,20 +172,20 @@ describe('Burger Menu smoke tests', function () {
       .should('not.exist');
     for (i = 1; i < itemCount + 1; i++) {
       cy.xpath(menuItem2SubmenuBM[i])
-        .should('have.text', submenuItemLabel + ' 1.' + (i).toString())
-        .should('have.attr', 'href', '#' + menuItemUrl + '-1.' + (i).toString());
+        .should('have.text', submenuItemLabel + ' 1-' + (i).toString())
+        .should('have.attr', 'href', '/' + menuItemUrl + '-1-' + (i).toString() + '/');
     }
-    
+
     for (i = 0; i < itemCount; i++) {
-    cy.xpath(menuItemBM[i] + collapseIcon)
-      .click();
+      cy.xpath(menuItemBM[i] + collapseIcon)
+        .click();
     }
     cy.xpath(closeBurgerMenuXpath)
-      .click();
+      .click({ force: true });
   })
 
 
-  it('Main Menu: 6 - checking the menu items and the submenu items in Preview Mode', () => {
+  it('Burger Menu: 6 - checking the menu items and the submenu items in Preview Mode', () => {
     cy.setTabletView();
     cy.clickEdit();
     cy.xpath(burgerMenuXpath)
@@ -197,16 +197,13 @@ describe('Burger Menu smoke tests', function () {
       cy.xpath(menuItemBM[i] + expandIcon)
         .should('be.visible');
     }
-
     cy.xpath(menuItemBM[0] + expandIcon)
       .click();
-    cy.xpath(menuItem1SubmenuBM[0])
-      .click();
-    cy.url().should('eq', Cypress.config().baseUrl + '/burger-menu/#' + menuItemUrl + '-1');
+
     for (i = 1; i < itemCount + 1; i++) {
       cy.xpath(menuItem1SubmenuBM[i])
-        .should('have.text', submenuItemLabel + ' 1.' + (i).toString())
-        .should('have.attr', 'href', '#' + menuItemUrl + '-1.' + (i).toString());
+        .should('have.text', submenuItemLabel + ' 1-' + (i).toString())
+        .should('have.attr', 'href', '/' + menuItemUrl + '-1-' + (i).toString() + '/');
     }
     cy.xpath(menuItemBM[1] + '/div[contains(@class,"justify-between")]/span[1]')
       .click();
@@ -214,15 +211,39 @@ describe('Burger Menu smoke tests', function () {
       .should('not.exist');
     for (i = 1; i < itemCount + 1; i++) {
       cy.xpath(menuItem2SubmenuBM[i])
-        .should('have.text', submenuItemLabel + ' 1.' + (i).toString())
-        .should('have.attr', 'href', '#' + menuItemUrl + '-1.' + (i).toString());
+        .should('have.text', submenuItemLabel + ' 1-' + (i).toString())
+        .should('have.attr', 'href', '/' + menuItemUrl + '-1-' + (i).toString() + '/');
     }
-    cy.xpath(closeBurgerMenuXpath)
+    cy.xpath(menuItem1SubmenuBM[0])
       .click();
-    cy.xpath(burgerMenuXpath)
-      .should('be.visible');
+    cy.url().should('eq', Cypress.config().baseUrl + '/' + menuItemUrl + '-1/');
+    cy.visit('/megamenu/');
   })
 
+
+  it('Burger Menu: 7 - deleting all items', () => {
+    cy.clickEdit();
+    cy.xpath(menuItem[1])
+      .click();
+    cy.xpath(addListItemIcon)
+      .click();
+    var i;
+    for (i = 0; i < itemCount; i++) {
+      cy.xpath(menuItem[0])
+        .click();
+      cy.xpath(removeListItemIcon)
+        .click();
+    }
+    cy.setTabletView();
+    cy.xpath(burgerMenuXpath)
+      .click();
+    for (i = 0; i < itemCount; i++) {
+      cy.xpath(menuItemBM[i] + expandIcon)
+        .should('not.exist');
+      cy.xpath(menuItemBM[i] + collapseIcon)
+        .should('not.exist');
+    }
+  })
 
   function addMenuItems(itemXpath, label, count) {
     cy.xpath(itemXpath[0])
@@ -250,7 +271,6 @@ describe('Burger Menu smoke tests', function () {
     cy.hideContextMenu();
   }
 
-
   function addSubmenuItems(itemXpath, submenuItemXpath, label, count) {
     cy.xpath(itemXpath)
       .click();
@@ -260,7 +280,7 @@ describe('Burger Menu smoke tests', function () {
       .trigger('mouseover');
     cy.xpath(submenuItemXpath[0])
       .click();
-    cy.xpath(addListItemIcon)
+    cy.xpath(addSubItemIcon)
       .click();
     cy.hideContextMenu();
     var i;
@@ -268,7 +288,7 @@ describe('Burger Menu smoke tests', function () {
       cy.xpath(itemXpath)
         .trigger('mouseover');
       cy.xpath(submenuItemXpath[i])
-        .type(label + ' 1.' + (i + 1).toString());
+        .type(label + ' 1-' + (i + 1).toString());
       cy.hideContextMenu();
     }
   }
