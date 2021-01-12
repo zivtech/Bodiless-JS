@@ -5,62 +5,62 @@ describe('Burger Menu smoke tests', function () {
     cy.clickEdit();
   })
 
-  const menuItemLabel = 'AT - Menu Item'
-  const submenuItemLabel = 'AT - Submenu Item'
-  const menuItemUrl = 'AT-menuItemUrl'
+  const menuItemLabel = 'AT - Menu Item';
+  const submenuItemLabel = 'AT - Submenu Item';
+  const menuItemUrl = 'AT-menuItemUrl';
   const menuItem = [
     '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]',
     '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]'
-  ]
+  ];
   const menuItemNoLink = [
     menuItem[0] + '//div[@data-slate-node="element"]',
     menuItem[1] + '//div[@data-slate-node="element"]'
-  ]
+  ];
   const menuItemWithLink = [
     menuItem[0] + '/a',
     menuItem[1]
-  ]
+  ];
   const menuItemBM = [
     '//div[contains(@class,"my-2")]/div[2]//ul[contains(@class,"bm-item p-3")]/li[1]',
     '//div[contains(@class,"my-2")]/div[2]//ul[contains(@class,"bm-item p-3")]/li[2]'
-  ]
+  ];
   const menuItemNoSubmenuBM = [
     menuItemBM[0] + '/a',
     menuItemBM[1]
-  ]
+  ];
   const menuItemWithSubmenuBM = [
     menuItemBM[0] + '/div[contains(@class,"justify-between")]//div[@data-slate-node="element"]',
     menuItemBM[1] + '/div[contains(@class,"justify-between")]//div[@data-slate-node="element"]'
-  ]
-  const expandIcon = '//*[@data-accordion-icon="expand"]'
-  const collapseIcon = '//*[@data-accordion-icon="collapse"]'
+  ];
+  const expandIcon = '//*[@data-accordion-icon="expand"]';
+  const collapseIcon = '//*[@data-accordion-icon="collapse"]';
   const menuItem1SubmenuBM = [
     menuItemBM[0] + '//a[text()="Overview"]',
     menuItemBM[0] + '//li[2]/a',
     menuItemBM[0] + '//li[3]/a'
-  ]
+  ];
   const menuItem2SubmenuBM = [
     menuItemBM[1] + '//a[text()="Overview"]',
     menuItemBM[1] + '//li[1]/a',
     menuItemBM[1] + '//li[2]/a'
-  ]
+  ];
   const menuItem1SubmenuNoLink = [
     '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]/ul/li[1]',
     '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]/ul/li[2]'
-  ]
+  ];
   const menuItem2SubmenuNoLink = [
     '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[1]',
-    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[2]']
-  const addListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add Menu Item"]'
-  const addSubListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Sub Menu Item"]'
-  const addSubItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add Sub-Menu Item"]'
-  const removeListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[contains(@aria-label,"Delete")]'
-  const linkIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[contains(@aria-label,"Link")]'
-  const urlField = '//form[contains(@aria-label,"Link Form")]//input[@id="link-href"]'
-  const checkmarkIcon = '//form[contains(@aria-label,"Link Form")]//button[@aria-label="Submit"]'
-  const burgerMenuXpath = '//div[contains(@class,"my-2")]/div[2]//*[@class="bm-burger-button"]//button[text()="Open Menu"]'
-  const closeBurgerMenuXpath = '//div[contains(@class,"my-2")]/div[2]//*[contains(@class,"bm-cross-button")]//button[text()="Close Menu"]'
-  const itemCount = 2
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[2]'];
+  const addListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add Menu Item"]';
+  const addSubListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Sub Menu Item"]';
+  const addSubItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add Sub-Menu Item"]';
+  const removeListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[contains(@aria-label,"Delete")]';
+  const linkIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[contains(@aria-label,"Link")]';
+  const urlField = '//form[contains(@aria-label,"Link Form")]//input[@id="link-href"]';
+  const checkmarkIcon = '//form[contains(@aria-label,"Link Form")]//button[@aria-label="Submit"]';
+  const burgerMenuXpath = '//div[contains(@class,"my-2")]/div[2]//*[@class="bm-burger-button"]//button[text()="Open Menu"]';
+  const closeBurgerMenuXpath = '//div[contains(@class,"my-2")]/div[2]//*[contains(@class,"bm-cross-button")]//button[text()="Close Menu"]';
+  const itemCount = 2;
 
 
   it('Burger Menu: 1 - checking the menu items without a link in Edit Mode', () => {
@@ -175,7 +175,6 @@ describe('Burger Menu smoke tests', function () {
         .should('have.text', submenuItemLabel + ' 1-' + (i).toString())
         .should('have.attr', 'href', '/' + menuItemUrl + '-1-' + (i).toString() + '/');
     }
-
     for (i = 0; i < itemCount; i++) {
       cy.xpath(menuItemBM[i] + collapseIcon)
         .click();
