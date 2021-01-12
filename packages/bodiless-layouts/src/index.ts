@@ -12,19 +12,26 @@
  * limitations under the License.
  */
 
+import withDirection, { DIRECTIONS } from './withDirection/withDirection';
+
 export { default as ComponentSelector } from './ComponentSelector';
 export * from './ComponentSelector/types';
-export { FlexboxGridProps } from './FlexboxGrid/types';
-export { default as FlexboxGrid } from './FlexboxGrid';
-export {
-  default as SortableResizableWrapper,
+export type { FlowContainerProps } from './FlowContainer/types';
+export { default as FlowContainer, withMandatoryCategories } from './FlowContainer';
+export type {
   Props as SortableResizableProps,
   UI as SortableResizableUI,
 } from './SortableResizableWrapper';
+export { default as SortableResizableWrapper } from './SortableResizableWrapper';
 export { default as SlateSortableResizable } from './SlateSortableResizable';
+export { default as SortableChild } from './FlowContainer/SortableChild';
 export {
   withTuple,
   getSnapFrom,
   withTailwindClasses,
-} from './FlexboxGrid/utils/appendTailwindWidthClass';
+} from './FlowContainer/utils/appendTailwindWidthClass';
 export * from './meta';
+export { ifComponentSelector } from './FlowContainer/ComponentDisplayMode';
+
+export * from './ContentLibrary';
+export { withDirection, DIRECTIONS };

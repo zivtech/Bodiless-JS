@@ -26,11 +26,6 @@ import {
   StylableProps,
   addProps,
 } from '@bodiless/fclasses';
-import {
-  asBodilessImage,
-  asBodilessLink,
-  asEditable,
-} from '@bodiless/components';
 import { withNode } from '@bodiless/core';
 
 export type ToutComponents = {
@@ -85,21 +80,9 @@ const ToutBase: FC<Props> = ({ components, ...rest }) => {
 };
 
 const ToutClean = flow(
-  designable(toutComponentStart),
+  designable(toutComponentStart, 'Tout'),
   withNode,
 )(ToutBase);
-
-const asEditableTout = withDesign({
-  Image: asBodilessImage('image'),
-  ImageLink: asBodilessLink('cta'),
-  Title: asEditable('title', 'Tout Title Text'),
-  Link: flow(
-    asBodilessLink('cta'),
-    asEditable('ctaText', 'Tout Button Text'),
-  ),
-  Body: asEditable('body', 'Tout Body Text'),
-});
-const Tout = asEditableTout(ToutClean);
 
 /**
  * Adds data- identifiers to help select tout elements in automated tests.
@@ -117,10 +100,7 @@ const asTestableTout = withDesign({
   Link: addProps({ 'data-tout-element': 'link' }),
 });
 
-export default Tout;
 export {
-  Tout,
   ToutClean,
-  asEditableTout,
   asTestableTout,
 };

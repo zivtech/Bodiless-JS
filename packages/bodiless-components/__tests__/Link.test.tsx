@@ -1,3 +1,17 @@
+/**
+ * Copyright © 2020 Johnson & Johnson
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { mount, ReactWrapper } from 'enzyme';
@@ -10,7 +24,9 @@ const setEditMode = (isEdit: boolean) => {
 setEditMode(true);
 
 // eslint-disable-next-line import/first
-import Link from '../src/Link';
+import { asBodilessLink } from '../src/Link';
+
+const Link = asBodilessLink()('a');
 
 let wrapper: ReactWrapper;
 let menuButton: ReactWrapper;
@@ -53,6 +69,8 @@ describe('link interactions', () => {
 
   it('context form should have link-href input field with cancel and done buttons', () => {
     menuButton.simulate('click');
+    const tooltips = wrapper.find('Tooltip');
+    menuPopup = tooltips.at(1);
     menuForm = menuPopup.find('form');
 
     const inputField = menuForm.find('input#link-href');
@@ -65,7 +83,6 @@ describe('link interactions', () => {
     expect(submitButton).not.toBeUndefined();
     expect(submitButton.prop('type')).toBeUndefined();
   });
-
 
   it('context menu form should close and save content when done is clicked', () => {
     let inputField = menuForm.find('input#link-href');
@@ -85,7 +102,7 @@ describe('link interactions', () => {
     menuForm = menuPopup.find('form');
     inputField = menuForm.find('input#link-href');
 
-    expect(inputField.prop('value')).toBe('ok');
+    expect(inputField.prop('value')).toBe('/ok/');
 
     wrapper.find({ ...secondLinkProps }).find('a').simulate('click');
     wrapper.find({ ...firstLinkProps }).find('a').simulate('click');
@@ -96,7 +113,7 @@ describe('link interactions', () => {
     menuPopup = wrapper.find('Tooltip[visible=true]').at(1);
     menuForm = menuPopup.find('form');
     inputField = menuForm.find('input#link-href');
-    expect(inputField.prop('value')).toBe('ok');
+    expect(inputField.prop('value')).toBe('/ok/');
   });
 
   it('context form should not save content when cancel is clicked', () => {
@@ -106,6 +123,6 @@ describe('link interactions', () => {
     const cancelButton = menuForm.find('button[aria-label="Cancel"]');
     cancelButton.simulate('submit');
     expect(wrapper.find('Popup[visible=true]')).toHaveLength(1);
-    expect(inputField.prop('value')).toBe('ok');
+    expect(inputField.prop('value')).toBe('/ok/');
   });
 });

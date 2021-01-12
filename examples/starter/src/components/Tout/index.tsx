@@ -13,6 +13,7 @@
  */
 
 import { flow } from 'lodash';
+import { withSidecarNodes } from '@bodiless/core';
 import {
   ToutClean,
 } from '@bodiless/organisms';
@@ -22,19 +23,24 @@ import {
 import {
   asEditableImage, asEditableLink,
 } from '../Elements.token';
-import { asEditorBasic, asEditorSimple } from '../Editors';
+import { withEditorBasic, withEditorSimple } from '../Editors';
 
-const asTout = flow(
+export const asEditableTout = flow(
   withDesign({
     Image: asEditableImage('image'),
-    ImageLink: asEditableLink('cta'),
-    Title: asEditorSimple('title', 'Tout Title Text'),
-    Link: flow(
-      asEditorSimple('ctaText', 'CTA'),
-      asEditableLink('cta'),
+    ImageLink: withSidecarNodes(
+      asEditableLink('link', undefined, () => ({ label: 'Link' })),
     ),
-    Body: asEditorBasic('body', 'Tout Body Text'),
+    Title: withEditorSimple('title', 'Tout Title Text'),
+    Link: flow(
+      withEditorSimple('ctaText', 'CTA'),
+      withSidecarNodes(
+        asEditableLink('link', undefined, () => ({ groupLabel: 'CTA', label: 'Link' })),
+      ),
+    ),
+    Body: withEditorBasic('body', 'Tout Body Text'),
   }),
 );
-const Tout = asTout(ToutClean);
+
+const Tout = asEditableTout(ToutClean);
 export default Tout;

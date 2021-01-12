@@ -14,16 +14,15 @@
 
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { FC, createContext, useContext } from 'react';
+import React, {
+  FC, createContext, useContext, useEffect, useCallback,
+} from 'react';
 import { observer } from 'mobx-react-lite';
 
 import ContextMenu from './ContextMenu';
-
-import PageContextProvider from '../PageContextProvider';
-
 import { useEditContext } from '../hooks';
-import { IContextMenuProps as ContextMenuProps } from '../Types/ContextMenuTypes';
-import { TMenuOption } from '../PageEditContext/types';
+import { IContextMenuProps as ContextMenuProps, TMenuOption } from '../Types/ContextMenuTypes';
+import { useRegisterMenuOptions } from '../PageContextProvider';
 
 type CompleteUI = {
   GlobalContextMenu: React.ComponentType<ContextMenuProps>;
@@ -46,27 +45,22 @@ export const useUI = () => useContext(uiContext);
 const GlobalContextMenu: FC<Props> = observer(() => {
   const { GlobalContextMenu: Menu } = useUI();
   const context = useEditContext();
-  const { contextMenuOptions, isPositionToggled } = context;
+  const { isPositionToggled, contextMenuOptions } = context;
   const options = contextMenuOptions.filter(
     (op: TMenuOption) => op.global !== false,
   );
-  return <Menu options={options} isPositionToggled={isPositionToggled} />;
+  return (
+    <Menu options={options} isPositionToggled={isPositionToggled} />
+  );
 });
 
+/**
+ * Component providing the global Bodiless UI elements, the Main Menu and Page Overlay.
+ * Also provides the Edit and Docs buttons on the main menu.
+ */
 const PageEditor: FC<Props> = ({ children, ui }) => {
   const context = useEditContext();
-  // TODO: This should use useHandler to memoize the callback.
-  // This probably remains replacing the get method isEdit with
-  // a real function.
-  const getMenuOptions = () => [
-    {
-      name: 'switcher',
-      icon: 'compare_arrows',
-      handler: () => {
-        context.togglePosition();
-        context.refresh();
-      },
-    },
+  const getMenuOptions = useCallback(() => [
     {
       name: 'docs',
       icon: 'description',
@@ -79,18 +73,13 @@ const PageEditor: FC<Props> = ({ children, ui }) => {
       name: 'edit',
       icon: 'edit',
       label: 'Edit',
+      // We use a callback here to get the latest value from the context.
       isActive: () => context.isEdit,
       handler: () => {
-        // Force page reload after switching back to edit.
-        if (!context.isEdit) {
-          window.location.reload();
-        }
-        // Set edit mode on/off.
         context.toggleEdit();
-        context.refresh();
       },
     },
-  ];
+  ], []);
 
   const newUI = {
     ...useUI(),
@@ -99,15 +88,20 @@ const PageEditor: FC<Props> = ({ children, ui }) => {
 
   const { PageOverlay = () => null } = newUI;
 
+  // Register buttons to the main menu.
+  useRegisterMenuOptions({
+    getMenuOptions,
+    name: 'Editor',
+  });
+  useEffect(() => { if (!context.isActive) context.activate(); }, []);
+
   return (
     <uiContext.Provider value={newUI}>
-      <PageContextProvider name="page" getMenuOptions={getMenuOptions}>
-        {children}
-        <GlobalContextMenu />
-        <PageOverlay />
-      </PageContextProvider>
+      {children}
+      <GlobalContextMenu />
+      <PageOverlay />
     </uiContext.Provider>
   );
 };
 
-export default PageEditor;
+export default observer(PageEditor);

@@ -11,11 +11,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-jest.mock('../src/debug');
-/* eslint-disable import/first */
-import debug from '../src/debug';
 import Downloader from '../src/downloader';
-/* eslint-enable import/first */
+
+// mock fs and helpers module functions that called in downloadFile function.
+jest.mock('fs');
+const fs = require('fs');
+const helpers = require('../src/helpers');
+
+fs.createWriteStream.mockImplementation(jest.fn);
+helpers.ensureDirectoryExistence = jest.fn(() => true);
+
+const mockRetryRequestDefault = () => ({
+  pipe: () => ({
+    on: (input: string, cb: Function) => {
+      if (input === 'finish') {
+        cb();
+      }
+    },
+  }),
+  on: (input: string, cb: Function) => {
+    if (input === 'response') {
+      const res = {
+        statusCode: 200,
+        request: jest.fn(),
+      };
+      cb(res);
+    }
+    return mockRetryRequestDefault();
+  },
+});
+jest.mock('retry-request', () => ({
+  __esModule: true,
+  default: jest.fn(() => mockRetryRequestDefault()),
+}));
 
 describe('assets download', () => {
   test('external assests are not downloaded', async () => {
@@ -35,23 +63,26 @@ describe('assets download', () => {
     // @ts-ignore since we are mocking private method
     const downloadFileMock = jest.spyOn(downloader, 'downloadFile').mockImplementation(() => true);
     await downloader.downloadFiles(assets);
-    expect(downloadFileMock.mock.calls[0][0]).toBe('https://localhost/test1.css');
-    expect(downloadFileMock.mock.calls[1][0]).toBe('https://localhost/test2.css');
-    expect(downloadFileMock.mock.calls[2][0]).toBe('https://localhost/gatsby.png');
-    expect(downloadFileMock.mock.calls[3][0]).toBe('https://localhost/test1.js');
-    expect(downloadFileMock.mock.calls[4][0]).toBe('https://localhost/test2.js');
+    expect(downloadFileMock).toHaveBeenCalledTimes(5);
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/test1.css');
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/test2.css');
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/gatsby.png');
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/test1.js');
+    expect(downloadFileMock).toHaveBeenCalledWith('https://localhost/test2.js');
   });
 
-  it('sends warning message on non-existing assests', async () => {
+  test('Download returns correct path', async () => {
     const pageUrl = 'https://localhost';
     const downloadPath = 'static';
-    const excludePaths = ['404'];
-    const downloader = new Downloader(pageUrl, downloadPath, excludePaths);
+    const downloader = new Downloader(pageUrl, downloadPath);
     const assets = [
-      'https://localhost/404',
+      'https://localhost/path/to/gatsby.png',
+      'https://external.site.com/images/not-exists.jpg',
     ];
-    await downloader.downloadFiles(assets);
-    expect(debug).toHaveBeenCalledTimes(1);
-    expect(debug).toHaveBeenCalledWith(`Resource ${pageUrl}/${excludePaths[0]} has been excluded from download.`);
+    const result = await downloader.downloadFiles(assets);
+    expect(result.length).toBe(1);
+    const { url, targetPath } = result[0];
+    expect(url).toBe('https://localhost/path/to/gatsby.png');
+    expect(targetPath).toBe(`${downloadPath}/path/to/gatsby.png`);
   });
 });

@@ -15,11 +15,27 @@
         }
     ],
     "configurations": [
+
         {
             "name": "Migrate",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/packages/bodiless-migration-tool/bin/run"
+            "program": "${workspaceRoot}/packages/bodiless-migration-tool/bin/run",
+            "cwd": "${workspaceFolder}/examples/starter",
+        },
+        {
+            "name": "Bodiless CLI Pack",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/packages/bodiless-cli/bin/bodiless",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "pack",
+                "-s ..",
+                "--force",
+                "-p @bodiless/core",
+                "--skip-install",
+            ]
         },
         {
             "name": "Launch Current File",
@@ -32,6 +48,24 @@
             "type": "node",
             "request": "launch",
             "program": "${workspaceRoot}/scripts/postinstall"
+        },
+        {
+            "name": "Gatsby build",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
+            "cwd": "${workspaceFolder}/examples/test-site",
+            "args": [
+                "build"
+            ],
+            "stopOnEntry": false,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "sourceMaps": false,
+            "trace": true,
+            "console": "integratedTerminal"
         },
         {
             "name": "Gatsby develop",
@@ -81,21 +115,6 @@
             "windows": {
                 "program": "${workspaceFolder}/node_modules/jest/bin/jest",
             }
-        },
-        {
-            "name": "Gatsby build",
-            "type": "node",
-            "request": "launch",
-            "protocol": "inspector",
-            "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
-            "args": [
-                "build"
-            ],
-            "stopOnEntry": false,
-            "runtimeArgs": [
-                "--nolazy"
-            ],
-            "sourceMaps": false
         },
         {
             "name": "Launch Chrome",

@@ -1,3 +1,17 @@
+/**
+ * Copyright © 2020 Johnson & Johnson
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 describe('Link Toggle smoke tests', function () {
 
   before(function () {
@@ -6,16 +20,20 @@ describe('Link Toggle smoke tests', function () {
   })
 
 
-  const label = 'AT - Label'
+  const label = 'AT - Label -'
   const url = 'AT-Url'
-  const editedPostfix = '-edited'
+  const normilizedUrl = '/' + url + '/'
+  const editedPostfix = 'edited'
   const labelXpath = '//*[@data-linktoggle-element="link-toggle"]//*[@class="bodiless-inline-editable"]'
   const labelPreviewXpath = '//*[@data-linktoggle-element="link-toggle"]//span'
   const linkXpath = '//*[@data-linktoggle-element="link-toggle"]//a'
-  const linkIconXpath = '//*[@aria-label="Local Context Menu"]//*[@aria-label="Link"]'
-  const urlFieldXpath = '//form[@aria-label="Context Menu Link Form"]//input[@id="link-href"]'
-  const checkmarkIconLinkFormXpath = '//form[@aria-label="Context Menu Link Form"]//button[@aria-label="Submit"]'
-  const removeLinkXpath = '//form[@aria-label="Context Menu Link Form"]//button[text()="Remove Link"]'
+  const linkIconAddXpath = '//*[@aria-label="Local Context Menu"]//*[@aria-label="Add Link"]'
+  const urlFieldAddXpath = '//form[@aria-label="Context Menu Add Link Form"]//input[@id="link-href"]'
+  const checkmarkIconLinkAddFormXpath = '//form[@aria-label="Context Menu Add Link Form"]//button[@aria-label="Submit"]'
+  const linkIconEditXpath = '//*[@aria-label="Local Context Menu"]//*[@aria-label="Edit Link"]'
+  const urlFieldEditXpath = '//form[@aria-label="Context Menu Edit Link Form"]//input[@id="link-href"]'
+  const checkmarkIconLinkEditFormXpath = '//form[@aria-label="Context Menu Edit Link Form"]//button[@aria-label="Submit"]'
+  const removeLinkXpath = '//form[@aria-label="Context Menu Edit Link Form"]//button[text()="Remove Link"]'
 
 
   it('link toggle: 1 - checking the label without a url', () => {
@@ -40,16 +58,16 @@ describe('Link Toggle smoke tests', function () {
     cy.clickEdit();
     cy.xpath(labelXpath)
       .click();
-    cy.xpath(linkIconXpath)
+    cy.xpath(linkIconAddXpath)
       .click();
-    cy.xpath(urlFieldXpath)
+    cy.xpath(urlFieldAddXpath)
       .type(url);
-    cy.xpath(checkmarkIconLinkFormXpath)
+    cy.xpath(checkmarkIconLinkAddFormXpath)
       .click();
     cy.xpath(labelXpath)
       .should('have.text', label);
     cy.xpath(linkXpath)
-      .should('have.attr', 'href', '#' + url);
+      .should('have.attr', 'href', normilizedUrl);
   })
 
 
@@ -59,7 +77,7 @@ describe('Link Toggle smoke tests', function () {
     cy.xpath(labelPreviewXpath)
       .should('have.text', label);
     cy.xpath(linkXpath)
-      .should('have.attr', 'href', '#' + url);
+      .should('have.attr', 'href', normilizedUrl);
   })
 
 
@@ -69,23 +87,23 @@ describe('Link Toggle smoke tests', function () {
       .type(editedPostfix)
       .should('have.text', label + editedPostfix);
     cy.xpath(linkXpath)
-      .should('have.attr', 'href', '#' + url);
+      .should('have.attr', 'href', normilizedUrl);
   })
 
 
   it('link toggle: 6 - checking that a url value can be edited', () => {
     cy.xpath(labelXpath)
       .click();
-    cy.xpath(linkIconXpath)
+    cy.xpath(linkIconEditXpath)
       .click();
-    cy.xpath(urlFieldXpath)
+    cy.xpath(urlFieldEditXpath)
       .type(editedPostfix);
-    cy.xpath(checkmarkIconLinkFormXpath)
+    cy.xpath(checkmarkIconLinkEditFormXpath)
       .click();
     cy.xpath(labelXpath)
       .should('have.text', label + editedPostfix);
     cy.xpath(linkXpath)
-      .should('have.attr', 'href', '#' + url + editedPostfix);
+      .should('have.attr', 'href', normilizedUrl + editedPostfix + '/');
   })
 
 
@@ -95,14 +113,15 @@ describe('Link Toggle smoke tests', function () {
     cy.xpath(labelPreviewXpath)
       .should('have.text', label + editedPostfix);
     cy.xpath(linkXpath)
-      .should('have.attr', 'href', '#' + url + editedPostfix);
+      .should('have.attr', 'href', normilizedUrl + editedPostfix + '/');
   })
 
 
   it('link toggle: 8 - checking clicking the link in Preview mode', () => {
     cy.xpath(linkXpath)
       .click();
-    cy.url().should('include', url + editedPostfix);
+    cy.url().should('eq', Cypress.config().baseUrl + normilizedUrl + editedPostfix + '/');
+    cy.visit('/link-toggle/');
   })
 
 
@@ -110,7 +129,7 @@ describe('Link Toggle smoke tests', function () {
     cy.clickEdit();
     cy.xpath(labelXpath)
       .click();
-    cy.xpath(linkIconXpath)
+    cy.xpath(linkIconEditXpath)
       .click();
     cy.xpath(removeLinkXpath)
       .click();
@@ -128,7 +147,6 @@ describe('Link Toggle smoke tests', function () {
       .should('not.exist');
     cy.xpath(labelPreviewXpath)
       .should('have.text', label + editedPostfix);
-    cy.visit('/link-toggle/');
     cy.xpath(labelPreviewXpath)
       .click();
     cy.url().should('eq', Cypress.config().baseUrl + '/link-toggle/');

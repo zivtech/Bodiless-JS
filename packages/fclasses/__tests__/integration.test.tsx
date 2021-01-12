@@ -37,6 +37,9 @@ type ToutComponents = {
   Body: ComponentType<any>,
   Cta: ComponentType<any>,
 };
+
+type HOC = <P extends object>(Component: ComponentType<P>) => ComponentType<P>;
+
 const getToutComponents = applyDesign({
   Wrapper: stylable('div'),
   Title: stylable('h2'),
@@ -60,7 +63,7 @@ const Tout: FC<DesignableProps<ToutComponents>> = ({ design }) => {
   );
 };
 
-const asBasicTout = withDesign({
+const asBasicTout = withDesign<ToutComponents>({
   Wrapper: addClasses('font-sans'),
   Title: addClasses('text-sm text-green'),
   Body: addClasses('my-10'),
@@ -68,7 +71,10 @@ const asBasicTout = withDesign({
 });
 
 const asPinkTout = withDesign({
-  Cta: addClasses('bg-pink').removeClasses('bg-blue'),
+  Cta: flow(
+    addClasses('bg-pink'),
+    removeClasses('bg-blue'),
+  ) as HOC,
 });
 
 // const StylableH2 = stylable<HTMLProps<HTMLHeadingElement>>('h2');
@@ -80,9 +86,13 @@ const asStandardTout = withDesign({
 });
 
 const withGreenCtaText = withDesign({
-  Cta: addClasses('text-green').removeClasses('text-yellow'),
+  Cta: flow(
+    addClasses('text-green'),
+    removeClasses('text-yellow'),
+  ),
 });
 
+// @ts-ignore: Types of parameters are incompatible.
 const BasicTout = asBasicTout(Tout);
 const PinkTout = asPinkTout(BasicTout);
 // const StandardTout = asStandardTout(BasicTout);asSta
@@ -93,7 +103,7 @@ const StandardPinkAndGreenTout = flowRight(
   asPinkTout,
 )(BasicTout);
 
-function expectClasses(wrapper: Cheerio, selector: string, classes: string) {
+function expectClasses(wrapper: cheerio.Cheerio, selector: string, classes: string) {
   const normalize = (className: string) => className.split(' ').filter(Boolean).sort().join(' ');
   const found = normalize(wrapper.find(selector).attr('class')!);
   const expected = normalize(classes);
@@ -170,7 +180,7 @@ const ContextMenuButton = flow(
   withoutProps<VariantProps>(['isActive', 'isFirst', 'isEnabled']),
   addClasses('cursor-pointer pl-2 text-grey').flow,
   flowIf(hasProp('isActive'))(
-    addClasses('text-white').removeClasses('text-grey'),
+    flow(addClasses('text-white'), removeClasses('text-grey')),
   ),
   flowIf(hasProp('isFirst'))(
     removeClasses('pl-2'),

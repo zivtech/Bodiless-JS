@@ -14,23 +14,66 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
-import { withLinkToggle, Editable } from '@bodiless/components';
+import {
+  withBodilessLinkToggle, asEditable, asBodilessLink, DefaultNormalHref,
+} from '@bodiless/components';
+import { A, H2, H1 } from '@bodiless/fclasses';
+import { flowRight } from 'lodash';
+import { withNode, withNodeKey } from '@bodiless/core';
 import Layout from '../../../components/Layout';
-import EditableLink from '../../../components/Link';
+import {
+  asEditableLink, asLink, asHeader1, asHeader2,
+} from '../../../components/Elements.token';
 
-const LinkToggle = withLinkToggle(EditableLink);
+export const LinkToggle = flowRight(
+  withNodeKey('linktoggle1'),
+  withNode,
+  asEditable('text', 'Link Toggle'),
+  withBodilessLinkToggle(asEditableLink)('link'),
+  asLink,
+)(A);
+
+const stripSlashOverrides = {
+  normalizeHref: (href?: string) => new DefaultNormalHref(href, { trailingSlash: false })
+    .toString(),
+  instructions: 'This href will have trailing slashes stripped',
+};
+const Stripslashlink = asBodilessLink(
+  'strip-slash', undefined, () => stripSlashOverrides,
+)(A);
+
+const doNotNormalizeOverrides = {
+  normalizeHref: (href?: string) => href,
+  instructions: 'This href will be saved as is.',
+};
+const DoNotNormalizeLink = asBodilessLink(
+  'do-not-normalize', undefined, () => doNotNormalizeOverrides,
+)(A);
+
+const Title = asHeader1(H1);
+const SectionTitle = asHeader2(H2);
 
 export default (props: any) => (
   <Page {...props}>
     <Layout>
-      <h1 className="text-3xl font-bold">LinkToggle Demo Page</h1>
+      <Title>Link Demo Page</Title>
+      <SectionTitle>Link Toggle</SectionTitle>
       <p>
         Below is a piece of editable text which can be turned into a link.
         The link can be removed by clicking on the link button again and
         then clicking &quot;Remove Link&quot; on the edit form.
       </p>
       <div className="my-3" data-linktoggle-element="link-toggle">
-        <LinkToggle nodeKey="linktoggle1"><Editable nodeKey="text" placeholder="Link Toggle" /></LinkToggle>
+        <LinkToggle />
+      </div>
+      <SectionTitle>Different Href Normalizers</SectionTitle>
+      <p>The following link will normalize by stripping traling slash.</p>
+      <div className="my-3" data-stropslash-element="strip-slash">
+        <Stripslashlink>Strip Slash</Stripslashlink>
+      </div>
+      <p>The following link will not normalize the href.</p>
+      <div className="my-3" data-stropslash-element="strip-slash">
+        <DoNotNormalizeLink>Do Not Normalize</DoNotNormalizeLink>
       </div>
     </Layout>
   </Page>

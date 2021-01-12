@@ -35,9 +35,12 @@ export type Actions = {
 export type Getters = {
   getNode(path: string[]): any;
   getKeys(): string[];
+  hasError(): boolean;
+  getPagePath(): string;
+  getBaseResourcePath(collection: string): string;
 };
 
-type Path = string | string[];
+export type Path = string | string[];
 
 export type ContentNode<D> = {
   data: D;
@@ -45,14 +48,17 @@ export type ContentNode<D> = {
   delete: (path?: Path) => void;
   keys: string[];
   path: string[];
+  pagePath: string;
+  baseResourcePath: string;
   child<E extends object>(path: string): ContentNode<E>;
   peer<E extends object>(path: Path): ContentNode<E>;
+  hasError: () => boolean;
 };
 
 export class DefaultContentNode<D extends object> implements ContentNode<D> {
-  private actions: Actions;
+  protected actions: Actions;
 
-  private getters: Getters;
+  protected getters: Getters;
 
   path: string[];
 
@@ -60,7 +66,7 @@ export class DefaultContentNode<D extends object> implements ContentNode<D> {
     this.actions = actions;
     this.getters = getters;
     const path$1 = path || [];
-    this.path = Array.isArray(path$1) ? path$1 : [path$1];
+    this.path = Array.isArray(path$1) ? path$1 : path$1.split('$');
   }
 
   peer<E extends object>(path: Path) {
@@ -75,6 +81,16 @@ export class DefaultContentNode<D extends object> implements ContentNode<D> {
   get data() {
     const { getNode } = this.getters;
     return getNode(this.path) as D;
+  }
+
+  get pagePath() {
+    const { getPagePath } = this.getters;
+    return getPagePath();
+  }
+
+  get baseResourcePath() {
+    const { getBaseResourcePath } = this.getters;
+    return getBaseResourcePath('page');
   }
 
   setData(dataObj: D) {
@@ -94,16 +110,34 @@ export class DefaultContentNode<D extends object> implements ContentNode<D> {
     return getKeys();
   }
 
+  get hasError() {
+    const { hasError } = this.getters;
+    return hasError;
+  }
+
+  getGetters() {
+    return this.getters;
+  }
+
+  getActions() {
+    return this.actions;
+  }
+
   static dummy(path = 'root', initialData = {}) {
     const path$1 = Array.isArray(path) ? path : path.split('$');
     const store = new DummyContentNodeStore(initialData);
     const getNode = () => store.data;
     const getKeys = () => path$1;
+    const getPagePath = () => '/';
+    const getBaseResourcePath = () => '/';
+    const hasError = () => false;
     const setNode = (p: Path, d: any) => {
       store.setData(d);
     };
     const deleteNode = () => {};
-    const getters = { getNode, getKeys };
+    const getters = {
+      getNode, getKeys, hasError, getPagePath, getBaseResourcePath,
+    };
     const actions = { setNode, deleteNode };
     return new DefaultContentNode(actions, getters, path$1);
   }

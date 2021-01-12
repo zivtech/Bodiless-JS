@@ -19,18 +19,20 @@ import {
   SortableResizableUI,
   SortableResizableProps,
 } from '@bodiless/layouts';
+import { ResizeHandle, ResizeHandleRTL } from '@bodiless/ui';
 import Reresizable from './Reresizable';
-import ResizeHandle from './ResizeHandle';
 import DragHandle from './DragHandle';
 
 const ui: SortableResizableUI = {
   Reresizable,
   ResizeHandle,
+  ResizeHandleRTL,
   DragHandle,
 };
 
-const Wrapper: FC<SortableResizableProps & SortableElementProps> = props => (
-  <CleanWrapper ui={ui} {...props} />
-);
+const Wrapper: FC<SortableResizableProps & SortableElementProps> = ({ className, ...rest }) => {
+  const className$ = `${className} bl-relative`;
+  return <CleanWrapper ui={ui} className={className$} {...rest} />;
+};
 
 export default Wrapper;

@@ -1,5 +1,13 @@
-module.exports = {
+const { mergeWithBodilessConfigs } = require('@bodiless/gatsby-theme-bodiless/dist/tailwindcss');
 
+module.exports = mergeWithBodilessConfigs({
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
+  purge: [
+    './src/**/!(*.d).{ts,js,jsx,tsx}',
+  ],
   /*
   New for V1 - the legacy 'options' is now top-level
   */
@@ -13,7 +21,6 @@ module.exports = {
   */
 
   theme: {
-
     /*
     |---------------------------------------------------------------------------
     | Colors                                https://tailwindcss.com/docs/colors
@@ -56,7 +63,6 @@ module.exports = {
     | Class name: .{screen}:{utility}
     |
     */
-
 
     /*
     |---------------------------------------------------------------------------
@@ -171,10 +177,9 @@ module.exports = {
     |
     */
 
-    backgroundColor: theme => ({
-      ...theme('colors'),
-      'burger-menu': '#D7D7D7',
-    }),
+    // backgroundColor: theme => ({
+    //   ...theme('colors'),
+    // }),
 
     /*
     |---------------------------------------------------------------------------
@@ -298,13 +303,8 @@ module.exports = {
     | Class name: .min-w-{size}
     |
     */
-    // We need a min width here for the asToutOverlayTitle and asToutOverlayCta
-    minWidth: {
-      1: '1rem',
-      5: '5rem',
-      // Used by main menu items to match the UI wireframes
-      100: '100px',
-    },
+
+    // minWidth: {},
 
     /*
     |---------------------------------------------------------------------------
@@ -353,10 +353,7 @@ module.exports = {
     |
     */
 
-    maxHeight: {
-      // Used to limit the maximum height of menu
-      'menu-row': '1.75rem',
-    },
+    // maxHeight: {},
 
     /*
     |---------------------------------------------------------------------------
@@ -517,5 +514,6 @@ module.exports = {
   |
   */
 
-  plugins: [],
-};
+  plugins: [
+  ],
+});

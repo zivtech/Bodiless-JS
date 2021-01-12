@@ -1,6 +1,6 @@
 # Bodiless integration with platform.sh
 
-This package provides standard configuration files and helpehttps://github.com/johnsonandjohnson/Bodiless-JS/issues/65https://github.com/johnsonandjohnson/Bodiless-JS/issues/65r scripts which
+This package provides standard configuration files and helper scripts which
 make it easy for a bodiless site to be deployed to platform.sh.
 
 ## Setting up your project
@@ -20,7 +20,7 @@ To continue, you will need the following:
   ```
   platform login
   ```
-  You will directed to log in via a web browser
+  You will be directed to log in via a web browser
 - Execute
   ```
   platform project:list
@@ -83,7 +83,7 @@ Add the following variables:
 - env:APP_GIT_USER -- The user to access your upstream Git repository.
 - env:APP_GIT_USER_EMAIL -- THe user email for your upstream Git repository.
 - env:APP_GIT_PW -- The user password for your upstream Git repository.
-```
+
 
 > Be sure to specify `--sensitive true` for all credentials.
 
@@ -441,10 +441,7 @@ trigger an update of the edit environment by executing:
   ```
   platform ssh -e <env-id> 'bash platform.sh deploy'
   ```
-  Or, to force a fresh install (same as npm fresh):
-  ```
-  platform ssh -e <env-id> 'bash platform.sh fresh'
-  ```
+
   You may omit the "-e <env-id>" if you have the active branch checked out locally.
 
 #### Deleting an environment
@@ -598,6 +595,69 @@ In order to avoid redirect chains, pay attention on destination path protocol an
 
 The trailing slash should be appended to the configure item if platform environment adds trailing slash to url by default.
 see [Platform.sh Documentation Redirects](https://docs.platform.sh/configuration/routes/redirects.html)
+
+### Generate redirect rules for migration sites
+
+BodilessJS [Site Migration Tool](https://github.com/johnsonandjohnson/Bodiless-JS/tree/master/packages/bodiless-migration-tool) package comes with a feature that allows user to export site redirection into file. See [Tools/Migration](/#/Tools/Migration?id=configuration) for configuration.
+
+User can apply these exported redirect rules to routers.yaml before deploying to platform.sh.
+
+```yaml
+"https://{default}/":
+    type: upstream
+    upstream: "static:http"
+    redirects:
+      paths:
+        /image/redirect.png:
+          to: /image/placeholder.png
+          code: 301
+        /page2:
+          to: /page3
+          code: 301
+```
+
+## Using Fastly CDN
+
+Platform.sh integrates with Fastly via EZ platform for Fastly.  
+
+1. Obtain your Fastly Service ID & Key from Fastly.   
+1. Once Fastly Service ID & Key is obtained, these variables can be set at Master environment.
+    ```
+    platform variable:create -e master --level environment env:HTTPCACHE_PURGE_TYPE --value 'fastly'
+    platform variable:create -e master --level environment env:FASTLY_SERVICE_ID --value 'YOUR_ID_HERE'
+    platform variable:create -e master --level environment env:FASTLY_KEY --value 'YOUR_ID_HERE'
+    ```
+1. Verify or Update your `routes.yaml` to enable caching for your site by setting `enabled: true`
+    ```
+        cache:
+            enabled: true
+            cookies: []
+    ```
+1. Verify or Update your `.platform.app.yaml` expiration time for your files.
+    ```
+    web:
+        locations:
+            '/':
+                expires: 6h  
+    ```
+
+Once completed, the master env deployed on Platform.sh should be on Fastly CDN.  You may have to fine tune the expires setting for your static resources and set certain ones (ones identify not to change often such as font files) to longer to leverage browser caching.
+
+Platform.sh References:
+* [Set Fastly Credentials on Platform.sh](https://docs.platform.sh/frameworks/ibexa/fastly.html#set-credentials-on-platformsh)
+* [HTTP Cache](https://docs.platform.sh/configuration/routes/cache.html)
+* [Router Cache](https://docs.platform.sh/languages/php/tuning.html#ensure-that-the-router-cache-is-properly-configured)
+* [Expires](https://docs.platform.sh/configuration/app/web.html#locations)
+* [How to Guide: How to configure caching for static assets](https://community.platform.sh/t/how-to-configure-caching-for-static-assets/187)
+
+
+If there are issues or you need to troubleshoot, here are some good resources:
+* [Checking Fastly Cache](https://docs.fastly.com/en/guides/checking-cache)
+
+    ``` curl -svo /dev/null -H "Fastly-Debug:1" www.example.com/index.html ```
+* [Purging Fastly Cache](https://docs.fastly.com/api/purge)
+
+    ``` curl -X PURGE www.example.com/index.html ```
 
 ## How to load environment specific html snippets
 

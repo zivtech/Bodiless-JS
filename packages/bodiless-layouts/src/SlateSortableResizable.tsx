@@ -12,27 +12,32 @@
  * limitations under the License.
  */
 
-import React, { ComponentType } from 'react';
+import React, { ComponentType, FC, HTMLProps } from 'react';
 import { ResizeCallback } from 're-resizable';
 import { SortableElementProps } from 'react-sortable-hoc';
 import {
-  ContextProvider,
+  PageContextProvider,
   TMenuOptionGetter,
   useContextActivator,
   useEditContext,
   useActivateOnEffectActivator,
+  withContextActivator,
+  withLocalContextMenu,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
+import { flow } from 'lodash';
 import CleanWrapper, { Props as WrapperProps } from './SortableResizableWrapper';
 
 export type FinalUI = {
   Wrapper: ComponentType<WrapperProps & SortableElementProps>,
+  SnapIndicator: ComponentType<HTMLProps<HTMLDivElement>>|string,
 };
 export type UI = Partial<FinalUI>;
 const defaultUI: FinalUI = {
   Wrapper: CleanWrapper,
+  SnapIndicator: 'div',
 };
-const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });
+export const getUI = (ui: UI = {}) => ({ ...defaultUI, ...ui });
 
 type Props = {
   children: React.ReactNode;
@@ -48,56 +53,62 @@ type Props = {
     height?: string | number | undefined;
   };
   className: string;
-  getMenuOptions?: TMenuOptionGetter;
+  useGetMenuOptions: () => TMenuOptionGetter;
   onResizeStop?: ResizeCallback;
   onResize?: ResizeCallback;
   ui?: UI,
 };
 
-const SortableResizable = observer(({ children, ui, ...props }: Props) => {
-  const { onClick } = useContextActivator();
+type SortableResizableProps = Omit<Props, 'useGetMenuOptions'>;
+
+const SortableResizable$: FC<SortableResizableProps> = ({ children, ui, ...props }) => {
   // We wabt to activate if nessesary
-  useActivateOnEffectActivator(props.uuid);
-  const context = useEditContext();
+  const { uuid } = props;
+  useActivateOnEffectActivator(uuid);
+  const { isActive } = useEditContext();
   const { Wrapper } = getUI(ui);
   // @ts-ignore
   return (
     <Wrapper
-      isEnabled={context.isActive as boolean}
-      onClick={onClick}
+      isEnabled={isActive}
+      {...useContextActivator()}
       {...props}
     >
       {children}
     </Wrapper>
   );
-});
+};
+
+const SortableResizable = flow(
+  observer,
+  withContextActivator('onClick'),
+  withLocalContextMenu,
+)(SortableResizable$);
 
 const SlateSortableResizable = (props: Props) => {
   const {
     children,
     uuid,
-    getMenuOptions,
+    useGetMenuOptions,
     ...rest
   } = props;
 
   return (
-    <ContextProvider
-      name={`flexItem-${uuid}`}
+    <PageContextProvider
+      name="Flow Container Item"
       id={`flexItem-${uuid}`}
-      getMenuOptions={getMenuOptions}
+      getMenuOptions={useGetMenuOptions()}
     >
       <SortableResizable uuid={uuid} {...rest}>
         {children}
       </SortableResizable>
-    </ContextProvider>
+    </PageContextProvider>
   );
 };
 
 SlateSortableResizable.displayName = 'SlateSortableResizable';
 
 SlateSortableResizable.defaultProps = {
-  className: '',
-  getMenuOptions: () => [],
   onResize: () => {},
   defaultSize: {
     width: '',

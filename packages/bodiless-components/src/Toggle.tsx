@@ -12,9 +12,9 @@
  * limitations under the License.
  */
 
-import React, { Fragment, ComponentType } from 'react';
+import React, { Fragment, ComponentType, useMemo } from 'react';
 import {
-  useNode, TMenuOption, withMenuOptions, useEditContext,
+  useNode, TMenuOption, withMenuOptions, withOnlyProps,
 } from '@bodiless/core';
 import { observer } from 'mobx-react-lite';
 
@@ -45,37 +45,45 @@ const withToggleTo = <Q extends object>(OffComp: ComponentType<Q> | string) => (
   )
 );
 
-const withToggle = withToggleTo(Fragment);
-
-type TMenuOptionGetter = () => TMenuOption[];
+const withToggle = withToggleTo(withOnlyProps('key', 'children')(Fragment));
 
 type ToggleMenuOptions = {
   icon? : string;
+  label?: string,
 };
 
 const withToggleButton = (options? : ToggleMenuOptions) => {
-  const useGetMenuOptions = (): TMenuOptionGetter => {
+  const useMenuOptions = (): TMenuOption[] => {
     const icon = options ? options.icon : false;
+    const label = options ? options.label : undefined;
     const { setOn, isOn } = useAccessors();
-    // TODO: This should be a general useMenuHandler() utility exposed by bodiless core.
-    const context = useEditContext();
-    const asHandler = (action: Function) => () => {
-      action();
-      context.refresh();
-    };
 
-    return () => (
-      isOn() ? [] : [{
+    // We can return an invariant set of menu options bc state only depends
+    // on the mobx data store.
+    const menuOptions = useMemo((): TMenuOption[] => [
+      {
         icon: icon || 'toggle_off',
         name: 'Toggle',
-        handler: asHandler(() => setOn(true)),
+        label,
+        isHidden: () => isOn(),
+        handler: () => setOn(true),
         global: false,
         local: true,
-      }]
-    );
+        group: 'toggle-group',
+      },
+      {
+        name: 'toggle-group',
+        label,
+        isHidden: () => isOn(),
+        global: false,
+        local: true,
+        Component: 'group',
+      },
+    ], []);
+    return menuOptions;
   };
 
-  return withMenuOptions({ useGetMenuOptions, name: 'toggle' });
+  return withMenuOptions({ useMenuOptions, name: 'toggle' });
 };
 
 export const withToggleOnSubmit = <P extends object>(Component: ComponentType<P>) => (
@@ -92,7 +100,6 @@ type OnSubmitProps = {
 type Props<P> = {
   wrap: (values: any) => void;
 } & Omit<P, keyof OnSubmitProps>;
-
 
 const withWrapOnSubmit = <P extends object>(Component: ComponentType<P & OnSubmitProps>) => (
   ({ wrap, ...rest }: Props<P>) => <Component {...rest as P} onSubmit={wrap} />

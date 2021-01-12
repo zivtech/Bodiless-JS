@@ -15,40 +15,22 @@
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import React, { ComponentType, HTMLProps } from 'react';
 import CleanReresizable, { ResizeCallback, ResizableProps } from 're-resizable';
-import { SnapData } from '../FlexboxGrid/utils/appendTailwindWidthClass';
-
-const ENABLED_DRAG_SIDES = {
-  top: false,
-  right: true,
-  bottom: false,
-  left: false,
-  topRight: false,
-  bottomRight: false,
-  bottomLeft: false,
-  topLeft: false,
-};
-const DISABLED_DRAG_SIDES = {
-  top: false,
-  right: false,
-  bottom: false,
-  left: false,
-  topRight: false,
-  bottomRight: false,
-  bottomLeft: false,
-  topLeft: false,
-};
+import { SnapData } from '../FlowContainer/utils/appendTailwindWidthClass';
+import { DIRECTIONS } from '../withDirection/withDirection';
 
 type FinalUI = {
-  DragHandle: ComponentType<HTMLProps<HTMLSpanElement>> | string,
-  ResizeHandle: ComponentType<HTMLProps<HTMLSpanElement>> | string,
-  Reresizable: ComponentType<ResizableProps & { isEnabled?: boolean }>,
+  DragHandle: ComponentType<HTMLProps<HTMLSpanElement>> | string;
+  ResizeHandle: ComponentType<HTMLProps<HTMLDivElement>> | string;
+  ResizeHandleRTL: ComponentType<HTMLProps<HTMLDivElement>> | string;
+  Reresizable: ComponentType<ResizableProps & { isEnabled?: boolean }>;
 };
 
 export type UI = Partial<FinalUI>;
 
 const defaultUI: FinalUI = {
   DragHandle: 'span',
-  ResizeHandle: 'span',
+  ResizeHandle: 'div',
+  ResizeHandleRTL: 'div',
   Reresizable: CleanReresizable,
 };
 
@@ -67,6 +49,7 @@ export type Props = {
   };
   onResizeStop?: ResizeCallback;
   ui?: UI;
+  direction?: string;
 };
 
 const Handle = SortableHandle(({ component: Component, ...rest }: any) => (
@@ -75,13 +58,18 @@ const Handle = SortableHandle(({ component: Component, ...rest }: any) => (
 
 const SortableResizableWrapper = SortableElement((props: Props) => {
   const {
-    isEnabled, children, className, ui, ...resizableProps
+    isEnabled,
+    children,
+    className,
+    ui,
+    direction,
+    ...resizableProps
   } = props;
-
-  const { DragHandle, ResizeHandle, Reresizable } = getUI(ui);
-
+  const {
+    DragHandle, ResizeHandle, ResizeHandleRTL, Reresizable,
+  } = getUI(ui);
   const childrenWithDragHandle = (
-    <React.Fragment>
+    <>
       <Handle
         component={DragHandle}
         style={{
@@ -89,18 +77,30 @@ const SortableResizableWrapper = SortableElement((props: Props) => {
         }}
       />
       {children}
-    </React.Fragment>
+    </>
   );
+  const ENABLED_DRAG_SIDES = {
+    top: false,
+    right: direction !== DIRECTIONS.RTL,
+    bottom: false,
+    left: direction === DIRECTIONS.RTL,
+    topRight: false,
+    bottomRight: false,
+    bottomLeft: false,
+    topLeft: false,
+  };
 
   return (
     <Reresizable
-      enable={isEnabled ? ENABLED_DRAG_SIDES : DISABLED_DRAG_SIDES}
+      enable={ENABLED_DRAG_SIDES}
       isEnabled={isEnabled}
       scale={1}
       className={className}
-      handleComponent={{
-        right: ResizeHandle,
-      }}
+      handleComponent={
+        direction === DIRECTIONS.RTL
+          ? { left: ResizeHandleRTL }
+          : { right: ResizeHandle }
+      }
       {...resizableProps}
     >
       {childrenWithDragHandle}

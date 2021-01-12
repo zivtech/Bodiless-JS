@@ -24,6 +24,8 @@ const defaultUI = {
   Overlay: 'div',
   CloseButton: 'span',
   ClickableWrapper: 'button',
+  PreviewWrapper: 'div',
+  TextSelectorWrapper: 'div',
 };
 
 export type UI = {
@@ -32,9 +34,14 @@ export type UI = {
   Overlay?: ComponentType<HTMLProps<HTMLDivElement>> | string;
   CloseButton?: ComponentType<HTMLProps<HTMLSpanElement>> | string;
   ClickableWrapper?: ComponentType<HTMLProps<HTMLButtonElement>> | string;
+  TextSelectorWrapper?: ComponentType<HTMLProps<HTMLDivElement>> | string;
 };
 
-export const getUI = (ui: UI = {}) => ({
+export type PreviewUI = {
+  PreviewWrapper?: ComponentType<HTMLProps<HTMLDivElement>> | string;
+};
+
+export const getUI = (ui: UI & PreviewUI = {}) => ({
   ...defaultUI,
   ...ui,
 });

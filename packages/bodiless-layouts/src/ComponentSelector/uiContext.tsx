@@ -12,17 +12,16 @@
  * limitations under the License.
  */
 
-
 import React from 'react';
 import { FinalUI } from './types';
 
 export const defaultUI: FinalUI = {
   MasterWrapper: 'div',
   FlexSection: 'div',
-  FlexboxEmpty: 'div',
+  FlexSectionFull: 'div',
+  FlowContainerEmpty: 'div',
   ComponentSelectorWrapper: 'div',
   SubmitButton: 'button',
-  AllCheckboxWrapper: 'div',
   AccordionWrapper: 'div',
   AccordionCheckboxWrapper: 'div',
   AccordionItemWrapper: 'a',
@@ -37,9 +36,11 @@ export const defaultUI: FinalUI = {
   ItemBoxWrapper: 'div',
   ItemBox: 'div',
   GridListBox: 'div',
+  GridListBoxWrapper: 'div',
   GridListBoxInner: 'div',
   TitleWrapper: 'span',
   ComponentTitleWrapper: 'h3',
+  ComponentLinkWrapper: 'a',
   IconWrapper: 'span',
   ComponentDescriptionWrapper: 'div',
   ComponentDescriptionStyle: 'div',
