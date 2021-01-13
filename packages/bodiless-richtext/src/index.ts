@@ -14,8 +14,8 @@
 
 export {
   default as RichText,
-  RichTextProps,
 } from './RichText';
+export { asPreview } from './RichTextPreview';
 export { default as asFloat } from './Float';
 export * from './RichTextItemGetters';
 export * from './RichTextItemSetters';
@@ -24,3 +24,5 @@ export * from './plugin-factory';
 export * from './components';
 export * from './core';
 export * from './meta';
+export * from './RichTextPlain';
+export * from './serializers';

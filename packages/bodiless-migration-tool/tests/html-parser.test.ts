@@ -243,7 +243,6 @@ describe('relative urls to internal links', () => {
   });
 });
 
-
 describe('absolute urls to relative urls', () => {
   test('absolute urls to relative urls', () => {
     const pageUrl = 'http://localhost/';
@@ -343,6 +342,16 @@ describe('transforming html element text to attribute', () => {
     htmlParser.transformElementTextToAttribute('script', 'innerHTML');
     const result = htmlParser.getBodyHtml();
     expect(result).toBe(expected);
+  });
+  describe('when html element text is empty', () => {
+    it('should not create an attribute with empty value', () => {
+      const input = '<body><script></script></body>';
+      const expected = '<script></script>';
+      const htmlParser = new HtmlParser(input);
+      htmlParser.transformElementTextToAttribute('script', 'innerHTML');
+      const result = htmlParser.getBodyHtml();
+      expect(result).toBe(expected);
+    });
   });
 });
 
@@ -569,7 +578,7 @@ describe('html5 <base> tag', () => {
 });
 
 describe('replacing strings in page source html', () => {
-  test('should preplace malformed string', () => {
+  it('should replace malformed string', () => {
     const sourceHtml = `
       <div id="search""></div>
    `;
@@ -577,7 +586,7 @@ describe('replacing strings in page source html', () => {
       <div id="search"></div>
     `;
     const htmlParser = new HtmlParser(sourceHtml);
-    htmlParser.replaceString('" ">', '">');
+    htmlParser.replaceString('"">', '">');
     const processedHtml = htmlParser.getBodyHtml();
     expect(htmlclean(processedHtml)).toBe(htmlclean(expectedHtml));
   });

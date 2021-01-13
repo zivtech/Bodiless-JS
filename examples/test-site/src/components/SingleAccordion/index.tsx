@@ -13,30 +13,32 @@
  */
 
 import { flow } from 'lodash';
-import {
-  SingleAccordionClean,
-  asTestableAccordion,
-} from '@bodiless/organisms';
-import {
-  withNode,
-} from '@bodiless/core';
+import { asTestableAccordion, AccordionClean, withDisableExpandOnClick } from '@bodiless/organisms';
+import { withNode } from '@bodiless/core';
 import { withDesign } from '@bodiless/fclasses';
-import asSingleAccordionDefaultStyle from './token';
-import { asEditorSimple, asEditorBasic } from '../Editors';
+import asAccordionDefaultStyle from './token';
+import { withEditorSimple, withEditorBasic } from '../Editors';
 
 const asSingleAccordion = flow(
   withNode,
   withDesign({
-    Title: asEditorSimple('title', 'Accordion Title'),
-    Body: asEditorBasic(
-      'body',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.',
-    ),
+    Title: withDesign({
+      Label: flow(
+        withEditorSimple('title', 'Accordion Title'),
+        withDisableExpandOnClick,
+      ),
+    }),
+    Body: withDesign({
+      Content: withEditorBasic(
+        'body',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.',
+      ),
+    }),
   }),
-  asSingleAccordionDefaultStyle,
+  asAccordionDefaultStyle,
   asTestableAccordion,
 );
 
-const SingleAccordion = asSingleAccordion(SingleAccordionClean);
+const SingleAccordion = asSingleAccordion(AccordionClean);
 
 export default SingleAccordion;

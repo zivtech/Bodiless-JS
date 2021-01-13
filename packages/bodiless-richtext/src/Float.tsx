@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import React, { ComponentType } from 'react';
+import React, { ComponentType, useMemo } from 'react';
 import { flowRight } from 'lodash';
 import {
   withContextActivator,
@@ -38,17 +38,9 @@ const withFloatWrapper = <P extends object> (Component:ComponentType<P>) => obse
   return <div className={className}><Component {...props as P} /></div>;
 });
 
-
-// Type of the props accepted by this component.
-// Exclude the href from the props accepted as we write it.
-// An example of providing a useGetMenuOptions hook to withEditButton.
-// This hook will be chained with the one created by withEditButton so that
-// additional menu options can be added.
-
-
-const useGetMenuOptions = () => {
+const useMenuOptions = () => {
   const { node } = useNode<Data>();
-  return () => ([
+  const menuOptions = useMemo(() => ([
     {
       icon: 'format_align_left',
       name: 'Float Left',
@@ -65,17 +57,18 @@ const useGetMenuOptions = () => {
     },
     {
       icon: 'format_align_right',
-      name: 'Float Rigt',
+      name: 'Float Right',
       handler: () => node.setData({ float: 'right' }),
       local: true,
       global: true,
     },
-  ]);
+  ]), []);
+  return menuOptions;
 };
 const asFloat = flowRight(
   withFloatWrapper,
   ifEditable(
-    withMenuOptions({ useGetMenuOptions, name: 'float' }),
+    withMenuOptions({ useMenuOptions, name: 'float' }),
     withLocalContextMenu,
     withContextActivator('onClick'),
   ),

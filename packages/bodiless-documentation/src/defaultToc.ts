@@ -14,14 +14,21 @@
 
 const toc = {
   About: {
-    'CorePrinciples.md': '',
     'GettingStarted.md': '',
-    'SiteBuildBasics.md': '',
+    'CorePrinciples.md': '',
   },
+  ContentEditorUserGuide: {},
   Design: {},
-  Components: {},
+  Components: {
+    'YouTube.md': 'YouTube',
+  },
   Tools: {},
   Development: {
+    Guides: {
+      'IntroToBodilessConcepts.md': '',
+      'DesignElementConcepts.md': '',
+      'CreatingBodilessComponents.md': '',
+    },
     'Packages.md': '',
     Architecture: {
       'Data.md': '',

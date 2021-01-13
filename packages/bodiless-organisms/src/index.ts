@@ -12,40 +12,15 @@
  * limitations under the License.
  */
 
-import Slider from './components/Slider';
-
-import {
-  asBurgerSubMenu,
-  asEditableBurgerSubMenu,
-  BurgerMenuClean,
-  withBurgerSubmenu,
-} from './components/BurgerMenu';
-
 export {
   SingleAccordion,
   SingleAccordionClean,
   asSingleAccordion,
-  asTestableAccordion,
+  asTestableSingleAccordion,
 } from './components/SingleAccordion';
 
 export {
-  asEditableMainMenu,
-  asEditableMenu,
-  asEditableMainSubMenu,
-  asHorizontalMenu,
-  asHorizontalSubMenu,
-  asMainMenu,
-  asMainSubMenu,
-  asMenu,
-  MenuLink,
-  withSubmenu,
-} from './components/MainMenu/index';
-
-
-export {
-  Tout,
   ToutClean,
-  asEditableTout,
   asTestableTout,
 } from './components/Touts';
 
@@ -67,10 +42,51 @@ export {
 } from './components/Touts.tokens';
 
 export {
-  asBurgerSubMenu,
-  asEditableBurgerSubMenu,
-  BurgerMenuClean,
-  withBurgerSubmenu,
-};
+  FilterByGroupClean,
+  asTestableFilterByGroup,
+  asFilterableByGroup,
+  withFBGSuggestions,
+  useFilterByGroupContext,
+  withTagProps,
+} from './components/FilterByGroup';
 
-export { Slider };
+export {
+  AccordionClean,
+  useAccordionContext,
+  asAccordionWrapper,
+  asAccodionTitle,
+  asAccordionBody,
+  asTestableAccordion,
+  isAccordionExpanded,
+  isAccordionContracted,
+  withDisableExpandOnClick,
+} from './components/Accordion';
+
+export {
+  BCarousel,
+  BAutoCarousel,
+  BCarouselClean,
+  asEditableCarousel,
+} from './components/Carousel';
+
+export * from './components/Menu';
+
+export { default as Embed } from './components/Embed';
+export {
+  asResponsive21By9Embed,
+  asResponsive16By9Embed,
+  asResponsive4By3Embed,
+  asResponsive1By1Embed,
+} from './components/Embed.tokens';
+
+export {
+  asBaseResponsiveIframe,
+  asResponsiveIframe,
+} from './components/ResponsiveIframe';
+export {
+  asBaseResponsiveYouTube,
+  asResponsiveYouTube,
+} from './components/ResponsiveYouTube';
+
+export { default as SocialShare } from './components/SocialShare';
+export type { SocialShareProvider } from './components/SocialShare/types';

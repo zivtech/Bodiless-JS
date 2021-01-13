@@ -1,15 +1,33 @@
+/**
+ * Copyright © 2020 Johnson & Johnson
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 describe('Single Accordion smoke tests', function () {
 
   before(function () {
     cy.visit('/accordion/')
-    cy.clickEdit()
+    cy.toggleEditMode()
+  })
+
+  after(function() {
+    cy.togglePreviewMode();
   })
 
   const title = 'AT - Title 1'
   const body = 'AT - Description 1'
   const editedPostfix = ' - edited'
-  const titleFirstXpath = '//*[@id="accordion-1"]//*[@data-accordion-element="accordion-title"]'
-  const bodyFirstXpath = '//*[@id="accordion-1"]//*[@data-accordion-element="accordion-body"]'
+  const titleFirstXpath = '//*[@id="accordion-1"]//*[@data-accordion-element="accordion-title"]//*[@data-slate-editor="true"]'
+  const bodyFirstXpath = '//*[@id="accordion-1"]//*[@data-accordion-element="accordion-body"]//*[@data-slate-editor="true"]'
   const plusIconFirstXpath = '//*[@id="accordion-1"]//*[@data-accordion-icon="expand"]'
   const minusIconFirstXpath = '//*[@id="accordion-1"]//*[@data-accordion-icon="collapse"]'
   const bodySecondXpath = '//*[@id="accordion-2"]//*[@data-accordion-element="accordion-body"]'
@@ -18,16 +36,17 @@ describe('Single Accordion smoke tests', function () {
 
 
   it('accordions: 1 - filling in Title in 1st accordion', () => {
-    cy.xpath(titleFirstXpath)
-      .type(title)
+    cy.getEditor(titleFirstXpath)
+      .typeInSlate(title)
+    cy.getEditor(titleFirstXpath)
       .should('have.text', title)
   })
 
 
   it('accordions: 2 - filling in Body in 1st accordion', () => {
-    cy.xpath(bodyFirstXpath)
-      .click()
-      .type(body)
+    cy.getEditor(bodyFirstXpath)
+      .typeInSlate(body)
+    cy.getEditor(bodyFirstXpath)
       .should('have.text', body)
   })
 
@@ -107,16 +126,17 @@ describe('Single Accordion smoke tests', function () {
 
 
   it('accordions: 9 - editing Title in the 1st accordion', () => {
-    cy.xpath(titleFirstXpath)
-      .type(editedPostfix)
+    cy.getEditor(titleFirstXpath)
+      .typeInSlate(editedPostfix)
+    cy.getEditor(titleFirstXpath)
       .should('have.text', title + editedPostfix)
   })
 
 
   it('accordions: 10 - editing Body in the 1st accordion', () => {
-    cy.xpath(bodyFirstXpath)
-      .click()
-      .type(editedPostfix)
+    cy.getEditor(bodyFirstXpath)
+      .typeInSlate(editedPostfix)
+    cy.getEditor(bodyFirstXpath)
       .should('have.text', body + editedPostfix)
   })
 

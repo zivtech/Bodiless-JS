@@ -17,10 +17,15 @@ import { DefaultContentNode } from '../src/ContentNode';
 const mockStore = () => {
   const getNode = jest.fn();
   const setNode = jest.fn();
+  const hasError = jest.fn();
   const getKeys = jest.fn(() => ['foo']);
+  const getPagePath = jest.fn(() => '/');
+  const getBaseResourcePath = jest.fn(() => '/');
   const deleteNode = jest.fn();
   const actions = { setNode, deleteNode };
-  const getters = { getKeys, getNode };
+  const getters = {
+    getKeys, getNode, hasError, getPagePath, getBaseResourcePath,
+  };
   return { actions, getters };
 };
 
@@ -33,6 +38,12 @@ type D2 = {
 };
 
 describe('ContentNode', () => {
+  it('Correctly splits a compound path', () => {
+    const { actions, getters } = mockStore();
+    const node = new DefaultContentNode(actions, getters, 'foo$bar$baz');
+    expect(node.path).toEqual(['foo', 'bar', 'baz']);
+  });
+
   it('Invokes getters and setters correctly', () => {
     const keys = [Math.random().toString(), Math.random().toString()];
     const { actions, getters } = mockStore();

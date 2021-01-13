@@ -1,5 +1,5 @@
 /**
- * Copyright © 2019 Johnson & Johnson
+ * Copyright © 2020 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,21 +13,21 @@
  */
 
 import React from 'react';
-import Helmet from 'react-helmet';
-import { flow, flowRight } from 'lodash';
+import { flow } from 'lodash';
 import { graphql } from 'gatsby';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 import { BVRatingsSummary, BVReviews } from '@bodiless/bv';
 import { withNode } from '@bodiless/core';
 import {
+  addProps,
   withDesign,
   replaceWith,
   removeClasses,
 } from '@bodiless/fclasses';
 import {
-  SingleAccordionClean,
+  AccordionClean,
+  asTestableAccordion,
 } from '@bodiless/organisms';
-import { withEvent, asBodilessHelmet } from '@bodiless/components';
 import Layout from '../components/Layout';
 import {
   ProductTitle,
@@ -37,59 +37,79 @@ import {
   ProductDetailImageWrapper,
   ProductDetailAccWrapper,
 } from '../components/Product';
-import { FlexBoxDefault } from '../components/Flexbox';
-import { asEditorBasic } from '../components/Editors';
-import asSingleAccordionDefaultStyle from '../components/SingleAccordion/token';
+import { FlowContainerDefault } from '../components/FlowContainer';
+import { withEditorBasic } from '../components/Editors';
+import asAccordionDefaultStyle from '../components/SingleAccordion/token';
+import GTMDataLayerProductHelmet from '../components/GTM/productViewed';
+import SocialShare from '../components/SocialShare';
 
 // Do not allow editors to set accordion titles.
-const NonEditableTitle = ({ producttitle }) => (
-  <h2>
+const NonEditableTitle = ({ producttitle, ...rest }) => (
+  <h2 {...rest}>
     {producttitle}
   </h2>
 );
 
-const asProductAccordion = title => flow(
-  withNode,
-  asSingleAccordionDefaultStyle,
+const asTestableProductAccordion = label => flow(
+  asTestableAccordion,
   withDesign({
-    Wrapper: removeClasses('p-1'),
-    Title: replaceWith(() => <NonEditableTitle producttitle={title} />),
-    Body: asEditorBasic(
-      'body',
-      'Enter Product Information',
-    ),
+    Wrapper: addProps({ 'aria-label': label }),
   }),
 );
 
-const ProductOverAcc = asProductAccordion('Overview')(SingleAccordionClean);
-const ProductDirsAcc = asProductAccordion('Directions')(SingleAccordionClean);
-const ProductHowAcc = asProductAccordion('How To Use')(SingleAccordionClean);
-const ProductNutAcc = asProductAccordion('Nutrition')(SingleAccordionClean);
-const ProductActIngAcc = asProductAccordion('Active Ingredients')(SingleAccordionClean);
-const ProductInactIngAcc = asProductAccordion('Inactive Ingredients')(SingleAccordionClean);
-const ProductStorAcc = asProductAccordion('Storage')(SingleAccordionClean);
-const ProductWarnAcc = asProductAccordion('Warnings')(SingleAccordionClean);
+const asProductAccordion = title => flow(
+  withNode,
+  asAccordionDefaultStyle,
+  withDesign({
+    Wrapper: removeClasses('p-1'),
+    Title: withDesign({
+      Wrapper: removeClasses('text-2xl'),
+      Label: replaceWith(props => <NonEditableTitle {...props} producttitle={title} />),
+    }),
+    Body: withDesign({
+      Content: withEditorBasic(
+        'body',
+        'Enter Product Information',
+      ),
+    }),
+  }),
+  asTestableProductAccordion(title),
+);
 
-const ExampleGTMHelmetEvent = flowRight(
-  asBodilessHelmet('datalayer'),
-  // On product pages, we may add product related datalayer info:
-  withEvent('digitalData', { event: 'Product Viewed' }, 'product-viewed'),
-)(Helmet);
+const ProductOverAcc = asProductAccordion('Overview')(AccordionClean);
+const ProductDirsAcc = asProductAccordion('Directions')(AccordionClean);
+const ProductHowAcc = asProductAccordion('How To Use')(AccordionClean);
+const ProductNutAcc = asProductAccordion('Nutrition')(AccordionClean);
+const ProductActIngAcc = asProductAccordion('Active Ingredients')(AccordionClean);
+const ProductInactIngAcc = asProductAccordion('Inactive Ingredients')(AccordionClean);
+const ProductStorAcc = asProductAccordion('Storage')(AccordionClean);
+const ProductWarnAcc = asProductAccordion('Warnings')(AccordionClean);
+
+const asTestableRatingsSummary = addProps({ 'data-product-element': 'ratings-summary' });
+const ProductRatingsSummary = asTestableRatingsSummary(BVRatingsSummary);
+
+const asTestableProductReviews = addProps({ 'data-product-element': 'reviews' });
+const ProductReviews = asTestableProductReviews(BVReviews);
+
+const asTestableFlowContainer = withDesign({
+  Wrapper: addProps({ 'data-product-element': 'flow-container' }),
+});
+const ProductFlowContainer = asTestableFlowContainer(FlowContainerDefault);
 
 export default (props: any) => (
   <Page {...props}>
     <Layout>
-      <ExampleGTMHelmetEvent />
+      <GTMDataLayerProductHelmet />
       <SectionMargin>
         <div className="flex flex-wrap md:items-end md:flex-row-reverse">
-          <div className="w-full md:flex-1 md:flex-grow-0 md:flex-shrink-0 text-right"><p>Placeholder_for_Share</p></div>
+          <SocialShare />
           <div className="w-full md:flex-1">
             <ProductTitle />
           </div>
         </div>
       </SectionMargin>
       <SectionMargin>
-        <BVRatingsSummary />
+        <ProductRatingsSummary />
       </SectionMargin>
       <SectionMargin>
         <div className="flex flex-wrap">
@@ -109,10 +129,10 @@ export default (props: any) => (
         </div>
       </SectionMargin>
       <SectionMargin>
-        <BVReviews />
+        <ProductReviews />
       </SectionMargin>
       <SectionNegXMargin>
-        <FlexBoxDefault
+        <ProductFlowContainer
           nodeKey="product_touts"
           maxComponents={3}
         />

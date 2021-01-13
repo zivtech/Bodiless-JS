@@ -12,27 +12,39 @@
  * limitations under the License.
  */
 
-import ContextMenu, { getUI } from './ContextMenu';
+import ContextMenu from './ContextMenu';
 import ContextWrapper from './ContextWrapper';
 import LocalContextMenu from './LocalContextMenu';
 import PageEditor from './PageEditor';
 import StaticPage from './StaticPage';
-import {
+import PageOverlay from './PageOverlay';
+import ContextMenuProvider, { getUI } from './ContextMenuContext';
+import type {
   IContextMenuProps as ContextMenuProps,
   ButtonVariantProps,
-  UI as ContextMenuUI,
+  ContextMenuUI,
 } from '../Types/ContextMenuTypes';
-import { Props as ContextWrapperProps } from '../Types/ContextWrapperTypes';
+import type { Props as ContextWrapperProps } from '../Types/ContextWrapperTypes';
+import ReactTagsField, { ReactTagsFieldProps, TagType, BodilessTag } from './ReactTagsField';
 
 export {
   ContextMenu,
-  ContextMenuProps,
-  ContextMenuUI,
+  ContextMenuProvider,
   getUI,
-  ButtonVariantProps,
   ContextWrapper,
-  ContextWrapperProps,
   LocalContextMenu,
   PageEditor,
   StaticPage,
+  PageOverlay,
+  ReactTagsField,
+  ReactTagsFieldProps,
+  BodilessTag,
+  TagType,
+};
+
+export type {
+  ContextMenuProps,
+  ContextMenuUI,
+  ButtonVariantProps,
+  ContextWrapperProps,
 };

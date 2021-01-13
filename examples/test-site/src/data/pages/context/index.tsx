@@ -20,11 +20,13 @@ import { observer } from 'mobx-react-lite';
 import { flow } from 'lodash';
 import {
   flowIf, hasProp, addClasses, withoutProps, StylableProps,
+  removeClasses,
+  A,
 } from '@bodiless/fclasses';
 import { Div } from '@bodiless/ui';
 import {
   TMenuOptionGetter,
-  ContextProvider,
+  PageContextProvider,
   withNode,
   useNodeDataHandlers,
   useEditContext,
@@ -34,11 +36,14 @@ import {
   ContextWrapper,
   ContextWrapperProps,
 } from '@bodiless/core';
-import { Editable, Image } from '@bodiless/components';
+import { Editable } from '@bodiless/components';
+import { Image } from '@bodiless/components-ui';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 
 import Layout from '../../../components/Layout';
-import EditableLink from '../../../components/Link';
+import { asEditableLink } from '../../../components/Elements.token';
+
+const EditableLink = asEditableLink()(A);
 
 type Values = { text: string };
 const demoForm = (text: string) => contextMenuForm<Values>({
@@ -77,7 +82,10 @@ const ui = {
     withoutProps<VariantProps>(['isActive']),
     addClasses('border border-blue m-2 p-2').flow,
     flowIf(hasProp('isActive'))(
-      addClasses('border-red').removeClasses('border-blue'),
+      flow(
+        addClasses('border-red'),
+        removeClasses('border-blue'),
+      ),
     ),
   )(Div),
 };
@@ -107,14 +115,14 @@ const EditableBox: React.FC<BoxProps> = ({
   children,
   className,
 }) => (
-  <ContextProvider
+  <PageContextProvider
     getMenuOptions={getMenuOptions || emptyMenuOptionsGetter}
     name={name}
   >
     <LocalContextMenu>
       <StaticBox className={className}>{children}</StaticBox>
     </LocalContextMenu>
-  </ContextProvider>
+  </PageContextProvider>
 );
 const Box: React.FC<BoxProps> = observer(props => {
   const { isEdit } = useEditContext();

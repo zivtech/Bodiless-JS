@@ -12,18 +12,30 @@
  * limitations under the License.
  */
 
-import React, { ComponentType } from 'react';
-import { flowRight, pick, flow } from 'lodash';
+import React, {
+  ComponentType,
+  useMemo,
+  FC,
+  useRef,
+} from 'react';
+import isEqual from 'react-fast-compare';
 import {
-  ifEditable,
+  flowRight, pick, flow, isEmpty,
+} from 'lodash';
+import { createEditor, Editor } from 'slate';
+import type { Element } from 'slate';
+import {
+  Slate, withReact, useSlate, ReactEditor,
+} from 'slate-react';
+import { observer } from 'mobx-react-lite';
+import {
   useEditContext,
   useContextActivator,
   withNode,
   withMenuOptions,
-  withoutProps,
+  ifToggledOn,
+  useUUID,
 } from '@bodiless/core';
-import { BasicEditorProps, Plugin } from 'slate-react';
-import { SchemaProperties } from 'slate';
 import {
   designable,
   H1,
@@ -39,7 +51,10 @@ import {
   extendDesign,
   Design,
   DesignableComponents,
+  withDisplayName,
+  Fragment,
 } from '@bodiless/fclasses';
+import { withHistory } from 'slate-history';
 import {
   withSlateEditor,
   Content,
@@ -51,16 +66,12 @@ import {
   getPlugins,
   getHoverButtons,
   getGlobalButtons,
-  getSchema,
   getSelectorButtons,
+  getInlineButtons,
 } from './RichTextItemGetters';
-import { withId, asMark } from './RichTextItemSetters';
-import {
-  RichTextComponents, RichTextComponent,
-} from './Type';
+import useKeyBoardShortcuts from './useKeyBoardShortcuts';
 import TextSelectorButton from './components/TextSelectorButton';
 import { uiContext, getUI, UI } from './RichTextContext';
-import defaultValue from './default-value';
 import {
   withBoldMeta,
   withSuperScriptMeta,
@@ -75,6 +86,17 @@ import {
   withHeader2Meta,
   withHeader3Meta,
 } from './meta';
+import withDefaults from './withDefaults';
+import { withPreview } from './RichTextPreview';
+import withDataMigrator from './withDataMigrator';
+import withHtmlPaste from './withHtmlPaste';
+import type {
+  RichTextProps,
+  RichTextComponents,
+  EditorContext,
+  Plugin,
+} from './Type';
+import useInitialValue from './useInitialValue';
 
 type WithSlateSchemaTypeProps = {
   schema: object,
@@ -103,26 +125,33 @@ const withSlateSchema = <P extends object>(Component: ComponentType<P>) => (
 const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (props: P) => {
   const previousSlateContext = useSlateContext();
   const previousEditorProps = previousSlateContext!.editorProps;
-  const context = useEditContext();
-  const { onClick } = useContextActivator();
+
+  // TODO: The following onCHange handler is only necessary if the menu options provided
+  // by this editor depend on the state of the editor. If this is ever the case, we will
+  // need to add logic to prevent the context from refreshing on *every* change, and
+  // only trigger refresh when necxessary.
+  // NOTE: As of this commit, refresh has been deprecated, and this may no longer
+  // be necessary.
+  // const context = useEditContext();
   // tslint:disable-next-line: ter-arrow-parens
-  const onChange: BasicEditorProps['onChange'] = change => {
-    if (typeof previousEditorProps.onChange === 'function' && change) {
-      previousEditorProps.onChange(change);
-    }
-    context.refresh();
-  };
+  // const onChange: BasicEditorProps['onChange'] = change => {
+  //   if (typeof previousEditorProps.onChange === 'function' && change) {
+  //     previousEditorProps.onChange(change);
+  //   }
+  //   context.refresh();
+  // };
+
   const editorProps = {
     ...previousEditorProps!,
-    onChange,
-    onClick,
+    ...useContextActivator(),
   };
 
-  const slateContext = {
-    editorProps,
-    editorRef: previousSlateContext!.editorRef,
-    value: previousSlateContext!.value,
-    editor: previousSlateContext!.editor,
+  const slateContext: EditorContext = {
+    ...previousSlateContext!,
+    editorProps: {
+      ...previousSlateContext?.editorProps,
+      ...editorProps,
+    },
   };
   return (
     <SlateEditorContext.Provider value={slateContext}>
@@ -131,98 +160,129 @@ const withSlateActivator = <P extends object>(Component: ComponentType<P>) => (p
   );
 };
 
-type UseGetMenuOptionsProps = {
-  globalButtons: Function,
+type UseMenuOptionsProps = {
+  globalButtons?: Function,
 };
 // This is a call back that goes to withMenuOptions so that we can add button to the global menu
-const richTextUseGetMenuOptions = (props: UseGetMenuOptionsProps) => {
-  const slateContext = useSlateContext();
-  const { editor } = slateContext!;
-  return () => props.globalButtons(editor);
+const useMenuOptions = (props: UseMenuOptionsProps) => {
+  const editor = useSlate();
+  return useMemo(
+    () => (props.globalButtons ? props.globalButtons(editor) : []),
+    [props.globalButtons],
+  );
 };
+
+const ifMenuOptions = ifToggledOn((props: UseMenuOptionsProps) => {
+  const context = useEditContext();
+  return context.isEdit && Boolean(props.globalButtons);
+});
+
 type RichTextProviderProps = {
   plugins: Plugin[],
-  schema?: SchemaProperties,
-};
+} & UseMenuOptionsProps;
 type RichTextProviderType = ComponentType<RichTextProviderProps>;
 const RichTextProvider = flowRight(
-  withNode,
-  withNodeStateHandlers,
-  // @ts-ignore
+  withDisplayName('RichTextProvider'),
   withSlateEditor,
-  ifEditable(withMenuOptions({ useGetMenuOptions: richTextUseGetMenuOptions, name: 'editor' })),
-  withoutProps(['className', 'globalButtons', 'plugins', 'readOnly']),
+  ifMenuOptions(
+    withMenuOptions({ useMenuOptions, name: 'editor' }),
+    withSlateActivator,
+  ),
   withSlateSchema,
-  ifEditable(withSlateActivator),
-)(React.Fragment) as RichTextProviderType;
-
-export type RichTextProps<P> = {
-  components: DesignableComponents,
-  ui?: UI,
-  initialValue?: object,
-  nodeKey?: string,
-};
+)(Fragment) as RichTextProviderType;
 
 /**
- * ensure the componets have a type (we default to mark) as well as ensuring there is an id
- * @param components which set of component on which we should operate
+ * @private
+ * Observer wrapper around hover menu which hides it when not in edit mode.
  */
-const withDefaults = (components: DesignableComponents) => {
-  const withDefaultType = (Component: ComponentType<any>) => (
-    // eslint-disable-next-line no-prototype-builtins
-    Component.hasOwnProperty('type') ? Component : asMark(Component)
-  );
-  return Object.getOwnPropertyNames(components).reduce(
-    (acc, id) => (
-      { ...acc, [id]: flow(withDefaultType, withId(id))(acc[id]) as RichTextComponent }
-    ),
-    components,
-  ) as RichTextComponents;
+const EditOnlyHoverMenu$: FC<Pick<Required<UI>, 'HoverMenu'>> = ({ HoverMenu, children }) => {
+  const { isEdit } = useEditContext();
+  return isEdit
+    ? <HoverMenu>{children}</HoverMenu>
+    : <></>;
 };
-const BasicRichText = <P extends object, D extends object>(props: P & RichTextProps<D>) => {
+const EditOnlyHoverMenu = observer(EditOnlyHoverMenu$);
+
+const withEditorSettings = (components: RichTextComponents) => (editor: Editor) => {
+  const { isInline } = editor;
+  const inlineTypes = getInlineButtons(components)
+    .map(Component => Component.id);
+  // eslint-disable-next-line no-param-reassign
+  editor.isInline = (
+    element: Element,
+  ) => (inlineTypes.includes(element.type as string) ? true : isInline(element));
+  return editor;
+};
+
+const BasicRichText = React.memo(<P extends object>(props: P & RichTextProps) => {
   const {
     initialValue,
     components,
     ui,
+    onChange,
+    value,
     ...rest
   } = props;
-  const finalComponents = withDefaults(components);
+
+  const {
+    finalComponents, plugins, globalButtons,
+  } = useMemo(() => {
+    const finalComponents$ = withDefaults(components);
+    return {
+      finalComponents: finalComponents$,
+      plugins: getPlugins(finalComponents$),
+      globalButtons: getGlobalButtons(finalComponents$),
+    };
+  }, [components]);
   const { HoverMenu } = getUI(ui);
   const finalUI = getUI(ui);
-  const { isEdit } = useEditContext();
-  // eslint-disable-next-line react/no-array-index-key
-  const selectorButtons = getSelectorButtons(finalComponents).map((C, i) => <C key={i} />);
+  const selectorButtons = getSelectorButtons(finalComponents).map(C => <C key={useUUID()} />);
+
+  const editor = useRef<ReactEditor>(
+    flow(
+      withReact,
+      withHistory,
+      withEditorSettings(finalComponents),
+      withHtmlPaste(finalComponents),
+    )(createEditor()) as ReactEditor,
+  );
+
+  const initialValue$ = useInitialValue(initialValue);
+  const value$ = value !== undefined && !isEmpty(value) ? value : initialValue$;
+
   return (
-    <uiContext.Provider value={finalUI}>
-      <RichTextProvider
-        {...rest}
-        initialValue={initialValue || defaultValue}
-        plugins={getPlugins(finalComponents)}
-        globalButtons={getGlobalButtons(finalComponents)}
-        schema={getSchema(finalComponents)}
-      >
-        { isEdit
-          && (
-          <HoverMenu>
+    <Slate editor={editor.current} value={value$} onChange={onChange}>
+      <uiContext.Provider value={finalUI}>
+        <RichTextProvider
+          {...rest}
+          initialValue={initialValue$}
+          plugins={plugins}
+          globalButtons={globalButtons}
+        >
+          <EditOnlyHoverMenu HoverMenu={HoverMenu}>
             {
-              // TODO: Revist but for now it seems like this will not need to
-              // rerender ever so it is ok.
-              // eslint-disable-next-line react/no-array-index-key
-              getHoverButtons(finalComponents).map((C, i) => <C key={i} />)
+              getHoverButtons(finalComponents).map(C => <C key={useUUID()} />)
             }
-            { selectorButtons.length > 0
+            {
+              selectorButtons.length > 0
               && (
-                <TextSelectorButton>{ selectorButtons }</TextSelectorButton>
+                <TextSelectorButton>{selectorButtons}</TextSelectorButton>
               )
             }
-          </HoverMenu>
-          )
-        }
-        <Content />
-      </RichTextProvider>
-    </uiContext.Provider>
+          </EditOnlyHoverMenu>
+          <Content
+            {...useKeyBoardShortcuts({
+              editor: editor.current,
+              components: finalComponents,
+            })}
+            {...rest}
+          />
+        </RichTextProvider>
+      </uiContext.Provider>
+    </Slate>
   );
-};
+}, (prevProps, nextProps) => isEqual(prevProps.value, nextProps.value));
+
 const defaults = {
   SuperScript: Sup,
   Bold: B,
@@ -270,5 +330,13 @@ const apply = (design: Design<DesignableComponents>) => {
   const finalDesign = pick(lastDesign, Object.getOwnPropertyNames(design));
   return applyDesign(start)(extendDesign(finalDesign)(design));
 };
-const RichText = designable(apply)(BasicRichText);
+
+const RichText = flow(
+  withDataMigrator,
+  withNodeStateHandlers,
+  withNode,
+  withPreview,
+  designable(apply, 'RichText'),
+)(BasicRichText);
+
 export default RichText;

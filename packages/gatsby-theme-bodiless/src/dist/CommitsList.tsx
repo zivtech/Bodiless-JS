@@ -12,10 +12,9 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import debug from 'debug';
-
-const errorLog = debug('CommitList');
+import React, { useState, useEffect } from 'react';
+import { getUI, useEditContext } from '@bodiless/core';
+import { Spinner } from '@bodiless/ui';
 
 type Commit = {
   hash: string,
@@ -90,33 +89,46 @@ const handleResponse = (responseData: ResponseData) => {
   return renderSelectableList(commits);
 };
 
-class CommitsList extends React.Component<{
-  client: any
-}, { content: string | JSX.Element }> {
-  constructor(props: any) {
-    super(props);
-    this.state = { content: 'Loading ...' };
-  }
+type Props = {
+  client: any,
+  ui?: any,
+};
 
-  async componentDidMount() {
-    try {
-      const { client } = this.props;
-      const response = await client.getLatestCommits();
-      this.setState({
-        content: handleResponse(response.data),
-      });
-    } catch (error) {
-      errorLog(error);
-      this.setState({
-        content: 'An unexpected error has occurred',
-      });
-    }
-  }
+const WrappedSpinner = () => (
+  <div className="bl-pt-5">
+    <Spinner color="bl-bg-white" />
+  </div>
+);
 
-  render() {
-    const { content } = this.state;
-    return content;
-  }
-}
+const CommitsList = ({ client, ui }: Props) => {
+  const { ComponentFormWarning } = getUI(ui);
+  const [state, setState] = useState<{ content: any }>({ content: <WrappedSpinner /> });
+  const context = useEditContext();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        context.showPageOverlay({
+          hasSpinner: false,
+          maxTimeoutInSeconds: 10,
+        });
+        const response = await client.getLatestCommits();
+        setState({
+          content: handleResponse(response.data),
+        });
+        context.hidePageOverlay();
+      } catch (error) {
+        const errorMessage = error.message || 'An unexpected error has occurred';
+        setState({
+          content: <ComponentFormWarning>{errorMessage}</ComponentFormWarning>,
+        });
+        context.hidePageOverlay();
+      }
+    })();
+  }, []);
+
+  const { content } = state;
+  return content;
+};
 
 export default CommitsList;

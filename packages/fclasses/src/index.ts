@@ -13,9 +13,17 @@
  */
 
 import {
-  stylable, addClasses, HOC, removeClasses, StylableProps,
+  stylable, addClasses, removeClasses,
+  addClassesIf,
+  removeClassesIf,
 } from './FClasses';
-import addProps from './addProps';
+
+import type {
+  HOC,
+  StylableProps,
+} from './FClasses';
+
+import addProps, { addPropsIf } from './addProps';
 import {
   asComponent,
   applyDesign,
@@ -23,41 +31,63 @@ import {
   replaceWith,
   startWith,
   remove,
+  designable,
+  extendDesignable,
+  varyDesign,
+  extendDesign,
+  withFinalDesign,
+} from './Design';
+import type {
   Design,
   DesignableProps,
   DesignElement,
   DesignableComponentsProps,
   DesignableComponents,
-  designable,
-  varyDesign,
-  extendDesign,
 } from './Design';
-import { flowIf, hasProp, withoutProps } from './hoc-util';
+import {
+  flowIf, hasProp, withoutProps, withOnlyProps, replaceOnEffect,
+  withDisplayName,
+} from './hoc-util';
+import Fragment from './Fragment';
 
 export * from './StyledHTML';
 
+export { withShowDesignKeys } from './Context';
+
 export {
   addProps,
+  addPropsIf,
   stylable,
-  StylableProps,
   addClasses,
   removeClasses,
   withDesign,
+  withFinalDesign,
   applyDesign,
   replaceWith,
+  replaceOnEffect,
   startWith,
   remove,
   flowIf,
   hasProp,
   withoutProps,
+  withOnlyProps,
+  designable,
+  extendDesignable,
+  varyDesign,
+  extendDesign,
+  asComponent,
+  addClassesIf,
+  removeClassesIf,
+  Fragment,
+  withDisplayName,
+};
+
+export type {
+  StylableProps,
   Design,
   DesignableProps,
   DesignElement,
   DesignableComponentsProps,
   DesignableComponents,
   HOC,
-  designable,
-  varyDesign,
-  extendDesign,
-  asComponent,
 };

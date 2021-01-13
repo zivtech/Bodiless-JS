@@ -138,4 +138,17 @@ export default class BackendClient {
   getSetList() {
     return this.get(`${this.prefix}/set/list`);
   }
+
+  getChanges() {
+    return this.get(`${this.prefix}/changes`);
+  }
+
+  getConflicts(target?: string) {
+    const $param = target ? `?target=${target}` : '';
+    return this.get(`${this.prefix}/changes/conflicts${$param}`);
+  }
+
+  mergeMaster() {
+    return this.post(`${this.prefix}/merge/master`, {});
+  }
 }

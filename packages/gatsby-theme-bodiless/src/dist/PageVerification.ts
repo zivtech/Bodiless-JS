@@ -22,7 +22,7 @@ type PageData = {
 
 const stripSurroundingSlashes = (path: string): string => {
   let path$ = path[0] === '/' ? path.slice(1) : path;
-  path$ = path$.endsWith('/') ? path.slice(0, -1) : path;
+  path$ = path$.endsWith('/') ? path$.slice(0, -1) : path$;
   return path$;
 };
 
@@ -31,7 +31,11 @@ const createPageDataUrl = (path: string) => {
   return `/page-data/${fixedPath}/page-data.json`;
 };
 
-const doFetch = (url: string) => axios.get(url);
+const doFetch = (url: string) => axios.get(url, {
+  // resolve promise for all HTTP response status codes
+  // so that can get more control on retry logic
+  validateStatus: () => true,
+});
 
 const loadPageDataJson = (loadObj: PageData): Promise<boolean> => {
   const { pagePath, retries = 0 } = loadObj;

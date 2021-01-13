@@ -1,0 +1,8 @@
+{
+  "Components": {
+    "Search.md": "./README.md",
+    "assets": {
+      "search.jpg": "/assets/search.jpg"
+    }
+  }
+}
