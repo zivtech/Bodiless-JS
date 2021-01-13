@@ -13,8 +13,8 @@ describe('Burger Menu smoke tests', function () {
     '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]'
   ];
   const menuItemNoLink = [
-    menuItem[0] + '//div[@data-slate-node="element"]',
-    menuItem[1] + '//div[@data-slate-node="element"]'
+    menuItem[0] + '//div[@data-slate-node="value"]',
+    menuItem[1] + '//div[@data-slate-node="value"]'
   ];
   const menuItemWithLink = [
     menuItem[0] + '/a',
@@ -29,8 +29,8 @@ describe('Burger Menu smoke tests', function () {
     menuItemBM[1]
   ];
   const menuItemWithSubmenuBM = [
-    menuItemBM[0] + '/div[contains(@class,"justify-between")]//div[@data-slate-node="element"]',
-    menuItemBM[1] + '/div[contains(@class,"justify-between")]//div[@data-slate-node="element"]'
+    menuItemBM[0] + '/div[contains(@class,"justify-between")]//div[@data-slate-node="value"]',
+    menuItemBM[1] + '/div[contains(@class,"justify-between")]//div[@data-slate-node="value"]'
   ];
   const expandIcon = '//*[@data-accordion-icon="expand"]';
   const collapseIcon = '//*[@data-accordion-icon="collapse"]';
@@ -45,12 +45,13 @@ describe('Burger Menu smoke tests', function () {
     menuItemBM[1] + '//li[2]/a'
   ];
   const menuItem1SubmenuNoLink = [
-    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]/ul/li[1]',
-    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]/ul/li[2]'
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]/ul/li[1]//div[@data-slate-node="value"]',
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[1]/ul/li[2]//div[@data-slate-node="value"]'
   ];
   const menuItem2SubmenuNoLink = [
-    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[1]',
-    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[2]'];
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[1]//div[@data-slate-node="value"]',
+    '//div[contains(@class,"my-2")]/div[2]/nav[@aria-label="Navigation Menu"]/ul/li[2]/ul/li[2]//div[@data-slate-node="value"]'
+  ];
   const addListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add Menu Item"]';
   const addSubListItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Sub Menu Item"]';
   const addSubItemIcon = '//*[@role="toolbar" and @aria-label="Local Context Menu"]//*[@aria-label="Add Sub-Menu Item"]';
@@ -253,7 +254,9 @@ describe('Burger Menu smoke tests', function () {
     var i;
     for (i = 0; i < count; i++) {
       cy.xpath(itemXpath[i])
-        .type(label + ' ' + (i + 1).toString());
+        .click();
+      cy.xpath(itemXpath[i])
+        .typeInSlate(label + ' ' + (i + 1).toString());
       cy.hideContextMenu();
     }
   }
@@ -287,7 +290,9 @@ describe('Burger Menu smoke tests', function () {
       cy.xpath(itemXpath)
         .trigger('mouseover');
       cy.xpath(submenuItemXpath[i])
-        .type(label + ' 1-' + (i + 1).toString());
+        .click();
+      cy.xpath(submenuItemXpath[i])
+        .typeInSlate(label + ' 1-' + (i + 1).toString());
       cy.hideContextMenu();
     }
   }
