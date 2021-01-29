@@ -113,6 +113,5 @@ describe('ContentNode', () => {
       const { childKeys } = node;
       expect(childKeys).toHaveLength(0);
     });
-
   });
 });

@@ -199,12 +199,6 @@ const SearchBoxBase: FC<SearchProps> = ({ components, ...props }) => {
     }
   }, [queryString, onSubmit]);
 
-  const {
-    placeholder = 'Search',
-    onSubmit,
-    ...rest
-  } = props;
-
   const onClickHandler = useCallback((event: React.MouseEvent) => {
     if (onSubmit) onSubmit(queryString);
     event.preventDefault();
