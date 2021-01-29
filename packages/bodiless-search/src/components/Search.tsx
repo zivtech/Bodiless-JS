@@ -186,11 +186,18 @@ const SearchBoxBase: FC<SearchProps> = ({ components, ...props }) => {
     searchResultContext.setSearchTerm(queryString);
   }, [queryString]);
 
+  const {
+    placeholder = 'Search',
+    onSubmit,
+    ...rest
+  } = props;
+
   const onKeyPressHandler = useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
+      if (onSubmit) onSubmit(queryString);
       searchHandler();
     }
-  }, [queryString]);
+  }, [queryString, onSubmit]);
 
   const {
     placeholder = 'Search',
