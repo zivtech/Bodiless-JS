@@ -24,18 +24,18 @@ const toc = {
   },
   Tools: {},
   Development: {
-    Guides: {
-      'IntroToBodilessConcepts.md': '',
-      'DesignElementConcepts.md': '',
-      'CreatingBodilessComponents.md': '',
-    },
-    'Packages.md': '',
     Architecture: {
       'Data.md': '',
       'Context.md': '',
       'FClasses.md': '',
       'Documentation.md': '',
     },
+    Guides: {
+      'IntroToBodilessConcepts.md': '',
+      'DesignElementConcepts.md': '',
+      'CreatingBodilessComponents.md': '',
+    },
+    'Packages.md': '',
     Release: {},
     'Contributing.md': '',
   },
