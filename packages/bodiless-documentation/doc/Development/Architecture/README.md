@@ -4,8 +4,9 @@ This section describes the basic architecture of the BodilessJS system.
 
 ## Why BodilessJS?
 
-The architecture of BodilessJS was chosen in response to difficulties
-experienced with other site-building platforms. These difficulties include:
+Our [core principles](../../About/CorePrinciples) and architectural choices of
+BodilessJS were driven by difficulties experienced with other site-building
+platforms. These difficulties include:
 
 - **Operational Rigidity:**
   - Monolithic codebases often have rigid workflows and heightened platform
