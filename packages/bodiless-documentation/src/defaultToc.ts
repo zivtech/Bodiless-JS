@@ -16,6 +16,7 @@ const toc = {
   About: {
     'GettingStarted.md': '',
     'CorePrinciples.md': '',
+    'Architecture.md': '',
   },
   ContentEditorUserGuide: {},
   Design: {},
