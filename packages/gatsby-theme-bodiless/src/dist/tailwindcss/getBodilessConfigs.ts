@@ -31,11 +31,11 @@ type TailwindConfigs = {
 const getTailwindConfigs = (modules: string[]) => modules
   .map(module => {
     try {
-      const moduleIndexFile = require.resolve(module);
+      const moduleIndexFile = require.resolve(module, { paths: [process.cwd()] });
       // when moduleIndexFile is /path/to/module/lib/index.js
       // moduleRoot should be /path/to/module
       const moduleRoot = path.dirname(path.dirname(moduleIndexFile));
-      const configs: TailwindConfigs = require(`${module}/tailwind.config.js`);
+      const configs: TailwindConfigs = require(`${moduleRoot}/tailwind.config.js`);
       return {
         ...configs,
         ...(
