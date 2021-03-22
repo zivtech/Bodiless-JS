@@ -18,7 +18,7 @@
 
 • **onYouTubeIframeAPIReady**: *Function*
 
-*Defined in [packages/bodiless-components/src/YouTube.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/f7c8004/packages/bodiless-components/src/YouTube.tsx#L64)*
+*Defined in [packages/bodiless-components/src/YouTube.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/284d8de7/packages/bodiless-components/src/YouTube.tsx#L64)*
 
 YouTube API calls this function
 when the page has finished downloading the JavaScript for the player API,
