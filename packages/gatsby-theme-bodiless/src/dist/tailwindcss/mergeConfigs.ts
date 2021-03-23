@@ -15,6 +15,7 @@
 import merge from 'lodash/merge';
 import flatten from 'lodash/flatten';
 import path from 'path';
+import { getBodilessPackages } from './getBodilessPackages';
 
 type TailwindConfig = {
   purge?: string[],
@@ -68,8 +69,14 @@ const mergeConfigs = (
   };
 };
 
+const mergeWithBodilessConfigs = (config: TailwindConfig) => mergeConfigs(
+  config,
+  getBodilessPackages(),
+);
+
 export {
   mergeConfigs,
+  mergeWithBodilessConfigs,
 };
 export type {
   TailwindConfig,
