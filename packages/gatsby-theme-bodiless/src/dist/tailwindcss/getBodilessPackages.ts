@@ -12,5 +12,24 @@
  * limitations under the License.
  */
 
-export * from './getBodilessPackages';
-export * from './mergeConfigs';
+/* eslint-disable global-require, import/no-dynamic-require */
+
+import path from 'path';
+
+const getPackageRoot = (packagePath: string) => path.dirname(path.dirname(packagePath));
+
+const getBodilessPackages = () => [
+  {
+    root: getPackageRoot(require.resolve('@bodiless/layouts')),
+    tailwindConfig: require('@bodiless/layouts/tailwind.config'),
+  },
+  {
+    root: getPackageRoot(require.resolve('@bodiless/organisms')),
+    tailwindConfig: require('@bodiless/organisms/tailwind.config'),
+  },
+];
+
+export {
+  getPackageRoot,
+  getBodilessPackages,
+};
