@@ -15,7 +15,9 @@
 import { observer } from 'mobx-react-lite';
 import React, {
   ComponentType as CT, EventHandler, FC,
+  useEffect,
   useRef,
+  useState,
 } from 'react';
 import { flowRight, omit, pick } from 'lodash';
 import { useContextActivator, useExtendHandler, useClickOutside } from './hooks';
@@ -139,4 +141,40 @@ export const withClickOutside = <P extends object>(Component: CT<P> | string) =>
   };
 
   return WithClickOutside;
+};
+
+/**
+ * Utility hoc to add resize detector to the original component.
+ * A re-render will be triggered when resize is detected.
+ *
+ * @return An HOC which will detect resize.
+ */
+export const withResizeDetector = <P extends object>(Component: CT<P> | string) => {
+  const WithResizeDetector = (props: P & ClickOutsideProps) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const [size, setSize] = useState({ width: 0, height: 0 });
+
+    const resizeObserver = new ResizeObserver(() => {
+      if (ref.current) {
+        const { width, height } = ref.current.getBoundingClientRect();
+        if (width !== size.width || height !== size.height) {
+          setSize({ width, height });
+        }
+      }
+    });
+
+    useEffect(() => {
+      if (ref.current) {
+        resizeObserver.observe(ref.current);
+      }
+    }, [Component]);
+
+    return (
+      <div ref={ref}>
+        <Component dimensions={size} {...props} />
+      </div>
+    );
+  };
+
+  return WithResizeDetector;
 };
