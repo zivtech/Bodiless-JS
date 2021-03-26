@@ -11,6 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/// <reference types="resize-observer-browser" />
 
 import { observer } from 'mobx-react-lite';
 import React, {
@@ -143,6 +144,13 @@ export const withClickOutside = <P extends object>(Component: CT<P> | string) =>
   return WithClickOutside;
 };
 
+export type resizeDetectorProps = {
+  onResizeObserver?: (
+    ref:React.MutableRefObject<any>,
+    entries: ResizeObserverEntry[],
+  ) => void;
+};
+
 /**
  * Utility hoc to add resize detector to the original component.
  * A re-render will be triggered when resize is detected.
@@ -150,18 +158,22 @@ export const withClickOutside = <P extends object>(Component: CT<P> | string) =>
  * @return An HOC which will detect resize.
  */
 export const withResizeDetector = <P extends object>(Component: CT<P> | string) => {
-  const WithResizeDetector = (props: P & ClickOutsideProps) => {
+  const WithResizeDetector = (props: P & resizeDetectorProps) => {
     const ref = useRef<HTMLDivElement>(null);
     const [size, setSize] = useState({ width: 0, height: 0 });
-
-    // @ts-ignore
-    const resizeObserver = new ResizeObserver(() => {
+    const defaultOnResizeObserver = () => {
       if (ref.current) {
         const { width, height } = ref.current.getBoundingClientRect();
         if (width !== size.width || height !== size.height) {
           setSize({ width, height });
         }
       }
+    };
+
+    const { onResizeObserver = defaultOnResizeObserver } = props;
+
+    const resizeObserver = new ResizeObserver((entries: ResizeObserverEntry[]) => {
+      onResizeObserver(ref, entries);
     });
 
     useEffect(() => {
