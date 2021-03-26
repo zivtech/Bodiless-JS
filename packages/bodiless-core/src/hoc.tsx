@@ -153,7 +153,8 @@ export type resizeDetectorProps = {
 
 /**
  * Utility hoc to add resize detector to the original component.
- * A re-render will be triggered when resize is detected.
+ * Optionally a callback can be provided by the component.
+ * If the callback is not provided, as default the component is rendered at resize.
  *
  * @return An HOC which will detect resize.
  */
