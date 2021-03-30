@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/// <reference types="resize-observer-browser" />
+import ResizeObserver from 'resize-observer-polyfill';
 
 import { observer } from 'mobx-react-lite';
 import React, {
