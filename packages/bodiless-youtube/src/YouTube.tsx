@@ -13,20 +13,14 @@
  */
 
 import React, {
-  useCallback,
-  ComponentType,
-  useState,
-  useEffect,
-  useContext,
+  useCallback, ComponentType, useState, useEffect, useContext,
 } from 'react';
 import { flowRight } from 'lodash';
 import { useMenuOptionUI } from '@bodiless/core';
-import type { AsBodiless } from '@bodiless/core';
 import { addProps } from '@bodiless/fclasses';
-import withFormHeader from './withFormHeader';
-import withFormSnippet from './withFormSnippet';
-import { asBaseBodilessIframe } from './Iframe';
-import type { IframeProps, IframeData } from './Iframe';
+import { withFormHeader, withFormSnippet, asBaseBodilessIframe } from '@bodiless/components';
+import type { AsBodiless } from '@bodiless/core';
+import type { IframeProps, IframeData } from '@bodiless/components';
 
 /**
  * YouTube embed player parameters
@@ -43,6 +37,7 @@ type YouTubePlayerSettings = {
   modestbranding: boolean | 0 | 1,
   rel: boolean | 0 | 1,
   mute: boolean | 0 | 1,
+  fs: boolean | 0 | 1,
   origin: string,
   version: number,
   playlist: string,
@@ -76,6 +71,8 @@ const withYouTubePlayerSettings = (
 ) => addProps({
   playerSettings: settings,
 });
+
+const withFullScreenEnabled = addProps({ allowFullScreen: 'allowFullScreen' });
 
 /*
 * adjust loop settings per https://developers.google.com/youtube/player_parameters#loop
@@ -156,8 +153,8 @@ const withYouTubeFormSrcSnippet = withFormSnippet({
   nodeKeys: 'src',
   defaultData: { src: '' },
   snippetOptions: {
-    renderForm: ({ formState }) => {
-      const { errors } = formState;
+    renderForm: ({ formState, scope }) => {
+      const errors = scope ? formState.errors[scope] : formState.error;
       const {
         ComponentFormLabel,
         ComponentFormText,
@@ -220,5 +217,6 @@ export {
   ifNotYouTubePlayerAPILoaded,
   withYouTubePlayerAPI,
   YouTubePlayerAPIProvider,
+  withFullScreenEnabled,
 };
 export type { YouTubePlayerSettings };
