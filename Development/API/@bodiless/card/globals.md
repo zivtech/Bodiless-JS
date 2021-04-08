@@ -36,7 +36,7 @@
 
 Ƭ **CardComponents**: *object*
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L31)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L31)*
 
 #### Type declaration:
 
@@ -62,7 +62,7 @@ ___
 
 Ƭ **Props**: *DesignableComponentsProps‹[CardComponents](globals.md#cardcomponents)› & HTMLProps‹HTMLElement›*
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L52)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L52)*
 
 ## Variables
 
@@ -74,7 +74,7 @@ ___
   withNode,
 )(CardBase)
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L82)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L82)*
 
 ___
 
@@ -88,7 +88,7 @@ ___
   Body: addClasses('flex-grow'),
 })
 
-*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tokens.tsx#L37)*
+*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tokens.tsx#L37)*
 
 asCardHorizontal splits the card in half with the image on the left
 
@@ -123,7 +123,7 @@ ___
   Body: remove,
 })
 
-*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tokens.tsx#L55)*
+*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tokens.tsx#L55)*
 
 asCardNoBody removes the body from the card and adjust title
 
@@ -159,7 +159,7 @@ ___
   withDesign({ ImageLink: addClasses('flex-grow') }),
 )
 
-*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tokens.tsx#L63)*
+*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tokens.tsx#L63)*
 
 asCardNoBodyNoTitle removes both body and title from the card and adjusts image link
 
@@ -181,7 +181,7 @@ ___
   Link: remove,
 })
 
-*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tokens.tsx#L72)*
+*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:72](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tokens.tsx#L72)*
 
 asCardNoCta removes link from the card
 
@@ -215,7 +215,7 @@ ___
   Title: remove,
 })
 
-*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tokens.tsx#L48)*
+*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tokens.tsx#L48)*
 
 asCardNoTitle removes title from the card
 
@@ -253,7 +253,7 @@ ___
   Wrapper: addClasses('relative'),
 })
 
-*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tokens.tsx#L87)*
+*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tokens.tsx#L87)*
 
 asCardOverlayCta puts the link over the card image bottom
 
@@ -288,7 +288,7 @@ ___
   Wrapper: addClasses('relative'),
 })
 
-*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tokens.tsx#L79)*
+*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:79](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tokens.tsx#L79)*
 
 asCardOverlayTitle puts the title over the card image top
 
@@ -326,7 +326,7 @@ ___
   Body: addClasses('flex-grow'),
 })
 
-*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tokens.tsx#L26)*
+*Defined in [packages/bodiless-card/src/components/Cards.tokens.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tokens.tsx#L26)*
 
 asCardVertical removes unnecessary wrappers from the card
 
@@ -367,7 +367,7 @@ ___
   Link: addProps({ 'data-card-element': 'link' }),
 })
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L93)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L93)*
 
 Adds data- identifiers to help select card elements in automated tests.
 
@@ -401,7 +401,7 @@ Name | Type |
 
 ▸ **CardBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L54)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L54)*
 
 **Parameters:**
 
@@ -420,13 +420,13 @@ Name | Type |
 
 ### ▪ **cardComponentStart**: *object*
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L41)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L41)*
 
 ###  Body
 
 • **Body**: *object* = Div
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L48)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L48)*
 
 #### Type declaration:
 
@@ -444,7 +444,7 @@ Name | Type |
 
 • **ContentWrapper**: *object* = Div
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L46)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L46)*
 
 #### Type declaration:
 
@@ -462,7 +462,7 @@ Name | Type |
 
 • **Image**: *object* = Img
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L45)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L45)*
 
 #### Type declaration:
 
@@ -480,7 +480,7 @@ Name | Type |
 
 • **ImageLink**: *object* = A
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L44)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L44)*
 
 #### Type declaration:
 
@@ -498,7 +498,7 @@ Name | Type |
 
 • **ImageWrapper**: *object* = Div
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L43)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L43)*
 
 #### Type declaration:
 
@@ -516,7 +516,7 @@ Name | Type |
 
 • **Link**: *object* = A
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L49)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L49)*
 
 #### Type declaration:
 
@@ -534,7 +534,7 @@ Name | Type |
 
 • **Title**: *object* = H2
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L47)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L47)*
 
 #### Type declaration:
 
@@ -552,7 +552,7 @@ Name | Type |
 
 • **Wrapper**: *object* = Div
 
-*Defined in [packages/bodiless-card/src/components/Cards.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/6728573a/packages/bodiless-card/src/components/Cards.tsx#L42)*
+*Defined in [packages/bodiless-card/src/components/Cards.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bea046a1/packages/bodiless-card/src/components/Cards.tsx#L42)*
 
 #### Type declaration:
 

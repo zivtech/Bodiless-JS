@@ -12,3 +12,4 @@
 * [@bodiless/search](/Development/API/@bodiless/search/globals)
 * [@bodiless/tokens](/Development/API/@bodiless/tokens/globals)
 * [@bodiless/ui](/Development/API/@bodiless/ui/globals)
+* [@bodiless/youtube](/Development/API/@bodiless/youtube/globals)

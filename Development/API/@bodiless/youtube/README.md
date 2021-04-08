@@ -1,3 +1,7 @@
+[@bodiless/youtube](README.md) › [Globals](globals.md)
+
+# @bodiless/youtube
+
 # YouTube Component
 
 The YouTube Component can be used to place a [YouTube video](https://www.youtube.com/) on a page via the
@@ -24,7 +28,6 @@ To add a YouTube Component to your site:
 
 4. Resize or reposition the YouTube component using the Flow Container controls.
 
-
 ---
 
 ## Site Builder Details
@@ -33,7 +36,6 @@ The YouTube Component can be used to place a YouTube video on a page via the
 BodilessJS edit interface.
 
 ?> Please note that the [Embed Component](../../../Components/Embed) must be activated on your site for the YouTube Component to work.
-
 
 ``` js
   import { YouTube } from '@bodiless/youtube';
@@ -84,7 +86,6 @@ The YouTube Component utilizes an API that allows you to change the following
 properties/parameters. You can use defaultPlayerSettings to set parameters that
 are commonly used together. For more details on each individual parameter see [YouTube Player API Reference for iframe Embeds](https://developers.google.com/youtube/iframe_api_reference). 
 
-
 | Parameters | Suggested Default | 
 | -------- | -------- |
 | autoplay     | 0     |
@@ -100,9 +101,7 @@ are commonly used together. For more details on each individual parameter see [Y
 | version | |
 | playlist | |
 
-
 e.g.: Responsive YouTube with 16:9 ratio with custom language preferences:
-
 
 ```
 const withCustomLangPref = flowRight(
