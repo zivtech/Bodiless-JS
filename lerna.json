@@ -6,7 +6,7 @@
   "lerna": "2.0.0",
   "command": {
     "publish": {
-      "allowBranch": "release",
+      "allowBranch": ["release", "beta/*"],
       "message": "chore(release): publish %s"
     }
   },
