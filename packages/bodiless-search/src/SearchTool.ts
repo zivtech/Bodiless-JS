@@ -12,6 +12,7 @@
  * limitations under the License.
  */
 
+// @ts-nocheck
 import cheerio from 'cheerio';
 import fs from 'fs';
 import glob from 'glob';
