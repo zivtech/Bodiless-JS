@@ -48,6 +48,7 @@
           - [Types](/Development/Guides/BuildingSites/Templates/Types/)
             - [Product Detail Page](/Development/Guides/BuildingSites/Templates/Types/ProductDetailPage)
             - [Product Listing Page](/Development/Guides/BuildingSites/Templates/Types/ProductListingPage)
+      - [Tokens And Typescript](/Development/Guides/TokensAndTypescript)
     - [Packages](/Development/Packages)
     - [Architecture](/Development/Architecture/)
       - [Data](/Development/Architecture/Data)
