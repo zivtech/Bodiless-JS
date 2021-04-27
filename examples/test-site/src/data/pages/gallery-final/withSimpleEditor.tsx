@@ -12,36 +12,34 @@
  * limitations under the License.
  */
 
-import { flow } from 'lodash';
 import { RichText } from '@bodiless/richtext-ui';
 import {
   Strong,
   addClasses,
   withDesign,
   asToken,
+  Design,
+  startWith,
 } from '@bodiless/fclasses';
-import {
-  withComponent,
-} from '@bodiless/richtext';
 import { asBodilessLink, withPlaceholder } from '@bodiless/components';
-import { withChild, withNodeKey } from '@bodiless/core';
+import { withNodeKey, withChild } from '@bodiless/core';
 
-const asBold = withComponent(Strong);
+const asBold = startWith(Strong);
 const asItalic = addClasses('');
 const asUnderline = addClasses('underline');
 const asLink = asToken(asBodilessLink(), addClasses('text-blue-700 underline'));
 
-const simpleDesign = {
+const simpleDesign: Design = {
   Bold: asBold,
   Italic: asItalic,
   Underline: asUnderline,
   Link: asLink,
 };
 
-const withSimpleEditor = (nodeKey?: string, placeholder?: string) => flow(
+const withSimpleEditor = (nodeKey?: string, placeholder?: string) => asToken(
   addClasses('overflow-hidden'),
   withChild(
-    flow(
+    asToken(
       withDesign(simpleDesign),
       withPlaceholder(placeholder),
       withNodeKey(nodeKey),
