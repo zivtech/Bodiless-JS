@@ -19,7 +19,7 @@
 
 • **className**? : *undefined | string*
 
-*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bb79dde6/packages/bodiless-layouts/src/FlowContainer/types.ts#L56)*
+*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/93d83cce/packages/bodiless-layouts/src/FlowContainer/types.ts#L56)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **defaultSize**? : *undefined | object*
 
-*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/bb79dde6/packages/bodiless-layouts/src/FlowContainer/types.ts#L52)*
+*Defined in [packages/bodiless-layouts/src/FlowContainer/types.ts:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/93d83cce/packages/bodiless-layouts/src/FlowContainer/types.ts#L52)*
