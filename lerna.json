@@ -8,7 +8,7 @@
     "publish": {
       "allowBranch": [
         "release",
-        "beta/*"
+        "legacy/*"
       ],
       "message": "chore(release): publish %s"
     }
