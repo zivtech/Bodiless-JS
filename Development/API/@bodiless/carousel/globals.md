@@ -46,7 +46,7 @@
 
 Ƭ **CarouselComponents**: *object*
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L28)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L28)*
 
 #### Type declaration:
 
@@ -74,7 +74,7 @@ ___
 
 Ƭ **CarouselProps**: *DesignableComponentsProps‹[CarouselComponents](globals.md#carouselcomponents)›*
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L52)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L52)*
 
 ## Variables
 
@@ -82,7 +82,7 @@ ___
 
 • **CarouselClean**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = designable(carouselComponents, 'Carousel')(CarouselBase)
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L71)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:71](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L71)*
 
 ___
 
@@ -117,7 +117,7 @@ ___
   ButtonPlay: asAccessibleCarouselButton,
 })
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:116](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L116)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:116](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L116)*
 
 ___
 
@@ -129,7 +129,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L99)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:99](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L99)*
 
 ___
 
@@ -146,7 +146,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L105)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:105](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L105)*
 
 ___
 
@@ -156,7 +156,7 @@ ___
   ButtonPlay: replaceWith(stylable(ButtonPlay)),
 })
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L80)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:80](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L80)*
 
 ___
 
@@ -168,7 +168,7 @@ ___
   }),
 })
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L53)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L53)*
 
 ___
 
@@ -180,7 +180,7 @@ ___
   }),
 })
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L39)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L39)*
 
 ___
 
@@ -191,7 +191,7 @@ ___
   ButtonNext: replaceWith(stylable(ButtonNext)),
 })
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L75)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:75](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L75)*
 
 ___
 
@@ -205,7 +205,7 @@ ___
   ),
 })
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L45)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L45)*
 
 ## Functions
 
@@ -213,7 +213,7 @@ ___
 
 ▸ **CarouselBase**(`props`: [CarouselProps](globals.md#carouselprops)): *Element‹›*
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L54)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L54)*
 
 **Parameters:**
 
@@ -229,7 +229,7 @@ ___
 
 ▸ **CarouselDot**(`props`: any): *Element‹›*
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselDot.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselDot.tsx#L19)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselDot.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselDot.tsx#L19)*
 
 **Parameters:**
 
@@ -245,7 +245,7 @@ ___
 
 ▸ **asEditableCarousel**(`nodeKeys?`: WithNodeKeyProps): *function & object*
 
-*Defined in [packages/bodiless-carousel/src/components/asEditableCarousel.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/asEditableCarousel.ts#L23)*
+*Defined in [packages/bodiless-carousel/src/components/asEditableCarousel.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/asEditableCarousel.ts#L23)*
 
 **Parameters:**
 
@@ -261,7 +261,7 @@ ___
 
 ▸ **useCarouselCurrentSlide**(): *number*
 
-*Defined in [packages/bodiless-carousel/src/components/hooks.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/hooks.ts#L36)*
+*Defined in [packages/bodiless-carousel/src/components/hooks.ts:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/hooks.ts#L36)*
 
 **Returns:** *number*
 
@@ -271,7 +271,7 @@ ___
 
 ▸ **useCarouselIsPlaying**(): *any*
 
-*Defined in [packages/bodiless-carousel/src/components/hooks.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/hooks.ts#L42)*
+*Defined in [packages/bodiless-carousel/src/components/hooks.ts:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/hooks.ts#L42)*
 
 type gap in the contrib library
 
@@ -285,7 +285,7 @@ ___
 
 ▸ **useCarouselSlideIndex**(): *number*
 
-*Defined in [packages/bodiless-carousel/src/components/hooks.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/hooks.ts#L44)*
+*Defined in [packages/bodiless-carousel/src/components/hooks.ts:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/hooks.ts#L44)*
 
 **Returns:** *number*
 
@@ -295,7 +295,7 @@ ___
 
 ▸ **useCarouselState**(): *CarouselState*
 
-*Defined in [packages/bodiless-carousel/src/components/hooks.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/hooks.ts#L23)*
+*Defined in [packages/bodiless-carousel/src/components/hooks.ts:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/hooks.ts#L23)*
 
 implemented per pure-react-carousel doc
 
@@ -309,7 +309,7 @@ ___
 
 ▸ **useIsCarouselItemActive**(): *boolean*
 
-*Defined in [packages/bodiless-carousel/src/components/hooks.ts:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/hooks.ts#L49)*
+*Defined in [packages/bodiless-carousel/src/components/hooks.ts:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/hooks.ts#L49)*
 
 **Returns:** *boolean*
 
@@ -319,7 +319,7 @@ ___
 
 ▸ **withAutoPlayInterval**(`interval`: number): *function & object*
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L84)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:84](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L84)*
 
 **Parameters:**
 
@@ -335,7 +335,7 @@ ___
 
 ▸ **withCarouselDots**(`nodeKeys?`: WithNodeKeyProps): *function & object*
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L59)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L59)*
 
 **Parameters:**
 
@@ -351,7 +351,7 @@ ___
 
 ▸ **withCarouselItemTabIndex**(`Component`: "symbol" | "object" | "a" | "abbr" | "address" | "area" | "article" | "aside" | "audio" | "b" | "base" | "bdi" | "bdo" | "big" | "blockquote" | "body" | "br" | "button" | "canvas" | "caption" | "cite" | "code" | "col" | "colgroup" | "data" | "datalist" | "dd" | "del" | "details" | "dfn" | "dialog" | "div" | "dl" | "dt" | "em" | "embed" | "fieldset" | "figcaption" | "figure" | "footer" | "form" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "head" | "header" | "hgroup" | "hr" | "html" | "i" | "iframe" | "img" | "input" | "ins" | "kbd" | "keygen" | "label" | "legend" | "li" | "link" | "main" | "map" | "mark" | "menu" | "menuitem" | "meta" | "meter" | "nav" | "noindex" | "noscript" | "ol" | "optgroup" | "option" | "output" | "p" | "param" | "picture" | "pre" | "progress" | "q" | "rp" | "rt" | "ruby" | "s" | "samp" | "slot" | "script" | "section" | "select" | "small" | "source" | "span" | "strong" | "style" | "sub" | "summary" | "sup" | "table" | "template" | "tbody" | "td" | "textarea" | "tfoot" | "th" | "thead" | "time" | "title" | "tr" | "track" | "u" | "ul" | "var" | "video" | "wbr" | "webview" | "svg" | "animate" | "animateMotion" | "animateTransform" | "circle" | "clipPath" | "defs" | "desc" | "ellipse" | "feBlend" | "feColorMatrix" | "feComponentTransfer" | "feComposite" | "feConvolveMatrix" | "feDiffuseLighting" | "feDisplacementMap" | "feDistantLight" | "feDropShadow" | "feFlood" | "feFuncA" | "feFuncB" | "feFuncG" | "feFuncR" | "feGaussianBlur" | "feImage" | "feMerge" | "feMergeNode" | "feMorphology" | "feOffset" | "fePointLight" | "feSpecularLighting" | "feSpotLight" | "feTile" | "feTurbulence" | "filter" | "foreignObject" | "g" | "image" | "line" | "linearGradient" | "marker" | "mask" | "metadata" | "mpath" | "path" | "pattern" | "polygon" | "polyline" | "radialGradient" | "rect" | "stop" | "switch" | "text" | "textPath" | "tspan" | "use" | "view" | ComponentClass‹P, any› & object | FunctionComponent‹P› & object): *FunctionComponent‹any›*
 
-*Defined in [packages/bodiless-carousel/src/components/token.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/token.tsx#L90)*
+*Defined in [packages/bodiless-carousel/src/components/token.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/token.tsx#L90)*
 
 **Parameters:**
 
@@ -367,7 +367,7 @@ ___
 
 ▸ **withTotalSlides**(`nodeKeys?`: WithNodeKeyProps): *Token*
 
-*Defined in [packages/bodiless-carousel/src/components/withTotalSlides.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/withTotalSlides.tsx#L23)*
+*Defined in [packages/bodiless-carousel/src/components/withTotalSlides.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/withTotalSlides.tsx#L23)*
 
 **Parameters:**
 
@@ -383,58 +383,58 @@ Name | Type |
 
 ### ▪ **carouselComponents**: *object*
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L40)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L40)*
 
 ###  ButtonBack
 
 • **ButtonBack**: *ExoticComponent‹object›* = Fragment
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L47)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L47)*
 
 ###  ButtonNext
 
 • **ButtonNext**: *ExoticComponent‹object›* = Fragment
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L48)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L48)*
 
 ###  ButtonPlay
 
 • **ButtonPlay**: *ExoticComponent‹object›* = Fragment
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L49)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L49)*
 
 ###  ControlsWrapper
 
 • **ControlsWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L45)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L45)*
 
 ###  Dots
 
 • **Dots**: *ExoticComponent‹object›* = Fragment
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L46)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L46)*
 
 ###  Slide
 
 • **Slide**: *ComponentClass‹SlideProps‹›, any›*
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L44)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L44)*
 
 ###  Slider
 
 • **Slider**: *ComponentClass‹any, any› & object | FunctionComponent‹any› & object* = stylable(Slider)
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L43)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L43)*
 
 ###  SliderWrapper
 
 • **SliderWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L42)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L42)*
 
 ###  Wrapper
 
 • **Wrapper**: *ComponentClass‹any, any› & object | FunctionComponent‹any› & object* = stylable(CarouselProvider)
 
-*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/a00e6012/packages/bodiless-carousel/src/components/CarouselClean.tsx#L41)*
+*Defined in [packages/bodiless-carousel/src/components/CarouselClean.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-carousel/src/components/CarouselClean.tsx#L41)*
