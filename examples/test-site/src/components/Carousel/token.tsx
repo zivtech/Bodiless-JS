@@ -22,6 +22,7 @@ import {
   Token,
   asToken,
 } from '@bodiless/fclasses';
+import flow from 'lodash/flow';
 import negate from 'lodash/negate';
 import { ifToggledOn, withChild } from '@bodiless/core';
 import {
@@ -35,6 +36,7 @@ import MaterialIcon from '@material/react-material-icon';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { LandscapeImage, LandscapeLinkableImage } from '../Image';
 import Card from '../Card';
+import { asCardHorizontal, asCardDefaultStyle } from '../Card/token';
 import { Reponsive16By9YouTube } from '../YouTube';
 
 const withImageSlide = withDesign({
@@ -42,6 +44,11 @@ const withImageSlide = withDesign({
     Title: replaceWith(LandscapeImage),
   }),
 });
+
+const HorizontalCard = flow(
+  asCardHorizontal,
+  asCardDefaultStyle,
+)(Card);
 
 const withChameleonSlide = withDesign({
   Slider: asToken(
@@ -54,7 +61,7 @@ const withChameleonSlide = withDesign({
         Title: replaceWith(LandscapeImage),
       }),
       HorizontalCard: withDesign({
-        Title: replaceWith(Card),
+        Title: replaceWith(HorizontalCard),
       }),
       Video: withDesign({
         Title: replaceWith(Reponsive16By9YouTube),
@@ -69,7 +76,7 @@ const withAutoPlay = withDesign({
   }),
 });
 
-const withNavButtonStyles = addClasses('p-2 text-white uppercase bg-blue-700');
+const withNavButtonStyles = addClasses('p-2 text-white uppercase bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed');
 
 const withNavButtonsStyles = withDesign({
   SliderWrapper: addClasses('relative'),
