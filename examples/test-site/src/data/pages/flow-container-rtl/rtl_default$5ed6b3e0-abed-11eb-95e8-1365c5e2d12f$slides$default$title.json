@@ -1,0 +1,26 @@
+[
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "Title"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": "Body"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "text": ""
+      }
+    ]
+  }
+]
