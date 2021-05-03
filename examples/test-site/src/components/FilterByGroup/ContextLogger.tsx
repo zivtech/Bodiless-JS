@@ -19,7 +19,7 @@ import {
 import {
   useFilterByGroupContext,
   withTagProps,
-} from '@bodiless/organisms';
+} from '@bodiless/filtering';
 import { BodilessTag, TagType } from '@bodiless/core';
 
 const AddButton = addClasses('px-2 mb-2 mr-2 border border-gray-600')(Button);

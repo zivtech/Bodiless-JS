@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-import { FilterByGroupClean, asTestableFilterByGroup, withFBGSuggestions } from '@bodiless/organisms';
+import { FilterByGroupClean, asTestableFilterByGroup, withFBGSuggestions } from '@bodiless/filtering';
 import { addProps, asToken } from '@bodiless/fclasses';
 import { asFilterByGroupResponsive, asFilterByGroupDefaultStyle } from './token';
 

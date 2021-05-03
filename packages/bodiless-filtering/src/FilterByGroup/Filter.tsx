@@ -15,7 +15,6 @@
 /* eslint-disable arrow-body-style, max-len, @typescript-eslint/no-unused-vars */
 import React, { FC, ComponentType, HTMLProps } from 'react';
 import { flow, isEmpty } from 'lodash';
-import { withAccordionSublist } from '@bodiless/accordion';
 import {
   withNodeKey,
   withNode,
@@ -40,16 +39,14 @@ import {
   DesignableComponentsProps,
 } from '@bodiless/fclasses';
 import {
-  List,
   asEditable,
-  asEditableList,
+  asBodilessList,
   withBasicSublist,
   withTagButton,
-  useTagsAccessors,
   ifViewportIs,
   ifViewportIsNot,
-  ListProps,
 } from '@bodiless/components';
+import { withAccordionSublist } from '@bodiless/accordion';
 import {
   TagTitleProps,
   TagTitleComponents,
@@ -58,6 +55,8 @@ import {
 } from './types';
 import { useFilterByGroupContext, withTagProps } from './FilterByGroupContext';
 import { asExpandedOnDesktopBody } from './token';
+import { useTagsAccessors } from './FilterModel';
+import { withCategoryListContextProvider } from './CategoryListContext';
 
 const tagTitleComponentsStart: TagTitleComponents = {
   FilterInputWrapper: Div,
@@ -66,7 +65,11 @@ const tagTitleComponentsStart: TagTitleComponents = {
   FilterGroupItemLabel: Label,
 };
 
-const withUnselectOnDelete:HOC<{ onDelete?: any }> = Component => props => {
+/**
+ * @todo refactor this
+*/
+const withUnselectOnDelete: HOC<{ onDelete?: any }> = Component => props => {
+  /*
   const {
     setSelectedNode,
     setSelectedTag,
@@ -77,6 +80,8 @@ const withUnselectOnDelete:HOC<{ onDelete?: any }> = Component => props => {
     setSelectedNode();
   };
   return <Component {...props} onDelete={onDelete} />;
+  */
+  return <Component {...props} />;
 };
 
 const TagTitleBase: FC<TagTitleProps> = ({
@@ -91,45 +96,39 @@ const TagTitleBase: FC<TagTitleProps> = ({
     FilterInputWrapper,
   } = components;
 
-  const { tag, nodeId } = useTagsAccessors();
+  const { tag } = useTagsAccessors();
+
   const {
-    selectedTag,
-    selectedNode,
-    setSelectedNode,
-    setSelectedTag,
+    selectTag,
+    isTagSelected,
+    unSelectTag,
+    multipleAllowedTags,
   } = useFilterByGroupContext();
 
   const onSelect = () => {
-    setSelectedNode(nodeId);
-    setSelectedTag(tag);
+    if (isTagSelected(tag)) {
+      unSelectTag(tag);
+    } else {
+      selectTag(tag);
+    }
   };
 
-  const isSelectedTagUpdated = (selectedTag && selectedNode)
-    && (nodeId === selectedNode)
-    && (tag.id !== selectedTag.id);
-
-  if (isSelectedTagUpdated) {
-    setSelectedTag(tag);
-    setSelectedNode(nodeId);
-  }
-
-  const isTagSelected = Boolean(selectedTag && selectedTag.id === tag.id);
-  const isNodeSelected = Boolean(selectedNode === nodeId);
+  if (tag === undefined) return <></>;
 
   return (
     <FilterInputWrapper {...rest} key={tag.id}>
       <FilterGroupItemInput
-        type="radio"
+        type={multipleAllowedTags ? 'checkbox' : 'radio'}
         name="filter-item"
         value={tag.id}
-        id={nodeId}
+        id={tag.id}
         onChange={() => onSelect()}
-        checked={isNodeSelected && isTagSelected}
+        checked={isTagSelected(tag)}
       />
       {
         isEmpty(tag.name)
-          ? (<FilterGroupItemPlaceholder htmlFor={nodeId}>{ emptyTitleText }</FilterGroupItemPlaceholder>)
-          : (<FilterGroupItemLabel htmlFor={nodeId}>{ tag.name }</FilterGroupItemLabel>)
+          ? (<FilterGroupItemPlaceholder htmlFor={tag.id}>{ emptyTitleText }</FilterGroupItemPlaceholder>)
+          : (<FilterGroupItemLabel htmlFor={tag.id}>{ tag.name }</FilterGroupItemLabel>)
       }
     </FilterInputWrapper>
   );
@@ -149,7 +148,13 @@ const TagTitle = flow(
     'registerSuggestions',
   ]),
   ifEditable(
-    withTagButton,
+    withTagButton(() => ({
+      label: 'Name',
+      /**
+       * @todo investigate why it is not working
+       */
+      groupMerge: 'merge-up',
+    })),
     withContextActivator('onClick'),
     withLocalContextMenu,
   ),
@@ -169,27 +174,28 @@ const TagTitle = flow(
 )(TagTitleBase);
 
 const TestFilterComponentsStart: FilterComponents = {
-  CategoryList: flow(
-    asEditableList,
+  CategoryList: asToken(
+    asBodilessList(undefined, undefined, () => ({ groupLabel: 'Group' })),
     withDesign({
       Title: asToken(
         replaceWith(H3),
         asEditable('category_name', 'Category Name'),
-        // cast is necessary bc asEditable produces a component whose children prop is a string.
       ),
-      Item: stylable,
+      Item: asToken(
+        stylable,
+        withCategoryListContextProvider,
+      ),
       Wrapper: stylable,
     }),
-  )(List),
+  )('ul'),
   TagList: asToken(
     withUnselectOnDelete,
-    // @ts-ignore
-    asEditableList,
+    asBodilessList(undefined, undefined, () => ({ groupLabel: 'Tag' })),
     withDesign({
       Title: replaceWith(TagTitle),
       Wrapper: stylable,
     }),
-  )(List as ComponentType<ListProps>),
+  )('ul'),
 };
 
 type FilterBaseProps =
