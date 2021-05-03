@@ -34,6 +34,10 @@ import {
 import { asBodilessChameleon } from '@bodiless/components';
 import MaterialIcon from '@material/react-material-icon';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+/**
+ * overrides some styles defined in the contrib library
+ */
+import './carousel.css';
 import { LandscapeImage, LandscapeLinkableImage } from '../Image';
 import Card from '../Card';
 import { asCardHorizontal, asCardDefaultStyle } from '../Card/token';
