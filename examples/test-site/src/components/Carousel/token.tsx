@@ -24,7 +24,11 @@ import {
 } from '@bodiless/fclasses';
 import flow from 'lodash/flow';
 import negate from 'lodash/negate';
-import { ifToggledOn, withChild } from '@bodiless/core';
+import {
+  ifToggledOn,
+  withChild,
+  ifReadOnly,
+} from '@bodiless/core';
 import {
   useIsCarouselItemActive,
   useCarouselIsPlaying,
@@ -74,11 +78,15 @@ const withChameleonSlide = withDesign({
   ),
 });
 
-const withAutoPlay = withDesign({
-  Wrapper: addProps({
-    isPlaying: true,
+const withAutoPlay = asToken(
+  withDesign({
+    Wrapper: ifReadOnly(
+      addProps({
+        isPlaying: true,
+      }),
+    ),
   }),
-});
+);
 
 const withNavButtonStyles = addClasses('p-2 text-white uppercase bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed');
 
