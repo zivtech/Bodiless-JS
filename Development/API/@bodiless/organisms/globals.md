@@ -155,7 +155,7 @@
 
 Ƭ **AccordionBodyBaseProps**: *Omit‹[AccordionBodyProps](globals.md#accordionbodyprops), "design"› & DesignableComponentsProps‹[AccordionBodyComponents](globals.md#accordionbodycomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L31)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L31)*
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 Ƭ **AccordionBodyComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/types.tsx#L33)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/types.tsx#L33)*
 
 #### Type declaration:
 
@@ -177,7 +177,7 @@ ___
 
 Ƭ **AccordionBodyProps**: *DesignableProps‹[AccordionBodyComponents](globals.md#accordionbodycomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/types.tsx#L39)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/types.tsx#L39)*
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 Ƭ **AccordionComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/types.tsx#L41)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/types.tsx#L41)*
 
 #### Type declaration:
 
@@ -201,7 +201,7 @@ ___
 
 Ƭ **AccordionContextType**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/types.tsx#L22)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/types.tsx#L22)*
 
 #### Type declaration:
 
@@ -215,7 +215,7 @@ ___
 
 Ƭ **AccordionProps**: *DesignableComponentsProps‹[AccordionComponents](globals.md#accordioncomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/types.tsx#L47)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/types.tsx#L47)*
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 Ƭ **AccordionProviderProps**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/types.tsx#L18)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:18](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/types.tsx#L18)*
 
 #### Type declaration:
 
@@ -235,7 +235,7 @@ ___
 
 Ƭ **AccordionTitleBaseProps**: *Omit‹[AccordionTitleProps](globals.md#accordiontitleprops), "design"› & DesignableComponentsProps‹[AccordionTitleComponents](globals.md#accordiontitlecomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L38)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L38)*
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 Ƭ **AccordionTitleComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/types.tsx#L27)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/types.tsx#L27)*
 
 #### Type declaration:
 
@@ -259,7 +259,7 @@ ___
 
 Ƭ **AccordionTitleProps**: *DesignableProps‹[AccordionTitleComponents](globals.md#accordiontitlecomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/types.tsx#L38)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/types.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/types.tsx#L38)*
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 Ƭ **DefaultTagProps**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L97)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L97)*
 
 #### Type declaration:
 
@@ -287,7 +287,7 @@ ___
 
 Ƭ **EmbedBaseProps**: *DesignableComponentsProps‹[EmbedDesignableComponents](globals.md#embeddesignablecomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L38)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L38)*
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 Ƭ **EmbedDesignableComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L26)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L26)*
 
 #### Type declaration:
 
@@ -311,7 +311,7 @@ ___
 
 Ƭ **EmbedProps**: *DesignableProps‹[EmbedDesignableComponents](globals.md#embeddesignablecomponents)› & WithNodeProps*
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L39)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L39)*
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 Ƭ **FBGContextOptions**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L57)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L57)*
 
 #### Type declaration:
 
@@ -331,7 +331,7 @@ ___
 
 Ƭ **FBGContextType**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L70)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:70](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L70)*
 
 #### Type declaration:
 
@@ -363,7 +363,7 @@ ___
 
 Ƭ **FilterBaseProps**: *Omit‹[FilterProps](globals.md#filterprops), "components"› & DesignableComponentsProps‹[FilterComponents](globals.md#filtercomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:195](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L195)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:195](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L195)*
 
 ___
 
@@ -371,7 +371,7 @@ ___
 
 Ƭ **FilterByGroupBaseProps**: *Omit‹[FilterByGroupProps](globals.md#filterbygroupprops), "design"› & DesignableComponentsProps‹[FilterByGroupComponents](globals.md#filterbygroupcomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L35)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L35)*
 
 ___
 
@@ -379,7 +379,7 @@ ___
 
 Ƭ **FilterByGroupComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L20)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L20)*
 
 #### Type declaration:
 
@@ -403,7 +403,7 @@ ___
 
 Ƭ **FilterByGroupProps**: *object & DesignableProps‹[FilterByGroupComponents](globals.md#filterbygroupcomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L44)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L44)*
 
 ___
 
@@ -411,7 +411,7 @@ ___
 
 Ƭ **FilterComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L30)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L30)*
 
 #### Type declaration:
 
@@ -425,7 +425,7 @@ ___
 
 Ƭ **FilterProps**: *DesignableProps‹[FilterComponents](globals.md#filtercomponents)› & WithNodeProps*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L42)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L42)*
 
 ___
 
@@ -433,7 +433,7 @@ ___
 
 Ƭ **NodeTagType**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L53)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L53)*
 
 #### Type declaration:
 
@@ -445,7 +445,7 @@ ___
 
 Ƭ **ProductComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L36)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L36)*
 
 #### Type declaration:
 
@@ -475,9 +475,9 @@ ___
 
 Ƭ **Props**: *DesignableComponentsProps‹[ProductComponents](globals.md#productcomponents)› & object*
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L53)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L53)*
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L61)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L61)*
 
 ___
 
@@ -485,7 +485,7 @@ ___
 
 Ƭ **ProvidersComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L35)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L35)*
 
 #### Type declaration:
 
@@ -499,7 +499,7 @@ ___
 
 Ƭ **RegisterSuggestionsProps**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L66)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L66)*
 
 #### Type declaration:
 
@@ -513,7 +513,7 @@ ___
 
 Ƭ **SingleAccordionComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L31)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L31)*
 
 #### Type declaration:
 
@@ -533,7 +533,7 @@ ___
 
 Ƭ **SocialShareButtonProps**: *HTMLProps‹HTMLElement› & object*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L40)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L40)*
 
 ___
 
@@ -541,7 +541,7 @@ ___
 
 Ƭ **SocialShareComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L29)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L29)*
 
 #### Type declaration:
 
@@ -557,7 +557,7 @@ ___
 
 Ƭ **SocialShareProps**: *DesignableComponentsProps‹[SocialShareComponents](globals.md#socialsharecomponents)› & HTMLProps‹HTMLElement› & [SocialShareButtonProps](globals.md#socialsharebuttonprops) & [SocialShareProvidersProps](globals.md#socialshareprovidersprops)*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L50)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L50)*
 
 ___
 
@@ -565,7 +565,7 @@ ___
 
 Ƭ **SocialShareProvider**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L24)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L24)*
 
 #### Type declaration:
 
@@ -579,7 +579,7 @@ ___
 
 Ƭ **SocialShareProvidersProps**: *DesignableComponentsProps‹[ProvidersComponents](globals.md#providerscomponents)› & HTMLProps‹HTMLElement› & object*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L44)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/types.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/types.tsx#L44)*
 
 ___
 
@@ -587,7 +587,7 @@ ___
 
 Ƭ **SuggestionsRefType**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L61)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:61](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L61)*
 
 #### Type declaration:
 
@@ -601,7 +601,7 @@ ___
 
 Ƭ **TagTitleComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L35)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L35)*
 
 #### Type declaration:
 
@@ -619,7 +619,7 @@ ___
 
 Ƭ **TagTitleProps**: *object & DesignableComponentsProps‹[TagTitleComponents](globals.md#tagtitlecomponents)›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L49)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/types.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/types.tsx#L49)*
 
 ___
 
@@ -627,7 +627,7 @@ ___
 
 Ƭ **ToutComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L32)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L32)*
 
 #### Type declaration:
 
@@ -655,7 +655,7 @@ ___
   designable(AccordionBodyComponentsStart, 'AccordionBody'),
 )(AccordionBodyBase)
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L46)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L46)*
 
 ___
 
@@ -663,7 +663,7 @@ ___
 
 • **AccordionClean**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = designable(AccordionComponentsStart, 'Accordion')(AccordionBase)
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L47)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L47)*
 
 ___
 
@@ -674,7 +674,7 @@ ___
   setExpanded: () => null,
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L23)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L23)*
 
 ___
 
@@ -685,7 +685,7 @@ ___
   'AccordionTitle',
 )(AccordionTitleBase)
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L54)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L54)*
 
 ___
 
@@ -693,7 +693,7 @@ ___
 
 • **ActivatorWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = addClasses('absolute w-full h-full inset-0')(Div)
 
-*Defined in [packages/bodiless-organisms/src/components/ResponsiveIframe.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/ResponsiveIframe.tsx#L34)*
+*Defined in [packages/bodiless-organisms/src/components/ResponsiveIframe.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/ResponsiveIframe.tsx#L34)*
 
 ___
 
@@ -704,7 +704,7 @@ ___
   withNode,
 )(BaseEmbedComponent)
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L55)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L55)*
 
 ___
 
@@ -717,7 +717,7 @@ ___
   withFilterByGroupContext,
 )(FilterByGroupBase)
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L78)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:78](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L78)*
 
 ___
 
@@ -730,7 +730,7 @@ ___
   setSelectedNode: () => undefined,
 })
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L31)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L31)*
 
 ___
 
@@ -741,7 +741,7 @@ ___
   withNodeKey('filter'),
 )(FilterBase)
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:221](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L221)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:221](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L221)*
 
 ___
 
@@ -749,7 +749,7 @@ ___
 
 • **Product**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = asEditableProduct(ProductClean)
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L112)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:112](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L112)*
 
 ___
 
@@ -760,7 +760,7 @@ ___
   withNode,
 )(ProductBase)
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L97)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:97](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L97)*
 
 ___
 
@@ -771,7 +771,7 @@ ___
   withNode,
 )(SingleAccordionClean)
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L115)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:115](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L115)*
 
 ___
 
@@ -829,7 +829,7 @@ ___
   );
 })
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L46)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L46)*
 
 ___
 
@@ -839,7 +839,7 @@ ___
   designable(singleAccordionComponentStart, 'Accordion'),
 )(SingleAccordionBase)
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:111](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L111)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:111](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L111)*
 
 ___
 
@@ -847,7 +847,7 @@ ___
 
 • **SocialShare**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = designable(socialShareComponents, 'SocialShare')(SocialShareBase)
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L118)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:118](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L118)*
 
 ___
 
@@ -855,7 +855,7 @@ ___
 
 • **SocialShareProviders**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = designable(providersComponents, 'SocialShareProviders')(ProvidersClean)
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L85)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:85](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L85)*
 
 ___
 
@@ -894,7 +894,7 @@ ___
   designable(tagTitleComponentsStart, 'TagTitle'),
 )(TagTitleBase)
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:138](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L138)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:138](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L138)*
 
 ___
 
@@ -902,7 +902,7 @@ ___
 
 • **TestableFilterByGroup**: *any* = flow(asTestableFilterByGroup)(FilterByGroupClean)
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupTestable.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupTestable.tsx#L47)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupTestable.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupTestable.tsx#L47)*
 
 ___
 
@@ -913,7 +913,7 @@ ___
   withNode,
 )(SingleAccordionClean)
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L120)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L120)*
 
 ___
 
@@ -925,7 +925,7 @@ ___
   withNode,
 )(ToutBase) as ComponentType<WithNodeProps & DesignableProps<ToutComponents>>
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L83)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:83](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L83)*
 
 ___
 
@@ -935,7 +935,7 @@ ___
   addClasses('truncate'),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L44)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L44)*
 
 #### Type declaration:
 
@@ -956,7 +956,7 @@ ___
   addClassesIf(isAccordionContracted)('hidden'),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L39)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L39)*
 
 #### Type declaration:
 
@@ -977,7 +977,7 @@ ___
   addProps({ 'data-accordion-element': 'accordion-icon' }),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L26)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L26)*
 
 #### Type declaration:
 
@@ -997,7 +997,7 @@ ___
   addClasses('w-full'),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L35)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L35)*
 
 #### Type declaration:
 
@@ -1017,7 +1017,7 @@ ___
   addClasses('flex items-center justify-between relative'),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L31)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L31)*
 
 #### Type declaration:
 
@@ -1044,7 +1044,7 @@ ___
   ),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/ResponsiveIframe.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/ResponsiveIframe.tsx#L40)*
+*Defined in [packages/bodiless-organisms/src/components/ResponsiveIframe.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/ResponsiveIframe.tsx#L40)*
 
 ___
 
@@ -1055,7 +1055,7 @@ ___
   Wrapper: ActivatorWrapper,
 })
 
-*Defined in [packages/bodiless-organisms/src/components/ResponsiveIframe.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/ResponsiveIframe.tsx#L35)*
+*Defined in [packages/bodiless-organisms/src/components/ResponsiveIframe.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/ResponsiveIframe.tsx#L35)*
 
 #### Type declaration:
 
@@ -1083,7 +1083,7 @@ ___
   Body: asEditable('body', 'Product Body Text'),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:102](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L102)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:102](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L102)*
 
 ___
 
@@ -1096,7 +1096,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/token.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/token.tsx#L31)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/token.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/token.tsx#L31)*
 
 ___
 
@@ -1109,7 +1109,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L29)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L29)*
 
 ___
 
@@ -1122,7 +1122,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L43)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L43)*
 
 ___
 
@@ -1135,7 +1135,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L22)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L22)*
 
 ___
 
@@ -1148,7 +1148,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L36)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:36](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L36)*
 
 ___
 
@@ -1161,7 +1161,7 @@ ___
   }),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/token.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/token.tsx#L24)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/token.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/token.tsx#L24)*
 
 ___
 
@@ -1172,7 +1172,7 @@ ___
   Item: addClasses('absolute w-full h-full inset-0'),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L17)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tokens.tsx:17](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tokens.tsx#L17)*
 
 ___
 
@@ -1189,7 +1189,7 @@ ___
   ),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/token.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/token.tsx#L38)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/token.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/token.tsx#L38)*
 
 #### Type declaration:
 
@@ -1218,7 +1218,7 @@ ___
   ),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/ResponsiveIframe.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/ResponsiveIframe.tsx#L51)*
+*Defined in [packages/bodiless-organisms/src/components/ResponsiveIframe.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/ResponsiveIframe.tsx#L51)*
 
 ___
 
@@ -1229,7 +1229,7 @@ ___
   Body: asEditable('body', 'SingleAccordion Body Text'),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L98)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:98](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L98)*
 
 ___
 
@@ -1247,7 +1247,7 @@ ___
   }),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/asTestableAccordion.tsx:16](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/asTestableAccordion.tsx#L16)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/asTestableAccordion.tsx:16](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/asTestableAccordion.tsx#L16)*
 
 ___
 
@@ -1278,7 +1278,7 @@ ___
   }),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupTestable.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupTestable.tsx#L22)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupTestable.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupTestable.tsx#L22)*
 
 ___
 
@@ -1292,7 +1292,7 @@ ___
   Body: addProps({ 'data-accordion-element': 'accordion-body' }),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:103](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L103)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:103](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L103)*
 
 ___
 
@@ -1309,7 +1309,7 @@ ___
   Link: addProps({ 'data-tout-element': 'link' }),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L94)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:94](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L94)*
 
 Adds data- identifiers to help select tout elements in automated tests.
 
@@ -1327,7 +1327,7 @@ ___
   Body: addClasses('flex-grow'),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L37)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:37](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L37)*
 
 asToutHorizontal splits the tout in half with the image on the left
 
@@ -1340,7 +1340,7 @@ ___
   Body: remove,
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L47)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L47)*
 
 ___
 
@@ -1352,7 +1352,7 @@ ___
   withDesign({ ImageLink: addClasses('flex-grow') }),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L51)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L51)*
 
 ___
 
@@ -1362,7 +1362,7 @@ ___
   Link: remove,
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L56)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L56)*
 
 ___
 
@@ -1372,7 +1372,7 @@ ___
   Title: remove,
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L44)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L44)*
 
 ___
 
@@ -1386,7 +1386,7 @@ ___
   Wrapper: addClasses('relative'),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L63)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L63)*
 
 ___
 
@@ -1397,7 +1397,7 @@ ___
   Wrapper: addClasses('relative'),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L59)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L59)*
 
 ___
 
@@ -1411,7 +1411,7 @@ ___
   Body: addClasses('flex-grow'),
 })
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L26)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tokens.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tokens.tsx#L26)*
 
 asToutVertical removes unessesary wrappers from the Tout
 
@@ -1425,7 +1425,7 @@ ___
   withSublist,
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/asAccordionSublist.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/asAccordionSublist.tsx#L57)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/asAccordionSublist.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/asAccordionSublist.tsx#L57)*
 
 #### Type declaration:
 
@@ -1447,7 +1447,7 @@ ___
   ),
 )
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L20)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tokens.tsx#L20)*
 
 #### Type declaration:
 
@@ -1465,7 +1465,7 @@ Name | Type |
 
 ▸ **AccordionBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L28)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L28)*
 
 **Parameters:**
 
@@ -1485,7 +1485,7 @@ ___
 
 ▸ **AccordionBodyBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L34)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L34)*
 
 **Parameters:**
 
@@ -1504,7 +1504,7 @@ ___
 
 ▸ **AccordionProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L30)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L30)*
 
 **Parameters:**
 
@@ -1523,7 +1523,7 @@ ___
 
 ▸ **AccordionTitleBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L40)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L40)*
 
 **Parameters:**
 
@@ -1542,7 +1542,7 @@ ___
 
 ▸ **BaseEmbedComponent**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L41)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L41)*
 
 **Parameters:**
 
@@ -1560,7 +1560,7 @@ ___
 
 ▸ **ButtonClean**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L43)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L43)*
 
 Display a social share button.
 
@@ -1582,7 +1582,7 @@ ___
 
 ▸ **FilterByGroupBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L38)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L38)*
 
 **Parameters:**
 
@@ -1604,7 +1604,7 @@ ___
 
 ▸ **FilterByGroupProvider**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L40)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L40)*
 
 **Parameters:**
 
@@ -1623,7 +1623,7 @@ ___
 
 ▸ **ProductBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L63)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L63)*
 
 **Parameters:**
 
@@ -1641,7 +1641,7 @@ ___
 
 ▸ **ProvidersClean**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L57)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L57)*
 
 **Parameters:**
 
@@ -1661,7 +1661,7 @@ ___
 
 ▸ **SocialShareBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L93)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:93](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L93)*
 
 **Parameters:**
 
@@ -1682,7 +1682,7 @@ ___
 
 ▸ **TagTitleBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L82)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:82](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L82)*
 
 **Parameters:**
 
@@ -1702,7 +1702,7 @@ ___
 
 ▸ **ToutBase**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L55)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L55)*
 
 **Parameters:**
 
@@ -1721,7 +1721,7 @@ ___
 
 ▸ **WrapperClean**(`__namedParameters`: object): *Element‹›*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L35)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L35)*
 
 **Parameters:**
 
@@ -1740,7 +1740,7 @@ ___
 
 ▸ **asAccodionTitle**(`Component`: "symbol" | "object" | "cite" | "data" | "form" | "label" | "slot" | "span" | "style" | "summary" | "title" | "pattern" | "a" | "abbr" | "address" | "area" | "article" | "aside" | "audio" | "b" | "base" | "bdi" | "bdo" | "big" | "blockquote" | "body" | "br" | "button" | "canvas" | "caption" | "code" | "col" | "colgroup" | "datalist" | "dd" | "del" | "details" | "dfn" | "dialog" | "div" | "dl" | "dt" | "em" | "embed" | "fieldset" | "figcaption" | "figure" | "footer" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "head" | "header" | "hgroup" | "hr" | "html" | "i" | "iframe" | "img" | "input" | "ins" | "kbd" | "keygen" | "legend" | "li" | "link" | "main" | "map" | "mark" | "menu" | "menuitem" | "meta" | "meter" | "nav" | "noindex" | "noscript" | "ol" | "optgroup" | "option" | "output" | "p" | "param" | "picture" | "pre" | "progress" | "q" | "rp" | "rt" | "ruby" | "s" | "samp" | "script" | "section" | "select" | "small" | "source" | "strong" | "sub" | "sup" | "table" | "template" | "tbody" | "td" | "textarea" | "tfoot" | "th" | "thead" | "time" | "tr" | "track" | "u" | "ul" | "var" | "video" | "wbr" | "webview" | "svg" | "animate" | "animateMotion" | "animateTransform" | "circle" | "clipPath" | "defs" | "desc" | "ellipse" | "feBlend" | "feColorMatrix" | "feComponentTransfer" | "feComposite" | "feConvolveMatrix" | "feDiffuseLighting" | "feDisplacementMap" | "feDistantLight" | "feDropShadow" | "feFlood" | "feFuncA" | "feFuncB" | "feFuncG" | "feFuncR" | "feGaussianBlur" | "feImage" | "feMerge" | "feMergeNode" | "feMorphology" | "feOffset" | "fePointLight" | "feSpecularLighting" | "feSpotLight" | "feTile" | "feTurbulence" | "filter" | "foreignObject" | "g" | "image" | "line" | "linearGradient" | "marker" | "mask" | "metadata" | "mpath" | "path" | "polygon" | "polyline" | "radialGradient" | "rect" | "stop" | "switch" | "text" | "textPath" | "tspan" | "use" | "view" | ComponentClass‹P, any› & object | FunctionComponent‹P› & object): *FunctionComponent‹any›*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L59)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:59](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L59)*
 
 **Parameters:**
 
@@ -1756,7 +1756,7 @@ ___
 
 ▸ **asAccordionBody**(`Component`: "symbol" | "object" | "cite" | "data" | "form" | "label" | "slot" | "span" | "style" | "summary" | "title" | "pattern" | "a" | "abbr" | "address" | "area" | "article" | "aside" | "audio" | "b" | "base" | "bdi" | "bdo" | "big" | "blockquote" | "body" | "br" | "button" | "canvas" | "caption" | "code" | "col" | "colgroup" | "datalist" | "dd" | "del" | "details" | "dfn" | "dialog" | "div" | "dl" | "dt" | "em" | "embed" | "fieldset" | "figcaption" | "figure" | "footer" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "head" | "header" | "hgroup" | "hr" | "html" | "i" | "iframe" | "img" | "input" | "ins" | "kbd" | "keygen" | "legend" | "li" | "link" | "main" | "map" | "mark" | "menu" | "menuitem" | "meta" | "meter" | "nav" | "noindex" | "noscript" | "ol" | "optgroup" | "option" | "output" | "p" | "param" | "picture" | "pre" | "progress" | "q" | "rp" | "rt" | "ruby" | "s" | "samp" | "script" | "section" | "select" | "small" | "source" | "strong" | "sub" | "sup" | "table" | "template" | "tbody" | "td" | "textarea" | "tfoot" | "th" | "thead" | "time" | "tr" | "track" | "u" | "ul" | "var" | "video" | "wbr" | "webview" | "svg" | "animate" | "animateMotion" | "animateTransform" | "circle" | "clipPath" | "defs" | "desc" | "ellipse" | "feBlend" | "feColorMatrix" | "feComponentTransfer" | "feComposite" | "feConvolveMatrix" | "feDiffuseLighting" | "feDisplacementMap" | "feDistantLight" | "feDropShadow" | "feFlood" | "feFuncA" | "feFuncB" | "feFuncG" | "feFuncR" | "feGaussianBlur" | "feImage" | "feMerge" | "feMergeNode" | "feMorphology" | "feOffset" | "fePointLight" | "feSpecularLighting" | "feSpotLight" | "feTile" | "feTurbulence" | "filter" | "foreignObject" | "g" | "image" | "line" | "linearGradient" | "marker" | "mask" | "metadata" | "mpath" | "path" | "polygon" | "polyline" | "radialGradient" | "rect" | "stop" | "switch" | "text" | "textPath" | "tspan" | "use" | "view" | ComponentClass‹P, any› & object | FunctionComponent‹P› & object): *AsAccordionBody*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L50)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L50)*
 
 **Parameters:**
 
@@ -1772,7 +1772,7 @@ ___
 
 ▸ **asAccordionSublist**(`Sublist`: ComponentType‹ListProps›): *HOC*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/asAccordionSublist.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/asAccordionSublist.tsx#L34)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/asAccordionSublist.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/asAccordionSublist.tsx#L34)*
 
 Takes a sublist component and returns a HOC which, when applied to a list item,
 adds a toggled version of the sublist as an Accordion body to the list item.
@@ -1791,7 +1791,7 @@ ___
 
 ▸ **asAccordionWrapper**(`Component`: "symbol" | "object" | "cite" | "data" | "form" | "label" | "slot" | "span" | "style" | "summary" | "title" | "pattern" | "a" | "abbr" | "address" | "area" | "article" | "aside" | "audio" | "b" | "base" | "bdi" | "bdo" | "big" | "blockquote" | "body" | "br" | "button" | "canvas" | "caption" | "code" | "col" | "colgroup" | "datalist" | "dd" | "del" | "details" | "dfn" | "dialog" | "div" | "dl" | "dt" | "em" | "embed" | "fieldset" | "figcaption" | "figure" | "footer" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "head" | "header" | "hgroup" | "hr" | "html" | "i" | "iframe" | "img" | "input" | "ins" | "kbd" | "keygen" | "legend" | "li" | "link" | "main" | "map" | "mark" | "menu" | "menuitem" | "meta" | "meter" | "nav" | "noindex" | "noscript" | "ol" | "optgroup" | "option" | "output" | "p" | "param" | "picture" | "pre" | "progress" | "q" | "rp" | "rt" | "ruby" | "s" | "samp" | "script" | "section" | "select" | "small" | "source" | "strong" | "sub" | "sup" | "table" | "template" | "tbody" | "td" | "textarea" | "tfoot" | "th" | "thead" | "time" | "tr" | "track" | "u" | "ul" | "var" | "video" | "wbr" | "webview" | "svg" | "animate" | "animateMotion" | "animateTransform" | "circle" | "clipPath" | "defs" | "desc" | "ellipse" | "feBlend" | "feColorMatrix" | "feComponentTransfer" | "feComposite" | "feConvolveMatrix" | "feDiffuseLighting" | "feDisplacementMap" | "feDistantLight" | "feDropShadow" | "feFlood" | "feFuncA" | "feFuncB" | "feFuncG" | "feFuncR" | "feGaussianBlur" | "feImage" | "feMerge" | "feMergeNode" | "feMorphology" | "feOffset" | "fePointLight" | "feSpecularLighting" | "feSpotLight" | "feTile" | "feTurbulence" | "filter" | "foreignObject" | "g" | "image" | "line" | "linearGradient" | "marker" | "mask" | "metadata" | "mpath" | "path" | "polygon" | "polyline" | "radialGradient" | "rect" | "stop" | "switch" | "text" | "textPath" | "tspan" | "use" | "view" | ComponentClass‹P, any› & object | FunctionComponent‹P› & object): *AsAccordionWrapper*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionWrapper.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionWrapper.tsx#L19)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionWrapper.tsx:19](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionWrapper.tsx#L19)*
 
 **Parameters:**
 
@@ -1807,7 +1807,7 @@ ___
 
 ▸ **asFilterableByGroup**(`nodeKey`: string): *function & object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/asFilterableByGroup.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/asFilterableByGroup.tsx#L20)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/asFilterableByGroup.tsx:20](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/asFilterableByGroup.tsx#L20)*
 
 **Parameters:**
 
@@ -1823,7 +1823,7 @@ ___
 
 ▸ **isAccordionContracted**(): *boolean*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L42)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L42)*
 
 **Returns:** *boolean*
 
@@ -1833,7 +1833,7 @@ ___
 
 ▸ **isAccordionExpanded**(): *boolean*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L41)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L41)*
 
 **Returns:** *boolean*
 
@@ -1843,7 +1843,7 @@ ___
 
 ▸ **useAccordionContext**(): *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L28)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionContext.tsx#L28)*
 
 **Returns:** *object*
 
@@ -1857,7 +1857,7 @@ ___
 
 ▸ **useFilterByGroupContext**(): *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L38)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L38)*
 
 **Returns:** *object*
 
@@ -1889,7 +1889,7 @@ ___
 
 ▸ **withFBGSuggestions**(`__namedParameters`: object): *function & object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L120)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:120](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L120)*
 
 **Parameters:**
 
@@ -1907,7 +1907,7 @@ ___
 
 ▸ **withFilterByGroupContext**‹**P**›(`Component`: ComponentType‹P› | string): *(Anonymous function)*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L88)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L88)*
 
 **Type parameters:**
 
@@ -1927,7 +1927,7 @@ ___
 
 ▸ **withTagProps**(`suggestionOptions?`: TagButtonProps): *Injector‹[DefaultTagProps](globals.md#defaulttagprops)›*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:103](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L103)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx:103](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupContext.tsx#L103)*
 
 **Parameters:**
 
@@ -1943,7 +1943,7 @@ ___
 
 ▸ **withUnselectOnDelete**(`Component`: "symbol" | "object" | "cite" | "data" | "form" | "label" | "slot" | "span" | "style" | "summary" | "title" | "pattern" | "a" | "abbr" | "address" | "area" | "article" | "aside" | "audio" | "b" | "base" | "bdi" | "bdo" | "big" | "blockquote" | "body" | "br" | "button" | "canvas" | "caption" | "code" | "col" | "colgroup" | "datalist" | "dd" | "del" | "details" | "dfn" | "dialog" | "div" | "dl" | "dt" | "em" | "embed" | "fieldset" | "figcaption" | "figure" | "footer" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "head" | "header" | "hgroup" | "hr" | "html" | "i" | "iframe" | "img" | "input" | "ins" | "kbd" | "keygen" | "legend" | "li" | "link" | "main" | "map" | "mark" | "menu" | "menuitem" | "meta" | "meter" | "nav" | "noindex" | "noscript" | "ol" | "optgroup" | "option" | "output" | "p" | "param" | "picture" | "pre" | "progress" | "q" | "rp" | "rt" | "ruby" | "s" | "samp" | "script" | "section" | "select" | "small" | "source" | "strong" | "sub" | "sup" | "table" | "template" | "tbody" | "td" | "textarea" | "tfoot" | "th" | "thead" | "time" | "tr" | "track" | "u" | "ul" | "var" | "video" | "wbr" | "webview" | "svg" | "animate" | "animateMotion" | "animateTransform" | "circle" | "clipPath" | "defs" | "desc" | "ellipse" | "feBlend" | "feColorMatrix" | "feComponentTransfer" | "feComposite" | "feConvolveMatrix" | "feDiffuseLighting" | "feDisplacementMap" | "feDistantLight" | "feDropShadow" | "feFlood" | "feFuncA" | "feFuncB" | "feFuncG" | "feFuncR" | "feGaussianBlur" | "feImage" | "feMerge" | "feMergeNode" | "feMorphology" | "feOffset" | "fePointLight" | "feSpecularLighting" | "feSpotLight" | "feTile" | "feTurbulence" | "filter" | "foreignObject" | "g" | "image" | "line" | "linearGradient" | "marker" | "mask" | "metadata" | "mpath" | "path" | "polygon" | "polyline" | "radialGradient" | "rect" | "stop" | "switch" | "text" | "textPath" | "tspan" | "use" | "view" | ComponentClass‹P, any› & object | FunctionComponent‹P› & object): *(Anonymous function)*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L69)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:69](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L69)*
 
 **Parameters:**
 
@@ -1959,19 +1959,19 @@ Name | Type |
 
 ### ▪ **AccordionBodyComponentsStart**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L26)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L26)*
 
 ###  Content
 
 • **Content**: *any* = asAccordionBodyContent(Div)
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L28)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L28)*
 
 ###  Wrapper
 
 • **Wrapper**: *ComponentClass‹object, any› & object | FunctionComponent‹object› & object* = asAccordionBodyWrapper(Div)
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L27)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionBody.tsx#L27)*
 
 ___
 
@@ -1979,25 +1979,25 @@ ___
 
 ### ▪ **AccordionComponentsStart**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L22)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:22](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L22)*
 
 ###  Body
 
 • **Body**: *any* = AccordionBodyClean
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L25)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L25)*
 
 ###  Title
 
 • **Title**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = AccordionTitleClean
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L24)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:24](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L24)*
 
 ###  Wrapper
 
 • **Wrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L23)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/Accordion.tsx:23](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/Accordion.tsx#L23)*
 
 ___
 
@@ -2005,49 +2005,49 @@ ___
 
 ### ▪ **FilterByGroupComponentsStart**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L25)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:25](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L25)*
 
 ###  ContentWrapper
 
 • **ContentWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L30)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:30](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L30)*
 
 ###  Filter
 
 • **Filter**: *ComponentClass‹object & object, any› | FunctionComponent‹object & object›* = FilterClean
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L32)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L32)*
 
 ###  FilterHeader
 
 • **FilterHeader**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L28)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:28](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L28)*
 
 ###  FilterTitle
 
 • **FilterTitle**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = H3
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L29)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:29](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L29)*
 
 ###  FilterWrapper
 
 • **FilterWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L27)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:27](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L27)*
 
 ###  ResetButton
 
 • **ResetButton**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Button
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L31)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:31](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L31)*
 
 ###  Wrapper
 
 • **Wrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L26)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx:26](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/FilterByGroupClean.tsx#L26)*
 
 ___
 
@@ -2055,67 +2055,67 @@ ___
 
 ### ▪ **ProductComponentStart**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L48)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L48)*
 
 ###  Body
 
 • **Body**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L58)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:58](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L58)*
 
 ###  BvReview
 
 • **BvReview**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L57)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:57](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L57)*
 
 ###  BvReviewLink
 
 • **BvReviewLink**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = A
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L56)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:56](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L56)*
 
 ###  ContentWrapper
 
 • **ContentWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L53)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L53)*
 
 ###  Image
 
 • **Image**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Img
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L52)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:52](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L52)*
 
 ###  ImageLink
 
 • **ImageLink**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = A
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L51)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:51](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L51)*
 
 ###  ImageWrapper
 
 • **ImageWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L50)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L50)*
 
 ###  Title
 
 • **Title**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = H2
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L55)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L55)*
 
 ###  TitleLink
 
 • **TitleLink**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = A
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L54)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L54)*
 
 ###  Wrapper
 
 • **Wrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Products.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Products.tsx#L49)*
+*Defined in [packages/bodiless-organisms/src/components/Products.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Products.tsx#L49)*
 
 ___
 
@@ -2123,7 +2123,7 @@ ___
 
 ### ▪ **TestFilterComponentsStart**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:171](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L171)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:171](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L171)*
 
 ###  CategoryList
 
@@ -2140,7 +2140,7 @@ ___
     }),
   )(List)
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:172](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L172)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:172](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L172)*
 
 ###  TagList
 
@@ -2154,7 +2154,7 @@ ___
     }),
   )(List as ComponentType<ListProps>)
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:184](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L184)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:184](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L184)*
 
 ___
 
@@ -2162,25 +2162,25 @@ ___
 
 ### ▪ **accordionTitleComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L32)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L32)*
 
 ###  Icon
 
 • **Icon**: *ComponentClass‹object, any› & object | FunctionComponent‹object› & object* = asAccordionIcon(Span)
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L34)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L34)*
 
 ###  Label
 
 • **Label**: *any* = asAccordionLabel(Div)
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L35)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L35)*
 
 ###  Wrapper
 
 • **Wrapper**: *any* = asAccordionTitleWrapper(Div)
 
-*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L33)*
+*Defined in [packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Accordion/AccordionTitle.tsx#L33)*
 
 ___
 
@@ -2188,7 +2188,7 @@ ___
 
 ### ▪ **initialSimpleValue**: *object*
 
-*Defined in [packages/bodiless-organisms/src/initial-values/initialSimpleValue.ts:15](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/initial-values/initialSimpleValue.ts#L15)*
+*Defined in [packages/bodiless-organisms/src/initial-values/initialSimpleValue.ts:15](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/initial-values/initialSimpleValue.ts#L15)*
 
 Copyright © 2019 Johnson & Johnson
 
@@ -2204,7 +2204,7 @@ limitations under the License.
 
 ▪ **document**: *object*
 
-*Defined in [packages/bodiless-organisms/src/initial-values/initialSimpleValue.ts:16](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/initial-values/initialSimpleValue.ts#L16)*
+*Defined in [packages/bodiless-organisms/src/initial-values/initialSimpleValue.ts:16](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/initial-values/initialSimpleValue.ts#L16)*
 
 * **nodes**: *object[]* = [
       {
@@ -2230,19 +2230,19 @@ ___
 
 ### ▪ **providersComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L53)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:53](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L53)*
 
 ###  ProviderList
 
 • **ProviderList**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Li
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L55)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:55](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L55)*
 
 ###  ProvidersWrapper
 
 • **ProvidersWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Ul
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L54)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:54](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L54)*
 
 ___
 
@@ -2250,37 +2250,37 @@ ___
 
 ### ▪ **singleAccordionComponentStart**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L38)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:38](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L38)*
 
 ###  Body
 
 • **Body**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L43)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L43)*
 
 ###  BodyWrapper
 
 • **BodyWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L42)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L42)*
 
 ###  Title
 
 • **Title**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = H2
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L41)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:41](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L41)*
 
 ###  TitleWrapper
 
 • **TitleWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L40)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:40](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L40)*
 
 ###  Wrapper
 
 • **Wrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L39)*
+*Defined in [packages/bodiless-organisms/src/components/SingleAccordion.tsx:39](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SingleAccordion.tsx#L39)*
 
 ___
 
@@ -2288,25 +2288,25 @@ ___
 
 ### ▪ **socialShareComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L87)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:87](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L87)*
 
 ###  SocialShareButton
 
 • **SocialShareButton**: *FunctionComponent‹any›* = ButtonClean
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L89)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:89](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L89)*
 
 ###  SocialShareProdviders
 
 • **SocialShareProdviders**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = SocialShareProviders
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L90)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:90](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L90)*
 
 ###  SocialShareWrapper
 
 • **SocialShareWrapper**: *FunctionComponent‹object›* = WrapperClean
 
-*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L88)*
+*Defined in [packages/bodiless-organisms/src/components/SocialShare/index.tsx:88](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/SocialShare/index.tsx#L88)*
 
 ___
 
@@ -2314,25 +2314,25 @@ ___
 
 ### ▪ **startComponents**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L32)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:32](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L32)*
 
 ###  AspectRatio
 
 • **AspectRatio**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L34)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:34](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L34)*
 
 ###  Item
 
 • **Item**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = BaseEmbed
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L35)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:35](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L35)*
 
 ###  Wrapper
 
 • **Wrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Embed.tsx#L33)*
+*Defined in [packages/bodiless-organisms/src/components/Embed.tsx:33](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Embed.tsx#L33)*
 
 ___
 
@@ -2340,31 +2340,31 @@ ___
 
 ### ▪ **tagTitleComponentsStart**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L62)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:62](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L62)*
 
 ###  FilterGroupItemInput
 
 • **FilterGroupItemInput**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Input
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L64)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:64](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L64)*
 
 ###  FilterGroupItemLabel
 
 • **FilterGroupItemLabel**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Label
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L66)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:66](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L66)*
 
 ###  FilterGroupItemPlaceholder
 
 • **FilterGroupItemPlaceholder**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Label
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L65)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:65](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L65)*
 
 ###  FilterInputWrapper
 
 • **FilterInputWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L63)*
+*Defined in [packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx:63](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/FilterByGroup/Filter.tsx#L63)*
 
 ___
 
@@ -2372,52 +2372,52 @@ ___
 
 ### ▪ **toutComponentStart**: *object*
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L42)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:42](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L42)*
 
 ###  Body
 
 • **Body**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L49)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:49](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L49)*
 
 ###  ContentWrapper
 
 • **ContentWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L47)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:47](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L47)*
 
 ###  Image
 
 • **Image**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Img
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L46)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:46](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L46)*
 
 ###  ImageLink
 
 • **ImageLink**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = A
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L45)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:45](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L45)*
 
 ###  ImageWrapper
 
 • **ImageWrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L44)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:44](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L44)*
 
 ###  Link
 
 • **Link**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = A
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L50)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:50](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L50)*
 
 ###  Title
 
 • **Title**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = H2
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L48)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:48](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L48)*
 
 ###  Wrapper
 
 • **Wrapper**: *ComponentClass‹object & object, any› & object | FunctionComponent‹object & object› & object* = Div
 
-*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/861214c2/packages/bodiless-organisms/src/components/Touts.tsx#L43)*
+*Defined in [packages/bodiless-organisms/src/components/Touts.tsx:43](https://github.com/johnsonandjohnson/Bodiless-JS/blob/37f64a26/packages/bodiless-organisms/src/components/Touts.tsx#L43)*
