@@ -137,6 +137,7 @@ const withAutoPlayButtonStyles = asToken(
     ButtonPlay: asToken(
       addClasses('ml-2 rounded-full p-1 block w-8'),
       addClasses('leading-none text-1xl bg-blue-700 text-white'),
+      addClasses('disabled:opacity-50 disabled:cursor-not-allowed'),
       withChild(MaterialIcon),
       withDesign({
         Child: asToken(
