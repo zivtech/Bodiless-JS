@@ -41,8 +41,8 @@ type FilterByGroupStoreSettings = {
 const readTagsFromQueryParams = () => {
   const tags = [];
   const params = new URLSearchParams(window.location.search);
-  // eslint-disable-next-line
-  for (const [categoryId, tagId] of params) {
+  // @ts-ignore
+  for (const [categoryId, tagId] of params) { // eslint-disable-line
     tags.push(new Tag(tagId, '', categoryId));
   }
   return tags;

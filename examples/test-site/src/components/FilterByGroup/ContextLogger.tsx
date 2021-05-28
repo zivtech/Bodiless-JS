@@ -30,7 +30,7 @@ type ContextLoggerProps = {
 };
 
 const ContextLoggerBase: FC<ContextLoggerProps> = () => {
-  const { getSuggestions, useRegisterSuggestions, selectedTag } = useFilterByGroupContext();
+  const { getSuggestions, useRegisterSuggestions, getSelectedTags } = useFilterByGroupContext();
   const [allSuggestions, setAllSuggestions] = useState(getSuggestions());
   const registerSuggestions = useRegisterSuggestions();
 
@@ -44,6 +44,7 @@ const ContextLoggerBase: FC<ContextLoggerProps> = () => {
     /* eslint-disable no-bitwise */
     const newTag = new BodilessTag(`#${(Math.random() * 0xFFFFFF << 0).toString(16)}`);
     randomSuggestions.current.push(newTag);
+    // @ts-ignore
     registerSuggestions(randomSuggestions.current);
     setAllSuggestions(getSuggestions());
   };
@@ -55,7 +56,7 @@ const ContextLoggerBase: FC<ContextLoggerProps> = () => {
       <br />
       <strong>Selected Tag: </strong>
       <pre>
-        {JSON.stringify(selectedTag, null, 2)}
+        {JSON.stringify(getSelectedTags(), null, 2)}
       </pre>
 
       <strong>All Tags: </strong>
@@ -72,6 +73,7 @@ const ContextLoggerBase: FC<ContextLoggerProps> = () => {
 
 const ContextLogger = asToken(
   withTagProps(),
+// @ts-ignore
 )(ContextLoggerBase);
 
 export default ContextLogger;

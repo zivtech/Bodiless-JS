@@ -47,7 +47,7 @@ const asTaggableItem = (nodeKey?: string) => asToken(
     'setComponentData',
   ]),
   ifEditable(
-    withTagButton,
+    withTagButton(),
     withContextActivator('onClick'),
     withLocalContextMenu,
   ),

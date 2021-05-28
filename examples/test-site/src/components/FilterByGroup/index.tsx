@@ -24,6 +24,7 @@ const suggestions = [
 ];
 
 const asFilterByGroup = asToken(
+  // @ts-ignore
   withFBGSuggestions({ suggestions }),
   addProps({ resetButtonText: 'Show All Products' }),
   asFilterByGroupResponsive,
