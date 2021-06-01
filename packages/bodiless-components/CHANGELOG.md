@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.2.0...v0.2.1) (2021-05-12)
+
+**Note:** Version bump only for package @bodiless/components
+
+
+
+
+
+## [0.2.0](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.72...v0.2.0) (2021-04-28)
+
+### Features
+
+* **components:** ability to create anchor links ([#943](https://github.com/johnsonandjohnson/bodiless-js/issues/943)) ([18e3728](https://github.com/johnsonandjohnson/bodiless-js/commit/18e3728d31f9bb86fde205373c1374c34c32ec71)), closes [#904](https://github.com/johnsonandjohnson/bodiless-js/issues/904)
+* **components, youtube:** Youtube allow full screen ([#939](https://github.com/johnsonandjohnson/bodiless-js/issues/939)) ([bea046a](https://github.com/johnsonandjohnson/bodiless-js/commit/bea046a16daafdaed5f72086738ec39ea751589c))
+* **navigation, organisms, components:** Better DX for Menu, Breadcrumbs, BurgerMenu ([#841](https://github.com/johnsonandjohnson/bodiless-js/issues/841)) ([ad1d8dd](https://github.com/johnsonandjohnson/bodiless-js/commit/ad1d8ddb4308ab2883ba15fb918f4393f09e53c2))
+
+
+### BREAKING CHANGES
+
+* **navigation, organisms, components:**  - There is now a new `@bodiless/navigation` package for the new menu API.
+ - All menu-related code is removed from `@bodiless/organisms`.
+ - `withSimpleMenuDesign` and `withMegaMenuDesign` were deprecated. Use `withMenuDesign` from `@bodiless/organisms`  instead.
+ - `asSimpleMenuTopNav` and `asMegaMenuTopNav` were depricated. Use `asTopNav()` from `@bodiless/organisms` instead.
+ - Breadcrumbs are now configured by default for each menu item. No need for `asBreadcrumbSource`.
+ - List and Menu design keys have changed. Removed extra `Wrapper` component from submenus.
+ - Breadcrumb design keys have changed. Breadcrumb `Title` is now the same component as `MenuTitle` by default. The `BreadcrumbLink` design key has been deprecated. `Link` is available in `MenuTitle`. Renamed `BreadcrumbWrapper` and `BreadcrumbItem` to `Wrapper` and `Item` respectively.
+- Please refer to the Upgrade Guide in `@bodiless/organisms` readme file.
+* **components, youtube:** YouTube and ResponsiveYouTube components were moved to the `@bodiless/YouTube`
+
+
+
+
+
+## [0.0.72](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.71...v0.0.72) (2021-04-01)
+
+**Note:** Version bump only for package @bodiless/components
+
+
+
+
+
+## [0.0.71](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.70...v0.0.71) (2021-03-31)
+
+
+### Features
+
+* **core,components:** Edit button improvements ([#878](https://github.com/johnsonandjohnson/bodiless-js/issues/878)) ([4d762b9](https://github.com/johnsonandjohnson/bodiless-js/commit/4d762b91f10c714dab1ad827002f4026b0beffbb)), closes [#624](https://github.com/johnsonandjohnson/bodiless-js/issues/624) [#794](https://github.com/johnsonandjohnson/bodiless-js/issues/794) [#624](https://github.com/johnsonandjohnson/bodiless-js/issues/624) [#794](https://github.com/johnsonandjohnson/bodiless-js/issues/794)
+* **gatsby-theme-bodiless:** Bodiless Image Refresh ([#860](https://github.com/johnsonandjohnson/bodiless-js/issues/860)) ([c696757](https://github.com/johnsonandjohnson/bodiless-js/commit/c69675757a448800e85fc300d5b5ceaa8ec66efe))
+* **gatsby-theme-bodiless:** gatsby link ([#928](https://github.com/johnsonandjohnson/bodiless-js/issues/928)) ([f40d23d](https://github.com/johnsonandjohnson/bodiless-js/commit/f40d23dd6b3a8d4c9018863e7c5c8a6430bf735d))
+
+
+### BREAKING CHANGES
+
+* **core,components:** Structure of compound form data has changed.
+
+Fields in compound forms are now namespaced by the snippet id.
+
+Since edit forms (those created by withEditButton or asBodilessComponent) are now
+compound forms, this change affects them as well.
+
+
+
+
+
 ## [0.0.70](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.69...v0.0.70) (2021-02-24)
 
 

@@ -17,7 +17,7 @@ import { arrayMove, SortEnd } from 'react-sortable-hoc';
 import { observer } from 'mobx-react-lite';
 import { flowRight } from 'lodash';
 import {
-  withActivateOnEffect, withNode, withMenuOptions,
+  withActivateOnEffect, withNode, withMenuOptions, withResizeDetector,
 } from '@bodiless/core';
 import { designable, stylable } from '@bodiless/fclasses';
 import SortableChild from './SortableChild';
@@ -45,7 +45,7 @@ const EditFlowContainerComponents: FlowContainerComponents = {
  */
 const EditFlowContainer: FC<EditFlowContainerProps> = (props:EditFlowContainerProps) => {
   const {
-    components, ui, snapData, getDefaultWidth,
+    components, ui, snapData, getDefaultWidth, itemButtonGroupLabel,
   } = props;
   const items = useItemHandlers().getItems();
   const {
@@ -71,6 +71,7 @@ const EditFlowContainer: FC<EditFlowContainerProps> = (props:EditFlowContainerPr
             return (
               <ChildNodeProvider nodeKey={flowContainerItem.uuid} key={`node-${flowContainerItem.uuid}`}>
                 <ComponentWrapper
+                  buttonGroupLabel={itemButtonGroupLabel}
                   ui={ui}
                   index={index}
                   flowContainerItem={flowContainerItem}
@@ -101,12 +102,16 @@ EditFlowContainer.defaultProps = {
 
 const asEditFlowContainer = flowRight(
   withActivateOnEffect,
+  withResizeDetector,
   observer,
   designable(EditFlowContainerComponents, 'FlowContainer'),
-  withMenuOptions({
-    useMenuOptions,
-    name: 'Flow Container',
-  }),
+  withMenuOptions(
+    (p: EditFlowContainerProps) => ({
+      useMenuOptions,
+      name: typeof p.buttonGroupLabel === 'function'
+        ? p.buttonGroupLabel(p) : (p.buttonGroupLabel || 'Flow Container'),
+    }),
+  ),
   observer,
 );
 

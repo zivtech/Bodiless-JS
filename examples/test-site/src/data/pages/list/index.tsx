@@ -12,16 +12,18 @@
  * limitations under the License.
  */
 
+// @ts-nocheck
+
 import React from 'react';
 import { graphql } from 'gatsby';
-import { flow, flowRight } from 'lodash';
+import flowRight from 'lodash/flowRight';
 import { Page } from '@bodiless/gatsby-theme-bodiless';
 import {
   List, Editable, asEditableList, withBasicSublist, asTestableList, asEditable,
 } from '@bodiless/components';
 import {
   withDesign, replaceWith, addClasses, stylable,
-  removeClasses,
+  removeClasses, asToken,
   A,
 } from '@bodiless/fclasses';
 import { withNodeKey } from '@bodiless/core';
@@ -45,12 +47,12 @@ const LinkTitle = flowRight(
 /**
  * This is an editable list using our simple editable title.
  */
-const EditableList = flow(
+const EditableList = asToken(
   asEditableList,
   withDesign({
     Title: replaceWith(SimpleTitle),
-    Wrapper: flow(stylable, addClasses('pl-10')),
-    Item: flow(stylable, addClasses('text-red')),
+    Wrapper: asToken(stylable, addClasses('pl-10')),
+    Item: asToken(stylable, addClasses('text-red')),
   }),
   asTestableList('list'),
 )(List);
@@ -58,9 +60,9 @@ const EditableList = flow(
 /**
  * This is an editable list using our simple editable title.
  */
-const EditableLinkList = flow(
+const EditableLinkList = asToken(
   asEditableList,
-  withDesign({ Title: replaceWith(LinkTitle), Wrapper: flow(stylable, addClasses('pl-10')) }),
+  withDesign({ Title: replaceWith(LinkTitle), Wrapper: asToken(stylable, addClasses('pl-10')) }),
   asTestableList('link-list'),
 )(List);
 
@@ -69,7 +71,7 @@ const EditableLinkList = flow(
  * to demonstrate how to style a particular sublist.
  */
 const withLessPadding = withDesign({
-  Wrapper: flow(
+  Wrapper: asToken(
     addClasses('pl-4'),
     removeClasses('pl-10'),
   ),
@@ -87,6 +89,10 @@ export default (props: any) => (
   <Page {...props}>
     <Layout>
       <h1 className="text-3xl font-bold">Editable List Demo</h1>
+      <p className="text-red-500">
+        Warning uses older list api which is deprecating, please see
+        <a className="underline text-blue-500" href="/list2"> list2 page.</a>
+      </p>
       <p className="pt-4">
         The following are editable lists. Click on each item to display
         a menu with available operations. The list allows up to 3 levels

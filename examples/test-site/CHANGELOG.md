@@ -3,6 +3,107 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.2.0...v0.2.1) (2021-05-12)
+
+
+### Bug Fixes
+
+* **carousel:** carousel remediation ([#975](https://github.com/johnsonandjohnson/bodiless-js/issues/975)) ([37f64a2](https://github.com/johnsonandjohnson/bodiless-js/commit/37f64a269d1fc0a8a31f18d409c46c8febb5f8a8)), closes [#1](https://github.com/johnsonandjohnson/bodiless-js/issues/1)
+* **homepage:** Fix 'View Site Build Basics' link goes to 404 ([#989](https://github.com/johnsonandjohnson/bodiless-js/issues/989)) ([#989](https://github.com/johnsonandjohnson/bodiless-js/issues/989)) ([c378014](https://github.com/johnsonandjohnson/bodiless-js/commit/c378014d02df7f1efd502a295ad1e34d9e18c285))
+* **navigation, organisms, test-site:** Fix asTopNav and rename Touts to Cards ([#991](https://github.com/johnsonandjohnson/bodiless-js/issues/991)) ([3c89c62](https://github.com/johnsonandjohnson/bodiless-js/commit/3c89c625e7530b87c321c427dda3a2e26853e387))
+
+
+### Features
+
+* **layouts:** Nested flow container enhancementws ([#972](https://github.com/johnsonandjohnson/bodiless-js/issues/972)) ([7dc7e36](https://github.com/johnsonandjohnson/bodiless-js/commit/7dc7e36ec0b97cc884e658136269a7e6f0100eda))
+* **navigation:** Breadcrumbs Accessibility ([#974](https://github.com/johnsonandjohnson/bodiless-js/issues/974)) ([2b70053](https://github.com/johnsonandjohnson/bodiless-js/commit/2b7005360ce5b2bcc707afe69f1e08e842645cdf))
+
+
+### BREAKING CHANGES
+
+* **navigation, organisms, test-site:** - Renamed `withToutsSubMenu` to `withCardsSubMenu`.
+- `asTopNav()` now accepts `Main` key to apply default navigation styles to the Main Menu.
+- `asTopNav('List' | 'Columns' | 'Cards')` is no longer applies `asTopNav('Main')` by default.
+
+
+
+
+
+## [0.2.0](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.72...v0.2.0) (2021-04-28)
+
+
+### Bug Fixes
+
+* **core:** Cannot read property 'href' of undefined' ([#951](https://github.com/johnsonandjohnson/bodiless-js/issues/951)) ([c2da714](https://github.com/johnsonandjohnson/bodiless-js/commit/c2da714c528a8ca3e63a5dc70001c536c1d18c73)), closes [#950](https://github.com/johnsonandjohnson/bodiless-js/issues/950) [#950](https://github.com/johnsonandjohnson/bodiless-js/issues/950) [#950](https://github.com/johnsonandjohnson/bodiless-js/issues/950)
+* **test-site:** Broken image upload for share ([#955](https://github.com/johnsonandjohnson/bodiless-js/issues/955)) ([#956](https://github.com/johnsonandjohnson/bodiless-js/issues/956)) ([60d9655](https://github.com/johnsonandjohnson/bodiless-js/commit/60d9655f7528a5e35eaab566e2683c20ed3035cd))
+
+
+### Features
+
+* **carousel:** Component Library: Carousel ([#962](https://github.com/johnsonandjohnson/bodiless-js/issues/962)) ([bb79dde](https://github.com/johnsonandjohnson/bodiless-js/commit/bb79dde65a907020c4b7c2568e64a3c146e0b76e))
+* **components:** ability to create anchor links ([#943](https://github.com/johnsonandjohnson/bodiless-js/issues/943)) ([18e3728](https://github.com/johnsonandjohnson/bodiless-js/commit/18e3728d31f9bb86fde205373c1374c34c32ec71)), closes [#904](https://github.com/johnsonandjohnson/bodiless-js/issues/904)
+* **components, youtube:** Youtube allow full screen ([#939](https://github.com/johnsonandjohnson/bodiless-js/issues/939)) ([bea046a](https://github.com/johnsonandjohnson/bodiless-js/commit/bea046a16daafdaed5f72086738ec39ea751589c))
+* **layouts:** Flow container enhancements ([#965](https://github.com/johnsonandjohnson/bodiless-js/issues/965)) ([339b29e](https://github.com/johnsonandjohnson/bodiless-js/commit/339b29e62b46b6595ca34ef4b28b75553ba31535))
+* **navigation, organisms, components:** Better DX for Menu, Breadcrumbs, BurgerMenu ([#841](https://github.com/johnsonandjohnson/bodiless-js/issues/841)) ([ad1d8dd](https://github.com/johnsonandjohnson/bodiless-js/commit/ad1d8ddb4308ab2883ba15fb918f4393f09e53c2))
+
+
+### BREAKING CHANGES
+
+* **navigation, organisms, components:**  - There is now a new `@bodiless/navigation` package for the new menu API.
+ - All menu-related code is removed from `@bodiless/organisms`.
+ - `withSimpleMenuDesign` and `withMegaMenuDesign` were deprecated. Use `withMenuDesign` from `@bodiless/organisms`  instead.
+ - `asSimpleMenuTopNav` and `asMegaMenuTopNav` were depricated. Use `asTopNav()` from `@bodiless/organisms` instead.
+ - Breadcrumbs are now configured by default for each menu item. No need for `asBreadcrumbSource`.
+ - List and Menu design keys have changed. Removed extra `Wrapper` component from submenus.
+ - Breadcrumb design keys have changed. Breadcrumb `Title` is now the same component as `MenuTitle` by default. The `BreadcrumbLink` design key has been deprecated. `Link` is available in `MenuTitle`. Renamed `BreadcrumbWrapper` and `BreadcrumbItem` to `Wrapper` and `Item` respectively.
+- Please refer to the Upgrade Guide in `@bodiless/organisms` readme file.
+* **components, youtube:** YouTube and ResponsiveYouTube components were moved to the `@bodiless/YouTube`
+
+
+
+
+
+## [0.0.72](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.71...v0.0.72) (2021-04-01)
+
+
+### Bug Fixes
+
+* **core:** Fix core dependency and update example sites lock files ([#948](https://github.com/johnsonandjohnson/bodiless-js/issues/948)) ([1b1406d](https://github.com/johnsonandjohnson/bodiless-js/commit/1b1406deab3cff7d264ccd61cec16fdeb2574a8a))
+
+
+
+
+
+## [0.0.71](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.70...v0.0.71) (2021-03-31)
+
+
+### Bug Fixes
+
+* **test-site:** move GTM to page menu. ([#910](https://github.com/johnsonandjohnson/bodiless-js/issues/910)) ([c0abbb3](https://github.com/johnsonandjohnson/bodiless-js/commit/c0abbb3757b371836880a2dd78b7e4304cb926d3))
+
+
+### Features
+
+* **core,components:** Edit button improvements ([#878](https://github.com/johnsonandjohnson/bodiless-js/issues/878)) ([4d762b9](https://github.com/johnsonandjohnson/bodiless-js/commit/4d762b91f10c714dab1ad827002f4026b0beffbb)), closes [#624](https://github.com/johnsonandjohnson/bodiless-js/issues/624) [#794](https://github.com/johnsonandjohnson/bodiless-js/issues/794) [#624](https://github.com/johnsonandjohnson/bodiless-js/issues/624) [#794](https://github.com/johnsonandjohnson/bodiless-js/issues/794)
+* **gatsby-theme-bodiless:** Bodiless Image Refresh ([#860](https://github.com/johnsonandjohnson/bodiless-js/issues/860)) ([c696757](https://github.com/johnsonandjohnson/bodiless-js/commit/c69675757a448800e85fc300d5b5ceaa8ec66efe))
+* **gatsby-theme-bodiless:** gatsby link ([#928](https://github.com/johnsonandjohnson/bodiless-js/issues/928)) ([f40d23d](https://github.com/johnsonandjohnson/bodiless-js/commit/f40d23dd6b3a8d4c9018863e7c5c8a6430bf735d))
+* **layouts:** Supply HTML to Flow Container ([#916](https://github.com/johnsonandjohnson/bodiless-js/issues/916)) ([ea27cdb](https://github.com/johnsonandjohnson/bodiless-js/commit/ea27cdb1caa4ad0bb03bb32734a8e557409ebcc7))
+* **tokens:** Token Browser ([#926](https://github.com/johnsonandjohnson/bodiless-js/issues/926)) ([c09d22d](https://github.com/johnsonandjohnson/bodiless-js/commit/c09d22d9644558f370084d219fbfe698832f0cd3)), closes [#925](https://github.com/johnsonandjohnson/bodiless-js/issues/925)
+
+
+### BREAKING CHANGES
+
+* **core,components:** Structure of compound form data has changed.
+
+Fields in compound forms are now namespaced by the snippet id.
+
+Since edit forms (those created by withEditButton or asBodilessComponent) are now
+compound forms, this change affects them as well.
+
+
+
+
+
 ## [0.0.70](https://github.com/johnsonandjohnson/bodiless-js/compare/v0.0.69...v0.0.70) (2021-02-24)
 
 

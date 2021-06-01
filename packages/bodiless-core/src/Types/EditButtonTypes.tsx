@@ -24,6 +24,7 @@ type EditDataHandler<D> = {
 
 export type FormBodyProps<P, D> = ContextMenuFormBodyProps<D> & {
   componentProps: P;
+  scope?: string;
 };
 
 export type FormBodyRenderer<P, D> = (p: FormBodyProps<P, D>) => ReactNode;
@@ -32,7 +33,7 @@ export type EditButtonProps<D> = {
   setComponentData: (componentData: D) => void;
   componentData: D;
   isActive?: () => boolean;
-  onSubmit?: () => void;
+  onSubmit?: (event?: any) => void;
 };
 
 /**

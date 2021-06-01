@@ -20,6 +20,18 @@ const getPackageRoot = (packagePath: string) => path.dirname(path.dirname(packag
 
 const getBodilessPackages = () => [
   {
+    root: getPackageRoot(require.resolve('@bodiless/accordion')),
+    tailwindConfig: require('@bodiless/accordion/tailwind.config'),
+  },
+  {
+    root: getPackageRoot(require.resolve('@bodiless/card')),
+    tailwindConfig: require('@bodiless/card/tailwind.config'),
+  },
+  {
+    root: getPackageRoot(require.resolve('@bodiless/navigation')),
+    tailwindConfig: require('@bodiless/navigation/tailwind.config'),
+  },
+  {
     root: getPackageRoot(require.resolve('@bodiless/layouts')),
     tailwindConfig: require('@bodiless/layouts/tailwind.config'),
   },
