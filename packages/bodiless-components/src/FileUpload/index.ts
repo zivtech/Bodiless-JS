@@ -1,5 +1,5 @@
 /**
- * Copyright © 2020 Johnson & Johnson
+ * Copyright © 2021 Johnson & Johnson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,11 +12,4 @@
  * limitations under the License.
  */
 
-import Image, { asBodilessImage } from './Image';
-
-export {
-  asBodilessImage,
-  Image,
-};
-
-export * from './Link';
+export * from './FileUpload';
