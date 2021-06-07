@@ -131,8 +131,6 @@ const withTagProps = (
   } = useFilterByGroupContext();
   const registerSuggestions = useRegisterSuggestions();
 
-  console.log('withTagProps.getSelectedTags', getSelectedTags());
-
   const defaultProps: DefaultTagProps = {
     getSuggestions,
     registerSuggestions,

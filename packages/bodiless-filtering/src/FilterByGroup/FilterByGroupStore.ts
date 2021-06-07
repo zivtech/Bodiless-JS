@@ -23,9 +23,9 @@ class Tag {
 
   name: string;
 
-  constructor(id: string, name: string, categoryId: string) {
+  constructor(id: string, name: string, categoryId?: string) {
     this.id = id;
-    this.categoryId = categoryId;
+    this.categoryId = categoryId || '';
     this.name = name;
   }
 
@@ -39,12 +39,11 @@ type FilterByGroupStoreSettings = {
 };
 
 const readTagsFromQueryParams = () => {
-  const tags = [];
+  const tags: Tag[] = [];
   const params = new URLSearchParams(window.location.search);
-  // @ts-ignore
-  for (const [categoryId, tagId] of params) { // eslint-disable-line
+  params.forEach((tagId, categoryId) => {
     tags.push(new Tag(tagId, '', categoryId));
-  }
+  });
   return tags;
 };
 

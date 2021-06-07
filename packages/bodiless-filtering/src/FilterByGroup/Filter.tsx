@@ -13,7 +13,7 @@
  */
 
 /* eslint-disable arrow-body-style, max-len, @typescript-eslint/no-unused-vars */
-import React, { FC, ComponentType, HTMLProps } from 'react';
+import React, { FC } from 'react';
 import { flow, isEmpty } from 'lodash';
 import {
   withNodeKey,
@@ -36,25 +36,24 @@ import {
   asToken,
   HOC,
   withoutProps,
-  DesignableComponentsProps,
+  startWith,
+  ComponentOrTag,
+  ComponentWithMeta,
 } from '@bodiless/fclasses';
 import {
   asEditable,
   asBodilessList,
-  withBasicSublist,
-  withTagButton,
-  ifViewportIs,
+  asSubList, withDeleteNodeOnUnwrap,
+  withSubLists,
   ifViewportIsNot,
+  withTagButton,
 } from '@bodiless/components';
-import { withAccordionSublist } from '@bodiless/accordion';
+import { asAccordionBody, asAccordionTitle, asAccordionWrapper } from '@bodiless/accordion';
 import {
   TagTitleProps,
   TagTitleComponents,
-  FilterProps,
-  FilterComponents,
 } from './types';
 import { useFilterByGroupContext, withTagProps } from './FilterByGroupContext';
-import { asExpandedOnDesktopBody } from './token';
 import { useTagsAccessors } from './FilterModel';
 import { withCategoryListContextProvider } from './CategoryListContext';
 
@@ -65,23 +64,15 @@ const tagTitleComponentsStart: TagTitleComponents = {
   FilterGroupItemLabel: Label,
 };
 
-/**
- * @todo refactor this
-*/
 const withUnselectOnDelete: HOC<{ onDelete?: any }> = Component => props => {
-  /*
   const {
-    setSelectedNode,
-    setSelectedTag,
+    clearSelectedTags,
   } = useFilterByGroupContext();
 
-  const onDelete = (deletedItem: any) => {
-    setSelectedTag();
-    setSelectedNode();
+  const onDelete = () => {
+    clearSelectedTags();
   };
   return <Component {...props} onDelete={onDelete} />;
-  */
-  return <Component {...props} />;
 };
 
 const TagTitleBase: FC<TagTitleProps> = ({
@@ -148,13 +139,7 @@ const TagTitle = flow(
     'registerSuggestions',
   ]),
   ifEditable(
-    withTagButton(() => ({
-      label: 'Name',
-      /**
-       * @todo investigate why it is not working
-       */
-      groupMerge: 'merge-up',
-    })),
+    withTagButton(),
     withContextActivator('onClick'),
     withLocalContextMenu,
   ),
@@ -173,60 +158,97 @@ const TagTitle = flow(
   designable(tagTitleComponentsStart, 'TagTitle'),
 )(TagTitleBase);
 
-const TestFilterComponentsStart: FilterComponents = {
-  CategoryList: asToken(
-    asBodilessList(undefined, undefined, () => ({ groupLabel: 'Group' })),
+const asFilter = asToken(
+  asBodilessList(undefined, undefined, () => ({ groupLabel: 'Group' })),
+  withDesign({
+    Title: asToken(
+      replaceWith(H3),
+      asEditable('category_name', 'Category Name'),
+    ),
+    Item: asToken(
+      stylable,
+      withCategoryListContextProvider,
+    ),
+    Wrapper: stylable,
+  }),
+  withSubLists(1)(
+    asToken(
+      asSubList(() => ({ groupLabel: 'Tag' })),
+      withDeleteNodeOnUnwrap('sublist'),
+      withUnselectOnDelete,
+      withDesign({
+        Title: startWith(TagTitle),
+        Wrapper: flow(
+          stylable,
+        ),
+      }),
+    ),
+  ),
+  ifViewportIsNot(['lg', 'xl', 'xxl'])(
     withDesign({
-      Title: asToken(
-        replaceWith(H3),
-        asEditable('category_name', 'Category Name'),
-      ),
       Item: asToken(
-        stylable,
-        withCategoryListContextProvider,
+        asAccordionWrapper,
+        withDesign({
+          SubList: withDesign({
+            Wrapper: asAccordionBody,
+          }),
+        }),
       ),
-      Wrapper: stylable,
+      Title: asAccordionTitle,
     }),
-  )('ul'),
-  TagList: asToken(
-    withUnselectOnDelete,
-    asBodilessList(undefined, undefined, () => ({ groupLabel: 'Tag' })),
-    withDesign({
-      Title: replaceWith(TagTitle),
-      Wrapper: stylable,
-    }),
-  )('ul'),
+  ),
+);
+
+type FilterProps = {
+  design: {
+    CategoryList: HOC,
+    TagList: HOC,
+  },
 };
 
-type FilterBaseProps =
-  Omit<FilterProps, 'components'> & DesignableComponentsProps<FilterComponents>;
-class FilterBase extends React.PureComponent<FilterBaseProps> {
-  Filter: ComponentType<HTMLProps<HTMLHeadingElement>> = Div;
+const withFilterDesignTransformer = <P extends object>(Component: ComponentOrTag<P & FilterProps>) => {
+  class WithFilterDesignTransformer extends React.PureComponent {
+    Filter: ComponentWithMeta<P> = React.Fragment;
 
-  RestProps = {};
+    RestProps = {};
 
-  constructor(props: FilterBaseProps) {
-    super(props);
-    const { components, ...rest } = props;
-    const { TagList, CategoryList } = components;
+    constructor(props: P & FilterProps) {
+      super(props);
+      const { design, ...restProps } = props;
+      const {
+        CategoryList: withCategoryListDesign,
+        TagList: withTagListDesign,
+        ...restDesignProps
+      } = design;
+      this.RestProps = {
+        ...restProps,
+        design: restDesignProps,
+      };
+      // @ts-ignore
+      this.Filter = asToken(
+        withCategoryListDesign,
+        withDesign({
+          Item: asToken(
+            withDesign({
+              SubList: withTagListDesign,
+            }),
+          ),
+        }),
+      )(Component);
+    }
 
-    const AccordionTagList = asExpandedOnDesktopBody(TagList);
-
-    this.RestProps = rest;
-    this.Filter = flow(
-      ifViewportIs(['lg', 'xl', 'xxl'])(withBasicSublist(TagList)),
-      ifViewportIsNot(['lg', 'xl', 'xxl'])(withAccordionSublist(AccordionTagList)),
-    )(CategoryList);
+    render() {
+      return (<this.Filter {...this.RestProps as P} />);
+    }
   }
 
-  render() {
-    return (<this.Filter {...this.RestProps} />);
-  }
-}
+  return WithFilterDesignTransformer;
+};
 
-const FilterClean: ComponentType<FilterProps> = asToken(
-  designable(TestFilterComponentsStart, 'Filter'),
+const FilterClean = asToken(
+  asFilter,
+  withFilterDesignTransformer as HOC,
   withNodeKey('filter'),
-)(FilterBase);
+)('ul');
 
 export default FilterClean;

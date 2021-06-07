@@ -16,6 +16,7 @@ import FilterByGroupClean from './FilterByGroupClean';
 import { TestableFilterByGroup, asTestableFilterByGroup } from './FilterByGroupTestable';
 import { useFilterByGroupContext, withFBGSuggestions, withTagProps } from './FilterByGroupContext';
 import asFilterableByGroup from './asFilterableByGroup';
+import { Tag } from './FilterByGroupStore';
 
 export {
   FilterByGroupClean,
@@ -25,6 +26,7 @@ export {
   withFBGSuggestions,
   useFilterByGroupContext,
   withTagProps,
+  Tag,
 };
 
 export * from './token';

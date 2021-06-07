@@ -12,47 +12,50 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ComponentType } from 'react';
+import React, { ComponentType } from 'react';
 import { flow, isEmpty } from 'lodash';
 import {
   EditButtonOptions,
-  withEditButton,
-  getUI,
   useEditContext,
   TagType,
   useNodeDataHandlers,
+  withMenuOptions,
+  useMenuOptionUI,
+  useContextMenuForm,
 } from '@bodiless/core';
-import { TagButtonProps, TagsNodeType, WithRegisterSuggestionsType } from './types';
+import type { TMenuOption } from '@bodiless/core';
+import { TagsNodeType, WithRegisterSuggestionsType } from './types';
 
-type TagButtonType = EditButtonOptions<TagButtonProps & HTMLProps<HTMLElement>, TagsNodeType>;
+type UseTagButtonOverrides<P = any> = (props: P) => Partial<EditButtonOptions<P, any>>;
 
-// Options used to create an edit button.
-export const tagButtonOptions: TagButtonType = {
-  icon: 'local_offer',
-  label: 'Groups',
-  groupLabel: 'Filter',
-  name: 'Tag',
-  renderForm: ({ ui, componentProps }) => {
+const useMenuOptions = (useOverrides: UseTagButtonOverrides = () => ({})) => (props: any) => {
+  const {
+    label = 'Groups',
+    global = false,
+    local = true,
+    groupMerge = 'none',
+    group = undefined,
+  } = useOverrides(props);
+  const {
+    getSuggestions = () => [],
+    placeholder = 'Select Tags',
+    noSuggestionsText = 'No matching tags found.',
+    minQueryLength = 1,
+    allowNew = true,
+    allowMultipleTags = true,
+    inputAttributes = { name: 'react-tags-input' },
+    formTitle = 'Tags',
+    formBodyText = 'Select from available tags:',
+    seeAllText = 'See all tags',
+    autofocus = false,
+  } = props;
+  const renderForm = () => {
     const {
       ComponentFormTitle,
       ComponentFormLabel,
       ComponentFormUnwrapButton,
       ReactTags,
-    } = getUI(ui);
-
-    const {
-      getSuggestions = () => [],
-      placeholder = 'Select Tags',
-      noSuggestionsText = 'No matching tags found.',
-      minQueryLength = 1,
-      allowNew = true,
-      allowMultipleTags = true,
-      inputAttributes = { name: 'react-tags-input' },
-      formTitle = 'Tags',
-      formBodyText = 'Select from available tags:',
-      seeAllText = 'See all tags',
-      autofocus = false,
-    } = componentProps;
+    } = useMenuOptionUI();
 
     const suggestions = getSuggestions();
 
@@ -84,10 +87,22 @@ export const tagButtonOptions: TagButtonType = {
         </ComponentFormUnwrapButton>
       </>
     );
-  },
+  };
+  const render = useContextMenuForm({
+    renderForm,
+  });
+  const menuOptions: TMenuOption[] = [{
+    name: 'Tag',
+    icon: 'local_offer',
+    label,
+    handler: () => render,
+    group,
+    groupMerge,
+    global,
+    local,
+  }];
 
-  global: false,
-  local: true,
+  return menuOptions;
 };
 
 const withRegisteredTags = <P extends WithRegisterSuggestionsType>(
@@ -103,8 +118,12 @@ const withRegisteredTags = <P extends WithRegisterSuggestionsType>(
     return <Component {...props} />;
   };
 
-const withTagButton = () => flow(
-  withEditButton(tagButtonOptions),
+const withTagButton = (useOverrides?: UseTagButtonOverrides) => flow(
+  withMenuOptions({
+    useMenuOptions: useMenuOptions(useOverrides),
+    name: 'Tag',
+    type: 'tag',
+  }),
   withRegisteredTags,
 );
 
