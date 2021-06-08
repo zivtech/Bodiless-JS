@@ -96,13 +96,7 @@ const TagTitleBase: FC<TagTitleProps> = ({
     multipleAllowedTags,
   } = useFilterByGroupContext();
 
-  const onSelect = () => {
-    if (isTagSelected(tag)) {
-      unSelectTag(tag);
-    } else {
-      selectTag(tag);
-    }
-  };
+  const onSelect = () => (isTagSelected(tag) ? unSelectTag(tag) : selectTag(tag));
 
   if (tag === undefined) return <></>;
 
