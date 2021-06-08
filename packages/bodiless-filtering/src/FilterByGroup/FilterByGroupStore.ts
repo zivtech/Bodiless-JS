@@ -39,6 +39,7 @@ type FilterByGroupStoreSettings = {
 };
 
 const readTagsFromQueryParams = () => {
+  if (typeof window === 'undefined') return [];
   const tags: Tag[] = [];
   const params = new URLSearchParams(window.location.search);
   params.forEach((tagId, categoryId) => {
@@ -48,6 +49,7 @@ const readTagsFromQueryParams = () => {
 };
 
 const updateUrlQueryParams = (tags: Tag[]) => {
+  if (typeof window === 'undefined') return;
   const {
     protocol,
     host,
@@ -74,9 +76,9 @@ const useFilterByGroupStore = (settings: FilterByGroupStoreSettings) => {
   const selectTag = (tag: Tag) => {
     updateSelectedTags([
       ...(
-        !multipleAllowedTags
-          ? selectedTags.filter(tag$ => tag.categoryId !== tag$.categoryId)
-          : selectedTags
+        multipleAllowedTags
+          ? selectedTags
+          : selectedTags.filter(tag$ => tag.categoryId !== tag$.categoryId)
       ),
       tag,
     ]);

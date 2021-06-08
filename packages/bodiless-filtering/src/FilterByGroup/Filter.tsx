@@ -96,9 +96,9 @@ const TagTitleBase: FC<TagTitleProps> = ({
     multipleAllowedTags,
   } = useFilterByGroupContext();
 
-  const onSelect = () => (isTagSelected(tag) ? unSelectTag(tag) : selectTag(tag));
-
   if (tag === undefined) return <></>;
+
+  const onSelect = () => (isTagSelected(tag) ? unSelectTag(tag) : selectTag(tag));
 
   return (
     <FilterInputWrapper {...rest} key={tag.id}>
@@ -133,7 +133,10 @@ const TagTitle = flow(
     'registerSuggestions',
   ]),
   ifEditable(
-    withTagButton(),
+    withTagButton(() => ({
+      groupMerge: 'merge-up',
+      label: 'Name',
+    })),
     withContextActivator('onClick'),
     withLocalContextMenu,
   ),
@@ -153,7 +156,7 @@ const TagTitle = flow(
 )(TagTitleBase);
 
 const asFilter = asToken(
-  asBodilessList(undefined, undefined, () => ({ groupLabel: 'Group' })),
+  asBodilessList(undefined, undefined, () => ({ groupLabel: 'Category' })),
   withDesign({
     Title: asToken(
       replaceWith(H3),
@@ -167,7 +170,7 @@ const asFilter = asToken(
   }),
   withSubLists(1)(
     asToken(
-      asSubList(() => ({ groupLabel: 'Tag' })),
+      asSubList(() => ({ groupLabel: 'Group' })),
       withDeleteNodeOnUnwrap('sublist'),
       withUnselectOnDelete,
       withDesign({

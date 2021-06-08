@@ -12,17 +12,21 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ComponentType } from 'react';
-import { flow, isEmpty } from 'lodash';
+import React, { HTMLProps } from 'react';
+import isEmpty from 'lodash/isEmpty';
 import {
   EditButtonOptions,
   withEditButton,
-  getUI,
+  useMenuOptionUI,
   useEditContext,
   TagType,
   useNodeDataHandlers,
 } from '@bodiless/core';
+import { asToken } from '@bodiless/fclasses';
+import type { HOC } from '@bodiless/fclasses';
 import { TagButtonProps, TagsNodeType, WithRegisterSuggestionsType } from './types';
+
+export type UseTagButtonOverrides<P = any> = (props: P) => Partial<EditButtonOptions<P, any>>;
 
 type TagButtonType = EditButtonOptions<TagButtonProps & HTMLProps<HTMLElement>, TagsNodeType>;
 
@@ -32,13 +36,13 @@ export const tagButtonOptions: TagButtonType = {
   label: 'Groups',
   groupLabel: 'Filter',
   name: 'Tag',
-  renderForm: ({ ui, componentProps }) => {
+  renderForm: ({ componentProps }) => {
     const {
       ComponentFormTitle,
       ComponentFormLabel,
       ComponentFormUnwrapButton,
       ReactTags,
-    } = getUI(ui);
+    } = useMenuOptionUI();
 
     const {
       getSuggestions = () => [],
@@ -90,9 +94,8 @@ export const tagButtonOptions: TagButtonType = {
   local: true,
 };
 
-const withRegisteredTags = <P extends WithRegisterSuggestionsType>(
-  Component: ComponentType<P>,
-) => (props: P) => {
+const withRegisteredTags: HOC<WithRegisterSuggestionsType> = Component => {
+  const WithRegisteredTags = (props: any) => {
     const { registerSuggestions } = props;
     const { componentData } = useNodeDataHandlers<TagsNodeType>();
 
@@ -102,10 +105,17 @@ const withRegisteredTags = <P extends WithRegisterSuggestionsType>(
 
     return <Component {...props} />;
   };
+  return WithRegisteredTags;
+};
 
-const withTagButton = () => flow(
-  withEditButton(tagButtonOptions),
-  withRegisteredTags,
-);
+const withTagButton = (useOverrides?: UseTagButtonOverrides) => {
+  const editButtonOptions = useOverrides
+    ? (props: any) => ({ ...tagButtonOptions, ...useOverrides(props) })
+    : tagButtonOptions;
+  return asToken(
+    withEditButton(editButtonOptions),
+    withRegisteredTags,
+  );
+};
 
 export default withTagButton;
