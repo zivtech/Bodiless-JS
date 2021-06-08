@@ -137,4 +137,5 @@ const withUI = <P extends UI>(ui: UI) => (
 export {
   fileUploadUI,
   withUI,
+  truncateFileName,
 };
