@@ -16,14 +16,8 @@ import Editable, { withPlaceholder, asEditable } from './Editable';
 import type { UseEditableOverrides } from './Editable';
 import NodeViewer from './NodeViewer';
 import withLinkToggle from './LinkToggle';
-import List from './List_DEPRECATED';
 import asTaggableItem from './Taggable/asTaggableItem';
 import asBodilessAnchor from './Anchor/asBodilessAnchor';
-import withListTitle from './List_DEPRECATED/withListTitle';
-import asEditableList from './List_DEPRECATED/asEditableList';
-import asBasicSublist from './List_DEPRECATED/asBasicSublist';
-import withSublist, { withBasicSublist } from './List_DEPRECATED/withSublist';
-import withDeleteSublistOnUnwrap from './List_DEPRECATED/withDeleteSublistOnUnwrap';
 import {
   withMeta, withMetaStatic, withMetaHtml, withTitle,
 } from './Meta/Meta';
@@ -80,13 +74,6 @@ export {
   Editable,
   NodeViewer,
   withLinkToggle,
-  List,
-  asEditableList,
-  asBasicSublist,
-  withBasicSublist,
-  withSublist,
-  withDeleteSublistOnUnwrap,
-  withListTitle,
   withToggle,
   withToggleTo,
   withToggleButton,
